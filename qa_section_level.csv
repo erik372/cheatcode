@@ -1,0 +1,383 @@
+"sec_title_lyx","sec_title_rmd","match_type","lyx_figs","rmd_figs","lyx_tabs","rmd_tabs","lyx_cits","rmd_cits","lyx_paras","rmd_paras","lyx_words","rmd_words","lyx_ch","lyx_title","rmd_title","ch_title_ok","ratio_figs","ratio_tabs","ratio_paras","ratio_words","flag"
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,3,2,151,87,0,"Author's Preface & Acknowledgments","Author's preface",TRUE,1,1,0.67,0.58,FALSE
+"What you will learn","What you will learn","conflict",0,0,0,0,0,0,6,6,226,226,0,"Author's Preface & Acknowledgments","Author's preface",TRUE,1,1,1,1,TRUE
+"Thanks!","Thanks!","conflict",0,0,0,0,0,0,6,2,57,69,0,"Author's Preface & Acknowledgments","Author's preface",TRUE,1,1,0.33,1.21,TRUE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,11,11,1,"Why math?","Why math?",TRUE,1,1,1,1,FALSE
+"Mathematics in Social Science","Mathematics in Social Science","title",0,0,0,0,0,0,4,4,221,221,1,"Why math?","Why math?",TRUE,1,1,1,1,FALSE
+"Measure,","Measure, theorize, compare","position",0,0,0,0,3,0,29,5,1737,37,1,"Why math?","Why math?",TRUE,1,1,0.17,0.02,TRUE
+"Why Calculate","Why Calculate","conflict",1,0,0,0,0,0,11,1,622,47,1,"Why math?","Why math?",TRUE,0,1,0.09,0.08,TRUE
+"Tips for your studies","Tips for your studies","conflict",0,0,0,0,0,0,10,1,423,8,1,"Why math?","Why math?",TRUE,1,1,0.1,0.02,TRUE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,35,35,2,"Basics","Basics",TRUE,1,1,1,1,FALSE
+"Different types of numbers","Different types of numbers","title",1,1,0,1,0,1,8,20,509,784,2,"Basics","Basics",TRUE,1,NA,2.5,1.54,TRUE
+"The four arithmetic operations","The four arithmetic operations","title",0,0,0,0,0,0,6,19,316,392,2,"Basics","Basics",TRUE,1,1,3.17,1.24,TRUE
+"Order of operations","Order of operations","title",0,0,0,0,0,3,10,30,564,642,2,"Basics","Basics",TRUE,1,1,3,1.14,TRUE
+"Parentheses","Parentheses","title",0,0,0,0,0,0,11,26,343,462,2,"Basics","Basics",TRUE,1,1,2.36,1.35,TRUE
+"Equality and inequality","Equality and inequality","title",0,0,0,0,0,0,7,16,378,482,2,"Basics","Basics",TRUE,1,1,2.29,1.28,TRUE
+"Fractions","Fractions","title",0,0,0,0,0,0,12,36,398,659,2,"Basics","Basics",TRUE,1,1,3,1.66,TRUE
+"Least common denominator","Least common denominator","title",0,0,0,0,0,0,2,25,380,639,2,"Basics","Basics",TRUE,1,1,12.5,1.68,TRUE
+"Powers","Powers","title",1,1,1,6,0,3,19,46,948,1252,2,"Basics","Basics",TRUE,1,6,2.42,1.32,TRUE
+"Parentheses with powers","Parentheses with powers","title",0,0,0,0,0,2,10,20,159,295,2,"Basics","Basics",TRUE,1,1,2,1.86,TRUE
+"Factorization and divisibility","Factorization and divisibility","title",0,0,0,0,0,3,14,26,528,796,2,"Basics","Basics",TRUE,1,1,1.86,1.51,TRUE
+"Sum","Sum","title",0,0,0,0,0,2,4,10,175,365,2,"Basics","Basics",TRUE,1,1,2.5,2.09,TRUE
+"Median","Median","title",0,0,0,2,0,2,4,9,198,290,2,"Basics","Basics",TRUE,1,NA,2.25,1.46,TRUE
+"Mean","Mean","title",0,0,0,0,0,0,5,10,141,214,2,"Basics","Basics",TRUE,1,1,2,1.52,TRUE
+"Weighted mean","Weighted mean","title",0,0,0,0,0,0,4,9,218,327,2,"Basics","Basics",TRUE,1,1,2.25,1.5,TRUE
+"Percent and per mille","Percent and per mille","title",0,0,1,9,0,1,9,20,429,518,2,"Basics","Basics",TRUE,1,9,2.22,1.21,TRUE
+"Combinatorics","Combinatorics","title",0,0,0,0,0,3,21,48,1095,1388,2,"Basics","Basics",TRUE,1,1,2.29,1.27,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,6,0,327,2,"Basics","Basics",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,1,1,5,458,2,"Basics","Basics",TRUE,1,1,1,91.6,TRUE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,16,16,3,"Examples with Applications","Examples with Applications",TRUE,1,1,1,1,FALSE
+"Interest","Interest","title",0,0,0,0,0,2,3,5,200,280,3,"Examples with Applications","Examples with Applications",TRUE,1,1,1.67,1.4,TRUE
+"Interest on interest","Interest on interest","title",0,0,1,6,0,1,13,25,355,579,3,"Examples with Applications","Examples with Applications",TRUE,1,6,1.92,1.63,TRUE
+"Effective interest","Effective interest","title",0,0,0,0,0,0,5,10,269,392,3,"Examples with Applications","Examples with Applications",TRUE,1,1,2,1.46,TRUE
+"Index","Index","title",1,1,1,3,0,3,9,17,242,374,3,"Examples with Applications","Examples with Applications",TRUE,1,3,1.89,1.55,TRUE
+"Population index","Population index","title",0,0,3,7,0,5,6,18,278,341,3,"Examples with Applications","Examples with Applications",TRUE,1,2.33,3,1.23,TRUE
+"Income index","Income index","title",0,0,2,14,0,2,3,6,123,221,3,"Examples with Applications","Examples with Applications",TRUE,1,7,2,1.8,TRUE
+"Adjust prices and wages for inflation","Adjust prices and wages for inflation","title",0,0,0,0,0,1,10,15,703,844,3,"Examples with Applications","Examples with Applications",TRUE,1,1,1.5,1.2,FALSE
+"Economic growth","Economic growth","title",0,0,3,15,0,4,9,21,398,600,3,"Examples with Applications","Examples with Applications",TRUE,1,5,2.33,1.51,TRUE
+"Child mortality","Child mortality","title",0,0,1,7,0,1,5,10,180,228,3,"Examples with Applications","Examples with Applications",TRUE,1,7,2,1.27,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,7,0,346,3,"Examples with Applications","Examples with Applications",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,900,3,"Examples with Applications","Examples with Applications",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,75,75,4,"Functions and graphs","Functions and graphs",TRUE,1,1,1,1,FALSE
+"Mathematical functions","Mathematical functions","title",0,0,1,6,0,4,7,19,391,739,4,"Functions and graphs","Functions and graphs",TRUE,1,6,2.71,1.89,TRUE
+"Function as theory","Function as theory","title",0,0,0,0,0,2,7,13,495,635,4,"Functions and graphs","Functions and graphs",TRUE,1,1,1.86,1.28,TRUE
+"Coordinate system and graphs","Coordinate system and graphs","title",3,3,0,0,0,4,8,10,509,683,4,"Functions and graphs","Functions and graphs",TRUE,1,1,1.25,1.34,FALSE
+"Equation of a straight line","Equation of a straight line","title",3,3,0,0,0,5,13,24,756,1225,4,"Functions and graphs","Functions and graphs",TRUE,1,1,1.85,1.62,TRUE
+"Solve for","Solve for $ x $","position",0,0,0,0,0,0,7,33,628,771,4,"Functions and graphs","Functions and graphs",TRUE,1,1,4.71,1.23,TRUE
+"Linear equations","Linear equations","title",1,1,0,0,0,1,2,9,95,256,4,"Functions and graphs","Functions and graphs",TRUE,1,1,4.5,2.69,TRUE
+"A bit of set theory","A bit of set theory","title",1,1,0,0,0,3,20,40,710,1584,4,"Functions and graphs","Functions and graphs",TRUE,1,1,2,2.23,TRUE
+"Domain for a function","Domain for a function","title",0,0,0,0,0,1,6,15,222,488,4,"Functions and graphs","Functions and graphs",TRUE,1,1,2.5,2.2,TRUE
+"Combining functions with operations","Combining functions with operations","title",0,0,0,0,0,1,13,28,253,440,4,"Functions and graphs","Functions and graphs",TRUE,1,1,2.15,1.74,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,10,0,580,4,"Functions and graphs","Functions and graphs",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,629,4,"Functions and graphs","Functions and graphs",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,7,43,5,"Logarithms","Logarithms",TRUE,1,1,1,6.14,TRUE
+"Base,","Base, exponent, logarithm","position",0,0,0,0,0,1,6,12,262,329,5,"Logarithms","Logarithms",TRUE,1,1,2,1.26,TRUE
+"The common logarithm","The common logarithm","title",0,0,0,0,0,0,7,18,237,407,5,"Logarithms","Logarithms",TRUE,1,1,2.57,1.72,TRUE
+"Properties of logarithms","Properties of logarithms","title",0,0,0,0,0,0,7,14,101,182,5,"Logarithms","Logarithms",TRUE,1,1,2,1.8,TRUE
+"Natural logarithm","Natural logarithm","title",0,0,0,0,0,1,7,16,210,380,5,"Logarithms","Logarithms",TRUE,1,1,2.29,1.81,TRUE
+"Change of base for logarithms","Change of base for logarithms","title",0,0,0,0,0,0,5,14,182,371,5,"Logarithms","Logarithms",TRUE,1,1,2.8,2.04,TRUE
+"Using natural log to calculate percentage change","Using natural log to calculate percentage change","title",0,0,1,0,1,0,4,9,216,263,5,"Logarithms","Logarithms",TRUE,1,0,2.25,1.22,TRUE
+"Logarithms for linearity","Logarithms for linearity","title",1,1,1,11,0,5,6,15,455,565,5,"Logarithms","Logarithms",TRUE,1,11,2.5,1.24,TRUE
+"Taking logarithms to get","Taking logarithms to get $\boldsymbol$ {#sec-logaritmering-los-ut-x}","position",0,0,0,0,1,3,4,14,223,488,5,"Logarithms","Logarithms",TRUE,1,1,3.5,2.19,TRUE
+"Log GDP","Log GDP","title",1,1,1,25,0,4,3,7,243,281,5,"Logarithms","Logarithms",TRUE,1,25,2.33,1.16,TRUE
+"Using logarithms to discuss theory","Using logarithms to discuss theory","title",1,1,1,8,0,3,9,9,693,705,5,"Logarithms","Logarithms",TRUE,1,8,1,1.02,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,9,0,227,5,"Logarithms","Logarithms",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,341,5,"Logarithms","Logarithms",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,7,45,6,"Polynomial Equations","Polynomial Equations",TRUE,1,1,1,6.43,TRUE
+"Quadratic Equations","Quadratic Equations","title",1,1,0,0,0,4,7,36,517,724,6,"Polynomial Equations","Polynomial Equations",TRUE,1,1,5.14,1.4,TRUE
+"Factoring Equations","Factoring Equations","title",0,0,0,0,0,3,13,26,504,582,6,"Polynomial Equations","Polynomial Equations",TRUE,1,1,2,1.15,TRUE
+"Rational Roots","Rational Roots","title",0,0,0,0,0,1,10,17,217,379,6,"Polynomial Equations","Polynomial Equations",TRUE,1,1,1.7,1.75,TRUE
+"The Quadratic Formula","The Quadratic Formula","title",0,0,1,5,0,5,7,18,284,314,6,"Polynomial Equations","Polynomial Equations",TRUE,1,5,2.57,1.11,TRUE
+"Third degree and Higher","Third degree and Higher","title",2,2,0,0,0,3,5,7,230,370,6,"Polynomial Equations","Polynomial Equations",TRUE,1,1,1.4,1.61,FALSE
+"Factorizing Polynomials of Higher Degree","Factorizing Polynomials of Higher Degree","title",0,0,0,0,0,5,10,18,409,397,6,"Polynomial Equations","Polynomial Equations",TRUE,1,1,1.8,0.97,TRUE
+"Divisions of Polynomials of Higher Degree","Divisions of Polynomials of Higher Degree","title",0,0,0,17,0,1,24,33,712,680,6,"Polynomial Equations","Polynomial Equations",TRUE,1,NA,1.38,0.96,FALSE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,8,0,288,6,"Polynomial Equations","Polynomial Equations",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,273,6,"Polynomial Equations","Polynomial Equations",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,9,50,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,1,5.56,TRUE
+"Linear system","Linear system","title",1,1,0,0,0,1,12,22,574,677,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,1.83,1.18,TRUE
+"Number of solutions in the system","Number of solutions in the system","title",1,1,0,0,0,2,6,12,393,386,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,2,0.98,TRUE
+"Row Reduction","Row Reduction","title",0,0,0,0,0,0,6,16,217,287,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,2.67,1.32,TRUE
+"Taking logarithms in systems of equations","Taking logarithms in systems of equations","title",0,0,0,0,0,1,6,11,179,239,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,1.83,1.34,TRUE
+"Three or more variables","Three or more variables","title",0,0,0,0,0,2,7,23,338,379,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,3.29,1.12,TRUE
+"Some more examples","Some more examples","title",0,0,0,0,0,1,9,31,369,450,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,3.44,1.22,TRUE
+"Beyond the third dimension","Beyond the third dimension","title",0,0,0,0,0,0,6,10,523,585,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,1.67,1.12,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,3,0,136,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,530,7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,2,1,1,90,67,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,1,0.74,FALSE
+"Income and life expectancy","Income and life expectancy","title",0,0,0,0,0,0,5,9,333,354,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,1.8,1.06,TRUE
+"Mathematical adventures in national income","Mathematical adventures in national income","title",0,0,0,0,0,0,5,8,225,314,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,1.6,1.4,FALSE
+"A matter of class","A matter of class","title",0,0,0,0,0,0,3,8,296,369,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,2.67,1.25,TRUE
+"Supply and demand","Supply and demand","title",1,1,0,0,0,2,3,9,367,465,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,3,1.27,TRUE
+"Two types of cookies","Two types of cookies","title",1,1,0,0,0,1,4,11,298,318,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,2.75,1.07,TRUE
+"Finding the one","Finding the one","title",1,1,0,0,0,1,15,23,843,916,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,1.53,1.09,FALSE
+"A theory about work","A theory about work","title",1,1,0,0,0,8,10,21,556,732,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,2.1,1.32,TRUE
+"External effects","External effects","title",0,0,0,0,0,1,5,11,347,498,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,2.2,1.44,TRUE
+"Linear relationships in real life","Linear relationships in real life","title",0,0,0,0,0,0,3,3,278,278,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,1,1,FALSE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,2,0,87,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,372,8,"Theories of life,","Theories of life, death and dating",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,7,63,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,1,9,TRUE
+"Solutions with non-linear systems","Solutions with non-linear systems","title",1,1,0,0,0,1,3,5,250,249,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,1.67,1,TRUE
+"Substitution","Substitution","title",2,2,0,4,0,5,14,31,505,577,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,NA,2.21,1.14,TRUE
+"Row reduction with non-linear equations","Row reduction with non-linear equations","title",1,1,0,0,0,3,3,9,108,196,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,3,1.81,TRUE
+"Example 1:","Example 1: Two friends","position",1,1,0,0,0,1,10,15,446,485,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,1.5,1.09,FALSE
+"Example 2:","Example 2: More smoking","position",0,0,0,0,0,2,8,16,526,551,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,2,1.05,TRUE
+"Example 3:","Example 3: They call it love","position",1,1,0,0,0,6,8,13,513,456,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,1.62,0.89,TRUE
+"Example 4:","Example 4: Another theory about work","position",1,1,0,0,1,6,8,12,537,502,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,1.5,0.93,FALSE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,4,0,125,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,568,9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,7,44,10,"Derivative","Derivative",TRUE,1,1,1,6.29,TRUE
+"Limit","Limit","title",1,1,0,8,0,3,12,25,421,578,10,"Derivative","Derivative",TRUE,1,NA,2.08,1.37,TRUE
+"Simplify first","Simplify first","title",0,0,0,0,0,0,8,17,235,291,10,"Derivative","Derivative",TRUE,1,1,2.12,1.24,TRUE
+"LatexCommand label","Differentiating","position",1,1,0,0,0,7,11,28,632,708,10,"Derivative","Derivative",TRUE,1,1,2.55,1.12,TRUE
+"The next derivative","The next derivative","title",1,1,0,0,0,2,5,10,318,380,10,"Derivative","Derivative",TRUE,1,1,2,1.19,TRUE
+"Exponent,","Exponent, logarithm and *e*","position",1,1,0,0,0,8,13,29,489,736,10,"Derivative","Derivative",TRUE,1,1,2.23,1.51,TRUE
+"The derivative of","The derivative of $\boldsymbol$","position",1,1,0,0,0,4,10,25,316,320,10,"Derivative","Derivative",TRUE,1,1,2.5,1.01,TRUE
+"L'Hôpital's rule","L'Hôpital's rule","title",0,0,0,0,0,0,5,9,146,253,10,"Derivative","Derivative",TRUE,1,1,1.8,1.73,TRUE
+"Partial derivative","Partial derivative","title",0,0,0,0,0,0,6,14,144,296,10,"Derivative","Derivative",TRUE,1,1,2.33,2.06,TRUE
+"Differentiation rules","Differentiation rules","title",0,0,2,13,0,6,11,21,293,333,10,"Derivative","Derivative",TRUE,1,6.5,1.91,1.14,TRUE
+"Elasticity","Elasticity","title",0,0,0,0,0,2,5,7,271,323,10,"Derivative","Derivative",TRUE,1,1,1.4,1.19,FALSE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,17,0,215,10,"Derivative","Derivative",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,331,10,"Derivative","Derivative",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,51,51,11,"Optimization with functions","Optimization with functions",TRUE,1,1,1,1,FALSE
+"Extreme values","Extreme values","title",1,1,0,0,0,1,5,8,119,307,11,"Optimization with functions","Optimization with functions",TRUE,1,1,1.6,2.58,TRUE
+"Differentiate to find extreme values","Differentiate to find extreme values","title",2,2,0,0,0,3,9,15,624,611,11,"Optimization with functions","Optimization with functions",TRUE,1,1,1.67,0.98,TRUE
+"Global and local","Global and local","title",1,1,0,0,0,1,11,21,368,501,11,"Optimization with functions","Optimization with functions",TRUE,1,1,1.91,1.36,TRUE
+"More examples","More examples","title",0,0,0,0,0,0,7,17,237,283,11,"Optimization with functions","Optimization with functions",TRUE,1,1,2.43,1.19,TRUE
+"Terrace","Terrace","title",1,1,0,0,0,2,5,9,61,170,11,"Optimization with functions","Optimization with functions",TRUE,1,1,1.8,2.79,TRUE
+"Optimization with constraints","Optimization with constraints","title",0,0,0,0,0,2,15,39,528,741,11,"Optimization with functions","Optimization with functions",TRUE,1,1,2.6,1.4,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,5,0,150,11,"Optimization with functions","Optimization with functions",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,452,11,"Optimization with functions","Optimization with functions",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,68,68,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,1,1,FALSE
+"The optimal amount of cake","The optimal amount of cake","title",1,1,0,0,0,5,12,18,661,688,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,1.5,1.04,FALSE
+"To work or not to work","To work or not to work","title",3,3,0,0,0,5,10,26,604,1066,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,2.6,1.76,TRUE
+"Maximum possible tax level","Maximum possible tax level","title",1,1,0,0,1,4,12,20,828,876,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,1.67,1.06,TRUE
+"Consumption and saving","Consumption and saving","title",1,1,0,0,0,6,16,38,1103,1341,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,2.38,1.22,TRUE
+"A profit-maximizing company","A profit-maximizing company","title",2,2,0,0,0,6,16,32,807,950,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,2,1.18,TRUE
+"Profit maximization with constraints","Profit maximization with constraints","title",0,0,0,0,0,0,14,31,302,464,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,2.21,1.54,TRUE
+"Monopoly","Monopoly","title",1,1,0,0,0,7,14,27,493,598,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,1.93,1.21,TRUE
+"Monopsony","Monopsony","title",1,1,0,0,0,12,17,42,637,704,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,2.47,1.11,TRUE
+"If we do not optimize","If we do not optimize","title",0,0,0,0,0,3,3,6,368,357,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,2,0.97,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,3,0,136,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,611,12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,7,62,13,"Integration","Integration",TRUE,1,1,1,8.86,TRUE
+"The primitive function","The primitive function","title",0,0,0,0,0,6,12,26,537,692,13,"Integration","Integration",TRUE,1,1,2.17,1.29,TRUE
+"The meaning of constant","The meaning of constant $\boldsymbol$","position",1,1,0,0,0,1,5,17,233,254,13,"Integration","Integration",TRUE,1,1,3.4,1.09,TRUE
+"Primitive function with conditions","Primitive function with conditions","title",0,0,0,0,0,0,3,8,105,134,13,"Integration","Integration",TRUE,1,1,2.67,1.28,TRUE
+"Primitive function for an exponent","Primitive function for an exponent","title",0,0,0,0,0,2,13,27,378,449,13,"Integration","Integration",TRUE,1,1,2.08,1.19,TRUE
+"Calculate area with integral","Calculate area with integral","title",3,3,0,0,0,5,12,32,496,659,13,"Integration","Integration",TRUE,1,1,2.67,1.33,TRUE
+"The area under the x-axis","The area under the x-axis","title",1,1,0,0,0,1,7,12,339,347,13,"Integration","Integration",TRUE,1,1,1.71,1.02,TRUE
+"The area between two lines","The area between two lines","title",1,1,0,0,0,3,3,6,116,130,13,"Integration","Integration",TRUE,1,1,2,1.12,TRUE
+"Integration rules","Integration rules","title",0,0,2,11,0,9,15,38,663,750,13,"Integration","Integration",TRUE,1,5.5,2.53,1.13,TRUE
+"More examples","More examples","title",0,0,0,0,0,0,5,22,152,198,13,"Integration","Integration",TRUE,1,1,4.4,1.3,TRUE
+"Multiple integral","Multiple integral","title",0,0,0,0,0,0,3,10,153,235,13,"Integration","Integration",TRUE,1,1,3.33,1.54,TRUE
+"Partial integration","Partial integration","title",0,0,0,0,0,3,13,31,620,812,13,"Integration","Integration",TRUE,1,1,2.38,1.31,TRUE
+"Income distribution with integrals","Income distribution with integrals","title",3,3,2,10,0,5,17,30,874,868,13,"Integration","Integration",TRUE,1,5,1.76,0.99,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,6,0,276,13,"Integration","Integration",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,492,13,"Integration","Integration",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,47,47,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,1,1,FALSE
+"Vectors","Vectors","title",0,0,0,0,0,0,3,7,112,217,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,2.33,1.94,TRUE
+"Vector calculations","Vector calculations","title",0,0,0,0,0,0,13,1,494,18,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,0.08,0.04,TRUE
+"More vectors","More vectors","conflict",1,1,0,0,0,1,6,17,197,339,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,2.83,1.72,TRUE
+"Matrices","Matrices","conflict",0,0,0,0,0,0,13,5,571,212,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,0.38,0.37,TRUE
+"More matrices","More matrices","conflict",0,0,0,0,0,0,14,1,283,26,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,0.07,0.09,TRUE
+"Multiplication and transposition","Multiplication and transposition","conflict",0,0,0,0,0,1,5,10,255,325,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,2,1.27,TRUE
+"Determinant","Determinant","conflict",0,0,0,0,0,2,4,17,161,351,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,4.25,2.18,TRUE
+"Row reduction in matrix","Row reduction in matrix","conflict",0,0,0,0,0,1,6,14,160,331,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,2.33,2.07,TRUE
+"Inverse of a matrix","Inverse of a matrix","conflict",0,0,0,0,0,4,10,28,647,1026,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,2.8,1.59,TRUE
+"Linear equation systems in matrix","Linear equation systems in matrix","conflict",0,0,0,0,0,10,15,41,827,1062,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,2.73,1.28,TRUE
+"Example 1:","Multiplication and division with matrices.","position",0,0,1,0,0,0,8,4,265,73,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,0,0.5,0.28,TRUE
+"Example 2:","Matrix multiplication.","position",1,0,1,0,0,0,15,16,826,432,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,0,0,1.07,0.52,TRUE
+"Example 3:",NA,"unmatched",1,NA,1,NA,1,NA,7,NA,450,NA,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,NA,NA,NA,NA,TRUE
+"Chapter summary","Chapter summary","conflict",0,0,0,0,0,0,0,18,0,592,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,NA,NA,TRUE
+"Exercises","Exercises","conflict",0,0,0,0,0,0,1,1,64,579,14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,1,1,1,9.05,TRUE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,18,18,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,1,1,1,FALSE
+"Cause and effect","Cause and effect","title",1,1,0,0,0,2,15,14,1310,1437,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,1,0.93,1.1,FALSE
+"Variation,","Variation, Covariation and Association","position",0,0,0,0,0,1,6,6,405,448,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,1,1,1.11,FALSE
+"Observational Study and Experiment","Observational Study and Experiment","title",0,0,0,0,0,2,8,8,633,641,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,1,1,1.01,FALSE
+"Population and Sample","Population and Sample","title",0,0,0,0,0,3,9,9,861,876,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,1,1,1.02,FALSE
+"Information and variables","Information and variables","title",0,0,1,4,0,1,5,7,351,517,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,4,1.4,1.47,TRUE
+"Different types of data","Different types of data","title",0,0,1,4,0,2,7,12,153,536,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,4,1.71,3.5,TRUE
+"Collecting a sample","Collecting a sample","title",0,0,0,0,0,0,6,6,585,709,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,1,1,1.21,FALSE
+"How do we know the things we know?","How do we know the things we know?","title",0,0,0,0,0,0,4,4,270,333,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,1,1,1.23,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,769,15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,52,52,16,"Variation and covariation","Variation and covariation",TRUE,1,1,1,1,FALSE
+"Frequency Distribution","Frequency Distribution","title",3,3,0,0,0,3,8,5,479,394,16,"Variation and covariation","Variation and covariation",TRUE,1,1,0.62,0.82,FALSE
+"Measures of Central Tendency and Measures of Dispersion","Measures of Central Tendency and Measures of Dispersion","title",0,0,0,1,0,1,6,6,373,459,16,"Variation and covariation","Variation and covariation",TRUE,1,NA,1,1.23,FALSE
+"Variance and standard deviation","Variance and standard deviation","title",1,1,2,19,0,7,18,35,727,1099,16,"Variation and covariation","Variation and covariation",TRUE,1,9.5,1.94,1.51,TRUE
+"Standardized values","Standardized values","title",0,0,2,14,0,2,7,12,217,405,16,"Variation and covariation","Variation and covariation",TRUE,1,7,1.71,1.87,TRUE
+"Covariation in graphs","Covariation in graphs","title",1,1,0,0,0,3,6,5,355,390,16,"Variation and covariation","Variation and covariation",TRUE,1,1,0.83,1.1,FALSE
+"Covariation 1:","Covariation 1: Covariance","position",1,1,1,7,0,3,7,12,539,510,16,"Variation and covariation","Variation and covariation",TRUE,1,7,1.71,0.95,TRUE
+"Covariation 2:","Covariation 2: The correlation coefficient","position",0,0,0,0,0,4,5,11,314,339,16,"Variation and covariation","Variation and covariation",TRUE,1,1,2.2,1.08,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,7,0,242,16,"Variation and covariation","Variation and covariation",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,474,16,"Variation and covariation","Variation and covariation",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,2,2,3,3,194,184,17,"The Least Squares Method","The Least Squares Method",TRUE,1,1,1,0.95,FALSE
+"Basic logic","Basic logic","title",1,1,0,0,0,6,6,5,405,425,17,"The Least Squares Method","The Least Squares Method",TRUE,1,1,0.83,1.05,FALSE
+"Covariation with Straight Line","Covariation with Straight Line","title",2,2,0,0,0,3,6,4,427,313,17,"The Least Squares Method","The Least Squares Method",TRUE,1,1,0.67,0.73,FALSE
+"Regression analysis","Regression analysis","title",0,0,1,5,0,11,17,26,959,1083,17,"The Least Squares Method","The Least Squares Method",TRUE,1,5,1.53,1.13,TRUE
+"Error term and residual","Error term and residual","title",0,0,1,7,0,4,1,9,8,325,17,"The Least Squares Method","The Least Squares Method",TRUE,1,7,9,40.62,TRUE
+"Calculating with Least Squares","Calculating with Least Squares","title",0,0,2,13,0,6,8,25,377,745,17,"The Least Squares Method","The Least Squares Method",TRUE,1,6.5,3.12,1.98,TRUE
+"Other straight lines","Other straight lines","title",1,1,0,0,0,2,5,14,237,401,17,"The Least Squares Method","The Least Squares Method",TRUE,1,1,2.8,1.69,TRUE
+"What the Line Doesn't Tell Us","What the Line Doesn't Tell Us","title",2,2,0,0,2,3,5,4,234,447,17,"The Least Squares Method","The Least Squares Method",TRUE,1,1,0.8,1.91,FALSE
+"Another example","Another example","title",1,1,2,12,0,6,7,19,244,391,17,"The Least Squares Method","The Least Squares Method",TRUE,1,6,2.71,1.6,TRUE
+"Which model fits the data best?","Which model fits the data best?","title",1,1,3,14,0,12,20,33,1099,1106,17,"The Least Squares Method","The Least Squares Method",TRUE,1,4.67,1.65,1.01,TRUE
+"Derivation of the Estimators","Derivation of the Estimators","title",0,0,0,0,0,9,9,29,403,691,17,"The Least Squares Method","The Least Squares Method",TRUE,1,1,3.22,1.71,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,6,0,282,17,"The Least Squares Method","The Least Squares Method",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,499,17,"The Least Squares Method","The Least Squares Method",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,14,14,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,1,1,1,FALSE
+"GDP and Life Expectancy in different countries","GDP and Life Expectancy in different countries","title",3,3,2,16,0,12,21,36,984,1057,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,8,1.71,1.07,TRUE
+"Covariation with a lot of countries","Covariation with a lot of countries","title",2,2,1,7,0,4,11,16,676,847,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,7,1.45,1.25,TRUE
+"Linear trend over time","Linear trend over time","title",1,1,3,20,0,11,18,38,798,1068,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,6.67,2.11,1.34,TRUE
+"Cycles and waves","Cycles and waves","title",1,1,1,6,0,4,8,11,556,570,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,6,1.38,1.03,TRUE
+"Wealth and happiness","Wealth and happiness","title",1,1,1,7,0,6,10,19,415,499,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,7,1.9,1.2,TRUE
+"Star Wars","Star Wars","title",0,0,1,10,0,6,6,13,449,568,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,10,2.17,1.27,TRUE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,3,0,113,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,688,18,"Covariation in Social Science","Covariation in Social Science",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,4,4,213,213,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,1,1,1,FALSE
+"Regression analysis with three variables","Regression analysis with three variables","title",1,1,2,12,0,11,18,35,1088,1240,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,6,1.94,1.14,TRUE
+"Factor variables","Factor variables","title",1,1,3,17,0,8,9,24,649,849,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,5.67,2.67,1.31,TRUE
+"Ceteris paribus","Ceteris paribus","title",1,1,1,8,0,11,8,25,884,771,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,8,3.12,0.87,TRUE
+"Least Squares with Matrices","Least Squares with Matrices","title",0,0,0,0,0,4,8,23,521,856,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,1,2.88,1.64,TRUE
+"Estimation with matrices","Estimation with matrices","title",0,0,3,15,0,8,7,24,536,695,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,5,3.43,1.3,TRUE
+"Interaction","Interaction","title",1,1,1,8,0,21,18,46,1489,1619,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,8,2.56,1.09,TRUE
+"Adjusted","Adjusted $R^$ {#sec-adj-r-2}","position",0,0,1,7,0,3,7,19,391,455,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,7,2.71,1.16,TRUE
+"If we have too few variables","If we have too few variables","title",0,0,1,6,0,4,5,15,398,855,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,6,3,2.15,TRUE
+"If we have too many variables","If we have too many variables","title",0,0,0,0,0,0,3,3,164,258,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,1,1,1.57,FALSE
+"The error term does not need to","The error term does not need to approach zero","position",0,0,0,0,0,0,5,5,431,433,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,1,1,1,FALSE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,4,0,280,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,745,19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,8,47,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,1,5.88,TRUE
+"We need special methods to study cause and effect","We need special methods to study cause and effect","title",0,0,0,0,0,1,5,6,298,296,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,1.2,0.99,FALSE
+"Illustration with a DAG","Illustration with a DAG","title",1,1,0,0,2,4,7,6,539,481,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,0.86,0.89,FALSE
+"Both the presence and absence of variables can affect our results","Both the presence and absence of variables can affect our results","title",0,0,0,0,0,1,4,4,338,318,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,1,0.94,FALSE
+"Regression discontinuity","Regression discontinuity","title",1,1,0,0,5,9,9,13,770,869,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,1.44,1.13,FALSE
+"Instrumental variable","Instrumental variable","title",1,1,0,0,4,8,9,13,671,816,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,1.44,1.22,FALSE
+"Difference-in-differences","Difference-in-differences","title",1,1,0,0,1,3,6,7,466,544,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,1.17,1.17,FALSE
+"Pros and cons with these methods","Pros and cons with these methods","title",0,0,0,0,3,4,6,6,426,529,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,1,1.24,FALSE
+"Causality without covariation","Causality without covariation","title",0,0,0,0,0,0,4,1,388,93,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,0.25,0.24,TRUE
+"Chapter summary","Chapter summary","conflict",0,0,0,0,0,0,0,5,0,198,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,NA,NA,TRUE
+"Exercises","Exercises","conflict",0,0,0,0,0,0,1,1,91,811,20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,1,1,1,8.91,TRUE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,30,30,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,1,1,FALSE
+"How we know what we know","How we know what we know","title",0,0,0,0,0,1,2,2,106,247,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,1,2.33,TRUE
+"Random variables","Random variables","title",1,1,0,0,0,3,9,17,490,832,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,1.89,1.7,TRUE
+"Probability with multiple variables","Probability with multiple variables","title",0,0,1,1,0,1,4,6,93,270,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,1.5,2.9,TRUE
+"Expected value and variance","Expected value and variance","title",0,0,0,0,0,8,12,35,601,739,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,2.92,1.23,TRUE
+"Conditional expected value","Conditional expected value","title",0,0,0,0,0,0,5,12,191,289,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,2.4,1.51,TRUE
+"Law of large numbers","Law of large numbers","title",1,1,0,0,0,2,7,13,430,455,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,1.86,1.06,TRUE
+"Uniform Probability Distributions","Uniform probability distributions","title",1,1,0,0,0,4,11,27,677,678,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,2.45,1,TRUE
+"The binomial distribution","The binomial distribution","title",1,1,0,0,0,9,9,28,843,953,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,3.11,1.13,TRUE
+"The Poisson distribution","The Poisson distribution","title",1,1,0,0,1,4,10,20,484,569,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,2,1.18,TRUE
+"Chapter summary","Chapter Summary","title",0,0,0,0,0,0,0,1,0,589,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,1,0,456,21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,30,30,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,1,1,FALSE
+"Uniform Continuous Probability Distributions","Uniform Continuous Probability Distributions","title",1,1,0,0,0,6,8,17,469,597,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,2.12,1.27,TRUE
+"Expected Value and Variance for Continuous Random Variables","Expected Value and Variance for Continuous Random Variables","title",0,0,0,0,0,2,4,13,82,220,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,3.25,2.68,TRUE
+"Exponential Distributions","Exponential Distributions","title",1,1,0,0,0,5,9,19,428,566,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,2.11,1.32,TRUE
+"From Poisson to Gamma","From Poisson to Gamma","title",1,1,0,0,0,9,11,25,619,742,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,2.27,1.2,TRUE
+"Chi-squared Distributions","Chi-squared Distributions","title",1,1,2,2,0,9,9,20,479,587,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,2.22,1.23,TRUE
+"F-distributions","F-distributions","title",1,1,1,1,0,2,6,7,286,235,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,1.17,0.82,FALSE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,7,0,359,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,2,0,399,22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,18,18,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,1,1,FALSE
+"Probability with normal variables","Probability with normal variables","title",1,1,0,0,0,1,3,6,319,356,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,2,1.12,TRUE
+"Standardized normal distribution","Standardized normal distribution","title",1,1,1,1,0,9,10,22,768,696,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,2.2,0.91,TRUE
+"The usefulness of the normal distribution 1","The usefulness of the normal distribution 1","title",1,1,0,0,4,1,5,5,410,350,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,1,0.85,FALSE
+"The usefulness of the normal distribution 2","The usefulness of the normal distribution 2","title",2,2,0,0,0,6,15,18,1131,644,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,1.2,0.57,FALSE
+"The usefulness of the normal distribution 3","The usefulness of the normal distribution 3","title",1,1,0,0,0,2,7,9,532,476,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,1.29,0.89,FALSE
+"T-distribution","T-distribution","title",2,2,1,1,0,5,11,15,637,665,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,1.36,1.04,FALSE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,6,0,228,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,0,0,0,23,"LatexCommand label","Normal and t distributions",FALSE,1,1,1,1,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,46,46,24,"LatexCommand label","Statistical analysis and inference",FALSE,1,1,1,1,FALSE
+"Point estimation","Point estimation","title",0,0,0,0,0,1,5,4,221,201,24,"LatexCommand label","Statistical analysis and inference",FALSE,1,1,0.8,0.91,FALSE
+"Standard error","Standard error","title",0,0,0,0,0,0,5,6,268,283,24,"LatexCommand label","Statistical analysis and inference",FALSE,1,1,1.2,1.06,FALSE
+"Confidence interval","Confidence interval","title",0,0,0,0,0,3,8,17,395,600,24,"LatexCommand label","Statistical analysis and inference",FALSE,1,1,2.12,1.52,TRUE
+"Hypothesis testing","Hypothesis testing","title",0,0,0,0,0,0,13,15,717,601,24,"LatexCommand label","Statistical analysis and inference",FALSE,1,1,1.15,0.84,FALSE
+"Statistical significance,","Statistical significance, power and type errors","position",1,1,0,0,0,3,15,21,1011,925,24,"LatexCommand label","Statistical analysis and inference",FALSE,1,1,1.4,0.91,FALSE
+"Chapter summary","Chapter summary","title",0,0,0,0,0,0,0,6,0,177,24,"LatexCommand label","Statistical analysis and inference",FALSE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,0,0,0,24,"LatexCommand label","Statistical analysis and inference",FALSE,1,1,1,1,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,20,20,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,1,1,1,1,FALSE
+"The Population Model and Statistical Tests","The Population Model and Statistical Tests","title",1,1,0,0,0,2,4,7,235,371,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,1,1,1.75,1.58,TRUE
+"Starting Points and Assumptions","Starting Points and Assumptions","title",0,0,0,0,0,0,2,8,50,290,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,1,1,4,5.8,TRUE
+"The Variance of the Regression Model","The Variance of the Regression Model","title",0,0,0,6,0,0,8,24,300,462,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,1,NA,3,1.54,TRUE
+"Regression analysis with t-test","Confidence Intervals for Regression Coefficients","position",0,0,1,0,0,0,8,6,636,147,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,1,0,0.75,0.23,TRUE
+"Regression analysis with confidence interval","Confidence Interval for the Regression Line","position",0,1,0,0,0,2,4,8,180,144,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,NA,1,2,0.8,TRUE
+"Confidence interval for the regression line","Statistical Power in Regression","position",1,1,0,0,0,1,6,5,296,260,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,1,1,0.83,0.88,FALSE
+"Statistical Power in Regression Analysis","Statistical and Economic Significance","position",1,0,0,0,0,0,5,3,255,215,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,0,1,0.6,0.84,TRUE
+"Statistical and Economic Significance","Chapter Summary","position",0,0,0,0,0,0,2,5,118,256,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,1,1,2.5,2.17,TRUE
+"Chapter summary","Exercises","position",0,0,0,0,0,0,0,4,0,1065,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,1,1,NA,NA,FALSE
+"Exercises",NA,"unmatched",0,NA,0,NA,0,NA,0,NA,0,NA,25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,NA,NA,NA,NA,TRUE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,1,1,1,49,32,26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,1,1,1,0.65,FALSE
+"Starting Points and Assumptions","Starting Points and Assumptions","title",0,0,0,0,0,0,1,13,7,335,26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,1,1,13,47.86,TRUE
+"Estimators of the Coefficients","Estimators of the Coefficients","title",0,0,0,0,0,0,6,9,525,225,26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,1,1,1.5,0.43,TRUE
+"The Variance-Covariance Matrix","The Variance-Covariance Matrix","title",0,0,0,0,1,2,13,13,767,282,26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,1,1,1,0.37,TRUE
+"T-test for regression models with more than two variables","T-tests for Multiple Regression","position",0,0,1,5,0,1,9,17,214,291,26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,1,5,1.89,1.36,TRUE
+"F-test for the regression model","F-test for the Regression Model","title",0,0,0,0,0,0,9,16,404,359,26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,1,1,1.78,0.89,TRUE
+"Chapter summary","Chapter Summary","title",0,0,0,0,0,0,0,5,0,199,26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,0,4,0,1022,26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,63,33,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,1,0.52,FALSE
+"Gauss-Markov","Gauss-Markov","title",0,0,0,0,0,0,2,2,86,155,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,1,1.8,FALSE
+"Assumption 1:","Assumption 1: Linearity","position",1,1,1,1,0,2,9,16,1005,632,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,1.78,0.63,TRUE
+"Assumption 2:","Assumption 2: Independent and Identically Distributed Observations","position",0,0,0,0,0,0,4,4,269,242,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,1,0.9,FALSE
+"Assumption 3:","Assumption 3: Expected Value and Variance of the Error Terms","position",2,2,0,0,0,3,6,7,491,400,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,1.17,0.81,FALSE
+"Assumption 4:","Assumption 4: Multicollinearity","position",0,0,0,0,0,0,6,11,341,443,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,1.83,1.3,TRUE
+"Assumption 5:","Assumption 5: Correlation Between Residuals","position",1,1,0,0,0,2,6,7,387,390,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,1.17,1.01,FALSE
+"Assumption 6:","Assumption 6: Normally Distributed Error Terms","position",2,2,0,0,0,4,8,8,840,472,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,1,0.56,FALSE
+"Adjusted standard errors","Adjusted Standard Errors","title",0,0,1,1,3,2,10,22,609,780,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,2.2,1.28,TRUE
+"Chapter summary","Chapter Summary","title",0,0,0,0,0,0,0,3,0,111,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,NA,NA,FALSE
+"Exercises","Exercises","title",0,0,0,0,0,0,1,0,39,0,27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,1,1,0,0,TRUE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,4,4,218,173,28,"Why use computers?","Why Use Computers?",TRUE,1,1,1,0.79,FALSE
+"Three analytical tools","Three Analytical Tools","title",0,0,0,0,0,0,8,9,373,394,28,"Why use computers?","Why Use Computers?",TRUE,1,1,1.12,1.06,FALSE
+"Programming:","Programming: Why Bother?","position",0,0,0,0,0,0,8,5,406,255,28,"Why use computers?","Why Use Computers?",TRUE,1,1,0.62,0.63,FALSE
+"You have to practice","You Have to Practice","title",0,0,0,0,0,0,3,3,166,111,28,"Why use computers?","Why Use Computers?",TRUE,1,1,1,0.67,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,57,57,29,"Microsoft Excel","Microsoft Excel",TRUE,1,1,1,1,FALSE
+"General about Excel","General about Excel","title",3,0,0,0,0,0,8,9,674,563,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.12,0.84,TRUE
+"Import and edit data","Import and edit data","title",0,0,0,0,0,0,5,5,401,400,29,"Microsoft Excel","Microsoft Excel",TRUE,1,1,1,1,FALSE
+"Worksheet functions","Worksheet functions","title",3,0,0,0,0,0,7,10,596,758,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.43,1.27,TRUE
+"Quick ways to fill multiple cells","Quick ways to fill multiple cells","title",2,0,0,0,0,0,6,6,461,352,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1,0.76,TRUE
+"Combining functions within calculations","Combining functions within calculations","title",2,0,0,0,0,0,5,8,372,329,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.6,0.88,TRUE
+"Logic conditions","Logic conditions","title",2,0,0,0,0,0,8,9,434,424,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.12,0.98,TRUE
+"Calculate index with Excel","Calculate index with Excel","title",1,0,0,0,0,0,6,8,389,443,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.33,1.14,TRUE
+"Matrix calculations","Matrix calculations","title",5,0,0,0,0,0,10,11,575,467,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.1,0.81,TRUE
+"Solving a system of equations","Solving a system of equations","title",2,0,0,0,0,0,8,12,349,275,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.5,0.79,TRUE
+"Input-output analysis","Input-output analysis","title",2,0,0,0,0,0,11,16,310,382,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.45,1.23,TRUE
+"Variance and covariance","Variance and covariance","title",4,0,0,0,0,0,16,16,1107,992,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1,0.9,TRUE
+"Probability","Probability","title",5,0,1,9,0,0,17,20,1225,1053,29,"Microsoft Excel","Microsoft Excel",TRUE,0,9,1.18,0.86,TRUE
+"Regression analysis","Regression analysis","title",0,0,0,0,0,0,1,1,38,38,29,"Microsoft Excel","Microsoft Excel",TRUE,1,1,1,1,FALSE
+"Regression analysis using matrices","Regression analysis using matrices","title",1,0,0,0,0,0,3,10,332,339,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,3.33,1.02,TRUE
+"Regression analysis with LINEST()","Regression analysis with LINEST()","title",4,0,0,0,0,0,14,19,705,733,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.36,1.04,TRUE
+"Regression analysis with Analysis ToolPak","Regression analysis with Analysis ToolPak","title",2,0,0,0,0,0,10,19,721,655,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.9,0.91,TRUE
+"Creating plots","Creating plots","title",4,0,0,0,0,0,12,14,944,835,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1.17,0.88,TRUE
+"Presenting results in other programs","Presenting results in other programs","title",1,0,0,0,0,0,4,4,314,288,29,"Microsoft Excel","Microsoft Excel",TRUE,0,1,1,0.92,TRUE
+"Example with GDP per working hour","Example with GDP per working hour","title",3,0,1,7,0,0,17,21,1185,1053,29,"Microsoft Excel","Microsoft Excel",TRUE,0,7,1.24,0.89,TRUE
+"Some other useful functions","Some other useful functions","title",0,0,0,0,0,0,1,2,43,230,29,"Microsoft Excel","Microsoft Excel",TRUE,1,1,2,5.35,TRUE
+"Chapter Summary","Chapter Summary","title",0,0,0,0,0,0,0,4,0,207,29,"Microsoft Excel","Microsoft Excel",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,6,6,96,149,30,"Stata","Stata",TRUE,1,1,1,1.55,FALSE
+"General info about Stata","General info about Stata","title",2,0,0,0,0,0,10,9,577,607,30,"Stata","Stata",TRUE,0,1,0.9,1.05,TRUE
+"Commands in Stata","Commands in Stata","title",0,0,0,0,0,0,1,1,58,58,30,"Stata","Stata",TRUE,1,1,1,1,FALSE
+"Commands with menus","Commands with menus","title",1,0,0,0,0,0,5,4,468,419,30,"Stata","Stata",TRUE,0,1,0.8,0.9,TRUE
+"Commands using do-files","Commands using do-files","title",1,0,0,0,0,0,39,23,1773,1648,30,"Stata","Stata",TRUE,0,1,0.59,0.93,TRUE
+"Importing and exporting data","Importing and exporting data","title",0,0,0,0,0,0,12,8,475,456,30,"Stata","Stata",TRUE,1,1,0.67,0.96,FALSE
+"Enter data manually","Enter data manually","title",0,0,0,0,0,0,26,9,713,633,30,"Stata","Stata",TRUE,1,1,0.35,0.89,TRUE
+"Edit Columns and Rows","Edit Columns and Rows","title",2,0,3,22,0,0,72,41,2157,1858,30,"Stata","Stata",TRUE,0,7.33,0.57,0.86,TRUE
+"The function egen","The function egen","title",0,0,0,0,0,0,22,12,764,717,30,"Stata","Stata",TRUE,1,1,0.55,0.94,TRUE
+"Join tables","Join tables","title",0,0,0,0,0,0,21,4,470,431,30,"Stata","Stata",TRUE,1,1,0.19,0.92,TRUE
+"Calculate index using Stata","Calculate index using Stata","title",0,0,1,6,0,0,17,7,211,160,30,"Stata","Stata",TRUE,1,6,0.41,0.76,TRUE
+"Matrix calculations and MATA","Matrix calculations and MATA","title",1,0,0,0,0,0,126,39,1785,1425,30,"Stata","Stata",TRUE,0,1,0.31,0.8,TRUE
+"Input-output analysis","Input-output analysis","title",0,0,0,0,0,0,17,6,269,229,30,"Stata","Stata",TRUE,1,1,0.35,0.85,TRUE
+"Variation and covariance","Variation and covariance","title",6,0,0,0,0,0,24,10,708,468,30,"Stata","Stata",TRUE,0,1,0.42,0.66,TRUE
+"Probability","Probability","title",0,0,1,9,0,0,24,8,349,290,30,"Stata","Stata",TRUE,1,9,0.33,0.83,TRUE
+"Regression analysis","Regression analysis","title",0,0,0,0,0,0,1,1,28,29,30,"Stata","Stata",TRUE,1,1,1,1.04,FALSE
+"Regression analysis with matrices","Regression analysis with matrices","title",1,0,0,0,0,0,21,10,298,280,30,"Stata","Stata",TRUE,0,1,0.48,0.94,TRUE
+"Regression analysis using","Regression analysis using `regress`","position",2,0,0,0,0,0,34,22,1302,1118,30,"Stata","Stata",TRUE,0,1,0.65,0.86,TRUE
+"Export results to disk","Export results to disk","title",3,0,0,0,0,0,25,6,819,586,30,"Stata","Stata",TRUE,0,1,0.24,0.72,TRUE
+"Creating plots","Creating plots","title",9,0,0,0,0,0,107,26,2412,1663,30,"Stata","Stata",TRUE,0,1,0.24,0.69,TRUE
+"Iterations and loops","Iterations and loops","title",1,0,0,0,0,0,37,14,1152,1049,30,"Stata","Stata",TRUE,0,1,0.38,0.91,TRUE
+"Example with GDP per hour","Example with GDP per hour","title",2,0,1,7,0,0,49,17,881,659,30,"Stata","Stata",TRUE,0,7,0.35,0.75,TRUE
+"Chapter Summary","Chapter Summary","title",0,0,0,0,0,0,0,8,0,427,30,"Stata","Stata",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,2,98,104,31,"R","R",TRUE,1,1,2,1.06,TRUE
+"General Overview of R","General Overview of R","title",2,2,0,0,0,2,12,7,617,550,31,"R","R",TRUE,1,1,0.58,0.89,TRUE
+"R objects","R Objects","title",0,0,0,0,0,0,14,7,529,505,31,"R","R",TRUE,1,1,0.5,0.95,TRUE
+"Functions in R","Functions in R","title",0,0,1,11,0,1,26,14,792,716,31,"R","R",TRUE,1,11,0.54,0.9,TRUE
+"R packages","R Packages","title",0,0,0,0,0,0,13,8,500,475,31,"R","R",TRUE,1,1,0.62,0.95,FALSE
+"Importing data","Importing Data","title",0,0,0,0,0,0,43,16,1089,978,31,"R","R",TRUE,1,1,0.37,0.9,TRUE
+"Working with data tabels","Working with Data Tables","position",0,0,0,0,0,0,110,35,1886,1565,31,"R","R",TRUE,1,1,0.32,0.83,TRUE
+"Join Tables","Join Tables","title",1,1,0,0,0,1,16,5,398,298,31,"R","R",TRUE,1,1,0.31,0.75,TRUE
+"Calculate Index and Export Tables","Calculate Index and Export Tables","title",0,0,1,6,0,1,14,8,330,328,31,"R","R",TRUE,1,6,0.57,0.99,TRUE
+"Matrix calculations","Matrix Calculations","title",0,0,0,0,0,0,37,10,648,492,31,"R","R",TRUE,1,1,0.27,0.76,TRUE
+"Input–output analysis","Input–Output Analysis","title",0,0,0,0,0,0,16,7,228,174,31,"R","R",TRUE,1,1,0.44,0.76,TRUE
+"Variation and covariance","Variation and Covariance","title",1,1,0,0,0,1,35,11,590,471,31,"R","R",TRUE,1,1,0.31,0.8,TRUE
+"Probability","Probability","title",0,0,1,9,0,1,11,7,312,266,31,"R","R",TRUE,1,9,0.64,0.85,TRUE
+"Regression analysis","Regression Analysis","title",0,0,0,0,0,0,1,1,33,33,31,"R","R",TRUE,1,1,1,1,FALSE
+"Regression analysis with matrices","Regression Analysis with Matrices","title",0,0,0,0,0,0,8,6,121,101,31,"R","R",TRUE,1,1,0.75,0.83,FALSE
+"Regression analysis with","Regression Analysis with `lm()`","position",2,2,0,0,0,2,32,14,636,477,31,"R","R",TRUE,1,1,0.44,0.75,TRUE
+"Export Results to Hard Drive","Export Results to Hard Drive","title",1,1,0,0,0,1,11,3,269,195,31,"R","R",TRUE,1,1,0.27,0.72,TRUE
+"Create plots","Create Plots","title",6,7,0,0,0,0,80,18,1570,1258,31,"R","R",TRUE,1.17,1,0.22,0.8,TRUE
+"Iterations and Loops","Iterations and Loops","title",1,1,0,0,0,1,27,11,830,741,31,"R","R",TRUE,1,1,0.41,0.89,TRUE
+"Example with GDP per Working Hours","Example with GDP per Working Hours","title",2,3,1,7,0,2,40,13,551,501,31,"R","R",TRUE,1.5,7,0.32,0.91,TRUE
+"Chapter Summary","Chapter Summary","title",0,0,0,0,0,0,0,8,0,338,31,"R","R",TRUE,1,1,NA,NA,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,19,16,32,"Examples of Useful Data and Additional Tools","Examples of Useful Data and Additional Tools",TRUE,1,1,1,0.84,FALSE
+"Examples of Free Data","Examples of Free Data","title",0,0,0,0,0,0,5,6,181,214,32,"Examples of Useful Data and Additional Tools","Examples of Useful Data and Additional Tools",TRUE,1,1,1.2,1.18,FALSE
+"Other Tools That Are Good to Know About","Other Tools That Are Good to Know About","title",0,0,0,0,0,0,8,12,530,531,32,"Examples of Useful Data and Additional Tools","Examples of Useful Data and Additional Tools",TRUE,1,1,1.5,1,FALSE
+"__chapter_level__","__chapter_level__","title",0,0,0,0,0,0,1,1,20,20,33,"Final Chapter","Final Chapter",TRUE,1,1,1,1,FALSE
+"Common Misconceptions","Common Misconceptions","title",0,0,0,0,0,0,8,8,480,531,33,"Final Chapter","Final Chapter",TRUE,1,1,1,1.11,FALSE
+"Things that perhaps should have been included in this book","Things That Perhaps Should Have Been Included in This Book","title",0,0,0,0,0,0,6,6,433,437,33,"Final Chapter","Final Chapter",TRUE,1,1,1,1.01,FALSE
+"The Last Word","The Last Word","title",0,0,0,0,0,0,4,2,159,118,33,"Final Chapter","Final Chapter",TRUE,1,1,0.5,0.74,TRUE

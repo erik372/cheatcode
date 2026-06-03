@@ -1,0 +1,1359 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
+```
+
+# Integration {#chap-integraler}
+
+This chapter introduces integration, also called integrating. Integration can be described as finding a function's "anti-derivative". Integrals can among other things be used to calculate the area between two lines in a graph, or the volume and mass of an object. This we can in turn use for describing theories and calculate probability, which is a central aspect of all empirical analysis.
+
+## The primitive function
+
+Suppose we have a function $f'_{x}$ which is the derivative of function $F$ with respect to the variable $x$. With integration we seek a function $F$ whose derivative gives $f'_{x}$. The function we then get through integration is called integral. Function $F$ is the integral to function $f$, and function $f$ is the integrand. Consider the following function $F$ of $x$:
+
+$$
+\begin{equation}
+F\left(x\right)=x^{a}+b
+ (\#eq:integration-ex1-x-a-b)
+\end{equation}
+$$
+
+ where $a$ and $b$ are constants. Taking the derivative of $F$ with respect to $x$:
+
+$$
+\begin{equation}
+\frac{d}{dx}F\left(x\right)=f'_{x}\left(x\right)=ax^{a-1}
+ (\#eq:derivatan-av-x-a-b)
+\end{equation}
+$$
+
+Function $F$ is the primitive function to $f'_{x}$. Another expression for primitive function is indefinite integral, which is described more thoroughly below. The primitive function is the function whose derivative gives us the function $f'_{x}$. If we are to calculate the integral of function $F\left(x\right)$ in equation \@ref(eq:integration-ex1-x-a-b) we instead seek a primitive function to function $F$. The derivative of the primitive function we in that case seek should result in function $F$.
+
+Integration is often described with two symbols: $\int$ and the letters $dx$, where $x$ is the variable that the integration should be performed with respect to. The expression $dx$ can be read as "with respect to variable $x$". The description of the integral of a function $f\left(x\right)$ can be written in different ways: 
+
+$$
+\begin{align}
+\int\left(f\left(x\right)\right)dx & =\int f\left(x\right)dx=\int dxf\left(x\right)
+\end{align}
+$$
+
+The mathematical meaning in these three ways of writing is the same. The three expressions can all be read as "the integral of function $f\left(x\right)$, with respect to variable $x$". We may also write out the function $f\left(x\right)$ to clarify which expression we seek an integral for. Taking the definition of $f\left(x\right)$ from equation \@ref(eq:integration-ex1-x-a-b) and insert between the symbols $\int$ and $dx$: 
+
+$$
+\begin{equation}
+\int f\left(x\right)dx=\int\left(x^{a}+b\right)dx
+\end{equation}
+$$
+
+In function $f\left(x\right)$ we have two terms that should be integrated: $x^{a}$ and $b$. When we differentiate we subtract 1 from the exponent. When we integrate we instead add 1. For the first term, $x^{a}$, we integrate by adding 1 to the exponent: $x^{a+1}$. We also divide the same term by the new exponent $\left(a+1\right)$. The integral of $x^{a}$ is:
+
+$$
+\begin{equation}
+\int\left(x^{a}\right)dx=\frac{x^{a+1}}{a+1}
+\end{equation}
+$$
+
+That we divide by $a+1$ means that when differentiating the integral we will get back $x^{a}$ as result. Let us check this by taking the derivative of the expression $\frac{x^{a+1}}{a+1}$ with respect to x:
+
+$$
+\begin{align}
+\left(\frac{x^{a+1}}{a+1}\right)'_{x}=\frac{\left(a+1\right)x^{a+1-1}}{a+1}=x^{a}
+\end{align}
+$$
+
+The exponent moves down from $x$ in front of the expression. Since the expression is divided by the same exponent we cancel these. The next term in equation \@ref(eq:integration-ex1-x-a-b) is the constant b. When we integrate we add $x$ to terms that consist only of constants. The next term in our integral therefore becomes $bx$: 
+
+$$
+\begin{equation}
+\int\left(b\right)dx=bx
+\end{equation}
+$$
+
+Last in the integral we add another constant that we call $C$. This because when differentiating we cancel the terms where the current variable is not included. The constant $C$ thus represents an arbitrary number, for example all conceivable constants that could be included in a primitive function to $f\left(x\right)$. We now get the following primitive function that we call $F$: 
+
+$$
+\begin{align}
+F\left(x\right) & =\int\left(f\left(x\right)\right)dx=\int\left(x^{a}+b\right)dx=\frac{x^{a+1}}{a+1}+bx+C
+ (\#eq:integral-exempel-1)
+\end{align}
+$$
+
+$F\left(x\right)$ is a primitive function, the integral, to $f\left(x\right)$ in equation \@ref(eq:integration-ex1-x-a-b) . We check the integral by differentiating $F\left(x\right)$ with respect to $x$: 
+
+$$
+\begin{align}
+F\left(x\right)'_{x} & =\frac{\partial}{\partial x}\left[\frac{x^{a+1}}{a+1}+bx+C\right]=\frac{a+1}{a+1}x^{a}+b=x^{a}+b
+\end{align}
+$$
+
+This results in the same expression as function $f\left(x\right)$ in equation \@ref(eq:integration-ex1-x-a-b) , which indicates that our integral was correct. With the same method we can also integrate longer equations with several terms. As long as each term, separated by addition and subtraction, has similar form as above we can use the same method for each term separately.
+
+Let us now take the function:
+
+$$
+\begin{equation}
+h\left(x\right)=x^{3}+2x^{2}+4x
+ (\#eq:integration-ex-h-och-h)
+\end{equation}
+$$
+
+ A primitive function for $h\left(x\right)$ is $H\left(x\right)$:
+
+$$
+\begin{align}
+H\left(x\right) & =\int h\left(x\right)dx\\
+ & =\int\left(x^{3}+2x^{2}+4x\right)dx\nonumber \\
+ & =\frac{x^{4}}{4}+\frac{2x^{3}}{3}+\frac{4x^{2}}{2}+C\nonumber 
+\end{align}
+$$
+
+The derivative of function $H$ with respect to $x$ becomes function $h$ in equation \@ref(eq:integration-ex-h-och-h) :
+
+$$
+\begin{equation}
+H'_{x}\left(x\right)=x^{3}+2x^{2}+4x=h\left(x\right)
+\end{equation}
+$$
+
+## The meaning of constant $\boldsymbol{C}$
+
+By definition there are infinitely many primitive functions to a function $f\left(x\right)$. To see this we take the following function as an example: 
+
+$$
+\begin{equation}
+y=f\left(x\right)=2x
+ (\#eq:f-2x)
+\end{equation}
+$$
+
+ A primitive function to $f$ can look like this:
+
+$$
+\begin{equation}
+F_{1}\left(x\right)=x^{2}
+ (\#eq:prim-f-ex)
+\end{equation}
+$$
+
+ Or like this:
+
+$$
+\begin{equation}
+F_{2}\left(x\right)=x^{2}+5
+ (\#eq:prim-f-exempel)
+\end{equation}
+$$
+
+ Or like this:
+
+$$
+\begin{equation}
+F_{3}\left(x\right)=x^{2}+123+a^{4}
+\end{equation}
+$$
+
+ where $a$ is a constant coefficient (or a variable) that we do not differentiate over. If we differentiate the functions $F_{1}\left(x\right)$, $F_{2}\left(x\right)$ and $F_{3}\left(x\right)$, the result in all three cases becomes $y=2x$. To handle this when we calculate integrals we always assume that a constant that we call $C$ is included in all primitive functions. Let us now take the following function as an example: 
+
+$$
+\begin{equation}
+g\left(x\right)=x^{3}+4
+\end{equation}
+$$
+
+The integral of this function, which we call $G\left(x\right)$:
+
+$$
+\begin{align}
+G\left(x\right) & =\int g\left(x\right)dx=\int\left[x^{3}+4\right]dx=\frac{x^{4}}{4}+4x+C
+\end{align}
+$$
+
+The derivative of function $G$ with respect to x again gives function $g\left(x\right)$:
+
+$$
+\begin{equation}
+G'_{x}=x^{3}+4
+\end{equation}
+$$
+
+```{r integral-konstant-c-olika-varden, echo=FALSE, out.width="71%", fig.cap="The primitive function $G\\left(x\\right)$ with different constants $C$"}
+library("tidyverse")
+library("latex2exp")
+g_integral_constant_C <- ggplot() +
+  stat_function(fun=function(x) x^4/4 + 4*x + -1, linetype=3, color="#F8766D") +
+  stat_function(fun=function(x) x^4/4 + 4*x + 0, linetype=2, color="#F8766D") +
+  stat_function(fun=function(x) x^4/4 + 4*x + 1, linetype=5, color="#F8766D") +
+  stat_function(fun=function(x) x^4/4 + 4*x + 2, color="#F8766D") +
+  xlim(-2.5,0) +
+  geom_vline(xintercept=0, alpha=.3) +
+  geom_hline(yintercept=0, alpha=.3) +
+  annotate("label", x=-2, y=c(-2,-3,-4,-5), size=4,
+           label=c("C = 2", "C = 1", "C = 0", "C = -1")) +
+  annotate("label", x=-1.8, y=-1, hjust=0, size=4,
+           label=TeX("y = $G(x) =  \\frac{x^4}{4} + 4x + C")) +
+  labs(x="x", y="y") +
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=11))
+g_integral_constant_C
+```
+
+In function $G\left(x\right)$, which is the integral to $g\left(x\right)$, a constant $C$ is again included. Since $C$ can be any value the integral $F\left(x\right)$ can assume infinitely many different definitions, depending on the value for $C$. Figure \@ref(fig:integral-konstant-c-olika-varden) illustrates some examples of the function $G\left(x\right)$ and the meaning of $C$. In the graph four lines are drawn with the function:
+
+$$
+\begin{equation}
+y=G\left(x\right)=\frac{x^{4}}{4}+4x+C
+\end{equation}
+$$
+
+ The four lines have different values for the constant $C:-1,0,1$ and 2 respectively.
+
+## Primitive function with conditions
+
+Primitive functions can also be combined with conditions. Say for example that we have the function:
+
+$$
+\begin{equation}
+t\left(x\right)=3x+5
+\end{equation}
+$$
+
+ and seek an expression for its primitive function given the condition that $T\left(0\right)=2$, which means that the primitive function $T\left(x\right)$ equals 2 when $x=0$. Another way to say the same thing is that $T\left(x\right)$ passes through the point $\left(0,2\right)$. The primitive function to $t\left(x\right)$ is: 
+
+$$
+\begin{equation}
+T\left(x\right)=\frac{3x^{2}}{2}+5x+C
+\end{equation}
+$$
+
+The constant $C$ can be any number but in this case there is only one version of function $T\left(x\right)$ that fulfills the condition $T\left(0\right)=2$:
+
+$$
+\begin{align}
+T\left(x\right)_{1} & =\frac{3x^{2}}{2}+5x+2
+\end{align}
+$$
+
+In this function, which fulfills the condition, $C=2$. That $T_{1}\left(x\right)$ fulfills the condition $T\left(0\right)=2$ we can see by calculating $T_{1}\left(x=0\right):$ 
+
+$$
+\begin{align}
+T\left(0\right)_{1} & =\frac{3\left(0\right)^{2}}{2}+5\left(0\right)+2=2
+\end{align}
+$$
+
+## Primitive function for an exponent
+
+In section \@ref(sec-derivata-exponential-e-log) we went through how we may differentiate exponential functions such as:
+
+$$
+\begin{align}
+\left[e^{x}\right]'_{x} & =e^{x},\; & \frac{\partial}{\partial x}\left[e^{ax}\right]=ae^{ax}
+\end{align}
+$$
+
+ where $x$ is the included variable, $e$ is Euler's number and $a$ is constant. We see among other things that the function $f\left(x\right)=e^{x}$ has derivative $f'_{x}\left(x\right)=e^{x}$. With this in mind we shall now go through how we can find a primitive function when we have $x$ as exponent in a power expression. Let us start with the function: 
+
+$$
+\begin{equation}
+f\left(x\right)=e^{x}
+\end{equation}
+$$
+
+We shall now derive a primitive function for this:
+
+$$
+\begin{align}
+\int f\left(x\right)dx & =F\left(x\right)=e^{x}+C
+\end{align}
+$$
+
+The letter $C$ is a constant. If we take the derivative of $F$ with respect to $x$ we get: 
+
+$$
+\begin{equation}
+F'_{x}\left(x\right)=e^{x}
+\end{equation}
+$$
+
+This is the same thing as $f\left(x\right)$. Let us also take the integral of a function of the type $g\left(x\right)=e^{ax}$. The integral to this function we call $G\left(x\right)$:
+
+$$
+\begin{align}
+G\left(x\right) & =\int g\left(x\right)dx=\int e^{ax}dx=\frac{e^{ax}}{a}+C
+\end{align}
+$$
+
+Just as in the examples in the previous section we add the denominator $a$ to the term $e^{ax}$ so that the derivative of the primitive function $G\left(x\right)$ becomes $g\left(x\right)$. Let us differentiate the function $G\left(x\right)$ with respect to $x$:
+
+$$
+\begin{equation}
+G'_{x}=a*\frac{e^{ax}}{a}=e^{ax}
+\end{equation}
+$$
+
+This is the same thing as $g\left(x\right)$. In section \@ref(sec-derivata-exponential-e-log) we also went through the derivative of $a^{x}$ where a is an arbitrary constant and x is variable: 
+
+$$
+\begin{equation}
+\left[a^{x}\right]'_{x}=a^{x}\ln a
+\end{equation}
+$$
+
+If the base $a=e$(Euler's number) and we have function $h\left(x\right)=a^{x}$, the derivative is:
+
+$$
+\begin{equation}
+h\left(x\right)'_{x}=a^{x}\ln a=a^{x}=e^{x}
+\end{equation}
+$$
+
+Let us now derive a primitive function for the function $h\left(x\right)=a^{x}$. According to the same logic as above we now add a denominator and a constant $C$ and then get the following primitive function: 
+
+$$
+\begin{align}
+H\left(x\right) & =\int h\left(x\right)dx=\int\left(a^{x}\right)dx=\frac{a^{x}}{\ln a}+C
+\end{align}
+$$
+
+Let us illustrate these rules with two examples where we write out numbers instead of letters. Suppose we have the following function:
+
+$$
+\begin{equation}
+q\left(x\right)=e^{12x}+5
+\end{equation}
+$$
+
+Now we seek a primitive function for $q\left(x\right)$, which we call $Q\left(x\right)$:
+
+$$
+\begin{equation}
+Q\left(x\right)=\frac{e^{12x}}{12}+5x+C
+\end{equation}
+$$
+
+Since $C$ is a general term this is called that we have determined all primitive functions for $q\left(x\right)$. Let us take another example with several terms. This time we seek a primitive function for the function: 
+
+$$
+\begin{equation}
+v\left(x\right)=3^{x}+e^{2x}+4+\frac{x^{3}}{2}
+\end{equation}
+$$
+
+The integral to the function $v\left(x\right)$ we call $V\left(x\right)$:
+
+$$
+\begin{align}
+V\left(x\right) & =\int v\left(x\right)dx\\
+ & =\int\left[3^{x}+e^{2x}+4+\frac{x^{3}}{2}\right]dx\nonumber \\
+ & =\frac{3^{x}}{\ln\left(3\right)}+\frac{e^{2x}}{2}+4x+\frac{x^{4}}{8}+C\nonumber 
+\end{align}
+$$
+
+Note how we in this example on the third line take the opportunity to use several different rules that we have introduced earlier.
+
+## Calculate area with integral
+
+Integrals can among other things be used to calculate an area, for example the area between the line for a function and the horizontal x-axis, or the area between the lines in a graph. Let us start with how we calculate the area in a graph without integral for the following function:
+
+$$
+\begin{equation}
+y=f\left(x\right)=4,\forall0\leq x\leq4
+ (\#eq:y-4)
+\end{equation}
+$$
+
+ The function $f\left(x\right)$ equals 4 for all values of $x$ between 0 and 4. The line for this function is horizontal. The area between this line and the x-axis:
+
+$$
+\begin{align}
+\text{width }\times\text{ height} & =\text{area}\\
+4\times4 & =16\text{ area units}\nonumber 
+ (\#eq:simpel-area)
+\end{align}
+$$
+
+```{r arean-under-y-4, echo=FALSE, out.width="71%", fig.cap="The area under the function $y=f\\left(x\\right)=4,\\forall0\\leq x\\leq4$"}
+g_y4 <-
+  ggplot() +
+  geom_area(aes(x=0:4, y=4:4)) + xlim(0,5) + ylim(0,5) +
+  geom_line(aes(x=0:4, y=4:4), color="#F8766D") +
+  annotate('text', x=4, y=4.3, hjust=1, size=4,
+           label=TeX("$y = f(x) = 4, \\forall 0\\leq x \\leq 4$")) +
+  annotate('text', x=2, y=2, size=4,
+           label=TeX("Area: $4 \\times 4 = 16\\; a.u.$")) +
+  labs(x="x", y="y") +
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=11))
+g_y4
+```
+
+ 
+
+```{r arean-for-y-x, echo=FALSE, out.width="71%", fig.align="left", fig.cap="The function $y=f\\left(x\\right)=x$ and the area under the line"}
+g_yequalx <- ggplot() +
+  geom_area(aes(x=0:5, y=0:5)) +
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
+  annotate('text', x=2.5, y=3, size=4, angle=45,
+           label=TeX("$y = f(x) = x$")) +
+  annotate('text', x=3, y=1.3, size=4,
+           label=TeX("Area = \\frac{5 \\times{} 5}{2}")) +
+  labs(x="x", y="y") +
+  coord_fixed()
+g_yequalx
+```
+
+The expression *area units*, a.u., is a general concept that we use since we have not specified any unit of measurement for $x$ and $y$. Area units can for example be square centimeters or square meters. The function in equation \@ref(eq:y-4) and the area under the line is illustrated in figure \@ref(fig:arean-under-y-4) . If we instead have the function:
+
+$$
+\begin{equation}
+y=h\left(x\right)=x,\forall0\leq x\leq5
+ (\#eq:y-x-integral-area)
+\end{equation}
+$$
+
+ this is, in a graph, a straight line between $\left(0,0\right)$ and $\left(5,5\right)$. The area for the surface under the line down to the x-axis is then:
+
+$$
+\begin{align}
+\text{Area} & =\frac{\text{height}\times\text{width}}{2}=\frac{5\times5}{2}=12.5\text{ a.u.}
+\end{align}
+$$
+
+The function and the area are illustrated in figure \@ref(fig:arean-for-y-x) . Let us now calculate the area for these two examples with the help of integrals. We start with the function $y=f\left(x\right)=4$. The integral for function f:
+
+$$
+\begin{equation}
+F\left(x\right)=4x+C
+\end{equation}
+$$
+
+ where $C$ is an arbitrary constant. To calculate the area we derive the primitive function over the interval 0 to 4. We calculate the area by taking the integral for $f\left(x\right)$ over the values $a$ and $b$, 0 to 4. This integral is written $\int_{a}^{b}$: 
+
+$$
+\begin{align}
+\int_{a}^{b}f\left(x\right)dx & =\left[F\left(x\right)\right]_{a}^{b}=F\left(b\right)-F\left(a\right)
+\end{align}
+$$
+
+We calculate the integral from the smaller to the larger value. The expression $\left[F\left(x\right)\right]_{a}^{b}$ means that we calculate the primitive function for a and b, which is then set up as $F\left(b\right)$ minus $F\left(a\right)$. We set up the equation with the integral with the higher value as input value, minus the integral with the lower value. In this case we have $a=0$ and $b=4$:
+
+$$
+\begin{align}
+\int_{0}^{4}f\left(x\right)dx & =F\left(4\right)-F\left(0\right)\\
+ & =\left(4\left(4\right)+C\right)-\left(4\left(0\right)+C\right)\nonumber \\
+ & =16\nonumber 
+\end{align}
+$$
+
+This is the same result as we found in equation \@ref(eq:simpel-area) . The constant $C$ is written out in both equations but since we get a positive and a negative $C$ both can be canceled. Let us now take the integral to the function $y=h\left(x\right)=x$:
+
+$$
+\begin{align}
+H\left(x\right) & =\int h\left(x\right)dx=\int\left[x\right]dx=\frac{x^{2}}{2}+C
+\end{align}
+$$
+
+ To calculate the area:
+
+$$
+\begin{equation}
+\int_{a}^{b}h\left(x\right)dx=H\left(b\right)-H\left(a\right)
+\end{equation}
+$$
+
+We now have $b=5$ and $a=0$:
+
+$$
+\begin{align}
+\int_{0}^{5}h\left(x\right)dx & =\int_{0}^{5}\left[x\right]dx\\
+ & =H\left(5\right)-H\left(0\right)\nonumber \\
+ & =\left(\frac{\left(5\right)^{2}}{2}+C\right)-\left(\frac{\left(0\right)^{2}}{2}+C\right)\nonumber \\
+ & =12.5\nonumber 
+\end{align}
+$$
+
+This is the same result as the answer we got above. As long as the integral lacks integration limits, that is an interval for x, this is called an indefinite integral. When we specify the interval for $x$, as in this case $\int_{0}^{5}$, this is called a definite integral.
+
+Let us now take the function:
+
+$$
+\begin{equation}
+y=g\left(x\right)=x^{2}
+ (\#eq:x-2-integral-ex)
+\end{equation}
+$$
+
+ Its integral is:
+
+$$
+\begin{align}
+G\left(x\right) & =\int\left(x^{2}\right)dx=\frac{x^{3}}{3}+C
+\end{align}
+$$
+
+```{r y-x2-area, echo=FALSE, out.width="71%", fig.cap="The function $y=f\\left(x\\right)=x^{2}$"}
+g_area_x2 <- ggplot(tibble(x=-4:7)) +
+  stat_function(fun=function(x) x^2, xlim=c(-4,7), color="#F8766D") +
+  geom_area(stat='function', fun=function(x) x^2,
+            xlim=c(-3,6)) +
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
+  annotate('text', x=6, y=40, hjust=1, size=4,
+           label=TeX("$y = g(x) = x^2$")) +
+  annotate('text', x=4.5, y=7, size=4,
+           label=TeX("Area, $y = x^2$,")) +
+  annotate('text', x=4.5, y=4, size=4,
+           label=TeX("$-3 \\leq x \\leq 6$")) +
+  scale_x_continuous(breaks=-4:7) +
+  geom_vline(xintercept=0, alpha=.3) +
+  geom_hline(yintercept=0, alpha=.3)
+g_area_x2
+```
+
+ We shall now calculate the area for $G\left(x\right)$ for the values $-3\leq x\leq6$:
+
+$$
+\begin{equation}
+G\left(x\right)=\int_{-3}^{6}g\left(x\right)dx
+\end{equation}
+$$
+
+Our integral has the boundary values $x=-3$ and $x=6$. Since the integral has a specified interval for $x$ this means that this is a definite integral:
+
+$$
+\begin{align}
+G\left(x\right) & =\int_{-3}^{6}g\left(x\right)dx=\left[G\left(x\right)\right]_{-3}^{6}=G\left(6\right)-G\left(-3\right)
+\end{align}
+$$
+
+ $G\left(6\right)$ and $G\left(-3\right)$ is the primitive functions for $x=6$ and $x=-3$:
+
+$$
+\begin{align}
+\int_{-3}^{6}g\left(x\right)dx & =G\left(6\right)-G\left(-3\right)\\
+ & =\left(\frac{1}{3}\left(6\right)^{3}+C\right)-\left(\frac{1}{3}\left(-3\right)^{3}+C\right)\nonumber \\
+ & =\frac{216}{3}+C-\frac{\left(-27\right)}{3}-C\nonumber \\
+ & =63\text{ a.u.}\nonumber 
+\end{align}
+$$
+
+In row 3 we set the function $G\left(x=6\right)$ as positive term and $G\left(x=-3\right)$ as negative term. Figure \@ref(fig:y-x2-area) illustrates the line to the function $y=x^{2}$ and the area between the horizontal x-axis and the function's line for $-3\leq x\leq6$.
+
+## The area under the x-axis
+
+So far we have only calculated the area for lines above the x-axis. But as we have seen in previous examples functions can also have negative y-values, whereupon the lines pass below the x-axis. The form for definite integrals that we used above is defined in such a way that it calculates the area between a line and the horizontal x-axis:
+
+$$
+\begin{equation}
+\int_{b}^{a}f\left(x\right)dx=F\left(b\right)-F\left(a\right)
+\end{equation}
+$$
+
+The area between the x-axis and a line above the x-axis becomes a positive value. The area between the x-axis and a line below the x-axis becomes a negative value. If we calculate the area based on a function that both passes above and below the x-axis we get the net area. For example:
+
+$$
+\begin{align*}
+\int_{0}^{5}\left[-2+x\right]dx & =F\left(5\right)-F\left(0\right)\\
+ & =\left(-2\left(5\right)+\frac{\left(5\right)^{2}}{2}\right)-\left(-2\left(0\right)+\frac{\left(0\right)^{2}}{2}\right)\\
+ & =\left(-10+12.5\right)\\
+ & =2.5
+\end{align*}
+$$
+
+The function and the two surfaces are illustrated in figure \@ref(fig:area-over-och-under-x) where the first area $\left(A_{1}\right)$ is the surface below the x-axis, which equals $-2$. The second area $\left(A_{2}\right)$ is the surface above the x-axis, which equals 4.5. The net result is thus the area for the part that is above $x$ minus the surface that is below $x$.
+
+```{r area-over-och-under-x, echo=FALSE, out.width="71%", fig.cap="Area above and under the $x$ -axis"}
+g_negative1 <- ggplot() +
+  geom_area(aes(x=0:5, y=-2:3)) +
+  geom_hline(yintercept=0, linetype='dashed') +
+  annotate('text', x=.5, y=-.5, size=4,
+           label=TeX("$A_1 = -\\frac{2^2}{2}$")) +
+  annotate('text', x=4, y=1, size=4,
+           label=TeX("$A_2 = \\frac{3^2}{2}$")) +
+  annotate('text', x=0, y=2, size=4, hjust=0,
+           label=TeX("Net: \\frac{3^2}{2} - \\frac{2^2}{2} = 2.5$ a.u.")) +
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
+  labs(x="x", y="y")
+g_negative1
+```
+
+Suppose we instead want to calculate all surface between the function's line and the x-axis, regardless of whether the line is above or below the x-axis, and sum this area to one value. In that case we divide the integral and put a minus sign for the part that is below the x-axis. We divide the integral at the value for $x$ where the line intersects the x-axis, which is where $y=f\left(x\right)=0$. We start by calculating the x-value we seek:
+
+$$
+\begin{align}
+-2+x & =0\\
+x^{*} & =2\nonumber 
+\end{align}
+$$
+
+Then we divide the integral into two parts and put a minus sign in front of the part that is below the x-axis:
+
+$$
+\begin{equation}
+\text{Total area:}-\int_{0}^{2}f\left(x\right)dx+\int_{2}^{5}f\left(x\right)dx
+\end{equation}
+$$
+
+Now we calculate the two integrals and sum: 
+
+$$
+\begin{align}
+-\int_{0}^{2}f\left(x\right)dx+\int_{2}^{5}f\left(x\right)dx & =-\left[-2x+\frac{x^{2}}{2}\right]_{0}^{2}+\left[-2x+\frac{x^{2}}{2}\right]_{2}^{5}\\
+ & =-\left[-4+2\right]+\left[\left(-10+12,5\right)-\left(-4+2\right)\right]\nonumber \\
+ & =6,5\nonumber 
+\end{align}
+$$
+
+ The total area between the line and the x-axis is 6.5 area units.
+
+## The area between two lines
+
+Integrals can also be used to calculate the area between two curves. Suppose we have the following two continuous functions $g\left(x\right)$ and $h\left(x\right)$:
+
+$$
+\begin{align}
+g\left(x\right)= & -x+x^{3}-x^{2}+10\\
+h\left(x\right)= & 2+2x-\frac{1}{2}x^{2}\nonumber 
+ (\#eq:g-och-x-arean-mellan-2-funk)
+\end{align}
+$$
+
+ Over an interval of x-values $\left[a,b\right]$ is $g\left(x\right)\geq h\left(x\right)$. The area $A$ is bounded for this interval upward by $g\left(x\right)$ and downward by $h\left(x\right)$ and can be calculated as:
+
+$$
+\begin{equation}
+A=\int_{a}^{b}\left[g\left(x\right)-h\left(x\right)\right]dx
+ (\#eq:arean-mellan-2-f)
+\end{equation}
+$$
+
+Lines and the area are illustrated in figure \@ref(fig:arean-mellan-tva-funktioner) . We shall now calculate the area between these for $0\leq x\leq3$ and therefore set up equation \@ref(eq:arean-mellan-2-f) with the functions from equation \@ref(eq:g-och-x-arean-mellan-2-funk) and calculate the integral: 
+
+$$
+\begin{align}
+\int_{0}^{3}g\left(x\right)-h\left(x\right)dx & =\int_{0}^{3}\left[-x+x^{3}-x^{2}+10-\left(2+2x-\frac{1}{2}x^{2}\right)\right]dx\\
+ & =\int_{0}^{3}\left[x^{3}-\frac{1}{2}x^{2}-3x+8\right]dx\nonumber \\
+ & =\left[\frac{x^{4}}{4}-\frac{x^{3}}{6}-\frac{3x^{2}}{2}+8x\right]_{0}^{3}\nonumber \\
+ & =\left(\frac{3^{4}}{4}-\frac{3^{3}}{6}-\frac{3\left(3\right)^{2}}{2}+8\left(3\right)\right)-\left(\frac{0^{4}}{4}-\frac{0^{3}}{6}-\frac{3*0^{2}}{2}+8*0\right)\nonumber \\
+ & =20.25+4.5-13.5+24\nonumber \\
+ & =44.25\text{ a.u.}\nonumber 
+\end{align}
+$$
+
+```{r arean-mellan-tva-funktioner, echo=FALSE, out.width="71%", fig.cap="The area between two functions"}
+g_area2func <- ggplot() +
+  stat_function(fun=function(x) -x + x^3 -x^2 +10, geom='ribbon',
+                aes(ymax=after_stat(-x + x^3 -x^2 +10),
+                    ymin=after_stat(2 + 2*x -.5*x^2)), color="#F8766D") +
+  scale_x_continuous(limits=c(0,3)) +
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
+  labs(x="x", y="y") +
+  annotate('text', x=1.5, y=7, size=4,
+           label=TeX("Area = $\\int^{3}_{0}  g(x) - h(x) dx$")) +
+  annotate('text', x=2.5, y=20, hjust=1, size=4,
+           label=TeX("$g(x) = - x + x^3 - x^2 + 10$")) +
+  annotate('text', x=2, y=2.5, size=4,
+           label=TeX("$h(x) = 2 + 2x - 0.5x^2$"))
+g_area2func
+```
+
+## Integration rules {#sec-rakneregler-for-integraler}
+
+Table \@ref(tab:rakneregler-integraler-1) describes integrals for some commonly occurring functions, several of which we have gone through above. The calculation rule in the fourth row that proceeds from function $f\left(x\right)=\frac{1}{x}$ describes how the derivative of $\log_{b}x=\frac{1}{x\ln b}$(section\@ref(sec-derivata-exponential-e-log) ). When the base $b=$ Euler's number $\left(e\right)$, the derivative of $\ln x=1/x$(see equation \@ref(eq:derivata-av-log-x) and \@ref(eq:derivata-av-ln-x) ). Now we shall use the latter to calculate the primitive function of $1/x$. The integral of $1/x$ equals the natural logarithm of the absolute value of $x$, plus the constant $C$: 
+
+$$
+\begin{equation}
+\int\frac{1}{x}dx=\ln\left|x\right|+C
+\end{equation}
+$$
+
+Table: Integrals for some common functions (\#tab:rakneregler-integraler-1)
+
+|  | **Function $f\left(x\right)$** | **Integral $\int f\left(x\right)dx$** |
+| --- | ---------------------------------- | ---------------------------------- |
+| 1 | $x^{a},\,a\neq-1$| $\frac{x^{a+1}}{a+1}+C$|
+| 2 | $x^{-2}=\frac{1}{x^{2}}$| $\frac{x^{-1}}{-1}+C$|
+| 3 | $\frac{1}{x}$| $\ln\left|x\right|+C$|
+| 4 | $\frac{1}{ax+b}$| $\frac{1}{a}\ln\left|ax+b\right|+C$|
+| 5 | $e^{x}$| $e^{x}+C$|
+| 6 | $e^{kx}$| $\frac{e^{kx}}{k}+C$|
+| 7 | $a^{x}$| $\frac{a^{x}}{\ln a}+C$|
+| 8 | $\ln x$| $x\ln x-x+C$|
+
+The reason for the absolute value is that $1/x$ holds for all real numbers except $x=0$, while $\ln x$ is only defined for $x>0$, see chapter \@ref(chap-logaritmer) . The fourth calculation rule describes the integral: 
+
+$$
+\begin{equation}
+\int\left(\frac{1}{ax+b}\right)dx=\frac{1}{a}\ln\left|ax+b\right|+C
+ (\#eq:integral-1-ax-b)
+\end{equation}
+$$
+
+ where $a$ and $b$ are constants. This we see from the chain rule for derivative of composite functions, which gives that $\left(f\circ g\right)'_{x}=g'\left(f'\circ g\right)$, see table \@ref(tab:deriveringsregler-for-2-funktioner) . Let us consider the natural logarithm as function $f$ and $ax+b$ as function $g$. Now we shall calculate the derivative of the following expression:
+
+$$
+\begin{equation}
+\frac{1}{a}\ln\left(ax+b\right)
+\end{equation}
+$$
+
+We rewrite this in the following way: 
+
+$$
+\begin{align}
+\left(\frac{1}{a}\ln\left(ax+b\right)\right)'_{x} & =\frac{1}{a}\left(f\circ g\right)'_{x}\\
+ & =\frac{1}{a}g'_{x}\left(f'_{x}\circ g\right)\nonumber \\
+ & =\frac{1}{a}\left(ax+b\right)'_{x}\left(\ln\left(ax+b\right)\right)'_{x}\nonumber \\
+ & =\frac{1}{a}\left(a\right)\left(\frac{1}{ax+b}\right)+0\nonumber \\
+ & =\frac{1}{ax+b}\nonumber 
+\end{align}
+$$
+
+Table: Integration rules (\#tab:rakneregler-integraler-2)
+
+|  | **Integral** | **Can also be written as** |
+| --- | ---------------------------------- | ---------------------------------- |
+| 1 | $\int af\left(x\right)dx$, where $a$ is a constant | $a\int f\left(x\right)dx$|
+| 2 | $\int\left(f+g\right)dx$| $\int f\left(x\right)dx+\int g\left(x\right)dx$|
+| 3 | $\int\left(f-g\right)dx$| $\int f\left(x\right)dx-\int g\left(x\right)dx$|
+
+Table \@ref(tab:rakneregler-integraler-2) describes some common rules for integrals. The first rule describes how we can factor out the constant a from the integral $\int f\left(x\right)dx$, since $a$ is not affected by the integration. We illustrate with the function:
+
+$$
+\begin{equation}
+f\left(x\right)=4x^{2}+16x
+\end{equation}
+$$
+
+The integral of $f$:
+
+$$
+\begin{equation}
+F\left(x\right)=\frac{4x^{3}}{3}+8x^{2}+C
+\end{equation}
+$$
+
+Now we rewrite $f$ so we get $4\left(x^{2}+4x\right)$ and call the content in the parentheses $g\left(x\right)$. If we take the integral of this we get:
+
+$$
+\begin{equation}
+G\left(x\right)=\frac{x^{3}}{3}+2x^{2}+C
+\end{equation}
+$$
+
+From here we see that $4G\left(x\right)=F\left(x\right)$, which is what the first calculation rule in table \@ref(tab:rakneregler-integraler-2) describes. The other two integration rules can also be illustrated with function $f\left(x\right)=4x^{2}+16x$. Suppose we divide this function into the two functions:
+
+$$
+\begin{equation}
+h\left(x\right)=4x^{2},\quad k\left(x\right)=16x
+\end{equation}
+$$
+
+ Their respective integrals are then:
+
+$$
+\begin{equation}
+H\left(x\right)=\frac{4x^{3}}{3}+C,\quad K\left(x\right)=8x^{2}+C
+\end{equation}
+$$
+
+From this we see that $H+K=F$. If we sum the two constants $C$ and $C$ in the functions $H$ and $K$ we get a new arbitrary constant, which has the same meaning for the integrals and is not affected by the integration. This is what the second calculation rule in table \@ref(tab:rakneregler-integraler-2) describes.
+
+The third calculation rule is a variant of the second calculation rule. In a similar way as above we check that the following holds::
+
+$$
+\begin{equation}
+\int\left(h-k\right)dx=\int\left(4x^{2}-16x\right)dx=\frac{4x^{3}}{3}-8x^{2}+C=H-K
+\end{equation}
+$$
+
+ which confirms the third rule. For definite integrals we may also describe some additional rules. Given that $f$ is a continuous function over an interval where the values $a,\,b,\,c$ are included the following holds for definite integrals:
+
+$$
+\begin{equation}
+\begin{aligned}
+\int_{a}^{b}f\left(x\right)dx & =-\int_{b}^{a}f\left(x\right)dx\\
+\int_{a}^{a}f\left(x\right)dx & =0\\
+\int_{a}^{c}f\left(x\right)dx & =\int_{a}^{b}f\left(x\right)dx+\int_{b}^{c}f\left(x\right)dx
+\end{aligned}
+(\#eq:integral-delad)
+\end{equation}
+$$
+
+The first of these rules says that if we take the integral over an interval from $a$ to $b$, it corresponds to the same value but negative if we take the integral from $b$ to $a$ instead. If we take the following function as an example:
+
+$$
+\begin{equation}
+y=f\left(x\right)=x^{3}+4
+\end{equation}
+$$
+
+ We calculate its integral:
+
+$$
+\begin{align}
+\int_{1}^{2}f\left(x\right)dx & =\left[\frac{x^{4}}{4}+4x\right]_{1}^{2}=\left(4+8\right)-\left(\frac{1}{4}+4\right)=7+\frac{3}{4}
+\end{align}
+$$
+
+This means that:
+
+$$
+\begin{align}
+-\int_{2}^{1}f\left(x\right)dx & =-\left[\frac{x^{4}}{4}+4x\right]_{2}^{1}\\
+ & =-\left(\left(\frac{1}{4}+4\right)-\left(4+8\right)\right)\nonumber \\
+ & =7+\frac{3}{4}\nonumber 
+\end{align}
+$$
+
+The second calculation rule means: 
+
+$$
+\begin{align}
+\int_{a}^{a}f\left(x\right)dx= & F\left(a\right)-F\left(a\right)=0
+\end{align}
+$$
+
+The third calculation rule means that if we have a continuous function where the values a,b,c are included within an interval the integral can be divided into two integrals and give the same result as if we had taken the integral over the entire interval directly. We will illustrate this with the following example where the integral to the left sums the variable $x$ over the interval $\left[1,3\right]$ and the two integrals in the right side sum $x$ the interval $\left[1,2\right]$ as well as the interval $\left[2,3\right]$: 
+
+$$
+\begin{align}
+\int_{1}^{3}x^{2}dx= & \int_{1}^{2}x^{2}dx+\int_{2}^{3}x^{2}dx\\
+\left[\frac{x^{3}}{3}\right]_{1}^{3}= & \left[\frac{x^{3}}{3}\right]_{1}^{2}+\left[\frac{x^{3}}{3}\right]_{2}^{3}\nonumber \\
+9-\frac{1}{3}= & \left(\frac{8}{3}-\frac{1}{3}\right)+\left(9-\frac{8}{3}\right)\nonumber \\
+8+\frac{2}{3}= & 8+\frac{2}{3}\nonumber 
+\end{align}
+$$
+
+ Both sides give the same final result.
+
+## More examples
+
+We shall now calculate the primitive function for the following function:
+
+$$
+\begin{equation}
+f\left(x\right)=x+12
+\end{equation}
+$$
+
+ The primitive function for $f$ is:
+
+$$
+\begin{align}
+F\left(x\right) & =\int\left(x+12\right)dx\\
+ & =\frac{1}{2}x^{1+1}+12*x+C\nonumber \\
+ & =\frac{x^{2}}{2}+12x+C\nonumber 
+\end{align}
+$$
+
+If we instead have the following function: 
+
+$$
+\begin{equation}
+f\left(x\right)=4x^{2}+3y
+\end{equation}
+$$
+
+ the primitive function fort his is:
+
+$$
+F\left(x\right)=\frac{4x^{3}}{3}+3yx+C
+$$
+
+Extensive equations can at first glance look more complicated than they actually are. For example the function: 
+
+$$
+\begin{equation}
+f\left(x\right)=a+2bx+3c+4x^{5}
+\end{equation}
+$$
+
+ With the help of similar methods as in previous examples we see that the primitive function for this function $f$ is:
+
+$$
+\begin{align}
+F\left(x\right) & =ax+bx^{2}+3cx+\frac{4x^{6}}{6}+C\\
+ & =\frac{2}{3}x^{6}+bx^{2}+\left(a+3c\right)x+C\nonumber 
+\end{align}
+$$
+
+In the second row we rearrange a little and put the term with the highest exponent of x first in the expression. Sometimes we also benefit from rewriting the equation before we calculate the integral. For example:
+
+$$
+\begin{equation}
+g\left(k\right)=k^{5}ak^{^{-2}}
+\end{equation}
+$$
+
+ This function $g$ can be written: 
+
+$$
+\begin{equation}
+g\left(k\right)=ak^{3}
+\end{equation}
+$$
+
+ The primitive function for function $g$ is: 
+
+$$
+\begin{equation}
+G\left(k\right)=\frac{ak^{4}}{4}+C
+\end{equation}
+$$
+
+Let us now take the following function $k\left(T\right)$:
+
+$$
+\begin{equation}
+k\left(T\right)=T^{-1}+36T-\frac{1}{T^{2}}
+\end{equation}
+$$
+
+ The primitive function for this function $k$ is: 
+
+$$
+K\left(T\right)=\ln T+18T^{2}+T^{-1}+C
+$$
+
+## Multiple integral {#sec-multipelintegral}
+
+If we have several variables in the same function, for example $f\left(x,y\right)$ or $g\left(x,y,z\right)$, we can use a multiple integral. Consider now the following function:
+
+$$
+\begin{equation}
+z=f\left(x,y\right)=x^{2}+y
+\end{equation}
+$$
+
+ The variable $z$ is a function of the variables $x$ and $y$, where $\left(x,y\right)\in\mathbb{R}^{2}$. Now we shall calculate an integral with respect to both $x$ and then $y$, over the interval 0 to 1 for both variables:
+
+$$
+\begin{equation}
+\int_{0}^{1}\int_{0}^{1}\left(x^{2}+y\right)dxdy
+\end{equation}
+$$
+
+To calculate this integral we solve one integral at a time, in the same way as when we calculated integrals above. We start by taking the integral with respect to $x$ and calculate the area between 0 and 1:
+
+$$
+\begin{align}
+\int_{0}^{1}\int_{0}^{1}\left(x^{2}+y\right)dxdy & =\int_{0}^{1}\left[\frac{x^{3}}{3}+xy\right]_{0}^{1}dy=\int_{0}^{1}\left(\frac{1}{3}+y\right)dy
+\end{align}
+$$
+
+ Then we take the integral with respect to y and calculate this:
+
+$$
+\begin{align}
+\int_{0}^{1}\left(\frac{1}{3}+y\right)dy & =\left[\frac{y}{3}+\frac{y^{2}}{2}\right]_{0}^{1}=\frac{5}{6}
+\end{align}
+$$
+
+ The result is $\frac{5}{6}$ volume units.
+
+When we calculated the integral for a function with one variable we calculated among other things the area for the surface under a line in a graph. Since we now calculate the area under a two-dimensional surface $\left(x,y\right)$-plane, the result becomes a three-dimensional volume. In this example we have the dimensions $z$, $x$ and $y$. When we have two variables this is called a double integral or surface integral. Integration over three variables is called triple integral and can be calculated in a corresponding way.
+
+## Partial integration {#sec-partiell-integration}
+
+Partial integration, or integration by parts, is a method for finding the solution to integrals that are the product of two or more functions. The need for this method arises when the integral of a product is not equal to the product of the factors' integrals. Suppose we have the function:
+
+$$
+\begin{equation}
+y=h\left(x\right)=x^{2}a^{2x}
+\end{equation}
+$$
+
+ where $x$ is the included variable and $a$ is a constant. The function $h\left(x\right)$ consists of the two factors $x^{2}$ and $a^{2x}$, which we describe as separate functions, $f$ and $g$ respectively:
+
+$$
+\begin{align}
+h\left(x\right) & =x^{2}a^{2x}=f\left(x\right)g\left(x\right)
+\end{align}
+$$
+
+If we take the integral for the functions $f$ and $g$ we get the primitive functions $F$ and $G$:
+
+$$
+\begin{align}
+F=\int x^{2}dx=\frac{x^{3}}{3}, & \qquad G=\int a^{2x}dx=\frac{a^{2x}}{2\ln a}
+\end{align}
+$$
+
+The derivative of $F$ and $G$ respectively with respect to $x$ results in the functions $f$ and $g$. But the derivative of the product of $F\times G$ does not result in the product of $f\times g=x^{2}a^{2x}$. The derivative of $\left(F\times G\right)$ with respect to $x$ becomes instead:
+
+$$
+\begin{align}
+\left[F\left(x\right)\times G\left(x\right)\right]'_{x} & =\frac{\partial}{\partial x}\left[\frac{x^{3}}{3}*\frac{a^{2x}}{2}\right]=\frac{a^{2x}\ln\left(a\right)*x^{3}}{3}+\frac{a^{2x}x^{2}}{2}
+\end{align}
+$$
+
+ where we use the differentiation rules from section \@ref(sec-rakneregler-derivata) . To calculate the integral of $h\left(x\right)$ we must instead use partial integration. The general form for this, given that we divide function $h\left(x\right)$ into the two functions $f\left(x\right)$ and $g\left(x\right)$, looks as follows:
+
+$$
+\begin{equation}
+\textbf{Partial integration:}\int fg'dx=fg-\int f'gdx
+ (\#eq:partiell-integration)
+\end{equation}
+$$
+
+ where $f'=f'_{x}\left(x\right)$ and $g'=g'_{x}\left(x\right)$. To use this method we seek to begin with an expression that can be formulated as the left side in this equation, $\int f\left(x\right)g'_{x}\left(x\right)dx$.
+
+We now choose which of the two expressions $x^{2}$ and $a^{2x}$ from function $h$ we should define as $f$ and $g'_{x}$ respectively. This choice in turn affects how the rest of the calculation. Suppose we define $f=x^{2}$ and $g'=a^{2x}$. We call the primitive function we seek $H$:
+
+$$
+\begin{align}
+H=\int fg'dx & =fg-\int f'gdx=x^{2}\frac{a^{2x}}{2\ln a}-\int2x\frac{a^{2x}}{2\ln a}dx
+\end{align}
+$$
+
+ where $f'=2x$ and $g=\frac{a^{2x}}{2\ln a}$. The second term consists of a new integral of a product. In this term we can cancel the number 2 in the numerator and denominator and factor out the denominator, since this does not contain the variable $x$ and therefore is not affected by the integration:
+
+$$
+\begin{equation}
+\int2x\frac{a^{2x}}{2\ln a}dx=\frac{1}{\ln a}\int xa^{2x}dx
+\end{equation}
+$$
+
+To solve this integral we again use partial integration based on equation \@ref(eq:partiell-integration) : $\int fg'dx=fg-\int f'gdx$. We now choose to define $f=x$ and $g'=a^{2x}$, which gives $f'=1$ and $g=\frac{a^{2x}}{2\ln a}$. The primitive function $H$ now becomes:
+
+$$
+\begin{align}
+H & =\int fg'dx\\
+ & =x^{2}\frac{a^{2x}}{2\ln a}-\frac{1}{\ln a}\left(x\frac{a^{2x}}{2\ln a}-\int\frac{a^{2x}}{2\ln a}dx\right)\nonumber \\
+ & =x^{2}\frac{a^{2x}}{2\ln a}-\frac{1}{2\left(\ln a\right)^{2}}\left(xa^{2x}-\int a^{2x}dx\right)\nonumber 
+\end{align}
+$$
+
+At the far right in the equation we again get a new integral. But this time it is only the expression $a^{2x}$ that should be integrated. This we can solve without partial integration:
+
+$$
+\begin{align}
+H & =\int fg'dx\\
+ & =x^{2}\frac{a^{2x}}{2\ln a}-\frac{1}{2\left(\ln a\right)^{2}}\left(xa^{2x}-\int a^{2x}dx\right)\nonumber \\
+ & =x^{2}\frac{a^{2x}}{2\ln a}-\frac{1}{2\left(\ln a\right)^{2}}\left(xa^{2x}-\frac{a^{2x}}{2\ln a}\right)\nonumber \\
+ & =\frac{x^{2}a^{2x}}{2\ln a}-\frac{xa^{2x}}{2\left(\ln a\right)^{2}}+\frac{a^{2x}}{4\left(\ln a\right)^{3}}+C\nonumber \\
+ & =\frac{2\left(\ln a\right)^{2}x^{2}a^{2x}-2\ln\left(a\right)xa^{2x}+a^{2x}}{4\left(\ln a\right)^{3}}+C\nonumber \\
+ & =\frac{a^{2x}\left(2\ln\left(a\right)x\left(\ln\left(a\right)x-1\right)+1\right)}{4\left(\ln a\right)^{3}}+C\nonumber 
+\end{align}
+$$
+
+We are finished and we have now found the primitive function $H$ to the function $h\left(x\right)=x^{2}a^{2x}$. If we take the first derivative of function $H\left(x\right)$ with respect to $x$ it certainly requires a somewhat cumbersome calculation but the result becomes again function $h\left(x\right)$. Let us take another example. We now seek the integral to the following function:
+
+$$
+\begin{equation}
+v\left(x\right)=x^{2}e^{2x}
+ (\#eq:integral-ex-2-v-x)
+\end{equation}
+$$
+
+This also requires partial integration. We define $f=x^{2}$ and $g'=e^{2x}$, which gives $f'=2x$ and $e^{2x}/2$:
+
+$$
+\begin{align}
+\int v\left(x\right)dx & =fg-\int f'gdx\\
+ & =x^{2}\frac{e^{2x}}{2}-\int2x\frac{e^{2x}}{2}dx\nonumber \\
+ & =\frac{x^{2}e^{2x}}{2}-\int xe^{2x}dx\nonumber 
+\end{align}
+$$
+
+We define $f=x$ and $g'=e^{2x}$ and therefore have that $f'=1$ and $g=e^{2x}/2$. This gives the following integral, which we call $V\left(x\right)$:
+
+$$
+\begin{align}
+V\left(x\right) & =\int fg'dx\\
+ & =\frac{x^{2}e^{2x}}{2}-\int xe^{2x}dx\nonumber \\
+ & =\frac{x^{2}e^{2x}}{2}-\left(\frac{xe^{2x}}{2}-\int\frac{e^{2x}}{2}dx\right)\nonumber \\
+ & =\frac{x^{2}e^{2x}}{2}-\frac{1}{2}\left(xe^{2x}-\int e^{2x}dx\right)\nonumber \\
+ & =\frac{x^{2}e^{2x}}{2}-\frac{1}{2}\left(xe^{2x}-\frac{e^{2x}}{2}\right)\nonumber \\
+ & =\frac{e^{2x}\left(2x^{2}-2x+1\right)}{4}+C\nonumber 
+\end{align}
+$$
+
+Thus we have found a primitive function to function $v\left(x\right)$ in equation \@ref(eq:integral-ex-2-v-x) .
+
+Let us try to solve the same function again but this time define the temporary functions f and g the opposite way compared to what we just did. We thus have the same function: $v\left(x\right)=x^{2}e^{2x}$ but this time we set $f=e^{2x}$ and $g'=x^{2}$, which gives $f'=2e^{2x}$ and $g=x^{3}/3$. Partial integration gives:
+
+$$
+\begin{align}
+\int v\left(x\right)dx & =fg-\int f'gdx\\
+ & =e^{2x}\frac{x^{3}}{3}-\int2e^{2x}\frac{x^{3}}{3}dx\nonumber \\
+ & =e^{2x}\frac{x^{3}}{3}-\frac{2}{3}\left(\int e^{2x}x^{3}dx\right)\nonumber 
+\end{align}
+$$
+
+We now define $f=e^{2x}$ and $g'=x^{3}$. This gives $f'=2e^{2x}$ and $g=x^{4}/4$:
+
+$$
+\begin{align}
+\int v\left(x\right)dx & =e^{2x}\frac{x^{3}}{3}-\frac{2}{3}\left(\int e^{2x}x^{3}dx\right)\\
+ & =e^{2x}\frac{x^{3}}{3}-\frac{2}{3}\left(e^{2x}\frac{x^{4}}{4}-\int2e^{2x}\frac{x^{4}}{4}dx\right)\nonumber 
+\end{align}
+$$
+
+Now unfortunately a pattern begins to emerge. We continue to solve integrals but the new integrals become rather more complicated than the previous ones, which counteracts the purpose. This illustrates that we can benefit greatly from setting up our problem in as manageable a way as possible.
+
+## Income distribution with integrals
+
+Here follows an example of how we may use integrals for social science theory. In part IV we shall also introduce how we may use integrals when we calculate probability.
+
+Say that a society consists of four people and each one has the same income, 1,000 USD, so that the total incomes in the society are 4,000 USD. Table \@ref(tab:en-jamn-inkomstfordelning) describes the population and its incomes. In the two columns furthest to the right in the table the cumulative amount of people and the incomes are summed as percentage shares of the total.
+
+Table: Four persons with the same income (\#tab:en-jamn-inkomstfordelning)
+
+| Person | Income for this person | Cumulative income for all | Cumulative share of persons | Cumulative share of all income |
+| --- | --- | --- | --- | --- |
+| 1 | 1,000 | 1,000 | 25 % | 25 % |
+| 2 | 1,000 | 2,000 | 50 % | 50 % |
+| 3 | 1,000 | 3,000 | 75 % | 75 % |
+| 4 | 1,000 | 4,000 | 100 % | 100 % |
+
+Let's say that person no. 4 instead of 1,000 USD has 2,000 USD in income. The total incomes in the society become 5,000. Person no. 4 will have $2,000/5,000=40\%$ of society's total income. Person 1, 2 and 3 will now have one fifth, 20%, of total income each. This group of people and their incomes is described in table \@ref(tab:fyra-personer-dar) .
+
+Table: Four persons where one person has twice as high income as the others (\#tab:fyra-personer-dar)
+
+| Person | Income for each person | Cumulative income for all | Cumulative share of people | Cumulative share of all income |
+| --- | --- | --- | --- | --- |
+| 1 | 1,000 | 1,000 | 25 % | 20 % |
+| 2 | 1,000 | 2,000 | 50 % | 40 % |
+| 3 | 1,000 | 3,000 | 75 % | 60 % |
+| 4 | 2,000 | 5,000 | 100 % | 100 % |
+
+Figure \@ref(fig:lorenz-ex-1) illustrates both distributions. The diagonal line, 45 degrees, represents the distribution where all the people have the same income. 75% of the people, person 1 to 3, have 75% of the incomes. The lower line represents the distribution where person no. 4 has twice as high income as the others. 75% of the people now have 60% of the incomes. This type of distribution curves are called Lorenz curves .
+
+```{r lorenz-ex-1, echo=FALSE, out.width="71%", fig.cap="Example with a Lorenz curve"}
+lorenz_data13 <- tibble(pers=0:4,
+                        x=pers / 4,
+                        inc1=c(0,1,1,1,1),
+                        inc2=c(0,1,1,1,2),
+                        y1=cumsum(inc1) / sum(inc1),
+                        y2=cumsum(inc2) / sum(inc2))
+g_lorenz1 <- lorenz_data13 %>%
+  ggplot() +
+  stat_function(fun=function(x) x, color="#F8766D") +
+  geom_point(aes(x=x, y=y1)) +
+  geom_line(aes(x=x, y=y2), color="#00BFC4") + geom_point(aes(x=x, y=y2)) +
+  scale_y_continuous(breaks=seq(0,1,.2), limits=c(0,1), labels=scales::label_percent(suffix=" %")) +
+  scale_x_continuous(breaks=seq(0,1,.25), limits=c(0,1.05), labels=scales::label_percent(suffix=" %")) +
+  labs(x="Share of population", y="Share of total income") +
+  annotate('text', x=.25, y=.4, angle=45, size=4,
+           label="If all has\nthe same income") +
+  annotate('text', x=.4, y=.2, angle=35, size=4,
+           label="If person 4 have\ntwice the income") +
+  geom_segment(aes(x=0, xend=.75, y=.75, yend=.75), linetype='dashed') +
+  annotate('text', x=0, y=.8, hjust=0, size=4,
+           label="75% of total income goes to...") +
+  geom_segment(aes(x=0, xend=.75, y=.6, yend=.6), linetype='dashed') +
+  annotate('text', x=0, y=.65, hjust=0, size=4,
+           label="60% of total income goes to...") +
+  geom_segment(aes(x=.75, xend=.75, y=0, yend=.75), linetype='dashed') +
+  annotate('text', x=.7, y=.2, angle=90, size=4,
+           label="75% of the population have...") +
+  coord_fixed() +
+  theme(text=element_text(size=11))
+g_lorenz1
+```
+
+Now we instead want to use mathematical functions to describe the income distribution. This may be useful if we want to reason theoretically. Let the following function describe what percentage share of the society's incomes, $y$, goes to a percentage share of the population, x:
+
+$$
+\begin{equation}
+y=L\left(x\right)=x^{a},\,a\geq1
+\end{equation}
+$$
+
+ where $a$ is a constant coefficient. If $a=1$ the function becomes $y=x$ and the inhabitants have the same income. The percentage cumulative amount of the population increases at the same pace as the incomes. Say now that we have a society where the income distribution can instead be described with the function:
+
+$$
+\begin{equation}
+y_{1}=L_{1}\left(x\right)=x^{3}\text{ (Distribution 1)}
+\end{equation}
+$$
+
+Now something happens that causes the income distribution to change. It could for example be some form of technological change, a change in demography between one generation and the next or that the government changes taxes and transfers. Regardless of the reason the new income distribution can instead be described with the function:
+
+$$
+\begin{equation}
+y_{2}=x^{2}\text{ (Distribution 2)}
+\end{equation}
+$$
+
+ Now we shall find out how much the total income distribution has changed. This we can calculate with the help of the so-called Gini coefficient, named after the Italian statistician and sociologist Corrado Gini. The Gini coefficient indicates what share of the incomes must be redistributed for everyone to have the same income.
+
+Say for example that we have two people where one person has 0 in income and the other has 100 USD in income. In that case 50% of the incomes must be redistributed if both people shall have the same income, 50 USD. If $B$ is the area under the Lorenz curve and $A$ is the area between the Lorenz curve and the diagonal line we calculate the Gini coefficient, $G$ in the following way:
+
+$$
+\begin{equation}
+G=\frac{A}{A+B}
+\end{equation}
+$$
+
+Since we by definition know that $A+B=1/2$: 
+
+$$
+\begin{equation}
+G=\frac{A}{A+B}=\frac{A}{\frac{1}{2}}=2A
+\end{equation}
+$$
+
+From this we also see that:
+
+$$
+\begin{align}
+A+B & =\frac{1}{2}\\
+2A & =1-2B=G\nonumber 
+ (\#eq:gini-1-2b)
+\end{align}
+$$
+
+```{r ginikoefficienten, echo=FALSE, out.width="71%", fig.cap="The Gini coefficient"}
+g_gini1 <- ggplot() +
+  stat_function(fun=function(x) x, geom='area', color="#F8766D") +
+  stat_function(fun=function(x) x^3, geom='area', color="#00BFC4") +
+  annotate('text', x=.8, y=.2, label="B", size=3) +
+  annotate('text', x=.45, y=.3, label="A", size=3) +
+  scale_y_continuous(breaks=seq(0,1,.25), limits=c(0,1), labels=scales::label_percent(suffix=" %")) +
+  scale_x_continuous(breaks=seq(0,1,.25), limits=c(0,1), labels=scales::label_percent(suffix=" %")) +
+  annotate('text', x=.1, y=.8, hjust=0, size=4,
+           label="The Gini coefficient is calculated as\nG = A / (A + B) = 1 - 2B = 2A") +
+  annotate('text', x=.25, y=.4, angle=45, size=4, hjust=0,
+           label="If everybody have\nthe same income") +
+  annotate('text', x=.7, y=.5, angle=59, size=4,
+           label="A Lorenz curve") +
+  coord_fixed() +
+  labs(x="Share of population", y="Share of total income") +
+  theme(text=element_text(size=11))
+g_gini1
+```
+
+This is illustrated in figure \@ref(fig:ginikoefficienten) generally with some lines as examples. The vertical axis shows cumulative percentage share of the population and the horizontal axis shows cumulative percentage share of all incomes in the society. The Lorenz curve describes an example of a distribution where some inhabitants have more income than others. The entire area under the diagonal line down to the horizontal axis constitutes half of the total area in the graph. This is easy to see since the line divides the graph in the middle from the lower left corner to the upper right. We can also calculate the same thing with the help of the integral. Let us take the function for the diagonal line:
+
+$$
+\begin{equation}
+y=x
+\end{equation}
+$$
+
+ The integral from $0$ to $1$: 
+
+$$
+\begin{equation}
+\int_{0}^{1}xdx=\frac{1^{2}}{2}=\frac{1}{2}
+\end{equation}
+$$
+
+```{r gini-i-teorin, echo=FALSE, out.width="71%", fig.cap="Two measures of income distribution"}
+g_ginitheory <- ggplot() +
+  stat_function(fun=function(x) x, color="#F8766D") +
+  stat_function(fun=function(x) x^2, geom='area', linetype='dashed', color="#00BFC4") +
+  stat_function(fun=function(x) x^3, geom='area', color="#7CAE00") +
+  coord_fixed() +
+  annotate('label', x=.47, y=.26, size=4,
+           label=TeX("Distribution 2: $y = x^2$")) +
+  annotate('label', x=.58, y=.1, size=4,
+           label=TeX("Distribution 1: $y = x^3$")) +
+  annotate('text', x=.25, y=.4, angle=45, size=4, hjust=0,
+           label="If everybody has\nthe same income") +
+  scale_y_continuous(breaks=seq(0,1,.25), limits=c(0,1), labels=scales::label_percent(suffix=" %")) +
+  scale_x_continuous(breaks=seq(0,1,.25), limits=c(0,1), labels=scales::label_percent(suffix=" %")) +
+  labs(x="Share of population", y="Share of total income") +
+  theme(text=element_text(size=11))
+g_ginitheory
+```
+
+The Gini coefficient for the income distribution before tax can be calculated as $G=1-2B$, where $B$ is the area under a Lorenz curve. In this case we have two Lorenz curves, which describe two examples of distributions: $y=x^{3}$(Gini before) and $y=x^{2}$(Gini after) respectively. To see how the income distribution has changed we calculate the area under each curve and compare. Gini before:
+
+$$
+\begin{align}
+G_{1} & =1-2\int_{0}^{1}x^{3}dx=1-2\left(\frac{1}{4}\right)=\frac{1}{2}=50\%
+\end{align}
+$$
+
+Gini after:
+
+$$
+\begin{equation}
+G_{2}=1-2\int_{0}^{1}x^{2}dx=1-2\left(\frac{1}{3}\right)=\frac{1}{3}=33,3\%
+\end{equation}
+$$
+
+ The income spread has according to this measure decreased from 50% to 33.3%. The difference is illustrated in figure \@ref(fig:gini-i-teorin) where the dashed line shows income distribution no. 2. The diagonal line shows, as before, how the income distribution would have looked if everyone had had the same income.
+
+## Chapter summary
+
+- Integration can be described as "anti-derivative". This gives us the integral for a function. Example: the function $f\left(x\right)=x^{2}$ has the integral $F\left(x\right)=x^{3}/3+C$. Function $F$ is the integral and is also called the primitive function. Function $f$ is the integrand. In these functions $x$ is a variable and $C$ an arbitrary constant. Since $C$ can be any number, $f$ has an infinite number of primitive functions.
+
+- Primitive functions can also be calculated based on conditions. Example: we have the function $f\left(x\right)=x^{2}$ and seek the primitive function so that the condition $F\left(0\right)=2$ is fulfilled. This gives the integral $F\left(x\right)=x^{3}/3+C$ where $C=2$.
+
+- Integrals can among other things be used to calculate the area under a curve down to the x-axis. Example: to calculate the area between the line for $y=x^{2}$ for all $x\in\left[0,4\right]$ we take $\int_{0}^{4}f\left(x\right)dx=F\left(4\right)-F\left(0\right)=\left(4^{3}/3+C\right)-\left(0^{3}/3+C\right)=21+1/3$ area units. To calculate the area below and above the x-axis we divide the integral into two parts, one for the region above and one for the region below the x-axis.
+
+- The area between two curves is given by $\int_{a}^{b}\left[g\left(x\right)-h\left(x\right)\right]dx$, where $g\left(x\right)\geq h\left(x\right)$ over an interval of x-values and the area is bounded upward by $g\left(x\right)$ and downward by $h\left(x\right)$.
+
+- Examples of integration rules: The function $f\left(x\right)=x^{a}$ where $a$ is a constant coefficient, gives integral $F\left(x\right)=x^{a+1}/\left(a+1\right)+C$. The function $f\left(x\right)=e^{kx}$ where $k$ is a constant coefficient and $e$ is Euler's number, gives $F\left(x\right)=e^{kx}/k+C$. The function $f\left(x\right)=a^{x}$ gives $F\left(x\right)=a^{x}/\ln a+C$. The function $f\left(x\right)=\ln x$ gives $F\left(x\right)=x\ln x-x+C$.
+
+- Within social science integrals can among other things be used to discuss theoretical distributions of variables, for example distribution of incomes in a population.
+
+
+## Exercises
+
+<div id="ex-8" class="exercises-container"></div>
+<script>
+(function(){
+var ex=[
+  {q:'<p>Find the primitive function for \\(h(x)=2x^{3}+4x\\) .</p><ol type="a"><li>Find \\(H(x)=\\int h(x)dx\\) .</li><li>Verify the result by differentiating \\(H(x)\\) .</li><li>Find the specific primitive function \\(H(x)\\) such that \\(H(0)=3\\) .</li></ol>',a:'<p>(a) \\(H(x)=\\frac{x^{4}}{2}+2x^{2}+C\\) (b) \\(H\'(x)=2x^{3}+4x=h(x)\\) (c) \\(H(0)=C=3\\)</p>'},
+  {q:'<p>Find primitive functions for the following exponential expressions.</p><ol type="a"><li>\\(\\int e^{3x}dx\\)</li><li>\\(\\int2^{x}dx\\)</li><li>\\(\\int\\left(e^{3x}+2^{x}\\right)dx\\)</li></ol>',a:'<p>(a) \\(\\frac{e^{3x}}{3}+C\\) (b) \\(\\frac{2^{x}}{\\ln2}+C\\) (c) \\(\\frac{e^{3x}}{3}+\\frac{2^{x}}{\\ln2}+C\\)</p>'},
+  {q:'<p>Calculate the definite integral \\(\\int_{0}^{3}x^{2}dx\\) .</p><ol type="a"><li>Find the primitive function \\(G(x)=\\int x^{2}dx\\) .</li><li>Calculate \\(G(3)-G(0)\\) .</li><li>What does the result represent geometrically?</li></ol>',a:'<p>(a) \\(G(x)=\\frac{x^{3}}{3}+C\\) (b) \\(G(3)-G(0)=\\frac{27}{3}-0=9\\) (c) The area under the curve \\(y=x^{2}\\)</p>'},
+  {q:'<p>Consider the function \\(f(x)=x-2\\) for \\(0\\leq x\\leq5\\) .</p><ol type="a"><li>Find the value \\(x^{*}\\) where \\(f(x)=0\\) .</li><li>Calculate the net integral \\(\\int_{0}^{5}(x-2)dx\\) .</li><li>Calculate the total area between the curve and the x-axis (treating the area below the x-axis as positive).</li></ol>',a:'<p>(a) \\(x^{*}=2\\) (b) \\(\\int_{0}^{5}(x-2)dx=\\left[\\frac{x^{2}}{2}-2x\\right]_{0}^{5}=2.5\\) (c) \\(-\\int_{0}^{2}(x-2)dx+\\int_{2}^{5}(x-2)dx=2+4.5=6.5\\)</p>'},
+  {q:'<p>Consider the functions \\(g(x)=x+3\\) and \\(h(x)=x^{2}+1\\) on the interval \\([0,2]\\) .</p><ol type="a"><li>Verify that \\(g(x)\\geq h(x)\\) on \\([0,2]\\) by evaluating at \\(x=0\\) and \\(x=1\\) .</li><li>Set up the integral for the area between the two curves.</li><li>Calculate the area.</li></ol>',a:'<p>(a) \\(g(0)=3>h(0)=1\\) (b) \\(A=\\int_{0}^{2}(-x^{2}+x+2)dx\\) (c) \\(\\left[-\\frac{x^{3}}{3}+\\frac{x^{2}}{2}+2x\\right]_{0}^{2}=\\frac{10}{3}\\approx3.33\\)</p>'},
+  {q:'<p>Consider the function \\(s(x)=3/x+1\\) .</p><ol type="a"><li>Find the primitive function \\(S(x)\\) .</li><li>Find the specific primitive function \\(S(x)\\) such that \\(S(1)=5\\) .</li><li>Calculate \\(\\int_{1}^{e}s(x)dx\\) .</li></ol>',a:'<p>(a) \\(S(x)=3\\ln|x|+x+C\\) (b) \\(S(1)=0+1+C=5\\Rightarrow C=4\\) (c) \\(S(e)-S(1)=(3+e+C)-(1+C)=2+e\\approx4.72\\)</p>'},
+  {q:'<p>Find the primitive function \\(H(x)=\\int(6x^{2}-4x+1)dx\\) .</p><ol type="a"><li>Find \\(H(x)\\) .</li><li>Find the specific primitive function such that \\(H(0)=2\\) .</li><li>Calculate the definite integral \\(\\int_{0}^{2}(6x^{2}-4x+1)dx\\) .</li></ol>',a:'<p>(a) \\(H(x)=2x^{3}-2x^{2}+x+C\\) (b) \\(H(0)=C=2\\) (c) \\(\\left[2x^{3}-2x^{2}+x\\right]_{0}^{2}=16-8+2=10\\)</p>'},
+  {q:'<p>A firm\'s marginal cost is \\(MC(q)=3q^{2}-4q+5\\) and fixed cost is \\(FC=20\\) .</p><ol type="a"><li>Find the total cost function \\(TC(q)\\) by integrating \\(MC(q)\\) and adding \\(FC\\) .</li><li>Calculate \\(TC(4)\\) .</li><li>Calculate the total variable cost when output increases from \\(q=1\\) to \\(q=3\\) .</li></ol>',a:'<p>(a) \\(TC(q)=q^{3}-2q^{2}+5q+20\\) (b) \\(TC(4)=64-32+20+20=72\\) (c) \\(\\left[q^{3}-2q^{2}+5q\\right]_{1}^{3}=24-4=20\\)</p>'},
+  {q:'<p>The demand function for a good is \\(p(q)=18-3q\\) and the market price is \\(p^{*}=6\\) .</p><ol type="a"><li>Find the equilibrium quantity \\(q^{*}\\) where \\(p(q^{*})=p^{*}\\) .</li><li>Set up the integral for the consumer surplus \\(CS=\\int_{0}^{q^{*}}\\left(p(q)-p^{*}\\right)dq\\) .</li><li>Calculate \\(CS\\) .</li></ol>',a:'<p>(a) \\(18-3q^{*}=6\\Rightarrow q^{*}=4\\) (b) \\(CS=\\int_{0}^{4}(12-3q)dq\\) (c) \\(\\left[12q-\\frac{3q^{2}}{2}\\right]_{0}^{4}=48-24=24\\)</p>'},
+  {q:'<p>Consider the function \\(k(x)=2e^{x}+\\frac{3}{x}\\) for \\(x>0\\) .</p><ol type="a"><li>Find the primitive function \\(K(x)=\\int k(x)dx\\) .</li><li>Find the specific primitive function such that \\(K(1)=4\\) .</li><li>Calculate \\(\\int_{1}^{2}k(x)dx\\) .</li></ol>',a:'<p>(a) \\(K(x)=2e^{x}+3\\ln x+C\\) (b) \\(K(1)=2e+C=4\\Rightarrow C=4-2e\\) (c) \\(\\left[2e^{x}+3\\ln x\\right]_{1}^{2}=2e^{2}+3\\ln2-2e\\approx11.4\\)</p>'},
+  {q:'<p>Consider \\(f(x)=x^{2}-2x\\) on the interval \\([0,3]\\) .</p><ol type="a"><li>Find the values where \\(f(x)=0\\) .</li><li>Calculate the net integral \\(\\int_{0}^{3}(x^{2}-2x)dx\\) .</li><li>Calculate the total area between \\(f(x)\\) and the \\(x\\) -axis (treating all area as positive).</li></ol>',a:'<p>(a) \\(x=0\\) (b) \\(\\left[\\frac{x^{3}}{3}-x^{2}\\right]_{0}^{3}=9-9=0\\) (c) \\(\\int_{0}^{2}(2x-x^{2})dx=\\frac{4}{3}\\)</p>'},
+  {q:'<p>The Lorenz curve \\(L(x)=x^{3}\\) describes the income distribution in a population, where \\(x\\in[0,1]\\) is the cumulative population share and \\(L(x)\\) is the corresponding income share.</p><ol type="a"><li>What income share does the poorest 50% receive? Calculate \\(L(0.5)\\) .</li><li>Calculate \\(\\int_{0}^{1}L(x)dx\\) .</li><li>The Gini coefficient is \\(G=1-2\\int_{0}^{1}L(x)dx\\) . Calculate \\(G\\) and interpret (\\(G=0\\) is perfect equality, \\(G=1\\) maximum inequality).</li></ol>',a:'<p>(a) \\(L(0.5)=0.125\\) (b) \\(\\int_{0}^{1}x^{3}dx=\\frac{1}{4}\\) (c) \\(G=1-2\\cdot\\frac{1}{4}=0.5\\)</p>'}
+];
+var c=document.getElementById("ex-8");
+if(!c)return;
+var h='<ol class="exercise-list">';
+ex.forEach(function(e){
+  h+='<li class="exercise-item">';
+  h+='<div class="exercise-question">'+e.q+'</div>';
+  if(e.a){
+    h+='<details class="exercise-answer">';
+    h+='<summary>Show answer &#9654;</summary>';
+    h+='<div class="answer-content">'+e.a+'</div>';
+    h+='</details>';
+  }
+  h+='</li>';
+});
+h+='</ol>';
+c.innerHTML=h;
+function fixMathAlign(el){
+  el.querySelectorAll(".MathJax_Display").forEach(function(d){
+    d.style.textAlign="left";
+    d.style.marginLeft="1.5em";
+  });
+}
+if(window.MathJax){
+  if(MathJax.Hub){
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,c]);
+    MathJax.Hub.Queue(function(){fixMathAlign(c);});
+  } else if(MathJax.typesetPromise){
+    MathJax.typesetPromise([c]).then(function(){fixMathAlign(c);});
+  }
+}
+c.querySelectorAll("details").forEach(function(d){
+  d.addEventListener("toggle",function(){
+    if(d.open&&window.MathJax){
+      if(MathJax.Hub){
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,d]);
+        MathJax.Hub.Queue(function(){fixMathAlign(d);});
+      } else if(MathJax.typesetPromise){
+        MathJax.typesetPromise([d]).then(function(){fixMathAlign(d);});
+      }
+    }
+  });
+});
+})();
+</script>
+
+
+

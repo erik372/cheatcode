@@ -1,0 +1,288 @@
+﻿# Statistical Tests in Regression Analysis with Multiple Variables {#ch-regression-multiple-tests}
+
+This chapter describes how we can use statistical tests with regression analysis when we have two or more explanatory variables. For this we use matrices and linear algebra, introduced in chapter \@ref(chap-linjar-algebra).
+
+## Starting Points and Assumptions {#sec-ols-assumptions-multiple}
+
+We start from the regression model written with matrices for a population with unknown characteristics — the population model:
+
+\begin{equation}
+Y = XB + V
+(\#eq:population-regression-matrix)
+\end{equation}
+
+where $Y$ is an $n \times 1$ column matrix with the explained variable, $B$ is a $k \times 1$ column matrix for all coefficients, and $V$ is an $n \times 1$ column matrix with $n$ error terms. $X$ is an $n \times k$ matrix with the explanatory variables in separate columns and the observations in separate rows. The regression model includes the intercept $b_0$ as the first coefficient, which is why all elements in the first column of matrix $X$ have the value 1.
+
+Theoretical assumptions:
+
+1. The population's regression model describes a linear relationship between $X$ and $Y$ that exists in the population.
+
+2. $X$ and $Y$ are random variables from a population whose characteristics are unknown. Explanatory variables can also be the result of a controlled process. Observation $(Y_i, X_{1,i}, \ldots, X_{k,i})$ is independent and identically distributed (i.i.d.).
+
+3. The explanatory variables in $X$ have no strong correlation among themselves. None of the variables $X_j$ can be described as a linear combination of any of the other variables $X_k$.
+
+4. The error terms are not correlated with each other: $cov(v_i v_j \mid X) = 0$ for $i \neq j$.
+
+5. The conditional expected value of the error terms is zero: $E(V \mid X) = 0$, and $V$ and $X$ do not covary: $cov(V, X) = 0$.
+
+6. The error terms have constant variance $\sigma_V^2$ across all values of all explanatory variables $X$, described as:
+
+$$E(VV^T \mid X) = \sigma_V^2 I = \begin{bmatrix} \sigma_V^2 & 0 & \cdots & 0 \\ 0 & \sigma_V^2 & \cdots & 0 \\ \vdots & \vdots & \ddots & 0 \\ 0 & 0 & 0 & \sigma_V^2 \end{bmatrix}$$
+
+where $V^T$ is the transposed column matrix and $\sigma_V^2 I$ is an $n \times n$ diagonal matrix.
+
+7. The error terms follow the normal distribution: $V \mid X \sim N(0,\, \sigma_V^2 I)$.
+
+## Estimators of the Coefficients {#sec-estimators-multiple}
+
+Based on the least squares method we estimate the coefficients as:
+
+\begin{equation}
+\hat{B} = (X^T X)^{-1} X^T Y
+(\#eq:bhat-matrix)
+\end{equation}
+
+The expected value of the estimator $\hat{B}$ is the population model's coefficients: $E(\hat{B}) = B$, making the estimator **unbiased**. We can show this by substituting $Y = XB + V$:
+
+\begin{equation}
+\begin{aligned}
+\hat{B} &= (X^T X)^{-1} X^T Y \\
+        &= (X^T X)^{-1} X^T (XB + V) \\
+        &= (X^T X)^{-1}(X^T X)B + (X^T X)^{-1} X^T V \\
+        &= B + (X^T X)^{-1} X^T V
+\end{aligned}
+(\#eq:bhat-decomp)
+\end{equation}
+
+where in the fourth line we use $AA^{-1} = I$ and $IA = A$. Taking the expected value conditional on $X$ and using $E(V \mid X) = 0$:
+
+$$E(\hat{B} \mid X) = B + (X^T X)^{-1} X^T E(V \mid X) = B$$
+
+Given that the assumptions hold, the least squares method gives unbiased estimates: if we were to take an infinite number of samples from the same population, the mean of the estimated coefficients would equal the population values.
+
+To test whether each coefficient in $B$ is statistically significantly different from zero we set up null and alternative hypotheses $H_0: b_j = 0$ and $H_1: b_j \neq 0$, where $b_j$ is one of the coefficients in $B$. Given assumption 7 (normal errors), the estimator $\hat{B}$ follows the t-distribution, and the t-statistic for each coefficient is:
+
+$$t = \frac{\hat{b}_j}{se(\hat{b}_j)}$$
+
+## The Variance-Covariance Matrix {#sec-variance-covariance-matrix}
+
+We describe the variance and standard errors for all coefficient estimators using the **variance-covariance matrix**:
+
+$$var(\hat{B} \mid X) = E\left[(\hat{B} - B)(\hat{B} - B)^T \mid X\right]$$
+
+From equation \@ref(eq:bhat-decomp) we have $\hat{B} - B = (X^T X)^{-1} X^T V$. Substituting:
+
+\begin{equation}
+\begin{aligned}
+var(\hat{B} \mid X) &= E\left[(X^T X)^{-1} X^T V V^T X (X^T X)^{-1} \mid X\right] \\
+                    &= (X^T X)^{-1} X^T E(V V^T \mid X)\, X (X^T X)^{-1}
+\end{aligned}
+(\#eq:vcov-step)
+\end{equation}
+
+where we factor out $X$ since the expectation is conditional on $X$. By assumption 6, $E(VV^T \mid X) = \sigma_V^2 I$, giving:
+
+\begin{equation}
+var(\hat{B} \mid X) = \sigma_V^2 (X^T X)^{-1}
+(\#eq:vcov-matrix)
+\end{equation}
+
+Since $\sigma_V^2$ is unknown we estimate it with $\hat{s}_V^2 = \sum(y_i - \hat{y}_i)^2 / (n-p)$, yielding the **estimated variance-covariance matrix**:
+
+\begin{equation}
+var(\hat{B} \mid X) = \hat{s}_V^2 (X^T X)^{-1} = \frac{\sum(y_i - \hat{y}_i)^2}{n - p}\, (X^T X)^{-1}
+(\#eq:vcov-estimated)
+\end{equation}
+
+**Structure for simple regression.** For the model $Y = a + bX + V$ with two coefficients, the estimated variance-covariance matrix is a $2 \times 2$ matrix:
+
+$$var(\hat{B} \mid X) = \hat{s}_V^2 (X^T X)^{-1} = \begin{bmatrix} var(\hat{a}) & cov(\hat{a}, \hat{b}) \\ cov(\hat{b}, \hat{a}) & var(\hat{b}) \end{bmatrix}$$
+
+The diagonal elements are the variances of the estimators. Taking their square roots gives the standard errors needed for the t-tests. The off-diagonal elements are the covariances between estimators. For simple regression, the explicit formulas reduce to those derived in chapter \@ref(ch-regression-statistical-tests):
+
+$$var(\hat{b}) = \frac{\sum(y_i - \hat{y}_i)^2}{(n-p)\,\sum(x_i - \bar{x})^2}, \qquad var(\hat{a}) = var(\hat{b}) \cdot \frac{\sum x_i^2}{n}$$
+
+The variance-covariance matrix illustrates how each explanatory variable affects the results for the statistical tests for all coefficients in the model. Adding or removing a variable from the regression model can change the estimated coefficients and their standard errors.
+
+## T-tests for Multiple Regression {#sec-t-test-multiple-variables}
+
+We now have all the tools needed to use statistical tests when we have more than two coefficients. We illustrate with the regression model from chapter \@ref(chap-linjar-algebra):
+
+\begin{equation}
+y_i = a + b x_i + c z_i + v_i
+(\#eq:model-three-vars)
+\end{equation}
+
+with the four observations in the table below.
+
+| $i$| $y_i$| $x_i$| $z_i$|
+|-----|--------|--------|--------|
+| 1 | 3 | 3 | 1 |
+| 2 | 2 | 4 | 4 |
+| 3 | 5 | 6 | 0 |
+| 4 | 4 | 7 | 1 |
+
+The OLS estimates are $\hat{a} \approx 2.89$, $\hat{b} \approx 0.28$, $\hat{c} \approx -0.54$.
+
+We test three null hypotheses: $H_0: a = 0$, $H_0: b = 0$, $H_0: c = 0$(each against the corresponding two-sided alternative). The t-statistics are:
+
+$$t_{\hat{a}} = \frac{\hat{a}}{se(\hat{a})}, \qquad t_{\hat{b}} = \frac{\hat{b}}{se(\hat{b})}, \qquad t_{\hat{c}} = \frac{\hat{c}}{se(\hat{c})}$$
+
+From the calculations above: $\sum(y_i - \hat{y}_i)^2 \approx 0.338$, $p = 3$ parameters, $n - p = 1$ degree of freedom, so $\hat{s}_V^2 \approx 0.338$. With $\bar{x} = 5$, $\bar{z} = 1.5$:
+
+$$\sum(x_i - \bar{x})^2 = 10, \qquad \sum(z_i - \bar{z})^2 = 9, \qquad \sum(x_i - \bar{x})(z_i - \bar{z}) = -4$$
+
+The standard errors are:
+
+$$se(\hat{b}) = \left(0.338 \cdot \frac{9}{10 \cdot 9 - (-4)^2}\right)^{1/2} = \left(0.338 \cdot \frac{9}{74}\right)^{1/2} \approx 0.203$$
+
+$$se(\hat{c}) = \left(0.338 \cdot \frac{10}{74}\right)^{1/2} \approx 0.214, \qquad se(\hat{a}) \approx 1.22$$
+
+Giving t-statistics:
+
+$$t_{\hat{a}} = \frac{2.89}{1.22} \approx 2.37, \qquad t_{\hat{b}} = \frac{0.28}{0.203} \approx 1.38, \qquad t_{\hat{c}} = \frac{-0.54}{0.214} \approx -2.52$$
+
+With only $k = n - p = 1$ degree of freedom, the critical value at $\alpha = 0.05$(two-sided) is $t^* \approx 12.7$. None of the t-statistics exceed this critical value, so we reject none of the three null hypotheses. The estimated coefficients could have arisen through a random process.
+
+The R output below verifies these calculations:
+
+```{r t-test-multiple-example, echo=FALSE}
+df26 <- data.frame(y = c(3, 2, 5, 4), x = c(3, 4, 6, 7), z = c(1, 4, 0, 1))
+m26  <- lm(y ~ x + z, data = df26)
+round(summary(m26)$coefficients, 3)
+round(vcov(m26), 4)
+```
+
+The variance-covariance matrix returned by `vcov()` shows the variances (diagonal) and covariances (off-diagonal) for the three coefficient estimators. The square root of the diagonal gives the standard errors shown in the coefficient table.
+
+## F-test for the Regression Model {#sec-f-test-regression}
+
+Another commonly used statistical test in connection with regression analysis is the **F-test**, which tests whether a regression model as a whole can explain variation in $Y$ better than a simpler model. Consider two models:
+
+\begin{align}
+\text{Model 1 (unrestricted):} & \quad y = b_0 + b_1 x_1 + \cdots + b_k x_k + u \\
+\text{Model 2 (restricted):}   & \quad y = a + v
+(\#eq:f-test-models)
+\end{align}
+
+We formulate the null and alternative hypotheses:
+
+$$H_0: b_1 = b_2 = \cdots = b_k = 0, \qquad H_1: \text{at least one } b_i \neq 0$$
+
+Let $q = df_{m2} - df_{m1} = k$ be the number of restrictions (the number of slopes set to zero). The F-test statistic is:
+
+\begin{equation}
+F = \frac{SSR_{m2} - SSR_{m1}}{SSR_{m1}} \cdot \frac{n - k - 1}{q}
+(\#eq:f-test-statistic)
+\end{equation}
+
+where $SSR = \sum(y_i - \hat{y}_i)^2$ is the sum of squared residuals. An equivalent formula using $R^2$ is:
+
+\begin{equation}
+F = \frac{R^2}{1 - R^2} \cdot \frac{n - k - 1}{k}
+(\#eq:f-test-r2)
+\end{equation}
+
+The F-statistic follows an $F(q,\; n-k-1)$ distribution under $H_0$. We reject $H_0$ if $F > F^*_{q,\; n-k-1}$ at the chosen significance level $\alpha$.
+
+**Partial F-test.** We can also compare two nested models where the restricted model is not the intercept-only model. If we drop $q$ variables from the unrestricted model ($k$ variables, $R^2_U$) to get the restricted model ($R^2_R$):
+
+\begin{equation}
+F = \frac{(R^2_U - R^2_R)/q}{(1 - R^2_U)/(n - k - 1)}
+(\#eq:partial-f-test)
+\end{equation}
+
+**Numerical example.** Using the same four observations and the model $y_i = a + bx_i + cz_i + v_i$:
+
+- Unrestricted m1: $SSR_{m1} \approx 0.338$
+- Restricted m2 ($y = a + v$, i.e., $\bar{y} = 3.5$): $SSR_{m2} = \sum(y_i - \bar{y})^2 = 5$
+
+With $n = 4$, $k_{m1} = 2$, $q = 2$:
+
+$$F = \frac{5 - 0.338}{0.338} \cdot \frac{4 - 2 - 1}{2} = \frac{4.662}{0.338} \cdot \frac{1}{2} \approx 6.9$$
+
+The critical value $F^*(2, 1)$ at $\alpha = 0.05$ is approximately 199. Our $F = 6.9 < 199$, so we do not reject $H_0$. With only 1 degree of freedom in the denominator, the critical value is extremely large and almost nothing is significant — a consequence of having so few observations.
+
+## Chapter Summary
+
+- The population model written with matrices $Y = XB + V$ describes a linear relationship between the explained $Y$ and the explanatory variables in $X$. Given that the theoretical assumptions hold, the OLS estimator $\hat{B} = (X^T X)^{-1} X^T Y$ is unbiased: $E(\hat{B}) = B$.
+
+- For each coefficient in $B$ we can perform a two-sided t-test: $H_0: b_j = 0$, $H_1: b_j \neq 0$. The t-statistic is $t = \hat{b}_j / se(\hat{b}_j)$ where the standard errors come from the diagonal of the variance-covariance matrix.
+
+- The estimated variance-covariance matrix is $var(\hat{B} \mid X) = \hat{s}_V^2 (X^T X)^{-1}$. The diagonal elements are the variances of the individual coefficient estimators; the off-diagonal elements are covariances between estimators. Including or excluding variables from the model affects both the coefficient estimates and the statistical tests for all coefficients.
+
+- The F-test tests whether the regression model as a whole — all slope coefficients jointly — is statistically significantly different from zero. Under $H_0: b_1 = \cdots = b_k = 0$ the F-statistic follows an $F(k, n-k-1)$ distribution.
+
+- Statistical power applies to multiple regression as well. With a small sample, a larger estimated deviation is required to reject the null hypothesis.
+
+## Exercises {#sec-ch26-exercises}
+
+<div id="ex-26"></div>
+
+<script>
+(function() {
+  var exDiv = document.getElementById('ex-26');
+  if (!exDiv) return;
+  var exercises = [
+    {
+      q: 'Multiple regression with \\(n = 100\\), \\(k = 3\\) regressors, \\(R^2 = 0.45\\). F-statistic: \\(F = R^2(n-k-1)/[(1-R^2)k]\\).<br>(a) Compute \\(F\\).<br>(b) Critical value \\(F^*(3,96) \\approx 2.70\\). Reject \\(H_0\\)?<br>(c) What is \\(H_0\\) in the F-test for overall significance?',
+      a: '(a) \\(F = 0.45 \\times 96 / (0.55 \\times 3) \\approx 26.2\\).<br>(b) \\(26.2 > 2.70\\), so yes, reject \\(H_0\\).<br>(c) \\(H_0: b_1 = b_2 = b_3 = 0\\) — all slope coefficients are simultaneously equal to zero.'
+    },
+    {
+      q: 'Estimated model: \\(\\hat{y} = 2 + 3x_1 + x_2 - 2x_3\\), \\(se(\\hat{b}_1) = 1\\), \\(se(\\hat{b}_2) = 0.5\\), \\(se(\\hat{b}_3) = 0.8\\).<br>(a) Compute \\(t_1\\), \\(t_2\\), \\(t_3\\).<br>(b) Which coefficients are statistically significant at \\(\\alpha = 0.05\\) (critical value \\(|t| > 1.96\\))?<br>(c) Interpret the significance of \\(\\hat{b}_3 = -2\\).',
+      a: '(a) \\(t_1 = 3/1 = 3\\), \\(t_2 = 1/0.5 = 2\\), \\(t_3 = -2/0.8 = -2.5\\).<br>(b) All three: \\(|t_1| = 3 > 1.96\\), \\(|t_2| = 2 > 1.96\\), \\(|t_3| = 2.5 > 1.96\\).<br>(c) \\(x_3\\) has a statistically significant negative effect on \\(Y\\): a one-unit increase in \\(x_3\\) is associated with a 2-unit decrease in \\(y\\), holding other variables constant.'
+    },
+    {
+      q: 'A multiple regression has \\(n = 50\\) observations and \\(k = 4\\) regressors.<br>(a) How many degrees of freedom does the t-test have?<br>(b) If we add 3 more regressors (total \\(k = 7\\)), what are the new degrees of freedom?<br>(c) Why does losing degrees of freedom raise the critical t-value?',
+      a: '(a) \\(df = 50 - 4 - 1 = 45\\).<br>(b) \\(df = 50 - 7 - 1 = 42\\).<br>(c) Fewer observations relative to parameters means more uncertainty about each coefficient. The t-distribution has heavier tails with fewer degrees of freedom, requiring a larger t-statistic to reject \\(H_0\\).'
+    },
+    {
+      q: 'OLS gives \\(\\hat{b}_1 = 5\\), \\(se(\\hat{b}_1) = 2\\), \\(t^*(\\alpha = 0.05) \\approx 2.01\\).<br>(a) Construct the 95% CI for \\(b_1\\).<br>(b) Does the CI contain 0? Is \\(\\hat{b}_1\\) statistically significant?<br>(c) Does the CI contain 3? Can we reject \\(H_0: b_1 = 3\\)?',
+      a: '(a) \\(5 \\pm 2.01 \\times 2 = (0.98,\\; 9.02)\\).<br>(b) 0 is outside \\((0.98, 9.02)\\) — \\(\\hat{b}_1\\) is statistically significant.<br>(c) 3 is inside \\((0.98, 9.02)\\) — we cannot reject \\(H_0: b_1 = 3\\) at \\(\\alpha = 0.05\\).'
+    },
+    {
+      q: '\\(X_1\\) and \\(X_2\\) are highly correlated (\\(r = 0.95\\)).<br>(a) What effect does high multicollinearity have on \\(se(\\hat{b})\\)?<br>(b) How does this affect t-statistics?<br>(c) Can the F-test still be significant even if individual t-tests are not?',
+      a: '(a) High multicollinearity increases \\(se(\\hat{b})\\) — the estimates become imprecise because the data cannot distinguish the separate effects of \\(X_1\\) and \\(X_2\\).<br>(b) Larger \\(se\\) means smaller t-statistics, making it harder to reject \\(H_0\\) for individual coefficients.<br>(c) Yes — the F-test evaluates joint significance, and the two variables together may still explain variation in \\(Y\\) even if their individual contributions cannot be separated.'
+    },
+    {
+      q: 'Unrestricted model: \\(k = 3\\), \\(R_U^2 = 0.50\\), \\(n = 100\\). Restricted model (drop \\(x_2\\) and \\(x_3\\)): \\(R_R^2 = 0.40\\). Partial F: \\(F = [(R_U^2 - R_R^2)/q] / [(1-R_U^2)/(n-k-1)]\\) with \\(q = 2\\).<br>(a) Compute \\(F\\).<br>(b) Critical value \\(F^*(2,96) \\approx 3.09\\). Reject \\(H_0\\)?<br>(c) What is \\(H_0\\) in this partial F-test?',
+      a: '(a) \\(F = (0.10/2) / (0.50/96) = 0.05 / 0.00521 \\approx 9.6\\).<br>(b) \\(9.6 > 3.09\\), reject \\(H_0\\).<br>(c) \\(H_0: b_2 = b_3 = 0\\) — the two dropped variables have no joint effect on \\(Y\\).'
+    },
+    {
+      q: 'Consider the variance-covariance matrix of \\(\\hat{B}\\) in a model with 2 slope coefficients (plus intercept).<br>(a) What are the dimensions of this matrix?<br>(b) What do the diagonal elements represent?<br>(c) What do the off-diagonal elements represent?',
+      a: '(a) \\(3 \\times 3\\) (including the intercept) or \\(2 \\times 2\\) if only the slopes are considered.<br>(b) The diagonal elements are the variances \\(se(\\hat{b}_j)^2\\) — the squared standard errors of individual coefficient estimates.<br>(c) The off-diagonal elements are covariances between pairs of coefficient estimates, showing how the estimation error in one coefficient is related to that of another.'
+    },
+    {
+      q: 'In simple regression (\\(k = 1\\)), the F-statistic equals \\(t^2\\).<br>(a) If \\(t = 2.5\\), what is \\(F\\)?<br>(b) Why is the F-test always two-sided?<br>(c) Why is the F-test especially useful with multiple regressors?',
+      a: '(a) \\(F = 2.5^2 = 6.25\\).<br>(b) Squaring \\(t\\) removes the sign, so \\(F\\) only detects the magnitude of deviation from zero — it cannot distinguish positive from negative effects.<br>(c) The F-test simultaneously tests whether all slopes are jointly zero, which cannot be done by multiple individual t-tests (due to the multiple testing problem and inter-correlations among regressors).'
+    },
+    {
+      q: 'Model 1: \\(\\hat{y} = a + \\hat{b}_1 x_1\\), \\(R^2 = 0.30\\), \\(n = 50\\). Model 2: \\(\\hat{y} = a + \\hat{b}_1 x_1 + \\hat{b}_2 x_2\\), \\(R^2 = 0.31\\).<br>(a) Does Model 2 always fit better according to \\(R^2\\)?<br>(b) Adjusted \\(\\bar{R}^2\\) penalizes for extra parameters. Should \\(x_2\\) be included?<br>(c) Use the partial F-test: if \\(t_2 = 0.8\\) and critical value is 1.96, should \\(x_2\\) be retained?',
+      a: '(a) Yes — adding a variable never lowers \\(R^2\\). This is why \\(R^2\\) alone cannot tell us whether to include an extra variable.<br>(b) If \\(\\bar{R}^2\\) increases when \\(x_2\\) is added, include it; if it decreases, exclude it. With only a 1-percentage-point gain in \\(R^2\\) and one extra parameter, \\(\\bar{R}^2\\) likely decreases.<br>(c) \\(t_2 = 0.8 < 1.96\\) — \\(\\hat{b}_2\\) is not statistically significant. Drop \\(x_2\\).'
+    },
+    {
+      q: 'A researcher estimates \\(\\hat{b}_2 = 0.5\\), \\(se(\\hat{b}_2) = 0.25\\), \\(n = 200\\), \\(k = 5\\).<br>(a) Compute \\(t_2\\).<br>(b) Construct a 95% CI (use \\(t^* \\approx 1.97\\) for \\(df = 194\\)).<br>(c) Reject \\(H_0: b_2 = 0\\) at \\(\\alpha = 0.05\\)?',
+      a: '(a) \\(t_2 = 0.5/0.25 = 2\\).<br>(b) \\(0.5 \\pm 1.97 \\times 0.25 \\approx (0.01,\\; 0.99)\\).<br>(c) \\(t = 2 > 1.97\\), so yes, reject \\(H_0\\). The CI does not contain 0, confirming significance.'
+    }
+  ];
+
+  var html = '<ol>';
+  exercises.forEach(function(ex, i) {
+    html += '<li style="margin-bottom:1em">' + ex.q;
+    html += '<br><details style="margin-top:0.4em"><summary style="cursor:pointer;color:#2255aa">Show answer</summary>';
+    html += '<div style="padding:0.5em 0 0.2em">' + ex.a + '</div></details></li>';
+  });
+  html += '</ol>';
+  exDiv.innerHTML = html;
+
+  if (window.MathJax) {
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, exDiv]);
+  }
+  exDiv.addEventListener('click', function(e) {
+    var det = e.target.closest('details');
+    if (det && window.MathJax) {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, det]);
+    }
+  });
+})();
+</script>

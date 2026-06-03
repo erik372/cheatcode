@@ -1,0 +1,624 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
+```
+
+# Optimization with functions {#chap-optimering-utifran-funktioner}
+
+This chapter introduces optimization, which we shall use here to find a desired solution based on a function. In social science, we may for example use this to describe how a company can maximize its profit or describe how a person can maximize their utility and happiness or minimize their unhappiness.
+
+## Extreme values
+
+Figure \@ref(fig:en-funktion-med-min-och-max) shows a line drawn with an unknown function where two points are marked. The lowest point on the line is the function's minimum value and the highest point is the maximum value. Both of these two are examples of what are called extreme values, also called extreme points or critical points. Consider the following function:
+
+$$
+\begin{equation}
+y=f\left(x\right)=x^{2},\forall1\le x\le10
+\end{equation}
+$$
+
+ The symbol $\forall$ means "for all". The symbol $\le$ means "less than or equal to". The expression $\forall1\le x\le10$ should be read as "for all $x$ that are greater than or equal to 1 and less than or equal to 10". This means that this function is defined over the interval 1 to 10 on the variable $x$.
+
+```{r en-funktion-med-min-och-max, echo=FALSE, out.width="71%", fig.cap="A function with a maximum and minimum value"}
+library("tidyverse")
+th11 <- theme(axis.title.y=element_text(angle=0), text=element_text(size=11))
+p11 <- ggplot(tibble(x=0:10), aes(x)) +
+  geom_vline(xintercept=0, alpha=.3) +
+  geom_hline(yintercept=0, alpha=.3) +
+  th11
+g_minmax <- p11 +
+  stat_function(fun=function(x) 10-(x-5)^2, xlim=c(2.2,7), linetype="dashed", color="#F8766D") +
+  scale_x_continuous(limits=c(0,10), breaks=NULL) +
+  scale_y_continuous(limits=c(0,11), breaks=NULL) +
+  geom_point(aes(5,10), color="black", size=4) +
+  geom_point(aes(2.2,2.2), color="black", size=4) +
+  annotate("text", x=2.2, y=2.2, label="Minimum value", vjust=1.6, size=4) +
+  annotate("text", x=5, y=10, label="Maximum value", vjust=-1, size=4)
+g_minmax
+```
+
+Since $x$ here can only take a value between 1 and 10, the function $f\left(x\right)$ and the variable $y$ will only assume values between $1^{2}=1$ and $10^{2}=100$. Our function is relatively simple and we may therefore see that the function's smallest and largest value in this case are given by these input values:
+
+$$
+\begin{align}
+\text{Smallest value = minimum value: }f\left(1\right) & =1^{2}=1\\
+\text{Greatest value = maximum value: }f\left(10\right) & =10^{2}=100\nonumber 
+\end{align}
+$$
+
+All other values for $x$ between 1 and 10 result in values for y that are located between these two results. Even a function that is defined over a set can lack extreme values. We can illustrate this with the function: 
+
+$$
+\begin{equation}
+y=x,\,\forall x\in\left(0,3\right)
+\end{equation}
+$$
+
+In a graph, this function would create a straight line. Since $x$ is defined over an open interval, the points $\left(x,y\right)=\left(0,0\right)$ and $\left(3,3\right)$ are not included. The function is defined infinitely close to the values $x=0$ and $x=3$. But for every decimal close to these values, there will be a decimal that is even closer. The function therefore lacks minimum and maximum values.
+
+## Differentiate to find extreme values
+
+The derivative with respect to a variable $x$ gives us the slope of the line at a specific point. This is a measure of how much the function or the dependent variable, for example $y$, changes when variable $x$ increases by 1. We can use this information for different purposes. Suppose we have the following function:
+
+$$
+\begin{equation}
+y=f\left(x\right)=-x^{2},\quad\forall x\in\left[-\infty,\infty\right]
+ (\#eq:x2)
+\end{equation}
+$$
+
+Function $f$ describes a desirable phenomenon and we therefore seek the value for $x$ where $f$ is maximized. We seek the function's maximum value, which the derivative can help us with. The function is defined over a bounded interval and is illustrated in figure \@ref(fig:extrempunkt) . If the first derivative is equal to 0 at a value on the variable and the line at the point is therefore horizontal and lacks slope, this is an extreme point, minimum or maximum.
+
+```{r extrempunkt, echo=FALSE, out.width="71%", fig.cap="The function $y=f\\left(x\\right)=x^{2}$"}
+g_minx2 <- ggplot(tibble(x=-5:5)) +
+  th11 +
+  stat_function(fun=function(x) -x^2, color="#F8766D") + xlim(-2,2) +
+  labs(y=bquote("y="~-x^2)) +
+  geom_point(aes(0,0), size=4) +
+  geom_vline(xintercept=0, alpha=.3) +
+  geom_hline(yintercept=0, alpha=.3)
+g_minx2
+```
+
+If we know the function's second derivative, the slope of the slope, this can also give us more information about what type of extreme point it is. If the second derivative is negative at an extreme point, it means that the points adjacent to the extreme value are smaller than the point and we then know that the extreme value is a maximum point. If the second derivative is positive, the slope of the slope increases, then the extreme value is a minimum point.
+
+To find the function's extreme points, we calculate the first derivative and set the result equal to 0. This gives us what is called a first-order condition. A first-order condition is a mathematical expression that describes the condition that at the point that is maximum, the first derivative must be equal to 0. From this we can solve for $x$. From equation \@ref(eq:x2) we get the following first derivative which we set equal to 0: 
+
+$$
+\begin{align}
+f'\left(x\right) & =-2x=0
+\end{align}
+$$
+
+This first derivative is equal to 0 at $x=0$, which is why we from $f'\left(x\right)=0$ can solve for $x^{*}=0$. This is the function's only extreme value. We check the function's second derivative to see if this is a maximum or minimum point:
+
+$$
+\begin{align}
+f''\left(x\right) & =-2
+\end{align}
+$$
+
+Since the second derivative is negative, $f''<0$, for all $x$, $f\left(x=0\right)$ must be a maximum point. The derivative is not the only way to find a function's extreme values. Function f is defined for all $x\in\left[-\infty,\infty\right]$. The function's minimum is therefore given by the two points $x=-\infty$ and $x=\infty$, negative and positive infinity, where the function goes toward negative infinity. Note that this is based on the function being defined for infinity. If the domain instead is $x\in\left(-\infty,\infty\right)$, where negative and positive infinity are excluded from the domain, then the function lacks a minimum point. There will always be an x-value that results in lower $f\left(x\right)$. The value $x=0$ is however still the function's maximum point. Consider now the following function:
+
+$$
+\begin{equation}
+y=h\left(k\right)=k^{2}-k+3,\quad\forall x\in\left[-\infty,\infty\right]
+\end{equation}
+$$
+
+ where $h$ is the name of the function and $k$ is the variable. To find out for which values of $k$ the function has its highest and lowest values, we take the first and second derivative:
+
+$$
+\begin{align}
+h'_{k}\left(k\right) & =2k-1\\
+h''_{kk}\left(k\right) & =2\nonumber 
+\end{align}
+$$
+
+From the first derivative we see that $k^{*}=\frac{1}{2}$. Since the second derivative is $h''_{kk}>0$, we assume that this is a minimum point. At $k^{*}=\frac{1}{2}$ we have: 
+
+$$
+\begin{align}
+h\left(k^{*}=\frac{1}{2}\right) & =k^{2}-k+3=\left(\frac{1}{2}\right)^{2}-\frac{1}{2}+3=2+\frac{3}{4}
+\end{align}
+$$
+
+The function's line is illustrated in figure \@ref(fig:linjen-for-h-k) where the minimum point $\left(k,y\right)=\left(\frac{1}{2},2.75\right)$ is marked. The function's maximum is given by the two points $x=-\infty$ and $x=\infty$, where function $h$ goes toward positive infinity. 
+
+```{r linjen-for-h-k, echo=FALSE, out.width="71%", fig.cap="The line for $h\\left(k\\right)=k^{2}-k+3$ and its minimum point"}
+g_min_ex2 <- ggplot() +
+  stat_function(fun=function(x) x^2-x+3, color="#F8766D") +
+  xlim(-1,2) + ylim(0,5) +
+  geom_point(aes(.5, 2.75), size=4) +
+  labs(y="y", x="k", subtitle=bquote("y = h(k) ="~x^2-x+3)) +
+  th11 +
+  geom_vline(xintercept=0, alpha=.3) +
+  geom_hline(yintercept=0, alpha=.3)
+g_min_ex2
+```
+
+## Global and local
+
+Maximum and minimum points can be global and local. A local maximum value is the point within an interval where a function assumes its largest value. A global maximum value is the point that gives the function's largest value over all values that the function is defined for. The same thing for minimum values. Let us illustrate with the following function:
+
+$$
+\begin{equation}
+y=f\left(x\right)=x^{3}-x^{2}-x+2,\quad\forall x\in\left[-10,10\right]
+\end{equation}
+$$
+
+This is a third-degree function defined for all $x$ from $-10$ to plus 10. The first and second derivatives give:
+
+$$
+\begin{align}
+f'_{x} & =3x^{2}-2x-1\\
+f''_{xx} & =6x-2\nonumber 
+\end{align}
+$$
+
+From the first derivative we solve for two zero points, two values for $x$ where the first derivative $f'_{x}$ is equal to 0:
+
+$$
+\begin{equation}
+3x^{2}-2x-1=0
+\end{equation}
+$$
+
+From the the quadratic formula we see that: 
+
+$$
+\begin{equation}
+x^{*}=-\left(-\frac{2/3}{2}\right)\pm\sqrt{\left(-\frac{2/3}{2}\right)^{2}-\left(-1/3\right)}
+\end{equation}
+$$
+
+This gives the solutions $x_{1}=-\frac{1}{3}$ and $x_{2}=1$. At these two points $f'=0$. We check the solutions by substituting the values into the second derivative:
+
+$$
+\begin{align}
+f''_{xx}\left(-\frac{1}{3}\right) & =6\left(-\frac{1}{3}\right)-2=-4\\
+f''_{xx}\left(1\right) & =6*1-2=4\nonumber 
+\end{align}
+$$
+
+The first row means that the second derivative is negative at $x=-\frac{1}{3}$. This indicates that this is a maximum point. The second row gives that the second derivative is positive at $x=1$, which suggests that this is a minimum point. Let us also calculate $y$ at these points:
+
+$$
+\begin{align*}
+y=f\left(x=-\frac{1}{3}\right) & =x^{3}-x^{2}-x+2\\
+ & =\left(-\frac{1}{3}\right)^{3}-\left(-\frac{1}{3}\right)^{2}-\left(-\frac{1}{3}\right)+2\\
+ & =-\frac{1}{27}-\frac{1}{9}+\frac{1}{3}+2\\
+ & =2+\frac{5}{27}
+\end{align*}
+$$
+
+For $x=1$ we have:
+
+$$
+\begin{align}
+y=f\left(x=1\right) & =x^{3}-x^{2}-x+2=\left(1\right)^{3}-\left(1\right)^{2}-\left(1\right)+2=1
+\end{align}
+$$
+
+The function is defined for all $x\in\left[-10,10\right]$. Let us also calculate $y$ for the endpoints (the outer values) $-10$ and 10. For $x=-10$:
+
+$$
+\begin{align*}
+y=f\left(x=-10\right) & =x^{3}-x^{2}-x+2\\
+ & =\left(-10\right)^{3}-\left(-10\right)^{2}-\left(-10\right)+2\\
+ & =-1,000-100+10+2\\
+ & =-1,088
+\end{align*}
+$$
+
+ For $x=10$: 
+
+$$
+\begin{align}
+y=f\left(x=10\right) & =x^{3}-x^{2}-x+2\\
+ & =\left(10\right)^{3}-\left(10\right)^{2}-\left(10\right)+2\nonumber \\
+ & =1,000-100-10+2\nonumber \\
+ & =892\nonumber 
+\end{align}
+$$
+
+The function's value at x=-10 is smaller than the value at $x=1$, since $-1,088<1$ and the function's value at $x=10$ is larger than at $x=-\frac{1}{3}$ since $892>2+\frac{5}{27}$. We therefore conclude that the function's global minimum is at $\left(x,y\right)=\left(-10,-1,088\right)$ and its global maximum is at $\left(x,y\right)=\left(10,892\right)$. Additionally, the function has a local minimum at the point $\left(x,y\right)=\left(1,1\right)$ and a local maximum at $\left(x,y\right)=\left(-\frac{1}{3},2+\frac{5}{27}\right)$.
+
+The next question is how local these extreme values are, within which intervals of $x$ are these points maximum and minimum? We start by looking at this in a graph, which is illustrated in figure \@ref(fig:lokala-globala-min-max) . The two local extreme values are marked along the line with points. The global extreme values at $x=-10$ and $x=10$ are outside the picture and marked with arrows.
+
+```{r lokala-globala-min-max, echo=FALSE, out.width="71%", fig.cap="Local and global minimum and maximum points"}
+g_localminmax <- ggplot() +
+  stat_function(fun=function(x) x^3-x^2-x+2, xlim=c(-2,2.5), color="#F8766D") +
+  geom_point(aes(x=c(-.33,1), y=c(2.19,1))) +
+  scale_y_continuous(breaks=seq(-8,8,2)) +
+  labs(x="x", y="y", title=bquote("y = f(x) ="~x^3-x^2-x+2)) +
+  th11 +
+  annotate("text", x=-.33, y=3, label="Local max.", size=4) +
+  annotate("text", x=1, y=0, label="Local min.", size=4) +
+  annotate("text", x=1.5, y=6, label="Global max.", size=4) +
+  annotate("text", x=-.7, y=-4, label="Global min.", size=4) +
+  annotate("curve", x=-.7, y=-5.2, xend=-1.1, yend=-7.6,
+           curvature=-.2, arrow=arrow(length=unit(2,"mm"))) +
+  annotate("curve", x=1.5, y=7, xend=1.8, yend=8.5,
+           curvature=-.2, arrow=arrow(length=unit(2,"mm"))) +
+  geom_vline(xintercept=0, alpha=.3) +
+  geom_hline(yintercept=0, alpha=.3)
+g_localminmax
+```
+
+From the picture we see that the point $\left(x,y\right)=\left(1,1\right)$ is a minimum for the function for $x$-values from $-1$ and upward. For all values for $x$ above $-1$ up to 10 (the function's domain), the point $\left(1,1\right)$ is the one that gives the lowest value. For the point $\left(x,y\right)=\left(-\frac{1}{3},2+\frac{5}{27}\right)$ we see that this is the function's maximum for all $x$ from approximately 1.6 and downward.
+
+## More examples
+
+Let us find the extreme values for some functions. We seek the largest and smallest value, maximum and minimum value. Let us start with the function: 
+
+$$
+\begin{equation}
+y=f\left(x\right)=x,\quad\forall x\leq0
+\end{equation}
+$$
+
+Since $f$ is defined for $x\leq0,y=f\left(0\right)=0$ is the function's largest value, its global maximum value. Since $f$ is defined for all negative values, y goes toward negative infinity, $-\infty$, when $x$ does the same, which is the function's global minimum value. If we instead have the function:
+
+$$
+\begin{equation}
+y=f\left(x\right)=x,\quad\forall x<0
+\end{equation}
+$$
+
+ where the value 0 is excluded from the domain, then the function lacks a global maximum value. We only come infinitely close to 0. The minimum value is also here negative infinity, $-\infty$. Let us now take the function: 
+
+$$
+\begin{equation}
+y=f\left(x\right)=3x,\quad\forall x\in\left(2,12\right)
+\end{equation}
+$$
+
+The domain $\left(2,12\right)$ excludes the values 2 and 12. The function therefore lacks global minimum and maximum values. If the function is instead defined for $x\in\left[2,12\right]$, the function's global minimum value is:
+
+$$
+\begin{equation}
+y=f\left(2\right)=6
+\end{equation}
+$$
+
+The function's global maximum value:
+
+$$
+\begin{equation}
+y=f\left(12\right)=36
+\end{equation}
+$$
+
+Let us now calculate the global minimum and maximum value for the following function:
+
+$$
+\begin{equation}
+y=f\left(x\right)=x^{2}-x,\quad\forall x\in\mathbb{R}
+\end{equation}
+$$
+
+We take the first and second derivatives of $y$ with respect to $x$:
+
+$$
+\begin{align}
+y'_{x} & =2x-1\\
+y''_{xx} & =2\nonumber 
+\end{align}
+$$
+
+From the first derivative we see that $x=\frac{1}{2}$. This gives the following value for $y$:
+
+$$
+\begin{equation}
+y=f\left(\frac{1}{2}\right)=\left(\frac{1}{2}\right)^{2}-\frac{1}{2}=-\frac{1}{4}
+\end{equation}
+$$
+
+ The second derivative is $y''_{xx}>0$ which means that this is a global minimum value. Since the function is defined over the real numbers $\mathbb{R}$, which does not include infinity, the function lacks a global maximum value.
+
+## Terrace
+
+Let us now look at the line in figure \@ref(fig:f-minimi-terass) . At the two marked points in the diagram, the first derivative is equal to 0. In the figure, the point $\left(x,y\right)=\left(-0.5,-1.7\right)$ is a minimum point. At the point $\left(1,0\right)$, the second derivative is equal to 0, which is why this is a terrace point. At the terrace point, our function increases for larger values of $x$ and decreases for smaller values of $x$. Let us summarize what applies for the second derivative for points where the first derivative is equal to 0. We have the following rules:
+
+$$
+\begin{align}
+\text{Maximimum point: }f'' & <0\\
+\text{Minimimum point: }f'' & >0\nonumber \\
+\text{Terrace point: }f'' & =0\nonumber 
+\end{align}
+$$
+
+ 
+
+```{r f-minimi-terass, echo=FALSE, out.width="71%", fig.cap="Function with minimum and terrace point"}
+g_min_terrace <- ggplot(tibble(x=-10:10)) +
+  th11 +
+  stat_function(fun=function(x) x^4-2*x^3+2*x-1, color="#F8766D") +
+  xlim(-1.2,1.7) + ylim(-2.5,2.4) +
+  geom_point(aes(x=-.5, y=-1.69), size=4) +
+  geom_point(aes(x=1, y=0), size=4) +
+  labs(title=bquote("y ="~x^4-2*x^3+2*x-1), x="x", y="y") +
+  annotate(geom='text', x=-.5, y=-2, label="(-0.5, -1.7)", size=4) +
+  annotate(geom='text', x=1, y=.33, label="(1, 0)", size=4) +
+  geom_vline(xintercept=0, alpha=.3) +
+  geom_hline(yintercept=0, alpha=.3)
+g_min_terrace
+```
+
+The function for the line in figure \@ref(fig:f-minimi-terass) is: 
+
+$$
+\begin{equation}
+y=f\left(x\right)=x^{4}-2x^{3}+2x-1
+ (\#eq:funktion-for-terasspunkt)
+\end{equation}
+$$
+
+The first derivative with respect to $x$:
+
+$$
+\begin{equation}
+f'_{x}\left(x\right)=4x^{3}-6x^{2}+2
+ (\#eq:x-4-forstaderivata)
+\end{equation}
+$$
+
+The second derivative with respect to $x$:
+
+$$
+\begin{equation}
+f''_{xx}\left(x\right)=12x^{2}-12x
+ (\#eq:x-4-andraderivata)
+\end{equation}
+$$
+
+Try yourself to find these functions' solutions.
+
+## Optimization with constraints {#sec-optimera-villkor-lagrange}
+
+So far we have worked with optimization to find extreme values in functions without any particular form of limitation, other than the function itself. Often, however, we have use of being able to add constraints to our calculations. We often have use of this in social science, for example in reasoning about how people and organizations try to achieve their goals based on limited means or opportunities. Constraints can however make it more difficult to find the solution to optimization problems.
+
+A common method for finding extreme points with constraints is the Lagrange method. We begin by describing the method on a brief overall level. Suppose we shall optimize function $f\left(x\right)$ with respect to a constraint that we formulate generally as function $g\left(x\right)=0$. We begin by just writing this as a function:
+
+$$
+\begin{align}
+\max_{x}f\left(x\right),\quad\text{w.r.t. }g\left(x\right) & =0
+\end{align}
+$$
+
+Function $f$ shall be maximized with respect to variable $x$ so that function g is equal to 0. The abbreviation "w.r.t" stands for with respect to . Sometimes the abbreviation "s.t." is used which stands for subject to . Then we set up the Lagrange function: 
+
+$$
+\begin{equation}
+\mathcal{L}\left(x,\lambda\right)=f\left(x\right)+\lambda g\left(x\right)
+ (\#eq:lagrangefunktionen)
+\end{equation}
+$$
+
+ where the Greek letter small lambda $\lambda$ symbolizes the Lagrange multiplier, which in the Lagrange function is a new variable that is connected with the Lagrange method. We shall return to the interpretation of $\lambda$. For the functions f and g to be able to be set up in this way, we may need to rewrite them. To find the extreme points, we differentiate the Lagrange function with respect to the two variables x and $\lambda$:
+
+$$
+\begin{align}
+\mathcal{L}'_{x} & =f'_{x}+\lambda g'_{x}\\
+\mathcal{L}'_{\lambda} & =g\nonumber 
+\end{align}
+$$
+
+If we set these expressions equal to 0, we get the first-order conditions and can solve for any solutions for $x$ and $\lambda$. The Lagrange multiplier $\lambda$ has a specific interpretation depending on the maximization problem itself and can for example indicate changes with respect to if the constraint, which $\lambda$ is multiplied by, changes by one unit. Let us illustrate by maximizing the following function:
+
+$$
+\begin{equation}
+f\left(x\right)=x^{2}
+\end{equation}
+$$
+
+While we maximize $f\left(x\right)$, we shall fulfill the following constraint: $x^{2}=2$. We call this expression function $g\left(x\right)$ and move all terms in the function to one side of the equals sign so that we get $g\left(x\right)=0$:
+
+$$
+\begin{align*}
+g\left(x\right) & =x^{2}-2=0
+\end{align*}
+$$
+
+Now we set up the Lagrange function in the following way:
+
+$$
+\begin{align}
+\mathcal{L}\left(x,\lambda\right) & =f\left(x\right)+\lambda g\left(x\right)\\
+\mathcal{L}\left(x,\lambda\right) & =x^{2}+\lambda\left(x^{2}-2\right)\nonumber 
+\end{align}
+$$
+
+To find the function's solutions, we take the derivative of $\mathcal{L}$ with respect to x and $\lambda$. By setting these respective derivatives equal to 0, we get the first-order conditions:
+
+$$
+\begin{align}
+\mathcal{L}'_{x} & =2x+2x\lambda=0\\
+\mathcal{L}'_{\lambda} & =x^{2}-2=0\nonumber 
+\end{align}
+$$
+
+From $\mathcal{L}'_{x}$ we get the solution for $\lambda$: 
+
+$$
+\begin{align}
+\lambda^{*} & =-1
+\end{align}
+$$
+
+From $\mathcal{L}'_{\lambda}$ we get the solution for $x$:
+
+$$
+\begin{equation}
+x^{*}=\sqrt{2}
+\end{equation}
+$$
+
+This means that if we shall maximize the function $f\left(x\right)=x^{2}$ so that the constraint $x^{2}-2=0$ is fulfilled, then $x^{*}=2^{1/2}\approx1,41$. Let us now take the following maximization problem with constraints:
+
+$$
+\begin{align}
+\text{Maximize }f\left(x,y\right) & =x^{2}y\\
+\text{under the condition }g\left(x,y\right) & =x+y=10\nonumber 
+\end{align}
+$$
+
+ We solve this by setting up the Lagrange function:
+
+$$
+\begin{equation}
+\mathcal{L}\left(x,y,\lambda\right)=x^{2}y+\lambda\left(x+y-10\right)
+\end{equation}
+$$
+
+From this we derive the partial derivatives and set these equal to 0 to get the first-order conditions:
+
+$$
+\begin{align}
+\mathcal{L}'_{x}: & 2xy+\lambda=0\\
+\mathcal{L}'_{y}: & x^{2}+\lambda=0\nonumber \\
+\mathcal{L}'_{\lambda}: & x+y-10=0\nonumber 
+\end{align}
+$$
+
+ Since $\mathcal{L}'_{x}=\mathcal{L}'_{y}=0$, we create respective definitions of $\lambda$:
+
+$$
+\begin{align}
+\mathcal{L}'_{x}:\lambda & =2xy\\
+\mathcal{L}'_{y}:\lambda & =x^{2}\nonumber 
+\end{align}
+$$
+
+By setting the definitions of $\lambda$ equal to each other, we get a new constraint:
+
+$$
+\begin{align}
+x^{2} & =2xy
+ (\#eq:l-villkor)
+\end{align}
+$$
+
+ We simplify this by dividing both sides by $x$: 
+
+$$
+\begin{align}
+x & =2y
+ (\#eq:l-villkor-forenkl)
+\end{align}
+$$
+
+We also have the constraint left:
+
+$$
+\begin{equation}
+x+y-10=0
+ (\#eq:l-villkor-2)
+\end{equation}
+$$
+
+Based on this we now solve for $x$ and $y$. We have $x=2y$, which we substitute into equation \@ref(eq:l-villkor-2) :
+
+$$
+\begin{align}
+x+y-10 & =0\\
+2y+y-10 & =0\nonumber 
+\end{align}
+$$
+
+This gives us the solution $y^{*}=\frac{10}{3}$. This $y$ we use in equation \@ref(eq:l-villkor-forenkl) , $x=2y$, and solve for $x$:
+
+$$
+\begin{equation}
+x^{*}=\frac{20}{3}
+\end{equation}
+$$
+
+ These are the values for x and y that optimize $f\left(x,y\right)=x^{2}y$, while the constraint $x+y=10$ is fulfilled:
+
+$$
+\begin{align}
+f\left(x^{*},y^{*}\right) & =f\left(\frac{20}{3},\frac{10}{3}\right)=\left(20/3\right)^{2}\left(10/3\right)=\frac{4,000}{27}
+\end{align}
+$$
+
+## Chapter summary
+
+- A function can have maximum and minimum points where the function's value is maximized or minimized. These are called extreme points.
+
+- One way to find extreme points is to use derivatives and calculate a line's slope at a specific point. The first derivative gives the line's slope, the second derivative gives the slope of the slope, and so on. To calculate the derivative we use limits, limes.
+
+- Example: the function $y=f\left(x\right)=x^{2}$ has first derivative $f'=2x$ and second derivative $f''=2$.
+
+- If the first derivative is $f'=0$ at a point, this is a maximum point if $f''<0$, minimum point if $f''>0$ and terrace point if $f''=0$.
+
+- The Lagrange method is a method for solving maximization or minimization problems with constraints. The general form for the Lagrange function is $\mathcal{L}\left(x,\lambda\right)=f\left(x\right)+\lambda g\left(x\right)$ where $\lambda$ is the Lagrange multiplier and $g$ is the function for the constraint.
+
+
+## Exercises
+
+<div id="ex-6" class="exercises-container"></div>
+<script>
+(function(){
+var ex=[
+  {q:'<p>Find the extreme point of \\(f\\left(x\\right)=-x^{2}+4x\\)</p><ol type="a"><li>Set \\(f\'\\left(x\\right)=0\\)</li><li>Use the second derivative to determine whether this is a maximum or minimum.</li><li>Calculate \\(f\\left(x^{*}\\right)\\)</li></ol>',a:'<p>(a)\\(-2x+4=0\\Rightarrow x^{*}=2\\) , (b)\\(f\'\'\\left(x\\right)=-2<0\\) : maximum, (c)\\(f\\left(2\\right)=4\\) .</p>'},
+  {q:'<p>Find the extreme point of \\(h\\left(k\\right)=k^{2}-k+3\\)</p><ol type="a"><li>Set \\(h\'\\left(k\\right)=0\\)</li><li>Use the second derivative to determine whether this is a maximum or minimum.</li><li>Calculate \\(h\\left(k^{*}\\right)\\)</li></ol>',a:'<p>(a)\\(2k-1=0\\Rightarrow k^{*}=\\frac{1}{2}\\) , (b)\\(h\'\'\\left(k\\right)=2>0\\) : minimum, (c)\\(h\\left(\\frac{1}{2}\\right)=\\frac{11}{4}=2.75\\) .</p>'},
+  {q:'<p>Given \\(f\\left(x\\right)=x^{3}-x^{2}-x+2\\)</p><ol type="a"><li>Find the critical points by setting \\(f\'\\left(x\\right)=0\\)</li><li>Determine whether each critical point is a local maximum or local minimum.</li><li>State the function\'s global maximum and global minimum over the interval.</li></ol>',a:'<p>(a)\\(3x^{2}-2x-1=0\\Rightarrow x_{1}^{*}=-\\frac{1}{3},x_{2}^{*}=1\\) , (b)\\(f\'\'\\left(-\\frac{1}{3}\\right)=-4<0\\) (local max); \\(f\'\'\\left(1\\right)=4>0\\) (local min), (c) global extrema determined by boundary values.</p>'},
+  {q:'<p>Find the extreme point of \\(f\\left(x\\right)=x^{2}-x\\)</p><ol type="a"><li>Set \\(f\'\\left(x\\right)=0\\)</li><li>Is this a maximum or minimum?</li><li>Calculate the extreme value \\(f\\left(x^{*}\\right)\\)</li></ol>',a:'<p>(a)\\(2x-1=0\\Rightarrow x^{*}=\\frac{1}{2}\\) , (b)\\(f\'\'\\left(x\\right)=2>0\\) : minimum, (c)\\(f\\left(\\frac{1}{2}\\right)=-\\frac{1}{4}\\) .</p>'},
+  {q:'<p>Use the Lagrange method to maximize \\(f\\left(x\\right)=x^{2}\\)</p><ol type="a"><li>Write the Lagrange function \\(\\mathcal{L}\\left(x,\\lambda\\right)\\)</li><li>Write the two first-order conditions.</li><li>Find \\(x^{*}\\)</li></ol>',a:'<p>(a)\\(\\mathcal{L}=x^{2}+\\lambda\\left(x^{2}-8\\right)\\) , (b)\\(\\mathcal{L}\'_{x}=2x+2x\\lambda=0\\) , (c)\\(x^{*}=\\sqrt{8}=2\\sqrt{2}\\) .</p>'},
+  {q:'<p>Use the Lagrange method to maximize \\(f\\left(x,y\\right)=xy\\) subject to \\(x+y=6\\) .</p><ol type="a"><li>Write the Lagrange function \\(\\mathcal{L}\\left(x,y,\\lambda\\right)\\) .</li><li>Write the three first-order conditions.</li><li>Find \\(x^{*}\\) and \\(y^{*}\\) .</li></ol>',a:'<p>(a)\\(\\mathcal{L}=xy+\\lambda\\left(x+y-6\\right)\\) , (b)\\(\\mathcal{L}\'_{x}=y+\\lambda=0\\) , (c)\\(x^{*}=y^{*}=3\\) .</p>'},
+  {q:'<p>A firm has profit function \\(\\pi\\left(Q\\right)=100Q-Q^{2}-500\\) .</p><ol type="a"><li>Find the profit-maximizing quantity \\(Q^{*}\\) by setting \\(\\pi\'\\left(Q\\right)=0\\) .</li><li>Use the second derivative to confirm this is a maximum.</li><li>Calculate the maximum profit \\(\\pi\\left(Q^{*}\\right)\\) .</li></ol>',a:'<p>(a)\\(\\pi\'\\left(Q\\right)=100-2Q=0\\Rightarrow Q^{*}=50\\) , (b)\\(\\pi\'\'\\left(Q\\right)=-2<0\\) : maximum, (c)\\(\\pi\\left(50\\right)=5000-2500-500=2000\\) .</p>'},
+  {q:'<p>A firm\'s total cost is \\(TC\\left(q\\right)=q^{3}-6q^{2}+15q+10\\) .</p><ol type="a"><li>Find the marginal cost \\(MC\\left(q\\right)=TC\'\\left(q\\right)\\) .</li><li>Find the quantity \\(q^{*}\\) that minimizes \\(MC\\) .</li><li>Verify it is a minimum using the second derivative.</li></ol>',a:'<p>(a)\\(MC\\left(q\\right)=3q^{2}-12q+15\\) , (b)\\(MC\'\\left(q\\right)=6q-12=0\\Rightarrow q^{*}=2\\) , (c)\\(MC\'\'\\left(q\\right)=6>0\\) : minimum.</p>'},
+  {q:'<p>Maximize \\(U\\left(x,y\\right)=x^{1/2}y^{1/2}\\) subject to \\(2x+y=12\\) .</p><ol type="a"><li>Write the Lagrange function \\(\\mathcal{L}\\left(x,y,\\lambda\\right)\\) .</li><li>Write the three first-order conditions.</li><li>Find \\(x^{*}\\) , \\(y^{*}\\) , and \\(U\\left(x^{*},y^{*}\\right)\\) .</li></ol>',a:'<p>(a)\\(\\mathcal{L}=x^{1/2}y^{1/2}+\\lambda\\left(12-2x-y\\right)\\) , (b) FOCs: \\(\\frac{1}{2}x^{-1/2}y^{1/2}=2\\lambda\\) ; \\(\\frac{1}{2}x^{1/2}y^{-1/2}=\\lambda\\) ; \\(2x+y=12\\) , (c)\\(y=2x\\Rightarrow x^{*}=3,y^{*}=6,U=3\\sqrt{2}\\) .</p>'},
+  {q:'<p>Find the extreme point of \\(f\\left(x,y\\right)=-x^{2}+2x-y^{2}+4y+5\\) .</p><ol type="a"><li>Find \\(f\'_{x}\\) and \\(f\'_{y}\\) , and the critical point \\(\\left(x^{*},y^{*}\\right)\\) .</li><li>Calculate \\(D=f\'\'_{xx}f\'\'_{yy}-\\left(f\'\'_{xy}\\right)^{2}\\) and classify the critical point.</li><li>Calculate \\(f\\left(x^{*},y^{*}\\right)\\) .</li></ol>',a:'<p>(a)\\(f\'_{x}=-2x+2=0\\Rightarrow x^{*}=1\\) ; \\(f\'_{y}=-2y+4=0\\Rightarrow y^{*}=2\\) , (b)\\(D=\\left(-2\\right)\\left(-2\\right)-0=4>0\\) , \\(f\'\'_{xx}<0\\) : local maximum, (c)\\(f\\left(1,2\\right)=10\\) .</p>'},
+  {q:'<p>Consider \\(f\\left(x,y\\right)=x^{2}-y^{2}\\) .</p><ol type="a"><li>Find the critical point.</li><li>Calculate \\(D=f\'\'_{xx}f\'\'_{yy}-\\left(f\'\'_{xy}\\right)^{2}\\) .</li><li>Interpret: what type of critical point is it?</li></ol>',a:'<p>(a)\\(\\left(0,0\\right)\\) , (b)\\(D=2\\cdot\\left(-2\\right)-0^{2}=-4<0\\) , (c)\\(D<0\\) : saddle point (neither maximum nor minimum).</p>'},
+  {q:'<p>Maximize \\(U\\left(x,y\\right)=xy^{2}\\) subject to \\(x+2y=6\\) .</p><ol type="a"><li>Write the Lagrange function.</li><li>From the first-order conditions, find the relationship between \\(x\\) and \\(y\\) .</li><li>Find \\(x^{*}\\) , \\(y^{*}\\) , and \\(U\\left(x^{*},y^{*}\\right)\\) .</li></ol>',a:'<p>(a)\\(\\mathcal{L}=xy^{2}+\\lambda\\left(6-x-2y\\right)\\) , (b)\\(y^{2}=\\lambda\\) ; \\(2xy=2\\lambda\\Rightarrow x=y\\) , (c)\\(x^{*}=y^{*}=2,U\\left(2,2\\right)=8\\) .</p>'}
+];
+var c=document.getElementById("ex-6");
+if(!c)return;
+var h='<ol class="exercise-list">';
+ex.forEach(function(e){
+  h+='<li class="exercise-item">';
+  h+='<div class="exercise-question">'+e.q+'</div>';
+  if(e.a){
+    h+='<details class="exercise-answer">';
+    h+='<summary>Show answer &#9654;</summary>';
+    h+='<div class="answer-content">'+e.a+'</div>';
+    h+='</details>';
+  }
+  h+='</li>';
+});
+h+='</ol>';
+c.innerHTML=h;
+function fixMathAlign(el){
+  el.querySelectorAll(".MathJax_Display").forEach(function(d){
+    d.style.textAlign="left";
+    d.style.marginLeft="1.5em";
+  });
+}
+if(window.MathJax){
+  if(MathJax.Hub){
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,c]);
+    MathJax.Hub.Queue(function(){fixMathAlign(c);});
+  } else if(MathJax.typesetPromise){
+    MathJax.typesetPromise([c]).then(function(){fixMathAlign(c);});
+  }
+}
+c.querySelectorAll("details").forEach(function(d){
+  d.addEventListener("toggle",function(){
+    if(d.open&&window.MathJax){
+      if(MathJax.Hub){
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,d]);
+        MathJax.Hub.Queue(function(){fixMathAlign(d);});
+      } else if(MathJax.typesetPromise){
+        MathJax.typesetPromise([d]).then(function(){fixMathAlign(d);});
+      }
+    }
+  });
+});
+})();
+</script>
+
+
+

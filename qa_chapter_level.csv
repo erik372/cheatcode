@@ -1,0 +1,35 @@
+"lyx_ch","lyx_title","rmd_title","ch_title_ok","n_sec_lyx","n_sec_rmd","lyx_figs","rmd_figs","lyx_tabs","rmd_tabs","lyx_cits","rmd_cits","lyx_paras","rmd_paras","lyx_words","rmd_words","n_flagged","n_unmatch","r_figs","r_tabs","r_paras","r_words","ch_flag"
+0,"Author's Preface & Acknowledgments","Author's preface",TRUE,2,2,0,0,0,0,0,0,15,10,434,382,2,0,1,1,0.67,0.88,TRUE
+1,"Why math?","Why math?",TRUE,4,4,1,0,0,0,3,0,55,12,3014,324,3,0,0,1,0.22,0.11,TRUE
+2,"Basics","Basics",TRUE,18,18,2,2,2,18,0,20,148,378,6819,10325,17,0,1,9,2.55,1.51,TRUE
+3,"Examples with Applications","Examples with Applications",TRUE,11,11,1,1,11,52,0,19,64,136,2764,5121,8,0,1,4.73,2.12,1.85,TRUE
+4,"Functions and graphs","Functions and graphs",TRUE,11,11,8,8,1,6,0,21,84,203,4134,8105,8,0,1,6,2.42,1.96,TRUE
+5,"Logarithms","Logarithms",TRUE,12,12,3,3,4,44,2,17,59,139,2829,4582,11,0,1,11,2.36,1.62,TRUE
+6,"Polynomial Equations","Polynomial Equations",TRUE,9,9,3,3,1,22,0,22,77,165,2880,4052,6,0,1,22,2.14,1.41,TRUE
+7,"Systems of Linear Equations","Systems of Linear Equations",TRUE,9,9,2,2,0,0,0,7,53,130,2602,3719,8,0,1,1,2.45,1.43,TRUE
+8,"Theories of life,","Theories of life, death and dating",TRUE,11,11,4,4,0,0,0,15,54,107,3633,4770,6,0,1,1,1.98,1.31,TRUE
+9,"Non-linear equations in systems","Non-linear equations in systems",TRUE,9,9,7,7,0,4,1,24,55,107,2892,3772,6,0,1,NA,1.95,1.3,TRUE
+10,"Derivative","Derivative",TRUE,12,12,5,5,2,21,0,32,87,204,3272,4808,10,0,1,10.5,2.34,1.47,TRUE
+11,"Optimization with functions","Optimization with functions",TRUE,8,8,5,5,0,0,0,9,53,116,1988,3266,6,0,1,1,2.19,1.64,TRUE
+12,"Theories about cake and monopoly","Theories about cake and monopoly",TRUE,11,11,10,10,0,0,1,48,115,245,5871,7859,8,0,1,1,2.13,1.34,TRUE
+13,"Integration","Integration",TRUE,14,14,9,9,4,21,0,35,109,267,4673,6358,13,0,1,5.25,2.45,1.36,TRUE
+14,"Linear Algebra:","Linear Algebra: Vectors and Matrices",TRUE,15,14,3,1,3,0,1,19,121,181,5359,5630,15,1,0.33,0,1.5,1.05,TRUE
+15,"Fundamental Counterfactual Analysis","Fundamental Counterfactual Analysis",TRUE,9,9,1,1,2,8,0,11,61,68,4586,6284,2,0,1,4,1.11,1.37,TRUE
+16,"Variation and covariation","Variation and covariation",TRUE,9,9,6,6,5,41,0,23,58,95,3056,4364,4,0,1,8.2,1.64,1.43,TRUE
+17,"The Least Squares Method","The Least Squares Method",TRUE,12,12,8,8,9,51,4,64,87,178,4587,6892,7,0,1,5.67,2.05,1.5,TRUE
+18,"Covariation in Social Science","Covariation in Social Science",TRUE,8,8,8,8,9,66,0,43,75,138,3892,5424,6,0,1,7.33,1.84,1.39,TRUE
+19,"LatexCommand label","Least Squares with Multiple Variables",FALSE,12,12,4,4,12,73,0,70,92,228,6764,9269,8,0,1,6.08,2.48,1.37,TRUE
+20,"Regression Analysis for Causal Relationships","Regression Analysis for Causal Relationships",TRUE,10,10,4,4,0,0,15,30,52,63,3995,5002,4,0,1,1,1.21,1.25,TRUE
+21,"Basic Probability Theory 1:","Basic Probability Theory 1: discrete distributions",TRUE,11,11,5,5,1,1,1,32,70,163,3945,6107,9,0,1,1,2.33,1.55,TRUE
+22,"Fundamental Probability Theory 2:","Fundamental Probability Theory 2: Continuous Distributions",TRUE,8,8,5,5,3,3,0,33,48,111,2393,3735,5,0,1,1,2.31,1.56,TRUE
+23,"LatexCommand label","Normal and t distributions",FALSE,8,8,8,8,2,2,4,24,52,82,3815,3433,2,0,1,1,1.58,0.9,TRUE
+24,"LatexCommand label","Statistical analysis and inference",FALSE,7,7,1,1,0,0,0,7,47,70,2658,2833,1,0,1,1,1.49,1.07,TRUE
+25,"Regression analysis with statistical test","Regression Analysis with Statistical Tests",TRUE,10,9,3,3,1,6,0,5,40,71,2090,3230,8,1,1,6,1.77,1.55,TRUE
+26,"Statistical Tests in Regression Analysis with Multiple Variables","Statistical Tests in Regression Analysis with Multiple Variables",TRUE,7,7,0,0,1,5,1,4,39,78,1966,2745,5,0,1,5,2,1.4,TRUE
+27,"Conditions of the Least Squares Method","Conditions of the Least Squares Method",TRUE,10,10,6,6,2,2,3,13,53,81,4130,3658,4,0,1,1,1.53,0.89,TRUE
+28,"Why use computers?","Why Use Computers?",TRUE,3,3,0,0,0,0,0,0,23,21,1163,933,0,0,1,1,0.91,0.8,FALSE
+29,"Microsoft Excel","Microsoft Excel",TRUE,21,21,46,0,2,16,0,0,170,225,11232,10873,18,0,0,8,1.32,0.97,TRUE
+30,"Stata","Stata",TRUE,22,22,31,0,6,44,0,0,696,291,17765,15359,18,0,0,7.33,0.42,0.86,TRUE
+31,"R","R",TRUE,20,20,16,18,4,33,0,13,547,211,12027,10566,17,0,1.12,8.25,0.39,0.88,TRUE
+32,"Examples of Useful Data and Additional Tools","Examples of Useful Data and Additional Tools",TRUE,2,2,0,0,0,0,0,0,14,19,730,761,0,0,1,1,1.36,1.04,FALSE
+33,"Final Chapter","Final Chapter",TRUE,3,3,0,0,0,0,0,0,19,17,1092,1106,1,0,1,1,0.89,1.01,TRUE

@@ -1,0 +1,46 @@
+book_filename: "the-cheat-code"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+rmd_files:
+  - index.Rmd
+  - part-i-intro.Rmd
+  - 01-why-math.Rmd
+  - 02-basics.Rmd
+  - 03-examples-applications.Rmd
+  - 04-functions-graphs.Rmd
+  - 05-logarithms.Rmd
+  - 06-polynomial-equations.Rmd
+  - 07-systems-linear-equations.Rmd
+  - 08-theories-life-death-dating.Rmd
+  - 09-nonlinear-equations-systems.Rmd
+  - 10-derivative.Rmd
+  - 11-optimization-functions.Rmd
+  - 12-theories-cake-monopoly.Rmd
+  - 13-integration.Rmd
+  - 14-linear-algebra.Rmd
+  - part-ii-intro.Rmd
+  - 15-counterfactual-analysis.Rmd
+  - 16-variation-covariation.Rmd
+  - 17-least-squares.Rmd
+  - 18-covariation-social-science.Rmd
+  - 19-least-squares-multiple-variables.Rmd
+  - 20-regression-causal-relationships.Rmd
+  - part-iii-intro.Rmd
+  - 21-probability-discrete.Rmd
+  - 22-probability-continuous.Rmd
+  - 23-probability-normal-t.Rmd
+  - 24-statistical-inference.Rmd
+  - 25-regression-statistical-tests.Rmd
+  - 26-regression-multiple-tests.Rmd
+  - 27-ols-conditions.Rmd
+  - part-iv-intro.Rmd
+  - 28-why-computers.Rmd
+  - 29-excel.Rmd
+  - 30-stata.Rmd
+  - 31-r.Rmd
+  - 32-data-tools.Rmd
+  - part-v-intro.Rmd
+  - 33-final-chapter.Rmd
+new_session: yes

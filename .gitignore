@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+_bookdown_files/
+*.Rproj
+*.tmp.*
+.claude/
+*.log
+the-cheat-code.tex
+the-cheat-code.md

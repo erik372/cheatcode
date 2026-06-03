@@ -1,0 +1,6 @@
+lyx <- readLines("Hegelund - The Cheat Code - 260527.lyx", encoding="UTF-8", warn=FALSE)
+ch     <- which(grepl("^\\\\begin_layout Chapter$",  lyx))
+chstar <- which(grepl("^\\\\begin_layout Chapter\\*$", lyx))
+pt     <- which(grepl("^\\\\begin_layout Part",       lyx))
+hits   <- sort(c(chstar, ch, pt))
+for (h in hits) cat(sprintf("line %6d  %-30s  %s\n", h, lyx[h], lyx[h+1]))

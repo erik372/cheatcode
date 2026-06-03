@@ -1,0 +1,599 @@
+# Conditions of the Least Squares Method {#ch-ols-conditions}
+
+```{r setup-ch27, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE,
+                      fig.align = "center")
+library(ggplot2)
+library(patchwork)
+library(sandwich)
+```
+
+In the previous chapters we mentioned different starting points and assumptions for regression analysis with the least squares method. This chapter goes through these assumptions in somewhat more detail and discusses their implications.
+
+## Gauss-Markov {#sec-gauss-markov}
+
+The theoretical assumptions for the least squares method are described in the **Gauss-Markov theorem**, named after Carl Friedrich Gauss and Andrey Markov. The theorem describes the conditions for the least squares method estimator to have the smallest sampling variance among all linear unbiased estimators. The word "unbiased" refers to the model estimating the population value correctly. The conditions can be presented in slightly different ways and the description depends partly on what type of data we are studying.
+
+If one or more of these conditions are not fulfilled, the results we estimate using the least squares method risk becoming misleading. When we analyze real data, it is common that one or more conditions are not fulfilled. This may sound discouraging, but fortunately there are also several established methods for handling these challenges. This chapter provides occasional simple examples of solutions, but for those interested there is a large amount of literature to delve deeper into.
+
+## Assumption 1: Linearity {#sec-assumption-linearity}
+
+We start from the following regression model for the population, described with matrices:
+
+\begin{equation}
+Y = XB + V
+(\#eq:gm-population)
+\end{equation}
+
+where we have $n$ number of observations and $k$ number of explanatory variables $x_1, \ldots, x_k$ and $k+1$ number of coefficients $b_0, b_1, \ldots, b_k$. The letters in the regression model symbolize the same matrices as described in previous examples.
+
+The regression model describes a linear relationship that is found in the population. Linearity means that all coefficients in a regression model have exponent = 1. The following models are not linear:
+
+$$
+\begin{aligned}
+Y &= a + \frac{1}{b}X + e \\
+\log Z &= \alpha + \beta D + \epsilon
+\end{aligned}
+$$
+
+In the first regression model we have $\frac{1}{b} = b^{-1}$. In the second model we have that $\log(Z_1 + Z_2) \neq \log(Z_1) + \log(Z_2)$, where $Z_1$ and $Z_2$ are two arbitrary values in variable $Z$.
+
+It can be difficult to test whether a regression model is a good linear approximation of the data we are studying. We may for instance inspect the data in a scatter graph or histogram, and compare different measures of dispersion. We can both compare how the explained variable covaries with our explanatory variables, and compare how the residuals are distributed around a regression line.
+
+Let us illustrate this by comparing US GDP every tenth year during the period 1800--2000 using data from Measuring Worth,^[Data available at www.measuringworth.org/usgdp/.] see Table \@ref(tab:gdp-table), with years, GDP and logarithmic GDP. In Figure \@ref(fig:gdp-plots) the linear trend over time for GDP and ln(GDP) respectively is illustrated in separate graphs. In the left graph the trend is estimated based on the regression model:
+
+$$Y_t = a + b\,\text{YEAR}_t + V_t$$
+
+where $Y_t$ is GDP in year $t$ and $\text{YEAR}_t$ is the year variable. In the right graph we have estimated the regression model:
+
+\begin{equation}
+\ln Y_t = c + d\,\text{YEAR}_t + U_t
+(\#eq:gm-log-gdp-trend)
+\end{equation}
+
+where $\ln Y_t$ is logarithmic GDP in year $t$.
+
+```{r gdp-table}
+gdp_data <- data.frame(
+  Year = seq(1800, 2000, by = 10),
+  GDP  = c(0.486, 0.714, 0.718, 1.032, 1.590, 2.656, 4.410, 7.899,
+            10.592, 15.607, 21.197, 33.746, 89.246, 92.160, 102.899,
+            299.827, 542.382, 1073.303, 2857.307, 5963.144, 10250.952),
+  lnGDP = c(-0.7, -0.3, -0.3, 0.0, 0.5, 1.0, 1.5, 2.1,
+              2.4, 2.7, 3.1, 3.5, 4.5, 4.5, 4.6, 5.7,
+              6.3, 7.0, 8.0, 8.7, 9.2)
+)
+knitr::kable(gdp_data,
+             col.names = c("Year", "GDP (billions USD)", "ln GDP"),
+             caption = "US GDP 1800--2000. Data from Measuring Worth (www.measuringworth.org/usgdp/).",
+             booktabs = TRUE, align = "c", row.names = FALSE)
+```
+
+A linear model fits the data relatively poorly when we use GDP, which we see in the left graph. The data points in the graph are placed approximately in the shape of a lying L. The development is exponential and not linear. The regression line does capture the positive development but does not give a representative picture of the long-term trend in GDP. During the years 1800--1850, to the left in the graph, the regression line is below 0. This means that the regression model predicts that GDP was negative all years before 1850. Since GDP is a measure of everything that is produced, bought and sold in a society, this is not possible. The linear model does however capture the long-term trend in logarithmic GDP relatively well, which is seen in the right graph where the points follow the regression line for all the years 1800--2000.
+
+```{r gdp-plots, fig.cap="Linear trend for GDP and ln GDP.", fig.width=9, fig.height=4}
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+
+gdp_data <- gdp_data %>%
+  mutate(pred_y = lm(GDP ~ Year, data=gdp_data) %>% predict,
+         pred_lny = lm(lnGDP ~ Year, data=gdp_data) %>% predict,
+         lny_res = lm(lnGDP ~ Year, data=gdp_data) %>% residuals)
+
+g_linear_gdppred <- gdp_data %>%
+  ggplot(aes(x=Year, y=GDP)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE, size=.3) +
+  geom_segment(aes(xend=Year, yend=pred_y), alpha=.45, size=.2, linetype='dashed') +
+  labs(x=element_blank(), y="Billion USD") +
+  theme(text=element_text(size=14)) +
+  scale_y_continuous(labels=function(x) format(x, big.mark=" ", scientific=FALSE))
+
+g_linear_lngdppred <- gdp_data %>%
+  ggplot(aes(x=Year, y=lnGDP)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE, size=.3) +
+  geom_segment(aes(xend=Year, yend=pred_lny), alpha=.45, size=.2, linetype='dashed') +
+  labs(x=element_blank(), y="ln Billion USD") +
+  theme(text=element_text(size=14))
+
+(g_linear_gdppred + g_linear_lngdppred)
+```
+
+Another way to compare how well the linear regression model captures the covariation in the data is to compare the residuals. In the two graphs vertical lines connect each point and the regression line. In the left graph the distance between the points and the regression line varies considerably — in a way that they do not in the right graph.
+
+Logarithms can often be used to create a more linear relationship between variables. This often works well for exponential series. Unfortunately there is no general solution that works for all regression models. Note however how the data points in the right graph do not describe an exact linear relationship.
+
+In practice, we often encounter populations with variables with nonlinear relationships. But even then we benefit from a linear regression model as a linear approximation, rather than an exact description of the population. When this is more or less suitable depends on what the purpose of the analysis is.
+
+## Assumption 2: Independent and Identically Distributed Observations {#sec-assumption-iid}
+
+In the regression model the explained variable $Y$ is a random variable drawn from the population. The explanatory variables in matrix $X$ can either be random (as in an observational study) or created through a controlled process, for example in a controlled experiment where we ourselves design the treatment. Regardless, none of the variables are correlated with the error term.
+
+In the description of the least squares method we assume that each observation $(y_i, x_{1,i}, \ldots, x_{k,i})$, $i = 1, \ldots, n$, is **independent and identically distributed** (i.i.d.). That is, each observation is drawn in a random sample from a population with the same distribution. That the observations are independent means that the observations do not covary with each other in a systematic way.
+
+Say for example that we want to study the covariation between some characteristics that people have. The characteristics are our variables and each person has their own observation. We draw a random sample from the population, which fulfills the assumption of i.i.d.
+
+But say now that we want to follow people over time, so that each observation is information about a person at a point in time. One of the variables is earnings. Even though people's earnings vary over time, we will be able to see patterns where different observations can be followed over time. The observations for a person's earnings are therefore not independent of each other and therefore also do not fulfill the assumption of i.i.d.
+
+## Assumption 3: Expected Value and Variance of the Error Terms {#sec-assumption-homoscedasticity}
+
+The expected value of the error terms with respect to the explanatory variables $X$ is $E(V|X) = 0$. This also means that the error terms $V$ do not covary with any of the explanatory variables $X$. This can be described as us having **exogenous** explanatory variables $X$. If any explanatory variable $x_1, \ldots, x_k$ is correlated with the error term $v$, this is called the variable being **endogenous**. In addition we assume that the error terms $V$ have the same variance, regardless of observation and variable:
+
+$$var(V|X) = \sigma^2 I_n$$
+
+where the symbol $\sigma^2$ symbolizes the population's constant variance and $I_n$ is an $n \times n$ identity matrix. That the error term exhibits constant variance is usually called **homoscedasticity**. Its opposite is called **heteroscedasticity**, which means that the variance in the error term varies across the observations in one or more explanatory variables $X$.
+
+Figure \@ref(fig:heteroscedasticity-plot) illustrates heteroscedasticity by comparing the residuals' covariation against the explanatory variable $X$. The points' distance to the regression line varies across $X$. Further to the right in the graph the distance between the line and the points is larger compared to the points further to the left. The residuals' variance is thus not constant (homoscedasticity) across different observations but varies (heteroscedasticity).
+
+```{r heteroscedasticity-plot, fig.cap="Heteroscedasticity: the distance between points and the regression line increases with X.", fig.width=5.6, fig.height=4.2}
+library(dplyr)
+library(tibble)
+
+set.seed(2)
+tibble(
+  x=1:50,
+  y= 2 + x*runif(x)
+) %>%
+  mutate(yhat = lm(y~x) %>% predict) %>%
+  ggplot(aes(x,y)) + geom_point() +
+  geom_smooth(method="lm", se=FALSE, size=.5) +
+  geom_segment(aes(xend=x, yend=yhat), alpha=.45, size=.2, linetype='dashed') +
+  theme(axis.title.y = element_text(angle=0),
+        text=element_text(size=14)) +
+  annotate("text", x=5, y=37, hjust=0, size=2.5,
+           label="Further to the right in the graph, the distance\nbetween the points and the line is greater.")
+```
+
+A common assumption for the error terms is that these follow a normal distribution (see Section \@ref(sec-assumption-normality) below). Combined with the assumption of homoscedasticity this means that the error terms' dispersion around the regression line follows a normal distribution with the same shape, regardless of which values for the explanatory variables $X$ we compare against. With heteroscedasticity we may for example have normally distributed error terms but with different variance. Figure \@ref(fig:hetero-normal) illustrates an example where we have three normal distributions with different variance along a regression line.
+
+```{r hetero-normal, fig.cap="Normal distributions with different variance along a regression line."}
+library(plotly)
+library(tibble)
+
+min <- -300
+max <- 300
+y2 <- 60
+y3 <- y2*2
+
+df1 <- tibble(x=1,
+              y=min:max,
+              z=dnorm(min:max, 0, 50))
+
+df1.1 <- tibble(x=c(1,1,1,1 ,   2),
+                y=c(min,0,0,0,   y2),
+                z=c(0,0,dnorm(0, 0,50),0, 0))
+
+df2 <- tibble(x=2,
+              y=(min+y2):(max+y2),
+              z=dnorm((min+y2):(max+y2), mean=y2, sd=100))
+
+df2.1 <- tibble(x=c(2,2,2, 3),
+                y=c(y2,y2,y2, y3),
+                z=c(0,dnorm(y2,mean=y2,sd=100),0, 0))
+
+df3 <- tibble(x=3,
+              y=(min+y3):(max+y3),
+              z=dnorm((min+y3):(max+y3), mean=y3, sd=35))
+
+df3.1 <- tibble(x=3,
+                y=c(y3,y3),
+                z=c(0,dnorm(y3, y3, 35))
+                )
+
+rbind(df1, df1.1,
+      df2, df2.1,
+      df3, df3.1) %>%
+  plot_ly(x= ~x,y= ~y,z= ~z,
+          line=list(width=1,
+                    color="black"),
+          type="scatter3d",
+          mode="lines",
+          showlegend=FALSE) %>%
+
+  plotly::layout(scene=list(zaxis=list(title="",
+                               showbackground=TRUE,
+                               backgroundcolor = "lightgray",
+                               showname=FALSE,
+                               showgrid=TRUE,
+                               zeroline=TRUE,
+                               showline=TRUE,
+                               showticklabels=FALSE,
+                               range=list(0,.014))
+                            ,
+                            xaxis=list(title="X",
+                                       showgrid=TRUE,
+                                       gridcolor="white",
+                                       showline=TRUE,
+                                       showticklabels=FALSE)
+                            ,
+                            yaxis=list(title="Y",
+                                       showgrid=TRUE,
+                                       gridcolor="white",
+                                       zeroline=FALSE,
+                                       showline=TRUE,
+                                       showticklabels=FALSE)
+                            ,
+                            camera = list(eye = list(x = -1.7,
+                                                     y = 1.3,
+                                                     z = .6)
+                                          )
+                            ),
+                 annotations=list(x=20, y=60, z=2,
+                                  xshift=-120, yshift=-140,
+                                  text="Regression model:\nY = a + b X + V",
+                                  font=list(size=7))
+                 )
+```
+
+If the error term's variance is not constant across different observations (heteroscedasticity), this can lead to the statistical tests (for example t-test and F-test) giving incorrect results. It is therefore often important to check for heteroscedasticity, which can be done in different ways. One way is to compare the dispersion of the residuals in graphs.
+
+Above we described how we in many situations can use a linear regression model to describe a linear approximation for a relationship between two variables that is actually nonlinear. In such cases it is also common that the error terms do not have constant variance, that is, we find heteroscedasticity.
+
+## Assumption 4: Multicollinearity {#sec-assumption-multicollinearity}
+
+The explanatory variables in the regression model must not correlate too strongly with each other. If a variable is a linear function of another variable in the regression model this is called them exhibiting **collinearity**. If several variables exhibit high correlation this is called **multicollinearity**. Suppose we have the explanatory variable $x_1$= earnings in USD, and $x_2$= earnings in thousands of USD. Variable $x_1$ can be described as a linear function of $x_2$: $x_1 = 1{,}000 \cdot x_2$. The relationship between $x_1$ and $x_2$ is called *perfect collinearity*. If $x_1$ is included in the regression model then it does not add any information to our analysis to also add $x_2$.
+
+Multicollinearity can affect the results in the regression analysis and disturb the calculation of the slope coefficients. In addition it can cause the variance in slope coefficients to become larger than what would otherwise have been the case. This can in turn reduce the probability that we in a t-test discover a statistically significant covariation between the variables concerned and the explained variable. Instead we risk accepting a false null hypothesis, a type 2 error.
+
+The assumption about the absence of multicollinearity does not mean that two or more variables in a regression model may not covary at all. In regression analysis it is common that many variables have some form of relationship and that they therefore often covary more or less. The problem arises when they exhibit too high correlation. Perfect collinearity is usually easy to remedy by removing one of the variables from the regression model. Sometimes however it happens that two variables happen to have high correlation. In such cases it is difficult to give general recommendations.
+
+To detect collinearity we can study covariation between variables in graphs. A common relatively simple check is to estimate the correlation coefficient $r_{xy}$ for all pairs of explanatory variables. There is no exact value for $r_{xy}$ that guarantees high collinearity, but a common recommendation is that if two explanatory variables exhibit $r_{xy} > 0.8$, this should be regarded as an indication of problematically high collinearity.
+
+Another common method for checking the occurrence of multicollinearity is to estimate the **Variance Inflation Factor (VIF)**. Suppose we have the following regression model:
+
+\begin{equation}
+Y = a + bX + cZ + V
+(\#eq:vif-model)
+\end{equation}
+
+To estimate VIF we take the auxiliary regression:
+
+$$X = \beta_1 + \beta_2 Z + U$$
+
+We estimate $R^2$ for this regression and thereafter the VIF factor for $\hat{b}$:
+
+\begin{equation}
+VIF(\hat{b}) = \frac{1}{1 - R^2}
+(\#eq:vif)
+\end{equation}
+
+A rule of thumb is that if the VIF factor for an explanatory variable is over 5 or 10, this indicates high multicollinearity.
+
+## Assumption 5: Correlation Between Residuals {#sec-assumption-autocorrelation}
+
+The error terms in the regression model are assumed to be uncorrelated, which can be described as the covariance $cov(v_i, v_j) = 0$ for observation $i$ and $j$(where $i$ and $j$ refer to any observations). Another way to describe this is that the error term should not covary with itself. This phenomenon is called **autocorrelation**, or serial correlation. We usually do not know the error terms in the population but we may examine the occurrence of autocorrelation among our estimated residuals.
+
+Autocorrelation can for example arise if our regression model estimates the covariation between variables over time. We illustrate this by again comparing the example with the linear trend for the natural log of GDP (Section \@ref(sec-assumption-linearity)):
+
+$$\ln Y_t = c + d\,\text{YEAR}_t + U_t$$
+
+Figure \@ref(fig:autocorrelation-plots) illustrates the covariation between the estimated residuals $\hat{U}_t$ from this model. In the left graph only the residuals are shown, where the marked horizontal line at $Y = 0$ is the regression line. The points in the left graph (the residuals) form the shape of a U. Residuals that are positive, above the 0-line, are often followed by another positive residual. And the residuals that are negative, below the 0-line, are often followed by another negative residual.
+
+The pattern in the left graph is confirmed in the right graph where we instead see the covariation between residual $\hat{U}_t$ and the residual for the previous year $\hat{U}_{t-1}$. The straight diagonal line in the graph is the regression line from the regression model $\hat{U}_t = \beta\hat{U}_{t-1} + \epsilon$. The correlation is positive, which indicates autocorrelation.
+
+```{r autocorrelation-plots, fig.cap="Residuals from the ln GDP regression model.", fig.width=9.4, fig.height=6}
+library(ggplot2)
+library(dplyr)
+library(ggrepel)
+library(latex2exp)
+library(patchwork)
+
+g_residuals <- gdp_data %>%
+  ggplot(aes(y=lny_res, x=Year)) +
+  geom_point(size=1) +
+  geom_hline(yintercept=0) +
+  geom_segment(aes(xend=Year, yend=0), alpha=.45, size=.2, linetype='dashed') +
+  theme(text=element_text(size=14)) +
+  labs(x=element_blank(),
+       y=TeX("Residual $\\hat{e}_t$")) +
+  annotate("text", x=1890, y=.9, size=2.5,
+           label="Regression line for") +
+  annotate("text", x=1890, y=.75, size=2.5,
+           label=TeX("$\\ln y = a + b* \\textrm{year}_t +e$")) +
+  geom_curve(x=1900, xend=1910, y=.62, yend=.15, curvature=-.2,
+             size=.1,
+             arrow = arrow(length=unit(.1, "cm")))
+
+g_rescorr <- gdp_data %>%
+  ggplot(aes(x=lag(lny_res), y=lny_res )) +
+  geom_point(size=1) +
+  geom_text_repel(aes(label=Year), size=2.5, max.overlaps = 3) +
+  geom_smooth(method="lm", se=FALSE, size=.2, linetype="dashed") +
+  labs(x=TeX("Residual $\\hat{e}_t$"),
+       y=TeX("Residual $\\hat{e}_{t-1}$")) +
+  annotate("text", x=-.75, y=1.25, size=2.5, hjust=0,
+           label=TeX("Year for $\\hat{e}_t$") ) +
+  annotate("text", x=-.75, y=1.1, size=2.5, hjust=0,
+           label="Regression line for model") +
+  annotate("text", x=-.75, y=.95, size=2.5, hjust=0,
+           label=TeX("$e_t = \\beta e_{t-1} + v_t$")) +
+    theme(text=element_text(size=14))
+
+(g_residuals + g_rescorr)
+```
+
+Autocorrelation does not affect the coefficients in our original regression model. But autocorrelation can lead to the standard error becoming smaller than it actually is, which in turn can cause the t-tests for the slope coefficients to give a higher t-value than otherwise and we may reject a true null hypothesis (type 1 error).
+
+That is, in the t-test for slope coefficient $b$ we estimate the t-value $t = \frac{\hat{b} - b_0}{se(\hat{b})}$, where $se(\hat{b})$ is the standard error for estimated $\hat{b}$. If we test the hypothesis that $b = 0$ then $b_0 = 0$ and $t = \frac{\hat{b}}{se(\hat{b})}$. If the standard error in the denominator of the t-value decreases then our estimated t-value increases and we will then get a value further out in the tails of the t-distribution.
+
+## Assumption 6: Normally Distributed Error Terms {#sec-assumption-normality}
+
+In addition to the above conditions for the least squares method, an additional condition is often mentioned in this context: that the error term is normally distributed across all observations and explanatory variables in $X$. We describe this as $V|X \sim N(0, \sigma^2 I_n)$ where $\sigma^2$ is the variance and $I_n$ is an $n \times n$ identity matrix. Given that the error terms and the residuals are approximately normally distributed we use t-tests to calculate the probability that our estimated coefficients are a result of a random process.
+
+Even if we have good reasons to expect that the error term follows a normal distribution, in practice error terms can follow any distribution. This condition too we therefore check by studying the residuals. A first step can be to compare how the residuals are distributed in graphs. Let us illustrate this using the same data for logarithmic GDP from Figure \@ref(fig:gdp-plots). The regression model is $\ln Y_t = c + d\,\text{YEAR}_t + U_t$. If we take the estimated residuals from that model and compare how they are distributed around their own mean, we get the distribution shown in Figure \@ref(fig:normality-gdp).
+
+```{r normality-gdp, fig.cap="Residuals from the ln GDP regression model.", fig.width=6, fig.height=4.05}
+library(ggplot2)
+library(latex2exp)
+library(readr)
+library(dplyr)
+
+mydx <- read_csv("../data/measuring worth USGDP_1790-2020.csv", skip=1) %>%
+  filter(Year>=1800) %>%
+  mutate(y =  `Nominal GDP (million of Dollars)`,
+    lny = log(`Nominal GDP (million of Dollars)`),
+         yres = residuals(lm(y~Year)))
+
+mean_res <- mean(mydx$yres)
+sd_res <- sd(mydx$yres)
+n_obs <- nrow(mydx)
+bin_width <- (max(mydx$yres) - min(mydx$yres)) / 40
+
+g_275_res_hist <- mydx %>% ggplot(aes(x = yres)) +
+  geom_histogram(bins = 40, color = "black", alpha = 0.7) +
+  stat_function(fun = function(x) dnorm(x, mean = mean_res, sd = sd_res) * n_obs * bin_width,
+                size=1.2, color="#F8766D") +
+  labs(x = TeX("Residual $U_t$"),
+       y = "Number of observations\n(the bars)") +
+  scale_x_continuous(labels=scales::comma) +
+  theme(text=element_text(size=14))
+
+g_275_res_hist
+```
+
+The bars show the number of residuals. In the graph we have also drawn a curve for a normal distribution with the same mean and standard deviation as the estimated residuals. The bars do not really follow the normal distribution curve. The residuals show a U-shaped pattern over time (as seen in Figure \@ref(fig:autocorrelation-plots)), which means their distribution is also non-normal — with fewer observations near zero than a normal distribution would imply.
+
+Let us look at another example. Consider a regression model:
+
+\begin{equation}
+L_i = a + bM_i + e_i
+(\#eq:gm-lifeexp)
+\end{equation}
+
+where $L_i$ is mean life expectancy for the inhabitants in country $i$ and $M_i$ is GDP per capita. Figure \@ref(fig:normality-lifeexp) illustrates estimated results from this regression model in two graphs. In the graph to the left we see a positive covariation between life expectancy and earnings. In the graph to the right the residuals are shown, where the bars show the proportional distribution of the residuals and a normal distribution density curve with the same mean and variance as the residuals.
+
+```{r normality-lifeexp, cache=TRUE, fig.cap="Life expectancy and income in Sweden's 290 municipalities.", fig.width=9.4, fig.height=6}
+library(rKolada)
+library(ggrepel)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(patchwork)
+library(latex2exp)
+
+kolada_data <- get_values(kpi=c("N00905","N00923","N00925"), period=2019) %>%
+  filter(municipality_type=="K") %>%
+  mutate(variable= case_when(
+    kpi=="N00923" ~ "lifelength_male",
+    kpi=="N00925" ~ "lifelength_female",
+    kpi=="N00905" ~ "income"
+  )) %>%
+  select(-kpi) %>%
+  filter(gender=='T') %>%
+  pivot_wider(names_from=variable, values_from=value) %>%
+  drop_na(income, lifelength_male, lifelength_female) %>%
+  mutate(lifelength = (lifelength_male + lifelength_female) /2 ) %>%
+  select(year, municipality, income, lifelength) %>%
+  mutate(income = income/1000) %>%
+  mutate(ypred = lm(lifelength ~ income) %>% predict ,
+         est_res = lm(lifelength ~ income) %>% residuals )
+
+g_gm_kolada1 <- kolada_data %>%
+  ggplot(aes(y=lifelength, x=income)) +
+  geom_point(size=.8) +
+  geom_smooth(method="lm", se=FALSE,
+              size=.1
+              ) +
+  geom_segment(aes(xend=income, yend=ypred), alpha=.45, size=.2, linetype='dashed') +
+  geom_text_repel(aes(label=if_else(income>350 | est_res <= -2,
+                                    municipality  ,  "")), size=2.5,
+                  max.overlaps = 3,
+                  nudge_y=-.5 ,
+                  nudge_x=20,
+                  point.padding = .2) +
+  labs(x="Life expectancy",
+       y="Income") +
+  theme(text=element_text(size=14)) +
+  annotate("text", x=200, y=85.5, size=2.5, hjust=0,
+           label="Covariation between income\nand life expectancy in Sweden's 290 municipalities"
+           )
+
+g_gm_kolada2 <- kolada_data %>%
+  ggplot(aes(x=est_res)) +
+  geom_histogram(aes(y=..density..),
+                 color="black") +
+  labs(x=TeX("Residual $\\hat{e}_t$"),
+       y="Proportion") +
+  theme(text=element_text(size=14)) +
+  stat_function(fun=dnorm, args=c(0,var(kolada_data$est_res)), color="#F8766D")
+
+(g_gm_kolada1 + g_gm_kolada2)
+```
+
+We compare the bars to the density curve to judge if the residuals' distribution resembles a normal distribution. Whether we accept the residuals' distribution as an indication that the population error terms follow a normal distribution depends, at least partly, on how big deviations from a normal distribution we wish to tolerate.
+
+Sometimes a transformation of the variables in the regression model, for example taking logarithms, can lead to the residuals following a normal distribution. There are also specific methods for how to perform a regression analysis and instead assume that the error terms follow other types of probability distribution, which there is no room to go through here.
+
+## Adjusted Standard Errors {#sec-robust-se}
+
+In this chapter we have gone through the conditions of the least squares method as well as examples of phenomena that violate these. Some of these deviating phenomena can be remedied by thinking through the model's design. Some deviating phenomena can be handled by adjusting the data we study.
+
+There are also many well-known alternative methods for estimating regression models and using statistical tests. A well-known such example is what is called **robust standard errors**, also called heteroscedasticity-robust standard errors or heteroscedasticity-consistent standard errors. Sometimes the same thing is called White's standard errors after an article by Halbert White (1980) that contributed to the spread of this method within economics. Here follows a brief description, largely based on Hansen (2022) chapter 4. Many computer programs for statistical analysis have simple shortcut commands for all such calculations.
+
+Robust standard errors is a summary term for a type of adjustment that we can perform on the residuals so that these can be used for regression analysis based on the least squares method, even in the presence of heteroscedasticity. Suppose we have the following regression model for the population:
+
+$$Y = XB + V$$
+
+where $Y$ and $X$ are matrices with explained and explanatory variables respectively, $B$ is the coefficients and $V$ is the error terms. We have previously defined the estimator $\hat{B} = (X^TX)^{-1}X^TY$ and the variance-covariance matrix:
+
+\begin{equation}
+var(\hat{B}|X) = (X^TX)^{-1} X^T E[VV^T|X] X (X^TX)^{-1}
+(\#eq:vcov-robust-gen)
+\end{equation}
+
+Given that the error terms exhibit constant variance $\sigma^2$(homoscedasticity), $E(VV^T|X) = \sigma^2 I$ and $var(\hat{B}|X) = \sigma^2(X^TX)^{-1}$. If we work with sample data it is common that the residuals exhibit irregular variance (heteroscedasticity). What we now seek is an alternative version of the variance-covariance matrix that takes into account whether we have heteroscedasticity in our data.
+
+It is possible to estimate the residuals' variance as $\hat{s}^2 = \frac{\sum(y_i - \hat{y}_i)^2}{(n-p)}$. The letters $V$ in the expression $E(VV^T|X)$ are the error terms in the population, which we do not know. Instead we use the estimated residuals $\hat{V}$ and get $E(\hat{V}\hat{V}^T|X) = \text{diag}(\hat{v}_1^2, \hat{v}_2^2, \ldots, \hat{v}_n^2)$, which is a diagonal matrix where the diagonal elements consist of the squared estimated residuals. We insert this into the variance-covariance matrix in equation \@ref(eq:vcov-robust-gen) and rewrite:
+
+\begin{equation}
+var(\hat{B}|X)^{\text{HC0}} = (X^TX)^{-1} \!\left(\sum_{i=1}^n X_i X_i^T \hat{v}_i^2\right)\! (X^TX)^{-1}
+(\#eq:vcov-hc0)
+\end{equation}
+
+This is a variant of the variance-covariance matrix, robust for heteroscedasticity. We mark this version of the variance-covariance matrix with "HC0": $var(\hat{B}|X)^{\text{HC0}}$. Estimated results in $var(\hat{B}|X)^{\text{HC0}}$ we use to for example estimate t-tests for the coefficients in regression models where the data exhibit heteroscedasticity.
+
+In the chapter on multiple regression we saw how the variance-covariance matrix $var(\hat{B}|X)$ is symmetric, the elements in the diagonal in $var(\hat{B}|X)$ are the variance for each coefficient's estimator, while the other elements are covariance for the coefficients' estimators. The difference with $var(\hat{B}|X)^{\text{HC0}}$ consists in how the estimates are estimated.
+
+There are also additional variants of $var(\hat{B}|X)$. The following version is often denoted $var(\hat{B})^{\text{HC1}}$ and aims to adjust for $\hat{v}_i^2$ risking becoming too low:
+
+\begin{equation}
+var(\hat{B})^{\text{HC1}} = \frac{n}{n-k}\,(X^TX)^{-1} \!\left(\sum_{i=1}^n X_i X_i^T \hat{v}_i^2\right)\! (X^TX)^{-1}
+(\#eq:vcov-hc1)
+\end{equation}
+
+```{r yz-table}
+df27 <- data.frame(y = c(3, 2, 5, 4),
+                   x = c(3, 4, 6, 7),
+                   z = c(1, 4, 0, 1))
+knitr::kable(df27,
+             col.names = c("$y$", "$x$", "$z$"),
+             caption = "Variables $y$, $x$ and $z$.",
+             booktabs = TRUE, align = "c", row.names = FALSE)
+```
+
+where $n$ is the number of observations and $k$ is the number of coefficients in the regression model. The factor $\frac{n}{n-k}$ means that HC1 is often recommended over HC0. We illustrate the differences between the three versions of the variance-covariance matrix $var(\hat{B})$, $var(\hat{B})^{\text{HC0}}$ and $var(\hat{B})^{\text{HC1}}$ with the three variables $y$, $x$ and $z$, the four observations in Table \@ref(tab:yz-table) and the following regression model:
+
+$$
+Y = XB + V, \quad
+\begin{bmatrix}3\\2\\5\\4\end{bmatrix} =
+\begin{bmatrix}1&3&1\\1&4&4\\1&6&0\\1&7&1\end{bmatrix}
+\begin{bmatrix}a\\b\\c\end{bmatrix} +
+\begin{bmatrix}v_1\\v_2\\v_3\\v_4\end{bmatrix}
+$$
+
+where $V$ is the error terms. We estimated this regression model in a previous chapter, found the residuals $\hat{V} \approx \{-0.2, 0.14, 0.41, -0.34\}$ and the variance $var(\hat{V}) = \hat{s}^2 \approx 0.338$. We do not go through the calculations in detail here but primarily describe the results:
+
+\begin{align}
+var(\hat{B}|X) &= \hat{s}^2(X^TX)^{-1} \nonumber \\
+&\approx \begin{bmatrix}1.49 & -0.23 & -0.16\\ -0.23 & 0.04 & 0.02\\ -0.16 & 0.02 & 0.05\end{bmatrix}
+\end{align}
+
+For $var(\hat{B}|X)^{\text{HC0}}$ we get:
+
+\begin{align}
+var(\hat{B}|X)^{\text{HC0}} &= (X^TX)^{-1}\!\left(\sum_i^n X_i X_i^T \hat{e}_i^2\right)\!(X^TX)^{-1} \nonumber \\
+&\approx \begin{bmatrix}0.247 & -0.041 & -0.025\\ -0.041 & 0.0086 & 0.002\\ -0.025 & 0.002 & 0.0066\end{bmatrix}
+\end{align}
+
+For $var(\hat{B}|X)^{\text{HC1}}$:
+
+\begin{align}
+var(\hat{B}|X)^{\text{HC1}} &= \left(\frac{n}{n-k}\right)(X^TX)^{-1}\!\left(\sum_i^n X_i X_i^T \hat{e}_i^2\right)\!(X^TX)^{-1} \nonumber \\
+&\approx \begin{bmatrix}0.987 & -0.164 & -0.102\\ -0.164 & 0.034 & 0.008\\ -0.102 & 0.008 & 0.026\end{bmatrix}
+\end{align}
+
+where $\frac{n}{n-k} = \frac{4}{4-3} = 4$. Note how the elements in the diagonal for each variance-covariance matrix represent the variance for the coefficients' estimators. Of these three matrices we get the highest values in $var(\hat{B}|X)$. Second highest values are given by $var(\hat{B}|X)^{\text{HC1}}$, while the lowest variance for the coefficients' estimators is found in $var(\hat{B}|X)^{\text{HC0}}$. These are three variants of the variance-covariance matrix among many conceivable ones.
+
+## Chapter Summary {#sec-ch27-summary}
+
+- The Gauss-Markov theorem describes the theoretical assumptions that must hold for the least squares method's estimator to have the smallest sampling variance among all linear unbiased estimators. A common, but not necessary, assumption in regression analysis with the least squares method is that the error terms follow a normal distribution.
+
+- It is common that one or several of the assumptions in the Gauss-Markov theorem are not fulfilled. There are different methods and tests to check if the conditions are fulfilled as well as different methods to handle deviations from the conditions.
+
+- As an example, in the presence of heteroscedasticity one can use adjusted standard errors (robust standard errors).
+
+## Exercises {#sec-ch27-exercises}
+
+```{=html}
+<div id="ex-27"></div>
+<script>
+var exercises27 = [
+  {
+    question: "The Gauss-Markov theorem states that OLS is BLUE when its assumptions hold. (a) What does BLUE stand for? (b) Name three assumptions of the Gauss-Markov theorem. (c) What is the key consequence if OLS is BLUE?",
+    answer: "(a) Best Linear Unbiased Estimator. (b) Any three of: \\(E(\\varepsilon|X)=0\\), \\(\\text{Var}(\\varepsilon_i)=\\sigma^2\\) (homoscedasticity), no perfect multicollinearity, no autocorrelation. (c) OLS has the smallest variance among all linear unbiased estimators."
+  },
+  {
+    question: "The true relationship is \\(Y = aX^2 + \\varepsilon\\) but we estimate \\(\\hat{y} = \\hat{a} + \\hat{b}X\\). (a) Which Gauss-Markov assumption is violated? (b) How can non-linearity be detected visually? (c) How can we address non-linearity while still using OLS?",
+    answer: "(a) The linearity assumption. (b) A residuals-vs-fitted plot will show a curved pattern. (c) Include \\(X^2\\) as an additional regressor."
+  },
+  {
+    question: "Homoscedasticity assumes \\(\\text{Var}(\\varepsilon_i) = \\sigma^2\\) for all \\(i\\). (a) What is heteroscedasticity? (b) A residuals-vs-fitted plot shows variance growing with \\(\\hat{y}\\). What does this indicate? (c) Does heteroscedasticity bias \\(\\hat{b}\\)?",
+    answer: "(a) \\(\\text{Var}(\\varepsilon_i)\\) varies across observations. (b) Heteroscedasticity — the variance of the error term grows with the fitted values. (c) No — \\(\\hat{b}\\) remains unbiased; only the standard errors are affected."
+  },
+  {
+    question: "\\(X_1\\) and \\(X_2\\) have correlation \\(r = 0.99\\). (a) What is this problem called? (b) What happens to \\(\\text{se}(\\hat{b})\\) when regressors are nearly collinear? (c) Name one practical remedy.",
+    answer: "(a) Multicollinearity. (b) \\(\\text{se}(\\hat{b})\\) inflates — estimates become less precise. (c) Drop one of the collinear variables, or collect more data."
+  },
+  {
+    question: "The Gauss-Markov theorem requires \\(E(\\varepsilon|X) = 0\\). (a) What does this assumption mean in words? (b) What is violated if an omitted variable \\(Z\\) affects \\(Y\\) and is correlated with \\(X\\)? (c) Is \\(\\hat{b}\\) biased in this case?",
+    answer: "(a) Errors are uncorrelated with \\(X\\) on average — the model is correctly specified. (b) The assumption \\(E(\\varepsilon|X) = 0\\) is violated. (c) Yes — omitted variable bias."
+  },
+  {
+    question: "Autocorrelation in error terms: \\(\\text{Cov}(\\varepsilon_t, \\varepsilon_{t-1}) \\neq 0\\). (a) In which type of data is autocorrelation most common? (b) A plot of residuals vs. time shows a clear wave pattern. What does this suggest? (c) What is one consequence for OLS standard errors?",
+    answer: "(a) Time series data. (b) Autocorrelation in the residuals. (c) OLS standard errors are unreliable — typically underestimated, inflating t-statistics."
+  },
+  {
+    question: "Three OLS violations and their consequences. (a) Heteroscedasticity: is \\(\\hat{b}\\) unbiased? (b) Omitted variable correlated with \\(X\\): is \\(\\hat{b}\\) unbiased? (c) Measurement error in \\(X\\): is \\(\\hat{b}\\) biased?",
+    answer: "(a) Yes — heteroscedasticity does not bias \\(\\hat{b}\\). (b) No — an omitted variable correlated with \\(X\\) causes omitted variable bias. (c) Yes — attenuation bias (the coefficient is biased toward zero)."
+  },
+  {
+    question: "The Gauss-Markov theorem does not require normally distributed errors. (a) Is OLS unbiasedness affected by non-normal errors? (b) When is normality of \\(\\varepsilon\\) important for exact inference? (c) With \\(n = 1000\\), does non-normality of \\(\\varepsilon\\) strongly affect t-tests? Why?",
+    answer: "(a) No — unbiasedness holds regardless of the error distribution. (b) Normality is needed for exact small-sample t-tests and F-tests. (c) No — by the Central Limit Theorem, \\(\\hat{b}\\) is approximately normally distributed for large \\(n\\)."
+  },
+  {
+    question: "Robust standard errors. OLS: \\(\\hat{b} = 3\\), \\(\\text{se}_{\\text{OLS}} = 0.5\\). Robust: \\(\\text{se}_{\\text{robust}} = 0.8\\). (a) Which standard error is more reliable under heteroscedasticity? (b) Does using robust SE change \\(\\hat{b}\\)? (c) If \\(\\text{se}_{\\text{robust}} = 2\\) instead, compute the robust t and decide whether to reject \\(H_0: b = 0\\) at \\(\\alpha = 0.05\\).",
+    answer: "(a) The robust standard error is more reliable under heteroscedasticity. (b) No — only the standard error changes, not the coefficient estimate. (c) \\(t = 3/2 = 1.5 < 1.96\\), so we do not reject \\(H_0\\)."
+  },
+  {
+    question: "Diagnosis — identify the most likely problem in each scenario. (a) Residuals vs. fitted plot shows a funnel/fan shape. (b) Residuals vs. time plot shows a regular wave pattern. (c) Correlation matrix shows \\(r(X_1, X_2) = 0.97\\).",
+    answer: "(a) Heteroscedasticity. (b) Autocorrelation. (c) Multicollinearity."
+  },
+  {
+    question: "Model specification. (a) Adding a relevant omitted variable \\(Z\\) (correlated with \\(X\\)): how does \\(\\hat{b}\\) change? (b) Adding an irrelevant variable: what happens to \\(\\hat{b}\\) and efficiency? (c) Name the fundamental trade-off in choosing covariates.",
+    answer: "(a) \\(\\hat{b}\\) changes — the original estimate suffered from omitted variable bias. (b) \\(\\hat{b}\\) is unaffected on average but the standard error increases (less efficiency). (c) Omitted variable bias vs. efficiency loss from over-controlling."
+  },
+  {
+    question: "Heteroscedasticity in a wage regression: \\(\\hat{y} = 10000 + 2000x\\) where \\(x\\) is years of education. (a) Why might errors have larger variance for high-education workers? (b) What is the effect on OLS standard errors if heteroscedasticity is ignored? (c) Name the HC0 and HC1 variants of robust standard errors in terms of what they estimate.",
+    answer: "(a) High earners have more variability in wages — bonuses, equity, and career diversity grow with education. (b) Standard errors are biased and inference is unreliable. (c) HC0 and HC1 are heteroscedasticity-consistent estimators of the variance-covariance matrix; HC1 applies a small-sample degrees-of-freedom correction by multiplying by \\(n/(n-k)\\)."
+  }
+];
+
+(function() {
+  var container = document.getElementById("ex-27");
+  exercises27.forEach(function(ex, i) {
+    var div = document.createElement("div");
+    div.style.marginBottom = "1.2em";
+    div.innerHTML =
+      "<p><strong>Exercise " + (i + 1) + ".</strong> " + ex.question + "</p>" +
+      "<details><summary>Answer</summary><p>" + ex.answer + "</p></details>";
+    container.appendChild(div);
+  });
+  if (window.MathJax) {
+    MathJax.Hub
+      ? MathJax.Hub.Queue(["Typeset", MathJax.Hub, container])
+      : MathJax.typesetPromise([container]);
+  }
+  container.querySelectorAll("details").forEach(function(d) {
+    d.addEventListener("toggle", function() {
+      if (window.MathJax) {
+        MathJax.Hub
+          ? MathJax.Hub.Queue(["Typeset", MathJax.Hub, d])
+          : MathJax.typesetPromise([d]);
+      }
+    });
+  });
+})();
+</script>
+```
