@@ -61,10 +61,31 @@
 <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
 <script>
+// Re-render MathJax after gitbook dynamic page navigation
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('a[href*="#eq:"]').forEach(function(link) {
-    link.textContent = link.textContent.trim().replace(/^\((.+)\)$/, '$1');
-  });
+  function stripEqParens() {
+    document.querySelectorAll('a[href*="#eq:"]').forEach(function(link) {
+      link.textContent = link.textContent.trim().replace(/^\((.+)\)$/, '$1');
+    });
+  }
+  stripEqParens();
+
+  function retypeset() {
+    if (window.MathJax && MathJax.Hub) {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      MathJax.Hub.Queue(stripEqParens);
+    }
+  }
+
+  // Hook into gitbook's page navigation event
+  function tryBindGitbook() {
+    if (typeof gitbook !== 'undefined' && gitbook.events) {
+      gitbook.events.bind('page.change', retypeset);
+    } else {
+      setTimeout(tryBindGitbook, 200);
+    }
+  }
+  tryBindGitbook();
 });
 </script>
 <script type="text/x-mathjax-config">
