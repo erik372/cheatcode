@@ -175,7 +175,7 @@ The effective interest rate for this loan is thus 112.6%. Some loans can have ov
 
 ## Index {#sec-index}
 
-An index is a method to compare the development of a quantity. A common way to calculate an index is to compare values against a base year or a base level. We may choose which ever year we want to use as base year. Often one calculates index so that the index value for the base year is 100. The number 100 is arbitrarily chosen. 
+An index is a method to compare the development of a quantity. A common way to calculate an index is to compare values against a base year or a base level. We may choose whichever year we want to use as base year. Often one calculates index so that the index value for the base year is 100. The number 100 is arbitrarily chosen. 
 
 Table: Basis for index (\#tab:underlag-for-index)
 
@@ -269,7 +269,7 @@ g_ts2 <- ts3 %>%
 
 ## Population index
 
-Indices can be used in many situations. Table \@ref(tab:sveriges-befolkning) shows the size of the population for USA every tenth year 1950 – 2020. We will now calculate an population index with 1950 as base year. For 1950 we get the following index value: 
+Indices can be used in many situations. Table \@ref(tab:sveriges-befolkning) shows the size of the population for USA every tenth year 1950 – 2020. We will now calculate a population index with 1950 as base year. For 1950 we get the following index value: 
 
 $$
 \begin{align}
@@ -393,7 +393,7 @@ $$
 
 The price for one of Motorola's cheapest mobile phones in 2025 costs approximately 5% of what their model cost 40 years ago.
 
-Now we shall deflate the price of Motorola's mobile phones. To deflate a price from a specific year we divide this price by the CPI value for the same year and multiply the result by the index value for the base year (the year we want to measure the prices in). We want to calculate the 1984 price for Motorola DynaTAC 8000X in 2025 prices. A long time series on the US consumer price index is available from the Feder Reserve Bank of Minneapolis website . If CPI in 1984 is set to 100, the CPI in 2025 is approximately 310. The real price of the Motorola DynaTAC 8000X in 2025 prices is therefore:
+Now we shall deflate the price of Motorola's mobile phones. To deflate a price from a specific year we divide this price by the CPI value for the same year and multiply the result by the index value for the base year (the year we want to measure the prices in). We want to calculate the 1984 price for Motorola DynaTAC 8000X in 2025 prices. A long time series on the US consumer price index is available from the Federal Reserve Bank of Minneapolis website . If CPI in 1984 is set to 100, the CPI in 2025 is approximately 310. The real price of the Motorola DynaTAC 8000X in 2025 prices is therefore:
 
 $$
 \begin{align}
@@ -409,7 +409,7 @@ $$
 \end{equation}
 $$
 
-This means that if we adjust for the average price development between 1984 and 2025, Motorola's modern phone models cost only 1.6% of the price of their flagship model in 1984. Real prices may fall for different reason, such as technological progress and new production methods.
+This means that if we adjust for the average price development between 1984 and 2025, Motorola's modern phone models cost only 1.6% of the price of their flagship model in 1984. Real prices may fall for different reasons, such as technological progress and new production methods.
 
 ## Economic growth {#sec-tillvaxt-ex1}
 

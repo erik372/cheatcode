@@ -1,0 +1,31 @@
+id,file,section,line,type,status,find,replace,reason
+1,01-why-math.Rmd,Describe relationships and theories,90,minor,applied,one cause the other,one causes the other,Subject-verb agreement: singular subject requires third-person singular verb form
+2,01-why-math.Rmd,We lie to both ourselves and others,143,minor,applied,It is also easy deceive yourself,It is also easy to deceive yourself,Missing infinitive marker 'to' before verb
+3,01-why-math.Rmd,Two dimensions are too few,178,minor,applied,mathematics can be used to to compare,mathematics can be used to compare,Duplicate word 'to'
+4,02-basics.Rmd,Parentheses,337,minor,applied,There is also possible to illustrate,It is also possible to illustrate,Incorrect subject 'There' for existential construction; should be 'It is also possible'
+5,02-basics.Rmd,Parentheses with powers,957,minor,applied,"the letters $a$ och $b$ represents","the letters $a$ and $b$ represent","Swedish word 'och' used instead of English 'and'; also verb should be plural 'represent'"
+6,02-basics.Rmd,Sum,1128,minor,applied,The sum of the numbers in $X$ can be describe like this,The sum of the numbers in $X$ can be described like this,Missing past participle: 'describe' should be 'described'
+7,02-basics.Rmd,Combinatorics,1383,minor,applied,"$aa,\,bb,\,cc,\,ab,\,ba,\,ac,\,ca,\,bcandcb$","$aa,\,bb,\,cc,\,ab,\,ba,\,ac,\,ca,\,bc$ and $cb$",Missing space between 'bc' and 'and' and 'cb'; typographic run-on in prose list
+8,03-examples-applications.Rmd,Population index,272,minor,applied,calculate an population index,calculate a population index,Incorrect article: 'an' before consonant sound 'p' should be 'a'
+9,03-examples-applications.Rmd,Income index,340,major,suggested_only,"the 10 percent riches household each year","the 10 percent richest households each year","'riches' should be 'richest' (superlative) and 'household' should be plural 'households'"
+10,03-examples-applications.Rmd,Adjust prices and wages for inflation,412,minor,applied,Real prices may fall for different reason,Real prices may fall for different reasons,Missing plural: 'reason' should be 'reasons'
+11,03-examples-applications.Rmd,Economic growth,426,minor,not_found,\text{GDP growt in year },\text{GDP growth in year },Typo 'growt' inside $$...$$ math block — not altered per rules
+12,04-functions-graphs.Rmd,Linear equations,521,minor,not_found,\text{Condtion 2: },\text{Condition 2: },Typo 'Condtion' inside $$...$$ math block — not altered per rules
+13,04-functions-graphs.Rmd,Solve for $x$,471,minor,applied,all terms which does not include any $x$,all terms which do not include any $x$,Subject-verb agreement: plural subject 'terms' requires 'do not'
+14,04-functions-graphs.Rmd,Linear equations,569,minor,applied,"Figure \@ref(fig:ickelinjart-ex) illustrate this, where line is curved","Figure \@ref(fig:ickelinjart-ex) illustrates this, where the line is curved","Verb agreement: 'illustrate' should be 'illustrates'; missing article 'the' before 'line'"
+15,05-logarithms.Rmd,Logarithms for linearity,437,minor,applied,Now will use this again to calculate,Now we will use this again to calculate,Missing subject pronoun 'we'
+16,05-logarithms.Rmd,Log GDP,528,major,suggested_only,"$e^{-0.7}\approx-0.486$","$e^{-0.7}\approx0.486$","Mathematical error: e^(-0.7) ≈ 0.497, which is positive, not negative"
+17,05-logarithms.Rmd,Base exponent logarithm,42,minor,applied,we us the right-hand side,we use the right-hand side,Typo: 'us' should be 'use'
+18,03-examples-applications.Rmd,Adjust prices and wages for inflation,396,minor,applied,Feder Reserve Bank,Federal Reserve Bank,Spelling error: 'Feder' should be 'Federal'
+19,07-systems-linear-equations.Rmd,Linear system,224,major,suggested_only,"the two equations is the same the has an infinite","the two equations are the same, the system has an infinite","Multiple errors: subject-verb agreement ('is' → 'are') and garbled text ('the has' → 'the system has')"
+20,01-why-math.Rmd,Two dimensions are too few,176,minor,applied,there is easy to find many examples,it is easy to find many examples,Wrong subject: 'there is easy' should be 'it is easy'
+21,03-examples-applications.Rmd,Index,178,minor,applied,We may choose which ever year,We may choose whichever year,'which ever' should be the single compound word 'whichever'
+22,10-derivative.Rmd,Elasticity,902,minor,applied,this means that the good have high price elasticity,this means that the good has high price elasticity,Subject-verb agreement: singular 'the good' requires 'has' not 'have'
+23,10-derivative.Rmd,Chain rule,882,minor,applied,$g'_{x}=-2$ och $f'_{g\left(x\right)}$,$g'_{x}=-2$ and $f'_{g\left(x\right)}$,Swedish word 'och' used instead of English 'and' in prose
+24,05-logarithms.Rmd,Base exponent logarithm,12,minor,applied,Logarithms is another way to write,Logarithms are another way to write,Subject-verb agreement: plural subject 'Logarithms' requires 'are'
+25,05-logarithms.Rmd,Base exponent logarithm,30,minor,applied,the parentheses does not have,the parentheses do not have,Subject-verb agreement: plural subject 'parentheses' requires 'do not'
+26,05-logarithms.Rmd,Base exponent logarithm,32,minor,applied,Logarithms is not defined,Logarithms are not defined,Subject-verb agreement: plural subject 'Logarithms' requires 'are'
+27,06-polynomial-equations.Rmd,The Quadratic Formula,374,minor,applied,is the the quadratic formula,is the quadratic formula,Duplicate word: 'the the' should be 'the'
+28,06-polynomial-equations.Rmd,The Quadratic Formula,382,minor,applied,"with the the quadratic formula (5 occurrences)","with the quadratic formula",Duplicate word 'the the' — applied to all 5 occurrences in file (lines 382 392 529 605 699)
+29,09-nonlinear-equations-systems.Rmd,Multiple,172,minor,applied,the the quadratic formula (2 occurrences),the quadratic formula,Duplicate word 'the the' — applied to 2 occurrences (lines 172 562)
+30,11-optimization-functions.Rmd,Multiple,167,minor,applied,the the quadratic formula,the quadratic formula,Duplicate word 'the the' — applied to 1 occurrence (line 167)

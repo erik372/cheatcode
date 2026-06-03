@@ -325,7 +325,7 @@ a\left(b+c\right)=ab+ac
 \end{equation}
 $$
 
-There is also possible to illustrate the same thing with numbers:
+It is also possible to illustrate the same thing with numbers:
 
 $$
 \begin{align}
@@ -944,7 +944,7 @@ $$
 \end{align}
 $$
 
-In this example, the letters $a$ och $b$ represents arbitrary numbers: 
+In this example, the letters $a$ and $b$ represent arbitrary numbers:
 
 $$
 \begin{align}
@@ -1115,7 +1115,7 @@ $$
 
 ## Sum {#sec-summa}
 
-The sum of a collection of numbers can be written with the symbol $\sum$ which is the Greek letter capital sigma. The use of $\sum$ is so common that this is called the summation symbol or summation sign. Say for example that we have a set consisting of the three numbers 4, 5 and 6. The set (not the sum) with these numbers we call $X$ and each individual number we call $x_{i}$ where $i$ indicates which of the numbers it is: $x_{1}=4$, $x_{2}=5$ and $x_{3}=6$. In total we have $n$ amount of numbers where $n=3$. The sum of the numbers in $X$ can be describe like this:
+The sum of a collection of numbers can be written with the symbol $\sum$ which is the Greek letter capital sigma. The use of $\sum$ is so common that this is called the summation symbol or summation sign. Say for example that we have a set consisting of the three numbers 4, 5 and 6. The set (not the sum) with these numbers we call $X$ and each individual number we call $x_{i}$ where $i$ indicates which of the numbers it is: $x_{1}=4$, $x_{2}=5$ and $x_{3}=6$. In total we have $n$ amount of numbers where $n=3$. The sum of the numbers in $X$ can be described like this:
 
 $$
 \begin{align}
@@ -1370,7 +1370,7 @@ $$
 \end{equation}
 $$
 
-Erik has three t-shirts and two pairs of jeans. From these he can choose $3\times2=6$ combinations when he shall go out. Now we shall select two of the letters $a,\,b$ and c and combine these. We may choose the same letter twice. We then have nine possible combinations: $aa,\,bb,\,cc,\,ab,\,ba,\,ac,\,ca,\,bcandcb$. One way to calculate this is to take the number of possible characters (3) raised to the power of the number of characters to be chosen (2):
+Erik has three t-shirts and two pairs of jeans. From these he can choose $3\times2=6$ combinations when he shall go out. Now we shall select two of the letters $a,\,b$ and c and combine these. We may choose the same letter twice. We then have nine possible combinations: $aa,\,bb,\,cc,\,ab,\,ba,\,ac,\,ca,\,bc$ and $cb$. One way to calculate this is to take the number of possible characters (3) raised to the power of the number of characters to be chosen (2):
 
 $$
 \begin{equation}

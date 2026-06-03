@@ -371,7 +371,7 @@ This gives us the solutions $x_{1}^{*}=1$ and $x_{2}^{*}=-5$.
 
 ## The Quadratic Formula {#sec-pq-formeln}
 
-A third method for solving quadratic equations is the the quadratic formula. Suppose we have the following quadratic equation:
+A third method for solving quadratic equations is the quadratic formula. Suppose we have the following quadratic equation:
 
 $$
 \begin{equation}
@@ -379,7 +379,7 @@ ax^{2}+bx+c=0
 \end{equation}
 $$
 
-The letters $a$, $b$ and $c$ are constants and $c\neq0$. The solutions for this equation can be calculated with the the quadratic formula: 
+The letters $a$, $b$ and $c$ are constants and $c\neq0$. The solutions for this equation can be calculated with the quadratic formula: 
 
 $$
 \begin{align}
@@ -389,7 +389,7 @@ x^{*} & =-\frac{p}{2}\pm\sqrt{\left(\frac{p}{2}\right)^{2}-q}\\
 \end{align}
 $$
 
-Table: Derivation of the the quadratic formula (\#tab:harledning-av-pq-formeln)
+Table: Derivation of the quadratic formula (\#tab:harledning-av-pq-formeln)
 
 | In general | Our example | $ax^{2}+bx+c=0$, where $a,\,b,\,c$ are constants and $c\neq0$. |
 | --- | --- | --- |
@@ -526,7 +526,7 @@ Graph (c) shows the line for function $y=100x-100x^{2}+x^{3}$ which meets the $y
 
 ## Factorizing Polynomials of Higher Degree
 
-Polynomials of higher degree can be more difficult to solve. Sometimes we can rewrite equations so that we first succeed in solving a quadratic equation and solve this with one of the methods above, like the the quadratic formula. Consider the following cubic equation:
+Polynomials of higher degree can be more difficult to solve. Sometimes we can rewrite equations so that we first succeed in solving a quadratic equation and solve this with one of the methods above, like the quadratic formula. Consider the following cubic equation:
 
 $$
 \begin{equation}
@@ -574,7 +574,7 @@ x\left(x^{2}-2x-1\right) & =0\nonumber
 \end{align}
 $$
 
-This gives us our first proposed solution, $x_{1}^{*}=0$, which we see since we now have two factors: $x$ respectively the parenthesis $\left(x^{2}-2x-1\right)$. At least one of these factors must be 0. The expression in the parenthesis is a quadratic equation that we can solve with for example the the quadratic formula. This gives us two new proposed solutions: $x_{2}^{*}=1-2^{1/2}$ and $x_{3}^{*}=1+2^{1/2}$. Test these solutions yourself by substituting these values for $x$ in equation \@ref(eq:3gradspolynom-1) .
+This gives us our first proposed solution, $x_{1}^{*}=0$, which we see since we now have two factors: $x$ respectively the parenthesis $\left(x^{2}-2x-1\right)$. At least one of these factors must be 0. The expression in the parenthesis is a quadratic equation that we can solve with for example the quadratic formula. This gives us two new proposed solutions: $x_{2}^{*}=1-2^{1/2}$ and $x_{3}^{*}=1+2^{1/2}$. Test these solutions yourself by substituting these values for $x$ in equation \@ref(eq:3gradspolynom-1) .
 
 Let us now take the following cubic equation:
 
@@ -602,7 +602,7 @@ x=0\Rightarrow & 2*0^{3}+3*0^{2}+\frac{1}{4}*0=0
 \end{align}
 $$
 
-Now it remains to find the remaining solutions to equation \@ref(eq:exempel-3egrad) by calculating what is left in the parenthesis in equation \@ref(eq:3egradsekv-parentes) . This we did above when we derived the the quadratic formula, in equation \@ref(eq:pq-harledning-1) .
+Now it remains to find the remaining solutions to equation \@ref(eq:exempel-3egrad) by calculating what is left in the parenthesis in equation \@ref(eq:3egradsekv-parentes) . This we did above when we derived the quadratic formula, in equation \@ref(eq:pq-harledning-1) .
 
 ## Divisions of Polynomials of Higher Degree
 
@@ -696,7 +696,7 @@ x^{3}-13x-12=\left(x+1\right)\left(x^{2}-x-12\right)
 \end{align}
 $$
 
-The quadratic polynomial in the second parenthesis we can solve with the the quadratic formula or factorization. We can also continue to search for roots with the help of the constant and then polynomial divide the result thereof as well. The constant 12 indicates that the potential roots to this quadratic polynomial can be $\pm1,\pm2,\pm3,\pm4,\pm6,\pm12$. By trying our way forward we find the third solution $x_{3}^{*}=-3$:
+The quadratic polynomial in the second parenthesis we can solve with the quadratic formula or factorization. We can also continue to search for roots with the help of the constant and then polynomial divide the result thereof as well. The constant 12 indicates that the potential roots to this quadratic polynomial can be $\pm1,\pm2,\pm3,\pm4,\pm6,\pm12$. By trying our way forward we find the third solution $x_{3}^{*}=-3$:
 
 $$
 \begin{equation}
@@ -741,7 +741,7 @@ Feel free to test the solutions by substituting them into the fourth-degree poly
 
 - If a polynomial has a rational root we can also try $p/q$ as a potential solution. The letter $p$ is an integer factor to the equation's constant and $q$ is an integer factor to the number that is multiplied with the power in the equation that has the largest exponent.
 
-- A third method is the the quadratic formula: given $ax^{2}+bx+c=0$, where $a,\,b,\,c$ are constants and $c\neq0$, the solutions are given by $x^{*}=-p/2\pm\sqrt{\left(p/2\right)^{2}-q}$, where $p=b/a,\:q=c/a$.
+- A third method is the quadratic formula: given $ax^{2}+bx+c=0$, where $a,\,b,\,c$ are constants and $c\neq0$, the solutions are given by $x^{*}=-p/2\pm\sqrt{\left(p/2\right)^{2}-q}$, where $p=b/a,\:q=c/a$.
 
 - Polynomials of higher degree can also be solved with factorization. Example: the cubic polynomial $\left(x+1\right)\left(x-2\right)\left(x+3\right)=0$ has the solutions $x_{1}^{*}=-1,x_{2}^{*}=2,x_{3}^{*}=-3$.
 

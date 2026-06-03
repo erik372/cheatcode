@@ -408,7 +408,7 @@ z & =\frac{32}{15}\nonumber
 \end{align}
 $$
 
-Here follows another example where we shall now solve for $x$. Initially we now have several terms where the variable $x$ appears. In the equation, besides $x$, there are also numbers and the letter $y$. What $y$ represents is not crucial for this example. It can be another variable or only a constant written as a letter. To solve for $x$ we move all terms which does not include any $x$ to the right hand side:
+Here follows another example where we shall now solve for $x$. Initially we now have several terms where the variable $x$ appears. In the equation, besides $x$, there are also numbers and the letter $y$. What $y$ represents is not crucial for this example. It can be another variable or only a constant written as a letter. To solve for $x$ we move all terms which do not include any $x$ to the right hand side:
 
 $$
 \begin{align}
@@ -500,7 +500,7 @@ f\left(5+10\right) & =f\left(5\right)+f\left(10\right)\\
 \end{align}
 $$
 
- The function does not fulfill the condition and is therefore not linear. Due to the term $x^{2}$ we also see that the equation is not drawn as a straight line in a graph. Figure \@ref(fig:ickelinjart-ex) illustrate this, where line is curved.
+ The function does not fulfill the condition and is therefore not linear. Due to the term $x^{2}$ we also see that the equation is not drawn as a straight line in a graph. Figure \@ref(fig:ickelinjart-ex) illustrates this, where the line is curved.
 
 ## A bit of set theory {#sec-lite-mangdlara}
 

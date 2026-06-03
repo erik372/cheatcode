@@ -9,7 +9,7 @@ This chapter introduces logarithms, which among other things can be used to faci
 
 ## Base, exponent, logarithm
 
-In chapter \@ref(chap-grundlaggande-matematik-1) we described powers with a base and an exponent: $\text{power}=\text{base}^{\text{exponent}}$. Logarithms is another way to write power expressions. The logarithm of the number $a$ is the exponent $x$ that the base $b$ must be raised to to get the value $a$:
+In chapter \@ref(chap-grundlaggande-matematik-1) we described powers with a base and an exponent: $\text{power}=\text{base}^{\text{exponent}}$. Logarithms are another way to write power expressions. The logarithm of the number $a$ is the exponent $x$ that the base $b$ must be raised to to get the value $a$:
 
 $$
 \begin{align}
@@ -27,9 +27,9 @@ $$
 \end{equation}
 $$
 
-Logarithmic calculation is a designation for the computational exercise we do when we search for a specific exponent in a power expression. Logarithmic calculation is a form of mathematical function called $\log\left(\right)$: the logarithm function. Sometimes logarithms are written with parentheses $\log\left(a\right)$ and sometimes without parentheses $\log a$, but the parentheses does not have any specific mathematical function. Sometimes one can see the notation $^{b}\log a=x$, with the base $b$ written to the left of the word $\log$.
+Logarithmic calculation is a designation for the computational exercise we do when we search for a specific exponent in a power expression. Logarithmic calculation is a form of mathematical function called $\log\left(\right)$: the logarithm function. Sometimes logarithms are written with parentheses $\log\left(a\right)$ and sometimes without parentheses $\log a$, but the parentheses do not have any specific mathematical function. Sometimes one can see the notation $^{b}\log a=x$, with the base $b$ written to the left of the word $\log$.
 
-Logarithms is not defined for negative values, such as $\log-9$, since there is no base $b$ which can be raised to any exponent and get $-9$, or any other negative value.
+Logarithms are not defined for negative values, such as $\log-9$, since there is no base $b$ which can be raised to any exponent and get $-9$, or any other negative value.
 
 Now we have the following expression:
 
@@ -39,7 +39,7 @@ $$
 \end{equation}
 $$
 
- and want to solve for $a$. We do this by putting $\log_{b}a$ as an exponent to the base $b$. At the same time we us the right-hand side also as an exponent to base $b$: 
+ and want to solve for $a$. We do this by putting $\log_{b}a$ as an exponent to the base $b$. At the same time we use the right-hand side also as an exponent to base $b$: 
 
 $$
 \begin{align}
@@ -434,7 +434,7 @@ b=\frac{y_{2}-y_{1}}{x_{2}-x_{1}}
 \end{equation}
 $$
 
- where we compare the distance between two points where the first point has coordinates $\left(x_{1},y_{1}\right)$ and the second point has coordinates $\left(x_{2},y_{2}\right)$. Now will use this again to calculate the slope of the function that draws the straight line in graph (d) in figure \@ref(fig:x-x-2-lnx-lnx-2) . Let us use the point $\left(x_{1},y_{1}\right)=\left(2,4\right)$ and the point $\left(x_{2},y_{2}\right)=\left(3,9\right)$:
+ where we compare the distance between two points where the first point has coordinates $\left(x_{1},y_{1}\right)$ and the second point has coordinates $\left(x_{2},y_{2}\right)$. Now we will use this again to calculate the slope of the function that draws the straight line in graph (d) in figure \@ref(fig:x-x-2-lnx-lnx-2) . Let us use the point $\left(x_{1},y_{1}\right)=\left(2,4\right)$ and the point $\left(x_{2},y_{2}\right)=\left(3,9\right)$:
 
 $$
 \begin{align}

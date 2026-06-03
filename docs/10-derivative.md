@@ -791,7 +791,7 @@ f\left(g\left(x\right)\right) & =\left(3-2x\right)^{2}
 \end{align}
 $$
 
-We also have that $g'_{x}=-2$ och $f'_{g\left(x\right)}=2\left(3-2x\right)$. The derivative of $f\left(g\left(x\right)\right)$ with respect to $x$ is then:
+We also have that $g'_{x}=-2$ and $f'_{g\left(x\right)}=2\left(3-2x\right)$. The derivative of $f\left(g\left(x\right)\right)$ with respect to $x$ is then:
 
 $$
 \begin{align}
@@ -811,7 +811,7 @@ $$
 \end{equation}
 $$
 
-This is percentage change of $q$ divided by percentage change of $p$. If demand $q$ changes a lot when $p$ changes, this means that the good have high price elasticity, customers are very price-sensitive. If demand $q$ barely changes at all when $p$ changes, price elasticity is low and customers are relatively price-insensitive.
+This is percentage change of $q$ divided by percentage change of $p$. If demand $q$ changes a lot when $p$ changes, this means that the good has high price elasticity, customers are very price-sensitive. If demand $q$ barely changes at all when $p$ changes, price elasticity is low and customers are relatively price-insensitive.
 
 In equation \@ref(eq:leibniz-notation) we described the derivative using the letter $d$ and the symbol $\partial$. The derivative gives us the slope of the line at a specific point. Similarly, we may compare the elasticity at a specific point, which is called point elasticity. Say for example that a large store sells milk for 10 USD per package. Every week 100 packages are sold. In January, the store decides to raise the price by 20%, to 12 USD per package. In the long run, sales drop to 97 packages per week. The price elasticity of demand for milk is then:
 

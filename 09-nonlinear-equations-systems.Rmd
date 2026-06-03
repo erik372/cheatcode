@@ -169,7 +169,7 @@ This means that $t_{1}=1$ is a solution and that $t-1$ is thereby a factor of th
 | $+1$| $-(t^{2}$| $-t)$| $-t$| $+1$| $-(-t$|
 | $+1)$| $0$| | | | |
 
-Since the division worked out evenly, we got 0 at the bottom, this confirms that $t-1$ is a factor of $t^{3}-2t+1$. On the top row we get the quotient $t^{2}+t-1$, which is a second-degree polynomial that we can solve with the the quadratic formula. This gives us two additional solutions for $t$:
+Since the division worked out evenly, we got 0 at the bottom, this confirms that $t-1$ is a factor of $t^{3}-2t+1$. On the top row we get the quotient $t^{2}+t-1$, which is a second-degree polynomial that we can solve with the quadratic formula. This gives us two additional solutions for $t$:
 
 $$
 \begin{align}
@@ -559,7 +559,7 @@ U^{2}-U-h & =0\nonumber
 \end{align}
 $$
 
- where $h$ in the last row is a designation for $\left(\frac{ac}{d}\right)^{2}$. We now have a second-degree polynomial that we can solve with for example the the quadratic formula (see equation \@ref(eq:pq-formeln) ):
+ where $h$ in the last row is a designation for $\left(\frac{ac}{d}\right)^{2}$. We now have a second-degree polynomial that we can solve with for example the quadratic formula (see equation \@ref(eq:pq-formeln) ):
 
 $$
 \begin{align}

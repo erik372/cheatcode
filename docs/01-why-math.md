@@ -85,7 +85,7 @@ Let us say we are interested in a phenomenon that for some reason is not measura
 
 - The higher income people have, the happier they are.
 
-Whether this is a clear statement or not can be discussed. For example, it is not clear whether this is a theory about a causal relationship or whether we just expect a relation between these phenomena. We may for example, have reason to believe that income and happiness covary without therefore meaning that one cause the other. If we mean that there is a causal relationship between income and happiness, it is not clear from the sentence in what way income, for example, causes happiness. This theory, described in this way, also says nothing about how large the actual effect might be, for example how much happier I become if my salary increases by 10 percent compared to if my salary doubles.
+Whether this is a clear statement or not can be discussed. For example, it is not clear whether this is a theory about a causal relationship or whether we just expect a relation between these phenomena. We may for example, have reason to believe that income and happiness covary without therefore meaning that one causes the other. If we mean that there is a causal relationship between income and happiness, it is not clear from the sentence in what way income, for example, causes happiness. This theory, described in this way, also says nothing about how large the actual effect might be, for example how much happier I become if my salary increases by 10 percent compared to if my salary doubles.
 
 Our thesis is formulated as higher income being connected to a happier life. To know if something is "higher" or "more" than something, we must be able to estimate at least two comparable values. Regardless of whether we can collect information about these phenomena, we can have an understanding of them. With mathematics, we can, for example, describe our statement in the following way:
 
@@ -138,7 +138,7 @@ Humans see patterns in all sorts of things. This is central to our survival but 
 
 Another example of misleading conclusions is those we often see in various types of graphical illustrations, diagrams or charts. Diagrams are excellent to illustrate information and create an overview. But any graphical illustration can also often mislead us. Companies use graphical illustrations of data and statistics to convince us to buy their particular products. Politicians and political activists want to convince us that they are right.
 
-It is also easy deceive yourself with graphics. One way to illustrate how easily things go wrong is given in figure \@ref(fig:det-ar-latt-att-lura-sig-sjalv) . In the figure, eight arrowheads can be seen with four distances between each pair. Many people perceive the distances between the arrowheads as differing. But this is incorrect. All four distances between respective pairs are equally long.
+It is also easy to deceive yourself with graphics. One way to illustrate how easily things go wrong is given in figure \@ref(fig:det-ar-latt-att-lura-sig-sjalv) . In the figure, eight arrowheads can be seen with four distances between each pair. Many people perceive the distances between the arrowheads as differing. But this is incorrect. All four distances between respective pairs are equally long.
 
 This illusion demonstrates how our perceptions can be systematically biased, which is why we need mathematical tools to avoid being misled by our intuitions when analyzing data.
 
@@ -151,9 +151,9 @@ In this example, you as a reader can check the distances between the arrowheads 
 
 ### Two dimensions are too few
 
-The diagram in figure \@ref(fig:det-ar-latt-att-lura-sig-sjalv) has two dimensions: height and width. A cube has three dimensions: height, width, and depth. In pictures, it is often difficult to illustrate more than two dimensions. But reality is full of relationships that are more complex than what can be shown in diagrams. In our everyday lives, there is easy to find many examples that are the result of three or more factors.
+The diagram in figure \@ref(fig:det-ar-latt-att-lura-sig-sjalv) has two dimensions: height and width. A cube has three dimensions: height, width, and depth. In pictures, it is often difficult to illustrate more than two dimensions. But reality is full of relationships that are more complex than what can be shown in diagrams. In our everyday lives, it is easy to find many examples that are the result of three or more factors.
 
-The effect of one phenomenon can also affect the effect of other phenomena. This type of relationship rarely can be illustrated simply and clearly in pictures or diagrams. In these cases, the simple illustrations instead become misleading. In later chapters, we go through the advantages and disadvantages of graphical illustrations and how mathematics can be used to to compare relationships between several phenomena simultaneously.
+The effect of one phenomenon can also affect the effect of other phenomena. This type of relationship rarely can be illustrated simply and clearly in pictures or diagrams. In these cases, the simple illustrations instead become misleading. In later chapters, we go through the advantages and disadvantages of graphical illustrations and how mathematics can be used to compare relationships between several phenomena simultaneously.
 
 ### Science is needed
 

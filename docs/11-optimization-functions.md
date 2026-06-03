@@ -136,7 +136,7 @@ $$
 \end{equation}
 $$
 
-From the the quadratic formula we see that: 
+From the quadratic formula we see that: 
 
 $$
 \begin{equation}
