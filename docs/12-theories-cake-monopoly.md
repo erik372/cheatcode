@@ -73,7 +73,7 @@ We seek the amount of cake where marginal happiness equals 0, where the first de
 
 The example is trivial but introduces the fundamental logical starting points in a large number of theories that occur abundantly within social science. Much social science theory can be formulated as people trying to achieve one or several goals, by choosing between different action alternatives. Many theories about human behavior are often formulated directly or indirectly as maximization or minimization problems.
 
-Regardless of how ingenious a theoretical model may be, it says nothing in itself about how someone thinks when they are going to eat cake, or make any other type of decision. To know something about reality, we need information about reality. In part \@ref(part-covariation-intro) and \@ref(part-probability-intro) , commonly occurring methods for how we can study information about reality and compare against theory are introduced.
+Regardless of how ingenious a theoretical model may be, it says nothing in itself about how someone thinks when they are going to eat cake, or make any other type of decision. To know something about reality, we need information about reality. In Part II and III , commonly occurring methods for how we can study information about reality and compare against theory are introduced.
 
 ## To work or not to work {#sec-maximera-eriks-nytta}
 

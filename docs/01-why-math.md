@@ -112,11 +112,11 @@ The three functions of mathematics in social science — measuring, describing r
 
 ### Compare ideas against reality
 
-The third area that mathematics is used for in social science is to compare statements and theories with reality. This can be done in many different ways, both simple and advanced. Part \@ref(part-covariation-intro) introduces causal relationships and how we can calculate covariation between two or more phenomena. The stronger statements we make, the more careful we must be with our methods, analyses, and conclusions.
+The third area that mathematics is used for in social science is to compare statements and theories with reality. This can be done in many different ways, both simple and advanced. Part II introduces causal relationships and how we can calculate covariation between two or more phenomena. The stronger statements we make, the more careful we must be with our methods, analyses, and conclusions.
 
 As a rule, one can say that it is relatively easy to find covariation between different phenomena, but it is very difficult to find good results that show causal relationships, which is emphasized and illustrated in several examples.
 
-Another central part of analytical work consists of calculating probabilities. When we study information and trace patterns in it, there is often a theoretical possibility that our results could have arisen by chance. Our possibilities to estimate probabilities are a central part of analytical work. We return to probability in part \@ref(part-probability-intro) .
+Another central part of analytical work consists of calculating probabilities. When we study information and trace patterns in it, there is often a theoretical possibility that our results could have arisen by chance. Our possibilities to estimate probabilities are a central part of analytical work. We return to probability in Part III .
 
 Analysis of causal relationships, covariation, and probabilities is used in both social science and natural science. People have calculated whether scientific theories match reality for hundreds of years. Here are some examples to show that mathematics and statistics concern you regardless of what you are interested in.
 

@@ -1,4 +1,4 @@
-
+﻿
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
 ```
@@ -173,7 +173,7 @@ Y=a+bX+u
 \end{equation}
 $$
 
- where a and b are coefficients, u is error term and $Y$ and $X$ are the variables. We have good reasons to believe that $X$ causes changes in $Y$ but that another factor (phenomenon $Z$) explains variations in both $X$ and $Y$. Mathematically this means that $X$ covaries with the error term u, that is, the covariance $\left(cov\right)$ between $X$ and u is not equal to 0: $cov\left(X,u\right)\neq0$(see chapter \@ref(chap-minstakvadratmetodens-villkor-gauss-markov) ).
+ where a and b are coefficients, u is error term and $Y$ and $X$ are the variables. We have good reasons to believe that $X$ causes changes in $Y$ but that another factor (phenomenon $Z$) explains variations in both $X$ and $Y$. Mathematically this means that $X$ covaries with the error term u, that is, the covariance $\left(cov\right)$ between $X$ and u is not equal to 0: $cov\left(X,u\right)\neq0$(see chapter \@ref(ch-ols-conditions) ).
 
 To handle this we use the instrument $S$, which correlates with $X$ but not with $Y$. Another way to describe this is that $S$ does not covary with the error term $u$: $cov\left(S,u\right)=0$. The variable $S$ explains variations in $X$ and thereby indirectly also affects $Y$. What we are now seeking is a measure of what influence $S$ has on $X$ and thereby on $Y$, which we can describe with the following regression model:
 
@@ -262,7 +262,7 @@ If we design our analysis to study causal relationships it is required that we f
 
 #### Wrong sample.
 
-Suppose we investigate why so few students want to take our course in mathematics and statistics. To find this out we conduct a survey among the students who are already taking our course. Regardless of how we design this type of survey the study will not give us particularly much useful information. The students who are already taking the course are probably not representative of the entire population of potential students, which is the group we are really interested in. That is, there may be a result, a causal relationship, in a population. But our study examines a sample where we will not find any results for the population we are really interested in (compare section \@ref(sec-den-sanna-regressionsmodellen) below).
+Suppose we investigate why so few students want to take our course in mathematics and statistics. To find this out we conduct a survey among the students who are already taking our course. Regardless of how we design this type of survey the study will not give us particularly much useful information. The students who are already taking the course are probably not representative of the entire population of potential students, which is the group we are really interested in. That is, there may be a result, a causal relationship, in a population. But our study examines a sample where we will not find any results for the population we are really interested in (compare section \@ref(sec-population-model) below).
 
 #### Wrong variables.
 

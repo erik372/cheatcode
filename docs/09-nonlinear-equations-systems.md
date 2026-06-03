@@ -449,7 +449,7 @@ Figure \@ref(fig:fjardegradspolynomet-relationer) illustrates the line for the f
 <p class="caption">(\#fig:fjardegradspolynomet-relationer)Erik's polynomial</p>
 </div>
 
-The same solutions are seen in figure \@ref(fig:kim-och-partnerns-engagemang) where the two equations in system \@ref(eq:system-kim-och-partner) are illustrated. There are two solutions to the system: one solution with relatively low values where both Erik and the partner exert themselves relatively little to make the relationship work, and one solution where both work hard to make things work. The solutions to the system are $K_{1}=P_{1}\approx0.11$ and $K_{2}=P_{2}\approx0.89$.
+The same solutions are seen when the two equations in system \@ref(eq:system-kim-och-partner) are illustrated together. There are two solutions to the system: one solution with relatively low values where both Erik and the partner exert themselves relatively little to make the relationship work, and one solution where both work hard to make things work. The solutions to the system are $K_{1}=P_{1}\approx0.11$ and $K_{2}=P_{2}\approx0.89$.
 
 ## Example 4: Another theory about work {#sec-nairu-med-flera-jamvikter}
 

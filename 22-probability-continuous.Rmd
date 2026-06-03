@@ -1,4 +1,4 @@
-# Fundamental Probability Theory 2: Continuous Distributions {#ch-probability-continuous}
+﻿# Fundamental Probability Theory 2: Continuous Distributions {#ch-probability-continuous}
 
 In this chapter we will introduce probability distributions that are continuous and can assume an infinite number of different values. The chapter covers some examples of commonly occurring probability distributions.
 
@@ -18,7 +18,7 @@ f\left(x;a,b\right)=P\left(X=x\right)=\begin{cases}
 (\#eq:pdf-uniform-cont)
 \end{equation}
 
-where \(a\) and \(b\) delimit the interval for the possible outcomes for \(X\). If \(X\) can assume all values between 0 and 1 we have that \(a=0\) and \(b=1\). To calculate the cumulative probability for a continuous random variable we use a cumulative distribution function, which we call F. In chapter \@ref(ch-integration) we covered how we with integrals can sum values over continuous intervals. This we also use to derive the cumulative distribution function for a random continuous variable. We take the integral of the density function f in equation \@ref(eq:pdf-uniform-cont):
+where \(a\) and \(b\) delimit the interval for the possible outcomes for \(X\). If \(X\) can assume all values between 0 and 1 we have that \(a=0\) and \(b=1\). To calculate the cumulative probability for a continuous random variable we use a cumulative distribution function, which we call F. In chapter \@ref(chap-integraler) we covered how we with integrals can sum values over continuous intervals. This we also use to derive the cumulative distribution function for a random continuous variable. We take the integral of the density function f in equation \@ref(eq:pdf-uniform-cont):
 
 $$\int_{-\infty}^{b}f\left(x\right)dx = \int_{-\infty}^{a}0\,dx+\int_{a}^{b}\frac{1}{b-a}dx$$
 

@@ -238,7 +238,7 @@ Table: Standardized values (\#tab:standardiserade-varden-x-y)
 | 2 | 4 | 2 | $-0.55$| $-1.16$|
 | 3 | 6 | 5 | $0.55$| 1.16 |
 | 4 | 7 | 4 | 1.1 | 0.39 |
-| Mean, $\bar{x}$ och $\bar{y}$| 5 | 3.5 | 0 | 0 |
+| Mean, $\bar{x}$ and $\bar{y}$| 5 | 3.5 | 0 | 0 |
 | Standard deviation, $s$| 1.83 | 1.29 | 1 | 1 |
 
 Normalization can mean slightly different things in statistics. One meaning is to convert a variable so that all values become between 0 and 1. Normalization of a variable $x$ is done in the following way:
