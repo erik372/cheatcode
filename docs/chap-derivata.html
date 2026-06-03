@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Derivative | The Cheat Code: Essential Math and Statistics for Social Scientists</title>
+  <meta name="description" content="A textbook in mathematics and statistics for social science students." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Derivative | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Derivative | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  
+  <meta name="twitter:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+<meta name="author" content="Erik Hegelund" />
+
+
+<meta name="date" content="2026-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-ickelinjara-ekvationer-i.html"/>
+<link rel="next" href="chap-optimering-utifran-funktioner.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="#eq:"]').forEach(function(link) {
+    link.textContent = link.textContent.trim().replace(/^\((.+)\)$/, '$1');
+  });
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'],['\\(','\\)']],
+    displayMath: [['$$','$$'],['\\[','\\]']],
+    processEscapes: true,
+    skipTags: ['script','noscript','style','textarea','pre']
+  },
+  TeX: {
+    extensions: ["cancel.js"],
+    equationNumbers: {
+      autoNumber: "none"
+    },
+    Macros: {
+      permil:     '\\unicode{x2030}',
+      ensuremath: ['#1', 1]
+    }
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open && window.MathJax) {
+        if (MathJax.Hub) {
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub, det]);
+        } else if (MathJax.typesetPromise) {
+          MathJax.typesetPromise([det]).catch(function(e) { console.error(e); });
+        }
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Move "Table X.X:" span from end of caption to front
+  document.querySelectorAll('caption').forEach(function(cap) {
+    var span = cap.querySelector('span[id^="tab:"]');
+    if (span) cap.insertBefore(span, cap.firstChild);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Rewrite part labels and make them link to the part intro page
+  document.querySelectorAll('.book-summary ul.summary li.part').forEach(function(partLi) {
+    // Rewrite text: "I Mathematics Basics" -> "Part I: Mathematics Basics"
+    var b = partLi.querySelector('span > b');
+    if (b) {
+      var m = b.textContent.match(/^([IVXLCDM]+)\s+([\s\S]*)/);
+      if (m) b.textContent = 'Part ' + m[1] + ': ' + m[2];
+    }
+    // Make the part label link to the part intro page
+    var nextEl = partLi.nextElementSibling;
+    if (!nextEl || !nextEl.classList.contains('chapter')) return;
+    var link = nextEl.querySelector('a');
+    if (!link) return;
+    var span = partLi.querySelector('span');
+    if (!span) return;
+    var a = document.createElement('a');
+    a.href = link.getAttribute('href');
+    a.innerHTML = span.innerHTML;
+    partLi.replaceChild(a, span);
+    // Hide the now-redundant part intro chapter entry in the sidebar
+    nextEl.classList.add('part-intro-hidden');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+
+    // --- Chapter-level collapse arrows (larger click target) ---
+    document.querySelectorAll('.book-summary li.chapter').forEach(function(li) {
+      var level = li.getAttribute('data-level') || '';
+      if (level.indexOf('.') !== -1) return;
+
+      var childUl = li.querySelector(':scope > ul');
+      if (!childUl) return;
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'margin-left:6px',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(0,0,0,0.06)'
+      ].join(';');
+
+      function isVisible() {
+        return window.getComputedStyle(childUl).display !== 'none';
+      }
+      function updateArrow() {
+        arrow.textContent = isVisible() ? '▾' : '▸';
+      }
+      updateArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        childUl.style.display = isVisible() ? 'none' : 'block';
+        updateArrow();
+      });
+
+      var link = li.querySelector(':scope > a');
+      if (link) link.appendChild(arrow);
+    });
+
+    // --- Part-level collapse arrows ---
+    var summary = document.querySelector('.book-summary ul.summary');
+    if (!summary) return;
+    var items = Array.from(summary.children);
+
+    items.forEach(function(li, idx) {
+      if (!li.classList.contains('part')) return;
+
+      var chapterItems = [];
+      for (var j = idx + 1; j < items.length; j++) {
+        if (items[j].classList.contains('part')) break;
+        if (items[j].tagName === 'LI') chapterItems.push(items[j]);
+      }
+      if (chapterItems.length === 0) return;
+
+      var partKey = 'partCollapsed_' + idx;
+      var collapsed = localStorage.getItem(partKey) === '1';
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-part-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(44,95,138,0.15)',
+        'margin-left:6px',
+        'float:right',
+        'margin-right:6px'
+      ].join(';');
+
+      function updatePartArrow() {
+        arrow.textContent = collapsed ? '▸' : '▾';
+      }
+
+      function applyCollapse() {
+        chapterItems.forEach(function(ch) {
+          ch.style.display = collapsed ? 'none' : '';
+        });
+      }
+
+      if (collapsed) applyCollapse();
+      updatePartArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        collapsed = !collapsed;
+        applyCollapse();
+        updatePartArrow();
+        localStorage.setItem(partKey, collapsed ? '1' : '0');
+      });
+
+      var target = li.querySelector('span') || li.querySelector('a');
+      if (target) target.appendChild(arrow);
+    });
+
+  }, 150);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Resizable sidebar via drag handle
+  setTimeout(function() {
+    var sidebar = document.querySelector('.book-summary');
+    var bookBody = document.querySelector('.book-body');
+    if (!sidebar || !bookBody) return;
+
+    var handle = document.createElement('div');
+    handle.className = 'sidebar-resize-handle';
+    handle.title = 'Drag to resize sidebar';
+    handle.style.cssText = [
+      'position:absolute',
+      'top:0',
+      'right:0',
+      'width:8px',
+      'height:100%',
+      'cursor:ew-resize',
+      'z-index:10000',
+      'border-right:3px solid transparent',
+      'box-sizing:border-box',
+      'transition:border-color 0.15s'
+    ].join(';');
+
+    sidebar.appendChild(handle);
+
+    var isDragging = false;
+    var startX = 0, startWidth = 0;
+    var minW = 160, maxW = 650;
+
+    handle.addEventListener('mouseenter', function() {
+      handle.style.borderRightColor = 'rgba(44,95,138,0.5)';
+    });
+    handle.addEventListener('mouseleave', function() {
+      if (!isDragging) handle.style.borderRightColor = 'transparent';
+    });
+
+    handle.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.clientX;
+      startWidth = sidebar.offsetWidth;
+      document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var newW = Math.max(minW, Math.min(maxW, startWidth + (e.clientX - startX)));
+      sidebar.style.width = newW + 'px';
+      bookBody.style.left = newW + 'px';
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        handle.style.borderRightColor = 'transparent';
+        localStorage.setItem('sidebarW', sidebar.offsetWidth);
+      }
+    });
+
+    // Restore saved width
+    var saved = parseInt(localStorage.getItem('sidebarW'), 10);
+    if (saved && saved >= minW && saved <= maxW) {
+      sidebar.style.width = saved + 'px';
+      bookBody.style.left = saved + 'px';
+    }
+  }, 200);
+});
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">The Cheat Code</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-yet-another-textbook"><i class="fa fa-check"></i>Why yet another textbook?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i>What you will learn</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#thanks"><i class="fa fa-check"></i>Thanks!</a></li>
+</ul></li>
+<li class="part"><span><b>I Mathematics Basics</b></span></li>
+<li class="chapter" data-level="" data-path="part-mathematics-intro.html"><a href="part-mathematics-intro.html"><i class="fa fa-check"></i>Part I: Mathematics Basics</a></li>
+<li class="chapter" data-level="1" data-path="why-math.html"><a href="why-math.html"><i class="fa fa-check"></i><b>1</b> Why math?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-math.html"><a href="why-math.html#mathematics-in-social-science"><i class="fa fa-check"></i><b>1.1</b> Mathematics in Social Science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-math.html"><a href="why-math.html#chap-vad-anvands-matematik"><i class="fa fa-check"></i><b>1.2</b> Measure, theorize, compare</a></li>
+<li class="chapter" data-level="1.3" data-path="why-math.html"><a href="why-math.html#why-calculate"><i class="fa fa-check"></i><b>1.3</b> Why Calculate</a></li>
+<li class="chapter" data-level="1.4" data-path="why-math.html"><a href="why-math.html#tips-for-your-studies"><i class="fa fa-check"></i><b>1.4</b> Tips for your studies</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#different-types-of-numbers"><i class="fa fa-check"></i><b>2.1</b> Different types of numbers</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#the-four-arithmetic-operations"><i class="fa fa-check"></i><b>2.2</b> The four arithmetic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#order-of-operations"><i class="fa fa-check"></i><b>2.3</b> Order of operations</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-parenteser"><i class="fa fa-check"></i><b>2.4</b> Parentheses</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#equality-and-inequality"><i class="fa fa-check"></i><b>2.5</b> Equality and inequality</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-brak"><i class="fa fa-check"></i><b>2.6</b> Fractions</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#least-common-denominator"><i class="fa fa-check"></i><b>2.7</b> Least common denominator</a></li>
+<li class="chapter" data-level="2.8" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-potenser"><i class="fa fa-check"></i><b>2.8</b> Powers</a></li>
+<li class="chapter" data-level="2.9" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-multiplikation-med-parentes"><i class="fa fa-check"></i><b>2.9</b> Parentheses with powers</a></li>
+<li class="chapter" data-level="2.10" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-faktorisering-och-delbarhet"><i class="fa fa-check"></i><b>2.10</b> Factorization and divisibility</a></li>
+<li class="chapter" data-level="2.11" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-summa"><i class="fa fa-check"></i><b>2.11</b> Sum</a></li>
+<li class="chapter" data-level="2.12" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-median"><i class="fa fa-check"></i><b>2.12</b> Median</a></li>
+<li class="chapter" data-level="2.13" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-medelvarde"><i class="fa fa-check"></i><b>2.13</b> Mean</a></li>
+<li class="chapter" data-level="2.14" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-viktat-medelvarde"><i class="fa fa-check"></i><b>2.14</b> Weighted mean</a></li>
+<li class="chapter" data-level="2.15" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-procent-och-promille"><i class="fa fa-check"></i><b>2.15</b> Percent and per mille</a></li>
+<li class="chapter" data-level="2.16" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-kombinatorik"><i class="fa fa-check"></i><b>2.16</b> Combinatorics</a></li>
+<li class="chapter" data-level="2.17" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#chapter-summary"><i class="fa fa-check"></i><b>2.17</b> Chapter summary</a></li>
+<li class="chapter" data-level="2.18" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#exercises"><i class="fa fa-check"></i><b>2.18</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html"><i class="fa fa-check"></i><b>3</b> Examples with Applications</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-procent-potents-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.1</b> Interest</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.2</b> Interest on interest</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-effektiv-ranta"><i class="fa fa-check"></i><b>3.3</b> Effective interest</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-index"><i class="fa fa-check"></i><b>3.4</b> Index</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#population-index"><i class="fa fa-check"></i><b>3.5</b> Population index</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-inkomstindex"><i class="fa fa-check"></i><b>3.6</b> Income index</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-deflatera-priser-och"><i class="fa fa-check"></i><b>3.7</b> Adjust prices and wages for inflation</a></li>
+<li class="chapter" data-level="3.8" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-tillvaxt-ex1"><i class="fa fa-check"></i><b>3.8</b> Economic growth</a></li>
+<li class="chapter" data-level="3.9" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-barnadodlighet"><i class="fa fa-check"></i><b>3.9</b> Child mortality</a></li>
+<li class="chapter" data-level="3.10" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#chapter-summary-1"><i class="fa fa-check"></i><b>3.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="3.11" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#exercises-1"><i class="fa fa-check"></i><b>3.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html"><i class="fa fa-check"></i><b>4</b> Functions and graphs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#mathematical-functions"><i class="fa fa-check"></i><b>4.1</b> Mathematical functions</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-funktion-som-teori"><i class="fa fa-check"></i><b>4.2</b> Function as theory</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#coordinate-system-and-graphs"><i class="fa fa-check"></i><b>4.3</b> Coordinate system and graphs</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-den-rata-linjens"><i class="fa fa-check"></i><b>4.4</b> Equation of a straight line</a></li>
+<li class="chapter" data-level="4.5" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#solve-for-x"><i class="fa fa-check"></i><b>4.5</b> Solve for <span class="math inline">\(x\)</span></a></li>
+<li class="chapter" data-level="4.6" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-nar-ar-ekvation-linjar"><i class="fa fa-check"></i><b>4.6</b> Linear equations</a></li>
+<li class="chapter" data-level="4.7" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-lite-mangdlara"><i class="fa fa-check"></i><b>4.7</b> A bit of set theory</a></li>
+<li class="chapter" data-level="4.8" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#domain-for-a-function"><i class="fa fa-check"></i><b>4.8</b> Domain for a function</a></li>
+<li class="chapter" data-level="4.9" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-komb-funktioner-med-operationer"><i class="fa fa-check"></i><b>4.9</b> Combining functions with operations</a></li>
+<li class="chapter" data-level="4.10" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#chapter-summary-2"><i class="fa fa-check"></i><b>4.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="4.11" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#exercises-2"><i class="fa fa-check"></i><b>4.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html"><i class="fa fa-check"></i><b>5</b> Logarithms</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#base-exponent-logarithm"><i class="fa fa-check"></i><b>5.1</b> Base, exponent, logarithm</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#the-common-logarithm"><i class="fa fa-check"></i><b>5.2</b> The common logarithm</a></li>
+<li class="chapter" data-level="5.3" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmlagar"><i class="fa fa-check"></i><b>5.3</b> Properties of logarithms</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-naturliga-logaritmen"><i class="fa fa-check"></i><b>5.4</b> Natural logarithm</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-basbyte-for-logaritmer"><i class="fa fa-check"></i><b>5.5</b> Change of base for logarithms</a></li>
+<li class="chapter" data-level="5.6" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#using-natural-log-to-calculate-percentage-change"><i class="fa fa-check"></i><b>5.6</b> Using natural log to calculate percentage change</a></li>
+<li class="chapter" data-level="5.7" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-for-linjaritet"><i class="fa fa-check"></i><b>5.7</b> Logarithms for linearity</a></li>
+<li class="chapter" data-level="5.8" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-los-ut-x"><i class="fa fa-check"></i><b>5.8</b> Taking logarithms to get <span class="math inline">\(\boldsymbol{x}\)</span></a></li>
+<li class="chapter" data-level="5.9" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-linjar-ex-bnp"><i class="fa fa-check"></i><b>5.9</b> Log GDP</a></li>
+<li class="chapter" data-level="5.10" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-bnp-och-lycka"><i class="fa fa-check"></i><b>5.10</b> Using logarithms to discuss theory</a></li>
+<li class="chapter" data-level="5.11" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#chapter-summary-3"><i class="fa fa-check"></i><b>5.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="5.12" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#exercises-3"><i class="fa fa-check"></i><b>5.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html"><i class="fa fa-check"></i><b>6</b> Polynomial Equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-andragradsekvationer"><i class="fa fa-check"></i><b>6.1</b> Quadratic Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-faktorisera-andragradsekvationer"><i class="fa fa-check"></i><b>6.2</b> Factoring Equations</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-rationella-rotter"><i class="fa fa-check"></i><b>6.3</b> Rational Roots</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-pq-formeln"><i class="fa fa-check"></i><b>6.4</b> The Quadratic Formula</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-polynom-av-hogre-grad"><i class="fa fa-check"></i><b>6.5</b> Third degree and Higher</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#factorizing-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.6</b> Factorizing Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#divisions-of-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.7</b> Divisions of Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.8" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#chapter-summary-4"><i class="fa fa-check"></i><b>6.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="6.9" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#exercises-4"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html"><i class="fa fa-check"></i><b>7</b> Systems of Linear Equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#linear-system"><i class="fa fa-check"></i><b>7.1</b> Linear system</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#number-of-solutions-in-the-system"><i class="fa fa-check"></i><b>7.2</b> Number of solutions in the system</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-radreduktion"><i class="fa fa-check"></i><b>7.3</b> Row Reduction</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#taking-logarithms-in-systems-of-equations"><i class="fa fa-check"></i><b>7.4</b> Taking logarithms in systems of equations</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#three-or-more-variables"><i class="fa fa-check"></i><b>7.5</b> Three or more variables</a></li>
+<li class="chapter" data-level="7.6" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#some-more-examples"><i class="fa fa-check"></i><b>7.6</b> Some more examples</a></li>
+<li class="chapter" data-level="7.7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-bortom-trredje-dimensionen"><i class="fa fa-check"></i><b>7.7</b> Beyond the third dimension</a></li>
+<li class="chapter" data-level="7.8" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#chapter-summary-5"><i class="fa fa-check"></i><b>7.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="7.9" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#exercises-5"><i class="fa fa-check"></i><b>7.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html"><i class="fa fa-check"></i><b>8</b> Theories of life, death and dating</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#income-and-life-expectancy"><i class="fa fa-check"></i><b>8.1</b> Income and life expectancy</a></li>
+<li class="chapter" data-level="8.2" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#mathematical-adventures-in-national-income"><i class="fa fa-check"></i><b>8.2</b> Mathematical adventures in national income</a></li>
+<li class="chapter" data-level="8.3" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#a-matter-of-class"><i class="fa fa-check"></i><b>8.3</b> A matter of class</a></li>
+<li class="chapter" data-level="8.4" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-utbud-och-efterfragan"><i class="fa fa-check"></i><b>8.4</b> Supply and demand</a></li>
+<li class="chapter" data-level="8.5" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#two-types-of-cookies"><i class="fa fa-check"></i><b>8.5</b> Two types of cookies</a></li>
+<li class="chapter" data-level="8.6" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-dejting"><i class="fa fa-check"></i><b>8.6</b> Finding the one</a></li>
+<li class="chapter" data-level="8.7" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-nairu-teori"><i class="fa fa-check"></i><b>8.7</b> A theory about work</a></li>
+<li class="chapter" data-level="8.8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-extern-effekt-utslapp"><i class="fa fa-check"></i><b>8.8</b> External effects</a></li>
+<li class="chapter" data-level="8.9" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#linear-relationships-in-real-life"><i class="fa fa-check"></i><b>8.9</b> Linear relationships in real life</a></li>
+<li class="chapter" data-level="8.10" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#chapter-summary-6"><i class="fa fa-check"></i><b>8.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="8.11" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#exercises-6"><i class="fa fa-check"></i><b>8.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html"><i class="fa fa-check"></i><b>9</b> Non-linear equations in systems</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#solutions-with-non-linear-systems"><i class="fa fa-check"></i><b>9.1</b> Solutions with non-linear systems</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#substitution"><i class="fa fa-check"></i><b>9.2</b> Substitution</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#row-reduction-with-non-linear-equations"><i class="fa fa-check"></i><b>9.3</b> Row reduction with non-linear equations</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-ska-vi-borja-roka"><i class="fa fa-check"></i><b>9.4</b> Example 1: Two friends</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-2-more-smoking"><i class="fa fa-check"></i><b>9.5</b> Example 2: More smoking</a></li>
+<li class="chapter" data-level="9.6" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-3-they-call-it-love"><i class="fa fa-check"></i><b>9.6</b> Example 3: They call it love</a></li>
+<li class="chapter" data-level="9.7" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-nairu-med-flera-jamvikter"><i class="fa fa-check"></i><b>9.7</b> Example 4: Another theory about work</a></li>
+<li class="chapter" data-level="9.8" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#chapter-summary-7"><i class="fa fa-check"></i><b>9.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="9.9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#exercises-7"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-derivata.html"><a href="chap-derivata.html"><i class="fa fa-check"></i><b>10</b> Derivative</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-derivata.html"><a href="chap-derivata.html#limit"><i class="fa fa-check"></i><b>10.1</b> Limit</a></li>
+<li class="chapter" data-level="10.2" data-path="chap-derivata.html"><a href="chap-derivata.html#simplify-first"><i class="fa fa-check"></i><b>10.2</b> Simplify first</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata"><i class="fa fa-check"></i><b>10.3</b> Differentiating</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-derivata.html"><a href="chap-derivata.html#the-next-derivative"><i class="fa fa-check"></i><b>10.4</b> The next derivative</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata-exponential-e-log"><i class="fa fa-check"></i><b>10.5</b> Exponent, logarithm and <em>e</em></a></li>
+<li class="chapter" data-level="10.6" data-path="chap-derivata.html"><a href="chap-derivata.html#the-derivative-of-boldsymbollog-x"><i class="fa fa-check"></i><b>10.6</b> The derivative of <span class="math inline">\(\boldsymbol{\log x}\)</span></a></li>
+<li class="chapter" data-level="10.7" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-l-hopitals-regel"><i class="fa fa-check"></i><b>10.7</b> L’Hôpital’s rule</a></li>
+<li class="chapter" data-level="10.8" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-partiell-derivata"><i class="fa fa-check"></i><b>10.8</b> Partial derivative</a></li>
+<li class="chapter" data-level="10.9" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-rakneregler-derivata"><i class="fa fa-check"></i><b>10.9</b> Differentiation rules</a></li>
+<li class="chapter" data-level="10.10" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-elasticitet"><i class="fa fa-check"></i><b>10.10</b> Elasticity</a></li>
+<li class="chapter" data-level="10.11" data-path="chap-derivata.html"><a href="chap-derivata.html#chapter-summary-8"><i class="fa fa-check"></i><b>10.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="10.12" data-path="chap-derivata.html"><a href="chap-derivata.html#exercises-8"><i class="fa fa-check"></i><b>10.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html"><i class="fa fa-check"></i><b>11</b> Optimization with functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#extreme-values"><i class="fa fa-check"></i><b>11.1</b> Extreme values</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#differentiate-to-find-extreme-values"><i class="fa fa-check"></i><b>11.2</b> Differentiate to find extreme values</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#global-and-local"><i class="fa fa-check"></i><b>11.3</b> Global and local</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#more-examples"><i class="fa fa-check"></i><b>11.4</b> More examples</a></li>
+<li class="chapter" data-level="11.5" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#terrace"><i class="fa fa-check"></i><b>11.5</b> Terrace</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#sec-optimera-villkor-lagrange"><i class="fa fa-check"></i><b>11.6</b> Optimization with constraints</a></li>
+<li class="chapter" data-level="11.7" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#chapter-summary-9"><i class="fa fa-check"></i><b>11.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="11.8" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#exercises-9"><i class="fa fa-check"></i><b>11.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html"><i class="fa fa-check"></i><b>12</b> Theories about cake and monopoly</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#the-optimal-amount-of-cake"><i class="fa fa-check"></i><b>12.1</b> The optimal amount of cake</a></li>
+<li class="chapter" data-level="12.2" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-maximera-eriks-nytta"><i class="fa fa-check"></i><b>12.2</b> To work or not to work</a></li>
+<li class="chapter" data-level="12.3" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-den-optimala-skattenivan"><i class="fa fa-check"></i><b>12.3</b> Maximum possible tax level</a></li>
+<li class="chapter" data-level="12.4" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-konsumtion-och-sparande"><i class="fa fa-check"></i><b>12.4</b> Consumption and saving</a></li>
+<li class="chapter" data-level="12.5" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-optimering-1-ftg-perf-konk"><i class="fa fa-check"></i><b>12.5</b> A profit-maximizing company</a></li>
+<li class="chapter" data-level="12.6" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-vinstmaximering-med-villkor"><i class="fa fa-check"></i><b>12.6</b> Profit maximization with constraints</a></li>
+<li class="chapter" data-level="12.7" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopol"><i class="fa fa-check"></i><b>12.7</b> Monopoly</a></li>
+<li class="chapter" data-level="12.8" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopsoni"><i class="fa fa-check"></i><b>12.8</b> Monopsony</a></li>
+<li class="chapter" data-level="12.9" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#if-we-do-not-optimize"><i class="fa fa-check"></i><b>12.9</b> If we do not optimize</a></li>
+<li class="chapter" data-level="12.10" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#chapter-summary-10"><i class="fa fa-check"></i><b>12.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="12.11" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#exercises-10"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-integraler.html"><a href="chap-integraler.html"><i class="fa fa-check"></i><b>13</b> Integration</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap-integraler.html"><a href="chap-integraler.html#the-primitive-function"><i class="fa fa-check"></i><b>13.1</b> The primitive function</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-integraler.html"><a href="chap-integraler.html#the-meaning-of-constant-boldsymbolc"><i class="fa fa-check"></i><b>13.2</b> The meaning of constant <span class="math inline">\(\boldsymbol{C}\)</span></a></li>
+<li class="chapter" data-level="13.3" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-with-conditions"><i class="fa fa-check"></i><b>13.3</b> Primitive function with conditions</a></li>
+<li class="chapter" data-level="13.4" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-for-an-exponent"><i class="fa fa-check"></i><b>13.4</b> Primitive function for an exponent</a></li>
+<li class="chapter" data-level="13.5" data-path="chap-integraler.html"><a href="chap-integraler.html#calculate-area-with-integral"><i class="fa fa-check"></i><b>13.5</b> Calculate area with integral</a></li>
+<li class="chapter" data-level="13.6" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-under-the-x-axis"><i class="fa fa-check"></i><b>13.6</b> The area under the x-axis</a></li>
+<li class="chapter" data-level="13.7" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-between-two-lines"><i class="fa fa-check"></i><b>13.7</b> The area between two lines</a></li>
+<li class="chapter" data-level="13.8" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-rakneregler-for-integraler"><i class="fa fa-check"></i><b>13.8</b> Integration rules</a></li>
+<li class="chapter" data-level="13.9" data-path="chap-integraler.html"><a href="chap-integraler.html#more-examples-1"><i class="fa fa-check"></i><b>13.9</b> More examples</a></li>
+<li class="chapter" data-level="13.10" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-multipelintegral"><i class="fa fa-check"></i><b>13.10</b> Multiple integral</a></li>
+<li class="chapter" data-level="13.11" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-partiell-integration"><i class="fa fa-check"></i><b>13.11</b> Partial integration</a></li>
+<li class="chapter" data-level="13.12" data-path="chap-integraler.html"><a href="chap-integraler.html#income-distribution-with-integrals"><i class="fa fa-check"></i><b>13.12</b> Income distribution with integrals</a></li>
+<li class="chapter" data-level="13.13" data-path="chap-integraler.html"><a href="chap-integraler.html#chapter-summary-11"><i class="fa fa-check"></i><b>13.13</b> Chapter summary</a></li>
+<li class="chapter" data-level="13.14" data-path="chap-integraler.html"><a href="chap-integraler.html#exercises-11"><i class="fa fa-check"></i><b>13.14</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html"><i class="fa fa-check"></i><b>14</b> Linear Algebra: Vectors and Matrices</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vectors"><i class="fa fa-check"></i><b>14.1</b> Vectors</a></li>
+<li class="chapter" data-level="14.2" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vector-calculations"><i class="fa fa-check"></i><b>14.2</b> Vector calculations</a></li>
+<li class="chapter" data-level="14.3" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#more-vectors"><i class="fa fa-check"></i><b>14.3</b> More vectors</a></li>
+<li class="chapter" data-level="14.4" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-matriser"><i class="fa fa-check"></i><b>14.4</b> Matrices</a></li>
+<li class="chapter" data-level="14.5" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet"><i class="fa fa-check"></i><b>14.5</b> More matrices</a></li>
+<li class="chapter" data-level="14.6" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-multiplikation-och-transponering"><i class="fa fa-check"></i><b>14.6</b> Multiplication and transposition</a></li>
+<li class="chapter" data-level="14.7" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-determinant-matris"><i class="fa fa-check"></i><b>14.7</b> Determinant</a></li>
+<li class="chapter" data-level="14.8" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#row-reduction-in-matrix"><i class="fa fa-check"></i><b>14.8</b> Row reduction in matrix</a></li>
+<li class="chapter" data-level="14.9" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-inversen-av-matris"><i class="fa fa-check"></i><b>14.9</b> Inverse of a matrix</a></li>
+<li class="chapter" data-level="14.10" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-linjara-ekvationssystem-i-matris"><i class="fa fa-check"></i><b>14.10</b> Linear equation systems in matrix</a></li>
+<li class="chapter" data-level="14.11" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-1-a-bakery"><i class="fa fa-check"></i><b>14.11</b> Example 1: A bakery</a></li>
+<li class="chapter" data-level="14.12" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-2-input-output-analysis"><i class="fa fa-check"></i><b>14.12</b> Example 2: Input-output analysis</a></li>
+<li class="chapter" data-level="14.13" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-3-social-networks"><i class="fa fa-check"></i><b>14.13</b> Example 3: Social networks</a></li>
+<li class="chapter" data-level="14.14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#chapter-summary-12"><i class="fa fa-check"></i><b>14.14</b> Chapter summary</a></li>
+<li class="chapter" data-level="14.15" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#exercises-12"><i class="fa fa-check"></i><b>14.15</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Covariation and Causality</b></span></li>
+<li class="chapter" data-level="" data-path="part-covariation-intro.html"><a href="part-covariation-intro.html"><i class="fa fa-check"></i>Part II: Covariation and Causality</a></li>
+<li class="chapter" data-level="15" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html"><i class="fa fa-check"></i><b>15</b> Fundamental Counterfactual Analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-orsak-och-effekt"><i class="fa fa-check"></i><b>15.1</b> Cause and effect</a></li>
+<li class="chapter" data-level="15.2" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samvariation"><i class="fa fa-check"></i><b>15.2</b> Variation, Covariation and Association</a></li>
+<li class="chapter" data-level="15.3" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-observationsstudie-experiment"><i class="fa fa-check"></i><b>15.3</b> Observational Study and Experiment</a></li>
+<li class="chapter" data-level="15.4" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-population-urval-superpopulation"><i class="fa fa-check"></i><b>15.4</b> Population and Sample</a></li>
+<li class="chapter" data-level="15.5" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-information-och-variabler"><i class="fa fa-check"></i><b>15.5</b> Information and variables</a></li>
+<li class="chapter" data-level="15.6" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-olika-typer-av-data"><i class="fa fa-check"></i><b>15.6</b> Different types of data</a></li>
+<li class="chapter" data-level="15.7" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samla-in-data"><i class="fa fa-check"></i><b>15.7</b> Collecting a sample</a></li>
+<li class="chapter" data-level="15.8" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-ar-allting-osakert"><i class="fa fa-check"></i><b>15.8</b> How do we know the things we know?</a></li>
+<li class="chapter" data-level="15.9" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#exercises-13"><i class="fa fa-check"></i><b>15.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html"><i class="fa fa-check"></i><b>16</b> Variation and covariation</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-frekvensfordelning"><i class="fa fa-check"></i><b>16.1</b> Frequency Distribution</a></li>
+<li class="chapter" data-level="16.2" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-spridningsmatt-kvartiler-och"><i class="fa fa-check"></i><b>16.2</b> Measures of Central Tendency and Measures of Dispersion</a></li>
+<li class="chapter" data-level="16.3" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-varians-och-standardavvikelse"><i class="fa fa-check"></i><b>16.3</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="16.4" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-standardiserade-varden"><i class="fa fa-check"></i><b>16.4</b> Standardized values</a></li>
+<li class="chapter" data-level="16.5" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-samvariation-i-diagram"><i class="fa fa-check"></i><b>16.5</b> Covariation in graphs</a></li>
+<li class="chapter" data-level="16.6" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-kovarians"><i class="fa fa-check"></i><b>16.6</b> Covariation 1: Covariance</a></li>
+<li class="chapter" data-level="16.7" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-pearsons-r"><i class="fa fa-check"></i><b>16.7</b> Covariation 2: The correlation coefficient</a></li>
+<li class="chapter" data-level="16.8" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#chapter-summary-13"><i class="fa fa-check"></i><b>16.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="16.9" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#exercises-14"><i class="fa fa-check"></i><b>16.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap-ols.html"><a href="chap-ols.html"><i class="fa fa-check"></i><b>17</b> The Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap-ols.html"><a href="chap-ols.html#basic-logic"><i class="fa fa-check"></i><b>17.1</b> Basic logic</a></li>
+<li class="chapter" data-level="17.2" data-path="chap-ols.html"><a href="chap-ols.html#sec-minstakvadratmetoden-ols"><i class="fa fa-check"></i><b>17.2</b> Covariation with Straight Line</a></li>
+<li class="chapter" data-level="17.3" data-path="chap-ols.html"><a href="chap-ols.html#sec-regressionsanalys"><i class="fa fa-check"></i><b>17.3</b> Regression analysis</a></li>
+<li class="chapter" data-level="17.4" data-path="chap-ols.html"><a href="chap-ols.html#sec-felterm-och-residual"><i class="fa fa-check"></i><b>17.4</b> Error term and residual</a></li>
+<li class="chapter" data-level="17.5" data-path="chap-ols.html"><a href="chap-ols.html#calculating-with-least-squares"><i class="fa fa-check"></i><b>17.5</b> Calculating with Least Squares</a></li>
+<li class="chapter" data-level="17.6" data-path="chap-ols.html"><a href="chap-ols.html#other-straight-lines"><i class="fa fa-check"></i><b>17.6</b> Other straight lines</a></li>
+<li class="chapter" data-level="17.7" data-path="chap-ols.html"><a href="chap-ols.html#sec-en-linje-ar-en-linje"><i class="fa fa-check"></i><b>17.7</b> What the Line Doesn’t Tell Us</a></li>
+<li class="chapter" data-level="17.8" data-path="chap-ols.html"><a href="chap-ols.html#sec-ols-ex-2"><i class="fa fa-check"></i><b>17.8</b> Another example</a></li>
+<li class="chapter" data-level="17.9" data-path="chap-ols.html"><a href="chap-ols.html#sec-ssr-sse-sst-vilken-modell-ar-bast"><i class="fa fa-check"></i><b>17.9</b> Which model fits the data best?</a></li>
+<li class="chapter" data-level="17.10" data-path="chap-ols.html"><a href="chap-ols.html#sec-harled-ols-med-vanliga-f"><i class="fa fa-check"></i><b>17.10</b> Derivation of the Estimators</a></li>
+<li class="chapter" data-level="17.11" data-path="chap-ols.html"><a href="chap-ols.html#chapter-summary-14"><i class="fa fa-check"></i><b>17.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="17.12" data-path="chap-ols.html"><a href="chap-ols.html#exercises-15"><i class="fa fa-check"></i><b>17.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html"><i class="fa fa-check"></i><b>18</b> Covariation in Social Science</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-lever-rika-langre-kolada-inkomst-livslangd"><i class="fa fa-check"></i><b>18.1</b> GDP and Life Expectancy in different countries</a></li>
+<li class="chapter" data-level="18.2" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-ols-kolada-alla-kommuner-livslangd-inkomst"><i class="fa fa-check"></i><b>18.2</b> Covariation with a lot of countries</a></li>
+<li class="chapter" data-level="18.3" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-linjar-trend-ols-log-bnp"><i class="fa fa-check"></i><b>18.3</b> Linear trend over time</a></li>
+<li class="chapter" data-level="18.4" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-cykler-och-vagor"><i class="fa fa-check"></i><b>18.4</b> Cycles and waves</a></li>
+<li class="chapter" data-level="18.5" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-bnp-och-lycka-igen"><i class="fa fa-check"></i><b>18.5</b> Wealth and happiness</a></li>
+<li class="chapter" data-level="18.6" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-star-wars"><i class="fa fa-check"></i><b>18.6</b> Star Wars</a></li>
+<li class="chapter" data-level="18.7" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#chapter-summary-15"><i class="fa fa-check"></i><b>18.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="18.8" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#exercises-16"><i class="fa fa-check"></i><b>18.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html"><i class="fa fa-check"></i><b>19</b> Least Squares with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-ols-pa-tre-variabler"><i class="fa fa-check"></i><b>19.1</b> Regression analysis with three variables</a></li>
+<li class="chapter" data-level="19.2" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-faktorvariabler"><i class="fa fa-check"></i><b>19.2</b> Factor variables</a></li>
+<li class="chapter" data-level="19.3" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-konstanthaller"><i class="fa fa-check"></i><b>19.3</b> Ceteris paribus</a></li>
+<li class="chapter" data-level="19.4" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-minstakvadratmetoden-med-matrise"><i class="fa fa-check"></i><b>19.4</b> Least Squares with Matrices</a></li>
+<li class="chapter" data-level="19.5" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-berakna-ols-med-matriser"><i class="fa fa-check"></i><b>19.5</b> Estimation with matrices</a></li>
+<li class="chapter" data-level="19.6" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-interaktion"><i class="fa fa-check"></i><b>19.6</b> Interaction</a></li>
+<li class="chapter" data-level="19.7" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-adj-r-2"><i class="fa fa-check"></i><b>19.7</b> Adjusted <span class="math inline">\(R^{2}\)</span></a></li>
+<li class="chapter" data-level="19.8" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-omitted-variable-bias"><i class="fa fa-check"></i><b>19.8</b> If we have too few variables</a></li>
+<li class="chapter" data-level="19.9" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-overfitting"><i class="fa fa-check"></i><b>19.9</b> If we have too many variables</a></li>
+<li class="chapter" data-level="19.10" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#the-error-term-does-not-need-to-approach-zero"><i class="fa fa-check"></i><b>19.10</b> The error term does not need to approach zero</a></li>
+<li class="chapter" data-level="19.11" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#chapter-summary-16"><i class="fa fa-check"></i><b>19.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="19.12" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#exercises-17"><i class="fa fa-check"></i><b>19.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html"><i class="fa fa-check"></i><b>20</b> Regression Analysis for Causal Relationships</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#we-need-special-methods-to-study-cause-and-effect"><i class="fa fa-check"></i><b>20.1</b> We need special methods to study cause and effect</a></li>
+<li class="chapter" data-level="20.2" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#illustration-with-a-dag"><i class="fa fa-check"></i><b>20.2</b> Illustration with a DAG</a></li>
+<li class="chapter" data-level="20.3" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#both-the-presence-and-absence-of-variables-can-affect-our-results"><i class="fa fa-check"></i><b>20.3</b> Both the presence and absence of variables can affect our results</a></li>
+<li class="chapter" data-level="20.4" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-regressionsdiskontinuitet"><i class="fa fa-check"></i><b>20.4</b> Regression discontinuity</a></li>
+<li class="chapter" data-level="20.5" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-instrumentell-variabel"><i class="fa fa-check"></i><b>20.5</b> Instrumental variable</a></li>
+<li class="chapter" data-level="20.6" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-skillnad-i-skillnad"><i class="fa fa-check"></i><b>20.6</b> Difference-in-differences</a></li>
+<li class="chapter" data-level="20.7" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#pros-and-cons-with-these-methods"><i class="fa fa-check"></i><b>20.7</b> Pros and cons with these methods</a></li>
+<li class="chapter" data-level="20.8" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#causality-without-covariation"><i class="fa fa-check"></i><b>20.8</b> Causality without covariation</a></li>
+<li class="chapter" data-level="20.9" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#chapter-summary-17"><i class="fa fa-check"></i><b>20.9</b> Chapter summary</a></li>
+<li class="chapter" data-level="20.10" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#exercises-18"><i class="fa fa-check"></i><b>20.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>III Probability</b></span></li>
+<li class="chapter" data-level="" data-path="part-probability-intro.html"><a href="part-probability-intro.html"><i class="fa fa-check"></i>Part III: Probability</a></li>
+<li class="chapter" data-level="21" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html"><i class="fa fa-check"></i><b>21</b> Basic Probability Theory 1: discrete distributions</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#how-we-know-what-we-know"><i class="fa fa-check"></i><b>21.1</b> How we know what we know</a></li>
+<li class="chapter" data-level="21.2" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-random-variables"><i class="fa fa-check"></i><b>21.2</b> Random variables</a></li>
+<li class="chapter" data-level="21.3" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-multivariate-probability"><i class="fa fa-check"></i><b>21.3</b> Probability with multiple variables</a></li>
+<li class="chapter" data-level="21.4" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-expected-value-variance"><i class="fa fa-check"></i><b>21.4</b> Expected value and variance</a></li>
+<li class="chapter" data-level="21.5" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-conditional-expected-value"><i class="fa fa-check"></i><b>21.5</b> Conditional expected value</a></li>
+<li class="chapter" data-level="21.6" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-law-large-numbers"><i class="fa fa-check"></i><b>21.6</b> Law of large numbers</a></li>
+<li class="chapter" data-level="21.7" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-uniform-distribution"><i class="fa fa-check"></i><b>21.7</b> Uniform probability distributions</a></li>
+<li class="chapter" data-level="21.8" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-binomial-distribution"><i class="fa fa-check"></i><b>21.8</b> The binomial distribution</a></li>
+<li class="chapter" data-level="21.9" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-poisson-distribution"><i class="fa fa-check"></i><b>21.9</b> The Poisson distribution</a></li>
+<li class="chapter" data-level="21.10" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-ch21-summary"><i class="fa fa-check"></i><b>21.10</b> Chapter Summary</a></li>
+<li class="chapter" data-level="21.11" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#exercises-19"><i class="fa fa-check"></i><b>21.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html"><i class="fa fa-check"></i><b>22</b> Fundamental Probability Theory 2: Continuous Distributions</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-uniform-continuous"><i class="fa fa-check"></i><b>22.1</b> Uniform Continuous Probability Distributions</a></li>
+<li class="chapter" data-level="22.2" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-ev-variance-continuous"><i class="fa fa-check"></i><b>22.2</b> Expected Value and Variance for Continuous Random Variables</a></li>
+<li class="chapter" data-level="22.3" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-exponential-distribution"><i class="fa fa-check"></i><b>22.3</b> Exponential Distributions</a></li>
+<li class="chapter" data-level="22.4" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-gamma-distribution"><i class="fa fa-check"></i><b>22.4</b> From Poisson to Gamma</a></li>
+<li class="chapter" data-level="22.5" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-chi-squared-distribution"><i class="fa fa-check"></i><b>22.5</b> Chi-squared Distributions</a></li>
+<li class="chapter" data-level="22.6" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-f-distribution"><i class="fa fa-check"></i><b>22.6</b> F-distributions</a></li>
+<li class="chapter" data-level="22.7" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#chapter-summary-18"><i class="fa fa-check"></i><b>22.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="22.8" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#exercises-20"><i class="fa fa-check"></i><b>22.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html"><i class="fa fa-check"></i><b>23</b> Normal and t distributions</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability with normal variables</a></li>
+<li class="chapter" data-level="23.2" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-standard-normal"><i class="fa fa-check"></i><b>23.2</b> Standardized normal distribution</a></li>
+<li class="chapter" data-level="23.3" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-1"><i class="fa fa-check"></i><b>23.3</b> The usefulness of the normal distribution 1</a></li>
+<li class="chapter" data-level="23.4" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-2"><i class="fa fa-check"></i><b>23.4</b> The usefulness of the normal distribution 2</a></li>
+<li class="chapter" data-level="23.5" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-3-clt"><i class="fa fa-check"></i><b>23.5</b> The usefulness of the normal distribution 3</a></li>
+<li class="chapter" data-level="23.6" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-t-distribution"><i class="fa fa-check"></i><b>23.6</b> T-distribution</a></li>
+<li class="chapter" data-level="23.7" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#chapter-summary-19"><i class="fa fa-check"></i><b>23.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="23.8" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#exercises-21"><i class="fa fa-check"></i><b>23.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html"><i class="fa fa-check"></i><b>24</b> Statistical analysis and inference</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-point-estimation"><i class="fa fa-check"></i><b>24.1</b> Point estimation</a></li>
+<li class="chapter" data-level="24.2" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-standard-error"><i class="fa fa-check"></i><b>24.2</b> Standard error</a></li>
+<li class="chapter" data-level="24.3" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-confidence-interval"><i class="fa fa-check"></i><b>24.3</b> Confidence interval</a></li>
+<li class="chapter" data-level="24.4" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-hypothesis-testing"><i class="fa fa-check"></i><b>24.4</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="24.5" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-statistical-significance"><i class="fa fa-check"></i><b>24.5</b> Statistical significance, power and type errors</a></li>
+<li class="chapter" data-level="24.6" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#chapter-summary-20"><i class="fa fa-check"></i><b>24.6</b> Chapter summary</a></li>
+<li class="chapter" data-level="24.7" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#exercises-22"><i class="fa fa-check"></i><b>24.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html"><i class="fa fa-check"></i><b>25</b> Regression Analysis with Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-population-model"><i class="fa fa-check"></i><b>25.1</b> The Population Model and Statistical Tests</a></li>
+<li class="chapter" data-level="25.2" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ols-assumptions"><i class="fa fa-check"></i><b>25.2</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="25.3" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-variance"><i class="fa fa-check"></i><b>25.3</b> The Variance of the Regression Model</a></li>
+<li class="chapter" data-level="25.4" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-t-test"><i class="fa fa-check"></i><b>25.4</b> Regression analysis with t-test</a></li>
+<li class="chapter" data-level="25.5" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-coefficients"><i class="fa fa-check"></i><b>25.5</b> Regression analysis with confidence interval</a></li>
+<li class="chapter" data-level="25.6" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-line"><i class="fa fa-check"></i><b>25.6</b> Confidence Interval for the Regression Line</a></li>
+<li class="chapter" data-level="25.7" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-power-regression"><i class="fa fa-check"></i><b>25.7</b> Statistical Power in Regression</a></li>
+<li class="chapter" data-level="25.8" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-economic-significance"><i class="fa fa-check"></i><b>25.8</b> Statistical and Economic Significance</a></li>
+<li class="chapter" data-level="25.9" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#chapter-summary-21"><i class="fa fa-check"></i><b>25.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="25.10" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ch25-exercises"><i class="fa fa-check"></i><b>25.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html"><i class="fa fa-check"></i><b>26</b> Statistical Tests in Regression Analysis with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ols-assumptions-multiple"><i class="fa fa-check"></i><b>26.1</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="26.2" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-estimators-multiple"><i class="fa fa-check"></i><b>26.2</b> Estimators of the Coefficients</a></li>
+<li class="chapter" data-level="26.3" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-variance-covariance-matrix"><i class="fa fa-check"></i><b>26.3</b> The Variance-Covariance Matrix</a></li>
+<li class="chapter" data-level="26.4" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-t-test-multiple-variables"><i class="fa fa-check"></i><b>26.4</b> T-tests for Multiple Regression</a></li>
+<li class="chapter" data-level="26.5" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-f-test-regression"><i class="fa fa-check"></i><b>26.5</b> F-test for the Regression Model</a></li>
+<li class="chapter" data-level="26.6" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#chapter-summary-22"><i class="fa fa-check"></i><b>26.6</b> Chapter Summary</a></li>
+<li class="chapter" data-level="26.7" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ch26-exercises"><i class="fa fa-check"></i><b>26.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html"><i class="fa fa-check"></i><b>27</b> Conditions of the Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-gauss-markov"><i class="fa fa-check"></i><b>27.1</b> Gauss-Markov</a></li>
+<li class="chapter" data-level="27.2" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-linearity"><i class="fa fa-check"></i><b>27.2</b> Assumption 1: Linearity</a></li>
+<li class="chapter" data-level="27.3" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-iid"><i class="fa fa-check"></i><b>27.3</b> Assumption 2: Independent and Identically Distributed Observations</a></li>
+<li class="chapter" data-level="27.4" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-homoscedasticity"><i class="fa fa-check"></i><b>27.4</b> Assumption 3: Expected Value and Variance of the Error Terms</a></li>
+<li class="chapter" data-level="27.5" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-multicollinearity"><i class="fa fa-check"></i><b>27.5</b> Assumption 4: Multicollinearity</a></li>
+<li class="chapter" data-level="27.6" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-autocorrelation"><i class="fa fa-check"></i><b>27.6</b> Assumption 5: Correlation Between Residuals</a></li>
+<li class="chapter" data-level="27.7" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-normality"><i class="fa fa-check"></i><b>27.7</b> Assumption 6: Normally Distributed Error Terms</a></li>
+<li class="chapter" data-level="27.8" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-robust-se"><i class="fa fa-check"></i><b>27.8</b> Adjusted Standard Errors</a></li>
+<li class="chapter" data-level="27.9" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-summary"><i class="fa fa-check"></i><b>27.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="27.10" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-exercises"><i class="fa fa-check"></i><b>27.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Computer Programs for Social Scientists</b></span></li>
+<li class="chapter" data-level="" data-path="part-computer-programs-intro.html"><a href="part-computer-programs-intro.html"><i class="fa fa-check"></i>Part IV: Computer Programs for Social Scientists</a></li>
+<li class="chapter" data-level="28" data-path="ch-why-computers.html"><a href="ch-why-computers.html"><i class="fa fa-check"></i><b>28</b> Why Use Computers?</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-three-tools"><i class="fa fa-check"></i><b>28.1</b> Three Analytical Tools</a></li>
+<li class="chapter" data-level="28.2" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-why-programming"><i class="fa fa-check"></i><b>28.2</b> Programming: Why Bother?</a></li>
+<li class="chapter" data-level="28.3" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-practice"><i class="fa fa-check"></i><b>28.3</b> You Have to Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="ch-excel.html"><a href="ch-excel.html"><i class="fa fa-check"></i><b>29</b> Microsoft Excel</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-general"><i class="fa fa-check"></i><b>29.1</b> General about Excel</a></li>
+<li class="chapter" data-level="29.2" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-import"><i class="fa fa-check"></i><b>29.2</b> Import and edit data</a></li>
+<li class="chapter" data-level="29.3" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-functions"><i class="fa fa-check"></i><b>29.3</b> Worksheet functions</a></li>
+<li class="chapter" data-level="29.4" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-fill-cells"><i class="fa fa-check"></i><b>29.4</b> Quick ways to fill multiple cells</a></li>
+<li class="chapter" data-level="29.5" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-combining-functions"><i class="fa fa-check"></i><b>29.5</b> Combining functions within calculations</a></li>
+<li class="chapter" data-level="29.6" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-logic"><i class="fa fa-check"></i><b>29.6</b> Logic conditions</a></li>
+<li class="chapter" data-level="29.7" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-index"><i class="fa fa-check"></i><b>29.7</b> Calculate index with Excel</a></li>
+<li class="chapter" data-level="29.8" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-matrices"><i class="fa fa-check"></i><b>29.8</b> Matrix calculations</a></li>
+<li class="chapter" data-level="29.9" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-io"><i class="fa fa-check"></i><b>29.9</b> Input-output analysis</a></li>
+<li class="chapter" data-level="29.10" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-variance"><i class="fa fa-check"></i><b>29.10</b> Variance and covariance</a></li>
+<li class="chapter" data-level="29.11" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-probability"><i class="fa fa-check"></i><b>29.11</b> Probability</a></li>
+<li class="chapter" data-level="29.12" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-regression"><i class="fa fa-check"></i><b>29.12</b> Regression analysis</a></li>
+<li class="chapter" data-level="29.13" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-plots"><i class="fa fa-check"></i><b>29.13</b> Creating plots</a></li>
+<li class="chapter" data-level="29.14" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-gdp-example"><i class="fa fa-check"></i><b>29.14</b> Example with GDP per working hour</a></li>
+<li class="chapter" data-level="29.15" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-other-functions"><i class="fa fa-check"></i><b>29.15</b> Some other useful functions</a></li>
+<li class="chapter" data-level="29.16" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-summary"><i class="fa fa-check"></i><b>29.16</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="ch-stata.html"><a href="ch-stata.html"><i class="fa fa-check"></i><b>30</b> Stata</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-general"><i class="fa fa-check"></i><b>30.1</b> General info about Stata</a></li>
+<li class="chapter" data-level="30.2" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-commands"><i class="fa fa-check"></i><b>30.2</b> Commands in Stata</a></li>
+<li class="chapter" data-level="30.3" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-import"><i class="fa fa-check"></i><b>30.3</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="30.4" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-enter-data"><i class="fa fa-check"></i><b>30.4</b> Enter data manually</a></li>
+<li class="chapter" data-level="30.5" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-edit"><i class="fa fa-check"></i><b>30.5</b> Edit Columns and Rows</a></li>
+<li class="chapter" data-level="30.6" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-egen"><i class="fa fa-check"></i><b>30.6</b> The function egen</a></li>
+<li class="chapter" data-level="30.7" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-join"><i class="fa fa-check"></i><b>30.7</b> Join tables</a></li>
+<li class="chapter" data-level="30.8" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-index"><i class="fa fa-check"></i><b>30.8</b> Calculate index using Stata</a></li>
+<li class="chapter" data-level="30.9" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-mata"><i class="fa fa-check"></i><b>30.9</b> Matrix calculations and MATA</a></li>
+<li class="chapter" data-level="30.10" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-io"><i class="fa fa-check"></i><b>30.10</b> Input-output analysis</a></li>
+<li class="chapter" data-level="30.11" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-variation"><i class="fa fa-check"></i><b>30.11</b> Variation and covariance</a></li>
+<li class="chapter" data-level="30.12" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-probability"><i class="fa fa-check"></i><b>30.12</b> Probability</a></li>
+<li class="chapter" data-level="30.13" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-regression"><i class="fa fa-check"></i><b>30.13</b> Regression analysis</a></li>
+<li class="chapter" data-level="30.14" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-export"><i class="fa fa-check"></i><b>30.14</b> Export results to disk</a></li>
+<li class="chapter" data-level="30.15" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-plots"><i class="fa fa-check"></i><b>30.15</b> Creating plots</a></li>
+<li class="chapter" data-level="30.16" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-loops"><i class="fa fa-check"></i><b>30.16</b> Iterations and loops</a></li>
+<li class="chapter" data-level="30.17" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-gdp"><i class="fa fa-check"></i><b>30.17</b> Example with GDP per hour</a></li>
+<li class="chapter" data-level="30.18" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-summary"><i class="fa fa-check"></i><b>30.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="ch-r.html"><a href="ch-r.html"><i class="fa fa-check"></i><b>31</b> R</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="ch-r.html"><a href="ch-r.html#sec-r-overview"><i class="fa fa-check"></i><b>31.1</b> General Overview of R</a></li>
+<li class="chapter" data-level="31.2" data-path="ch-r.html"><a href="ch-r.html#sec-r-objects"><i class="fa fa-check"></i><b>31.2</b> R Objects</a></li>
+<li class="chapter" data-level="31.3" data-path="ch-r.html"><a href="ch-r.html#sec-r-functions"><i class="fa fa-check"></i><b>31.3</b> Functions in R</a></li>
+<li class="chapter" data-level="31.4" data-path="ch-r.html"><a href="ch-r.html#sec-r-packages"><i class="fa fa-check"></i><b>31.4</b> R Packages</a></li>
+<li class="chapter" data-level="31.5" data-path="ch-r.html"><a href="ch-r.html#sec-r-import"><i class="fa fa-check"></i><b>31.5</b> Importing Data</a></li>
+<li class="chapter" data-level="31.6" data-path="ch-r.html"><a href="ch-r.html#sec-r-data-tables"><i class="fa fa-check"></i><b>31.6</b> Working with Data Tables</a></li>
+<li class="chapter" data-level="31.7" data-path="ch-r.html"><a href="ch-r.html#sec-r-joins"><i class="fa fa-check"></i><b>31.7</b> Join Tables</a></li>
+<li class="chapter" data-level="31.8" data-path="ch-r.html"><a href="ch-r.html#sec-r-index"><i class="fa fa-check"></i><b>31.8</b> Calculate Index and Export Tables</a></li>
+<li class="chapter" data-level="31.9" data-path="ch-r.html"><a href="ch-r.html#sec-r-matrices"><i class="fa fa-check"></i><b>31.9</b> Matrix Calculations</a></li>
+<li class="chapter" data-level="31.10" data-path="ch-r.html"><a href="ch-r.html#sec-r-io"><i class="fa fa-check"></i><b>31.10</b> Input–Output Analysis</a></li>
+<li class="chapter" data-level="31.11" data-path="ch-r.html"><a href="ch-r.html#sec-r-variation"><i class="fa fa-check"></i><b>31.11</b> Variation and Covariance</a></li>
+<li class="chapter" data-level="31.12" data-path="ch-r.html"><a href="ch-r.html#sec-r-probability"><i class="fa fa-check"></i><b>31.12</b> Probability</a></li>
+<li class="chapter" data-level="31.13" data-path="ch-r.html"><a href="ch-r.html#sec-r-regression"><i class="fa fa-check"></i><b>31.13</b> Regression Analysis</a></li>
+<li class="chapter" data-level="31.14" data-path="ch-r.html"><a href="ch-r.html#sec-r-export-results"><i class="fa fa-check"></i><b>31.14</b> Export Results to Hard Drive</a></li>
+<li class="chapter" data-level="31.15" data-path="ch-r.html"><a href="ch-r.html#sec-r-plots"><i class="fa fa-check"></i><b>31.15</b> Create Plots</a></li>
+<li class="chapter" data-level="31.16" data-path="ch-r.html"><a href="ch-r.html#sec-r-loops"><i class="fa fa-check"></i><b>31.16</b> Iterations and Loops</a></li>
+<li class="chapter" data-level="31.17" data-path="ch-r.html"><a href="ch-r.html#sec-r-gdp-example"><i class="fa fa-check"></i><b>31.17</b> Example with GDP per Working Hours</a></li>
+<li class="chapter" data-level="31.18" data-path="ch-r.html"><a href="ch-r.html#sec-r-summary"><i class="fa fa-check"></i><b>31.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="ch-data-tools.html"><a href="ch-data-tools.html"><i class="fa fa-check"></i><b>32</b> Examples of Useful Data and Additional Tools</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-free-data"><i class="fa fa-check"></i><b>32.1</b> Examples of Free Data</a></li>
+<li class="chapter" data-level="32.2" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-other-tools"><i class="fa fa-check"></i><b>32.2</b> Other Tools That Are Good to Know About</a></li>
+</ul></li>
+<li class="part"><span><b>V Final Words</b></span></li>
+<li class="chapter" data-level="" data-path="part-final-words-intro.html"><a href="part-final-words-intro.html"><i class="fa fa-check"></i>Part V: Final Words</a></li>
+<li class="chapter" data-level="33" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html"><i class="fa fa-check"></i><b>33</b> Final Chapter</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-misconceptions"><i class="fa fa-check"></i><b>33.1</b> Common Misconceptions</a></li>
+<li class="chapter" data-level="33.2" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-further-reading"><i class="fa fa-check"></i><b>33.2</b> Things That Perhaps Should Have Been Included in This Book</a></li>
+<li class="chapter" data-level="33.3" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-last-word"><i class="fa fa-check"></i><b>33.3</b> The Last Word</a></li>
+</ul></li>
+<li class="divider"></li>
+<li></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Cheat Code: Essential Math and Statistics for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-derivata" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Derivative<a href="chap-derivata.html#chap-derivata" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter introduces the derivative. The derivative is a function for calculating the slope of a line at a specific point. The derivative can be used to find a function’s maximum and minimum values, which is central to a large amount of analytical work.</p>
+<div id="limit" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Limit<a href="chap-derivata.html#limit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before we get to derivatives, we shall introduce limits. The limit is the value that a function approaches at a specific point. Limits can be used to handle expressions that are not defined for all numbers. Suppose we have the function:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=f\left(x\right)=\frac{1}{x^{2}}
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(x\)</span> is a real number. The real numbers are not defined for division by 0. To understand why, see what happens with <span class="math inline">\(f\left(x\right)\)</span> when <span class="math inline">\(x\)</span> approaches 0:</p>
+<p><span class="math display" id="eq:1-x-mot-noll">\[
+\begin{align}
+\text{For }x=0.1\text{ is }\frac{1}{x^{2}} &amp; =\frac{1}{0.01}=100\\
+\text{For }x=0.01\text{ is }\frac{1}{x^{2}} &amp; =\frac{1}{0.0001}=10,000\nonumber \\
+\text{For }x=0.0001\text{ is }\frac{1}{x^{2}} &amp; =\frac{1}{0.0000001}=100,000,000\nonumber
+\tag{10.1}
+\end{align}
+\]</span></p>
+<p>When <span class="math inline">\(x\)</span> approaches 0, the expression <span class="math inline">\(1/x^{2}\)</span> approaches infinity. Infinity is written with the symbol <span class="math inline">\(\infty\)</span>, which is not a real number. This means that the function <span class="math inline">\(y=f\left(x\right)=1/x^{2}\)</span> is not defined for <span class="math inline">\(x=0\)</span>. To describe that <span class="math inline">\(f\left(x\right)\)</span> is defined for all <span class="math inline">\(x\)</span> except 0 one may write:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=f\left(x\right)=\frac{1}{x^{2}},\,\forall x\neq0
+\end{equation}
+\]</span></p>
+<p>The variable <span class="math inline">\(y\)</span> is a function of <span class="math inline">\(x\)</span> for all <span class="math inline">\(x\)</span> that are not equal to 0. That equation <a href="chap-derivata.html#eq:1-x-mot-noll">(10.1)</a> approaches infinity as <span class="math inline">\(x\)</span> approaches 0 can be described in the following way:</p>
+<p><span class="math display">\[
+\begin{equation}
+\lim_{x\rightarrow0}f\left(x\right)=\frac{1}{x^{2}}=\infty
+\end{equation}
+\]</span></p>
+<p>The expression <span class="math inline">\(\lim_{x\rightarrow0}\)</span> stands for limes, which means limit. To describe how function <span class="math inline">\(f\)</span> behaves when <span class="math inline">\(x\)</span> goes toward positive infinity, we write:</p>
+<p><span class="math display">\[
+\begin{equation}
+\lim_{x\rightarrow\infty}f\left(x\right)=\frac{1}{x^{2}}=0
+\end{equation}
+\]</span></p>
+<p>When <span class="math inline">\(x\)</span> goes toward positive infinity, the limit for <span class="math inline">\(f\left(x\right)=1/x=0\)</span>. The function goes toward the value 0. For many expressions, it’s possible to find the limit by calculating the expression for values close to the limit, as in equation <a href="chap-derivata.html#eq:1-x-mot-noll">(10.1)</a> . Suppose we seek the limit for the expression <span class="math inline">\(x-1\)</span> when <span class="math inline">\(x\rightarrow1\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+\lim_{x\rightarrow1}x-1
+\end{equation}
+\]</span></p>
+<p>To find the limit, we calculate values close to <span class="math inline">\(x=1\)</span>:</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(x-1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.9</td>
+<td>0.1</td>
+</tr>
+<tr class="even">
+<td>0.99</td>
+<td>0.01</td>
+</tr>
+<tr class="odd">
+<td>0.999</td>
+<td>0.001</td>
+</tr>
+</tbody>
+</table>
+<p>The closer <span class="math inline">\(x\)</span> gets to 1, the closer <span class="math inline">\(x-1\)</span> gets to the value 0. This is the limit for <span class="math inline">\(x-1\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+\lim_{x\rightarrow1}x-1=0
+\end{equation}
+\]</span></p>
+<p>We also calculate <span class="math inline">\(x-1\)</span> for values just above 1:</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(x-1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.1</td>
+<td>0.1</td>
+</tr>
+<tr class="even">
+<td>1.01</td>
+<td>0.01</td>
+</tr>
+<tr class="odd">
+<td>1.001</td>
+<td>0.001</td>
+</tr>
+</tbody>
+</table>
+<p>We get the same limit regardless of whether we approach <span class="math inline">\(x\)</span> from above or from below. The limit for an expression can however differ depending on whether we approach the limit from above or from below. Take for example the function:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=\frac{1}{x}\,\forall x\neq0
+\end{equation}
+\]</span></p>
+<p>The function <span class="math inline">\(y=\frac{1}{x}\)</span> is defined for all <span class="math inline">\(x\)</span> that are not equal to 0. For <span class="math inline">\(x&gt;0\)</span>, the same limit still applies as for <span class="math inline">\(y=f\left(x\right)=1/x^{2}\)</span>. When <span class="math inline">\(x\)</span> approaches 0 from values above 0, the expression <span class="math inline">\(1/x\)</span> goes toward positive infinity. But if we instead look at how <span class="math inline">\(x\)</span> approaches 0 for values below 0, we get the following result instead:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{For }x=-1\text{ is }y=\frac{1}{x} &amp; =\frac{1}{-1}=-1\\
+\text{For }x=-0.2\text{ is }y=\frac{1}{x} &amp; =\frac{1}{-0.2}=-5\nonumber \\
+\text{For }x=-0.0001\text{ is }y=\frac{1}{x} &amp; =\frac{1}{-0.0001}=-10,000\nonumber
+\end{align}
+\]</span></p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:y-f-x-1-x-limes"></span>
+<img src="10-derivative_files/figure-html/y-f-x-1-x-limes-1.png" alt="The function $y=f\left(x\right)=1/x$" width="71%" />
+<p class="caption">
+Figure 10.1: The function <span class="math inline">\(y=f\left(x\right)=1/x\)</span>
+</p>
+</div>
+<p>Since <span class="math inline">\(x\)</span> approaches 0 from values below 0, <span class="math inline">\(1/x\)</span> goes toward negative infinity, which can be written <span class="math inline">\(-\infty\)</span>. This is illustrated in figure <a href="chap-derivata.html#fig:y-f-x-1-x-limes">10.1</a> where function <span class="math inline">\(f\left(x\right)=1/x\)</span> goes toward positive infinity <span class="math inline">\(+\infty\)</span> as <span class="math inline">\(x\)</span> approaches 0 for positive numbers and toward negative infinity <span class="math inline">\(-\infty\)</span> for negative numbers:</p>
+<p><span class="math display">\[
+\begin{align}
+\lim_{x\rightarrow0^{+}} &amp; f\left(x\right)=\frac{1}{x}=+\infty\\
+\lim_{x\rightarrow0^{-}} &amp; f\left(x\right)=\frac{1}{x}=-\infty\nonumber
+\end{align}
+\]</span></p>
+<p>The notation <span class="math inline">\(x\rightarrow0^{+}\)</span> means that <span class="math inline">\(x\)</span> goes toward 0 from the positive side of the input value <span class="math inline">\(\left(x&gt;0\right)\)</span>. This is also called a right-hand limit, because <span class="math inline">\(x\)</span> approaches from the right on the number line. The expression <span class="math inline">\(x\rightarrow0^{-}\)</span> means that <span class="math inline">\(x\)</span> approaches 0 from smaller values <span class="math inline">\(\left(x&lt;0\right)\)</span>, which is called a left-hand limit.</p>
+</div>
+<div id="simplify-first" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Simplify first<a href="chap-derivata.html#simplify-first" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We often benefit from simplifying the function we are working with as far as possible. This also applies when we seek limits. Consider now the following equation:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=g\left(x\right)=\frac{x^{3}-2x^{2}+4x-8}{x-2}
+\end{equation}
+\]</span></p>
+<p>If we substitute <span class="math inline">\(x=2\)</span>, we get:</p>
+<p><span class="math display">\[
+\begin{align}
+g\left(2\right) &amp; =\frac{2^{3}-2*2^{2}+4*2-8}{2-2}=\frac{0}{0}
+\end{align}
+\]</span></p>
+<p>For <span class="math inline">\(x=2\)</span> the nominator and denominator is zero, which is undefined for real values. It is however possible to calculate the limit as <span class="math inline">\(x\)</span> approaches 2 and thereby get a value for <span class="math inline">\(g\left(2\right)\)</span>. But first we factorize the numerator so we get:</p>
+<p><span class="math display">\[
+\begin{align}
+y=g\left(x\right) &amp; =\frac{x^{3}-3x^{2}+3x-9}{x-2}=\frac{\left(x^{2}+4\right)\left(x-2\right)}{x-2}
+\end{align}
+\]</span></p>
+<p>Since we have the parenthesis <span class="math inline">\(\left(x-2\right)\)</span> in both numerator and denominator, we can cancel this and get:</p>
+<p><span class="math display">\[
+\begin{align}
+g\left(x\right) &amp; =\frac{\left(x^{2}+4\right)\cancel{\left(x-2\right)}}{\cancel{\left(x-2\right)}}=x^{2}+4
+\end{align}
+\]</span></p>
+<p>In this simplified form the function is defined for <span class="math inline">\(x=2\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=g\left(2\right)=2^{2}+4=8
+\end{equation}
+\]</span></p>
+<p>Since this is a simplified version of the function we call this value 8 the function’s limit for <span class="math inline">\(x=2\)</span>, which we write as:</p>
+<p><span class="math display">\[
+\begin{equation}
+\lim_{x\rightarrow2}g\left(x\right)=\frac{x^{3}-2x^{2}+4x-8}{x-2}=8
+\end{equation}
+\]</span></p>
+<p>Suppose now that we have the following function:</p>
+<p><span class="math display">\[
+\begin{align}
+y=f\left(x\right) &amp; =\frac{\left(x^{2}+3\right)\left(x-3\right)}{x-2}
+\end{align}
+\]</span></p>
+<p>for <span class="math inline">\(x=2\)</span> the denominator is zero and therefore undefined. First we can expand the numerator: <span class="math inline">\(\left(x^{2}+3\right)\left(x-3\right)=x^{3}-3x^{2}+3x-9\)</span>. We cannot simplify the expression more. In this case we have two limits. As <span class="math inline">\(x\)</span> approaches 2 from the left <span class="math inline">\(\left(x&lt;2\right)\)</span> the function <span class="math inline">\(f\left(x\right)\)</span> approaches positive infinity <span class="math inline">\(+\infty\)</span>. As <span class="math inline">\(x\)</span> approaches 2 from the right <span class="math inline">\(\left(x&gt;2\right)\)</span> function <span class="math inline">\(f\left(x\right)\)</span> approaches negative infinity <span class="math inline">\(-\infty\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+\lim_{x\rightarrow2^{+}}f\left(x\right) &amp; =\frac{x^{3}-3x^{2}+3x-9}{x-2}=-\infty\\
+\lim_{x\rightarrow2^{-}}f\left(x\right) &amp; =\frac{x^{3}-3x^{2}+3x-9}{x-2}=+\infty\nonumber
+\end{align}
+\]</span></p>
+<p>While limits help us understand function behavior near problematic points, they also enable us to solve a fundamental question: how can we measure the exact slope of a curved line at a single point? This leads us to the derivative.</p>
+</div>
+<div id="sec-derivata" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Differentiating<a href="chap-derivata.html#sec-derivata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The derivative can be used to calculate the slope of a line at a specific point. In section <a href="chap-funktioner-och-diagram.html#sec-den-rata-linjens">4.4</a> we went through the equation of the straight line. In a function of the form <span class="math inline">\(y=a+bx\)</span>, <span class="math inline">\(b\)</span> is the slope of the line and <span class="math inline">\(a\)</span> is the value <span class="math inline">\(y\)</span> takes when <span class="math inline">\(x=0\)</span>. b is a measure of how much <span class="math inline">\(y\)</span> changes when <span class="math inline">\(x\)</span> increases by 1. Since the line is straight, it has the same slope regardless of which value <span class="math inline">\(x\)</span> has. The slope between the points <span class="math inline">\(\left(x_{1},y_{1}\right)\)</span> and <span class="math inline">\(\left(x_{2},y_{2}\right)\)</span> we may calculate as:</p>
+<p><span class="math display">\[
+\begin{equation}
+b=\frac{y_{2}-y_{1}}{x_{2}-x_{1}}
+\end{equation}
+\]</span></p>
+<p>If we instead have a line that is not straight over all values of <span class="math inline">\(x\)</span>, one may use the derivative to calculate the slope at a specific value of <span class="math inline">\(x\)</span>. Let us illustrate with the function</p>
+<p><span class="math display">\[
+\begin{equation}
+y=x^{2}
+\end{equation}
+\]</span></p>
+<p>Figure <a href="chap-derivata.html#fig:funktionen-x2">10.2</a> illustrates how the slope of the line for <span class="math inline">\(x^{2}\)</span> varies depending on the value for x. The solid curved line is drawn with <span class="math inline">\(x^{2}\)</span> and the dashed straight lines show the slope at two points on the curved line. At the point <span class="math inline">\(\left(x,y\right)=\left(0,0\right)\)</span> the solid line has slope 0 and is horizontal. At the point <span class="math inline">\(\left(x,y\right)=\left(2,4\right)\)</span> the slope is instead positive, up toward the graph’s right corner.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:funktionen-x2"></span>
+<img src="10-derivative_files/figure-html/funktionen-x2-1.png" alt="The function $y=x^{2}$" width="71%" />
+<p class="caption">
+Figure 10.2: The function <span class="math inline">\(y=x^{2}\)</span>
+</p>
+</div>
+<p>The derivative indicates the limit of the line’s slope. The limit here refers to how much the function <span class="math inline">\(f\left(x\right)\)</span> changes at a small change in <span class="math inline">\(x\)</span>. This is described by the derivative’s <span class="math inline">\(h\)</span>-definition, where the letter <span class="math inline">\(h\)</span> describes the distance between two values in the variable <span class="math inline">\(x\)</span></p>
+<p><span class="math display" id="eq:derivatans-h-def">\[
+\begin{equation}
+f&#39;\left(x\right)=\lim_{h\rightarrow0}\frac{f\left(x+h\right)-f\left(x\right)}{h}
+\tag{10.2}
+\end{equation}
+\]</span></p>
+<p>Equation <a href="chap-derivata.html#eq:derivatans-h-def">(10.2)</a> can be read as the derivative of function <span class="math inline">\(f\left(x\right)\)</span>, which we write as <span class="math inline">\(f&#39;\left(x\right)\)</span>, is given by the function value at point x+h minus the function value at point <span class="math inline">\(x\)</span>, as <span class="math inline">\(h\)</span> goes toward 0, divided by <span class="math inline">\(h\)</span>. The derivative’s <span class="math inline">\(h\)</span>-definition therefore describes the limit when the distance between the two points <span class="math inline">\(x\)</span> and <span class="math inline">\(x+h\)</span> shrinks toward 0. For function <span class="math inline">\(f\left(x\right)=x^{2}\)</span> we derive this by substituting this function into equation <a href="chap-derivata.html#eq:derivatans-h-def">(10.2)</a> :</p>
+<p><span class="math display">\[
+\begin{align}
+f&#39;\left(x\right) &amp; =\lim_{h\rightarrow0}\frac{f\left(x+h\right)-f\left(x\right)}{h}\\
+&amp; =\lim_{h\rightarrow0}\frac{\left(x+h\right)^{2}-x^{2}}{h}\nonumber \\
+&amp; =\lim_{h\rightarrow0}\frac{\left(x+h\right)\left(x+h\right)-x^{2}}{h}\nonumber \\
+&amp; =\lim_{h\rightarrow0}\frac{h^{2}+2xh+x^{2}-x^{2}}{h}\nonumber \\
+&amp; =\lim_{h\rightarrow0}\frac{h^{2}+2xh}{h}\nonumber
+\end{align}
+\]</span></p>
+<p>All terms in the numerator and denominator contain <span class="math inline">\(h\)</span>, which we may simplify:</p>
+<p><span class="math display">\[
+\begin{align}
+f&#39;\left(x\right) &amp; =\lim_{h\rightarrow0}\frac{h\times\cancel{h}+2x\cancel{h}}{\cancel{h}}=\lim_{h\rightarrow0}h+2x=2x
+\end{align}
+\]</span></p>
+<p>Now we have shown that the function <span class="math inline">\(y=f\left(x\right)=x^{2}\)</span> has the derivative:</p>
+<p><span class="math display">\[
+\begin{equation}
+y&#39;=f&#39;\left(x\right)=2x
+\end{equation}
+\]</span></p>
+<p>We now have two functions that both use the variable <span class="math inline">\(x\)</span>: on one hand <span class="math inline">\(f\left(x\right)=x^{2}\)</span> and on the other hand its derivative, <span class="math inline">\(f&#39;\left(x\right)=2x\)</span>. Let us also figure out what slope the line has in figure <a href="chap-derivata.html#fig:funktionen-x2">10.2</a> . The derivative of our function is <span class="math inline">\(f&#39;\left(x\right)=2x\)</span>. To get the slope of the line at a specific point, that is how much y changes when x increases by 1, we substitute the value for x at the current point. In the figure, the points at <span class="math inline">\(x=2\)</span> and <span class="math inline">\(x=4\)</span> are marked with dashed lines. If we substitute these values for x into the derivative’s function, we get:</p>
+<p><span class="math display">\[
+\begin{align}
+f&#39;\left(2\right) &amp; =2*2=4\\
+f&#39;\left(4\right) &amp; =2*4=8\nonumber
+\end{align}
+\]</span></p>
+<p>which shows how the line for the function <span class="math inline">\(y=f\left(x\right)=x^{2}\)</span> slopes at these points.</p>
+<p>The dashed lines in the figure are straight lines, which we may calculate backwards in the following way. We know that the derivative is <span class="math inline">\(f&#39;\left(x\right)=2x\)</span> and that at <span class="math inline">\(x=2\)</span>, <span class="math inline">\(f&#39;\left(2\right)=2*2=4\)</span>. The last is the value for <span class="math inline">\(y\)</span> at this point. To get the dashed straight line’s equation, we therefore substitute the values we know into such an equation. We seek the following function:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=a+bx
+\end{equation}
+\]</span></p>
+<p>We already know the values for <span class="math inline">\(y,b\)</span> and <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+4=a+4*2
+\end{equation}
+\]</span></p>
+<p>This gives the following value for <span class="math inline">\(a\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+a=4-8=-4
+\end{equation}
+\]</span></p>
+<p>The equation for the dashed line at <span class="math inline">\(x=2\)</span> in figure <a href="chap-derivata.html#fig:funktionen-x2">10.2</a> is therefore:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=-4+4x
+\end{equation}
+\]</span></p>
+<p>The above walkthrough was relatively elaborate. Fortunately, there are several calculation rules that we may use to avoid doing this process every time we need to use derivatives (see section <a href="chap-derivata.html#sec-rakneregler-derivata">10.9</a> below). The calculation rule for the above example can be formulated as if we have the following function:</p>
+<p><span class="math display">\[
+\begin{equation}
+f\left(x\right)=x^{a}
+\end{equation}
+\]</span></p>
+<p>its derivative is:</p>
+<p><span class="math display">\[
+\begin{equation}
+f&#39;\left(x\right)=ax^{a-1}
+\end{equation}
+\]</span></p>
+</div>
+<div id="the-next-derivative" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> The next derivative<a href="chap-derivata.html#the-next-derivative" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For the derived version of <span class="math inline">\(y=f\left(x\right)\)</span> the following notations say exactly the same thing:</p>
+<p><span class="math display" id="eq:leibniz-notation">\[
+\begin{equation}
+y&#39;=f&#39;\left(x\right)=\frac{df\left(x\right)}{dx}=\frac{dy}{dx}=\frac{\partial y}{\partial x}
+\tag{10.3}
+\end{equation}
+\]</span></p>
+<p>The symbol <span class="math inline">\(\partial\)</span> here have the same meaning as the letter <span class="math inline">\(d\)</span>. The expression <span class="math inline">\(dy/dx\)</span> can be read as a small change of <span class="math inline">\(y\)</span> divided by a small change of <span class="math inline">\(x\)</span>. This notation is called Leibniz notation, after Wilhelm Leibniz (1646–1716).</p>
+<p>So far we have only worked with the first derivative. If we take the derivative of the first derivative, we get the second derivative. This is calculated and written in a similar way as the first derivative. For example:</p>
+<p><span class="math display" id="eq:fran-f-till-andraderivatan">\[
+\begin{align}
+\text{Function:} &amp; y=f\left(x\right)=x^{3}\\
+\text{First derivative: } &amp; \frac{\partial y}{\partial x}=f&#39;\left(x\right)=3x^{2}\nonumber \\
+\text{Second derivative } &amp; \frac{\partial}{\partial x}\left(\frac{\partial y}{\partial x}\right)=f&#39;&#39;\left(x\right)=2*3x=6x\nonumber
+\tag{10.4}
+\end{align}
+\]</span></p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:y-x-3"></span>
+<img src="10-derivative_files/figure-html/y-x-3-1.png" alt="The function $y=f\left(x\right)=x^{3}$ and its first and second derivative" width="71%" />
+<p class="caption">
+Figure 10.3: The function <span class="math inline">\(y=f\left(x\right)=x^{3}\)</span> and its first and second derivative
+</p>
+</div>
+<p>These are three different mathematical expressions: the function, the first derivative and the second derivative. All three expressions are different mathematical functions that use the variable <span class="math inline">\(x\)</span> as input value, which is evident from the parenthesis with x in the name of each function: <span class="math inline">\(f\left(x\right),f&#39;\left(x\right)\)</span> and <span class="math inline">\(f&#39;&#39;\left(x\right)\)</span>. Figure <a href="chap-derivata.html#fig:y-x-3">10.3</a> illustrate all these three functions in one graph each, with variable <span class="math inline">\(y\)</span> on the vertical axis and variable <span class="math inline">\(x\)</span> on the horizontal axis. In all three graphs, the slope of the line is marked at <span class="math inline">\(x=2\)</span>. Let us calculate the value for each function in equation <a href="chap-derivata.html#eq:fran-f-till-andraderivatan">(10.4)</a> for <span class="math inline">\(x=2\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{Function: }f\left(2\right) &amp; =2^{3}=8\\
+\text{First derivative: }f&#39;\left(2\right) &amp; =3*2^{2}=12\nonumber \\
+\text{Second derivative: }f&#39;&#39;\left(2\right) &amp; =6*2=12\nonumber
+\end{align}
+\]</span></p>
+<p>If we take the derivative of the second derivative, we get what is called the third derivative. The derivative after that is called the fourth derivative and so on. If we start here from the function <span class="math inline">\(y=f\left(x\right)=x^{3}\)</span>, then we have:</p>
+<p><span class="math display">\[
+\begin{align}
+y&#39;=f&#39;\left(x\right) &amp; =3x^{2}\\
+y&#39;&#39;=f&#39;&#39;\left(x\right) &amp; =6x\nonumber \\
+y&#39;&#39;&#39;=f&#39;&#39;&#39;\left(x\right) &amp; =6\nonumber \\
+y&#39;&#39;&#39;&#39;=f&#39;&#39;&#39;&#39;\left(x\right) &amp; =0\nonumber
+\end{align}
+\]</span></p>
+<p>where rows 3 and 4 are the third and fourth derivatives of the function <span class="math inline">\(y=x^{3}\)</span>. The fourth derivative is the slope of the slope of the slope of the line’s slope for <span class="math inline">\(y=x^{3}\)</span>, which is 0 for all <span class="math inline">\(x\)</span>. We can see this already in the third derivative, which is defined as <span class="math inline">\(y&#39;&#39;&#39;=6\)</span> for all values of <span class="math inline">\(x\)</span>, which in a graph becomes a horizontal line at <span class="math inline">\(y=6\)</span>.</p>
+</div>
+<div id="sec-derivata-exponential-e-log" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Exponent, logarithm and <em>e</em><a href="chap-derivata.html#sec-derivata-exponential-e-log" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have so far worked with functions where the variable <span class="math inline">\(x\)</span> stands as the base in a power expression, like <span class="math inline">\(f\left(x\right)=x^{a}\)</span>, where exponent <span class="math inline">\(a\)</span> is a coefficient (see section <a href="chap-grundlaggande-matematik-1.html#sec-potenser">2.8</a> ). In an exponential function, the variable is instead the exponent. For example:</p>
+<p><span class="math display" id="eq:a-x">\[
+\begin{equation}
+y=f\left(x\right)=b^{x}
+\tag{10.5}
+\end{equation}
+\]</span></p>
+<p>where the base <span class="math inline">\(b\)</span> is a coefficient and the exponent <span class="math inline">\(x\)</span> is a variable. Sometimes the expression the exponential function is used in definite form, which then refers to <span class="math inline">\(y=e^{x}\)</span> with the number <span class="math inline">\(e\)</span> as base. This is sometimes also written as <span class="math inline">\(y=\exp\left(x\right)=e^{x}\)</span>. Let us derive the derivative for the function <span class="math inline">\(y=b^{x}\)</span> using the derivative’s h-definition (see equation <a href="chap-derivata.html#eq:derivatans-h-def">(10.2)</a> ):</p>
+<p><span class="math display" id="eq:gransvardet-for-b-x">\[
+\begin{align}
+y&#39;_{x} &amp; =\lim_{h\rightarrow0}\frac{b^{x+h}-b^{x}}{h}\\
+&amp; =\lim_{h\rightarrow0}\frac{b^{x}\left(b^{h}-1\right)}{h}\nonumber \\
+&amp; =b^{x}\left(\lim_{h\rightarrow0}\frac{b^{h}-1}{h}\right)\nonumber
+\tag{10.6}
+\end{align}
+\]</span></p>
+<p>In the last step, we factor out <span class="math inline">\(b^{x}\)</span> since this is independent of <span class="math inline">\(h\)</span> and therefore is not affected by <span class="math inline">\(h\)</span> going toward 0. The limit for the expression is dependent on the base <span class="math inline">\(b\)</span>, which is illustrated in figure <a href="chap-derivata.html#fig:betydelsen-av-basen-b">10.4</a> . The solid line shows values for the limit <span class="math inline">\(\lim_{h\rightarrow0}\left(b^{h}-1\right)/h\)</span> for different <span class="math inline">\(b\)</span>. When <span class="math inline">\(b=1\)</span>, the limit is 0.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:betydelsen-av-basen-b"></span>
+<img src="10-derivative_files/figure-html/betydelsen-av-basen-b-1.png" alt="The importance of the base $b$" width="71%" />
+<p class="caption">
+Figure 10.4: The importance of the base <span class="math inline">\(b\)</span>
+</p>
+</div>
+<p>The limit <span class="math inline">\(\lim_{h\rightarrow0}\left(b^{h}-1\right)/h\)</span> from equation <a href="chap-derivata.html#eq:gransvardet-for-b-x">(10.6)</a> is equal to 1 when <span class="math inline">\(b\)</span> is equal to approximately 2.718, which is also marked in figure <a href="chap-derivata.html#fig:betydelsen-av-basen-b">10.4</a> . This number is so commonly occurring that it has received its own name, Euler’s number, and is abbreviated e. We have mentioned this number before. The natural logarithm of the base b in equation <a href="chap-derivata.html#eq:gransvardet-for-b-x">(10.6)</a> is the number that <span class="math inline">\(e\)</span>(approximately 2.718) must be raised to in order to get <span class="math inline">\(b\)</span>. This means that the general result for the equation can be described as the natural logarithm of <span class="math inline">\(b\)</span>. Say now that we have a function with the following form:</p>
+<p><span class="math display">\[
+\begin{equation}
+f\left(x\right)=b^{x}
+\end{equation}
+\]</span></p>
+<p>Then its derivative</p>
+<p><span class="math display">\[
+\begin{align}
+f&#39;_{x}\left(x\right)= &amp; b^{x}\left(\lim_{h\rightarrow0}\frac{b^{h}-1}{h}\right)=b^{x}\log_{e}b=b^{x}\ln b
+\end{align}
+\]</span></p>
+<p>If the logarithm’s base <span class="math inline">\(b\)</span> is equal to the number <span class="math inline">\(e\)</span>, we get:</p>
+<p><span class="math display" id="eq:log-e-b">\[
+\begin{align}
+b^{x}\log_{e}b=e^{x}\ln e=1*e^{x}=e^{x}
+\tag{10.7}
+\end{align}
+\]</span></p>
+<p>This means that if we have a function of the type <span class="math inline">\(y=f\left(x\right)=e^{x}\)</span>, then its derivative is:</p>
+<p><span class="math display">\[
+\begin{equation}
+y&#39;_{x}=e^{x}
+\end{equation}
+\]</span></p>
+<p>That is, the derivative of function <span class="math inline">\(y=e^{x}\)</span> is also equal to <span class="math inline">\(e^{x}\)</span>. The second derivative of this function is similarly <span class="math inline">\(y&#39;&#39;_{xx}=e^{x}\)</span>. Let us now derive the derivative of the following function:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=h\left(x\right)=e^{ax}
+\end{equation}
+\]</span></p>
+<p>The variable <span class="math inline">\(y\)</span> is a function of the variable <span class="math inline">\(x\)</span> according to the function <span class="math inline">\(h\left(x\right)\)</span>. The letter <span class="math inline">\(a\)</span> is a constant coefficient and <span class="math inline">\(e\)</span> is Euler’s number. To calculate the derivative of this function, we again use the derivative’s <span class="math inline">\(h\)</span>-definition:</p>
+<p><span class="math display" id="eq:e-ax-h-definition">\[
+\begin{align}
+y&#39;_{x} &amp; =\lim_{h\rightarrow0}\frac{e^{a\left(x+h\right)}-e^{ax}}{h}=\lim_{h\rightarrow0}\frac{e^{ax}\left(e^{ah}-1\right)}{h}=e^{ax}\left(\lim_{h\rightarrow0}\frac{e^{ah}-1}{h}\right)
+\tag{10.8}
+\end{align}
+\]</span></p>
+<p>In the third step, we factor out <span class="math inline">\(e^{ax}\)</span> from the parenthesis, which is possible since this factor is not affected by <span class="math inline">\(h\rightarrow0\)</span>. Moving out <span class="math inline">\(e^{ax}\)</span> thus does not affect the limit. To proceed from here, we may multiply both numerator and denominator in the parenthesis by the constant <span class="math inline">\(a\)</span>, an arbitrary real number. Since <span class="math inline">\(a\)</span> in the numerator also does not affect the limit, we move this out of the parenthesis. The constant <span class="math inline">\(a\)</span> in the denominator we leave in place:</p>
+<p><span class="math display">\[
+\begin{align}
+y&#39;_{x} &amp; =e^{ax}\left(\lim_{h\rightarrow0}\frac{a}{a}\times\frac{e^{ah}-1}{h}\right)\\
+&amp; =ae^{ax}\left(\lim_{h\rightarrow0}\frac{e^{ah}-1}{ah}\right)\nonumber \\
+&amp; =ae^{ax}\left(\lim_{h\rightarrow0}\frac{e^{ah}-1}{ah}\right)\nonumber \\
+&amp; =ae^{ax}\nonumber
+\end{align}
+\]</span></p>
+<p>When we move a out of the parenthesis, both numerator and denominator go toward 0, which is why the limit goes toward 1. In the last line we therefore remove the limit and only have <span class="math inline">\(y&#39;_{x}=ae^{ax}\)</span> left. This expression has the same form as what we derived in equation <a href="chap-derivata.html#eq:log-e-b">(10.7)</a> . We may summarize this as a general calculation rule. If we have a function with the form:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=f\left(x\right)=e^{g\left(x\right)}
+\end{equation}
+\]</span></p>
+<p>its derivative is:</p>
+<p><span class="math display">\[
+\begin{equation}
+y&#39;_{x}=g&#39;_{x}e^{g\left(x\right)}
+\end{equation}
+\]</span></p>
+<p>These examples also make it easy to continue with other types of functions, for example the following power function:</p>
+<p><span class="math display" id="eq:b-ax">\[
+\begin{equation}
+y=f\left(x\right)=b^{ax}
+\tag{10.9}
+\end{equation}
+\]</span></p>
+<p>where the letters b and a are coefficients and <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> are variables. One way to derive the derivative of equation <a href="chap-derivata.html#eq:b-ax">(10.9)</a> is to rewrite the expression as a power with base <span class="math inline">\(e\)</span>, Euler’s number:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=f\left(x\right)=b^{ax}=e^{\ln b^{ax}}=e^{ax\ln b}
+\end{equation}
+\]</span></p>
+<p>We here take the natural logarithm of our function <span class="math inline">\(b^{ax}\)</span>, which gives <span class="math inline">\(\ln b^{ax}=ax\ln b\)</span>. We use this as an exponent to the base <span class="math inline">\(e\)</span>, which gives us an expression that we can differentiate:</p>
+<p><span class="math display">\[
+\begin{align}
+f&#39;_{x}\left(x\right) &amp; =\left(a\ln b\right)e^{ax\ln b}=\left(a\ln b\right)b^{ax}
+\end{align}
+\]</span></p>
+</div>
+<div id="the-derivative-of-boldsymbollog-x" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> The derivative of <span class="math inline">\(\boldsymbol{\log x}\)</span><a href="chap-derivata.html#the-derivative-of-boldsymbollog-x" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let us now differentiate the following function:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=\log x
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(\log x\)</span> is the logarithm of <span class="math inline">\(x\)</span> with arbitrary base <span class="math inline">\(b\)</span>, where <span class="math inline">\(b&gt;0\)</span> and <span class="math inline">\(b\neq1\)</span>. We use the derivative’s <span class="math inline">\(h\)</span>-definition:</p>
+<p><span class="math display">\[
+\begin{align}
+y&#39;=\left(\log x\right)&#39; &amp; =\lim_{h\rightarrow0}\frac{\log\left(x+h\right)-\log\left(x\right)}{h}
+\end{align}
+\]</span></p>
+<p>Since <span class="math inline">\(\log a-\log b=\log\left(a/b\right)\)</span> we write:</p>
+<p><span class="math display">\[
+\begin{equation}
+y&#39;=\lim_{h\rightarrow0}\frac{\log\left(1+\frac{h}{x}\right)}{h}
+\end{equation}
+\]</span></p>
+<p>We factor out the numerator <span class="math inline">\(h^{-1}\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+y&#39;=\lim_{h\rightarrow0}\frac{1}{h}\log\left(1+\frac{h}{x}\right)
+\end{equation}
+\]</span></p>
+<p>Let us now define <span class="math inline">\(z=h/x\)</span> so <span class="math inline">\(1/h=\frac{1}{z}\frac{1}{x}\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+y&#39;=\lim_{h\rightarrow0}\frac{1}{x}\frac{1}{z}\log\left(1+z\right)
+\end{equation}
+\]</span></p>
+<p>Note that as <span class="math inline">\(h\rightarrow0\)</span>, <span class="math inline">\(z\rightarrow0\)</span> as well. The multiplier <span class="math inline">\(1/z\)</span> in front of the logarithm we move up to the exponent:</p>
+<p><span class="math display" id="eq:gransvarde-dx-log-x">\[
+\begin{equation}
+y&#39;=\frac{1}{x}\lim_{h\rightarrow0}\log\left(1+z\right)^{1/z}
+\tag{10.10}
+\end{equation}
+\]</span></p>
+<p>We shall now look more closely at the part of the expression that consists of <span class="math inline">\(\left(1+z\right)^{1/z}\)</span>. Let us temporarily rewrite this to the following function:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=\left(1+z\right)^{1/z}
+\end{equation}
+\]</span></p>
+<p>and look at some values in a graph. Figure <a href="chap-derivata.html#fig:y-1-z-1-z">10.5</a> shows the line for this function over some values for <span class="math inline">\(z\)</span> between <span class="math inline">\(-1\)</span> and 2. Due to the exponent, this function is not defined for <span class="math inline">\(z=0\)</span>.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:y-1-z-1-z"></span>
+<img src="10-derivative_files/figure-html/y-1-z-1-z-1.png" alt="The function $y=\left(1+z\right)^{1/z}$" width="71%" />
+<p class="caption">
+Figure 10.5: The function <span class="math inline">\(y=\left(1+z\right)^{1/z}\)</span>
+</p>
+</div>
+<p>Note how the limit for this function approaches the value 2.718 as z approaches 0. The number 2.718 we recognize already as Euler’s number, <span class="math inline">\(e\)</span>. The limit for the expression in equation <a href="chap-derivata.html#eq:gransvarde-dx-log-x">(10.10)</a> is equal to <span class="math inline">\(e\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+y&#39; &amp; =\frac{1}{x}\left(\lim_{z\rightarrow0}\log\left(1+z\right)^{1/z}\right)=\frac{1}{x}\log e
+\end{align}
+\]</span></p>
+<p>As mentioned at the beginning of the example, the logarithm here has base b. Let us now change base to e, so that we get the natural logarithm. We went through this in section <a href="chap-logaritmer.html#sec-basbyte-for-logaritmer">5.5</a> where in equation <a href="chap-logaritmer.html#eq:log-andra-bas-ekvationen">(5.5)</a> we had the general rule for changing base between logarithms:</p>
+<p><span class="math display">\[
+\begin{equation}
+\log_{a}x=\frac{\log_{b}x}{\log_{b}a}
+\end{equation}
+\]</span></p>
+<p>In this case this means:</p>
+<p><span class="math display">\[
+\begin{equation}
+\log_{b}e=\frac{\ln e}{\ln b}=\frac{1}{\ln b}
+\end{equation}
+\]</span></p>
+<p>The derivative of <span class="math inline">\(\log x\)</span> then becomes:</p>
+<p><span class="math display" id="eq:derivata-av-log-x">\[
+\begin{equation}
+y&#39;_{x}\left(x\right)=\left(\log_{b}x\right)&#39;_{x}=\frac{1}{x\ln b}
+\tag{10.11}
+\end{equation}
+\]</span></p>
+<p>When we have base <span class="math inline">\(b=e\)</span> the derivative is:</p>
+<p><span class="math display" id="eq:derivata-av-ln-x">\[
+\begin{equation}
+y&#39;_{x}=\left(\ln x\right)&#39;_{x}=\frac{1}{x}
+\tag{10.12}
+\end{equation}
+\]</span></p>
+</div>
+<div id="sec-l-hopitals-regel" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> L’Hôpital’s rule<a href="chap-derivata.html#sec-l-hopitals-regel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here follows a simplified description of L’Hôpital’s rule (also called Bernoulli’s rule), which is a useful calculation rule for derivatives. Suppose we have the functions <span class="math inline">\(f\left(x\right)\)</span> and <span class="math inline">\(g\left(x\right)\)</span> and these go toward 0 when <span class="math inline">\(x\)</span> goes toward the limit <span class="math inline">\(a\)</span>. Alternatively that the function <span class="math inline">\(g\)</span> approaches infinity. We calculate a constant derivative sufficiently close to the limit <span class="math inline">\(a\)</span>, in such a way that we get the following:</p>
+<p><span class="math display">\[
+\begin{equation}
+\lim_{x\rightarrow a}\frac{f&#39;}{g&#39;}
+\end{equation}
+\]</span></p>
+<p>For these functions the following then applies:</p>
+<p><span class="math display" id="eq:l-hopitals-regel">\[
+\begin{equation}
+\lim_{x\rightarrow a}\frac{f\left(x\right)}{g\left(x\right)}=\lim_{x\rightarrow a}\frac{f&#39;_{x}\left(x\right)}{g&#39;_{x}\left(x\right)}
+\tag{10.13}
+\end{equation}
+\]</span></p>
+<p>This is called L’Hôpital’s rule and means that the limit for function <span class="math inline">\(f\)</span> divided by function <span class="math inline">\(g\)</span> as <span class="math inline">\(x\)</span> goes toward <span class="math inline">\(a\)</span> is the same as the limit for the derivative of <span class="math inline">\(f\)</span> divided by the derivative of <span class="math inline">\(g\)</span> as <span class="math inline">\(x\)</span> goes toward <span class="math inline">\(a\)</span>. We illustrate the usefulness of L’Hôpital’s rule with the function:</p>
+<p><span class="math display">\[
+\begin{equation}
+y=k\left(x\right)=\frac{x^{2}+3}{x-2}
+\end{equation}
+\]</span></p>
+<p>Function <span class="math inline">\(k\left(x\right)\)</span> is not defined for <span class="math inline">\(x=2\)</span>, since the denominator then becomes 0. To facilitate the calculation of the limit for <span class="math inline">\(x=2\)</span>, we then use L’Hôpital’s rule. We define the numerator as <span class="math inline">\(f\left(x\right)=x^{2}+3\)</span> and the denominator as <span class="math inline">\(g\left(x\right)=x-2\)</span>. We have the derivatives <span class="math inline">\(f&#39;_{x}=2x\)</span> and <span class="math inline">\(g&#39;_{x}=1\)</span>. Now we calculate the limit as <span class="math inline">\(x\rightarrow2\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+\lim_{x\rightarrow2}k\left(x\right)=\lim_{x\rightarrow2}\frac{2x}{1}=4
+\end{equation}
+\]</span></p>
+<p>The number 4 comes from <span class="math inline">\(x\rightarrow2\)</span> and <span class="math inline">\(2x=2*2=4\)</span>. The limit for the derivative of <span class="math inline">\(k\left(x\right)\)</span> with respect to <span class="math inline">\(x\)</span> as <span class="math inline">\(x\rightarrow2\)</span> is thus 4. According to L’Hôpital’s rule, this is also the limit for the quotient <span class="math inline">\(\frac{f\left(x\right)}{g\left(x\right)}\)</span> as <span class="math inline">\(x\rightarrow2\)</span>.</p>
+</div>
+<div id="sec-partiell-derivata" class="section level2 hasAnchor" number="10.8">
+<h2><span class="header-section-number">10.8</span> Partial derivative<a href="chap-derivata.html#sec-partiell-derivata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When we took the derivative of <span class="math inline">\(f\left(x\right)\)</span> above, we wrote <span class="math inline">\(f&#39;\left(x\right)\)</span> and since we only have one variable in the function, we understand that this refers to taking the derivative with respect to the variable <span class="math inline">\(x\)</span>. We may also write to our variable to be extra clear:</p>
+<p><span class="math display">\[
+\begin{equation}
+f&#39;_{x}\left(x\right)=\text{the derivative of f with respect to variable x}
+\end{equation}
+\]</span></p>
+<p>If we have several variables, such as <span class="math inline">\(f\left(x,y\right)\)</span>, we may calculate the derivative for each variable. This is called the partial derivative. For the derivative of function <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> respectively, we write <span class="math inline">\(f&#39;_{x}\)</span> and <span class="math inline">\(f&#39;_{y}\)</span>. If we differentiate <span class="math inline">\(f\)</span> with respect to one variable <span class="math inline">\(x\)</span> we do not differentiate with respect to other variables in the same function. Other terms in the function are treated as constants. Take the following function:</p>
+<p><span class="math display">\[
+\begin{align}
+f\left(x,y\right) &amp; =x^{2}+y^{2}
+\end{align}
+\]</span></p>
+<p>We shall differentiate this with respect to <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, and thereafter differentiate the results with respect to <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> again:</p>
+<p><span class="math display">\[
+\begin{align}
+f&#39;_{x} &amp; =2x\\
+f&#39;_{y} &amp; =2y\nonumber \\
+f&#39;&#39;_{xx} &amp; =2\nonumber \\
+f&#39;&#39;_{yy} &amp; =2\nonumber
+\end{align}
+\]</span></p>
+<p>We may also differentiate <span class="math inline">\(f\)</span> first with respect to first <span class="math inline">\(x\)</span> and get <span class="math inline">\(f&#39;_{x}=2x\)</span>, and then differentiate this function with respect to <span class="math inline">\(y\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+f&#39;&#39;_{xy}=0
+\end{equation}
+\]</span></p>
+<p>The same thing if we instead differentiate <span class="math inline">\(f\)</span> first with respect to <span class="math inline">\(y\)</span> and then <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+f&#39;&#39;_{yx}=0
+\end{equation}
+\]</span></p>
+<p>Let us take another example with the following function:</p>
+<p><span class="math display">\[
+\begin{align}
+g\left(x,y\right) &amp; =x^{2}y^{2}
+\end{align}
+\]</span></p>
+<p>The first and second derivatives of function <span class="math inline">\(g\)</span> with respect to <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+g&#39;_{x} &amp; =2xy^{2}\\
+g&#39;&#39;_{xx} &amp; =2y^{2}\nonumber \\
+g&#39;_{y} &amp; =2yx^{2}\nonumber \\
+g&#39;&#39;_{yy} &amp; =2x^{2}\nonumber \\
+g&#39;&#39;_{xy} &amp; =4xy\nonumber \\
+g&#39;&#39;_{yx} &amp; =4yx\nonumber
+\end{align}
+\]</span></p>
+</div>
+<div id="sec-rakneregler-derivata" class="section level2 hasAnchor" number="10.9">
+<h2><span class="header-section-number">10.9</span> Differentiation rules<a href="chap-derivata.html#sec-rakneregler-derivata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Table <a href="chap-derivata.html#tab:deriveringsregler">10.1</a> describes with general equations some examples of rules for differentiation, where <span class="math inline">\(x\)</span> is the variable and the letters <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are constants. The letter <span class="math inline">\(e\)</span> is Euler’s number. <span class="math inline">\(f\left(x\right)\)</span> refers to function <span class="math inline">\(f\)</span> of <span class="math inline">\(x\)</span> and <span class="math inline">\(f&#39;_{x}\)</span> refers to the first derivative of this function, with respect to <span class="math inline">\(x\)</span>.</p>
+<table>
+<caption>Differentiation rules <span id="tab:deriveringsregler">Table 10.1: </span></caption>
+<colgroup>
+<col width="4%" />
+<col width="47%" />
+<col width="47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Function</strong></th>
+<th><strong>First derivative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(f\left(x\right)=bx^{a}+c\)</span></td>
+<td><span class="math inline">\(f&#39;_{x}\left(x\right)=abx^{a-1}\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(f\left(x\right)=\frac{1}{x}=x^{-1}\)</span></td>
+<td><span class="math inline">\(f&#39;_{x}\left(x\right)=-1\cdot x^{-2}=-1/x^{2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(f\left(x\right)=\sqrt{x}=x^{\frac{1}{2}}\)</span></td>
+<td><span class="math inline">\(f&#39;_{x}\left(x\right)=\frac{1}{2}x^{-\frac{1}{2}}=1/\left(2\sqrt{x}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\(\frac{1}{f\left(x\right)}=\left(f\left(x\right)\right)^{-1}\)</span></td>
+<td><span class="math inline">\(\left(\frac{1}{f\left(x\right)}\right)&#39;_{x}=-\frac{f&#39;_{x}\left(x\right)}{\left[f\left(x\right)\right]^{2}}\)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">\(f\left(x\right)=b^{ax}\)</span></td>
+<td><span class="math inline">\(f&#39;_{x}\left(x\right)=\left(a\ln b\right)b^{ax}\)</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><span class="math inline">\(f\left(x\right)=e^{g\left(x\right)}\)</span></td>
+<td><span class="math inline">\(f&#39;_{x}\left(x\right)=g&#39;_{x}e^{g\left(x\right)}\)</span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><span class="math inline">\(f\left(x\right)=e^{ax}\)</span></td>
+<td><span class="math inline">\(f&#39;_{x}\left(x\right)=ae^{ax}\)</span></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="math inline">\(f\left(x\right)=\log x\)</span>, <span class="math inline">\(g\left(x\right)=\ln x\)</span></td>
+<td><span class="math inline">\(f&#39;_{x}\left(x\right)=\frac{1}{x\ln b}\text{, där \ensuremath{b} är log bas.}\)</span>, <span class="math inline">\(g&#39;_{x}\left(x\right)=\frac{1}{x}\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>Differentiation rules for two combined functions <span id="tab:deriveringsregler-for-2-funktioner">Table 10.2: </span></caption>
+<colgroup>
+<col width="4%" />
+<col width="47%" />
+<col width="47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Combination</strong></th>
+<th><strong>First derivative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(\left(f+g\right)\left(x\right)=f\left(x\right)+g\left(x\right)\)</span></td>
+<td><span class="math inline">\(\left(f+g\right)&#39;_{x}=f&#39;_{x}+g&#39;_{x}\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(\left(f-g\right)\left(x\right)=f\left(x\right)-g\left(x\right)\)</span></td>
+<td><span class="math inline">\(\left(f-g\right)&#39;_{x}=f&#39;_{x}-g&#39;_{x}\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(\left(f\times g\right)\left(x\right)=f\left(x\right)\times g\left(x\right)\)</span></td>
+<td><span class="math inline">\(\left(f\times g\right)&#39;_{x}=f&#39;_{x}\left(x\right)g\left(x\right)+f\left(x\right)g&#39;_{x}\left(x\right)\)</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\(\left(f/g\right)\left(x\right)=\frac{f\left(x\right)}{g\left(x\right)}\)</span></td>
+<td><span class="math inline">\(\left(\frac{f}{g}\right)&#39;_{x}=\frac{f&#39;_{x}\left(x\right)g\left(x\right)+f\left(x\right)g&#39;_{x}\left(x\right)}{\left[g\left(x\right)\right]^{2}}\)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">\(f\circ g=f\left(g\left(x\right)\right)\)</span></td>
+<td><span class="math inline">\(f&#39;_{x}\left(g\left(x\right)\right)g&#39;_{x}\left(x\right)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In section <a href="chap-funktioner-och-diagram.html#sec-komb-funktioner-med-operationer">4.9</a> we went through how we may use addition, subtraction, multiplication and division on functions, like <span class="math inline">\(\left(f+g\right)\left(x\right)=f\left(x\right)+g\left(x\right)\)</span>. In the same section we introduced composite functions, such as <span class="math inline">\(y=f\left(g\left(x\right)\right)\)</span>. Table <a href="chap-derivata.html#tab:deriveringsregler-for-2-funktioner">10.2</a> summarizes calculation rules for derivatives where two functions are added (row 1), subtracted (row 2), multiplied (row 3), divided (row 4) or composed (row 5). We illustrate these calculation rules with the functions:</p>
+<p><span class="math display">\[
+\begin{align}
+f\left(x\right) &amp; =x^{2}\\
+g\left(x\right) &amp; =3-2x\nonumber
+\end{align}
+\]</span></p>
+<p>The first derivative of each function with respect to <span class="math inline">\(x\)</span> is:</p>
+<p><span class="math display">\[
+\begin{align}
+f&#39;_{x}\left(x\right) &amp; =2x\\
+g&#39;_{x}\left(x\right) &amp; =-2\nonumber
+\end{align}
+\]</span></p>
+<p>If the functions are added, we get:</p>
+<p><span class="math display">\[
+\begin{align}
+f+g &amp; =x^{2}+3-2x\\
+\left(f+g\right)&#39;_{x}=f&#39;+g&#39; &amp; =2x-2\nonumber
+\end{align}
+\]</span></p>
+<p>With subtraction:</p>
+<p><span class="math display">\[
+\begin{align}
+f-g &amp; =x^{2}-3+2x\\
+\left(f-g\right)&#39;_{x}=f&#39;-g&#39; &amp; =2x+2\nonumber
+\end{align}
+\]</span></p>
+<p>Row three in table <a href="chap-derivata.html#tab:deriveringsregler-for-2-funktioner">10.2</a> describes what is called the product rule:</p>
+<p><span class="math display">\[
+\begin{align}
+f\times g &amp; =x^{2}\left(3-2x\right)\\
+\left(f\times g\right)&#39;_{x}=f&#39;g+fg&#39; &amp; =2x\left(3-2x\right)-2x^{2}\nonumber
+\end{align}
+\]</span></p>
+<p>Row four in table <a href="chap-derivata.html#tab:deriveringsregler-for-2-funktioner">10.2</a> describes the quotient rule. This shows how to calculate the derivative when one function is divided by another function:</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{f}{g} &amp; =\frac{x^{2}}{3-2x}\\
+\left(\frac{f}{g}\right)&#39;_{x}=\frac{f&#39;g+fg&#39;}{g^{2}} &amp; =\frac{2x\left(3-2x\right)-2x^{2}}{\left(3-2x\right)^{2}}\nonumber
+\end{align}
+\]</span></p>
+<p>Row five in table <a href="chap-derivata.html#tab:deriveringsregler-for-2-funktioner">10.2</a> describes the chain rule, which shows how to calculate the derivative for composite functions. For example:</p>
+<p><span class="math display">\[
+\begin{align}
+f\left(g\left(x\right)\right) &amp; =\left(3-2x\right)^{2}
+\end{align}
+\]</span></p>
+<p>We also have that <span class="math inline">\(g&#39;_{x}=-2\)</span> och <span class="math inline">\(f&#39;_{g\left(x\right)}=2\left(3-2x\right)\)</span>. The derivative of <span class="math inline">\(f\left(g\left(x\right)\right)\)</span> with respect to <span class="math inline">\(x\)</span> is then:</p>
+<p><span class="math display">\[
+\begin{align}
+f\left(g\left(x\right)\right)&#39;_{x} &amp; =f&#39;_{g}\left(g\right)g&#39;_{x}=2\left(3-2x\right)\left(-2\right)=-4\left(3-2x\right)
+\end{align}
+\]</span></p>
+</div>
+<div id="sec-elasticitet" class="section level2 hasAnchor" number="10.10">
+<h2><span class="header-section-number">10.10</span> Elasticity<a href="chap-derivata.html#sec-elasticitet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A measure that is often used in social science is elasticity. This indicates how much one variable changes in percentage terms at a percentage change in another variable. Say for example that <span class="math inline">\(q\)</span> is the number of sold units of this good (the market’s demand), and <span class="math inline">\(p\)</span> is the price for this good.</p>
+<p>Change between two price levels can be written as <span class="math inline">\(\Delta p=p_{2}-p_{1}\)</span>, which we read as the difference between price level 1 and price level 2. The letter <span class="math inline">\(\Delta\)</span>(the Greek letter capital delta) symbolizes change here. Change between two quantities: <span class="math inline">\(\Delta q=q_{2}-q_{1}\)</span>. The price elasticity can then be defined as:</p>
+<p><span class="math display">\[
+\begin{equation}
+\text{price elasticity: }\frac{\frac{\Delta q}{q}}{\frac{\Delta p}{p}}=\frac{\frac{q_{2}-q_{1}}{q_{1}}}{\frac{p_{2}-p_{1}}{p_{1}}}
+\end{equation}
+\]</span></p>
+<p>This is percentage change of <span class="math inline">\(q\)</span> divided by percentage change of <span class="math inline">\(p\)</span>. If demand <span class="math inline">\(q\)</span> changes a lot when <span class="math inline">\(p\)</span> changes, this means that the good have high price elasticity, customers are very price-sensitive. If demand <span class="math inline">\(q\)</span> barely changes at all when <span class="math inline">\(p\)</span> changes, price elasticity is low and customers are relatively price-insensitive.</p>
+<p>In equation <a href="chap-derivata.html#eq:leibniz-notation">(10.3)</a> we described the derivative using the letter <span class="math inline">\(d\)</span> and the symbol <span class="math inline">\(\partial\)</span>. The derivative gives us the slope of the line at a specific point. Similarly, we may compare the elasticity at a specific point, which is called point elasticity. Say for example that a large store sells milk for 10 USD per package. Every week 100 packages are sold. In January, the store decides to raise the price by 20%, to 12 USD per package. In the long run, sales drop to 97 packages per week. The price elasticity of demand for milk is then:</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{\partial q/q}{\partial p/p} &amp; =\frac{-0.03}{0.2}=-0.15
+\end{align}
+\]</span></p>
+<p>When the price increases by 20%, demand decreases by 3%, which is why the price elasticity is <span class="math inline">\(-0.15\%\)</span>. We do not know if this elasticity applies to all price levels. Studying price elasticity in reality is more complex than this example, see chapter <a href="chap-ols-kvasiexperiment.html#chap-ols-kvasiexperiment">20</a> .</p>
+</div>
+<div id="chapter-summary-8" class="section level2 hasAnchor" number="10.11">
+<h2><span class="header-section-number">10.11</span> Chapter summary<a href="chap-derivata.html#chapter-summary-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>The limit, limes, for a function describes the value the function approaches when it comes infinitely close to a point. Example: <span class="math inline">\(\lim_{x\rightarrow0}\frac{1}{x}=\infty\)</span> and <span class="math inline">\(\lim_{x\rightarrow\infty}\frac{1}{x}=0\)</span>.</p></li>
+<li><p>The derivative is a function that describes the limit for a line’s slope at a point. The derivative’s <span class="math inline">\(h\)</span>-definition: <span class="math inline">\(f&#39;\left(x\right)=\lim_{h\rightarrow0}\frac{f\left(x+h\right)-f\left(x\right)}{h}\)</span>, where h indicates the distance between two values in the variable <span class="math inline">\(x\)</span>.</p></li>
+<li><p>For the function <span class="math inline">\(f\left(x\right)\)</span> we may write the first derivative with respect to <span class="math inline">\(x\)</span> as <span class="math inline">\(f&#39;_{x}\)</span>, the second derivative as <span class="math inline">\(f&#39;&#39;_{xx}\)</span> and the third derivative as <span class="math inline">\(f&#39;&#39;&#39;_{xxx}\)</span>. Example: <span class="math inline">\(y=f\left(x\right)=x^{3}\)</span>, <span class="math inline">\(f&#39;_{x}=3x^{2}\)</span>, <span class="math inline">\(f&#39;&#39;_{xx}=6x\)</span> and <span class="math inline">\(f&#39;&#39;&#39;_{xxx}=6\)</span>.</p></li>
+<li><p>The function <span class="math inline">\(y=f\left(x\right)=a+bx\)</span> has the slope <span class="math inline">\(b\)</span> for all values of <span class="math inline">\(x\)</span> that the function is defined for. The derivative can be written <span class="math inline">\(f&#39;=b\)</span>.</p></li>
+<li><p>Partial derivative: differentiate a function with several variables with respect to one variable at a time. Example: <span class="math inline">\(y=f\left(x,z\right)=x^{2}+z^{2}\)</span> has first derivative <span class="math inline">\(f&#39;_{x}=2x\)</span> and <span class="math inline">\(f&#39;_{z}=2z\)</span>.</p></li>
+<li><p>Examples of differentiation rules:</p>
+<p>-<span class="math inline">\(f\left(x\right)=bx^{a}+c\)</span> gives <span class="math inline">\(f&#39;_{x}=abx^{a-1}\)</span>.</p>
+<p>-<span class="math inline">\(g\left(x\right)=b^{ax}\)</span> gives <span class="math inline">\(g&#39;_{x}\left(x\right)=\left(a\ln b\right)b^{ax}\)</span>.</p>
+<p>-<span class="math inline">\(h\left(x\right)=\log x\)</span> gives <span class="math inline">\(h&#39;_{x}\left(x\right)=1/\left(x\ln b\right)\)</span>.</p></li>
+<li><p>• Examples of differentiation with combined and composite functions</p>
+<p>-<span class="math inline">\(\left(f+g\right)\left(x\right)&#39;_{x}=f&#39;_{x}+g&#39;_{x}\)</span></p>
+<p>-<span class="math inline">\(\left(f-g\right)\left(x\right)&#39;_{x}=f&#39;_{x}-g&#39;_{x}\)</span></p>
+<p>-<span class="math inline">\(\left(\frac{1}{f\left(x\right)}\right)&#39;_{x}\)</span>= <span class="math inline">\(\left(f\left(x\right)^{-1}\right)&#39;_{x}\)</span> <span class="math inline">\(=-f&#39;_{x}f^{-2}=\frac{-f&#39;_{x}}{\left(f\left(x\right)\right)^{-2}}\)</span></p>
+<ul>
+<li><p>Product rule: <span class="math inline">\(\left(f\left(x\right)g\left(x\right)\right)&#39;_{x}=\left(\left(f\times g\right)\left(x\right)\right)&#39;_{x}=f&#39;g+g&#39;f\)</span></p></li>
+<li><p>Quotient rule: <span class="math inline">\(\left(\frac{f\left(x\right)}{g\left(x\right)}\right)&#39;_{x}=\frac{f&#39;_{x}g+fg&#39;_{x}}{g}\)</span></p></li>
+<li><p>Chain rule: <span class="math inline">\(f\left(g\left(x\right)\right)&#39;_{x}=g&#39;f&#39;\)</span>.</p></li>
+</ul></li>
+<li><p>L’Hôpital’s rule: <span class="math inline">\(\lim_{x\rightarrow a}\frac{f\left(x\right)}{g\left(x\right)}=\lim_{x\rightarrow a}\frac{f&#39;_{x}\left(x\right)}{g&#39;_{x}\left(x\right)}\)</span>.</p></li>
+</ul>
+</div>
+<div id="exercises-8" class="section level2 hasAnchor" number="10.12">
+<h2><span class="header-section-number">10.12</span> Exercises<a href="chap-derivata.html#exercises-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ex-5" class="exercises-container">
+
+</div>
+<script>
+(function(){
+var ex=[
+  {q:'<p>Consider the function \\(f\\left(x\\right)=\\frac{1}{x}\\)</p><ol type="a"><li>What is \\(\\lim_{x\\rightarrow\\infty}f\\left(x\\right)\\)</li><li>What is \\(\\lim_{x\\rightarrow0^{+}}f\\left(x\\right)\\)</li><li>What is \\(\\lim_{x\\rightarrow0^{-}}f\\left(x\\right)\\)</li></ol>',a:'<p>(a)\\(\\lim_{x\\rightarrow\\infty}\\frac{1}{x}=0\\) , (b)\\(\\lim_{x\\rightarrow0^{+}}\\frac{1}{x}=+\\infty\\) , (c)\\(\\lim_{x\\rightarrow0^{-}}\\frac{1}{x}=-\\infty\\) .</p>'},
+  {q:'<p>Consider the function \\(f\\left(x\\right)=\\frac{x^{2}-4}{x-2}\\)</p><ol type="a"><li>Show that directly substituting \\(x=2\\)</li><li>Factorize the numerator and simplify \\(f\\left(x\\right)\\)</li><li>Calculate \\(\\lim_{x\\rightarrow2}f\\left(x\\right)\\)</li></ol>',a:'<p>(a)\\(f\\left(2\\right)=\\frac{4-4}{2-2}=\\frac{0}{0}\\) , (b)\\(x^{2}-4=\\left(x-2\\right)\\left(x+2\\right)\\) , (c)\\(\\lim_{x\\rightarrow2}\\left(x+2\\right)=4\\) .</p>'},
+  {q:'<p>Use the power rule \\(\\left(x^{a}\\right)\'=ax^{a-1}\\)</p><ol type="a"><li>\\(f\\left(x\\right)=x^{4}\\)</li><li>\\(f\\left(x\\right)=3x^{2}+2x+5\\)</li><li>Calculate the slope of \\(f\\left(x\\right)=x^{2}\\)</li></ol>',a:'<p>(a)\\(f\'\\left(x\\right)=4x^{3}\\) , (b)\\(f\'\\left(x\\right)=6x+2\\) , (c)\\(f\'\\left(3\\right)=2\\cdot3=6\\) .</p>'},
+  {q:'<p>Given \\(f\\left(x\\right)=x^{4}\\)</p><ol type="a"><li>Find the first derivative \\(f\'\\left(x\\right)\\)</li><li>Find the second derivative \\(f\'\'\\left(x\\right)\\)</li><li>Find the third derivative \\(f\'\'\'\\left(x\\right)\\)</li></ol>',a:'<p>(a)\\(f\'\\left(x\\right)=4x^{3}\\) , (b)\\(f\'\'\\left(x\\right)=12x^{2}\\) , (c)\\(f\'\'\'\\left(x\\right)=24x\\) .</p>'},
+  {q:'<p>Differentiate the following exponential and logarithmic functions.</p><ol type="a"><li>\\(f\\left(x\\right)=e^{3x}\\)</li><li>\\(f\\left(x\\right)=\\ln x\\)</li><li>\\(f\\left(x\\right)=2^{x}\\)</li></ol>',a:'<p>(a)\\(f\'\\left(x\\right)=3e^{3x}\\) , (b)\\(f\'\\left(x\\right)=\\frac{1}{x}\\) , (c)\\(f\'\\left(x\\right)=\\ln\\left(2\\right)\\cdot2^{x}\\) .</p>'},
+  {q:'<p>Consider the function \\(f\\left(x,y\\right)=x^{3}+2x^{2}y+y^{2}\\)</p><ol type="a"><li>Find the partial derivative \\(f\'_{x}\\)</li><li>Find the partial derivative \\(f\'_{y}\\)</li><li>Find the second partial derivative \\(f\'\'_{xx}\\)</li></ol>',a:'<p>(a)\\(f\'_{x}=3x^{2}+4xy\\) , (b)\\(f\'_{y}=2x^{2}+2y\\) , (c)\\(f\'\'_{xx}=6x+4y\\) .</p>'},
+  {q:'<p>Use the product rule \\(\\left(fg\\right)\'=f\'g+fg\'\\) to differentiate the following.</p><ol type="a"><li>\\(f\\left(x\\right)=x^{2}e^{x}\\)</li><li>\\(f\\left(x\\right)=x\\ln x\\)</li><li>Find the \\(x\\) -value where \\(f\\left(x\\right)=x\\ln x\\) has a horizontal tangent (\\(f\'\\left(x\\right)=0\\) ).</li></ol>',a:'<p>(a)\\(f\'\\left(x\\right)=xe^{x}\\left(x+2\\right)\\) , (b)\\(f\'\\left(x\\right)=\\ln x+1\\) , (c)\\(\\ln x+1=0\\Rightarrow x=e^{-1}=\\frac{1}{e}\\) .</p>'},
+  {q:'<p>Use the quotient rule \\(\\left(\\frac{f}{g}\\right)\'=\\frac{f\'g-fg\'}{g^{2}}\\) to differentiate the following.</p><ol type="a"><li>\\(f\\left(x\\right)=\\frac{x}{x+1}\\)</li><li>\\(f\\left(x\\right)=\\frac{x^{2}}{e^{x}}\\)</li><li>Find \\(f\'\\left(0\\right)\\) for \\(f\\left(x\\right)=\\frac{x^{2}}{e^{x}}\\) .</li></ol>',a:'<p>(a)\\(f\'\\left(x\\right)=\\frac{1}{\\left(x+1\\right)^{2}}\\) , (b)\\(f\'\\left(x\\right)=\\frac{x\\left(2-x\\right)}{e^{x}}\\) , (c)\\(f\'\\left(0\\right)=0\\) .</p>'},
+  {q:'<p>Use the chain rule \\(\\left(f\\left(g\\left(x\\right)\\right)\\right)\'=f\'\\left(g\\left(x\\right)\\right)\\cdot g\'\\left(x\\right)\\) to differentiate the following.</p><ol type="a"><li>\\(f\\left(x\\right)=\\left(3x+2\\right)^{4}\\)</li><li>\\(f\\left(x\\right)=e^{x^{2}}\\)</li><li>\\(f\\left(x\\right)=\\ln\\left(2x+1\\right)\\)</li></ol>',a:'<p>(a)\\(f\'\\left(x\\right)=12\\left(3x+2\\right)^{3}\\) , (b)\\(f\'\\left(x\\right)=2xe^{x^{2}}\\) , (c)\\(f\'\\left(x\\right)=\\frac{2}{2x+1}\\) .</p>'},
+  {q:'<p>The demand function for a product is \\(Q\\left(P\\right)=\\frac{100}{P^{2}}\\) .</p><ol type="a"><li>Find \\(Q\'\\left(P\\right)=\\frac{dQ}{dP}\\) .</li><li>The price elasticity is \\(\\varepsilon=\\frac{dQ}{dP}\\cdot\\frac{P}{Q}\\) . Calculate \\(\\varepsilon\\) .</li><li>Is demand elastic \\(\\left(\\left|\\varepsilon\\right|>1\\right)\\) or inelastic \\(\\left(\\left|\\varepsilon\\right|<1\\right)\\) ?</li></ol>',a:'<p>(a)\\(Q\'\\left(P\\right)=-\\frac{200}{P^{3}}\\) , (b)\\(\\varepsilon=-2\\) , (c)\\(\\left|\\varepsilon\\right|=2>1\\) : demand is elastic.</p>'},
+  {q:'<p>A firm\'s total revenue is \\(TR\\left(Q\\right)=20Q-Q^{2}\\) .</p><ol type="a"><li>Find marginal revenue \\(MR\\left(Q\\right)=TR\'\\left(Q\\right)\\) .</li><li>At what quantity \\(Q^{*}\\) is \\(MR=0\\) ?</li><li>Find \\(TR\'\'\\left(Q\\right)\\) and interpret the result.</li></ol>',a:'<p>(a)\\(MR\\left(Q\\right)=20-2Q\\) , (b)\\(Q^{*}=10\\) , (c)\\(TR\'\'\\left(Q\\right)=-2<0\\) : marginal revenue is decreasing.</p>'},
+  {q:'<p>Consider \\(f\\left(x,y\\right)=3x^{2}y+2xy^{3}\\) .</p><ol type="a"><li>Find \\(f\'_{x}\\) and \\(f\'_{y}\\) .</li><li>Find the cross-partial derivative \\(f\'\'_{xy}\\) .</li><li>Verify Young\'s theorem: \\(f\'\'_{xy}=f\'\'_{yx}\\) .</li></ol>',a:'<p>(a)\\(f\'_{x}=6xy+2y^{3}\\) , \\(f\'_{y}=3x^{2}+6xy^{2}\\) , (b)\\(f\'\'_{xy}=6x+6y^{2}\\) , (c)\\(f\'\'_{yx}=6x+6y^{2}=f\'\'_{xy}\\) .</p>'}
+];
+var c=document.getElementById("ex-5");
+if(!c)return;
+var h='<ol class="exercise-list">';
+ex.forEach(function(e){
+  h+='<li class="exercise-item">';
+  h+='<div class="exercise-question">'+e.q+'</div>';
+  if(e.a){
+    h+='<details class="exercise-answer">';
+    h+='<summary>Show answer &#9654;</summary>';
+    h+='<div class="answer-content">'+e.a+'</div>';
+    h+='</details>';
+  }
+  h+='</li>';
+});
+h+='</ol>';
+c.innerHTML=h;
+function fixMathAlign(el){
+  el.querySelectorAll(".MathJax_Display").forEach(function(d){
+    d.style.textAlign="left";
+    d.style.marginLeft="1.5em";
+  });
+}
+if(window.MathJax){
+  if(MathJax.Hub){
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,c]);
+    MathJax.Hub.Queue(function(){fixMathAlign(c);});
+  } else if(MathJax.typesetPromise){
+    MathJax.typesetPromise([c]).then(function(){fixMathAlign(c);});
+  }
+}
+c.querySelectorAll("details").forEach(function(d){
+  d.addEventListener("toggle",function(){
+    if(d.open&&window.MathJax){
+      if(MathJax.Hub){
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,d]);
+        MathJax.Hub.Queue(function(){fixMathAlign(d);});
+      } else if(MathJax.typesetPromise){
+        MathJax.typesetPromise([d]).then(function(){fixMathAlign(d);});
+      }
+    }
+  });
+});
+})();
+</script>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-ickelinjara-ekvationer-i.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-optimering-utifran-funktioner.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["the-cheat-code.pdf", "the-cheat-code.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "depth": 2
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

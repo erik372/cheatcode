@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 29 Microsoft Excel | The Cheat Code: Essential Math and Statistics for Social Scientists</title>
+  <meta name="description" content="A textbook in mathematics and statistics for social science students." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 29 Microsoft Excel | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 29 Microsoft Excel | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  
+  <meta name="twitter:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+<meta name="author" content="Erik Hegelund" />
+
+
+<meta name="date" content="2026-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch-why-computers.html"/>
+<link rel="next" href="ch-stata.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="#eq:"]').forEach(function(link) {
+    link.textContent = link.textContent.trim().replace(/^\((.+)\)$/, '$1');
+  });
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'],['\\(','\\)']],
+    displayMath: [['$$','$$'],['\\[','\\]']],
+    processEscapes: true,
+    skipTags: ['script','noscript','style','textarea','pre']
+  },
+  TeX: {
+    extensions: ["cancel.js"],
+    equationNumbers: {
+      autoNumber: "none"
+    },
+    Macros: {
+      permil:     '\\unicode{x2030}',
+      ensuremath: ['#1', 1]
+    }
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open && window.MathJax) {
+        if (MathJax.Hub) {
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub, det]);
+        } else if (MathJax.typesetPromise) {
+          MathJax.typesetPromise([det]).catch(function(e) { console.error(e); });
+        }
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Move "Table X.X:" span from end of caption to front
+  document.querySelectorAll('caption').forEach(function(cap) {
+    var span = cap.querySelector('span[id^="tab:"]');
+    if (span) cap.insertBefore(span, cap.firstChild);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Rewrite part labels and make them link to the part intro page
+  document.querySelectorAll('.book-summary ul.summary li.part').forEach(function(partLi) {
+    // Rewrite text: "I Mathematics Basics" -> "Part I: Mathematics Basics"
+    var b = partLi.querySelector('span > b');
+    if (b) {
+      var m = b.textContent.match(/^([IVXLCDM]+)\s+([\s\S]*)/);
+      if (m) b.textContent = 'Part ' + m[1] + ': ' + m[2];
+    }
+    // Make the part label link to the part intro page
+    var nextEl = partLi.nextElementSibling;
+    if (!nextEl || !nextEl.classList.contains('chapter')) return;
+    var link = nextEl.querySelector('a');
+    if (!link) return;
+    var span = partLi.querySelector('span');
+    if (!span) return;
+    var a = document.createElement('a');
+    a.href = link.getAttribute('href');
+    a.innerHTML = span.innerHTML;
+    partLi.replaceChild(a, span);
+    // Hide the now-redundant part intro chapter entry in the sidebar
+    nextEl.classList.add('part-intro-hidden');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+
+    // --- Chapter-level collapse arrows (larger click target) ---
+    document.querySelectorAll('.book-summary li.chapter').forEach(function(li) {
+      var level = li.getAttribute('data-level') || '';
+      if (level.indexOf('.') !== -1) return;
+
+      var childUl = li.querySelector(':scope > ul');
+      if (!childUl) return;
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'margin-left:6px',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(0,0,0,0.06)'
+      ].join(';');
+
+      function isVisible() {
+        return window.getComputedStyle(childUl).display !== 'none';
+      }
+      function updateArrow() {
+        arrow.textContent = isVisible() ? '▾' : '▸';
+      }
+      updateArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        childUl.style.display = isVisible() ? 'none' : 'block';
+        updateArrow();
+      });
+
+      var link = li.querySelector(':scope > a');
+      if (link) link.appendChild(arrow);
+    });
+
+    // --- Part-level collapse arrows ---
+    var summary = document.querySelector('.book-summary ul.summary');
+    if (!summary) return;
+    var items = Array.from(summary.children);
+
+    items.forEach(function(li, idx) {
+      if (!li.classList.contains('part')) return;
+
+      var chapterItems = [];
+      for (var j = idx + 1; j < items.length; j++) {
+        if (items[j].classList.contains('part')) break;
+        if (items[j].tagName === 'LI') chapterItems.push(items[j]);
+      }
+      if (chapterItems.length === 0) return;
+
+      var partKey = 'partCollapsed_' + idx;
+      var collapsed = localStorage.getItem(partKey) === '1';
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-part-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(44,95,138,0.15)',
+        'margin-left:6px',
+        'float:right',
+        'margin-right:6px'
+      ].join(';');
+
+      function updatePartArrow() {
+        arrow.textContent = collapsed ? '▸' : '▾';
+      }
+
+      function applyCollapse() {
+        chapterItems.forEach(function(ch) {
+          ch.style.display = collapsed ? 'none' : '';
+        });
+      }
+
+      if (collapsed) applyCollapse();
+      updatePartArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        collapsed = !collapsed;
+        applyCollapse();
+        updatePartArrow();
+        localStorage.setItem(partKey, collapsed ? '1' : '0');
+      });
+
+      var target = li.querySelector('span') || li.querySelector('a');
+      if (target) target.appendChild(arrow);
+    });
+
+  }, 150);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Resizable sidebar via drag handle
+  setTimeout(function() {
+    var sidebar = document.querySelector('.book-summary');
+    var bookBody = document.querySelector('.book-body');
+    if (!sidebar || !bookBody) return;
+
+    var handle = document.createElement('div');
+    handle.className = 'sidebar-resize-handle';
+    handle.title = 'Drag to resize sidebar';
+    handle.style.cssText = [
+      'position:absolute',
+      'top:0',
+      'right:0',
+      'width:8px',
+      'height:100%',
+      'cursor:ew-resize',
+      'z-index:10000',
+      'border-right:3px solid transparent',
+      'box-sizing:border-box',
+      'transition:border-color 0.15s'
+    ].join(';');
+
+    sidebar.appendChild(handle);
+
+    var isDragging = false;
+    var startX = 0, startWidth = 0;
+    var minW = 160, maxW = 650;
+
+    handle.addEventListener('mouseenter', function() {
+      handle.style.borderRightColor = 'rgba(44,95,138,0.5)';
+    });
+    handle.addEventListener('mouseleave', function() {
+      if (!isDragging) handle.style.borderRightColor = 'transparent';
+    });
+
+    handle.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.clientX;
+      startWidth = sidebar.offsetWidth;
+      document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var newW = Math.max(minW, Math.min(maxW, startWidth + (e.clientX - startX)));
+      sidebar.style.width = newW + 'px';
+      bookBody.style.left = newW + 'px';
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        handle.style.borderRightColor = 'transparent';
+        localStorage.setItem('sidebarW', sidebar.offsetWidth);
+      }
+    });
+
+    // Restore saved width
+    var saved = parseInt(localStorage.getItem('sidebarW'), 10);
+    if (saved && saved >= minW && saved <= maxW) {
+      sidebar.style.width = saved + 'px';
+      bookBody.style.left = saved + 'px';
+    }
+  }, 200);
+});
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">The Cheat Code</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-yet-another-textbook"><i class="fa fa-check"></i>Why yet another textbook?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i>What you will learn</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#thanks"><i class="fa fa-check"></i>Thanks!</a></li>
+</ul></li>
+<li class="part"><span><b>I Mathematics Basics</b></span></li>
+<li class="chapter" data-level="" data-path="part-mathematics-intro.html"><a href="part-mathematics-intro.html"><i class="fa fa-check"></i>Part I: Mathematics Basics</a></li>
+<li class="chapter" data-level="1" data-path="why-math.html"><a href="why-math.html"><i class="fa fa-check"></i><b>1</b> Why math?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-math.html"><a href="why-math.html#mathematics-in-social-science"><i class="fa fa-check"></i><b>1.1</b> Mathematics in Social Science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-math.html"><a href="why-math.html#chap-vad-anvands-matematik"><i class="fa fa-check"></i><b>1.2</b> Measure, theorize, compare</a></li>
+<li class="chapter" data-level="1.3" data-path="why-math.html"><a href="why-math.html#why-calculate"><i class="fa fa-check"></i><b>1.3</b> Why Calculate</a></li>
+<li class="chapter" data-level="1.4" data-path="why-math.html"><a href="why-math.html#tips-for-your-studies"><i class="fa fa-check"></i><b>1.4</b> Tips for your studies</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#different-types-of-numbers"><i class="fa fa-check"></i><b>2.1</b> Different types of numbers</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#the-four-arithmetic-operations"><i class="fa fa-check"></i><b>2.2</b> The four arithmetic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#order-of-operations"><i class="fa fa-check"></i><b>2.3</b> Order of operations</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-parenteser"><i class="fa fa-check"></i><b>2.4</b> Parentheses</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#equality-and-inequality"><i class="fa fa-check"></i><b>2.5</b> Equality and inequality</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-brak"><i class="fa fa-check"></i><b>2.6</b> Fractions</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#least-common-denominator"><i class="fa fa-check"></i><b>2.7</b> Least common denominator</a></li>
+<li class="chapter" data-level="2.8" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-potenser"><i class="fa fa-check"></i><b>2.8</b> Powers</a></li>
+<li class="chapter" data-level="2.9" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-multiplikation-med-parentes"><i class="fa fa-check"></i><b>2.9</b> Parentheses with powers</a></li>
+<li class="chapter" data-level="2.10" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-faktorisering-och-delbarhet"><i class="fa fa-check"></i><b>2.10</b> Factorization and divisibility</a></li>
+<li class="chapter" data-level="2.11" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-summa"><i class="fa fa-check"></i><b>2.11</b> Sum</a></li>
+<li class="chapter" data-level="2.12" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-median"><i class="fa fa-check"></i><b>2.12</b> Median</a></li>
+<li class="chapter" data-level="2.13" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-medelvarde"><i class="fa fa-check"></i><b>2.13</b> Mean</a></li>
+<li class="chapter" data-level="2.14" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-viktat-medelvarde"><i class="fa fa-check"></i><b>2.14</b> Weighted mean</a></li>
+<li class="chapter" data-level="2.15" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-procent-och-promille"><i class="fa fa-check"></i><b>2.15</b> Percent and per mille</a></li>
+<li class="chapter" data-level="2.16" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-kombinatorik"><i class="fa fa-check"></i><b>2.16</b> Combinatorics</a></li>
+<li class="chapter" data-level="2.17" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#chapter-summary"><i class="fa fa-check"></i><b>2.17</b> Chapter summary</a></li>
+<li class="chapter" data-level="2.18" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#exercises"><i class="fa fa-check"></i><b>2.18</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html"><i class="fa fa-check"></i><b>3</b> Examples with Applications</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-procent-potents-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.1</b> Interest</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.2</b> Interest on interest</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-effektiv-ranta"><i class="fa fa-check"></i><b>3.3</b> Effective interest</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-index"><i class="fa fa-check"></i><b>3.4</b> Index</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#population-index"><i class="fa fa-check"></i><b>3.5</b> Population index</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-inkomstindex"><i class="fa fa-check"></i><b>3.6</b> Income index</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-deflatera-priser-och"><i class="fa fa-check"></i><b>3.7</b> Adjust prices and wages for inflation</a></li>
+<li class="chapter" data-level="3.8" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-tillvaxt-ex1"><i class="fa fa-check"></i><b>3.8</b> Economic growth</a></li>
+<li class="chapter" data-level="3.9" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-barnadodlighet"><i class="fa fa-check"></i><b>3.9</b> Child mortality</a></li>
+<li class="chapter" data-level="3.10" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#chapter-summary-1"><i class="fa fa-check"></i><b>3.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="3.11" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#exercises-1"><i class="fa fa-check"></i><b>3.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html"><i class="fa fa-check"></i><b>4</b> Functions and graphs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#mathematical-functions"><i class="fa fa-check"></i><b>4.1</b> Mathematical functions</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-funktion-som-teori"><i class="fa fa-check"></i><b>4.2</b> Function as theory</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#coordinate-system-and-graphs"><i class="fa fa-check"></i><b>4.3</b> Coordinate system and graphs</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-den-rata-linjens"><i class="fa fa-check"></i><b>4.4</b> Equation of a straight line</a></li>
+<li class="chapter" data-level="4.5" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#solve-for-x"><i class="fa fa-check"></i><b>4.5</b> Solve for <span class="math inline">\(x\)</span></a></li>
+<li class="chapter" data-level="4.6" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-nar-ar-ekvation-linjar"><i class="fa fa-check"></i><b>4.6</b> Linear equations</a></li>
+<li class="chapter" data-level="4.7" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-lite-mangdlara"><i class="fa fa-check"></i><b>4.7</b> A bit of set theory</a></li>
+<li class="chapter" data-level="4.8" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#domain-for-a-function"><i class="fa fa-check"></i><b>4.8</b> Domain for a function</a></li>
+<li class="chapter" data-level="4.9" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-komb-funktioner-med-operationer"><i class="fa fa-check"></i><b>4.9</b> Combining functions with operations</a></li>
+<li class="chapter" data-level="4.10" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#chapter-summary-2"><i class="fa fa-check"></i><b>4.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="4.11" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#exercises-2"><i class="fa fa-check"></i><b>4.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html"><i class="fa fa-check"></i><b>5</b> Logarithms</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#base-exponent-logarithm"><i class="fa fa-check"></i><b>5.1</b> Base, exponent, logarithm</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#the-common-logarithm"><i class="fa fa-check"></i><b>5.2</b> The common logarithm</a></li>
+<li class="chapter" data-level="5.3" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmlagar"><i class="fa fa-check"></i><b>5.3</b> Properties of logarithms</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-naturliga-logaritmen"><i class="fa fa-check"></i><b>5.4</b> Natural logarithm</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-basbyte-for-logaritmer"><i class="fa fa-check"></i><b>5.5</b> Change of base for logarithms</a></li>
+<li class="chapter" data-level="5.6" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#using-natural-log-to-calculate-percentage-change"><i class="fa fa-check"></i><b>5.6</b> Using natural log to calculate percentage change</a></li>
+<li class="chapter" data-level="5.7" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-for-linjaritet"><i class="fa fa-check"></i><b>5.7</b> Logarithms for linearity</a></li>
+<li class="chapter" data-level="5.8" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-los-ut-x"><i class="fa fa-check"></i><b>5.8</b> Taking logarithms to get <span class="math inline">\(\boldsymbol{x}\)</span></a></li>
+<li class="chapter" data-level="5.9" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-linjar-ex-bnp"><i class="fa fa-check"></i><b>5.9</b> Log GDP</a></li>
+<li class="chapter" data-level="5.10" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-bnp-och-lycka"><i class="fa fa-check"></i><b>5.10</b> Using logarithms to discuss theory</a></li>
+<li class="chapter" data-level="5.11" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#chapter-summary-3"><i class="fa fa-check"></i><b>5.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="5.12" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#exercises-3"><i class="fa fa-check"></i><b>5.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html"><i class="fa fa-check"></i><b>6</b> Polynomial Equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-andragradsekvationer"><i class="fa fa-check"></i><b>6.1</b> Quadratic Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-faktorisera-andragradsekvationer"><i class="fa fa-check"></i><b>6.2</b> Factoring Equations</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-rationella-rotter"><i class="fa fa-check"></i><b>6.3</b> Rational Roots</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-pq-formeln"><i class="fa fa-check"></i><b>6.4</b> The Quadratic Formula</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-polynom-av-hogre-grad"><i class="fa fa-check"></i><b>6.5</b> Third degree and Higher</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#factorizing-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.6</b> Factorizing Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#divisions-of-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.7</b> Divisions of Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.8" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#chapter-summary-4"><i class="fa fa-check"></i><b>6.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="6.9" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#exercises-4"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html"><i class="fa fa-check"></i><b>7</b> Systems of Linear Equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#linear-system"><i class="fa fa-check"></i><b>7.1</b> Linear system</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#number-of-solutions-in-the-system"><i class="fa fa-check"></i><b>7.2</b> Number of solutions in the system</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-radreduktion"><i class="fa fa-check"></i><b>7.3</b> Row Reduction</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#taking-logarithms-in-systems-of-equations"><i class="fa fa-check"></i><b>7.4</b> Taking logarithms in systems of equations</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#three-or-more-variables"><i class="fa fa-check"></i><b>7.5</b> Three or more variables</a></li>
+<li class="chapter" data-level="7.6" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#some-more-examples"><i class="fa fa-check"></i><b>7.6</b> Some more examples</a></li>
+<li class="chapter" data-level="7.7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-bortom-trredje-dimensionen"><i class="fa fa-check"></i><b>7.7</b> Beyond the third dimension</a></li>
+<li class="chapter" data-level="7.8" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#chapter-summary-5"><i class="fa fa-check"></i><b>7.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="7.9" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#exercises-5"><i class="fa fa-check"></i><b>7.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html"><i class="fa fa-check"></i><b>8</b> Theories of life, death and dating</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#income-and-life-expectancy"><i class="fa fa-check"></i><b>8.1</b> Income and life expectancy</a></li>
+<li class="chapter" data-level="8.2" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#mathematical-adventures-in-national-income"><i class="fa fa-check"></i><b>8.2</b> Mathematical adventures in national income</a></li>
+<li class="chapter" data-level="8.3" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#a-matter-of-class"><i class="fa fa-check"></i><b>8.3</b> A matter of class</a></li>
+<li class="chapter" data-level="8.4" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-utbud-och-efterfragan"><i class="fa fa-check"></i><b>8.4</b> Supply and demand</a></li>
+<li class="chapter" data-level="8.5" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#two-types-of-cookies"><i class="fa fa-check"></i><b>8.5</b> Two types of cookies</a></li>
+<li class="chapter" data-level="8.6" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-dejting"><i class="fa fa-check"></i><b>8.6</b> Finding the one</a></li>
+<li class="chapter" data-level="8.7" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-nairu-teori"><i class="fa fa-check"></i><b>8.7</b> A theory about work</a></li>
+<li class="chapter" data-level="8.8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-extern-effekt-utslapp"><i class="fa fa-check"></i><b>8.8</b> External effects</a></li>
+<li class="chapter" data-level="8.9" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#linear-relationships-in-real-life"><i class="fa fa-check"></i><b>8.9</b> Linear relationships in real life</a></li>
+<li class="chapter" data-level="8.10" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#chapter-summary-6"><i class="fa fa-check"></i><b>8.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="8.11" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#exercises-6"><i class="fa fa-check"></i><b>8.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html"><i class="fa fa-check"></i><b>9</b> Non-linear equations in systems</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#solutions-with-non-linear-systems"><i class="fa fa-check"></i><b>9.1</b> Solutions with non-linear systems</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#substitution"><i class="fa fa-check"></i><b>9.2</b> Substitution</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#row-reduction-with-non-linear-equations"><i class="fa fa-check"></i><b>9.3</b> Row reduction with non-linear equations</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-ska-vi-borja-roka"><i class="fa fa-check"></i><b>9.4</b> Example 1: Two friends</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-2-more-smoking"><i class="fa fa-check"></i><b>9.5</b> Example 2: More smoking</a></li>
+<li class="chapter" data-level="9.6" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-3-they-call-it-love"><i class="fa fa-check"></i><b>9.6</b> Example 3: They call it love</a></li>
+<li class="chapter" data-level="9.7" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-nairu-med-flera-jamvikter"><i class="fa fa-check"></i><b>9.7</b> Example 4: Another theory about work</a></li>
+<li class="chapter" data-level="9.8" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#chapter-summary-7"><i class="fa fa-check"></i><b>9.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="9.9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#exercises-7"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-derivata.html"><a href="chap-derivata.html"><i class="fa fa-check"></i><b>10</b> Derivative</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-derivata.html"><a href="chap-derivata.html#limit"><i class="fa fa-check"></i><b>10.1</b> Limit</a></li>
+<li class="chapter" data-level="10.2" data-path="chap-derivata.html"><a href="chap-derivata.html#simplify-first"><i class="fa fa-check"></i><b>10.2</b> Simplify first</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata"><i class="fa fa-check"></i><b>10.3</b> Differentiating</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-derivata.html"><a href="chap-derivata.html#the-next-derivative"><i class="fa fa-check"></i><b>10.4</b> The next derivative</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata-exponential-e-log"><i class="fa fa-check"></i><b>10.5</b> Exponent, logarithm and <em>e</em></a></li>
+<li class="chapter" data-level="10.6" data-path="chap-derivata.html"><a href="chap-derivata.html#the-derivative-of-boldsymbollog-x"><i class="fa fa-check"></i><b>10.6</b> The derivative of <span class="math inline">\(\boldsymbol{\log x}\)</span></a></li>
+<li class="chapter" data-level="10.7" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-l-hopitals-regel"><i class="fa fa-check"></i><b>10.7</b> L’Hôpital’s rule</a></li>
+<li class="chapter" data-level="10.8" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-partiell-derivata"><i class="fa fa-check"></i><b>10.8</b> Partial derivative</a></li>
+<li class="chapter" data-level="10.9" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-rakneregler-derivata"><i class="fa fa-check"></i><b>10.9</b> Differentiation rules</a></li>
+<li class="chapter" data-level="10.10" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-elasticitet"><i class="fa fa-check"></i><b>10.10</b> Elasticity</a></li>
+<li class="chapter" data-level="10.11" data-path="chap-derivata.html"><a href="chap-derivata.html#chapter-summary-8"><i class="fa fa-check"></i><b>10.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="10.12" data-path="chap-derivata.html"><a href="chap-derivata.html#exercises-8"><i class="fa fa-check"></i><b>10.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html"><i class="fa fa-check"></i><b>11</b> Optimization with functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#extreme-values"><i class="fa fa-check"></i><b>11.1</b> Extreme values</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#differentiate-to-find-extreme-values"><i class="fa fa-check"></i><b>11.2</b> Differentiate to find extreme values</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#global-and-local"><i class="fa fa-check"></i><b>11.3</b> Global and local</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#more-examples"><i class="fa fa-check"></i><b>11.4</b> More examples</a></li>
+<li class="chapter" data-level="11.5" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#terrace"><i class="fa fa-check"></i><b>11.5</b> Terrace</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#sec-optimera-villkor-lagrange"><i class="fa fa-check"></i><b>11.6</b> Optimization with constraints</a></li>
+<li class="chapter" data-level="11.7" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#chapter-summary-9"><i class="fa fa-check"></i><b>11.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="11.8" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#exercises-9"><i class="fa fa-check"></i><b>11.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html"><i class="fa fa-check"></i><b>12</b> Theories about cake and monopoly</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#the-optimal-amount-of-cake"><i class="fa fa-check"></i><b>12.1</b> The optimal amount of cake</a></li>
+<li class="chapter" data-level="12.2" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-maximera-eriks-nytta"><i class="fa fa-check"></i><b>12.2</b> To work or not to work</a></li>
+<li class="chapter" data-level="12.3" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-den-optimala-skattenivan"><i class="fa fa-check"></i><b>12.3</b> Maximum possible tax level</a></li>
+<li class="chapter" data-level="12.4" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-konsumtion-och-sparande"><i class="fa fa-check"></i><b>12.4</b> Consumption and saving</a></li>
+<li class="chapter" data-level="12.5" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-optimering-1-ftg-perf-konk"><i class="fa fa-check"></i><b>12.5</b> A profit-maximizing company</a></li>
+<li class="chapter" data-level="12.6" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-vinstmaximering-med-villkor"><i class="fa fa-check"></i><b>12.6</b> Profit maximization with constraints</a></li>
+<li class="chapter" data-level="12.7" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopol"><i class="fa fa-check"></i><b>12.7</b> Monopoly</a></li>
+<li class="chapter" data-level="12.8" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopsoni"><i class="fa fa-check"></i><b>12.8</b> Monopsony</a></li>
+<li class="chapter" data-level="12.9" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#if-we-do-not-optimize"><i class="fa fa-check"></i><b>12.9</b> If we do not optimize</a></li>
+<li class="chapter" data-level="12.10" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#chapter-summary-10"><i class="fa fa-check"></i><b>12.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="12.11" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#exercises-10"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-integraler.html"><a href="chap-integraler.html"><i class="fa fa-check"></i><b>13</b> Integration</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap-integraler.html"><a href="chap-integraler.html#the-primitive-function"><i class="fa fa-check"></i><b>13.1</b> The primitive function</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-integraler.html"><a href="chap-integraler.html#the-meaning-of-constant-boldsymbolc"><i class="fa fa-check"></i><b>13.2</b> The meaning of constant <span class="math inline">\(\boldsymbol{C}\)</span></a></li>
+<li class="chapter" data-level="13.3" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-with-conditions"><i class="fa fa-check"></i><b>13.3</b> Primitive function with conditions</a></li>
+<li class="chapter" data-level="13.4" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-for-an-exponent"><i class="fa fa-check"></i><b>13.4</b> Primitive function for an exponent</a></li>
+<li class="chapter" data-level="13.5" data-path="chap-integraler.html"><a href="chap-integraler.html#calculate-area-with-integral"><i class="fa fa-check"></i><b>13.5</b> Calculate area with integral</a></li>
+<li class="chapter" data-level="13.6" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-under-the-x-axis"><i class="fa fa-check"></i><b>13.6</b> The area under the x-axis</a></li>
+<li class="chapter" data-level="13.7" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-between-two-lines"><i class="fa fa-check"></i><b>13.7</b> The area between two lines</a></li>
+<li class="chapter" data-level="13.8" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-rakneregler-for-integraler"><i class="fa fa-check"></i><b>13.8</b> Integration rules</a></li>
+<li class="chapter" data-level="13.9" data-path="chap-integraler.html"><a href="chap-integraler.html#more-examples-1"><i class="fa fa-check"></i><b>13.9</b> More examples</a></li>
+<li class="chapter" data-level="13.10" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-multipelintegral"><i class="fa fa-check"></i><b>13.10</b> Multiple integral</a></li>
+<li class="chapter" data-level="13.11" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-partiell-integration"><i class="fa fa-check"></i><b>13.11</b> Partial integration</a></li>
+<li class="chapter" data-level="13.12" data-path="chap-integraler.html"><a href="chap-integraler.html#income-distribution-with-integrals"><i class="fa fa-check"></i><b>13.12</b> Income distribution with integrals</a></li>
+<li class="chapter" data-level="13.13" data-path="chap-integraler.html"><a href="chap-integraler.html#chapter-summary-11"><i class="fa fa-check"></i><b>13.13</b> Chapter summary</a></li>
+<li class="chapter" data-level="13.14" data-path="chap-integraler.html"><a href="chap-integraler.html#exercises-11"><i class="fa fa-check"></i><b>13.14</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html"><i class="fa fa-check"></i><b>14</b> Linear Algebra: Vectors and Matrices</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vectors"><i class="fa fa-check"></i><b>14.1</b> Vectors</a></li>
+<li class="chapter" data-level="14.2" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vector-calculations"><i class="fa fa-check"></i><b>14.2</b> Vector calculations</a></li>
+<li class="chapter" data-level="14.3" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#more-vectors"><i class="fa fa-check"></i><b>14.3</b> More vectors</a></li>
+<li class="chapter" data-level="14.4" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-matriser"><i class="fa fa-check"></i><b>14.4</b> Matrices</a></li>
+<li class="chapter" data-level="14.5" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet"><i class="fa fa-check"></i><b>14.5</b> More matrices</a></li>
+<li class="chapter" data-level="14.6" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-multiplikation-och-transponering"><i class="fa fa-check"></i><b>14.6</b> Multiplication and transposition</a></li>
+<li class="chapter" data-level="14.7" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-determinant-matris"><i class="fa fa-check"></i><b>14.7</b> Determinant</a></li>
+<li class="chapter" data-level="14.8" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#row-reduction-in-matrix"><i class="fa fa-check"></i><b>14.8</b> Row reduction in matrix</a></li>
+<li class="chapter" data-level="14.9" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-inversen-av-matris"><i class="fa fa-check"></i><b>14.9</b> Inverse of a matrix</a></li>
+<li class="chapter" data-level="14.10" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-linjara-ekvationssystem-i-matris"><i class="fa fa-check"></i><b>14.10</b> Linear equation systems in matrix</a></li>
+<li class="chapter" data-level="14.11" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-1-a-bakery"><i class="fa fa-check"></i><b>14.11</b> Example 1: A bakery</a></li>
+<li class="chapter" data-level="14.12" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-2-input-output-analysis"><i class="fa fa-check"></i><b>14.12</b> Example 2: Input-output analysis</a></li>
+<li class="chapter" data-level="14.13" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-3-social-networks"><i class="fa fa-check"></i><b>14.13</b> Example 3: Social networks</a></li>
+<li class="chapter" data-level="14.14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#chapter-summary-12"><i class="fa fa-check"></i><b>14.14</b> Chapter summary</a></li>
+<li class="chapter" data-level="14.15" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#exercises-12"><i class="fa fa-check"></i><b>14.15</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Covariation and Causality</b></span></li>
+<li class="chapter" data-level="" data-path="part-covariation-intro.html"><a href="part-covariation-intro.html"><i class="fa fa-check"></i>Part II: Covariation and Causality</a></li>
+<li class="chapter" data-level="15" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html"><i class="fa fa-check"></i><b>15</b> Fundamental Counterfactual Analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-orsak-och-effekt"><i class="fa fa-check"></i><b>15.1</b> Cause and effect</a></li>
+<li class="chapter" data-level="15.2" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samvariation"><i class="fa fa-check"></i><b>15.2</b> Variation, Covariation and Association</a></li>
+<li class="chapter" data-level="15.3" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-observationsstudie-experiment"><i class="fa fa-check"></i><b>15.3</b> Observational Study and Experiment</a></li>
+<li class="chapter" data-level="15.4" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-population-urval-superpopulation"><i class="fa fa-check"></i><b>15.4</b> Population and Sample</a></li>
+<li class="chapter" data-level="15.5" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-information-och-variabler"><i class="fa fa-check"></i><b>15.5</b> Information and variables</a></li>
+<li class="chapter" data-level="15.6" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-olika-typer-av-data"><i class="fa fa-check"></i><b>15.6</b> Different types of data</a></li>
+<li class="chapter" data-level="15.7" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samla-in-data"><i class="fa fa-check"></i><b>15.7</b> Collecting a sample</a></li>
+<li class="chapter" data-level="15.8" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-ar-allting-osakert"><i class="fa fa-check"></i><b>15.8</b> How do we know the things we know?</a></li>
+<li class="chapter" data-level="15.9" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#exercises-13"><i class="fa fa-check"></i><b>15.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html"><i class="fa fa-check"></i><b>16</b> Variation and covariation</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-frekvensfordelning"><i class="fa fa-check"></i><b>16.1</b> Frequency Distribution</a></li>
+<li class="chapter" data-level="16.2" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-spridningsmatt-kvartiler-och"><i class="fa fa-check"></i><b>16.2</b> Measures of Central Tendency and Measures of Dispersion</a></li>
+<li class="chapter" data-level="16.3" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-varians-och-standardavvikelse"><i class="fa fa-check"></i><b>16.3</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="16.4" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-standardiserade-varden"><i class="fa fa-check"></i><b>16.4</b> Standardized values</a></li>
+<li class="chapter" data-level="16.5" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-samvariation-i-diagram"><i class="fa fa-check"></i><b>16.5</b> Covariation in graphs</a></li>
+<li class="chapter" data-level="16.6" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-kovarians"><i class="fa fa-check"></i><b>16.6</b> Covariation 1: Covariance</a></li>
+<li class="chapter" data-level="16.7" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-pearsons-r"><i class="fa fa-check"></i><b>16.7</b> Covariation 2: The correlation coefficient</a></li>
+<li class="chapter" data-level="16.8" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#chapter-summary-13"><i class="fa fa-check"></i><b>16.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="16.9" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#exercises-14"><i class="fa fa-check"></i><b>16.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap-ols.html"><a href="chap-ols.html"><i class="fa fa-check"></i><b>17</b> The Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap-ols.html"><a href="chap-ols.html#basic-logic"><i class="fa fa-check"></i><b>17.1</b> Basic logic</a></li>
+<li class="chapter" data-level="17.2" data-path="chap-ols.html"><a href="chap-ols.html#sec-minstakvadratmetoden-ols"><i class="fa fa-check"></i><b>17.2</b> Covariation with Straight Line</a></li>
+<li class="chapter" data-level="17.3" data-path="chap-ols.html"><a href="chap-ols.html#sec-regressionsanalys"><i class="fa fa-check"></i><b>17.3</b> Regression analysis</a></li>
+<li class="chapter" data-level="17.4" data-path="chap-ols.html"><a href="chap-ols.html#sec-felterm-och-residual"><i class="fa fa-check"></i><b>17.4</b> Error term and residual</a></li>
+<li class="chapter" data-level="17.5" data-path="chap-ols.html"><a href="chap-ols.html#calculating-with-least-squares"><i class="fa fa-check"></i><b>17.5</b> Calculating with Least Squares</a></li>
+<li class="chapter" data-level="17.6" data-path="chap-ols.html"><a href="chap-ols.html#other-straight-lines"><i class="fa fa-check"></i><b>17.6</b> Other straight lines</a></li>
+<li class="chapter" data-level="17.7" data-path="chap-ols.html"><a href="chap-ols.html#sec-en-linje-ar-en-linje"><i class="fa fa-check"></i><b>17.7</b> What the Line Doesn’t Tell Us</a></li>
+<li class="chapter" data-level="17.8" data-path="chap-ols.html"><a href="chap-ols.html#sec-ols-ex-2"><i class="fa fa-check"></i><b>17.8</b> Another example</a></li>
+<li class="chapter" data-level="17.9" data-path="chap-ols.html"><a href="chap-ols.html#sec-ssr-sse-sst-vilken-modell-ar-bast"><i class="fa fa-check"></i><b>17.9</b> Which model fits the data best?</a></li>
+<li class="chapter" data-level="17.10" data-path="chap-ols.html"><a href="chap-ols.html#sec-harled-ols-med-vanliga-f"><i class="fa fa-check"></i><b>17.10</b> Derivation of the Estimators</a></li>
+<li class="chapter" data-level="17.11" data-path="chap-ols.html"><a href="chap-ols.html#chapter-summary-14"><i class="fa fa-check"></i><b>17.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="17.12" data-path="chap-ols.html"><a href="chap-ols.html#exercises-15"><i class="fa fa-check"></i><b>17.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html"><i class="fa fa-check"></i><b>18</b> Covariation in Social Science</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-lever-rika-langre-kolada-inkomst-livslangd"><i class="fa fa-check"></i><b>18.1</b> GDP and Life Expectancy in different countries</a></li>
+<li class="chapter" data-level="18.2" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-ols-kolada-alla-kommuner-livslangd-inkomst"><i class="fa fa-check"></i><b>18.2</b> Covariation with a lot of countries</a></li>
+<li class="chapter" data-level="18.3" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-linjar-trend-ols-log-bnp"><i class="fa fa-check"></i><b>18.3</b> Linear trend over time</a></li>
+<li class="chapter" data-level="18.4" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-cykler-och-vagor"><i class="fa fa-check"></i><b>18.4</b> Cycles and waves</a></li>
+<li class="chapter" data-level="18.5" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-bnp-och-lycka-igen"><i class="fa fa-check"></i><b>18.5</b> Wealth and happiness</a></li>
+<li class="chapter" data-level="18.6" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-star-wars"><i class="fa fa-check"></i><b>18.6</b> Star Wars</a></li>
+<li class="chapter" data-level="18.7" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#chapter-summary-15"><i class="fa fa-check"></i><b>18.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="18.8" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#exercises-16"><i class="fa fa-check"></i><b>18.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html"><i class="fa fa-check"></i><b>19</b> Least Squares with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-ols-pa-tre-variabler"><i class="fa fa-check"></i><b>19.1</b> Regression analysis with three variables</a></li>
+<li class="chapter" data-level="19.2" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-faktorvariabler"><i class="fa fa-check"></i><b>19.2</b> Factor variables</a></li>
+<li class="chapter" data-level="19.3" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-konstanthaller"><i class="fa fa-check"></i><b>19.3</b> Ceteris paribus</a></li>
+<li class="chapter" data-level="19.4" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-minstakvadratmetoden-med-matrise"><i class="fa fa-check"></i><b>19.4</b> Least Squares with Matrices</a></li>
+<li class="chapter" data-level="19.5" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-berakna-ols-med-matriser"><i class="fa fa-check"></i><b>19.5</b> Estimation with matrices</a></li>
+<li class="chapter" data-level="19.6" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-interaktion"><i class="fa fa-check"></i><b>19.6</b> Interaction</a></li>
+<li class="chapter" data-level="19.7" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-adj-r-2"><i class="fa fa-check"></i><b>19.7</b> Adjusted <span class="math inline">\(R^{2}\)</span></a></li>
+<li class="chapter" data-level="19.8" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-omitted-variable-bias"><i class="fa fa-check"></i><b>19.8</b> If we have too few variables</a></li>
+<li class="chapter" data-level="19.9" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-overfitting"><i class="fa fa-check"></i><b>19.9</b> If we have too many variables</a></li>
+<li class="chapter" data-level="19.10" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#the-error-term-does-not-need-to-approach-zero"><i class="fa fa-check"></i><b>19.10</b> The error term does not need to approach zero</a></li>
+<li class="chapter" data-level="19.11" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#chapter-summary-16"><i class="fa fa-check"></i><b>19.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="19.12" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#exercises-17"><i class="fa fa-check"></i><b>19.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html"><i class="fa fa-check"></i><b>20</b> Regression Analysis for Causal Relationships</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#we-need-special-methods-to-study-cause-and-effect"><i class="fa fa-check"></i><b>20.1</b> We need special methods to study cause and effect</a></li>
+<li class="chapter" data-level="20.2" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#illustration-with-a-dag"><i class="fa fa-check"></i><b>20.2</b> Illustration with a DAG</a></li>
+<li class="chapter" data-level="20.3" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#both-the-presence-and-absence-of-variables-can-affect-our-results"><i class="fa fa-check"></i><b>20.3</b> Both the presence and absence of variables can affect our results</a></li>
+<li class="chapter" data-level="20.4" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-regressionsdiskontinuitet"><i class="fa fa-check"></i><b>20.4</b> Regression discontinuity</a></li>
+<li class="chapter" data-level="20.5" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-instrumentell-variabel"><i class="fa fa-check"></i><b>20.5</b> Instrumental variable</a></li>
+<li class="chapter" data-level="20.6" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-skillnad-i-skillnad"><i class="fa fa-check"></i><b>20.6</b> Difference-in-differences</a></li>
+<li class="chapter" data-level="20.7" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#pros-and-cons-with-these-methods"><i class="fa fa-check"></i><b>20.7</b> Pros and cons with these methods</a></li>
+<li class="chapter" data-level="20.8" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#causality-without-covariation"><i class="fa fa-check"></i><b>20.8</b> Causality without covariation</a></li>
+<li class="chapter" data-level="20.9" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#chapter-summary-17"><i class="fa fa-check"></i><b>20.9</b> Chapter summary</a></li>
+<li class="chapter" data-level="20.10" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#exercises-18"><i class="fa fa-check"></i><b>20.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>III Probability</b></span></li>
+<li class="chapter" data-level="" data-path="part-probability-intro.html"><a href="part-probability-intro.html"><i class="fa fa-check"></i>Part III: Probability</a></li>
+<li class="chapter" data-level="21" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html"><i class="fa fa-check"></i><b>21</b> Basic Probability Theory 1: discrete distributions</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#how-we-know-what-we-know"><i class="fa fa-check"></i><b>21.1</b> How we know what we know</a></li>
+<li class="chapter" data-level="21.2" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-random-variables"><i class="fa fa-check"></i><b>21.2</b> Random variables</a></li>
+<li class="chapter" data-level="21.3" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-multivariate-probability"><i class="fa fa-check"></i><b>21.3</b> Probability with multiple variables</a></li>
+<li class="chapter" data-level="21.4" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-expected-value-variance"><i class="fa fa-check"></i><b>21.4</b> Expected value and variance</a></li>
+<li class="chapter" data-level="21.5" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-conditional-expected-value"><i class="fa fa-check"></i><b>21.5</b> Conditional expected value</a></li>
+<li class="chapter" data-level="21.6" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-law-large-numbers"><i class="fa fa-check"></i><b>21.6</b> Law of large numbers</a></li>
+<li class="chapter" data-level="21.7" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-uniform-distribution"><i class="fa fa-check"></i><b>21.7</b> Uniform probability distributions</a></li>
+<li class="chapter" data-level="21.8" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-binomial-distribution"><i class="fa fa-check"></i><b>21.8</b> The binomial distribution</a></li>
+<li class="chapter" data-level="21.9" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-poisson-distribution"><i class="fa fa-check"></i><b>21.9</b> The Poisson distribution</a></li>
+<li class="chapter" data-level="21.10" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-ch21-summary"><i class="fa fa-check"></i><b>21.10</b> Chapter Summary</a></li>
+<li class="chapter" data-level="21.11" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#exercises-19"><i class="fa fa-check"></i><b>21.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html"><i class="fa fa-check"></i><b>22</b> Fundamental Probability Theory 2: Continuous Distributions</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-uniform-continuous"><i class="fa fa-check"></i><b>22.1</b> Uniform Continuous Probability Distributions</a></li>
+<li class="chapter" data-level="22.2" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-ev-variance-continuous"><i class="fa fa-check"></i><b>22.2</b> Expected Value and Variance for Continuous Random Variables</a></li>
+<li class="chapter" data-level="22.3" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-exponential-distribution"><i class="fa fa-check"></i><b>22.3</b> Exponential Distributions</a></li>
+<li class="chapter" data-level="22.4" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-gamma-distribution"><i class="fa fa-check"></i><b>22.4</b> From Poisson to Gamma</a></li>
+<li class="chapter" data-level="22.5" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-chi-squared-distribution"><i class="fa fa-check"></i><b>22.5</b> Chi-squared Distributions</a></li>
+<li class="chapter" data-level="22.6" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-f-distribution"><i class="fa fa-check"></i><b>22.6</b> F-distributions</a></li>
+<li class="chapter" data-level="22.7" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#chapter-summary-18"><i class="fa fa-check"></i><b>22.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="22.8" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#exercises-20"><i class="fa fa-check"></i><b>22.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html"><i class="fa fa-check"></i><b>23</b> Normal and t distributions</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability with normal variables</a></li>
+<li class="chapter" data-level="23.2" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-standard-normal"><i class="fa fa-check"></i><b>23.2</b> Standardized normal distribution</a></li>
+<li class="chapter" data-level="23.3" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-1"><i class="fa fa-check"></i><b>23.3</b> The usefulness of the normal distribution 1</a></li>
+<li class="chapter" data-level="23.4" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-2"><i class="fa fa-check"></i><b>23.4</b> The usefulness of the normal distribution 2</a></li>
+<li class="chapter" data-level="23.5" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-3-clt"><i class="fa fa-check"></i><b>23.5</b> The usefulness of the normal distribution 3</a></li>
+<li class="chapter" data-level="23.6" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-t-distribution"><i class="fa fa-check"></i><b>23.6</b> T-distribution</a></li>
+<li class="chapter" data-level="23.7" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#chapter-summary-19"><i class="fa fa-check"></i><b>23.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="23.8" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#exercises-21"><i class="fa fa-check"></i><b>23.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html"><i class="fa fa-check"></i><b>24</b> Statistical analysis and inference</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-point-estimation"><i class="fa fa-check"></i><b>24.1</b> Point estimation</a></li>
+<li class="chapter" data-level="24.2" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-standard-error"><i class="fa fa-check"></i><b>24.2</b> Standard error</a></li>
+<li class="chapter" data-level="24.3" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-confidence-interval"><i class="fa fa-check"></i><b>24.3</b> Confidence interval</a></li>
+<li class="chapter" data-level="24.4" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-hypothesis-testing"><i class="fa fa-check"></i><b>24.4</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="24.5" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-statistical-significance"><i class="fa fa-check"></i><b>24.5</b> Statistical significance, power and type errors</a></li>
+<li class="chapter" data-level="24.6" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#chapter-summary-20"><i class="fa fa-check"></i><b>24.6</b> Chapter summary</a></li>
+<li class="chapter" data-level="24.7" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#exercises-22"><i class="fa fa-check"></i><b>24.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html"><i class="fa fa-check"></i><b>25</b> Regression Analysis with Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-population-model"><i class="fa fa-check"></i><b>25.1</b> The Population Model and Statistical Tests</a></li>
+<li class="chapter" data-level="25.2" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ols-assumptions"><i class="fa fa-check"></i><b>25.2</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="25.3" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-variance"><i class="fa fa-check"></i><b>25.3</b> The Variance of the Regression Model</a></li>
+<li class="chapter" data-level="25.4" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-t-test"><i class="fa fa-check"></i><b>25.4</b> Regression analysis with t-test</a></li>
+<li class="chapter" data-level="25.5" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-coefficients"><i class="fa fa-check"></i><b>25.5</b> Regression analysis with confidence interval</a></li>
+<li class="chapter" data-level="25.6" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-line"><i class="fa fa-check"></i><b>25.6</b> Confidence Interval for the Regression Line</a></li>
+<li class="chapter" data-level="25.7" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-power-regression"><i class="fa fa-check"></i><b>25.7</b> Statistical Power in Regression</a></li>
+<li class="chapter" data-level="25.8" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-economic-significance"><i class="fa fa-check"></i><b>25.8</b> Statistical and Economic Significance</a></li>
+<li class="chapter" data-level="25.9" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#chapter-summary-21"><i class="fa fa-check"></i><b>25.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="25.10" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ch25-exercises"><i class="fa fa-check"></i><b>25.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html"><i class="fa fa-check"></i><b>26</b> Statistical Tests in Regression Analysis with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ols-assumptions-multiple"><i class="fa fa-check"></i><b>26.1</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="26.2" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-estimators-multiple"><i class="fa fa-check"></i><b>26.2</b> Estimators of the Coefficients</a></li>
+<li class="chapter" data-level="26.3" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-variance-covariance-matrix"><i class="fa fa-check"></i><b>26.3</b> The Variance-Covariance Matrix</a></li>
+<li class="chapter" data-level="26.4" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-t-test-multiple-variables"><i class="fa fa-check"></i><b>26.4</b> T-tests for Multiple Regression</a></li>
+<li class="chapter" data-level="26.5" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-f-test-regression"><i class="fa fa-check"></i><b>26.5</b> F-test for the Regression Model</a></li>
+<li class="chapter" data-level="26.6" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#chapter-summary-22"><i class="fa fa-check"></i><b>26.6</b> Chapter Summary</a></li>
+<li class="chapter" data-level="26.7" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ch26-exercises"><i class="fa fa-check"></i><b>26.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html"><i class="fa fa-check"></i><b>27</b> Conditions of the Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-gauss-markov"><i class="fa fa-check"></i><b>27.1</b> Gauss-Markov</a></li>
+<li class="chapter" data-level="27.2" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-linearity"><i class="fa fa-check"></i><b>27.2</b> Assumption 1: Linearity</a></li>
+<li class="chapter" data-level="27.3" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-iid"><i class="fa fa-check"></i><b>27.3</b> Assumption 2: Independent and Identically Distributed Observations</a></li>
+<li class="chapter" data-level="27.4" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-homoscedasticity"><i class="fa fa-check"></i><b>27.4</b> Assumption 3: Expected Value and Variance of the Error Terms</a></li>
+<li class="chapter" data-level="27.5" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-multicollinearity"><i class="fa fa-check"></i><b>27.5</b> Assumption 4: Multicollinearity</a></li>
+<li class="chapter" data-level="27.6" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-autocorrelation"><i class="fa fa-check"></i><b>27.6</b> Assumption 5: Correlation Between Residuals</a></li>
+<li class="chapter" data-level="27.7" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-normality"><i class="fa fa-check"></i><b>27.7</b> Assumption 6: Normally Distributed Error Terms</a></li>
+<li class="chapter" data-level="27.8" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-robust-se"><i class="fa fa-check"></i><b>27.8</b> Adjusted Standard Errors</a></li>
+<li class="chapter" data-level="27.9" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-summary"><i class="fa fa-check"></i><b>27.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="27.10" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-exercises"><i class="fa fa-check"></i><b>27.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Computer Programs for Social Scientists</b></span></li>
+<li class="chapter" data-level="" data-path="part-computer-programs-intro.html"><a href="part-computer-programs-intro.html"><i class="fa fa-check"></i>Part IV: Computer Programs for Social Scientists</a></li>
+<li class="chapter" data-level="28" data-path="ch-why-computers.html"><a href="ch-why-computers.html"><i class="fa fa-check"></i><b>28</b> Why Use Computers?</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-three-tools"><i class="fa fa-check"></i><b>28.1</b> Three Analytical Tools</a></li>
+<li class="chapter" data-level="28.2" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-why-programming"><i class="fa fa-check"></i><b>28.2</b> Programming: Why Bother?</a></li>
+<li class="chapter" data-level="28.3" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-practice"><i class="fa fa-check"></i><b>28.3</b> You Have to Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="ch-excel.html"><a href="ch-excel.html"><i class="fa fa-check"></i><b>29</b> Microsoft Excel</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-general"><i class="fa fa-check"></i><b>29.1</b> General about Excel</a></li>
+<li class="chapter" data-level="29.2" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-import"><i class="fa fa-check"></i><b>29.2</b> Import and edit data</a></li>
+<li class="chapter" data-level="29.3" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-functions"><i class="fa fa-check"></i><b>29.3</b> Worksheet functions</a></li>
+<li class="chapter" data-level="29.4" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-fill-cells"><i class="fa fa-check"></i><b>29.4</b> Quick ways to fill multiple cells</a></li>
+<li class="chapter" data-level="29.5" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-combining-functions"><i class="fa fa-check"></i><b>29.5</b> Combining functions within calculations</a></li>
+<li class="chapter" data-level="29.6" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-logic"><i class="fa fa-check"></i><b>29.6</b> Logic conditions</a></li>
+<li class="chapter" data-level="29.7" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-index"><i class="fa fa-check"></i><b>29.7</b> Calculate index with Excel</a></li>
+<li class="chapter" data-level="29.8" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-matrices"><i class="fa fa-check"></i><b>29.8</b> Matrix calculations</a></li>
+<li class="chapter" data-level="29.9" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-io"><i class="fa fa-check"></i><b>29.9</b> Input-output analysis</a></li>
+<li class="chapter" data-level="29.10" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-variance"><i class="fa fa-check"></i><b>29.10</b> Variance and covariance</a></li>
+<li class="chapter" data-level="29.11" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-probability"><i class="fa fa-check"></i><b>29.11</b> Probability</a></li>
+<li class="chapter" data-level="29.12" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-regression"><i class="fa fa-check"></i><b>29.12</b> Regression analysis</a></li>
+<li class="chapter" data-level="29.13" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-plots"><i class="fa fa-check"></i><b>29.13</b> Creating plots</a></li>
+<li class="chapter" data-level="29.14" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-gdp-example"><i class="fa fa-check"></i><b>29.14</b> Example with GDP per working hour</a></li>
+<li class="chapter" data-level="29.15" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-other-functions"><i class="fa fa-check"></i><b>29.15</b> Some other useful functions</a></li>
+<li class="chapter" data-level="29.16" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-summary"><i class="fa fa-check"></i><b>29.16</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="ch-stata.html"><a href="ch-stata.html"><i class="fa fa-check"></i><b>30</b> Stata</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-general"><i class="fa fa-check"></i><b>30.1</b> General info about Stata</a></li>
+<li class="chapter" data-level="30.2" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-commands"><i class="fa fa-check"></i><b>30.2</b> Commands in Stata</a></li>
+<li class="chapter" data-level="30.3" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-import"><i class="fa fa-check"></i><b>30.3</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="30.4" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-enter-data"><i class="fa fa-check"></i><b>30.4</b> Enter data manually</a></li>
+<li class="chapter" data-level="30.5" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-edit"><i class="fa fa-check"></i><b>30.5</b> Edit Columns and Rows</a></li>
+<li class="chapter" data-level="30.6" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-egen"><i class="fa fa-check"></i><b>30.6</b> The function egen</a></li>
+<li class="chapter" data-level="30.7" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-join"><i class="fa fa-check"></i><b>30.7</b> Join tables</a></li>
+<li class="chapter" data-level="30.8" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-index"><i class="fa fa-check"></i><b>30.8</b> Calculate index using Stata</a></li>
+<li class="chapter" data-level="30.9" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-mata"><i class="fa fa-check"></i><b>30.9</b> Matrix calculations and MATA</a></li>
+<li class="chapter" data-level="30.10" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-io"><i class="fa fa-check"></i><b>30.10</b> Input-output analysis</a></li>
+<li class="chapter" data-level="30.11" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-variation"><i class="fa fa-check"></i><b>30.11</b> Variation and covariance</a></li>
+<li class="chapter" data-level="30.12" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-probability"><i class="fa fa-check"></i><b>30.12</b> Probability</a></li>
+<li class="chapter" data-level="30.13" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-regression"><i class="fa fa-check"></i><b>30.13</b> Regression analysis</a></li>
+<li class="chapter" data-level="30.14" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-export"><i class="fa fa-check"></i><b>30.14</b> Export results to disk</a></li>
+<li class="chapter" data-level="30.15" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-plots"><i class="fa fa-check"></i><b>30.15</b> Creating plots</a></li>
+<li class="chapter" data-level="30.16" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-loops"><i class="fa fa-check"></i><b>30.16</b> Iterations and loops</a></li>
+<li class="chapter" data-level="30.17" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-gdp"><i class="fa fa-check"></i><b>30.17</b> Example with GDP per hour</a></li>
+<li class="chapter" data-level="30.18" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-summary"><i class="fa fa-check"></i><b>30.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="ch-r.html"><a href="ch-r.html"><i class="fa fa-check"></i><b>31</b> R</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="ch-r.html"><a href="ch-r.html#sec-r-overview"><i class="fa fa-check"></i><b>31.1</b> General Overview of R</a></li>
+<li class="chapter" data-level="31.2" data-path="ch-r.html"><a href="ch-r.html#sec-r-objects"><i class="fa fa-check"></i><b>31.2</b> R Objects</a></li>
+<li class="chapter" data-level="31.3" data-path="ch-r.html"><a href="ch-r.html#sec-r-functions"><i class="fa fa-check"></i><b>31.3</b> Functions in R</a></li>
+<li class="chapter" data-level="31.4" data-path="ch-r.html"><a href="ch-r.html#sec-r-packages"><i class="fa fa-check"></i><b>31.4</b> R Packages</a></li>
+<li class="chapter" data-level="31.5" data-path="ch-r.html"><a href="ch-r.html#sec-r-import"><i class="fa fa-check"></i><b>31.5</b> Importing Data</a></li>
+<li class="chapter" data-level="31.6" data-path="ch-r.html"><a href="ch-r.html#sec-r-data-tables"><i class="fa fa-check"></i><b>31.6</b> Working with Data Tables</a></li>
+<li class="chapter" data-level="31.7" data-path="ch-r.html"><a href="ch-r.html#sec-r-joins"><i class="fa fa-check"></i><b>31.7</b> Join Tables</a></li>
+<li class="chapter" data-level="31.8" data-path="ch-r.html"><a href="ch-r.html#sec-r-index"><i class="fa fa-check"></i><b>31.8</b> Calculate Index and Export Tables</a></li>
+<li class="chapter" data-level="31.9" data-path="ch-r.html"><a href="ch-r.html#sec-r-matrices"><i class="fa fa-check"></i><b>31.9</b> Matrix Calculations</a></li>
+<li class="chapter" data-level="31.10" data-path="ch-r.html"><a href="ch-r.html#sec-r-io"><i class="fa fa-check"></i><b>31.10</b> Input–Output Analysis</a></li>
+<li class="chapter" data-level="31.11" data-path="ch-r.html"><a href="ch-r.html#sec-r-variation"><i class="fa fa-check"></i><b>31.11</b> Variation and Covariance</a></li>
+<li class="chapter" data-level="31.12" data-path="ch-r.html"><a href="ch-r.html#sec-r-probability"><i class="fa fa-check"></i><b>31.12</b> Probability</a></li>
+<li class="chapter" data-level="31.13" data-path="ch-r.html"><a href="ch-r.html#sec-r-regression"><i class="fa fa-check"></i><b>31.13</b> Regression Analysis</a></li>
+<li class="chapter" data-level="31.14" data-path="ch-r.html"><a href="ch-r.html#sec-r-export-results"><i class="fa fa-check"></i><b>31.14</b> Export Results to Hard Drive</a></li>
+<li class="chapter" data-level="31.15" data-path="ch-r.html"><a href="ch-r.html#sec-r-plots"><i class="fa fa-check"></i><b>31.15</b> Create Plots</a></li>
+<li class="chapter" data-level="31.16" data-path="ch-r.html"><a href="ch-r.html#sec-r-loops"><i class="fa fa-check"></i><b>31.16</b> Iterations and Loops</a></li>
+<li class="chapter" data-level="31.17" data-path="ch-r.html"><a href="ch-r.html#sec-r-gdp-example"><i class="fa fa-check"></i><b>31.17</b> Example with GDP per Working Hours</a></li>
+<li class="chapter" data-level="31.18" data-path="ch-r.html"><a href="ch-r.html#sec-r-summary"><i class="fa fa-check"></i><b>31.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="ch-data-tools.html"><a href="ch-data-tools.html"><i class="fa fa-check"></i><b>32</b> Examples of Useful Data and Additional Tools</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-free-data"><i class="fa fa-check"></i><b>32.1</b> Examples of Free Data</a></li>
+<li class="chapter" data-level="32.2" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-other-tools"><i class="fa fa-check"></i><b>32.2</b> Other Tools That Are Good to Know About</a></li>
+</ul></li>
+<li class="part"><span><b>V Final Words</b></span></li>
+<li class="chapter" data-level="" data-path="part-final-words-intro.html"><a href="part-final-words-intro.html"><i class="fa fa-check"></i>Part V: Final Words</a></li>
+<li class="chapter" data-level="33" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html"><i class="fa fa-check"></i><b>33</b> Final Chapter</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-misconceptions"><i class="fa fa-check"></i><b>33.1</b> Common Misconceptions</a></li>
+<li class="chapter" data-level="33.2" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-further-reading"><i class="fa fa-check"></i><b>33.2</b> Things That Perhaps Should Have Been Included in This Book</a></li>
+<li class="chapter" data-level="33.3" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-last-word"><i class="fa fa-check"></i><b>33.3</b> The Last Word</a></li>
+</ul></li>
+<li class="divider"></li>
+<li></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Cheat Code: Essential Math and Statistics for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch-excel" class="section level1 hasAnchor" number="29">
+<h1><span class="header-section-number">Chapter 29</span> Microsoft Excel<a href="ch-excel.html#ch-excel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter introduces the computer program Microsoft Excel, hereafter simply Excel. The examples are written using the version of the program called Excel for Microsoft 365 with Windows 11 and English language settings. Excel may look and function slightly differently depending on your computer’s language settings. Name of functions and commands in Excel depend on language settings.</p>
+<div id="sec-excel-general" class="section level2 hasAnchor" number="29.1">
+<h2><span class="header-section-number">29.1</span> General about Excel<a href="ch-excel.html#sec-excel-general" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When we open Excel, we first see a screen where it is possible to choose what type of document we want to create, see the figure below. Select the option “Blank workbook”. You will now get a blank workbook that contains an empty worksheet, see the figure below. At the bottom left we see the tab “Sheet1”. Sheet1 is the empty worksheet. If we click on the circled plus sign next to the tab name Sheet1, a new tab is created: Sheet2.</p>
+<p><img src="images/excel%20screenshot%2001.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><em>Excel start screen</em></p>
+<p><img src="images/excel%20screenshot%2002.png" alt="" width="40%" style="display: block; margin: auto;" /></p>
+<p><em>Empty workbook</em></p>
+<p>Excel looks different depending on what language the program or computer is set to. The examples in this chapter are primarily in English. If your program is set to Swedish language, it will show “Blad1” instead of “Sheet1” at the bottom left of the workbook. To change the user language in Excel, go to File menu &gt; More… &gt; Options &gt; Language &gt; Office Display Language.</p>
+<p>There are several different ways to work in Excel. Excel supports several different types of programming languages, for example. Here we primarily describe how to work in the worksheets and using the menus. The boxes in Excel’s worksheets are called cells. The cells are numbered according to column and row. The top cell in the upper left is called A1. The cell to the right of this is B1. The cell below A1 is called A2, and so on. In the cells we can write numbers, letters, or mathematical calculations. Click on a cell to place the cursor in that cell. Write an equals sign and a mathematical expression. When we have finished writing the expression, we press the Enter key. A mathematical expression in a cell can look like this, for example: <code>=1+2</code>. After we press Enter, the cell changes to show the result of the mathematical expression: 3. Division where we divide 1 by 2 is written: <code>1/2</code>. Multiplication is written with an asterisk, for example: <code>1*2</code>. To calculate power expressions, such as <span class="math inline">\(2^{3}\)</span>, we write: <code>=2^3</code>.</p>
+<p>Computer programs distinguish between numbers and text strings. A text string can contain numbers, which are then perceived as text characters. We indicate that something is a text string by using quotation marks. Example: If we write <code>=13</code>, the program treats it as a number, a numeric value. If we write <code>="13"</code>, the program treats this as a text string.</p>
+<p>Computer programs generally understand information in a less flexible way than we humans do. For a computer, the words “human” and “Human” are different because in the latter we use a capital letter for H. This is called case-sensitive input.</p>
+<p>If we want to be sure about how the program handles information in a cell, we can change the cell’s data format by selecting one or more cells and right-clicking. In the menu that appears, we select “Format Cells…”. A new dialog box appears where we choose how Excel should handle information in the cell. For example, whether the information should be handled as text, a number with decimals, as a currency, a date, and so on.</p>
+<p>Changing the data format can also affect how the information in the cell is displayed, for example the number of decimals. Changing the number of decimals does not affect the information stored in the cell. If we change the format from, for example, a number to text, however, the actual content is also affected.</p>
+</div>
+<div id="sec-excel-import" class="section level2 hasAnchor" number="29.2">
+<h2><span class="header-section-number">29.2</span> Import and edit data<a href="ch-excel.html#sec-excel-import" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The workbook can be saved as a file on your computer’s hard drive. Excel has several proprietary file formats where .xlsx is the standard format for the type of exercises we will do in this chapter. In Excel’s worksheets, we see the data we are working with and we edit directly in the actual data material. This creates a significant risk that we might accidentally overwrite important information or change something that shouldn’t be changed. Therefore, be careful to continuously save your files in such a way that you can easily undo your work steps.</p>
+<p>Another common file format that Excel can read is .csv. The abbreviation csv stands for Comma-Separated Values. Csv files contain data tables where different observations are separated by a comma character.</p>
+<p>Data in csv files can also be separated by other types of characters, for example semicolons or tabs (a number of spaces). If we try to open a csv file in Excel, it is important that the program knows which character separates the data. Csv files are not unique to Excel but can be read by many other programs, including the two other analysis tools described in this book. There are also several other ways to import and export data to and from Excel from various types of sources, which there isn’t space to describe here. You can find more examples under the Data menu &gt; Get &amp; Transform Data.</p>
+<p>In Excel, we edit the information in each cell by placing the cursor on a cell or in the cell. We also select multiple cells and press Delete to erase the information in all these cells at once. If we press Ctrl + -, the entire cell or cells that are selected are deleted. When we delete one or more cells, the cells to the right or below the deleted cells move left or up to replace the deleted cells.</p>
+<p>We select entire rows by clicking on a row’s row number at the far left of the worksheet, and entire columns by clicking on the column’s letter at the top of the worksheet. If we delete an entire row, all rows below move up and replace the deleted row. If we delete a column, all columns to the right of this column move left and replace the deleted column. To select all cells in an area or a worksheet, we press Ctrl + A.</p>
+</div>
+<div id="sec-excel-functions" class="section level2 hasAnchor" number="29.3">
+<h2><span class="header-section-number">29.3</span> Worksheet functions<a href="ch-excel.html#sec-excel-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Excel’s cells, we can use Excel’s own worksheet functions. These functions are ready-made commands that perform different types of operations. Excel currently has 484 functions of this type. In this book, we only go through a small selection. Microsoft provides lists and descriptions of all functions on their website: <a href="https://support.microsoft.com/sv-se/excel" class="uri">https://support.microsoft.com/sv-se/excel</a></p>
+<p>All functions are written with the function’s name followed by parentheses. Example: <code>SUM()</code>. The function is called SUM. In the parentheses after the function’s name, we write the arguments that the function should use. For example <code>SUM(3,8)</code>. In this case, we have two arguments in the form of the numbers 3 and 8. Each argument is separated with a comma (,). If we place the cursor in a cell in our Excel sheet and write <code>=SUM(3,8)</code> and press Enter, the function returns the sum of 3+8, that is, the value 11. The cell then displays the value 11, but the function remains in the cell. If we click on the cell again, or select the cell and press F2, we may edit the function we used.</p>
+<p>Which arguments a function can use varies between different functions. The arguments can consist of references to other cells in Excel, in the same or another worksheet. The figure below shows an example with <code>SUM(A1,A2,A3)</code>. A1, A2, and A3 are interpreted by Excel as references to the corresponding cells. The function retrieves the value in each cell and calculates the sum. The SUM function is used in this example in cell A4, where the function’s result is returned.</p>
+<p>We can also refer to several adjacent cells as one and the same argument. The figure below shows an example where we use the command <code>=SUM(A1:A3)</code>. The colon indicates that we are referring to all cells from cell A1 through cell A3. Between cell A1 and A3, there is only cell A2, which is also included. When we write <code>SUM(A1:A3)</code>, the cells A1:A3 are used as one argument to the <code>SUM()</code> function. We do not use a comma to separate the reference to the cells. If we want to refer to the entire column A, we can instead write A:A, for example <code>SUM(A:A)</code>. If we refer to the entire column, we must write the command <code>=SUM(A:A)</code> in a cell that is not located in the same column A. If we write the command in a cell in column A, a circular reference is created. Circular reference refers to a cell that refers, among other things, to itself. Circular reference can also occur if a cell refers to a cell that indirectly refers to itself, for example through a third cell.</p>
+<p><img src="images/Excel1%20sum.png" alt="" width="45%" style="display: block; margin: auto;" /></p>
+<p><em>Each argument is a cell reference</em></p>
+<p><img src="images/Excel1%20sum%20b.png" alt="" width="45%" style="display: block; margin: auto;" /></p>
+<p><em>Multiple cells as one argument</em></p>
+<p>All worksheet functions in Excel have their own help pages. These are often worth reading and contain practical tips on how to use the function in different ways. To find a help section about a function, we can do one of the following:</p>
+<ul>
+<li>Go via Help menu &gt; Help. Search for the function’s name.</li>
+<li>Place the cursor in a cell and write the function’s name, don’t press Enter. Press F1.</li>
+<li>Place the cursor in a cell and write the function’s name. The program now shows a box just below the cell with some instructions for what type of arguments the function needs. Click with the cursor in this box on the function’s name.</li>
+</ul>
+<p>Excel has several functions for different types of mathematical operations. Here are some examples:</p>
+<ul>
+<li><code>ABS()</code>: Returns the absolute value of a number. Example: <code>ABS(-4)</code> returns result 4, since <span class="math inline">\(|-4|=4\)</span>.</li>
+<li><code>AVERAGE()</code>: Returns the average of a collection of numbers. Example: <code>AVERAGE(4,5,12)</code> returns the value 7.</li>
+<li><code>MEDIAN()</code>: Returns the median of a collection of numbers. Example: <code>MEDIAN(4,5,12)</code> returns the value 5.</li>
+<li><code>LOG()</code>: Returns the base-10 logarithm of a number. Example: <code>LOG(100)</code> returns result 2, since <span class="math inline">\(\log_{10}100=2\)</span> and <span class="math inline">\(10^{2}=100\)</span>. If we want, we can specify a different base than 10 as the second argument in the function. Example: <code>LOG(100,2)</code> returns the logarithm for the number 100 with base 2, which is approximately 6.644.</li>
+<li><code>LN()</code>: Returns the logarithm of a number with base e, the natural logarithm. Example: <code>LN(10)</code> returns result approximately 2.3, since <span class="math inline">\(\ln 10 \approx 2.3\)</span>.</li>
+<li><code>SUMPRODUCT()</code>: Returns the sum of products of two or more collections of values. See example in the section on combining functions below.</li>
+<li><code>FACT(a)</code> where a &gt; 0. Returns a factorial. Example: <code>FACT(3)</code> = <span class="math inline">\(3! = 3*2*1\)</span>.</li>
+<li><code>PERMUT(a,b)</code> where a and b are arbitrary numbers and a &gt; b. Returns the number of permutations: <span class="math inline">\(\frac{a!}{\left(a-b\right)!}\)</span>.</li>
+</ul>
+</div>
+<div id="sec-excel-fill-cells" class="section level2 hasAnchor" number="29.4">
+<h2><span class="header-section-number">29.4</span> Quick ways to fill multiple cells<a href="ch-excel.html#sec-excel-fill-cells" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Often we want to calculate several similar results next to each other. Several sums or several logarithmic values. This section goes through some examples of how we can do this. All Excel functions we use in this book can use information from another cell as arguments.</p>
+<p>Some functions are designed to use a value, for example from a cell, to return a result. Above we used, for example, the <code>LOG()</code> function which returns the logarithm of a number. If we nevertheless specify multiple values as arguments, the function can still return multiple results, but then in separate cells. The figure below shows an example where we have three numbers in column A. In cell B1 we write <code>LOG(A1:A3)</code> which retrieves the information in cells A1 to A3 as an argument to the <code>LOG()</code> function. When we press Enter, the program returns the results from the function in cells B1, B2, and B3. In cell B1 we get the result <span class="math inline">\(\log_{10}10=1\)</span>. In cell B2 we get <span class="math inline">\(\log_{10}100=2\)</span>, in cell B3 we get <span class="math inline">\(\log_{10}1000=3\)</span>.</p>
+<p><img src="images/Excel1%20log%20flera%20celler.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="images/Excel1%20log%20flera%20celler%202.png" alt="" width="40%" style="display: block; margin: auto;" /></p>
+<p><em>Reference multiple cells at the same time</em></p>
+<p>Some functions are designed to use multiple values as one argument, for example as we described that the <code>SUM()</code> function calculates the sum of a collection of numbers. If we refer to three cells in the parentheses of <code>SUM()</code>, we get the sum of the values in those cells. Sometimes, however, we want to calculate the sum of different combined values next to each other.</p>
+<p>The figure below shows an example where we want to calculate the sum of the cells in rows 1 to 3 in each respective column. One way to get one sum per column is to select the cells in row 5 in the columns we want to calculate the sum for, in this case columns A to D. Without clicking anywhere, we then begin typing the content we want in cell A5: <code>=SUM(A1:A3)</code>. Press Ctrl + Enter. Now cells B5, C5, and D5 are also filled with the <code>SUM()</code> function and references to the cells in rows 1 to 3 in each respective column.</p>
+<p><img src="images/Excel1%20matrisfunktion%20SUMMA.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>One sum per column</em></p>
+</div>
+<div id="sec-excel-combining-functions" class="section level2 hasAnchor" number="29.5">
+<h2><span class="header-section-number">29.5</span> Combining functions within calculations<a href="ch-excel.html#sec-excel-combining-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A weighted average for variable <span class="math inline">\(X\)</span> can be calculated as <span class="math inline">\(\bar{X}_{\text{weighted}}=\frac{\sum_{i}^{n}x_{i}v_{i}}{\sum_{i}^{n}v_{i}}\)</span> where <span class="math inline">\(x_{i}\)</span> is the value for observation <span class="math inline">\(i\)</span> and <span class="math inline">\(v_{i}\)</span> is the weight for this observation. Say that the two school classes A and B have 10 and 20 students respectively. On the latest math test, the students in the two classes scored 32 and 42 points respectively. The weighted average of their test results:</p>
+<p><span class="math display">\[\bar{X}_{\text{weighted}}=\frac{\sum_{i}^{n}x_{i}v_{i}}{\sum_{i}^{n}v_{i}}=\frac{10*32+20*42}{10+20}=\frac{1160}{30}\approx38.7\]</span></p>
+<p>Now we will use Excel to calculate a weighted average. Excel has no ready-made function for this, but we can combine the <code>SUMPRODUCT()</code> and <code>SUM()</code> functions. In the numerator of the equation above we have the sum of products <span class="math inline">\(\sum_{i}x_{i}v_{i}\)</span> and in the denominator we have the sum <span class="math inline">\(\sum_{i}v_{i}\)</span>.</p>
+<p>The figure below shows an example of how it can look in Excel. Column B contains the test scores for classes A and B. Column C contains the number of students. In cell E4 we calculate the sum of products in the numerator. In cell E5 we calculate the sum in the denominator. In cell E6 the weighted average is calculated by combining the two functions. In the parentheses of <code>SUMPRODUCT()</code> we refer as the first argument to cells B2:B3. As the second argument we refer to cells C2 and C3. The <code>SUMPRODUCT()</code> function then calculates the following expression: 32 * 10 + 42 * 20 = 1160. If we divide this by the sum of the weights 10 + 20, the result is approximately 38.7. This is the result we calculate in cell E6.</p>
+<p><img src="images/Excel1%20viktat%20medel.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Calculate a weighted mean</em></p>
+<p>We can also combine functions by writing one or more functions in the parentheses of another function. The figure below shows an example. In cells A1, A2, and A3 we have the values 10, 100, and 1000. We want to use the base-10 logarithm of each value and calculate the sum of the logarithmic values. In cell B4 we write <code>=SUM(LOG(A1:A3))</code> and get the result 6:</p>
+<p><span class="math display">\[\log10+\log100+\log1,000=1+2+3=6\]</span></p>
+<p><img src="images/Excel1%20funk%20i%20funk.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Example of a function within a function</em></p>
+</div>
+<div id="sec-excel-logic" class="section level2 hasAnchor" number="29.6">
+<h2><span class="header-section-number">29.6</span> Logic conditions<a href="ch-excel.html#sec-excel-logic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In data analysis, we often use logical conditions. A logical condition is true or false. With numbers, we can describe it as the condition being either 1 (true) or 0 (false). Excel’s <code>IF()</code> function checks whether a logical condition is met and returns a value based on that. We can define which value the function should return if the condition is true or false.</p>
+<p>The figure below shows an example where we have a collection of numbers in column A. In column B we use the <code>IF()</code> function to test the logical condition of whether the value in column A is under 10. We refer to all cells A1 to A7 simultaneously, see the section on filling multiple cells above. Depending on whether the logical condition is true or false, the function returns the values “yes” or “no” in cells B1 to B7.</p>
+<p><img src="images/Excel1%20logiskt%20villkor%20med%20OM.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Example with function IF()</em></p>
+<p>The <code>SUMIF()</code> function calculates the sum of a collection of values if these values meet a logical condition. The figure below shows an example where we sum the values in column A that are less than 10. The <code>SUMIF()</code> function needs three arguments:</p>
+<ol style="list-style-type: decimal">
+<li>The cells for which the condition should be tested. In this case: A1 to A7.</li>
+<li>The condition. This is formulated with quotation marks. In this case <code>"&lt;10"</code>. If we want to check whether the cells are equal to the value 10, we write only the value itself: <code>"10"</code>.</li>
+<li>Cells that should be summed. In this case: A1 to A7.</li>
+</ol>
+<p><img src="images/Excel1%20SUMMA.OM.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Example with function SUM.IF()</em></p>
+<p>The figure above shows an example where we calculate the sum of the values in column A that are less than 10. The answer is returned in cell B1. The sum in this case becomes 8 + 6 = 14.</p>
+<p>If we want to calculate a sum with multiple conditions, we can use the <code>SUMIFS()</code> function. The first argument is the range to be summed, after which we can add any number of conditions and condition ranges. This is useful, for example, if we have values that are grouped at multiple levels. For example, a list of employees (column A) at a company who work in different departments (column B) with different job tasks (column C) and we want to calculate the sum of salaries (column D) per department and job task.</p>
+<p>Above we described the <code>AVERAGE()</code> function for calculating averages. Averages can also be calculated with conditions, for which we can use the <code>AVERAGEIF()</code> and <code>AVERAGEIFS()</code> functions, which work in the same way as <code>SUMIF()</code> and <code>SUMIFS()</code>.</p>
+</div>
+<div id="sec-excel-index" class="section level2 hasAnchor" number="29.7">
+<h2><span class="header-section-number">29.7</span> Calculate index with Excel<a href="ch-excel.html#sec-excel-index" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To compare relative differences in, for example, a time series with values, we can use an index with a base year. The base year’s value can, for example, be 100. Index for year t is calculated as:</p>
+<p><span class="math display">\[\text{Index}_{t}=\frac{\text{Value}_{t}}{\text{Value}_{\text{base year}}}*100\]</span></p>
+<p>In Excel, we can calculate this by referring to cells with our time series and using division and multiplication. The figure below shows an example where we have years in column A and data on Sweden’s GDP in column B. In column C we write the formulas for our index. Column D shows the result with two decimal places.</p>
+<p><img src="images/Excel1%20ber%C3%A4kna%20index.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Calculate an index</em></p>
+<p>There are several ways to make this calculation faster and more convenient. We start by writing the formula in cell C2: <code>=B2/ $B$ 2*100</code>. This gives the result 100, which is shown in cell D2. The reason we use dollar signs $here is to be able to fill in the rest of the cells in column C faster. To fill in the other cells in column C, we start by selecting cells C3 to C6 in one of the following ways:</p>
+<ul>
+<li>Use the mouse cursor to select cell C3, hold down the mouse button and drag to cell C6 so C3:C6 is selected.</li>
+<li>Use the mouse cursor to select cell C3. Release the mouse. Hold down the Shift key and use the mouse cursor to click on C6. Now all three cells C3:C6 are selected.</li>
+<li>Select cell C3. Release the mouse. Hold down the Shift key and press the Down arrow key until we reach cell C6.</li>
+</ul>
+<p>When cells C3 to C6 are selected, press Ctrl + D. The keyboard shortcut Ctrl + D copies the formula in cell C3 to the other cells and changes the references to the corresponding cells in column B. The numerator in the fraction, which we wrote as B2, changes for each row to B3 on row 3, B4 on row 4, and so on. The dollar sign means that the cell reference <code>$B$ 2</code> in the denominator is locked and remains the same even in the other cells, which we want because this is the base year. If we want to do the same type of copying in cells to the right of the leftmost cell in a selection, we can use the keyboard shortcut Ctrl + R.</p>
+<p>Another way to achieve the same thing is to first select cells C3:C6. Then begin, without selecting any other cell, typing the equation <code>=B2/ $B$ 2*100</code>. Press Ctrl + Enter, whereupon all cells are filled with the corresponding equation where the cell reference B2 is updated in the other cells but <code>$B$ 2</code> is locked and remains the same.</p>
+</div>
+<div id="sec-excel-matrices" class="section level2 hasAnchor" number="29.8">
+<h2><span class="header-section-number">29.8</span> Matrix calculations<a href="ch-excel.html#sec-excel-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A matrix is a collection of values organized in a row, a column, or in multiple rows and columns. In accordance with the calculation rules for matrices, there are special functions in Excel for calculating with matrices. To add or subtract two matrices, we can use regular mathematical operations in a similar way to what we have gone through above. The figure below shows an example with matrix A in cell A1:B2 and matrix B in cell D1:E2. Note that we now use a colon to describe ranges between two cells in different columns and on different rows.</p>
+<p>To subtract matrix A-B, we select cell D4:E5. It is in this <span class="math inline">\(2\times2\)</span> field that we will get the result of the calculation. Without moving the cursor, we then write <code>=A1-D1</code> and press Ctrl + Enter. Although what we wrote appears in cell D4, cells D5, E4, and E5 are now automatically filled with corresponding references to matrix A and B. The figure below shows only the formulas. The result becomes a <span class="math inline">\(2\times2\)</span> matrix with the value -4 in each cell:</p>
+<p><span class="math display">\[A-B=\left[\begin{matrix}1 &amp; 2\\ 3 &amp; 4\end{matrix}\right]-\left[\begin{matrix}5 &amp; 6\\ 7 &amp; 8\end{matrix}\right]=\left[\begin{matrix}-4 &amp; -4\\ -4 &amp; -4\end{matrix}\right]\]</span></p>
+<p><img src="images/Excel1%20matris%20subtrahera.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Subtract matrix <span class="math inline">\(A-B\)</span></em></p>
+<p>Given that the number of rows in A equals the number of columns in B, we can calculate the matrix product AB:</p>
+<p><span class="math display">\[AB=\left[\begin{matrix}1 &amp; 2\\ 3 &amp; 4\end{matrix}\right]\left[\begin{matrix}5 &amp; 6\\ 7 &amp; 8\end{matrix}\right]=\left[\begin{matrix}1*5+2*7 &amp; 1*6+2*8\\ 3*5+4*7 &amp; 3*6+4*8\end{matrix}\right]=\left[\begin{matrix}19 &amp; 22\\ 43 &amp; 50\end{matrix}\right]\]</span></p>
+<p>Matrix multiplication can be performed with Excel’s <code>MMULT()</code> function. In the parentheses of <code>MMULT()</code> we specify two arguments with references to the cells that contain the values for the two matrices we want to multiply. The figure below shows an example where we matrix multiply the values in the four cells A1:B2 (matrix A) with the four cells D1:E2 (matrix B). The <code>MMULT()</code> function is used in cell D4, where the first argument in the parentheses is A1:B2 and the second argument is D1:E2. The arguments are separated as usual with a comma. The result becomes a new <span class="math inline">\(2\times2\)</span> matrix, whose values will be shown in the four cells D4:E5.</p>
+<p><img src="images/Excel1%20MMULT.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Matrix multiplication with MMULT()</em></p>
+<p>We can transpose a matrix with the <code>TRANSPOSE()</code> function by specifying in the function’s parentheses the matrix we want to transpose. We can calculate the inverse of a matrix with the <code>MINVERSE()</code> function, specifying in the parentheses the matrix for which we want to calculate the inverse matrix. The figure below shows an example where we transpose the <span class="math inline">\(2\times2\)</span> matrix in cells A1:B2. The result will be shown in D1:E2. The figure after that shows an example where we use the <code>MINVERSE()</code> function to calculate the inverse matrix of the <span class="math inline">\(2\times2\)</span> matrix in cells A1:B2. The result will be shown in cells D1:E2.</p>
+<p><img src="images/Excel1%20TRANSPONERA.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Transpose matrix with TRANSPOSE()</em></p>
+<p><img src="images/Excel1%20MINVERT.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Calculate inverse matrix with MINVERT()</em></p>
+<div id="solving-a-system-of-equations" class="section level3 hasAnchor" number="29.8.1">
+<h3><span class="header-section-number">29.8.1</span> Solving a system of equations<a href="ch-excel.html#solving-a-system-of-equations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Say now that we have the following system of equations:</p>
+<p><span class="math display">\[\begin{cases}x_{1}-2x_{2} &amp; =3\\ 4x_{1}+5x_{2} &amp; =6\end{cases}\]</span></p>
+<p>This system has the unique solution <span class="math inline">\(x_{1}^{*}=\frac{27}{13},\, x_{2}^{*}=-\frac{6}{13}\)</span>. There are several ways we can use Excel to help find these solutions. One way is to use matrix calculations. Let us write the system of equations with matrices:</p>
+<p><span class="math display">\[KX=Y \quad \left[\begin{matrix}1 &amp; -2\\ 4 &amp; 5\end{matrix}\right]\left[\begin{matrix}x_{1}\\ x_{2}\end{matrix}\right]=\left[\begin{matrix}3\\ 6\end{matrix}\right]\]</span></p>
+<p>The solution can now be given by matrix multiplying both sides with the inverse matrix <span class="math inline">\(K^{-1}\)</span>:</p>
+<p><span class="math display">\[K^{-1}KX=K^{-1}Y \quad \left[\begin{matrix}x_{1}\\ x_{2}\end{matrix}\right]=\left[\begin{matrix}\frac{27}{13}\\ -\frac{6}{13}\end{matrix}\right]\]</span></p>
+<p>The figure below shows how we can calculate these matrices in Excel. Cells A2:B3 contain matrix K. Cells D2:D3 contain matrix <span class="math inline">\(Y\)</span>. Cell A6:B7 contains the inverse matrix <span class="math inline">\(K^{-1}\)</span> and cell D6:D7 contains <span class="math inline">\(Y^{*}=K^{-1}Y\)</span>.</p>
+<p><img src="images/excel1%20ekvsys%201.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Solving systems of equations with matrix algebra</em></p>
+<p>Excel also has functions in the menus that we can use to solve equations with unknown variables. Say as an example that we want to find the value for x in the following polynomial:</p>
+<p><span class="math display">\[x^{3}+4x^{2}-10x=30\]</span></p>
+<p>For this we can use Excel’s Goal Seek function, which we access by clicking on the Data menu &gt; What-If Analysis &gt; Goal Seek… The Goal Seek dialog box opens, where we must fill in three values. Set cell: the equation we want to solve. To value: the value that the equation should equal, in this case 30. By changing cell: the cell that we use as a reference for the variable <span class="math inline">\(x\)</span>. The figure below shows an example where we have entered the left side of the equation above, that is, without =30. Instead of x we refer to the empty cell B4. If we click OK, Excel searches for the solution.</p>
+<p><img src="images/Excel1%20m%C3%A5ls%C3%B6kning.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Goal seek</em></p>
+</div>
+</div>
+<div id="sec-excel-io" class="section level2 hasAnchor" number="29.9">
+<h2><span class="header-section-number">29.9</span> Input-output analysis<a href="ch-excel.html#sec-excel-io" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Matrices can be used for input-output analysis and network analysis, among other things. Input-output analysis often starts from flow tables that describe how companies in different industries in an economy produce input goods for their own and other industries in the economy, as well as goods and services for final consumption. We call the flow matrix Z. We take the multiplicative inverse of total production for industry j that goes to input goods and final consumption per industry, as <span class="math inline">\(\frac{1}{s_{j}}\)</span>. These inverses for all industries we collect in matrix <span class="math inline">\(S_{m}\)</span>. From this we can define matrix <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[A=Z*\text{diag}\left(S_{m}\right)\]</span></p>
+<p>where <span class="math inline">\(\text{diag}\left(S_{m}\right)\)</span> is a diagonal matrix with the multiplicative inverse of total production per industry along the diagonal. We define matrix <span class="math inline">\(C\)</span> as a column matrix with the production per industry that goes to final consumption. The total production required from industry <span class="math inline">\(j\)</span> for all input goods and final consumption we call <span class="math inline">\(y_{j}\)</span>. We collect the values for this for all industries in matrix <span class="math inline">\(Y\)</span> and write:</p>
+<p><span class="math display">\[\begin{align}Y &amp; =AY+SY-AY\\ &amp; =S\left(I-A\right)Y\\ &amp; =SY\\ &amp; =\left(I-A\right)^{-1}S\end{align}\]</span></p>
+<p>where <span class="math inline">\(I\)</span> is an identity matrix with the same dimensions as <span class="math inline">\(A\)</span>. The values in Y are the total production required for this economy taking into account both input goods and final consumption. We call <span class="math inline">\(B=\left(I-A\right)^{-1}\)</span> where <span class="math inline">\(B\)</span> has the same dimensions as <span class="math inline">\(A\)</span>. The sum of column <span class="math inline">\(j\)</span> in <span class="math inline">\(B\)</span> is the output multiplier for industry <span class="math inline">\(j\)</span>. The sum of row <span class="math inline">\(j\)</span> in <span class="math inline">\(B\)</span> is the input multiplier for industry <span class="math inline">\(j\)</span>. These things we can calculate in Excel using the functions we used above.</p>
+<p>The figure below shows an example with the matrices:</p>
+<p><span class="math display">\[Z=\left[\begin{matrix}2 &amp; 1\\ 1 &amp; 3\end{matrix}\right],\,C=\left[\begin{matrix}3\\ 3\end{matrix}\right],\,S=\left[\begin{matrix}6\\ 7\end{matrix}\right]\]</span></p>
+<p><img src="images/Excel1%20matris%20IO1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Input-output analysis with Excel, step 1</em></p>
+<p>We calculate:</p>
+<p><span class="math display">\[A=Z*\text{diag}\left(S_{m}\right)=\left[\begin{matrix}2 &amp; 1\\ 1 &amp; 3\end{matrix}\right]*\left[\begin{matrix}\frac{1}{6} &amp; 0\\ 0 &amp; \frac{1}{7}\end{matrix}\right]=\left[\begin{matrix}\frac{1}{3} &amp; \frac{1}{7}\\ \frac{1}{6} &amp; \frac{3}{7}\end{matrix}\right]\]</span></p>
+<p>Then we can calculate:</p>
+<p><span class="math display">\[B=\left(I-A\right)^{-1}=\left[\begin{matrix}\frac{2}{3} &amp; -\frac{1}{7}\\ -\frac{1}{6} &amp; \frac{4}{7}\end{matrix}\right]^{-1}=\left[\begin{matrix}\frac{8}{5} &amp; \frac{2}{5}\\ \frac{7}{15} &amp; \frac{28}{15}\end{matrix}\right]\]</span></p>
+<p>From this matrix we can then calculate the column and row sums to get the output and input multipliers for each industry. Total production required from each industry is given by column matrix <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[Y=\left(I-A\right)^{-1}S=\left[\begin{matrix}\frac{8}{5} &amp; \frac{2}{5}\\ \frac{7}{15} &amp; \frac{28}{15}\end{matrix}\right]*\left[\begin{matrix}6\\ 7\end{matrix}\right]=\left[\begin{matrix}12.4\\ 15.9\end{matrix}\right]\]</span></p>
+<p>The figure below shows the calculations for matrix <span class="math inline">\(B\)</span> and <span class="math inline">\(Y\)</span>, where we use the same functions as before.</p>
+<p><img src="images/Excel1%20matris%20IO2.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Input-output analysis with Excel, step 2</em></p>
+</div>
+<div id="sec-excel-variance" class="section level2 hasAnchor" number="29.10">
+<h2><span class="header-section-number">29.10</span> Variance and covariance<a href="ch-excel.html#sec-excel-variance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If we want to calculate how a collection of values is distributed, we can calculate the frequency distribution, among other things — the number of observations per unique value or the number of observations within different intervals, for example using the <code>FREQUENCY()</code> function. The figure below shows an example. In column A we have variable x which contains a collection of values, all between 0 and 1. In column B we use the <code>UNIQUE()</code> function, which returns the unique values from the numbers in column A. The unique values in this case are 0.1, 0.2, 0.3, …, 0.9 and 1. The results will be shown in cells B2:B11. In column C we use the <code>FREQUENCY()</code> function to count the number of occurrences in column A of each respective value in column B. The result is shown in the chart to the right in the image.</p>
+<p><img src="images/Excel%20frekvens1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Frequency distribution</em></p>
+<p>We have described above the <code>AVERAGE()</code> function for mean, and the <code>MEDIAN()</code> function. Mode describes the value in a collection that occurs most frequently. For example, among the values 3, 3, 15, 27, the mode is 3, because it occurs twice and the other values only occur once each. In Excel, mode can be calculated with the <code>MODE.SNGL()</code> function. In the parentheses we are required to specify cells or values on which the mode should be calculated. Example: <code>MODE.SNGL(A:A)</code> returns the most common value in column A.</p>
+<p>If there are multiple values that occur most frequently in a collection, we can use the <code>MODE.MULT()</code> function. If we use this function as usual in a cell, it returns the mode for a collection of numbers. The figure below shows an example with <code>MODE.MULT()</code>. In column A we have the values 4, 5, 5, 6, 6, 6, 5. The values 5 and 6 occur three times each.</p>
+<p>To show multiple modes, we select cells B1 to B4. Without clicking anywhere else, we now write <code>=MODE.MULT(A:A)</code>. Press Ctrl + Shift + Enter. This command creates what is called an array formula. When <code>MODE.MULT()</code> is used as an array formula, it returns multiple modes, if there are multiple. If only one value in the collection is most common, the function returns the same value in all cells.</p>
+<p>The result is shown in cells B1 to B4. Since the values 5 and 6 are most common with three occurrences each, these are shown in cells B1 and B2. In the collection of values, only one other value occurs, 4, once. Since no other values occur as frequently as the numbers 5 and 6 in the collection, the value #N/A! is returned in cells B3 and B4.</p>
+<p><img src="images/Excel1%20matrisfunktion%20TYPV%C3%84RDE%20FLERA.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Example with MODE.MULT()</em></p>
+<p>A common type of measure of dispersion is percentiles, deciles, and quartiles. A percentile divides a collection of values into 100 equal parts. The 10th percentile is greater than 10 percent of the values in the collection and less than 90 percent. Deciles instead divide the collection into ten equal parts. The 10th percentile is the same as the 1st decile. The 9th decile is the same as the 90th percentile. Quartiles divide the collection of values into four equal parts. The 25th percentile is the same as the 1st quartile. The 50th percentile is the same as the 2nd quartile, 5th decile, and the median.</p>
+<p>In Excel, we can calculate percentiles, deciles, and quartiles with the <code>PERCENTILE.INC()</code> and <code>PERCENTILE.EXC()</code> functions. Both of these functions calculate percentiles. In the parentheses of the functions, we must specify two arguments: First, the values on which the percentiles should be calculated, or a reference to the cells that contain the values. The second argument should be a value that defines which percentile we want to return, by specifying a value between 0 and 1.</p>
+<p>The difference between the functions is that for <code>PERCENTILE.INC()</code> we can specify the values 0 and 1 and all decimals in between. If we specify 0, we get the lowest value in the collection, and if we specify 1, we get the highest value in the collection. For <code>PERCENTILE.EXC()</code>, the boundary values 0 and 1 are excluded. We must instead specify a decimal value that at least gives us the next value above or below the boundary values.</p>
+<p>The figure below shows an example where we have a collection of values in column A. In column B we calculate using the <code>PERCENTILE.INC()</code> function the 0th, 10th, 25th, 50th, 75th, and 90th percentiles in cells B2 to B8. The results that the functions return are also pasted in cells B11 to B17.</p>
+<p><img src="images/Excel1%20PERCENTIL.INK.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Calculate percentiles with PERCENTILE.INC()</em></p>
+<p>If we want to estimate the variance for a sample from a population, we can use the <code>VAR.S()</code> function. If the observations we have access to are population data, we can instead use the <code>VAR.P()</code> function. The corresponding functions for estimating standard deviation are <code>STDEV.S()</code> for sample data and <code>STDEV.P()</code> for population data. In the parentheses for each respective function, we specify the values, or reference to cells with the values, that we want to perform the analysis on. For example: <code>VAR.S(1,2,3)</code> or <code>VAR.S(A:A)</code>.</p>
+<p>Excel also has several functions for estimating covariation. To estimate the covariance between two variables, we can use the <code>COVARIANCE.P()</code> function if we have population data and the <code>COVARIANCE.S()</code> function if we have sample data. The figure below shows an example where we estimate the covariance between variables X and Y. Data for the variables can be found in cells A2:B5. We enter <code>COVARIANCE.S()</code> in cell D2 and specify in the parentheses references to the variables’ data in cells A2:A5 and B2:B5 respectively.</p>
+<p><img src="images/Excel1%20kovarians.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Covariance with COVARIANCE.S()</em></p>
+<p>To estimate the correlation coefficient, Pearson’s r, we can use the <code>CORREL()</code> function. In the parentheses we specify references to the values for the two variables we want to estimate the covariation between. The figure below shows an example where we estimate the correlation coefficient between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>. We enter <code>CORREL()</code> in cell D2 and refer to data in cells A1:A5 and B1:B5 respectively.</p>
+</div>
+<div id="sec-excel-probability" class="section level2 hasAnchor" number="29.11">
+<h2><span class="header-section-number">29.11</span> Probability<a href="ch-excel.html#sec-excel-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Excel has several ready-made functions for calculating probabilities based on some of the most well-known probability distributions. To calculate probabilities for a random variable that follows a normal distribution, we can for example use the <code>NORM.DIST()</code> function. The function has four arguments: the input value x, the distribution’s mean, the distribution’s standard deviation, and a logical argument regarding whether we want to use the normal distribution’s cumulative distribution function <span class="math inline">\(F\left(x\right)\)</span> or density function <span class="math inline">\(f\left(x\right)\)</span>.</p>
+<p>The figure below shows an example where we use <code>NORM.DIST()</code> in two columns, one for the cumulative distribution function and one for the density function. In all cells we specify mean 0 and standard deviation 1, that is, the standard normal distribution. In column A we find the input values for x: -3 to 3. The figure shows the formulas in all cells in columns B and C. In the charts below these cells we can see the returned values illustrated in a chart for the cumulative distribution function (left) and one for the density function (right).</p>
+<p><img src="images/Excel1%20korrel.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>Correlation with CORREL()</em></p>
+<p><img src="images/Excel1%20normalf%C3%B6rd1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Calculate probabilities for the normal distribution</em></p>
+<p>If we want to know which value <span class="math inline">\(x\)</span> corresponds to a specified probability in the normal distribution’s cumulative distribution function <span class="math inline">\(F\left(x\right)\)</span>, we can use Excel’s <code>NORM.INV()</code> function. The function has three arguments: a value for the probability, the distribution’s mean, and the distribution’s standard deviation. Say as an example that we have a standard normal distribution, like the example in the figure above. Since the mean marks half of the probability distribution, <span class="math inline">\(x=0\)</span> gives that the cumulative distribution function <span class="math inline">\(F\left(0\right)=0.5\)</span>. If we want to know which value for <span class="math inline">\(x\)</span> gives this cumulative probability, we write <code>=NORM.INV(0.5, 0, 1)</code> in a cell in our worksheet and press Enter.</p>
+<p>There are several functions that correspond to <code>NORM.DIST()</code> but for other probability distributions. If we want to work with the standard normal distribution and avoid having to specify mean and standard deviation, we can use the <code>NORM.S.DIST()</code> function.</p>
+<p>The <code>T.DIST()</code> function returns the probability for a left-tailed t-distribution based on three arguments: variable value x, degrees of freedom, and whether the function should return values for the distribution function (TRUE) or density function (FALSE). The corresponding function for getting probabilities for a right-tailed t-distribution is <code>T.DIST.RT()</code>, which only has two arguments: variable value x and degrees of freedom.</p>
+<p>The <code>T.DIST.2T()</code> function returns the probability for a two-tailed t-distribution based on two arguments: variable value x and degrees of freedom. To instead obtain the variable value x that corresponds to a specified probability for a two-tailed t-distribution, we can use the <code>T.INV.2T()</code> function. This function has two arguments: probability and degrees of freedom. If we for example write <code>T.INV.2T(0.05, 300)</code>, the function returns approximately 1.9679. If we then specify <code>T.DIST.2T(1.9679, 300)</code> based on this, this function in turn returns the value 0.05. That is, 5 percent.</p>
+<table>
+<caption>Probability distributions in Excel</caption>
+<colgroup>
+<col width="49%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Probability Distribution</strong></th>
+<th align="left"><strong>Example Functions in Excel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Binomial distribution</td>
+<td align="left">BINOM.DIST()</td>
+</tr>
+<tr class="even">
+<td align="left">Poisson distribution</td>
+<td align="left">POISSON.DIST()</td>
+</tr>
+<tr class="odd">
+<td align="left">Exponential distribution</td>
+<td align="left">EXPON.DIST()</td>
+</tr>
+<tr class="even">
+<td align="left">Gamma distribution</td>
+<td align="left">GAMMA.DIST()</td>
+</tr>
+<tr class="odd">
+<td align="left">Chi-square distribution</td>
+<td align="left">CHISQ.DIST(), CHISQ.DIST.RT(), CHISQ.INV(), CHISQ.INV.RT()</td>
+</tr>
+<tr class="even">
+<td align="left">F-distribution</td>
+<td align="left">F.DIST(), F.DIST.RT(), F.INV(), F.INV.RT()</td>
+</tr>
+<tr class="odd">
+<td align="left">Normal distribution</td>
+<td align="left">NORM.DIST(), NORM.INV()</td>
+</tr>
+<tr class="even">
+<td align="left">T-distribution</td>
+<td align="left">T.DIST(), T.DIST.RT(), T.DIST.2T(), T.INV.2T()</td>
+</tr>
+</tbody>
+</table>
+<p>The table above describes examples of other functions in Excel for various common probability distributions. See each function’s help section for more information about how that particular function works. Excel has no ready-made functions for uniform probability distributions.</p>
+<p>Excel also has ready-made functions for statistical tests based on several common probability distributions. The normal distribution is symmetric with half of the probability distribution below and above the mean respectively. This means that the distribution function <span class="math inline">\(F\left(-x\right)=1-F\left(x\right)\)</span>. For a one-tailed statistical test with the normal distribution and confidence level <span class="math inline">\(\alpha=0.05\)</span>, we set the critical value in one tail so that the calculated statistic must be greater than 95% of the distribution. For a two-tailed test with the same <span class="math inline">\(\alpha\)</span>, the critical value in each respective tail corresponds to <span class="math inline">\(\alpha/2=0.025\)</span>, which means that the critical region in each respective tail corresponds to 2.5% of the distribution.</p>
+<p>Say as an example that we have two normally distributed variables with means <span class="math inline">\(\bar{X}_{1}=83.95\)</span> and <span class="math inline">\(\bar{X}_{2}=80.38\)</span> with variance (standard deviation squared) <span class="math inline">\(s_{1}^{2}=1.663\)</span> and <span class="math inline">\(s_{2}^{2}=1.032\)</span> and <span class="math inline">\(n_{1}=n_{2}=3\)</span>. We use a z-test (based on the standardized normal distribution) to calculate the probability that these two variables come from the same population with the same mean:</p>
+<p><span class="math display">\[z=\frac{\bar{X}_{1}-\bar{X}_{2}}{\left(\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}\right)^{\frac{1}{2}}}\approx\frac{83.95-80.38}{\left(\frac{1.032}{3}+\frac{1.663}{3}\right)^{\frac{1}{2}}}\approx3.767\]</span></p>
+<p>which we can compare against the standard normal distribution’s distribution function. Our calculated z-value is so far from the mean that the probability that the two samples would come from a population with the same mean is under one hundredth of a percent. The figure below shows how we can calculate this with Excel. Rows 2 to 5 contain information from samples for variables <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span>. In cell B7 we calculate the z-value above. In cell B8 we calculate the p-value by taking <span class="math inline">\(1-F\left(z\right)\)</span> where <span class="math inline">\(z=3.767\)</span>, which gives <span class="math inline">\(p\approx0.000083\)</span>. That is, the probability that the two populations have the same mean is very low.</p>
+<p><img src="images/Excel1%20ztest1.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><em>Z test</em></p>
+<p>Excel also has statistical functions that we can access through the menus. For the next step we first need to install the Analysis ToolPak add-in. Go to the File menu &gt; Options. The Excel Options dialog box opens. Select the Add-ins tab. Under the Manage menu, select Excel Add-ins. Click Go… and check the box for Analysis ToolPak. Click OK. Now we have more tools for statistical analysis, including the Data Analysis dialog box. Go to the Data menu &gt; Data Analysis. A dialog box opens. Select “z-Test: Two Sample for Means”. Click OK. A new dialog window opens, see the figure below.</p>
+<p><img src="images/excel1%20ztest%20meny1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Z-test via dialog interface</em></p>
+<p>In the worksheet we have three observations for <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> respectively in cells B2:B4 and C2:C4. In the dialog window for the z-test, we enter in the Variable 1 Range box a reference to the cells that contain the observations for <span class="math inline">\(X_{1}\)</span>: B2:B4. In the Variable 2 Range box we enter a reference to the observations for <span class="math inline">\(X_{2}\)</span>: C2:C4. In the Hypothesized Mean Difference box we enter the difference we want to test whether it exists between the two variables. In this case we enter 0 since we want to compare whether the two samples come from the same population and therefore have the same mean. In the variance boxes we enter the variance for each respective variable, which in this example is specified in cells B7 and C7 respectively. Under Output options we can choose where the results should be pasted. If we specify cell E2, the results are displayed in the same worksheet, see the figure below.</p>
+<p><img src="images/excel1%20ztest%20meny2.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Results from Z-test</em></p>
+</div>
+<div id="sec-excel-regression" class="section level2 hasAnchor" number="29.12">
+<h2><span class="header-section-number">29.12</span> Regression analysis<a href="ch-excel.html#sec-excel-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section describes different methods for performing regression analysis with Excel. First we go through how we can estimate the coefficients in the regression model using matrix calculations, and then how we can use various shortcuts in Excel.</p>
+<div id="regression-analysis-using-matrices" class="section level3 hasAnchor" number="29.12.1">
+<h3><span class="header-section-number">29.12.1</span> Regression analysis using matrices<a href="ch-excel.html#regression-analysis-using-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we will estimate the regression model:</p>
+<p><span class="math display">\[y=a+bx+u\]</span></p>
+<p>where <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> are variables, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are coefficients and <span class="math inline">\(u\)</span> is the error term. A regression model can be written with matrices as</p>
+<p><span class="math display">\[Y=BX+U\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> is a column matrix with the dependent variable and its observations. <span class="math inline">\(Y\)</span> has as many rows as observations. Matrix <span class="math inline">\(B\)</span> is the coefficients. Matrix <span class="math inline">\(X\)</span> contains the explanatory variables. The first column in matrix <span class="math inline">\(X\)</span> has the value 1, because in the regression model above we have coefficient <span class="math inline">\(a\)</span>, which is not multiplied by any variable (the model’s y-intercept). <span class="math inline">\(U\)</span> is a column matrix with the error terms (number of rows = number of observations). The least squares estimator <span class="math inline">\(\hat{B}\)</span> can be described with the following equation:</p>
+<p><span class="math display">\[\hat{B}=\left(X^{T}X\right)^{-1}X^{T}Y\]</span></p>
+<p>where <span class="math inline">\(X^{T}\)</span> is the transposed matrix <span class="math inline">\(X\)</span> and <span class="math inline">\(\left(X^{T}X\right)^{-1}\)</span> is the inverse of matrix <span class="math inline">\(X^{T}X\)</span>. We will now estimate the regression model with an example where we use four observations for the variables <span class="math inline">\(y=\left\{ 3,4,6,7\right\}\)</span> and <span class="math inline">\(x=\left\{ 3,2,5,4\right\}\)</span>. The first observation is <span class="math inline">\(\left(y,x\right)=\left(3,3\right)\)</span> and the second <span class="math inline">\(\left(y,x\right)=\left(4,2\right)\)</span>. Matrices <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are:</p>
+<p><span class="math display">\[Y=\left[\begin{matrix}3\\ 4\\ 6\\ 7\end{matrix}\right],\:X=\left[\begin{matrix}1 &amp; 3\\ 1 &amp; 2\\ 1 &amp; 5\\ 1 &amp; 4\end{matrix}\right]\]</span></p>
+<p>The figure below shows how we can estimate the regression model using Excel’s matrix functions that we introduced above. In cells A2:A5 we find the values for variable y, which are also the elements in matrix Y. In cells C2:D5 we find the values for matrix <span class="math inline">\(X\)</span>. In cell A8 we use the <code>TRANSPOSE()</code> function to create the transposed matrix <span class="math inline">\(X^{T}\)</span>. In cell A12 we use <code>MINVERSE()</code> to create the inverse matrix <span class="math inline">\(\left(X^{T}X\right)^{-1}\)</span>. In cell A16 we use the <code>MMULT()</code> function to matrix multiply <span class="math inline">\(X^{T}\)</span> with <span class="math inline">\(Y\)</span>. In cell C16 we use <code>MMULT()</code> to matrix multiply <span class="math inline">\(\left(X^{T}X\right)^{-1}\)</span> with <span class="math inline">\(X^{T}Y\)</span>, which gives <span class="math inline">\(\hat{B}\)</span>. In the two cells C16 and C17 we obtain the estimated coefficients <span class="math inline">\(\hat{a}=1\)</span> and <span class="math inline">\(\hat{b}=0.5\)</span> respectively. From here we can continue and for example calculate t-tests for the coefficients, but for this we will instead use shortcuts in the next section.</p>
+<p><img src="images/Excel1%20matris%20regression.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Regression analysis with matrices</em></p>
+</div>
+<div id="regression-analysis-with-linest" class="section level3 hasAnchor" number="29.12.2">
+<h3><span class="header-section-number">29.12.2</span> Regression analysis with LINEST()<a href="ch-excel.html#regression-analysis-with-linest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Excel, we can estimate regression models using the <code>LINEST()</code> function. We estimate again the regression model <span class="math inline">\(y=a+bx+u\)</span>. In the parentheses of <code>LINEST()</code> we first need to specify the observations for our dependent variable, which in this case is y. After a comma we specify a reference to the cells where we have observations for our explanatory variables, which in this case is only variable x.</p>
+<p>The figure below shows an example where column A contains the values for variable y and column B contains variable x. In cell C6 we use the <code>LINEST()</code> function. In the parentheses of the function we refer to the values in columns A and B. The function returns the estimated coefficients <span class="math inline">\(\hat{b}\)</span> and <span class="math inline">\(\hat{a}\)</span> in cells C6 and D6. Note that the function first reports the slope coefficient <span class="math inline">\(\hat{b}\)</span> and then <span class="math inline">\(\hat{a}\)</span>. The result is exactly as before: <span class="math inline">\(\hat{a}=1\)</span> and <span class="math inline">\(\hat{b}=0.5\)</span>.</p>
+<p><img src="images/Excel1%20REGR1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Regression analysis with LINEST()</em></p>
+<p>Let us take another example. We will now use <code>LINEST()</code> to instead estimate the regression model:</p>
+<p><span class="math display">\[Y=c+dX+eZ+\epsilon\]</span></p>
+<p>where <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> are variables and <span class="math inline">\(c\)</span>, <span class="math inline">\(d\)</span> and <span class="math inline">\(e\)</span> are the coefficients. <span class="math inline">\(\epsilon\)</span> is the error term. The figure below shows an example where we use <code>LINEST()</code> and in the parentheses refer to cells A2:A5 (variable <span class="math inline">\(Y\)</span>) and B2:C5 (variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span>). In cells D6, E6 and F6 the three coefficients <span class="math inline">\(\hat{e}\approx2.89\)</span>, <span class="math inline">\(\hat{d}\approx0.28\)</span> and finally <span class="math inline">\(\hat{c}\approx-0.54\)</span> are returned, which is thus in reverse order compared to how we set up our regression model.</p>
+<p><img src="images/Excel1%20REGR2.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>LINEST() with two explanatory variables</em></p>
+<p>The <code>LINEST()</code> function has two optional arguments, const and stats, which we can choose to leave unchanged. The const and stats options are controlled by the logical arguments TRUE and FALSE. The default setting for <code>LINEST()</code> is that const=TRUE and stats=FALSE, which is used if we don’t specify anything else in the parentheses of <code>LINEST()</code>. The results illustrated in the figure above are created with these default settings.</p>
+<p>If we instead specify const=FALSE, then the regression model <span class="math inline">\(Y=dX+eZ+\epsilon\)</span> is estimated, without the y-intercept <span class="math inline">\(c\)</span>. The second optional argument in <code>LINEST()</code> is stats, which controls whether <code>LINEST()</code> should also report results for t-tests for the coefficients, F-test for the entire model, and estimate <span class="math inline">\(R^{2}\)</span>.</p>
+<p>The figure below shows an example where we set the option stats=TRUE, with the same four observations for variables <span class="math inline">\(y\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> in columns A, B and C. The results are reported in cells D6:F10. When stats=TRUE, <code>LINEST()</code> reports results for a regression model with k coefficients <span class="math inline">\(a_{1}\)</span> to <span class="math inline">\(a_{k}\)</span> with corresponding standard errors <span class="math inline">\(se_{1}\)</span> to <span class="math inline">\(se_{k}\)</span>. Estimated coefficients are shown in the first row and standard errors in the second row. The regression statistics include <span class="math inline">\(R^{2}\)</span>, estimated standard error for the residuals <span class="math inline">\(\hat{s}_{\hat{\epsilon}}\)</span>, F-statistic, degrees of freedom for the F-test <span class="math inline">\(df_{F}\)</span>, the sum of squared explained variation <span class="math inline">\(SSE\)</span>, and the residual sum of squares <span class="math inline">\(SSR\)</span>.</p>
+<p><img src="images/Excel1%20REGR3%20stat2.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Regression analysis using LINEST() and stats = TRUE</em></p>
+<p>The top row is in the example row 6 in the worksheet with the estimated coefficients <span class="math inline">\(\hat{c}\approx-0.54\)</span>, <span class="math inline">\(\hat{d}\approx0.28\)</span> and <span class="math inline">\(\hat{e}\approx2.89\)</span>. The second row, row 7, is the standard error for each respective coefficient: <span class="math inline">\(\hat{s}_{\hat{c}}\approx0.21\)</span>, <span class="math inline">\(\hat{s}_{\hat{d}}\approx0.2\)</span> and <span class="math inline">\(\hat{s}_{\hat{e}}\approx1.22\)</span>.</p>
+<p>Cells D8 to D10 report <span class="math inline">\(R^{2}\approx0.93\)</span>, F-statistic for the F-test for the entire regression model <span class="math inline">\(F=6.9\)</span>, and the sum of squares of the explained variation <span class="math inline">\(SSE=\sum_{i}^{n}\left(\hat{Y}_{i}-\bar{Y}\right)^{2}\approx0.34\)</span>.</p>
+<p>Cells E8 to E10 report estimated standard error for the residuals <span class="math inline">\(\hat{s}_{\hat{\epsilon}}\approx0.58\)</span>, degrees of freedom for the F-test <span class="math inline">\(df_{F}=1\)</span>, and the residual sum of squares <span class="math inline">\(SSR=\sum_{i}^{n}\epsilon_{i}^{2}\approx4.66\)</span>.</p>
+<p>In cells F9:F11, #N/A! is returned, which just means that the function does not return any value for these cells. This is not an error. See Excel’s help section for more information about the <code>LINEST()</code> function and the results.</p>
+<p>If we have a regression model with one explanatory variable, we can estimate predicted <span class="math inline">\(\hat{Y}\)</span> with the <code>FORECAST.LINEAR()</code> function. From older versions of Excel there are also the similar functions <code>FORECAST()</code> and <code>TREND()</code>. The figure below shows an example where we predict the regression model:</p>
+<p><span class="math display">\[\hat{Y}=a+bX+U\]</span></p>
+<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are coefficients and <span class="math inline">\(U\)</span> is the error term. In cells A2:B5 we find the observations for variables <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>. In cell B2 we write the <code>FORECAST.LINEAR()</code> function. In the parentheses we specify three arguments: (1) the <span class="math inline">\(X\)</span>-values that should be used to calculate the predicted values for <span class="math inline">\(\hat{Y}\)</span>(which can be any <span class="math inline">\(X\)</span>-values we want), (2) the known <span class="math inline">\(Y\)</span>-values, and (3) the known <span class="math inline">\(X\)</span>-values. The result is shown in cells C2:C5.</p>
+<p><img src="images/excel1%20prognos_linj%C3%A4r.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Prediction of <span class="math inline">\(\hat{Y}\)</span> with FORECAST.LINEAR()</em></p>
+</div>
+<div id="regression-analysis-with-analysis-toolpak" class="section level3 hasAnchor" number="29.12.3">
+<h3><span class="header-section-number">29.12.3</span> Regression analysis with Analysis ToolPak<a href="ch-excel.html#regression-analysis-with-analysis-toolpak" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can also perform regression analysis in Excel through the Data Analysis dialog box, which we installed using Analysis ToolPak, see the section on probability above. Click on Data menu &gt; Data Analysis. A new dialog window opens. Select “Regression” and click OK. The dialog window for regression opens, see the figure below. We will now again estimate the regression model:</p>
+<p><span class="math display">\[Y=c+dX+eZ+\epsilon\]</span></p>
+<p>In the Y Input Range box we specify a reference to the cells that contain the dependent variable’s data, including the variable header with the name of the variable. In this example this is cells A1:A5. Check the Labels box, which indicates that we include the variable name in the top cell in the input range. In the X Input Range box we specify a reference to all cells that contain the explanatory variables, which in this case are X and Z. The cells are B1:C5. Under Output options we can choose the settings for where our results should be displayed. In the figure below we have chosen that the results should be displayed in cell A7.</p>
+<p><img src="images/Excel1%20regression%20dataanalys%201.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Dialog window for regression analysis</em></p>
+<p>If we click OK, we get the results shown in the figure below, in the form of three different tables with results from the regression analysis. The top table, rows 10–14, first shows “Multiple R”, which stands for the correlation coefficient, also called Pearson’s r, which here indicates the correlation between the dependent variable <span class="math inline">\(Y\)</span> and predicted <span class="math inline">\(\hat{Y}\)</span>. The correlation coefficient takes a value between -1 (perfect negative correlation) and 1 (perfect positive correlation). A result of 0 means no correlation.</p>
+<p>R Square <span class="math inline">\(\left(R^{2}\right)\)</span> and Adjusted R Square measure what proportion of the variation in the dependent variable can be explained by the regression model and the variation in the explanatory variables. Standard Error here refers to the square root of the mean square sum of the residuals:</p>
+<p><span class="math display">\[\left(MSR\right)^{\frac{1}{2}}=\left(\frac{\sum\left(y_{i}-\hat{y}\right)^{2}}{p-1}\right)^{\frac{1}{2}}\]</span></p>
+<p>where p is the number of estimated coefficients in the regression model. The last row in the top results table is the number of observations, which in this example is 4.</p>
+<p>The second table, rows 16–20, is called the ANOVA (Analysis Of VAriance) table where the headings stand for df = degrees of freedom, SS = sum of squares, MS = mean squares, F = F-statistic, and the p-value for the F-test. The F-statistic is calculated:</p>
+<p><span class="math display">\[F=\left(\frac{SSR_{m2}-SSR_{m1}}{SSR_{m1}}\right)/\left(\frac{q}{n-k_{m1}-1}\right)\]</span></p>
+<p>where SSR stands for the residual sum of squares, <span class="math inline">\(q=df_{m1}-df_{m2}\)</span> and df stands for degrees of freedom and k is the number of explanatory variables. The F-test tests the null hypothesis that the population coefficients for the two explanatory variables are zero:</p>
+<p><span class="math display">\[H_{0}:d=e=0\]</span></p>
+<p>against the alternative hypothesis that at least <span class="math inline">\(d\)</span> or <span class="math inline">\(e\)</span> is statistically significantly different from zero.</p>
+<p>The third and bottom table, rows 22–25, contains the estimates for the coefficients and associated statistical results. In the first column A, the name of each respective coefficient is given, where “Intercept” refers to the first coefficient c, the y-intercept, which is not multiplied by any variable. The other two, X and Z, refer to coefficients <span class="math inline">\(d\)</span> and <span class="math inline">\(e\)</span> which are multiplied by their respective variables.</p>
+<p>The columns in the third and bottom table to the right of the coefficients’ names are Coefficients (the estimates), estimated standard error, t Stat, and P-value for a t-test for the null hypothesis:</p>
+<p><span class="math display">\[H_{0}:c=0,\:H_{1}:c\neq0\]</span></p>
+<p>That is, the p-value indicates the probability that the coefficient is statistically significantly different from zero. The columns thereafter show estimated bounds for the 95% confidence interval for each respective coefficient.</p>
+<p><img src="images/Excel1%20regression%20dataanalys%202.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Regression results from the Data Analysis menu</em></p>
+<p>There are no pre-installed functions in Excel for estimating regressions with robust standard errors. We can do this with our own calculations, for example with matrix calculations. If you search online, you can also find functions that private users have created themselves that you can download. In the chapters below we go through how we can easily perform this type of regression with commands in Stata and R.</p>
+</div>
+</div>
+<div id="sec-excel-plots" class="section level2 hasAnchor" number="29.13">
+<h2><span class="header-section-number">29.13</span> Creating plots<a href="ch-excel.html#sec-excel-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Excel has shortcuts for creating several common charts, such as line charts, scatter plots, bar charts, and more. In the menus we find the functions for creating charts under the Insert heading. A simple way to create a chart quickly is to first select the cells with data that we want to illustrate in a chart. Then we click on the Insert menu and choose what type of chart we want to create.</p>
+<p>The figure below shows an example where we have created a line chart using the menu with the five values in column A. To create the line chart we select the Insert menu, click on the symbol for line charts next to the larger icon for “Recommended Charts” and choose the first option under 2-D Line.</p>
+<p><img src="images/Excel1%20diagram1%20linje.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Create a line plot</em></p>
+<p>When Excel creates a chart this way, the program makes some guesses about how we want our selected chart to look. Sometimes the program guesses correctly and sometimes it guesses incorrectly. In the chart in the figure above, the values in column A have been placed on the vertical y-axis. If we wanted the values on the horizontal x-axis instead, we would need to instruct the program about this. We can also select multiple things simultaneously and create a chart based on this.</p>
+<p>To edit a chart that we have created, we can click on the chart. When we select the chart, the two new menu headings Chart Design and Format open, at the far right among the menus at the top. Under these menus we can then choose various ready-made options to change the appearance of the chart. For example, add points along the line, add or remove titles for the y- and x-axes, and more.</p>
+<p>We can also right-click on different parts of the chart and get different options, depending on which parts of the chart we click on. If we want to keep the chart but change which values are shown in the chart, we can right-click somewhere in the chart and choose the Select Data… option. This way we can add or remove variables and observations. By clicking on a chart’s different parts, we can change appearance, color and shape, and even what type of chart, if we would prefer a bar chart or scatter plot, for example. There isn’t space to go through all possible options for how we can or should edit our charts here. There are several help sections regarding these things in Excel. Many things are also relatively simple to understand by just experimenting by selecting different parts of the chart, trying the options in the menus, and the different options that appear when we right-click in the chart.</p>
+<p>Another way to get help from the program is to use the Recommended Charts option, under the Insert menu heading. We select the data we want to use for the chart and click on Recommended Charts. The new Insert Chart dialog box opens, with suggestions for charts that the program thinks should fit the data we selected. The figure below shows an example with GDP per capita for 2015–2019. In the dialog box we have received suggestions for a line chart, a bar chart, a chart with lines and points, and at the bottom a pie chart. In the suggested line chart, the program has now placed the title at the top and the years on the horizontal x-axis.</p>
+<p><img src="images/Excel1%20diagram2%20BNP%20linje.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Recommended charts</em></p>
+<p>Scatter plots are often used to illustrate the covariation between two variables. One way to calculate a linear covariation between two variables is the least squares method. Say that we have the regression model:</p>
+<p><span class="math display">\[Y=a+bX+u\]</span></p>
+<p>We have four observations with values for variables <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> that we will use to calculate the constants a and b. The letter u is the error term. With Excel we can create a scatter plot that shows the covariation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>. The figure below shows an example with a scatter plot, which is created by selecting Insert menu &gt; Scatter. In the chart we can also add the regression line that we calculate using the least squares method. After we have created the chart, we right-click on one of the points in the chart. This opens a menu where we select the option “Add Trendline…”. A new dialog box opens where we can specify what type of trendline we want to create. To create a linear regression line, calculated using the least squares method, we select the “Linear” option.</p>
+<p><img src="images/Excel1%20diagram3%20scatter%20ols.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Add the regression line to a scatter plot</em></p>
+<p>In the same menu that we use to define the trendline, we can also choose the option “Display Equation on chart”. If we click this option, the equation that draws the regression line is written out in the chart. We can also choose to show the calculated <span class="math inline">\(R^{2}\)</span> by clicking the option “Display R-squared value on chart”. The figure below shows the chart with trendline and equation after we have clicked these options.</p>
+<p><img src="images/Excel1%20the%20GRAF4%20scatter%20ols.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><em>Finished chart with regression line</em></p>
+<div id="presenting-results-in-other-programs" class="section level3 hasAnchor" number="29.13.1">
+<h3><span class="header-section-number">29.13.1</span> Presenting results in other programs<a href="ch-excel.html#presenting-results-in-other-programs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When we have calculated a result in an analysis program, we often want to present our results, for example tables and charts, in another program, such as in a text that we write in Microsoft Word or in a presentation that we make in Microsoft PowerPoint. There are several ways to do this and the methods can vary depending on which analysis program we are working in, as well as which program we want to export the results to.</p>
+<p>If we work in Microsoft’s programs Excel, Word and PowerPoint, it is usually easy to copy and paste results from one program to another. The programs are designed to be able to work together. To export a table in Excel, for example, we can select the cells we want to show, copy (Ctrl + C), place the cursor in the other program at the location where we want to paste the table, and paste (Ctrl + V). The same method also works with charts we have created in Excel.</p>
+<p>We can also paste tables and charts from Excel into other programs as images. This method often works in both Microsoft’s programs Word and PowerPoint, as well as in programs from other manufacturers. Charts can also be exported as images directly from Excel to an image file on the computer’s hard drive. This can be done by right-clicking on the outer surface of a chart, the outer frame, and selecting Save as Picture…. This opens a new dialog box where we can choose which image file format we want to save the chart as and in which directory on the computer’s hard drive we want the file to be saved, see the figure below.</p>
+<p><img src="images/excel%20export%20diagram%20bild1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Save chart as image from Excel</em></p>
+</div>
+</div>
+<div id="sec-excel-gdp-example" class="section level2 hasAnchor" number="29.14">
+<h2><span class="header-section-number">29.14</span> Example with GDP per working hour<a href="ch-excel.html#sec-excel-gdp-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we will go through an example where we use the data shown in the table below. The figures show millions of gross domestic product (GDP) per working hour calculated in US dollars, adjusted for price changes over time (inflation) and price differences between countries (purchasing power adjusted). Purchasing power adjusted values are called Purchasing power parities in English. The data covers Sweden, Denmark, Finland, Norway, USA, and the United Kingdom for the years 1990, 2000, 2010, and 2020 and is taken from the database that the think tank The Conference Board has online. The database contains, in addition to this data, other variables and many more countries and years, which can be downloaded for free at the following address: &lt;www.conference-board.org/data/&gt;</p>
+<table>
+<caption>GDP per working hour</caption>
+<thead>
+<tr class="header">
+<th align="left"><strong>Country</strong></th>
+<th align="center"><strong>1990</strong></th>
+<th align="center"><strong>2000</strong></th>
+<th align="center"><strong>2010</strong></th>
+<th align="center"><strong>2020</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Denmark</td>
+<td align="center">62.6</td>
+<td align="center">76.6</td>
+<td align="center">84.2</td>
+<td align="center">95.9</td>
+</tr>
+<tr class="even">
+<td align="left">Finland</td>
+<td align="center">47</td>
+<td align="center">64.3</td>
+<td align="center">73.5</td>
+<td align="center">77</td>
+</tr>
+<tr class="odd">
+<td align="left">Norway</td>
+<td align="center">68.1</td>
+<td align="center">89.3</td>
+<td align="center">95.9</td>
+<td align="center">101.1</td>
+</tr>
+<tr class="even">
+<td align="left">Sweden</td>
+<td align="center">54.6</td>
+<td align="center">68.4</td>
+<td align="center">81.6</td>
+<td align="center">89.3</td>
+</tr>
+<tr class="odd">
+<td align="left">United Kingdom</td>
+<td align="center">50</td>
+<td align="center">63.1</td>
+<td align="center">70.4</td>
+<td align="center">73.4</td>
+</tr>
+<tr class="even">
+<td align="left">United States</td>
+<td align="center">53.2</td>
+<td align="center">63.6</td>
+<td align="center">79.5</td>
+<td align="center">87.4</td>
+</tr>
+</tbody>
+</table>
+<p><em>Source: The Conference Board. Real GDP purchasing power adjusted millions USD, divided by hours worked per year.</em></p>
+<p>GDP indicates the value of all goods and services produced during the relevant year, divided by all hours worked the same year for each respective country. GDP per working hour is therefore a measure of how productive all companies are in a country. Since we measure the value of everything produced, this is also a measure of income level. We adjust for inflation to thereby get an estimate of the value of incomes, how much we can buy for the money. We adjust for purchasing power in different countries to adjust for the fact that goods and services cost different amounts in different countries.</p>
+<p>There is no method for measuring all these things exactly, which is why the figures should be regarded as approximate. Working time is calculated partly by asking people how much they work, which for natural reasons is difficult to estimate exactly. It is also difficult to adjust for price changes over time and between countries, which is why this too must be interpreted with some caution. But the fact that things are difficult to measure does not mean that the figures are unusable. The measurement methods have been refined over decades and can be used to make several interesting observations. Authorities, organizations, and experts have also synchronized their methods worldwide to make the figures comparable over time and between countries. This means that even though we should be careful about drawing strong conclusions about small variations, we can still get an idea of overall differences between countries and years.</p>
+<p>To work with these figures, we need to copy and paste them into an Excel sheet, or write them down. You can also download the material from The Conference Board yourself and make your own calculations. If we want to know the average productivity for the countries in the table, we can use Excel’s <code>AVERAGE()</code> function. We can, for example, calculate average productivity per year by referring in the parentheses of <code>AVERAGE()</code> to the six boxes per year.</p>
+<p>A good way to get a bit more overview of the data is to create charts. The figure below shows an example of how it can look in a line chart created in Excel. In the chart we can clearly see that Sweden and the USA are mostly in the middle of the group during these years. At the top are Norway and Denmark. At the bottom are Finland and the United Kingdom.</p>
+<p><img src="images/excel%20tbc%20data%20graf%201.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><em>GDP per working hour, illustrated in chart in Excel</em></p>
+<p>The chart is created with one of the common presets available in Excel. It is possible to change the appearance and colors in many ways by, for example, selecting all or parts of the chart and clicking in the Chart Design or Format menus, and for example choosing among the options Quick Layout, Add Chart Element, or Change Colors.</p>
+<p>GDP per working hour increases over the period in the long term. One way to compare the development is to create an index per country. We choose 1990 as the base year and give this year the index value 100. We calculate index <span class="math inline">\(x_{it}\)</span> for country <span class="math inline">\(i\)</span> in year <span class="math inline">\(t\)</span> with the following formula:</p>
+<p><span class="math display">\[x_{it}=\frac{GDP_{it}}{GDP_{i,1990}}*100\]</span></p>
+<p>The figure below shows how this calculation can look in Excel. The data on GDP per working hour is collected in cells B2:E7. Index per country is calculated in cells B11:E16, compare the section on calculating index above. To fill in all cells faster, we can use one of the tricks we went through in the example in that section. We can, for example, enter the formula in cell B11: <code>=B2/ $B$ 2</code>, select cells B11:E16 and press Ctrl + D and Ctrl + R. This makes the formula in B11 copy to all other cells we selected.</p>
+<p>The cell reference in our index calculation’s numerator, B2, is updated. The cell reference in the denominator <code>$B$ 2</code> is locked on column B but not on row 2. The cell reference will therefore update the row but not the column, which means that each country will use the year 1990 as the base year, which is what we want.</p>
+<p><img src="images/Excel%20tcb%20index1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>Calculate index per country</em></p>
+<p>Another way to compare the long-term development is to estimate the following regression model per country:</p>
+<p><span class="math display">\[G_{it}=a_{i}+b_{i}T_{it}+\epsilon_{it}\]</span></p>
+<p>where <span class="math inline">\(G_{it}\)</span> is the natural logarithm of GDP per working hour in country <span class="math inline">\(i\)</span> in year <span class="math inline">\(t\)</span>, <span class="math inline">\(a_{i}\)</span> is a coefficient for country <span class="math inline">\(i\)</span>(the y-intercept, the constant), <span class="math inline">\(b_{i}\)</span> is the slope coefficient for country <span class="math inline">\(i\)</span> with respect to the explanatory variable <span class="math inline">\(T_{it}\)</span> which is the year for country <span class="math inline">\(i\)</span> in year <span class="math inline">\(t\)</span>, and <span class="math inline">\(\epsilon_{it}\)</span> is the error term for country <span class="math inline">\(i\)</span> in year <span class="math inline">\(t\)</span>.</p>
+<p>We take the natural logarithm of GDP per working hour, because we can then interpret slope coefficient <span class="math inline">\(b\)</span> as an approximate measure of average percentage increase in GDP per working hour per year (when variable <span class="math inline">\(T\)</span> increases by one).</p>
+<p>To estimate this regression model in Excel, we can for example use <code>LINEST()</code>. As the first argument we use the natural logarithm of the values in the GDP table above. As the second argument we use the years 1990, 2000, 2010, and 2020. The figure below shows how this can look in an Excel sheet. In cells B11:E16 we use the <code>LN()</code> function to take the natural logarithm of the values in cells B2:E7. In cells G11:G16 we use the <code>LINEST()</code> function to estimate a regression model per row 11–16, which gives us an estimate per country.</p>
+<p><img src="images/regr%20bnp%20per%20arbetstimme%20excel.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><em>One regression model per country</em></p>
+</div>
+<div id="sec-excel-other-functions" class="section level2 hasAnchor" number="29.15">
+<h2><span class="header-section-number">29.15</span> Some other useful functions<a href="ch-excel.html#sec-excel-other-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Excel has many more functions and options than can be covered here. Here are some brief tips on additional functions that are good to know about. You can easily find more information about each respective function in the program’s help sections and online.</p>
+<ul>
+<li><code>ROUND()</code>, <code>ROUNDDOWN()</code>, <code>ROUNDUP()</code>, <code>TRUNC()</code>: Functions for rounding numbers.</li>
+<li><code>COUNT()</code>, <code>COUNTA()</code>, <code>COUNTIF()</code>, <code>COUNTIFS()</code>, <code>COUNTBLANK()</code>: Functions that return the number of cells that are not empty or that contain values, with or without consideration of conditions.</li>
+<li><code>FIND()</code> and <code>SEARCH()</code>: Return the starting position for text strings (that we want to search for) in other text strings.</li>
+<li><code>LEFT()</code>, <code>LEFTB()</code>, <code>RIGHT()</code>, <code>RIGHTB()</code>: Return one or more characters in a text string counted from the left or right.</li>
+<li><code>MID()</code> and <code>MIDB()</code>: Return a number of characters from a text starting at the position we specify.</li>
+<li><code>DATE()</code>, <code>YEAR()</code>, <code>WEEKNUM()</code>, <code>DAYS()</code>: Examples of functions for working with dates and time. Computer programs often handle dates and time specifications in special ways. As an example, we can use the <code>DATE()</code> function to create a date specification from three separate values, for example if we have the values for year, month, and day specified in separate columns. The <code>DAYS()</code> function returns the number of days between two specified dates.</li>
+<li><code>INDEX()</code>, <code>MATCH()</code>, <code>LOOKUP()</code>: Functions for finding positions or unique values in a search range based on a specified search term.</li>
+</ul>
+</div>
+<div id="sec-excel-summary" class="section level2 hasAnchor" number="29.16">
+<h2><span class="header-section-number">29.16</span> Chapter Summary<a href="ch-excel.html#sec-excel-summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Excel’s worksheet functions are written with the function’s name followed by parentheses, for example <code>SUM()</code>. In the parentheses we specify the arguments the function requires. The <code>SUM()</code> function calculates the sum of the numbers that we specify in its parentheses. In the parentheses of functions we can also refer to cells with values. Other examples of functions: <code>AVERAGE()</code>, <code>MIN()</code>, <code>MAX()</code>, <code>LOG()</code>, <code>LN()</code>, <code>FACT()</code>, and <code>PERMUT()</code>.</p></li>
+<li><p>The worksheet functions can be used for many different types of work tasks, such as mathematical operations, calculating probability, and estimating regression models. Many functions use logical conditions, which are true or false. A logical condition in a function can often be answered by specifying TRUE or FALSE. To calculate with matrices we can use functions such as <code>MMULT()</code>, <code>TRANSPOSE()</code>, <code>MINVERSE()</code>.</p></li>
+<li><p>To create charts we can go to the Insert menu and choose chart type, for example 2-D Line. After we have created the chart we can also edit its appearance by clicking on its different parts, such as the axes’ titles and scales.</p></li>
+<li><p>We can estimate regression models with the <code>LINEST()</code> function or using Analysis ToolPak and the Data Analysis dialog box. Excel has several functions for working with common probability distributions, for example <code>BINOM.DIST()</code> and <code>NORM.DIST()</code>.</p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-why-computers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-stata.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["the-cheat-code.pdf", "the-cheat-code.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "depth": 2
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

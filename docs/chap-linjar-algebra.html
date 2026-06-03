@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 14 Linear Algebra: Vectors and Matrices | The Cheat Code: Essential Math and Statistics for Social Scientists</title>
+  <meta name="description" content="A textbook in mathematics and statistics for social science students." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 14 Linear Algebra: Vectors and Matrices | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 14 Linear Algebra: Vectors and Matrices | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  
+  <meta name="twitter:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+<meta name="author" content="Erik Hegelund" />
+
+
+<meta name="date" content="2026-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-integraler.html"/>
+<link rel="next" href="part-covariation-intro.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="#eq:"]').forEach(function(link) {
+    link.textContent = link.textContent.trim().replace(/^\((.+)\)$/, '$1');
+  });
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'],['\\(','\\)']],
+    displayMath: [['$$','$$'],['\\[','\\]']],
+    processEscapes: true,
+    skipTags: ['script','noscript','style','textarea','pre']
+  },
+  TeX: {
+    extensions: ["cancel.js"],
+    equationNumbers: {
+      autoNumber: "none"
+    },
+    Macros: {
+      permil:     '\\unicode{x2030}',
+      ensuremath: ['#1', 1]
+    }
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open && window.MathJax) {
+        if (MathJax.Hub) {
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub, det]);
+        } else if (MathJax.typesetPromise) {
+          MathJax.typesetPromise([det]).catch(function(e) { console.error(e); });
+        }
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Move "Table X.X:" span from end of caption to front
+  document.querySelectorAll('caption').forEach(function(cap) {
+    var span = cap.querySelector('span[id^="tab:"]');
+    if (span) cap.insertBefore(span, cap.firstChild);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Rewrite part labels and make them link to the part intro page
+  document.querySelectorAll('.book-summary ul.summary li.part').forEach(function(partLi) {
+    // Rewrite text: "I Mathematics Basics" -> "Part I: Mathematics Basics"
+    var b = partLi.querySelector('span > b');
+    if (b) {
+      var m = b.textContent.match(/^([IVXLCDM]+)\s+([\s\S]*)/);
+      if (m) b.textContent = 'Part ' + m[1] + ': ' + m[2];
+    }
+    // Make the part label link to the part intro page
+    var nextEl = partLi.nextElementSibling;
+    if (!nextEl || !nextEl.classList.contains('chapter')) return;
+    var link = nextEl.querySelector('a');
+    if (!link) return;
+    var span = partLi.querySelector('span');
+    if (!span) return;
+    var a = document.createElement('a');
+    a.href = link.getAttribute('href');
+    a.innerHTML = span.innerHTML;
+    partLi.replaceChild(a, span);
+    // Hide the now-redundant part intro chapter entry in the sidebar
+    nextEl.classList.add('part-intro-hidden');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+
+    // --- Chapter-level collapse arrows (larger click target) ---
+    document.querySelectorAll('.book-summary li.chapter').forEach(function(li) {
+      var level = li.getAttribute('data-level') || '';
+      if (level.indexOf('.') !== -1) return;
+
+      var childUl = li.querySelector(':scope > ul');
+      if (!childUl) return;
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'margin-left:6px',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(0,0,0,0.06)'
+      ].join(';');
+
+      function isVisible() {
+        return window.getComputedStyle(childUl).display !== 'none';
+      }
+      function updateArrow() {
+        arrow.textContent = isVisible() ? '▾' : '▸';
+      }
+      updateArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        childUl.style.display = isVisible() ? 'none' : 'block';
+        updateArrow();
+      });
+
+      var link = li.querySelector(':scope > a');
+      if (link) link.appendChild(arrow);
+    });
+
+    // --- Part-level collapse arrows ---
+    var summary = document.querySelector('.book-summary ul.summary');
+    if (!summary) return;
+    var items = Array.from(summary.children);
+
+    items.forEach(function(li, idx) {
+      if (!li.classList.contains('part')) return;
+
+      var chapterItems = [];
+      for (var j = idx + 1; j < items.length; j++) {
+        if (items[j].classList.contains('part')) break;
+        if (items[j].tagName === 'LI') chapterItems.push(items[j]);
+      }
+      if (chapterItems.length === 0) return;
+
+      var partKey = 'partCollapsed_' + idx;
+      var collapsed = localStorage.getItem(partKey) === '1';
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-part-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(44,95,138,0.15)',
+        'margin-left:6px',
+        'float:right',
+        'margin-right:6px'
+      ].join(';');
+
+      function updatePartArrow() {
+        arrow.textContent = collapsed ? '▸' : '▾';
+      }
+
+      function applyCollapse() {
+        chapterItems.forEach(function(ch) {
+          ch.style.display = collapsed ? 'none' : '';
+        });
+      }
+
+      if (collapsed) applyCollapse();
+      updatePartArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        collapsed = !collapsed;
+        applyCollapse();
+        updatePartArrow();
+        localStorage.setItem(partKey, collapsed ? '1' : '0');
+      });
+
+      var target = li.querySelector('span') || li.querySelector('a');
+      if (target) target.appendChild(arrow);
+    });
+
+  }, 150);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Resizable sidebar via drag handle
+  setTimeout(function() {
+    var sidebar = document.querySelector('.book-summary');
+    var bookBody = document.querySelector('.book-body');
+    if (!sidebar || !bookBody) return;
+
+    var handle = document.createElement('div');
+    handle.className = 'sidebar-resize-handle';
+    handle.title = 'Drag to resize sidebar';
+    handle.style.cssText = [
+      'position:absolute',
+      'top:0',
+      'right:0',
+      'width:8px',
+      'height:100%',
+      'cursor:ew-resize',
+      'z-index:10000',
+      'border-right:3px solid transparent',
+      'box-sizing:border-box',
+      'transition:border-color 0.15s'
+    ].join(';');
+
+    sidebar.appendChild(handle);
+
+    var isDragging = false;
+    var startX = 0, startWidth = 0;
+    var minW = 160, maxW = 650;
+
+    handle.addEventListener('mouseenter', function() {
+      handle.style.borderRightColor = 'rgba(44,95,138,0.5)';
+    });
+    handle.addEventListener('mouseleave', function() {
+      if (!isDragging) handle.style.borderRightColor = 'transparent';
+    });
+
+    handle.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.clientX;
+      startWidth = sidebar.offsetWidth;
+      document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var newW = Math.max(minW, Math.min(maxW, startWidth + (e.clientX - startX)));
+      sidebar.style.width = newW + 'px';
+      bookBody.style.left = newW + 'px';
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        handle.style.borderRightColor = 'transparent';
+        localStorage.setItem('sidebarW', sidebar.offsetWidth);
+      }
+    });
+
+    // Restore saved width
+    var saved = parseInt(localStorage.getItem('sidebarW'), 10);
+    if (saved && saved >= minW && saved <= maxW) {
+      sidebar.style.width = saved + 'px';
+      bookBody.style.left = saved + 'px';
+    }
+  }, 200);
+});
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">The Cheat Code</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-yet-another-textbook"><i class="fa fa-check"></i>Why yet another textbook?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i>What you will learn</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#thanks"><i class="fa fa-check"></i>Thanks!</a></li>
+</ul></li>
+<li class="part"><span><b>I Mathematics Basics</b></span></li>
+<li class="chapter" data-level="" data-path="part-mathematics-intro.html"><a href="part-mathematics-intro.html"><i class="fa fa-check"></i>Part I: Mathematics Basics</a></li>
+<li class="chapter" data-level="1" data-path="why-math.html"><a href="why-math.html"><i class="fa fa-check"></i><b>1</b> Why math?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-math.html"><a href="why-math.html#mathematics-in-social-science"><i class="fa fa-check"></i><b>1.1</b> Mathematics in Social Science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-math.html"><a href="why-math.html#chap-vad-anvands-matematik"><i class="fa fa-check"></i><b>1.2</b> Measure, theorize, compare</a></li>
+<li class="chapter" data-level="1.3" data-path="why-math.html"><a href="why-math.html#why-calculate"><i class="fa fa-check"></i><b>1.3</b> Why Calculate</a></li>
+<li class="chapter" data-level="1.4" data-path="why-math.html"><a href="why-math.html#tips-for-your-studies"><i class="fa fa-check"></i><b>1.4</b> Tips for your studies</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#different-types-of-numbers"><i class="fa fa-check"></i><b>2.1</b> Different types of numbers</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#the-four-arithmetic-operations"><i class="fa fa-check"></i><b>2.2</b> The four arithmetic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#order-of-operations"><i class="fa fa-check"></i><b>2.3</b> Order of operations</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-parenteser"><i class="fa fa-check"></i><b>2.4</b> Parentheses</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#equality-and-inequality"><i class="fa fa-check"></i><b>2.5</b> Equality and inequality</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-brak"><i class="fa fa-check"></i><b>2.6</b> Fractions</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#least-common-denominator"><i class="fa fa-check"></i><b>2.7</b> Least common denominator</a></li>
+<li class="chapter" data-level="2.8" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-potenser"><i class="fa fa-check"></i><b>2.8</b> Powers</a></li>
+<li class="chapter" data-level="2.9" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-multiplikation-med-parentes"><i class="fa fa-check"></i><b>2.9</b> Parentheses with powers</a></li>
+<li class="chapter" data-level="2.10" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-faktorisering-och-delbarhet"><i class="fa fa-check"></i><b>2.10</b> Factorization and divisibility</a></li>
+<li class="chapter" data-level="2.11" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-summa"><i class="fa fa-check"></i><b>2.11</b> Sum</a></li>
+<li class="chapter" data-level="2.12" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-median"><i class="fa fa-check"></i><b>2.12</b> Median</a></li>
+<li class="chapter" data-level="2.13" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-medelvarde"><i class="fa fa-check"></i><b>2.13</b> Mean</a></li>
+<li class="chapter" data-level="2.14" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-viktat-medelvarde"><i class="fa fa-check"></i><b>2.14</b> Weighted mean</a></li>
+<li class="chapter" data-level="2.15" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-procent-och-promille"><i class="fa fa-check"></i><b>2.15</b> Percent and per mille</a></li>
+<li class="chapter" data-level="2.16" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-kombinatorik"><i class="fa fa-check"></i><b>2.16</b> Combinatorics</a></li>
+<li class="chapter" data-level="2.17" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#chapter-summary"><i class="fa fa-check"></i><b>2.17</b> Chapter summary</a></li>
+<li class="chapter" data-level="2.18" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#exercises"><i class="fa fa-check"></i><b>2.18</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html"><i class="fa fa-check"></i><b>3</b> Examples with Applications</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-procent-potents-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.1</b> Interest</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.2</b> Interest on interest</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-effektiv-ranta"><i class="fa fa-check"></i><b>3.3</b> Effective interest</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-index"><i class="fa fa-check"></i><b>3.4</b> Index</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#population-index"><i class="fa fa-check"></i><b>3.5</b> Population index</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-inkomstindex"><i class="fa fa-check"></i><b>3.6</b> Income index</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-deflatera-priser-och"><i class="fa fa-check"></i><b>3.7</b> Adjust prices and wages for inflation</a></li>
+<li class="chapter" data-level="3.8" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-tillvaxt-ex1"><i class="fa fa-check"></i><b>3.8</b> Economic growth</a></li>
+<li class="chapter" data-level="3.9" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-barnadodlighet"><i class="fa fa-check"></i><b>3.9</b> Child mortality</a></li>
+<li class="chapter" data-level="3.10" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#chapter-summary-1"><i class="fa fa-check"></i><b>3.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="3.11" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#exercises-1"><i class="fa fa-check"></i><b>3.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html"><i class="fa fa-check"></i><b>4</b> Functions and graphs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#mathematical-functions"><i class="fa fa-check"></i><b>4.1</b> Mathematical functions</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-funktion-som-teori"><i class="fa fa-check"></i><b>4.2</b> Function as theory</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#coordinate-system-and-graphs"><i class="fa fa-check"></i><b>4.3</b> Coordinate system and graphs</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-den-rata-linjens"><i class="fa fa-check"></i><b>4.4</b> Equation of a straight line</a></li>
+<li class="chapter" data-level="4.5" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#solve-for-x"><i class="fa fa-check"></i><b>4.5</b> Solve for <span class="math inline">\(x\)</span></a></li>
+<li class="chapter" data-level="4.6" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-nar-ar-ekvation-linjar"><i class="fa fa-check"></i><b>4.6</b> Linear equations</a></li>
+<li class="chapter" data-level="4.7" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-lite-mangdlara"><i class="fa fa-check"></i><b>4.7</b> A bit of set theory</a></li>
+<li class="chapter" data-level="4.8" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#domain-for-a-function"><i class="fa fa-check"></i><b>4.8</b> Domain for a function</a></li>
+<li class="chapter" data-level="4.9" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-komb-funktioner-med-operationer"><i class="fa fa-check"></i><b>4.9</b> Combining functions with operations</a></li>
+<li class="chapter" data-level="4.10" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#chapter-summary-2"><i class="fa fa-check"></i><b>4.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="4.11" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#exercises-2"><i class="fa fa-check"></i><b>4.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html"><i class="fa fa-check"></i><b>5</b> Logarithms</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#base-exponent-logarithm"><i class="fa fa-check"></i><b>5.1</b> Base, exponent, logarithm</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#the-common-logarithm"><i class="fa fa-check"></i><b>5.2</b> The common logarithm</a></li>
+<li class="chapter" data-level="5.3" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmlagar"><i class="fa fa-check"></i><b>5.3</b> Properties of logarithms</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-naturliga-logaritmen"><i class="fa fa-check"></i><b>5.4</b> Natural logarithm</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-basbyte-for-logaritmer"><i class="fa fa-check"></i><b>5.5</b> Change of base for logarithms</a></li>
+<li class="chapter" data-level="5.6" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#using-natural-log-to-calculate-percentage-change"><i class="fa fa-check"></i><b>5.6</b> Using natural log to calculate percentage change</a></li>
+<li class="chapter" data-level="5.7" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-for-linjaritet"><i class="fa fa-check"></i><b>5.7</b> Logarithms for linearity</a></li>
+<li class="chapter" data-level="5.8" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-los-ut-x"><i class="fa fa-check"></i><b>5.8</b> Taking logarithms to get <span class="math inline">\(\boldsymbol{x}\)</span></a></li>
+<li class="chapter" data-level="5.9" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-linjar-ex-bnp"><i class="fa fa-check"></i><b>5.9</b> Log GDP</a></li>
+<li class="chapter" data-level="5.10" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-bnp-och-lycka"><i class="fa fa-check"></i><b>5.10</b> Using logarithms to discuss theory</a></li>
+<li class="chapter" data-level="5.11" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#chapter-summary-3"><i class="fa fa-check"></i><b>5.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="5.12" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#exercises-3"><i class="fa fa-check"></i><b>5.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html"><i class="fa fa-check"></i><b>6</b> Polynomial Equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-andragradsekvationer"><i class="fa fa-check"></i><b>6.1</b> Quadratic Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-faktorisera-andragradsekvationer"><i class="fa fa-check"></i><b>6.2</b> Factoring Equations</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-rationella-rotter"><i class="fa fa-check"></i><b>6.3</b> Rational Roots</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-pq-formeln"><i class="fa fa-check"></i><b>6.4</b> The Quadratic Formula</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-polynom-av-hogre-grad"><i class="fa fa-check"></i><b>6.5</b> Third degree and Higher</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#factorizing-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.6</b> Factorizing Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#divisions-of-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.7</b> Divisions of Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.8" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#chapter-summary-4"><i class="fa fa-check"></i><b>6.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="6.9" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#exercises-4"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html"><i class="fa fa-check"></i><b>7</b> Systems of Linear Equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#linear-system"><i class="fa fa-check"></i><b>7.1</b> Linear system</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#number-of-solutions-in-the-system"><i class="fa fa-check"></i><b>7.2</b> Number of solutions in the system</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-radreduktion"><i class="fa fa-check"></i><b>7.3</b> Row Reduction</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#taking-logarithms-in-systems-of-equations"><i class="fa fa-check"></i><b>7.4</b> Taking logarithms in systems of equations</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#three-or-more-variables"><i class="fa fa-check"></i><b>7.5</b> Three or more variables</a></li>
+<li class="chapter" data-level="7.6" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#some-more-examples"><i class="fa fa-check"></i><b>7.6</b> Some more examples</a></li>
+<li class="chapter" data-level="7.7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-bortom-trredje-dimensionen"><i class="fa fa-check"></i><b>7.7</b> Beyond the third dimension</a></li>
+<li class="chapter" data-level="7.8" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#chapter-summary-5"><i class="fa fa-check"></i><b>7.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="7.9" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#exercises-5"><i class="fa fa-check"></i><b>7.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html"><i class="fa fa-check"></i><b>8</b> Theories of life, death and dating</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#income-and-life-expectancy"><i class="fa fa-check"></i><b>8.1</b> Income and life expectancy</a></li>
+<li class="chapter" data-level="8.2" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#mathematical-adventures-in-national-income"><i class="fa fa-check"></i><b>8.2</b> Mathematical adventures in national income</a></li>
+<li class="chapter" data-level="8.3" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#a-matter-of-class"><i class="fa fa-check"></i><b>8.3</b> A matter of class</a></li>
+<li class="chapter" data-level="8.4" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-utbud-och-efterfragan"><i class="fa fa-check"></i><b>8.4</b> Supply and demand</a></li>
+<li class="chapter" data-level="8.5" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#two-types-of-cookies"><i class="fa fa-check"></i><b>8.5</b> Two types of cookies</a></li>
+<li class="chapter" data-level="8.6" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-dejting"><i class="fa fa-check"></i><b>8.6</b> Finding the one</a></li>
+<li class="chapter" data-level="8.7" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-nairu-teori"><i class="fa fa-check"></i><b>8.7</b> A theory about work</a></li>
+<li class="chapter" data-level="8.8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-extern-effekt-utslapp"><i class="fa fa-check"></i><b>8.8</b> External effects</a></li>
+<li class="chapter" data-level="8.9" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#linear-relationships-in-real-life"><i class="fa fa-check"></i><b>8.9</b> Linear relationships in real life</a></li>
+<li class="chapter" data-level="8.10" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#chapter-summary-6"><i class="fa fa-check"></i><b>8.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="8.11" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#exercises-6"><i class="fa fa-check"></i><b>8.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html"><i class="fa fa-check"></i><b>9</b> Non-linear equations in systems</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#solutions-with-non-linear-systems"><i class="fa fa-check"></i><b>9.1</b> Solutions with non-linear systems</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#substitution"><i class="fa fa-check"></i><b>9.2</b> Substitution</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#row-reduction-with-non-linear-equations"><i class="fa fa-check"></i><b>9.3</b> Row reduction with non-linear equations</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-ska-vi-borja-roka"><i class="fa fa-check"></i><b>9.4</b> Example 1: Two friends</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-2-more-smoking"><i class="fa fa-check"></i><b>9.5</b> Example 2: More smoking</a></li>
+<li class="chapter" data-level="9.6" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-3-they-call-it-love"><i class="fa fa-check"></i><b>9.6</b> Example 3: They call it love</a></li>
+<li class="chapter" data-level="9.7" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-nairu-med-flera-jamvikter"><i class="fa fa-check"></i><b>9.7</b> Example 4: Another theory about work</a></li>
+<li class="chapter" data-level="9.8" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#chapter-summary-7"><i class="fa fa-check"></i><b>9.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="9.9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#exercises-7"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-derivata.html"><a href="chap-derivata.html"><i class="fa fa-check"></i><b>10</b> Derivative</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-derivata.html"><a href="chap-derivata.html#limit"><i class="fa fa-check"></i><b>10.1</b> Limit</a></li>
+<li class="chapter" data-level="10.2" data-path="chap-derivata.html"><a href="chap-derivata.html#simplify-first"><i class="fa fa-check"></i><b>10.2</b> Simplify first</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata"><i class="fa fa-check"></i><b>10.3</b> Differentiating</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-derivata.html"><a href="chap-derivata.html#the-next-derivative"><i class="fa fa-check"></i><b>10.4</b> The next derivative</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata-exponential-e-log"><i class="fa fa-check"></i><b>10.5</b> Exponent, logarithm and <em>e</em></a></li>
+<li class="chapter" data-level="10.6" data-path="chap-derivata.html"><a href="chap-derivata.html#the-derivative-of-boldsymbollog-x"><i class="fa fa-check"></i><b>10.6</b> The derivative of <span class="math inline">\(\boldsymbol{\log x}\)</span></a></li>
+<li class="chapter" data-level="10.7" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-l-hopitals-regel"><i class="fa fa-check"></i><b>10.7</b> L’Hôpital’s rule</a></li>
+<li class="chapter" data-level="10.8" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-partiell-derivata"><i class="fa fa-check"></i><b>10.8</b> Partial derivative</a></li>
+<li class="chapter" data-level="10.9" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-rakneregler-derivata"><i class="fa fa-check"></i><b>10.9</b> Differentiation rules</a></li>
+<li class="chapter" data-level="10.10" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-elasticitet"><i class="fa fa-check"></i><b>10.10</b> Elasticity</a></li>
+<li class="chapter" data-level="10.11" data-path="chap-derivata.html"><a href="chap-derivata.html#chapter-summary-8"><i class="fa fa-check"></i><b>10.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="10.12" data-path="chap-derivata.html"><a href="chap-derivata.html#exercises-8"><i class="fa fa-check"></i><b>10.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html"><i class="fa fa-check"></i><b>11</b> Optimization with functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#extreme-values"><i class="fa fa-check"></i><b>11.1</b> Extreme values</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#differentiate-to-find-extreme-values"><i class="fa fa-check"></i><b>11.2</b> Differentiate to find extreme values</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#global-and-local"><i class="fa fa-check"></i><b>11.3</b> Global and local</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#more-examples"><i class="fa fa-check"></i><b>11.4</b> More examples</a></li>
+<li class="chapter" data-level="11.5" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#terrace"><i class="fa fa-check"></i><b>11.5</b> Terrace</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#sec-optimera-villkor-lagrange"><i class="fa fa-check"></i><b>11.6</b> Optimization with constraints</a></li>
+<li class="chapter" data-level="11.7" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#chapter-summary-9"><i class="fa fa-check"></i><b>11.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="11.8" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#exercises-9"><i class="fa fa-check"></i><b>11.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html"><i class="fa fa-check"></i><b>12</b> Theories about cake and monopoly</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#the-optimal-amount-of-cake"><i class="fa fa-check"></i><b>12.1</b> The optimal amount of cake</a></li>
+<li class="chapter" data-level="12.2" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-maximera-eriks-nytta"><i class="fa fa-check"></i><b>12.2</b> To work or not to work</a></li>
+<li class="chapter" data-level="12.3" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-den-optimala-skattenivan"><i class="fa fa-check"></i><b>12.3</b> Maximum possible tax level</a></li>
+<li class="chapter" data-level="12.4" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-konsumtion-och-sparande"><i class="fa fa-check"></i><b>12.4</b> Consumption and saving</a></li>
+<li class="chapter" data-level="12.5" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-optimering-1-ftg-perf-konk"><i class="fa fa-check"></i><b>12.5</b> A profit-maximizing company</a></li>
+<li class="chapter" data-level="12.6" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-vinstmaximering-med-villkor"><i class="fa fa-check"></i><b>12.6</b> Profit maximization with constraints</a></li>
+<li class="chapter" data-level="12.7" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopol"><i class="fa fa-check"></i><b>12.7</b> Monopoly</a></li>
+<li class="chapter" data-level="12.8" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopsoni"><i class="fa fa-check"></i><b>12.8</b> Monopsony</a></li>
+<li class="chapter" data-level="12.9" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#if-we-do-not-optimize"><i class="fa fa-check"></i><b>12.9</b> If we do not optimize</a></li>
+<li class="chapter" data-level="12.10" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#chapter-summary-10"><i class="fa fa-check"></i><b>12.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="12.11" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#exercises-10"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-integraler.html"><a href="chap-integraler.html"><i class="fa fa-check"></i><b>13</b> Integration</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap-integraler.html"><a href="chap-integraler.html#the-primitive-function"><i class="fa fa-check"></i><b>13.1</b> The primitive function</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-integraler.html"><a href="chap-integraler.html#the-meaning-of-constant-boldsymbolc"><i class="fa fa-check"></i><b>13.2</b> The meaning of constant <span class="math inline">\(\boldsymbol{C}\)</span></a></li>
+<li class="chapter" data-level="13.3" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-with-conditions"><i class="fa fa-check"></i><b>13.3</b> Primitive function with conditions</a></li>
+<li class="chapter" data-level="13.4" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-for-an-exponent"><i class="fa fa-check"></i><b>13.4</b> Primitive function for an exponent</a></li>
+<li class="chapter" data-level="13.5" data-path="chap-integraler.html"><a href="chap-integraler.html#calculate-area-with-integral"><i class="fa fa-check"></i><b>13.5</b> Calculate area with integral</a></li>
+<li class="chapter" data-level="13.6" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-under-the-x-axis"><i class="fa fa-check"></i><b>13.6</b> The area under the x-axis</a></li>
+<li class="chapter" data-level="13.7" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-between-two-lines"><i class="fa fa-check"></i><b>13.7</b> The area between two lines</a></li>
+<li class="chapter" data-level="13.8" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-rakneregler-for-integraler"><i class="fa fa-check"></i><b>13.8</b> Integration rules</a></li>
+<li class="chapter" data-level="13.9" data-path="chap-integraler.html"><a href="chap-integraler.html#more-examples-1"><i class="fa fa-check"></i><b>13.9</b> More examples</a></li>
+<li class="chapter" data-level="13.10" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-multipelintegral"><i class="fa fa-check"></i><b>13.10</b> Multiple integral</a></li>
+<li class="chapter" data-level="13.11" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-partiell-integration"><i class="fa fa-check"></i><b>13.11</b> Partial integration</a></li>
+<li class="chapter" data-level="13.12" data-path="chap-integraler.html"><a href="chap-integraler.html#income-distribution-with-integrals"><i class="fa fa-check"></i><b>13.12</b> Income distribution with integrals</a></li>
+<li class="chapter" data-level="13.13" data-path="chap-integraler.html"><a href="chap-integraler.html#chapter-summary-11"><i class="fa fa-check"></i><b>13.13</b> Chapter summary</a></li>
+<li class="chapter" data-level="13.14" data-path="chap-integraler.html"><a href="chap-integraler.html#exercises-11"><i class="fa fa-check"></i><b>13.14</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html"><i class="fa fa-check"></i><b>14</b> Linear Algebra: Vectors and Matrices</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vectors"><i class="fa fa-check"></i><b>14.1</b> Vectors</a></li>
+<li class="chapter" data-level="14.2" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vector-calculations"><i class="fa fa-check"></i><b>14.2</b> Vector calculations</a></li>
+<li class="chapter" data-level="14.3" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#more-vectors"><i class="fa fa-check"></i><b>14.3</b> More vectors</a></li>
+<li class="chapter" data-level="14.4" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-matriser"><i class="fa fa-check"></i><b>14.4</b> Matrices</a></li>
+<li class="chapter" data-level="14.5" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet"><i class="fa fa-check"></i><b>14.5</b> More matrices</a></li>
+<li class="chapter" data-level="14.6" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-multiplikation-och-transponering"><i class="fa fa-check"></i><b>14.6</b> Multiplication and transposition</a></li>
+<li class="chapter" data-level="14.7" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-determinant-matris"><i class="fa fa-check"></i><b>14.7</b> Determinant</a></li>
+<li class="chapter" data-level="14.8" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#row-reduction-in-matrix"><i class="fa fa-check"></i><b>14.8</b> Row reduction in matrix</a></li>
+<li class="chapter" data-level="14.9" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-inversen-av-matris"><i class="fa fa-check"></i><b>14.9</b> Inverse of a matrix</a></li>
+<li class="chapter" data-level="14.10" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-linjara-ekvationssystem-i-matris"><i class="fa fa-check"></i><b>14.10</b> Linear equation systems in matrix</a></li>
+<li class="chapter" data-level="14.11" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-1-a-bakery"><i class="fa fa-check"></i><b>14.11</b> Example 1: A bakery</a></li>
+<li class="chapter" data-level="14.12" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-2-input-output-analysis"><i class="fa fa-check"></i><b>14.12</b> Example 2: Input-output analysis</a></li>
+<li class="chapter" data-level="14.13" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-3-social-networks"><i class="fa fa-check"></i><b>14.13</b> Example 3: Social networks</a></li>
+<li class="chapter" data-level="14.14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#chapter-summary-12"><i class="fa fa-check"></i><b>14.14</b> Chapter summary</a></li>
+<li class="chapter" data-level="14.15" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#exercises-12"><i class="fa fa-check"></i><b>14.15</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Covariation and Causality</b></span></li>
+<li class="chapter" data-level="" data-path="part-covariation-intro.html"><a href="part-covariation-intro.html"><i class="fa fa-check"></i>Part II: Covariation and Causality</a></li>
+<li class="chapter" data-level="15" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html"><i class="fa fa-check"></i><b>15</b> Fundamental Counterfactual Analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-orsak-och-effekt"><i class="fa fa-check"></i><b>15.1</b> Cause and effect</a></li>
+<li class="chapter" data-level="15.2" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samvariation"><i class="fa fa-check"></i><b>15.2</b> Variation, Covariation and Association</a></li>
+<li class="chapter" data-level="15.3" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-observationsstudie-experiment"><i class="fa fa-check"></i><b>15.3</b> Observational Study and Experiment</a></li>
+<li class="chapter" data-level="15.4" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-population-urval-superpopulation"><i class="fa fa-check"></i><b>15.4</b> Population and Sample</a></li>
+<li class="chapter" data-level="15.5" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-information-och-variabler"><i class="fa fa-check"></i><b>15.5</b> Information and variables</a></li>
+<li class="chapter" data-level="15.6" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-olika-typer-av-data"><i class="fa fa-check"></i><b>15.6</b> Different types of data</a></li>
+<li class="chapter" data-level="15.7" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samla-in-data"><i class="fa fa-check"></i><b>15.7</b> Collecting a sample</a></li>
+<li class="chapter" data-level="15.8" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-ar-allting-osakert"><i class="fa fa-check"></i><b>15.8</b> How do we know the things we know?</a></li>
+<li class="chapter" data-level="15.9" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#exercises-13"><i class="fa fa-check"></i><b>15.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html"><i class="fa fa-check"></i><b>16</b> Variation and covariation</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-frekvensfordelning"><i class="fa fa-check"></i><b>16.1</b> Frequency Distribution</a></li>
+<li class="chapter" data-level="16.2" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-spridningsmatt-kvartiler-och"><i class="fa fa-check"></i><b>16.2</b> Measures of Central Tendency and Measures of Dispersion</a></li>
+<li class="chapter" data-level="16.3" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-varians-och-standardavvikelse"><i class="fa fa-check"></i><b>16.3</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="16.4" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-standardiserade-varden"><i class="fa fa-check"></i><b>16.4</b> Standardized values</a></li>
+<li class="chapter" data-level="16.5" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-samvariation-i-diagram"><i class="fa fa-check"></i><b>16.5</b> Covariation in graphs</a></li>
+<li class="chapter" data-level="16.6" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-kovarians"><i class="fa fa-check"></i><b>16.6</b> Covariation 1: Covariance</a></li>
+<li class="chapter" data-level="16.7" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-pearsons-r"><i class="fa fa-check"></i><b>16.7</b> Covariation 2: The correlation coefficient</a></li>
+<li class="chapter" data-level="16.8" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#chapter-summary-13"><i class="fa fa-check"></i><b>16.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="16.9" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#exercises-14"><i class="fa fa-check"></i><b>16.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap-ols.html"><a href="chap-ols.html"><i class="fa fa-check"></i><b>17</b> The Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap-ols.html"><a href="chap-ols.html#basic-logic"><i class="fa fa-check"></i><b>17.1</b> Basic logic</a></li>
+<li class="chapter" data-level="17.2" data-path="chap-ols.html"><a href="chap-ols.html#sec-minstakvadratmetoden-ols"><i class="fa fa-check"></i><b>17.2</b> Covariation with Straight Line</a></li>
+<li class="chapter" data-level="17.3" data-path="chap-ols.html"><a href="chap-ols.html#sec-regressionsanalys"><i class="fa fa-check"></i><b>17.3</b> Regression analysis</a></li>
+<li class="chapter" data-level="17.4" data-path="chap-ols.html"><a href="chap-ols.html#sec-felterm-och-residual"><i class="fa fa-check"></i><b>17.4</b> Error term and residual</a></li>
+<li class="chapter" data-level="17.5" data-path="chap-ols.html"><a href="chap-ols.html#calculating-with-least-squares"><i class="fa fa-check"></i><b>17.5</b> Calculating with Least Squares</a></li>
+<li class="chapter" data-level="17.6" data-path="chap-ols.html"><a href="chap-ols.html#other-straight-lines"><i class="fa fa-check"></i><b>17.6</b> Other straight lines</a></li>
+<li class="chapter" data-level="17.7" data-path="chap-ols.html"><a href="chap-ols.html#sec-en-linje-ar-en-linje"><i class="fa fa-check"></i><b>17.7</b> What the Line Doesn’t Tell Us</a></li>
+<li class="chapter" data-level="17.8" data-path="chap-ols.html"><a href="chap-ols.html#sec-ols-ex-2"><i class="fa fa-check"></i><b>17.8</b> Another example</a></li>
+<li class="chapter" data-level="17.9" data-path="chap-ols.html"><a href="chap-ols.html#sec-ssr-sse-sst-vilken-modell-ar-bast"><i class="fa fa-check"></i><b>17.9</b> Which model fits the data best?</a></li>
+<li class="chapter" data-level="17.10" data-path="chap-ols.html"><a href="chap-ols.html#sec-harled-ols-med-vanliga-f"><i class="fa fa-check"></i><b>17.10</b> Derivation of the Estimators</a></li>
+<li class="chapter" data-level="17.11" data-path="chap-ols.html"><a href="chap-ols.html#chapter-summary-14"><i class="fa fa-check"></i><b>17.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="17.12" data-path="chap-ols.html"><a href="chap-ols.html#exercises-15"><i class="fa fa-check"></i><b>17.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html"><i class="fa fa-check"></i><b>18</b> Covariation in Social Science</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-lever-rika-langre-kolada-inkomst-livslangd"><i class="fa fa-check"></i><b>18.1</b> GDP and Life Expectancy in different countries</a></li>
+<li class="chapter" data-level="18.2" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-ols-kolada-alla-kommuner-livslangd-inkomst"><i class="fa fa-check"></i><b>18.2</b> Covariation with a lot of countries</a></li>
+<li class="chapter" data-level="18.3" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-linjar-trend-ols-log-bnp"><i class="fa fa-check"></i><b>18.3</b> Linear trend over time</a></li>
+<li class="chapter" data-level="18.4" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-cykler-och-vagor"><i class="fa fa-check"></i><b>18.4</b> Cycles and waves</a></li>
+<li class="chapter" data-level="18.5" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-bnp-och-lycka-igen"><i class="fa fa-check"></i><b>18.5</b> Wealth and happiness</a></li>
+<li class="chapter" data-level="18.6" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-star-wars"><i class="fa fa-check"></i><b>18.6</b> Star Wars</a></li>
+<li class="chapter" data-level="18.7" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#chapter-summary-15"><i class="fa fa-check"></i><b>18.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="18.8" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#exercises-16"><i class="fa fa-check"></i><b>18.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html"><i class="fa fa-check"></i><b>19</b> Least Squares with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-ols-pa-tre-variabler"><i class="fa fa-check"></i><b>19.1</b> Regression analysis with three variables</a></li>
+<li class="chapter" data-level="19.2" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-faktorvariabler"><i class="fa fa-check"></i><b>19.2</b> Factor variables</a></li>
+<li class="chapter" data-level="19.3" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-konstanthaller"><i class="fa fa-check"></i><b>19.3</b> Ceteris paribus</a></li>
+<li class="chapter" data-level="19.4" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-minstakvadratmetoden-med-matrise"><i class="fa fa-check"></i><b>19.4</b> Least Squares with Matrices</a></li>
+<li class="chapter" data-level="19.5" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-berakna-ols-med-matriser"><i class="fa fa-check"></i><b>19.5</b> Estimation with matrices</a></li>
+<li class="chapter" data-level="19.6" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-interaktion"><i class="fa fa-check"></i><b>19.6</b> Interaction</a></li>
+<li class="chapter" data-level="19.7" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-adj-r-2"><i class="fa fa-check"></i><b>19.7</b> Adjusted <span class="math inline">\(R^{2}\)</span></a></li>
+<li class="chapter" data-level="19.8" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-omitted-variable-bias"><i class="fa fa-check"></i><b>19.8</b> If we have too few variables</a></li>
+<li class="chapter" data-level="19.9" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-overfitting"><i class="fa fa-check"></i><b>19.9</b> If we have too many variables</a></li>
+<li class="chapter" data-level="19.10" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#the-error-term-does-not-need-to-approach-zero"><i class="fa fa-check"></i><b>19.10</b> The error term does not need to approach zero</a></li>
+<li class="chapter" data-level="19.11" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#chapter-summary-16"><i class="fa fa-check"></i><b>19.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="19.12" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#exercises-17"><i class="fa fa-check"></i><b>19.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html"><i class="fa fa-check"></i><b>20</b> Regression Analysis for Causal Relationships</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#we-need-special-methods-to-study-cause-and-effect"><i class="fa fa-check"></i><b>20.1</b> We need special methods to study cause and effect</a></li>
+<li class="chapter" data-level="20.2" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#illustration-with-a-dag"><i class="fa fa-check"></i><b>20.2</b> Illustration with a DAG</a></li>
+<li class="chapter" data-level="20.3" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#both-the-presence-and-absence-of-variables-can-affect-our-results"><i class="fa fa-check"></i><b>20.3</b> Both the presence and absence of variables can affect our results</a></li>
+<li class="chapter" data-level="20.4" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-regressionsdiskontinuitet"><i class="fa fa-check"></i><b>20.4</b> Regression discontinuity</a></li>
+<li class="chapter" data-level="20.5" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-instrumentell-variabel"><i class="fa fa-check"></i><b>20.5</b> Instrumental variable</a></li>
+<li class="chapter" data-level="20.6" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-skillnad-i-skillnad"><i class="fa fa-check"></i><b>20.6</b> Difference-in-differences</a></li>
+<li class="chapter" data-level="20.7" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#pros-and-cons-with-these-methods"><i class="fa fa-check"></i><b>20.7</b> Pros and cons with these methods</a></li>
+<li class="chapter" data-level="20.8" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#causality-without-covariation"><i class="fa fa-check"></i><b>20.8</b> Causality without covariation</a></li>
+<li class="chapter" data-level="20.9" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#chapter-summary-17"><i class="fa fa-check"></i><b>20.9</b> Chapter summary</a></li>
+<li class="chapter" data-level="20.10" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#exercises-18"><i class="fa fa-check"></i><b>20.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>III Probability</b></span></li>
+<li class="chapter" data-level="" data-path="part-probability-intro.html"><a href="part-probability-intro.html"><i class="fa fa-check"></i>Part III: Probability</a></li>
+<li class="chapter" data-level="21" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html"><i class="fa fa-check"></i><b>21</b> Basic Probability Theory 1: discrete distributions</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#how-we-know-what-we-know"><i class="fa fa-check"></i><b>21.1</b> How we know what we know</a></li>
+<li class="chapter" data-level="21.2" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-random-variables"><i class="fa fa-check"></i><b>21.2</b> Random variables</a></li>
+<li class="chapter" data-level="21.3" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-multivariate-probability"><i class="fa fa-check"></i><b>21.3</b> Probability with multiple variables</a></li>
+<li class="chapter" data-level="21.4" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-expected-value-variance"><i class="fa fa-check"></i><b>21.4</b> Expected value and variance</a></li>
+<li class="chapter" data-level="21.5" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-conditional-expected-value"><i class="fa fa-check"></i><b>21.5</b> Conditional expected value</a></li>
+<li class="chapter" data-level="21.6" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-law-large-numbers"><i class="fa fa-check"></i><b>21.6</b> Law of large numbers</a></li>
+<li class="chapter" data-level="21.7" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-uniform-distribution"><i class="fa fa-check"></i><b>21.7</b> Uniform probability distributions</a></li>
+<li class="chapter" data-level="21.8" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-binomial-distribution"><i class="fa fa-check"></i><b>21.8</b> The binomial distribution</a></li>
+<li class="chapter" data-level="21.9" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-poisson-distribution"><i class="fa fa-check"></i><b>21.9</b> The Poisson distribution</a></li>
+<li class="chapter" data-level="21.10" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-ch21-summary"><i class="fa fa-check"></i><b>21.10</b> Chapter Summary</a></li>
+<li class="chapter" data-level="21.11" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#exercises-19"><i class="fa fa-check"></i><b>21.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html"><i class="fa fa-check"></i><b>22</b> Fundamental Probability Theory 2: Continuous Distributions</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-uniform-continuous"><i class="fa fa-check"></i><b>22.1</b> Uniform Continuous Probability Distributions</a></li>
+<li class="chapter" data-level="22.2" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-ev-variance-continuous"><i class="fa fa-check"></i><b>22.2</b> Expected Value and Variance for Continuous Random Variables</a></li>
+<li class="chapter" data-level="22.3" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-exponential-distribution"><i class="fa fa-check"></i><b>22.3</b> Exponential Distributions</a></li>
+<li class="chapter" data-level="22.4" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-gamma-distribution"><i class="fa fa-check"></i><b>22.4</b> From Poisson to Gamma</a></li>
+<li class="chapter" data-level="22.5" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-chi-squared-distribution"><i class="fa fa-check"></i><b>22.5</b> Chi-squared Distributions</a></li>
+<li class="chapter" data-level="22.6" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-f-distribution"><i class="fa fa-check"></i><b>22.6</b> F-distributions</a></li>
+<li class="chapter" data-level="22.7" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#chapter-summary-18"><i class="fa fa-check"></i><b>22.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="22.8" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#exercises-20"><i class="fa fa-check"></i><b>22.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html"><i class="fa fa-check"></i><b>23</b> Normal and t distributions</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability with normal variables</a></li>
+<li class="chapter" data-level="23.2" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-standard-normal"><i class="fa fa-check"></i><b>23.2</b> Standardized normal distribution</a></li>
+<li class="chapter" data-level="23.3" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-1"><i class="fa fa-check"></i><b>23.3</b> The usefulness of the normal distribution 1</a></li>
+<li class="chapter" data-level="23.4" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-2"><i class="fa fa-check"></i><b>23.4</b> The usefulness of the normal distribution 2</a></li>
+<li class="chapter" data-level="23.5" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-3-clt"><i class="fa fa-check"></i><b>23.5</b> The usefulness of the normal distribution 3</a></li>
+<li class="chapter" data-level="23.6" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-t-distribution"><i class="fa fa-check"></i><b>23.6</b> T-distribution</a></li>
+<li class="chapter" data-level="23.7" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#chapter-summary-19"><i class="fa fa-check"></i><b>23.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="23.8" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#exercises-21"><i class="fa fa-check"></i><b>23.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html"><i class="fa fa-check"></i><b>24</b> Statistical analysis and inference</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-point-estimation"><i class="fa fa-check"></i><b>24.1</b> Point estimation</a></li>
+<li class="chapter" data-level="24.2" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-standard-error"><i class="fa fa-check"></i><b>24.2</b> Standard error</a></li>
+<li class="chapter" data-level="24.3" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-confidence-interval"><i class="fa fa-check"></i><b>24.3</b> Confidence interval</a></li>
+<li class="chapter" data-level="24.4" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-hypothesis-testing"><i class="fa fa-check"></i><b>24.4</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="24.5" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-statistical-significance"><i class="fa fa-check"></i><b>24.5</b> Statistical significance, power and type errors</a></li>
+<li class="chapter" data-level="24.6" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#chapter-summary-20"><i class="fa fa-check"></i><b>24.6</b> Chapter summary</a></li>
+<li class="chapter" data-level="24.7" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#exercises-22"><i class="fa fa-check"></i><b>24.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html"><i class="fa fa-check"></i><b>25</b> Regression Analysis with Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-population-model"><i class="fa fa-check"></i><b>25.1</b> The Population Model and Statistical Tests</a></li>
+<li class="chapter" data-level="25.2" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ols-assumptions"><i class="fa fa-check"></i><b>25.2</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="25.3" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-variance"><i class="fa fa-check"></i><b>25.3</b> The Variance of the Regression Model</a></li>
+<li class="chapter" data-level="25.4" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-t-test"><i class="fa fa-check"></i><b>25.4</b> Regression analysis with t-test</a></li>
+<li class="chapter" data-level="25.5" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-coefficients"><i class="fa fa-check"></i><b>25.5</b> Regression analysis with confidence interval</a></li>
+<li class="chapter" data-level="25.6" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-line"><i class="fa fa-check"></i><b>25.6</b> Confidence Interval for the Regression Line</a></li>
+<li class="chapter" data-level="25.7" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-power-regression"><i class="fa fa-check"></i><b>25.7</b> Statistical Power in Regression</a></li>
+<li class="chapter" data-level="25.8" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-economic-significance"><i class="fa fa-check"></i><b>25.8</b> Statistical and Economic Significance</a></li>
+<li class="chapter" data-level="25.9" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#chapter-summary-21"><i class="fa fa-check"></i><b>25.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="25.10" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ch25-exercises"><i class="fa fa-check"></i><b>25.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html"><i class="fa fa-check"></i><b>26</b> Statistical Tests in Regression Analysis with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ols-assumptions-multiple"><i class="fa fa-check"></i><b>26.1</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="26.2" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-estimators-multiple"><i class="fa fa-check"></i><b>26.2</b> Estimators of the Coefficients</a></li>
+<li class="chapter" data-level="26.3" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-variance-covariance-matrix"><i class="fa fa-check"></i><b>26.3</b> The Variance-Covariance Matrix</a></li>
+<li class="chapter" data-level="26.4" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-t-test-multiple-variables"><i class="fa fa-check"></i><b>26.4</b> T-tests for Multiple Regression</a></li>
+<li class="chapter" data-level="26.5" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-f-test-regression"><i class="fa fa-check"></i><b>26.5</b> F-test for the Regression Model</a></li>
+<li class="chapter" data-level="26.6" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#chapter-summary-22"><i class="fa fa-check"></i><b>26.6</b> Chapter Summary</a></li>
+<li class="chapter" data-level="26.7" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ch26-exercises"><i class="fa fa-check"></i><b>26.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html"><i class="fa fa-check"></i><b>27</b> Conditions of the Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-gauss-markov"><i class="fa fa-check"></i><b>27.1</b> Gauss-Markov</a></li>
+<li class="chapter" data-level="27.2" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-linearity"><i class="fa fa-check"></i><b>27.2</b> Assumption 1: Linearity</a></li>
+<li class="chapter" data-level="27.3" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-iid"><i class="fa fa-check"></i><b>27.3</b> Assumption 2: Independent and Identically Distributed Observations</a></li>
+<li class="chapter" data-level="27.4" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-homoscedasticity"><i class="fa fa-check"></i><b>27.4</b> Assumption 3: Expected Value and Variance of the Error Terms</a></li>
+<li class="chapter" data-level="27.5" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-multicollinearity"><i class="fa fa-check"></i><b>27.5</b> Assumption 4: Multicollinearity</a></li>
+<li class="chapter" data-level="27.6" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-autocorrelation"><i class="fa fa-check"></i><b>27.6</b> Assumption 5: Correlation Between Residuals</a></li>
+<li class="chapter" data-level="27.7" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-normality"><i class="fa fa-check"></i><b>27.7</b> Assumption 6: Normally Distributed Error Terms</a></li>
+<li class="chapter" data-level="27.8" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-robust-se"><i class="fa fa-check"></i><b>27.8</b> Adjusted Standard Errors</a></li>
+<li class="chapter" data-level="27.9" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-summary"><i class="fa fa-check"></i><b>27.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="27.10" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-exercises"><i class="fa fa-check"></i><b>27.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Computer Programs for Social Scientists</b></span></li>
+<li class="chapter" data-level="" data-path="part-computer-programs-intro.html"><a href="part-computer-programs-intro.html"><i class="fa fa-check"></i>Part IV: Computer Programs for Social Scientists</a></li>
+<li class="chapter" data-level="28" data-path="ch-why-computers.html"><a href="ch-why-computers.html"><i class="fa fa-check"></i><b>28</b> Why Use Computers?</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-three-tools"><i class="fa fa-check"></i><b>28.1</b> Three Analytical Tools</a></li>
+<li class="chapter" data-level="28.2" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-why-programming"><i class="fa fa-check"></i><b>28.2</b> Programming: Why Bother?</a></li>
+<li class="chapter" data-level="28.3" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-practice"><i class="fa fa-check"></i><b>28.3</b> You Have to Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="ch-excel.html"><a href="ch-excel.html"><i class="fa fa-check"></i><b>29</b> Microsoft Excel</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-general"><i class="fa fa-check"></i><b>29.1</b> General about Excel</a></li>
+<li class="chapter" data-level="29.2" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-import"><i class="fa fa-check"></i><b>29.2</b> Import and edit data</a></li>
+<li class="chapter" data-level="29.3" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-functions"><i class="fa fa-check"></i><b>29.3</b> Worksheet functions</a></li>
+<li class="chapter" data-level="29.4" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-fill-cells"><i class="fa fa-check"></i><b>29.4</b> Quick ways to fill multiple cells</a></li>
+<li class="chapter" data-level="29.5" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-combining-functions"><i class="fa fa-check"></i><b>29.5</b> Combining functions within calculations</a></li>
+<li class="chapter" data-level="29.6" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-logic"><i class="fa fa-check"></i><b>29.6</b> Logic conditions</a></li>
+<li class="chapter" data-level="29.7" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-index"><i class="fa fa-check"></i><b>29.7</b> Calculate index with Excel</a></li>
+<li class="chapter" data-level="29.8" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-matrices"><i class="fa fa-check"></i><b>29.8</b> Matrix calculations</a></li>
+<li class="chapter" data-level="29.9" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-io"><i class="fa fa-check"></i><b>29.9</b> Input-output analysis</a></li>
+<li class="chapter" data-level="29.10" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-variance"><i class="fa fa-check"></i><b>29.10</b> Variance and covariance</a></li>
+<li class="chapter" data-level="29.11" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-probability"><i class="fa fa-check"></i><b>29.11</b> Probability</a></li>
+<li class="chapter" data-level="29.12" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-regression"><i class="fa fa-check"></i><b>29.12</b> Regression analysis</a></li>
+<li class="chapter" data-level="29.13" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-plots"><i class="fa fa-check"></i><b>29.13</b> Creating plots</a></li>
+<li class="chapter" data-level="29.14" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-gdp-example"><i class="fa fa-check"></i><b>29.14</b> Example with GDP per working hour</a></li>
+<li class="chapter" data-level="29.15" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-other-functions"><i class="fa fa-check"></i><b>29.15</b> Some other useful functions</a></li>
+<li class="chapter" data-level="29.16" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-summary"><i class="fa fa-check"></i><b>29.16</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="ch-stata.html"><a href="ch-stata.html"><i class="fa fa-check"></i><b>30</b> Stata</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-general"><i class="fa fa-check"></i><b>30.1</b> General info about Stata</a></li>
+<li class="chapter" data-level="30.2" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-commands"><i class="fa fa-check"></i><b>30.2</b> Commands in Stata</a></li>
+<li class="chapter" data-level="30.3" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-import"><i class="fa fa-check"></i><b>30.3</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="30.4" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-enter-data"><i class="fa fa-check"></i><b>30.4</b> Enter data manually</a></li>
+<li class="chapter" data-level="30.5" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-edit"><i class="fa fa-check"></i><b>30.5</b> Edit Columns and Rows</a></li>
+<li class="chapter" data-level="30.6" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-egen"><i class="fa fa-check"></i><b>30.6</b> The function egen</a></li>
+<li class="chapter" data-level="30.7" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-join"><i class="fa fa-check"></i><b>30.7</b> Join tables</a></li>
+<li class="chapter" data-level="30.8" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-index"><i class="fa fa-check"></i><b>30.8</b> Calculate index using Stata</a></li>
+<li class="chapter" data-level="30.9" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-mata"><i class="fa fa-check"></i><b>30.9</b> Matrix calculations and MATA</a></li>
+<li class="chapter" data-level="30.10" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-io"><i class="fa fa-check"></i><b>30.10</b> Input-output analysis</a></li>
+<li class="chapter" data-level="30.11" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-variation"><i class="fa fa-check"></i><b>30.11</b> Variation and covariance</a></li>
+<li class="chapter" data-level="30.12" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-probability"><i class="fa fa-check"></i><b>30.12</b> Probability</a></li>
+<li class="chapter" data-level="30.13" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-regression"><i class="fa fa-check"></i><b>30.13</b> Regression analysis</a></li>
+<li class="chapter" data-level="30.14" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-export"><i class="fa fa-check"></i><b>30.14</b> Export results to disk</a></li>
+<li class="chapter" data-level="30.15" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-plots"><i class="fa fa-check"></i><b>30.15</b> Creating plots</a></li>
+<li class="chapter" data-level="30.16" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-loops"><i class="fa fa-check"></i><b>30.16</b> Iterations and loops</a></li>
+<li class="chapter" data-level="30.17" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-gdp"><i class="fa fa-check"></i><b>30.17</b> Example with GDP per hour</a></li>
+<li class="chapter" data-level="30.18" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-summary"><i class="fa fa-check"></i><b>30.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="ch-r.html"><a href="ch-r.html"><i class="fa fa-check"></i><b>31</b> R</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="ch-r.html"><a href="ch-r.html#sec-r-overview"><i class="fa fa-check"></i><b>31.1</b> General Overview of R</a></li>
+<li class="chapter" data-level="31.2" data-path="ch-r.html"><a href="ch-r.html#sec-r-objects"><i class="fa fa-check"></i><b>31.2</b> R Objects</a></li>
+<li class="chapter" data-level="31.3" data-path="ch-r.html"><a href="ch-r.html#sec-r-functions"><i class="fa fa-check"></i><b>31.3</b> Functions in R</a></li>
+<li class="chapter" data-level="31.4" data-path="ch-r.html"><a href="ch-r.html#sec-r-packages"><i class="fa fa-check"></i><b>31.4</b> R Packages</a></li>
+<li class="chapter" data-level="31.5" data-path="ch-r.html"><a href="ch-r.html#sec-r-import"><i class="fa fa-check"></i><b>31.5</b> Importing Data</a></li>
+<li class="chapter" data-level="31.6" data-path="ch-r.html"><a href="ch-r.html#sec-r-data-tables"><i class="fa fa-check"></i><b>31.6</b> Working with Data Tables</a></li>
+<li class="chapter" data-level="31.7" data-path="ch-r.html"><a href="ch-r.html#sec-r-joins"><i class="fa fa-check"></i><b>31.7</b> Join Tables</a></li>
+<li class="chapter" data-level="31.8" data-path="ch-r.html"><a href="ch-r.html#sec-r-index"><i class="fa fa-check"></i><b>31.8</b> Calculate Index and Export Tables</a></li>
+<li class="chapter" data-level="31.9" data-path="ch-r.html"><a href="ch-r.html#sec-r-matrices"><i class="fa fa-check"></i><b>31.9</b> Matrix Calculations</a></li>
+<li class="chapter" data-level="31.10" data-path="ch-r.html"><a href="ch-r.html#sec-r-io"><i class="fa fa-check"></i><b>31.10</b> Input–Output Analysis</a></li>
+<li class="chapter" data-level="31.11" data-path="ch-r.html"><a href="ch-r.html#sec-r-variation"><i class="fa fa-check"></i><b>31.11</b> Variation and Covariance</a></li>
+<li class="chapter" data-level="31.12" data-path="ch-r.html"><a href="ch-r.html#sec-r-probability"><i class="fa fa-check"></i><b>31.12</b> Probability</a></li>
+<li class="chapter" data-level="31.13" data-path="ch-r.html"><a href="ch-r.html#sec-r-regression"><i class="fa fa-check"></i><b>31.13</b> Regression Analysis</a></li>
+<li class="chapter" data-level="31.14" data-path="ch-r.html"><a href="ch-r.html#sec-r-export-results"><i class="fa fa-check"></i><b>31.14</b> Export Results to Hard Drive</a></li>
+<li class="chapter" data-level="31.15" data-path="ch-r.html"><a href="ch-r.html#sec-r-plots"><i class="fa fa-check"></i><b>31.15</b> Create Plots</a></li>
+<li class="chapter" data-level="31.16" data-path="ch-r.html"><a href="ch-r.html#sec-r-loops"><i class="fa fa-check"></i><b>31.16</b> Iterations and Loops</a></li>
+<li class="chapter" data-level="31.17" data-path="ch-r.html"><a href="ch-r.html#sec-r-gdp-example"><i class="fa fa-check"></i><b>31.17</b> Example with GDP per Working Hours</a></li>
+<li class="chapter" data-level="31.18" data-path="ch-r.html"><a href="ch-r.html#sec-r-summary"><i class="fa fa-check"></i><b>31.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="ch-data-tools.html"><a href="ch-data-tools.html"><i class="fa fa-check"></i><b>32</b> Examples of Useful Data and Additional Tools</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-free-data"><i class="fa fa-check"></i><b>32.1</b> Examples of Free Data</a></li>
+<li class="chapter" data-level="32.2" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-other-tools"><i class="fa fa-check"></i><b>32.2</b> Other Tools That Are Good to Know About</a></li>
+</ul></li>
+<li class="part"><span><b>V Final Words</b></span></li>
+<li class="chapter" data-level="" data-path="part-final-words-intro.html"><a href="part-final-words-intro.html"><i class="fa fa-check"></i>Part V: Final Words</a></li>
+<li class="chapter" data-level="33" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html"><i class="fa fa-check"></i><b>33</b> Final Chapter</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-misconceptions"><i class="fa fa-check"></i><b>33.1</b> Common Misconceptions</a></li>
+<li class="chapter" data-level="33.2" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-further-reading"><i class="fa fa-check"></i><b>33.2</b> Things That Perhaps Should Have Been Included in This Book</a></li>
+<li class="chapter" data-level="33.3" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-last-word"><i class="fa fa-check"></i><b>33.3</b> The Last Word</a></li>
+</ul></li>
+<li class="divider"></li>
+<li></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Cheat Code: Essential Math and Statistics for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-linjar-algebra" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Linear Algebra: Vectors and Matrices<a href="chap-linjar-algebra.html#chap-linjar-algebra" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter introduces linear algebra, specifically how to use vectors and matrices. These methods can be used, among other things, to calculate covariation and to study networks. Linear algebra is a central piece of empirical analysis, which is introduced more in detail in part III to V.</p>
+<div id="vectors" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Vectors<a href="chap-linjar-algebra.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If we have a mathematical quantity that only has one type of value, for example length, weight, temperature or income, this can be called a scalar. Often when we say scalar we mean a real number, even though the word scalar also can refer to other types of numbers. Quantities with multiple values are called vectors. Suppose we have a vector <span class="math inline">\(\vec{p}\)</span>, where the arrow over <span class="math inline">\(p\)</span> indicates that this is a vector, with information about a person’s weight and height:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{Person 1} &amp; =\vec{p}_{1}=\left(\text{weight},\text{height}\right)
+\end{align}
+\]</span></p>
+<p>Elements can also be written vertically:</p>
+<p><span class="math display">\[
+\begin{equation}
+\vec{p}=\left(\begin{matrix}\text{weight}\\
+\text{height}
+\end{matrix}\right)
+\end{equation}
+\]</span></p>
+<p>Each value in the vector is called an element. The number of elements in a vector can also be described as the number of dimensions or variables. The vector <span class="math inline">\(\vec{p}\)</span> has two dimensions, which can be described as <span class="math inline">\(\vec{p}\in\mathbb{R}^{2}\)</span>, where <span class="math inline">\(\mathbb{R}\)</span> is the symbol for the real numbers. Vectors with two dimensions can be illustrated in graphs using the x- and y-axis. Say that the vector <span class="math inline">\(\vec{p_{1}}=\left(90,190\right)\)</span> and we let the x-axis represent weight and the y-axis represent height, then we place <span class="math inline">\(\vec{p_{1}}\)</span> at the point <span class="math inline">\(\left(x,y\right)=\left(90,190\right)\)</span> in a graph:</p>
+<p><span class="math display">\[
+\begin{equation}
+\vec{p}=\left(\begin{matrix}x\\
+y
+\end{matrix}\right)=\left(\begin{matrix}90\\
+190
+\end{matrix}\right)
+\end{equation}
+\]</span></p>
+<p>A vector <span class="math inline">\(\vec{x}\)</span> with information about ten variables can be described as <span class="math inline">\(\vec{x}\in\mathbb{R}^{10}\)</span>.</p>
+</div>
+<div id="vector-calculations" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Vector calculations<a href="chap-linjar-algebra.html#vector-calculations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Vectors have their own rules for addition, subtraction and multiplication. Here follows a brief description based on examples.</p>
+<div id="addition-of-vectors." class="section level4 hasAnchor" number="14.2.0.1">
+<h4><span class="header-section-number">14.2.0.1</span> Addition of vectors.<a href="chap-linjar-algebra.html#addition-of-vectors." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let us take two vectors as examples: <span class="math inline">\(\vec{x}_{1}\)</span> and <span class="math inline">\(\vec{x}_{2}\)</span>, each with <span class="math inline">\(n\)</span> number of elements. Each element contains a number, a value, but here we just call the first element in <span class="math inline">\(\vec{x}_{1}\)</span> for <span class="math inline">\(x_{11}\)</span>. First element in <span class="math inline">\(\vec{x}_{2}\)</span> we call <span class="math inline">\(x_{21}\)</span>. The two vectors can be added together and then create a new vector, which we call <span class="math inline">\(\vec{x}_{3}\)</span>. The first element in <span class="math inline">\(\vec{x}_{3}\)</span> is the sum of element 1 in <span class="math inline">\(\vec{x}_{1}\)</span> and <span class="math inline">\(\vec{x}_{2}\)</span>, so <span class="math inline">\(x_{31}=x_{11}+x_{21}\)</span>. The second element is the sum of element 2 in <span class="math inline">\(\vec{x}_{1}\)</span> and <span class="math inline">\(\vec{x}_{2}\)</span>, so <span class="math inline">\(x_{32}=x_{12}+x_{22}\)</span>. And so on:</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{x}_{3} &amp; =\vec{x}_{1}+\vec{x}_{2}\\
+&amp; =\left(x_{11},x_{12},...,x_{1n}\right)+\left(x_{21},x_{22},...,x_{2n}\right)\nonumber \\
+&amp; =\left(x_{11}+x_{21},x_{12}+x_{22},...,x_{1n}+x_{2n}\right)\nonumber \\
+&amp; =\left(x_{31},x_{32},...,x_{3n}\right)\nonumber
+\end{align}
+\]</span></p>
+</div>
+<div id="subtraction-of-vectors." class="section level4 hasAnchor" number="14.2.0.2">
+<h4><span class="header-section-number">14.2.0.2</span> Subtraction of vectors.<a href="chap-linjar-algebra.html#subtraction-of-vectors." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For subtraction, the corresponding calculation rules as for addition apply. This time too we call our new vector <span class="math inline">\(\vec{x}_{3}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{x}_{3} &amp; =\vec{x}_{1}-\vec{x}_{2}\\
+&amp; =\left(x_{11},x_{12},...,x_{1n}\right)-\left(x_{21},x_{22},...,x_{2n}\right)\nonumber \\
+&amp; =\left(x_{11}-x_{21},x_{12}-x_{22},...,x_{1n}-x_{2n}\right)\nonumber \\
+&amp; =\left(x_{31},x_{32},...,x_{3n}\right)\nonumber
+\end{align}
+\]</span></p>
+</div>
+<div id="multiplication-of-vector-by-scalar." class="section level4 hasAnchor" number="14.2.0.3">
+<h4><span class="header-section-number">14.2.0.3</span> Multiplication of vector by scalar.<a href="chap-linjar-algebra.html#multiplication-of-vector-by-scalar." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Vectors can be multiplied by scalars. This results in a new vector. If we multiply the vector <span class="math inline">\(\vec{x}_{1}\)</span> by the scalar (the number) <span class="math inline">\(s\)</span> we get:</p>
+<p><span class="math display">\[
+\begin{align}
+s*\vec{x_{1}} &amp; =s*\left(x_{11},...,x_{1n}\right)=\left(sx_{11},...,sx_{1n}\right)
+\end{align}
+\]</span></p>
+</div>
+<div id="multiplication-of-vector-with-vector." class="section level4 hasAnchor" number="14.2.0.4">
+<h4><span class="header-section-number">14.2.0.4</span> Multiplication of vector with vector.<a href="chap-linjar-algebra.html#multiplication-of-vector-with-vector." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Multiplication of two vectors does not result in a new vector but in a scalar. This is also called inner product or dot product. This time we take the following two vectors as examples: <span class="math inline">\(\vec{x}=\left(x_{1},x_{2}\right)\)</span> and <span class="math inline">\(\vec{y}=\left(y_{1},y_{2}\right)\)</span>. Each vector has only two elements, where <span class="math inline">\(x_{1}\)</span> is the first element in vector <span class="math inline">\(\vec{x}\)</span>. We multiply the vectors <span class="math inline">\(\vec{x}\)</span> and <span class="math inline">\(\vec{y}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{x}*\vec{y} &amp; =\left(x_{1},x_{2}\right)*\left(y_{1},y_{2}\right)=x_{1}y_{1}+x_{2}y_{2}=a
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(a\)</span> is a scalar, a number.</p>
+<p>The calculation means that the first element in one vector is multiplied by the corresponding first element in the other vector. The second element in the first vector is multiplied by the second element in the second vector. All these products are summed to a number, which becomes the result, the scalar <span class="math inline">\(a\)</span>. If we multiply three vectors, this becomes in practice like multiplication of a scalar and a vector:</p>
+<p><span class="math display">\[
+\begin{align}
+\underbrace{\left(\vec{x}_{1}*\vec{x}_{2}\right)}_{=\text{scalar}}*\vec{x}_{3}=a*\vec{x}_{3}
+\end{align}
+\]</span></p>
+<p>Regardless of the order in which two vectors are multiplied, the scalar product remains the same. Suppose we have the vectors <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+\vec{a}*\vec{b}=\vec{b}*\vec{a}=k
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is a scalar. Say now that we have the three vectors <span class="math inline">\(\vec{a}\)</span>, <span class="math inline">\(\vec{b}\)</span> and <span class="math inline">\(\vec{c}\)</span>. If we multiply <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{c}\)</span> we get the scalar product <span class="math inline">\(\vec{a}*\vec{c}=s_{1}\)</span>, where the scalar product is a single value. Furthermore, the following also applies:</p>
+<p><span class="math display">\[
+\begin{align}
+s_{3} &amp; =\left(\vec{a}+\vec{b}\right)*\vec{c}=\vec{a}*\vec{c}+\vec{b}*\vec{c}=s_{1}+s_{2}
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(s_{1}\)</span>, <span class="math inline">\(s_{2}\)</span> and <span class="math inline">\(s_{3}\)</span> are scalars. Based on the calculation rules we have already gone through, it can be seen that the following also applies:</p>
+<p><span class="math display">\[
+\begin{equation}
+\left(k\vec{a}\right)*\vec{b}=k\left(\vec{a}*\vec{b}\right)
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is any scalar and <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> are vectors. We know that the product of two negative values is a positive value. For vectors, this means among other things that regardless of which elements are in a vector, the scalar product of a vector multiplied by itself can never be negative:</p>
+<p><span class="math display">\[
+\begin{equation}
+\vec{a}*\vec{a}\geq0
+\end{equation}
+\]</span></p>
+<p>This is because if the elements in a vector <span class="math inline">\(\vec{a}\)</span> are negative numbers, the multiplication with the same negative numbers will result in positive values. This in turn also means that the scalar product <span class="math inline">\(\vec{a}*\vec{a}=0\)</span> if and only if all elements in <span class="math inline">\(\vec{a}\)</span> are equal to 0.</p>
+</div>
+<div id="summary-of-vector-calculations." class="section level4 hasAnchor" number="14.2.0.5">
+<h4><span class="header-section-number">14.2.0.5</span> Summary of vector calculations.<a href="chap-linjar-algebra.html#summary-of-vector-calculations." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The above calculation rules can be illustrated with the following two vectors, which each have three elements:</p>
+<p><span class="math display">\[
+\begin{equation}
+\vec{v}_{1}=\left(\begin{matrix}1\\
+2\\
+3
+\end{matrix}\right),\quad\vec{v}_{2}=\left(\begin{matrix}4\\
+5\\
+6
+\end{matrix}\right)
+\end{equation}
+\]</span></p>
+<p>For these two vectors, the following applies for addition:</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{v}_{1}+\vec{v}_{2} &amp; =\left(\begin{matrix}1\\
+2\\
+3
+\end{matrix}\right)+\left(\begin{matrix}4\\
+5\\
+6
+\end{matrix}\right)=\left(\begin{matrix}1+4\\
+2+5\\
+3+6
+\end{matrix}\right)=\left(\begin{matrix}5\\
+7\\
+9
+\end{matrix}\right)
+\end{align}
+\]</span></p>
+<p>For subtraction:</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{v}_{1}-\vec{v}_{2} &amp; =\left(\begin{matrix}1\\
+2\\
+3
+\end{matrix}\right)-\left(\begin{matrix}4\\
+5\\
+6
+\end{matrix}\right)=\left(\begin{matrix}1-4\\
+2-5\\
+3-6
+\end{matrix}\right)=\left(\begin{matrix}-3\\
+-3\\
+-3
+\end{matrix}\right)
+\end{align}
+\]</span></p>
+<p>For multiplication by constant:</p>
+<p><span class="math display" id="eq:vektor-konstant-multplikation">\[
+\begin{align}
+4*\vec{v}_{1} &amp; =4*\left(\begin{matrix}1\\
+2\\
+3
+\end{matrix}\right)=\left(\begin{matrix}4*1\\
+4*2\\
+4*3
+\end{matrix}\right)=\left(\begin{matrix}4\\
+8\\
+12
+\end{matrix}\right)
+\tag{14.1}
+\end{align}
+\]</span></p>
+<p>For multiplication of the two vectors, the scalar product:</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{v}_{1}*\vec{v}_{2} &amp; =\left(\begin{matrix}1\\
+2\\
+3
+\end{matrix}\right)*\left(\begin{matrix}4\\
+5\\
+6
+\end{matrix}\right)=1*4+2*5+3*6=32
+\end{align}
+\]</span></p>
+</div>
+</div>
+<div id="more-vectors" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> More vectors<a href="chap-linjar-algebra.html#more-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let us calculate some more examples. We have the following three vectors:</p>
+<p><span class="math display">\[
+\begin{equation}
+\vec{a}=\left(\begin{array}{c}
+2\\
+5\\
+8
+\end{array}\right),\quad\vec{b}=\left(\begin{array}{c}
+10\\
+3\\
+2
+\end{array}\right),\quad\vec{c}=\left(\begin{array}{c}
+22\\
+14\\
+17
+\end{array}\right)
+\end{equation}
+\]</span></p>
+<p>We will now calculate:</p>
+<p><span class="math display">\[
+\begin{equation}
+5\vec{a}=5*\left(\begin{array}{c}
+2\\
+5\\
+8
+\end{array}\right)
+\end{equation}
+\]</span></p>
+<p>The scalar 5 is multiplied by each value in the vector:</p>
+<p><span class="math display">\[
+\begin{align}
+5*\left(\begin{array}{c}
+2\\
+5\\
+8
+\end{array}\right) &amp; =\left(\begin{array}{c}
+5*2\\
+5*5\\
+5*8
+\end{array}\right)=\left(\begin{array}{c}
+10\\
+25\\
+40
+\end{array}\right)
+\end{align}
+\]</span></p>
+<p>If we add all three vectors:</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{a}+\vec{b}+\vec{c} &amp; =\left(\begin{array}{c}
+2\\
+5\\
+8
+\end{array}\right)+\left(\begin{array}{c}
+10\\
+3\\
+2
+\end{array}\right)+\left(\begin{array}{c}
+22\\
+14\\
+17
+\end{array}\right)=\left(\begin{array}{c}
+42\\
+22\\
+27
+\end{array}\right)
+\end{align}
+\]</span></p>
+<p>If we instead subtract vectors <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> from <span class="math inline">\(\vec{c}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{c}-\vec{a}-\vec{b} &amp; =\left(\begin{array}{c}
+22\\
+14\\
+17
+\end{array}\right)-\left(\begin{array}{c}
+2\\
+5\\
+8
+\end{array}\right)-\left(\begin{array}{c}
+10\\
+3\\
+2
+\end{array}\right)=\left(\begin{array}{c}
+10\\
+6\\
+7
+\end{array}\right)
+\end{align}
+\]</span></p>
+<p>A common way to draw two-dimensional vectors in a two-dimensional graph is as arrows from the origin, the zero point, to the point that the vector’s values indicate. Let us take the following two vectors as examples:</p>
+<p><span class="math display">\[
+\begin{equation}
+\vec{a}=\left(\begin{array}{c}
+-2\\
+3
+\end{array}\right),\quad\vec{b}=\left(\begin{array}{c}
+1\\
+2
+\end{array}\right)
+\end{equation}
+\]</span></p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:tva-vektorer"></span>
+<img src="14-linear-algebra_files/figure-html/tva-vektorer-1.png" alt="Two vectors" width="71%" />
+<p class="caption">
+Figure 14.1: Two vectors
+</p>
+</div>
+<p>Figure <a href="chap-linjar-algebra.html#fig:tva-vektorer">14.1</a> illustrates the two vectors in the form of two arrows. The arrows go from the zero point <span class="math inline">\(\left(x,y\right)=\left(0,0\right)\)</span> to the values that the vectors indicate. The first value in each vector indicates the x-value and the second value indicates the y-value. Now we will calculate the length of each vector’s arrow. The vector’s length is called norm. For the vector <span class="math inline">\(\vec{a}\)</span> the norm is written <span class="math inline">\(\Vert\vec{a}\Vert\)</span> and is calculated as the square root of the sum of the included values:</p>
+<p><span class="math display">\[
+\begin{align}
+\Vert\vec{a}\Vert &amp; =\sqrt{a_{1}^{2}+a_{2}^{2}}=\left(a_{1}^{2}+a_{2}^{2}\right)^{\frac{1}{2}}
+\end{align}
+\]</span></p>
+<p>In this case we have:</p>
+<p><span class="math display">\[
+\begin{align}
+\Vert\vec{a}\Vert &amp; =\left(\left(-2\right)^{2}+3^{2}\right)^{\frac{1}{2}}\approx3.6\\
+\Vert\vec{b}\Vert &amp; =\left(1^{2}+2^{2}\right)^{\frac{1}{2}}\approx2.24\nonumber
+\end{align}
+\]</span></p>
+<p>This should be read as the arrow that goes from the zero point to the point <span class="math inline">\(\left(x,y\right)=\left(1,2\right)\)</span> is 2.24 length units long. If the vectors are drawn in a graph where the two axes measure centimeters, then centimeter is the length unit and the arrow is in that case 2.24 cm long.</p>
+</div>
+<div id="sec-matriser" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Matrices<a href="chap-linjar-algebra.html#sec-matriser" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A matrix is a collection of values organized in rectangle with rows and columns. Matrices are often described with number of rows <span class="math inline">\(\times\)</span> number of columns <span class="math inline">\(\left(r\times k\right)\)</span> before the name of the matrix. For example <span class="math inline">\(2\times3\)</span> matrix <span class="math inline">\(M\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+M=\left[\begin{matrix}a &amp; b &amp; c\\
+d &amp; e &amp; f
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>The expressions in a matrix are called elements. In matrix <span class="math inline">\(M\)</span> the elements consist of the letters <span class="math inline">\(a\)</span> to <span class="math inline">\(f\)</span>, which represent any real numbers. Matrices are often written with capital letters <span class="math inline">\(\left(M\right)\)</span> while individual elements in the matrix are written with lowercase letters and corresponding row and column: <span class="math inline">\(m_{11}\)</span> represents the element in row 1, column 1 in matrix M. Element <span class="math inline">\(m_{12}\)</span> is in row 1 column 2:</p>
+<p><span class="math display">\[
+\begin{equation}
+M=\left[\begin{matrix}m_{11} &amp; m_{12}\\
+m_{21} &amp; m_{22}
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>If two matrices have the same shape it means that they have the same number of columns and the same number of rows. If we have a matrix <span class="math inline">\(A\)</span> with 5 rows and 7 columns, then it has the same shape as all other matrices that also have 5 rows and 7 columns. There are special calculation rules for how we can use and combine matrices. We begin by going through addition, subtraction, multiplication and division.</p>
+<div id="addition-and-subtraction-with-matrices." class="section level4 hasAnchor" number="14.4.0.1">
+<h4><span class="header-section-number">14.4.0.1</span> Addition and subtraction with matrices.<a href="chap-linjar-algebra.html#addition-and-subtraction-with-matrices." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To be able to add or subtract two matrices they must have the same shape. Suppose we have the following two <span class="math inline">\(2\times2\)</span> matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+A=\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4
+\end{matrix}\right],\;B=\left[\begin{matrix}5 &amp; 6\\
+7 &amp; 8
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>In addition, each element at position <span class="math inline">\(r,k\)</span> is added to the corresponding element at the corresponding position in the other matrix:</p>
+<p><span class="math display">\[
+\begin{align}
+A+B &amp; =\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4
+\end{matrix}\right]+\left[\begin{matrix}5 &amp; 6\\
+7 &amp; 8
+\end{matrix}\right]=\left[\begin{matrix}1+5 &amp; 2+6\\
+3+7 &amp; 4+8
+\end{matrix}\right]=\left[\begin{matrix}6 &amp; 8\\
+10 &amp; 12
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>The result becomes a new matrix. Subtraction is done in the same way:</p>
+<p><span class="math display">\[
+\begin{align}
+A-B &amp; =\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4
+\end{matrix}\right]-\left[\begin{matrix}5 &amp; 6\\
+7 &amp; 8
+\end{matrix}\right]=\left[\begin{matrix}1-5 &amp; 2-6\\
+3-7 &amp; 4-8
+\end{matrix}\right]=\left[\begin{matrix}4 &amp; -4\\
+-4 &amp; -4
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+</div>
+<div id="multiplication-and-division-with-matrices." class="section level4 hasAnchor" number="14.4.0.2">
+<h4><span class="header-section-number">14.4.0.2</span> Multiplication and division with matrices.<a href="chap-linjar-algebra.html#multiplication-and-division-with-matrices." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Matrices can be multiplied both by individual numbers and other matrices, given certain conditions. We begin by multiplying matrix <span class="math inline">\(A\)</span> by the number 10:</p>
+<p><span class="math display">\[
+\begin{align}
+10A &amp; =10\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4
+\end{matrix}\right]=\left[\begin{matrix}10*1 &amp; 10*2\\
+10*3 &amp; 10*4
+\end{matrix}\right]=\left[\begin{matrix}10 &amp; 20\\
+30 &amp; 40
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>If we multiply matrix <span class="math inline">\(A\)</span> by the fraction <span class="math inline">\(\frac{1}{10}\)</span> we get:</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{1}{10}A &amp; =\left[\begin{matrix}0.1 &amp; 0.2\\
+0.3 &amp; 0.4
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+</div>
+<div id="matrix-multiplication." class="section level4 hasAnchor" number="14.4.0.3">
+<h4><span class="header-section-number">14.4.0.3</span> Matrix multiplication.<a href="chap-linjar-algebra.html#matrix-multiplication." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If we multiply a matrix by another matrix this is called matrix multiplication, and it has its own rules. We illustrate using the following <span class="math inline">\(2\times2\)</span> matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+A=\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4
+\end{matrix}\right],\quad B=\left[\begin{matrix}a &amp; b\\
+c &amp; d
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>The letters <span class="math inline">\(a,b,c\)</span> and <span class="math inline">\(d\)</span> are any numbers. Matrix multiplication means that the values in column <span class="math inline">\(k\)</span> in matrix <span class="math inline">\(A\)</span> are multiplied by the values in row <span class="math inline">\(r\)</span> in matrix <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+AB &amp; =\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4
+\end{matrix}\right]\left[\begin{matrix}a &amp; b\\
+c &amp; d
+\end{matrix}\right]=\left[\begin{matrix}1a+2c &amp; 1b+2d\\
+3a+4c &amp; 3b+4d
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>Matrix <span class="math inline">\(AB\)</span> is a new matrix. Matrix multiplication does not necessarily give the same result if we change the order of the matrices:</p>
+<p><span class="math display">\[
+\begin{equation}
+AB\neq BA
+\end{equation}
+\]</span></p>
+<p>We see this by calculating <span class="math inline">\(BA\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+BA &amp; =\left[\begin{matrix}a &amp; b\\
+c &amp; d
+\end{matrix}\right]\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4
+\end{matrix}\right]=\left[\begin{matrix}a1+b3 &amp; a2+b4\\
+c1+d3 &amp; c2+d4
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>In matrix multiplication, the number of columns in the left matrix must be equal to the number of rows in the right matrix. The matrix that is created will have the same number of rows as the left matrix and the same number of columns as the right matrix. If we have <span class="math inline">\(3\times2\)</span> matrix <span class="math inline">\(C\)</span> and <span class="math inline">\(2\times3\)</span> matrix <span class="math inline">\(D\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+C=\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4\\
+5 &amp; 6
+\end{matrix}\right],\quad D=\left[\begin{matrix}a &amp; b &amp; c\\
+d &amp; e &amp; f
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>and we matrix multiply <span class="math inline">\(CD\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+CD &amp; =\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4\\
+5 &amp; 6
+\end{matrix}\right]\left[\begin{matrix}a &amp; b &amp; c\\
+d &amp; e &amp; f
+\end{matrix}\right]\\
+&amp; =\left[\begin{matrix}1a+2d &amp; 1b+2e &amp; 1c+2f\\
+3a+4d &amp; 3b+4e &amp; 3c+4f\\
+5a+6d &amp; 5b+6e &amp; 5c+6f
+\end{matrix}\right]\nonumber \\
+&amp; =\left[\begin{matrix}r_{11} &amp; r_{12} &amp; r_{13}\\
+r_{21} &amp; r_{22} &amp; r_{23}\\
+r_{31} &amp; r_{32} &amp; r_{33}
+\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(r\)</span> is the new values in each element in the <span class="math inline">\(3\times3\)</span> matrix <span class="math inline">\(CD\)</span>.</p>
+<p>Not all matrices can be multiplied with all other matrices. If we have the matrices <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+E=\left[\begin{matrix}a &amp; b\\
+c &amp; d\\
+e &amp; f
+\end{matrix}\right],\quad F=\left[\begin{matrix}1 &amp; 2\\
+3 &amp; 4\\
+5 &amp; 6
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>If we try to matrix multiply <span class="math inline">\(EF\)</span>, the value at the first position in the new matrix should be equal to <span class="math inline">\(a*1+b*3+...*5\)</span>. We have no element in matrix <span class="math inline">\(E\)</span> that we can multiply by the value 5 in column 1 row 3 in matrix <span class="math inline">\(F\)</span>. Matrix multiplication is not defined for this case.</p>
+</div>
+</div>
+<div id="sec-mer-matriser-transponerad-diagonal-identitet" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> More matrices<a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section introduces additional examples of useful definitions, operations and calculation rules for matrices in the form of transposition, diagonal matrix, identity matrix and triangular matrix.</p>
+<div id="transposition." class="section level4 hasAnchor" number="14.5.0.1">
+<h4><span class="header-section-number">14.5.0.1</span> Transposition.<a href="chap-linjar-algebra.html#transposition." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Transposition of a matrix <span class="math inline">\(A\)</span> means that the elements change places. The transposed version of <span class="math inline">\(A\)</span>, the matrix transpose, is written <span class="math inline">\(A^{T}\)</span> or <span class="math inline">\(A&#39;\)</span>. If <span class="math inline">\(a_{rk}\)</span> is an element in <span class="math inline">\(A\)</span> at row <span class="math inline">\(r\)</span> column <span class="math inline">\(k\)</span> then the element ends up at position <span class="math inline">\(a_{kr}^{T}\)</span> in <span class="math inline">\(A^{T}\)</span>. We illustrate with <span class="math inline">\(2\times3\)</span> matrix <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+A=\left[\begin{matrix}a &amp; b &amp; c\\
+d &amp; e &amp; f
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Transposed <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+A^{T}=\left[\begin{matrix}a &amp; d\\
+b &amp; e\\
+c &amp; f
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>If we transpose <span class="math inline">\(A^{T}\)</span> we get <span class="math inline">\(\left(A^{T}\right)^{T}\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+\left(A^{T}\right)^{T}=\left[\begin{matrix}a &amp; b &amp; c\\
+d &amp; e &amp; f
+\end{matrix}\right]=A
+\end{equation}
+\]</span></p>
+<p>Transposition does not affect constants. If we multiply matrix <span class="math inline">\(A\)</span> with a constant <span class="math inline">\(s\)</span> and transpose the result we may write:</p>
+<p><span class="math display">\[
+\begin{equation}
+\left(sA\right)^{T}=sA^{T}
+\end{equation}
+\]</span></p>
+<p>Transposition of two matrices that are multiplied results in a new matrix where with the transpose of the matrix and where the order of the matrix multiplication is reversed. Thus, if we have two matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, multiply these as <span class="math inline">\(AB\)</span> and transpose the result <span class="math inline">\(\left(AB\right)^{T}\)</span> we get:</p>
+<p><span class="math display">\[
+\begin{equation}
+\left(AB\right)^{T}=B^{T}A^{T}
+\end{equation}
+\]</span></p>
+</div>
+<div id="diagonal-matrix." class="section level4 hasAnchor" number="14.5.0.2">
+<h4><span class="header-section-number">14.5.0.2</span> Diagonal matrix.<a href="chap-linjar-algebra.html#diagonal-matrix." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A diagonal matrix is a matrix where all elements except the elements in the diagonal are equal to 0. For example:</p>
+<p><span class="math display">\[
+\begin{equation}
+U=\left[\begin{matrix}3 &amp; 0\\
+0 &amp; \frac{7}{4}
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Usually diagonal matrix refers to square matrices but even rectangular matrices can be diagonal. In that case all elements outside <span class="math inline">\(r=k\)</span> are equal to 0. The expression <span class="math inline">\(r=k\)</span> means row number equal to column number, that is the diagonal in the matrix. For example <span class="math inline">\(2\times4\)</span> matrix <span class="math inline">\(T\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+T=\left[\begin{matrix}16 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 2 &amp; 0 &amp; 0
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Or <span class="math inline">\(3\times2\)</span> matrix <span class="math inline">\(S\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+S=\left[\begin{matrix}a &amp; 0\\
+0 &amp; z\\
+0 &amp; 0
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Here we have a column vector <span class="math inline">\(V\)</span> with 2 rows:</p>
+<p><span class="math display">\[
+\begin{equation}
+\vec{v}=\left(\begin{matrix}a\\
+b
+\end{matrix}\right)
+\end{equation}
+\]</span></p>
+<p>Now we will create a square diagonal matrix that we call <span class="math inline">\(V\)</span> with the two values from <span class="math inline">\(\vec{v}\)</span> on the diagonal. This can be written as <span class="math inline">\(\text{diag}\left(\vec{v}_{r}\right)\)</span>, where <span class="math inline">\(r\)</span> indicates the number of rows and columns, the dimensions for the new matrix:</p>
+<p><span class="math display" id="eq:diagonalmatris-diag">\[
+\begin{equation}
+V=\text{diag}\left(\vec{v}_{r}\right)=\text{diag}\left(\vec{v}_{2}\right)=\left[\begin{matrix}a &amp; 0\\
+0 &amp; b
+\end{matrix}\right]
+\tag{14.2}
+\end{equation}
+\]</span></p>
+<p>If we want to calculate the sum of the elements in a square diagonal matrix, the result is called trace and can be written as <span class="math inline">\(\text{tr}\left(V\right)\)</span> and is defined:</p>
+<p><span class="math display" id="eq:matris-spar-trace">\[
+\begin{equation}
+\text{tr}\left(V\right)=\sum_{i=1}^{r}v_{ii}
+\tag{14.3}
+\end{equation}
+\]</span></p>
+</div>
+<div id="identity-matrix." class="section level4 hasAnchor" number="14.5.0.3">
+<h4><span class="header-section-number">14.5.0.3</span> Identity matrix.<a href="chap-linjar-algebra.html#identity-matrix." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A matrix that is square, has the same number of rows as columns, and whose diagonal values are equal to 1 and where all other values are equal to 0 is called an identity matrix or unit matrix. This type of matrix is often written as <span class="math inline">\(I_{k}\)</span> where k indicates the number of rows and columns. Here are two examples of identity matrices with dimensions <span class="math inline">\(2\times2\)</span> and <span class="math inline">\(3\times3\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+I_{2} &amp; =\left[\begin{matrix}1 &amp; 0\\
+0 &amp; 1
+\end{matrix}\right],\:I_{3}=\left[\begin{matrix}1 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 1
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>We have the following <span class="math inline">\(2\times3\)</span> matrix <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+A_{2\times3}=\left[\begin{matrix}a &amp; b &amp; c\\
+d &amp; e &amp; f
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>For a matrix <span class="math inline">\(A\)</span> and identity matrices <span class="math inline">\(I\)</span> the following applies:</p>
+<p><span class="math display" id="eq:ai-a-ia-identietsmatriser">\[
+\begin{equation}
+AI_{3}=A=I_{2}A
+\tag{14.4}
+\end{equation}
+\]</span></p>
+</div>
+<div id="triangular-matrix." class="section level4 hasAnchor" number="14.5.0.4">
+<h4><span class="header-section-number">14.5.0.4</span> Triangular matrix.<a href="chap-linjar-algebra.html#triangular-matrix." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A triangular matrix is a square matrix that has zeros on one side of the diagonal. Matrix <span class="math inline">\(R\)</span> is for example triangular:</p>
+<p><span class="math display">\[
+\begin{equation}
+R=\left[\begin{matrix}a &amp; b &amp; c\\
+0 &amp; d &amp; e\\
+0 &amp; 0 &amp; f
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>The letters <span class="math inline">\(a\)</span> to <span class="math inline">\(f\)</span> symbolize any values, not all equal to 0. In this case <span class="math inline">\(a,d\)</span> and <span class="math inline">\(f\)</span> are the values in the diagonal for matrix <span class="math inline">\(R\)</span>.</p>
+</div>
+</div>
+<div id="sec-multiplikation-och-transponering" class="section level2 hasAnchor" number="14.6">
+<h2><span class="header-section-number">14.6</span> Multiplication and transposition<a href="chap-linjar-algebra.html#sec-multiplikation-och-transponering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Matrix transposition can among other things be useful in matrix multiplication. Suppose we have the three matrices <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+A=\left[\begin{matrix}5\\
+3\\
+-1
+\end{matrix}\right],\quad B=\left[\begin{matrix}2 &amp; 0 &amp; 4\\
+7 &amp; 1 &amp; 8
+\end{matrix}\right],\quad C=\left[\begin{matrix}0 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; 1\\
+3 &amp; 0 &amp; 0
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>We may matrix multiply <span class="math inline">\(BC\)</span>, <span class="math inline">\(BA\)</span> and <span class="math inline">\(CA\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+BC &amp; =\left[\begin{matrix}2 &amp; 0 &amp; 4\\
+7 &amp; 1 &amp; 8
+\end{matrix}\right]\left[\begin{matrix}0 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; 1\\
+3 &amp; 0 &amp; 0
+\end{matrix}\right]=\left[\begin{matrix}12 &amp; 4 &amp; 2\\
+27 &amp; 15 &amp; 8
+\end{matrix}\right]\\
+BA &amp; =\left[\begin{matrix}2 &amp; 0 &amp; 4\\
+7 &amp; 1 &amp; 8
+\end{matrix}\right]\left[\begin{matrix}5\\
+3\\
+-1
+\end{matrix}\right]=\left[\begin{matrix}6\\
+30
+\end{matrix}\right]\nonumber \\
+CA &amp; =\left[\begin{matrix}0 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; 1\\
+3 &amp; 0 &amp; 0
+\end{matrix}\right]\left[\begin{matrix}5\\
+3\\
+-1
+\end{matrix}\right]=\left[\begin{matrix}5\\
+17\\
+15
+\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>We cannot however multiply the matrices <span class="math inline">\(CB\)</span>, since the number of rows in <span class="math inline">\(B\)</span> is fewer than the number of columns in <span class="math inline">\(C\)</span>(section <a href="chap-linjar-algebra.html#sec-matriser">14.4</a> ). We also cannot multiply <span class="math inline">\(AC\)</span>. We can however transpose <span class="math inline">\(A\)</span> so that we get <span class="math inline">\(A^{T}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+A^{T} &amp; =\left[\begin{matrix}5\\
+3\\
+-1
+\end{matrix}\right]^{T}=\left[\begin{matrix}5 &amp; 3 &amp; -1\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>This new matrix <span class="math inline">\(A^{T}\)</span> we matrix multiply with matrix <span class="math inline">\(C\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+A^{T}C &amp; =\left[\begin{matrix}5 &amp; 3 &amp; -1\end{matrix}\right]\left[\begin{matrix}0 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; 1\\
+3 &amp; 0 &amp; 0
+\end{matrix}\right]=\left[\begin{matrix}6 &amp; 13 &amp; 8\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>Say now that we want to square all values in the column matrix <span class="math inline">\(A\)</span>. Matrix multiplication is not defined for <span class="math inline">\(A^{2}=A\times A\)</span>, since the number of columns in the left matrix (1) is not equal to the number of rows in the right matrix (3). We calculate <span class="math inline">\(A^{T}\times A\)</span> but then we get the sum of the squared values:</p>
+<p><span class="math display">\[
+\begin{equation}
+AA^{T}=\left[\begin{matrix}5 &amp; 3 &amp; -1\end{matrix}\right]\times\left[\begin{matrix}5\\
+3\\
+-1
+\end{matrix}\right]=\left[5^{2}+3^{2}+\left(-1\right)^{2}\right]=3
+\end{equation}
+\]</span></p>
+</div>
+<div id="sec-determinant-matris" class="section level2 hasAnchor" number="14.7">
+<h2><span class="header-section-number">14.7</span> Determinant<a href="chap-linjar-algebra.html#sec-determinant-matris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The values in a square matrix can be calculated to a determinant, which is a value and not a matrix. Being able to calculate the determinant of a matrix facilitates many types of calculations later on. The determinant for matrix A can be written <span class="math inline">\(det\left(A\right)\)</span> or <span class="math inline">\(\left|A\right|\)</span>, but since the latter is also a way to write absolute value (chapter <a href="chap-grundlaggande-matematik-1.html#chap-grundlaggande-matematik-1">2</a> ) we stick to <span class="math inline">\(det\left(\right)\)</span> here. In the body text we use italic text <span class="math inline">\(det\left(\right)\)</span> while in the equations we write <span class="math inline">\(\det\left(\right)\)</span>. If we have <span class="math inline">\(2\times2\)</span> matrix A:</p>
+<p><span class="math display">\[
+\begin{equation}
+A=\left[\begin{matrix}a &amp; b\\
+c &amp; d
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Its determinant <span class="math inline">\(det\left(A\right)\)</span> is then:</p>
+<p><span class="math display">\[
+\begin{equation}
+\det\left(A\right)=ad-bc
+\end{equation}
+\]</span></p>
+<p>If we have the <span class="math inline">\(3\times3\)</span> matrix <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+B=\left[\begin{matrix}a &amp; b &amp; c\\
+d &amp; e &amp; f\\
+g &amp; h &amp; i
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Its determinant:</p>
+<p><span class="math display">\[
+\begin{align}
+\det\left(B\right) &amp; =a*\det\left[\begin{matrix}e &amp; f\\
+h &amp; i
+\end{matrix}\right]-b*\det\left[\begin{matrix}d &amp; f\\
+g &amp; i
+\end{matrix}\right]+c*\det\left[\begin{matrix}d &amp; e\\
+g &amp; h
+\end{matrix}\right]\\
+&amp; =a\left(ei-fh\right)-b\left(di-fg\right)+c\left(dh-eg\right)\nonumber \\
+&amp; =aei+bfg+cdh-afh-bdi-ceg\nonumber
+\end{align}
+\]</span></p>
+<p>In section <a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet">14.5</a> we described triangular matrices and in the next section we will go through how to transform a matrix so that it becomes triangular. For a square triangular matrix!triangular matrix, the determinant is the product of its diagonal, that is the values in the matrix’s diagonal multiplied with each other. For example if we have <span class="math inline">\(2\times2\)</span> matrix <span class="math inline">\(Z\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+Z=\left[\begin{matrix}a &amp; b\\
+0 &amp; c
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>its determinant <span class="math inline">\(\det\left(Z\right)\)</span> can be calculated as:</p>
+<p><span class="math display">\[
+\begin{equation}
+\det\left(Z\right)=ac-0=ac
+\end{equation}
+\]</span></p>
+<p>The product <span class="math inline">\(ac\)</span> is the diagonal elements in <span class="math inline">\(Z\)</span> multiplied with each other. Let us now calculate the determinant for the following matrix <span class="math inline">\(R\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+R=\left[\begin{matrix}a &amp; b &amp; c\\
+0 &amp; e &amp; f\\
+0 &amp; 0 &amp; i
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Determinant <span class="math inline">\(\det\left(R\right)\)</span> is in this case:</p>
+<p><span class="math display">\[
+\begin{align}
+\det\left(R\right) &amp; =a*\det\left[\begin{matrix}e &amp; f\\
+0 &amp; i
+\end{matrix}\right]-b*\det\left[\begin{matrix}0 &amp; f\\
+0 &amp; i
+\end{matrix}\right]+c*\det\left[\begin{matrix}0 &amp; e\\
+0 &amp; 0
+\end{matrix}\right]\\
+&amp; =a\left(ei-0f\right)-b\left(0i-0f\right)+c\left(0-0e\right)\nonumber \\
+&amp; =aei-0-0-0\nonumber \\
+&amp; =aei\nonumber
+\end{align}
+\]</span></p>
+<p>This is the product of the diagonal in matrix <span class="math inline">\(R\)</span>.</p>
+</div>
+<div id="row-reduction-in-matrix" class="section level2 hasAnchor" number="14.8">
+<h2><span class="header-section-number">14.8</span> Row reduction in matrix<a href="chap-linjar-algebra.html#row-reduction-in-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In section <a href="chap-linjara-ekvationssystem.html#sec-radreduktion">7.3</a> we introduced row reduction for equation systems. Row reduction can also be used for matrices. In the previous section we went through how we for a triangular matrix can calculate the determinant as the product of the diagonal. With the help of row reduction it is possible to change a matrix until we get a triangular matrix. In row reduction with matrices we can:</p>
+<ol style="list-style-type: decimal">
+<li><p>Switch places of rows in the matrix, for example switch row 1 with row 2.</p></li>
+<li><p>Multiply a row by a scalar, except 0.</p></li>
+<li><p>Add or subtract all elements in a row with corresponding elements in another row. This can be combined with multiplication by scalar.</p></li>
+</ol>
+<p>Let us take the following matrix <span class="math inline">\(H\)</span> as an example:</p>
+<p><span class="math display">\[
+\begin{equation}
+H=\left[\begin{matrix}1 &amp; 2 &amp; 3\\
+4 &amp; 5 &amp; 6\\
+7 &amp; 8 &amp; 9
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Now we will use row reduction until <span class="math inline">\(H\)</span> becomes triangular. We begin by adding <span class="math inline">\(-4*\)</span> row 1 to row 2:</p>
+<p><span class="math display">\[
+\begin{align}
+\left[\begin{matrix}1 &amp; 2 &amp; 3\\
+4 &amp; 5 &amp; 6\\
+7 &amp; 8 &amp; 9
+\end{matrix}\right] &amp; \begin{array}{c}
+\\-4r_{1}\\
+\\\end{array}=\\
+=\left[\begin{matrix}1 &amp; 2 &amp; 3\\
+0 &amp; -3 &amp; -6\\
+7 &amp; 8 &amp; 9
+\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>We add <span class="math inline">\(-7*\)</span> row 1 to row 3:</p>
+<p><span class="math display">\[
+\begin{align}
+\left[\begin{matrix}1 &amp; 2 &amp; 3\\
+0 &amp; -3 &amp; -6\\
+7 &amp; 8 &amp; 9
+\end{matrix}\right] &amp; \begin{matrix}\\\\-7r_{1}
+\end{matrix}=\\
+=\left[\begin{matrix}1 &amp; 2 &amp; 3\\
+0 &amp; -3 &amp; -6\\
+0 &amp; -6 &amp; -12
+\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>Then we add <span class="math inline">\(-2*\)</span> row 2 to row 3:</p>
+<p><span class="math display">\[
+\begin{align}
+\left[\begin{matrix}1 &amp; 2 &amp; 3\\
+0 &amp; -3 &amp; -6\\
+0 &amp; -6 &amp; -12
+\end{matrix}\right] &amp; \begin{matrix}\\\\-2r_{2}
+\end{matrix}=\\
+=\left[\begin{matrix}1 &amp; 2 &amp; 3\\
+0 &amp; -3 &amp; -6\\
+0 &amp; 0 &amp; 0
+\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>The determinant of matrix <span class="math inline">\(H\)</span> is the product of the diagonal:</p>
+<p><span class="math display">\[
+\begin{equation}
+\det\left(\left[\begin{matrix}1 &amp; 2 &amp; 3\\
+0 &amp; -3 &amp; -6\\
+0 &amp; 0 &amp; 0
+\end{matrix}\right]\right)=1\times\left(-3\right)\times0=0
+\end{equation}
+\]</span></p>
+</div>
+<div id="sec-inversen-av-matris" class="section level2 hasAnchor" number="14.9">
+<h2><span class="header-section-number">14.9</span> Inverse of a matrix<a href="chap-linjar-algebra.html#sec-inversen-av-matris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If we divide the number 1 by a real number a we get <span class="math inline">\(1/a=a^{-1}\)</span>, which means that <span class="math inline">\(\frac{a}{a}=a^{1}a^{-1}=1\)</span>(section <a href="chap-grundlaggande-matematik-1.html#sec-brak">2.6</a> ). The number <span class="math inline">\(a^{-1}\)</span> is called the multiplicative inverse of <span class="math inline">\(a\)</span>. There is no definition for division of matrices but there is something called the inverse of a matrix, also called inverse matrix or matrix inverse. A square matrix <span class="math inline">\(A\)</span> is invertible if there exists a matrix <span class="math inline">\(B\)</span> which when matrix multiplied <span class="math inline">\(AB\)</span> results in identity matrix <span class="math inline">\(I_{r}\)</span>:</p>
+<p><span class="math display" id="eq:inverse-matrix-villkor-1">\[
+\begin{equation}
+AB=I_{r}
+\tag{14.5}
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(r\)</span> is the number of rows and columns in the square matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> respectively. Matrix <span class="math inline">\(B\)</span> is the inverse of <span class="math inline">\(A\)</span>, which is written <span class="math inline">\(A^{-1}\)</span> and is calculated based on the elements in <span class="math inline">\(A\)</span>. We therefore rewrite the equation <a href="chap-linjar-algebra.html#eq:inverse-matrix-villkor-1">(14.5)</a> :</p>
+<p><span class="math display">\[
+\begin{align}
+AB &amp; =I_{r}\\
+AA^{-1} &amp; =I_{r}\nonumber
+\end{align}
+\]</span></p>
+<p>The inverse matrix has the same dimensions as the current matrix. Another way to describe the condition for whether a matrix <span class="math inline">\(A\)</span> is invertible is that the determinant of A is not equal to 0. If <span class="math inline">\(det\left(A\right)=0\)</span> there exists no matrix <span class="math inline">\(B\)</span> that fulfills the condition in equation <a href="chap-linjar-algebra.html#eq:inverse-matrix-villkor-1">(14.5)</a> . If we have <span class="math inline">\(A^{-1}\)</span>, the inverse of matrix <span class="math inline">\(A\)</span>, and take the inverse of the matrix inverse, the result becomes matrix <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+\left(A^{-1}\right)^{-1}=A
+\end{equation}
+\]</span></p>
+<p>Let us take the following <span class="math inline">\(2\times2\)</span> matrix <span class="math inline">\(A\)</span> as example:</p>
+<p><span class="math display">\[
+\begin{equation}
+A=\left[\begin{matrix}a &amp; b\\
+c &amp; d
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Inverse matrix <span class="math inline">\(A^{-1}\)</span>:</p>
+<p><span class="math display" id="eq:invers-av-2x2-a">\[
+\begin{align}
+A^{-1} &amp; =\frac{1}{\det\left(A\right)}\left[\begin{matrix}d &amp; -b\\
+-c &amp; a
+\end{matrix}\right]
+\tag{14.6}
+\end{align}
+\]</span></p>
+<p>The expression <span class="math inline">\(\det\left(A\right)\)</span> is the determinant of matrix <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display" id="eq:invers-2x2-a-enklast">\[
+\begin{align}
+A^{-1} &amp; =\frac{1}{ad-cb}\left[\begin{matrix}d &amp; -b\\
+-c &amp; a
+\end{matrix}\right]=\left[\begin{matrix}\frac{d}{ad-cb} &amp; \frac{-b}{ad-cb}\\
+\frac{-c}{ad-cb} &amp; \frac{a}{ad-cb}
+\end{matrix}\right]
+\tag{14.7}
+\end{align}
+\]</span></p>
+<p>If we take the inverse of <span class="math inline">\(A^{-1}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+\left(A^{-1}\right)^{-1} &amp; =\left[\begin{matrix}\frac{d}{ad-cb} &amp; \frac{-b}{ad-cb}\\
+\frac{-c}{ad-cb} &amp; \frac{a}{ad-cb}
+\end{matrix}\right]^{-1}\\
+&amp; =\frac{1}{\left(\frac{d}{ad-cb}\right)\left(\frac{a}{ad-cb}\right)-\left(\frac{-c}{ad-cb}\right)\left(\frac{-b}{ad-cb}\right)}\left[\begin{matrix}\frac{a}{ad-cb} &amp; \frac{b}{ad-cb}\\
+\frac{c}{ad-cb} &amp; \frac{d}{ad-cb}
+\end{matrix}\right]\nonumber \\
+&amp; =\frac{1}{\left(\frac{ad-cb}{\left(ad-cb\right)^{2}}\right)}\left[\begin{matrix}\frac{a}{ad-cb} &amp; \frac{b}{ad-cb}\\
+\frac{c}{ad-cb} &amp; \frac{d}{ad-cb}
+\end{matrix}\right]\nonumber \\
+&amp; =\frac{\left(ad-cb\right)^{2}}{ad-cb}\left[\begin{matrix}\frac{a}{ad-cb} &amp; \frac{b}{ad-cb}\\
+\frac{c}{ad-cb} &amp; \frac{d}{ad-cb}
+\end{matrix}\right]\nonumber \\
+&amp; =\left(ad-cb\right)\left[\begin{matrix}\frac{a}{ad-cb} &amp; \frac{b}{ad-cb}\\
+\frac{c}{ad-cb} &amp; \frac{d}{ad-cb}
+\end{matrix}\right]\nonumber \\
+&amp; =\left[\begin{matrix}a &amp; b\\
+c &amp; d
+\end{matrix}\right]\nonumber \\
+&amp; =A\nonumber
+\end{align}
+\]</span></p>
+<p>For larger matrices the calculation of the inverse often becomes complicated. Already for a <span class="math inline">\(3\times3\)</span> matrix the calculation becomes relatively extensive. If we for example have the following <span class="math inline">\(3\times3\)</span> matrix <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+B=\left[\begin{matrix}a &amp; b &amp; c\\
+d &amp; e &amp; f\\
+g &amp; h &amp; i
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>the inverse of matrix <span class="math inline">\(B\)</span> can be defined as:</p>
+<p><span class="math display">\[
+\begin{equation}
+B^{-1}=\frac{1}{\det\left(B\right)}\left[\begin{matrix}\det\left(\begin{matrix}e &amp; f\\
+h &amp; i
+\end{matrix}\right) &amp; \det\left(\begin{matrix}c &amp; b\\
+i &amp; h
+\end{matrix}\right) &amp; \det\left(\begin{matrix}b &amp; c\\
+e &amp; f
+\end{matrix}\right)\\
+\det\left(\begin{matrix}f &amp; d\\
+i &amp; g
+\end{matrix}\right) &amp; \det\left(\begin{matrix}a &amp; c\\
+g &amp; i
+\end{matrix}\right) &amp; \det\left(\begin{matrix}c &amp; a\\
+d &amp; f
+\end{matrix}\right)\\
+\det\left(\begin{matrix}d &amp; e\\
+g &amp; h
+\end{matrix}\right) &amp; \det\left(\begin{matrix}b &amp; a\\
+h &amp; g
+\end{matrix}\right) &amp; \det\left(\begin{matrix}a &amp; b\\
+d &amp; e
+\end{matrix}\right)
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>where each element is a determinant of four of the elements in B. There are several methods to facilitate the calculation of inverse matrices. One such method is to use row reduction, also called Gauss-Jordan elimination. This works by adding an identity matrix, <span class="math inline">\(I_{3}\)</span>, next to our <span class="math inline">\(3\times3\)</span> matrix <span class="math inline">\(B\)</span>, where the identity matrix has the same number of rows and columns as B:</p>
+<p><span class="math display" id="eq:bi-gauss-jordan">\[
+\begin{equation}
+BI=\left[\begin{matrix}a &amp; b &amp; c &amp; 1 &amp; 0 &amp; 0\\
+d &amp; e &amp; f &amp; 0 &amp; 1 &amp; 0\\
+g &amp; h &amp; i &amp; 0 &amp; 0 &amp; 1
+\end{matrix}\right]
+\tag{14.8}
+\end{equation}
+\]</span></p>
+<p>Matrix <span class="math inline">\(BI\)</span> has three rows and six columns, <span class="math inline">\(3\times6\)</span>. Now we perform row reduction on this new matrix BI until the left half of the matrix is an identity matrix. That is, columns 1–3 in equation <a href="chap-linjar-algebra.html#eq:bi-gauss-jordan">(14.8)</a> should be an identity matrix, instead of columns 4–6. The values in columns 4–6 in matrix <span class="math inline">\(BI\)</span> after the row reduction are the inverse of <span class="math inline">\(B\)</span>. We call this inverse matrix <span class="math inline">\(B^{-1}\)</span>. Let us illustrate with <span class="math inline">\(3\times3\)</span> matrix <span class="math inline">\(D\)</span> where we use numbers instead of letters:</p>
+<p><span class="math display">\[
+\begin{equation}
+D=\left[\begin{matrix}1 &amp; 2 &amp; 1\\
+2 &amp; 1 &amp; 3\\
+1 &amp; 0 &amp; 2
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>To get <span class="math inline">\(D^{-1}\)</span> we take the matrix <span class="math inline">\(DI\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+DI=\left[\begin{matrix}1 &amp; 2 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
+2 &amp; 1 &amp; 3 &amp; 0 &amp; 1 &amp; 0\\
+1 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 1
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>and do the following calculations:</p>
+<p><span class="math display" id="eq:matris-di">\[
+\begin{align}
+DI &amp; =\left[\begin{matrix}1 &amp; 2 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
+2 &amp; 1 &amp; 3 &amp; 0 &amp; 1 &amp; 0\\
+1 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 1
+\end{matrix}\right]\begin{matrix}\\-2r_{3}\\
+-r_{1}
+\end{matrix}\\
+&amp; =\left[\begin{matrix}1 &amp; 2 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; -1 &amp; 0 &amp; 1 &amp; -2\\
+0 &amp; -2 &amp; 1 &amp; -1 &amp; 0 &amp; 1
+\end{matrix}\right]\begin{matrix}\\\\+2r_{2}
+\end{matrix}\nonumber \\
+&amp; =\left[\begin{matrix}1 &amp; 2 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; -1 &amp; 0 &amp; 1 &amp; -2\\
+0 &amp; 0 &amp; -1 &amp; -1 &amp; 2 &amp; -3
+\end{matrix}\right]\begin{matrix}\\-r_{3}\\
+\times\left(-1\right)
+\end{matrix}\nonumber \\
+&amp; =\left[\begin{matrix}1 &amp; 2 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; -1 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; -2 &amp; 3
+\end{matrix}\right]\begin{matrix}-r_{3}\\
+\\\\\end{matrix}\nonumber \\
+&amp; =\left[\begin{matrix}1 &amp; 2 &amp; 0 &amp; 0 &amp; 2 &amp; -3\\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; -1 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; -2 &amp; 3
+\end{matrix}\right]\begin{matrix}-2r_{2}\\
+\\\\\end{matrix}\nonumber \\
+&amp; =\left[\begin{matrix}1 &amp; 0 &amp; 0 &amp; -2 &amp; 4 &amp; -5\\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; -1 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; -2 &amp; 3
+\end{matrix}\right]\begin{matrix}\\\\\\\end{matrix}\nonumber \\
+&amp; =ID^{-1}\nonumber
+\tag{14.9}
+\end{align}
+\]</span></p>
+<p>The right part of the matrix in the second to last row is the inverse of <span class="math inline">\(D\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+D^{-1}=\left[\begin{matrix}-2 &amp; 4 &amp; -5\\
+1 &amp; -1 &amp; 1\\
+1 &amp; -2 &amp; 3
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+</div>
+<div id="sec-linjara-ekvationssystem-i-matris" class="section level2 hasAnchor" number="14.10">
+<h2><span class="header-section-number">14.10</span> Linear equation systems in matrix<a href="chap-linjar-algebra.html#sec-linjara-ekvationssystem-i-matris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In chapter <a href="chap-linjara-ekvationssystem.html#chap-linjara-ekvationssystem">7</a> we introduced linear equations in systems. Linear equation systems can be expressed and calculated using matrices. Let us take the following equation system as an example:</p>
+<p><span class="math display" id="eq:ekvationssys-exempel-for-matris">\[
+\begin{equation}
+\begin{cases}
+x_{1}-2x_{2} &amp; =3\\
+4x_{1}+5x_{2} &amp; =6
+\end{cases}
+\tag{14.10}
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> are variables. We use <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> instead of for example <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. We will now investigate whether the system has any solutions. We have previously gone through how we may use substitution, for example taking <span class="math inline">\(x_{1}=3+2x_{2}\)</span> from the upper equation and inserting into the lower:</p>
+<p><span class="math display" id="eq:ekv-sys-losning-1-infor-matris-ex-1">\[
+\begin{align}
+4\left(3+2x_{2}\right)+5x_{2} &amp; =6\\
+x_{2}^{*} &amp; =-\frac{6}{13}\nonumber
+\tag{14.11}
+\end{align}
+\]</span></p>
+<p>We insert <span class="math inline">\(x_{2}^{*}\)</span> into the first equation and solve for <span class="math inline">\(x_{1}^{*}\)</span>:</p>
+<p><span class="math display" id="eq:ekv-sys-losning-2-infor-matris-ex-1">\[
+\begin{align}
+x_{1}-2x_{2} &amp; =3\\
+x_{1}-2\left(-\frac{6}{13}\right) &amp; =3\nonumber \\
+x_{1}^{*} &amp; =\frac{27}{13}\nonumber
+\tag{14.12}
+\end{align}
+\]</span></p>
+<p>Now we will instead use matrices. We begin by setting up matrices in such a way that the result looks the same as the system in equation <a href="chap-linjar-algebra.html#eq:ekvationssys-exempel-for-matris">(14.10)</a> . We place the coefficients in a matrix that we call <span class="math inline">\(K\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+K=\left[\begin{matrix}1 &amp; -2\\
+4 &amp; 5
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>The variables <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> we place in a matrix with only one column, a column matrix, that we call <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+X=\left[\begin{matrix}x_{1}\\
+x_{2}
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>When we now matrix multiply <span class="math inline">\(KX\)</span> we get:</p>
+<p><span class="math display">\[
+\begin{align}
+KX &amp; =\left[\begin{matrix}1 &amp; -2\\
+4 &amp; 5
+\end{matrix}\right]\left[\begin{matrix}x_{1}\\
+x_{2}
+\end{matrix}\right]=\left[\begin{matrix}x_{1}-2x_{2}\\
+4x_{1}+5x_{2}
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>Now we have an expression for the left side in equation <a href="chap-linjar-algebra.html#eq:ekvationssys-exempel-for-matris">(14.10)</a> . We also need a column matrix for the two values that are to the right of the equals sign, the numbers 3 and 6. These we place in the column matrix <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+Y=\left[\begin{matrix}3\\
+6
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Now we write the system in equation <a href="chap-linjar-algebra.html#eq:ekvationssys-exempel-for-matris">(14.10)</a> in the form of matrices:</p>
+<p><span class="math display" id="eq:fr-ekvationssystem-till-matriser-ex-1">\[
+\begin{align}
+\left[\begin{matrix}1 &amp; -2\\
+4 &amp; 5
+\end{matrix}\right]\left[\begin{matrix}x_{1}\\
+x_{2}
+\end{matrix}\right] &amp; =\left[\begin{matrix}3\\
+6
+\end{matrix}\right]\\
+KX &amp; =Y\nonumber
+\tag{14.13}
+\end{align}
+\]</span></p>
+<p>Now we will find solutions to <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> with the help of row reduction. Row reduction with matrices works in the same way as when we use row reduction for equation systems (section <a href="chap-linjara-ekvationssystem.html#sec-radreduktion">7.3</a> ). We can add and subtract entire rows with each other as well as multiply individual rows with a constant. We begin by setting up matrix <span class="math inline">\(K\)</span> and <span class="math inline">\(Y\)</span> as one matrix and draw a vertical line between their values:</p>
+<p><span class="math display">\[
+\begin{align}
+\left[K|Y\right]=\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; 3\\
+4 &amp; 5 &amp; 6
+\end{array}\right]
+\end{align}
+\]</span></p>
+<p>The vertical line separates the right and left sides in the equation <a href="chap-linjar-algebra.html#eq:ekvationssys-exempel-for-matris">(14.10)</a> :</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{cases}
+x_{1}-2x_{2} &amp; =3\\
+4x_{1}+5x_{2} &amp; =6
+\end{cases}\stackrel{\text{ becomes }}{\,\longrightarrow\,}\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; 3\\
+4 &amp; 5 &amp; 6
+\end{array}\right]
+\end{equation}
+\]</span></p>
+<p>We noted in section <a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet">14.5</a> that <span class="math inline">\(I_{2}X=X\)</span>(equation <a href="chap-linjar-algebra.html#eq:ai-a-ia-identietsmatriser">(14.4)</a> ). With the help of row reduction we can rewrite <span class="math inline">\(KY\)</span> so that we get an identity matrix <span class="math inline">\(I_{2}\)</span> to the left in matrix <span class="math inline">\(KY\)</span>, whereupon the right column in <span class="math inline">\(KY\)</span> will be the solutions <span class="math inline">\(x_{1}^{*}\)</span> and <span class="math inline">\(x_{2}^{*}\)</span>. We begin by multiplying row 1 by -4 and adding this to row 2:</p>
+<p><span class="math display">\[
+\begin{align}
+KY &amp; =\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; 3\\
+4 &amp; 5 &amp; 6
+\end{array}\right]\begin{matrix}\\-4r_{1}
+\end{matrix}\\
+&amp; =\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; 3\\
+0 &amp; 13 &amp; -6
+\end{array}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>We divide row 2 by 13:</p>
+<p><span class="math display">\[
+\begin{align}
+\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; 3\\
+0 &amp; 13 &amp; -6
+\end{array}\right] &amp; \begin{matrix}\\\times\left(\frac{1}{13}\right)
+\end{matrix}=\\
+=\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; 3\\
+0 &amp; 1 &amp; -\frac{6}{13}
+\end{array}\right] &amp; \begin{matrix}\\\\\end{matrix}\nonumber
+\end{align}
+\]</span></p>
+<p>To row 1 we now add row 2 multiplied by 2:</p>
+<p><span class="math display">\[
+\begin{align}
+\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; 3\\
+0 &amp; 1 &amp; -\frac{6}{13}
+\end{array}\right] &amp; \begin{matrix}+2r_{2}\\
+\\\end{matrix}=\\
+=\left[\begin{array}{cc|c}
+1 &amp; 0 &amp; \frac{27}{13}\\
+0 &amp; 1 &amp; -\frac{6}{13}
+\end{array}\right] &amp; \begin{matrix}\\\\\end{matrix}\nonumber
+\end{align}
+\]</span></p>
+<p>The first two columns to the left are now a <span class="math inline">\(2\times2\)</span> identity matrix. We have gotten the same result as when we used substitution:</p>
+<p><span class="math display">\[
+\begin{align}
+\left[\begin{matrix}1 &amp; 0\\
+0 &amp; 1
+\end{matrix}\right]\left[\begin{matrix}x_{1}\\
+x_{2}
+\end{matrix}\right] &amp; =\left[\begin{matrix}\frac{27}{13}\\
+-\frac{6}{13}
+\end{matrix}\right]\\
+\left[\begin{matrix}x_{1}^{*}\\
+x_{2}^{*}
+\end{matrix}\right] &amp; =\left[\begin{matrix}\frac{27}{13}\\
+-\frac{6}{13}
+\end{matrix}\right]\nonumber \\
+X &amp; =Y^{*}\nonumber
+\end{align}
+\]</span></p>
+<p>Let us now go through another method to reach the same result. We start from the expression <span class="math inline">\(KX=Y.\)</span> If the inverse of <span class="math inline">\(K\)</span>, which we call <span class="math inline">\(K^{-1}\)</span>, exists we have that <span class="math inline">\(KK^{-1}=I_{2}\)</span>(section <a href="chap-linjar-algebra.html#sec-inversen-av-matris">14.9</a> ). In that case we write:</p>
+<p><span class="math display">\[
+\begin{align}
+KX &amp; =Y\\
+K^{-1}KX &amp; =K^{-1}Y\nonumber \\
+X &amp; =Y^{*}\nonumber
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(Y^{*}\)</span> contains the solutions <span class="math inline">\(x_{1}^{*}\)</span> and <span class="math inline">\(x_{2}^{*}\)</span>. Let us illustrate by calculating <span class="math inline">\(K^{-1}\)</span>. In this case we have that the inverse of <span class="math inline">\(K\)</span> is (see equation <a href="chap-linjar-algebra.html#eq:invers-2x2-a-enklast">(14.7)</a> ):</p>
+<p><span class="math display">\[
+\begin{align}
+K^{-1} &amp; =\frac{1}{5-\left(-8\right)}\left[\begin{matrix}5 &amp; 2\\
+-4 &amp; 1
+\end{matrix}\right]=\left[\begin{matrix}\frac{5}{13} &amp; \frac{2}{13}\\
+-\frac{4}{13} &amp; \frac{1}{13}
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>Let us go through the calculation from <span class="math inline">\(K^{-1}KX=K^{-1}Y\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+K^{-1}KX &amp; =K^{-1}Y\\
+\left[\begin{matrix}\frac{5}{13} &amp; \frac{2}{13}\\
+-\frac{4}{13} &amp; \frac{1}{13}
+\end{matrix}\right]\left[\begin{matrix}1 &amp; -2\\
+4 &amp; 5
+\end{matrix}\right]\left[\begin{matrix}x_{1}\\
+x_{2}
+\end{matrix}\right] &amp; =\left[\begin{matrix}\frac{5}{13} &amp; \frac{2}{13}\\
+-\frac{4}{13} &amp; \frac{1}{13}
+\end{matrix}\right]\left[\begin{matrix}3\\
+6
+\end{matrix}\right]\nonumber \\
+\left[\begin{matrix}\frac{5}{13}*1+\frac{2}{13}*4 &amp; \frac{5}{13}*\left(-2\right)+\frac{2}{13}*5\\
+-\frac{4}{13}*1+\frac{1}{13}*4 &amp; -\frac{4}{13}*\left(-2\right)+\frac{1}{13}*5
+\end{matrix}\right]\left[\begin{matrix}x_{1}\\
+x_{2}
+\end{matrix}\right] &amp; =\left[\begin{matrix}\frac{5}{13}*3+\frac{2}{13}*6\\
+-\frac{4}{13}*3+\frac{1}{13}*6
+\end{matrix}\right]\nonumber \\
+\left[\begin{matrix}1 &amp; 0\\
+0 &amp; 1
+\end{matrix}\right]\left[\begin{matrix}x_{1}\\
+x_{2}
+\end{matrix}\right] &amp; =\left[\begin{matrix}2+\frac{1}{13}\\
+-\frac{6}{13}
+\end{matrix}\right]\nonumber \\
+\left[\begin{matrix}x_{1}\\
+x_{2}
+\end{matrix}\right] &amp; =\left[\begin{matrix}\frac{27}{13}\\
+-\frac{6}{13}
+\end{matrix}\right]\nonumber \\
+X &amp; =Y^{*}\nonumber
+\end{align}
+\]</span></p>
+<p>We can also use an inverse matrix in another way. The expression <span class="math inline">\(KX=Y\)</span> can also be rewritten by transposing both sides:</p>
+<p><span class="math display">\[
+\begin{align}
+\left(KX\right)^{T} &amp; =Y^{T}\\
+X^{T}K^{T} &amp; =Y^{T}\nonumber \\
+\left[\begin{matrix}x_{1} &amp; x_{2}\end{matrix}\right]\left[\begin{matrix}1 &amp; 4\\
+-2 &amp; 5
+\end{matrix}\right] &amp; =\left[\begin{matrix}3 &amp; 6\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(X^{T},K^{T}\)</span> and <span class="math inline">\(Y^{T}\)</span> are the transposed versions of the matrices. This equation can also be solved using an inverse matrix but the multiplication needs to be done in the following way this time:</p>
+<p><span class="math display" id="eq:matris-k-invers">\[
+\begin{align}
+X^{T}K^{T} &amp; =Y^{T}\\
+X^{T}K^{T}\left(K^{T}\right)^{-1} &amp; =Y^{T}\left(K^{T}\right)^{-1}\nonumber \\
+X^{T}I_{2} &amp; =Y^{T}\left(K^{T}\right)^{-1}\nonumber \\
+X^{T} &amp; =\left(Y^{*}\right)^{T}\nonumber
+\tag{14.14}
+\end{align}
+\]</span></p>
+<p><span class="math inline">\(\left(K^{T}\right)^{-1}\)</span> is the inverse of the transposed version of matrix <span class="math inline">\(K\)</span>, and <span class="math inline">\(\left(Y^{*}\right)^{T}\)</span> is the transposed version of matrix <span class="math inline">\(Y^{*}\)</span> which contains the solutions to the equation system. Note also in this case how the order of the matrices determines how we can use matrix multiplication <span class="math inline">\(\left(K^{T}\right)^{-1}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+X^{T} &amp; =Y^{T}\left(K^{T}\right)^{-1}\\
+\left[\begin{matrix}x_{1} &amp; x_{2}\end{matrix}\right] &amp; =\left[\begin{matrix}3 &amp; 6\end{matrix}\right]\left[\begin{matrix}1 &amp; 4\\
+-2 &amp; 5
+\end{matrix}\right]^{-1}\nonumber \\
+\left[\begin{matrix}x_{1}^{*} &amp; x_{2}^{*}\end{matrix}\right] &amp; =\left[\begin{matrix}\frac{27}{13} &amp; -\frac{6}{13}\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>We have once again solved the equation system and gotten the same answer as above.</p>
+</div>
+<div id="example-1-a-bakery" class="section level2 hasAnchor" number="14.11">
+<h2><span class="header-section-number">14.11</span> Example 1: A bakery<a href="chap-linjar-algebra.html#example-1-a-bakery" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section and the following two describes simplified examples of how we can use linear algebra to describe real world phenomenons. In later parts we will use vector and matrices for empirical analysis.</p>
+<p>Consider a small bakery that makes three products: bread, pastries, and cakes. Each product requires different ingredients:</p>
+<ul>
+<li><p>Bread needs: 2 kg flour, 0 kg sugar, 1 kg yeast</p></li>
+<li><p>Pastries need: 1 kg flour, 3 kg sugar, 0 kg yeast</p></li>
+<li><p>Cakes need: 1 kg flour, 4 kg sugar, 1 kg yeast</p></li>
+</ul>
+<p>We organize this information in table <a href="chap-linjar-algebra.html#tab:bakery-io-table">14.1</a> . The numbers in the table we put as elements in a matrix <span class="math inline">\(R\)</span>(recipes).</p>
+<table>
+<caption>Bakery recipes <span id="tab:bakery-io-table">Table 14.1: </span></caption>
+<thead>
+<tr class="header">
+<th>Flour (kg)</th>
+<th>Sugar (kg)</th>
+<th>Yeast (kg)</th>
+<th>Bread</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>Pastries</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>3</td>
+<td>0</td>
+<td>Cakes</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\begin{equation}
+R=\left[\begin{matrix}2 &amp; 0 &amp; 1\\
+1 &amp; 3 &amp; 0\\
+1 &amp; 4 &amp; 1
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>Now the bakery wants to make 10 breads, 5 pastries, and 3 cakes and we wish to calculate the resources needed. For this we can use matrix multiplication to find total ingredient. First we define the production vector <span class="math inline">\(P\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+P=\left[\begin{matrix}10 &amp; 5 &amp; 3\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>To calculate how much ingredients the bakery need in total for this production we can use matrix multiplication <span class="math inline">\(PR\)</span>. The new matrix will have the same number of rows as the first matrix <span class="math inline">\(R\)</span>(3 rows) and the same number of columns as the second matrix in the multiplication <span class="math inline">\(P\)</span>(1 column), see section <a href="chap-linjar-algebra.html#sec-matriser">14.4</a> :</p>
+<p><span class="math display">\[
+\begin{equation}
+PR=\left[\begin{matrix}10 &amp; 5 &amp; 3\end{matrix}\right]\left[\begin{matrix}2 &amp; 0 &amp; 1\\
+1 &amp; 3 &amp; 0\\
+1 &amp; 4 &amp; 1
+\end{matrix}\right]=\left[\begin{matrix}10*2+5*1+3*1\\
+10*0+5*3+3*4\\
+10*1+5*0+3*1
+\end{matrix}\right]=\left[\begin{matrix}28\\
+27\\
+13
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>This is the amounts needed of flour (28 kg), sugar (27 kg) and yeast (13 kg).</p>
+</div>
+<div id="example-2-input-output-analysis" class="section level2 hasAnchor" number="14.12">
+<h2><span class="header-section-number">14.12</span> Example 2: Input-output analysis<a href="chap-linjar-algebra.html#example-2-input-output-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section describes another example of how we can use linear algebra in analytical work, by describing how firms in different industries trade with each other. For this we can use what is called input-output analysis (IO). This is based on an input-output table, IO table, where each industry has its own row and its own column. Each row describes the value of everything that companies in an industry sell to other companies in the same industry or other industries. Each column describes the production that is purchased and delivered to each industry respectively. Companies in each industry can trade both with companies in the same industry and companies in other industries.</p>
+<p>Table <a href="chap-linjar-algebra.html#tab:input-output-tabell">14.2</a> shows an example of an IO table with the two industries A and B. Each industry has its own row and its own column. The numbers in the table show the value of the production that is delivered to each industry as well as to final consumption by households and the public sector. In the row for industry A, the numbers show the value of the production that A sells to other companies in the same industry (the value 2) and to companies in industry B (the value 1). The fourth column describes the amount of production for final consumption while the fifth column sums columns 2–4.</p>
+<table>
+<caption>Input-output table <span id="tab:input-output-tabell">Table 14.2: </span></caption>
+<thead>
+<tr class="header">
+<th>Industry A</th>
+<th>Industry B</th>
+<th>Final consumption</th>
+<th>Sum</th>
+<th>Industry A</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>6</td>
+<td>Industry B</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>7</td>
+<td>Sum</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>4</td>
+<td>6</td>
+<td>13</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The data in table <a href="chap-linjar-algebra.html#tab:input-output-tabell">14.2</a> we use to calculate how changed production in one part of the economy affects other parts. We begin by placing the table’s values in matrices. We collect the flows to and from the industries in a <span class="math inline">\(2\times2\)</span> matrix <span class="math inline">\(Z\)</span>(the flow matrix), final consumption in column matrix <span class="math inline">\(C\)</span> and the sum in the last column in column matrix <span class="math inline">\(S\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+Z=\left[\begin{matrix}2 &amp; 1\\
+1 &amp; 3
+\end{matrix}\right],\quad C=\left[\begin{matrix}3\\
+3
+\end{matrix}\right],\quad S=\left[\begin{matrix}6\\
+7
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>The flows to and from industries <span class="math inline">\(\left(Z\right)\)</span> we divide by each industry’s total production <span class="math inline">\(\left(S\right)\)</span>:</p>
+<p><span class="math display" id="eq:a-elementen">\[
+\begin{equation}
+a_{ij}=\frac{y_{ij}}{y_{j}}
+\tag{14.15}
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(y_{ij}\)</span> is production from industry i that is delivered to industry <span class="math inline">\(j\)</span>, while <span class="math inline">\(y_{j}\)</span> is the total production that industry j produces. For each value in matrix <span class="math inline">\(Z\)</span> we calculate a value <span class="math inline">\(a_{ij}\)</span> and collect in a <span class="math inline">\(2\times2\)</span> matrix <span class="math inline">\(A\)</span>.</p>
+<p>To do this calculation with matrices we first calculate the multiplicative inverse (section <a href="chap-linjar-algebra.html#sec-inversen-av-matris">14.9</a> ) of each element in S, that is place the values as denominators in separate fractions with numerator 1. Industry A gets <span class="math inline">\(\frac{1}{6}\)</span> and industry B <span class="math inline">\(\frac{1}{7}\)</span>. We collect these values in a column matrix <span class="math inline">\(S_{m}\)</span> and place in a diagonal matrix, which we describe as <span class="math inline">\(\text{diag}\left(S_{m}\right)\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+\text{diag}\left(S_{m}\right)=\left[\begin{matrix}\frac{1}{6} &amp; 0\\
+0 &amp; \frac{1}{7}
+\end{matrix}\right]
+\end{equation}
+\]</span></p>
+<p>To calculate <span class="math inline">\(A\)</span> we now matrix multiply <span class="math inline">\(Z\)</span> with <span class="math inline">\(\text{diag}\left(S_{m}\right)\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+A &amp; =Z*\text{diag}\left(S_{m}\right)\\
+&amp; =\left[\begin{matrix}2 &amp; 1\\
+1 &amp; 3
+\end{matrix}\right]\left[\begin{matrix}\frac{1}{6} &amp; 0\\
+0 &amp; \frac{1}{7}
+\end{matrix}\right]\nonumber \\
+&amp; =\left[\begin{matrix}\frac{2}{6} &amp; \frac{1}{7}\\
+\frac{1}{6} &amp; \frac{3}{7}
+\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>For each industry <span class="math inline">\(j\)</span> we define total production <span class="math inline">\(y_{j}\)</span> as the sum of input production to all industries plus production to final consumption, which in this case becomes:</p>
+<p><span class="math display">\[
+\begin{equation}
+y_{j}=a_{j1}y_{1}+a_{j2}y_{2}+c_{j}
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(a\)</span> are the weights we defined in equation <a href="chap-linjar-algebra.html#eq:a-elementen">(14.15)</a> , <span class="math inline">\(y_{1}\)</span> is the total production from industry 1 and <span class="math inline">\(y_{2}\)</span> is total production from industry 2, or industry A and B as we called them. We do not know the values for <span class="math inline">\(y_{j}\)</span> yet but we can calculate it using the matrices. We collect the elements of total production in column matrix <span class="math inline">\(Y\)</span> and can now describe <span class="math inline">\(Y\)</span> as:</p>
+<p><span class="math display" id="eq:y-i-a-1-s">\[
+\begin{align}
+Y &amp; =AY+C\\
+Y-AY &amp; =C\nonumber \\
+IY-AY &amp; =C\nonumber \\
+\left(I-A\right)Y &amp; =C\nonumber \\
+Y &amp; =\left(I-A\right)^{-1}C\nonumber
+\tag{14.16}
+\end{align}
+\]</span></p>
+<p>Identity matrix <span class="math inline">\(I\)</span> has the same dimensions as A. Column matrix Y describes how much production is required from each industry to companies in the same and other industries as well as to final consumption:</p>
+<p><span class="math display">\[
+\begin{align}
+Y &amp; =\left(I-A\right)^{-1}S=\left[\begin{matrix}\frac{8}{5} &amp; \frac{2}{5}\\
+\frac{7}{15} &amp; \frac{28}{15}
+\end{matrix}\right]\left[\begin{matrix}3\\
+3
+\end{matrix}\right]\approx\left[\begin{matrix}12,4\\
+15,9
+\end{matrix}\right]
+\end{align}
+\]</span></p>
+<p>This shows how much industry A and B must produce in total for input goods and final consumption. We call the inverted matrix <span class="math inline">\(B=(I-A)^{-1}\)</span>. Matrix <span class="math inline">\(B\)</span> has the same dimensions as matrix <span class="math inline">\(A\)</span>. Let us calculate <span class="math inline">\(B\)</span> with the values from table <a href="chap-linjar-algebra.html#tab:input-output-tabell">14.2</a> :</p>
+<p><span class="math display">\[
+\begin{align}
+B &amp; =\left(I-A\right)^{-1}\\
+&amp; =\left(\left[\begin{matrix}1 &amp; 0\\
+0 &amp; 1
+\end{matrix}\right]-\left[\begin{matrix}\frac{2}{6} &amp; \frac{1}{7}\\
+\frac{1}{6} &amp; \frac{3}{7}
+\end{matrix}\right]\right)^{-1}\nonumber \\
+&amp; =\left[\begin{matrix}\frac{4}{6} &amp; -\frac{1}{7}\\
+-\frac{1}{6} &amp; \frac{4}{7}
+\end{matrix}\right]^{-1}\nonumber \\
+&amp; =\left[\begin{matrix}\frac{8}{5} &amp; \frac{2}{5}\\
+\frac{7}{15} &amp; \frac{28}{15}
+\end{matrix}\right]\nonumber
+\end{align}
+\]</span></p>
+<p>If we now in matrix <span class="math inline">\(B\)</span> calculate the sum of a column for an industry <span class="math inline">\(j\)</span> we get the total amount of production for all industries that would be required if the final consumption for industry <span class="math inline">\(j\)</span> were to increase by one unit. This shows how much other industries must deliver in input goods to industry <span class="math inline">\(j\)</span>. This measure is called production multiplier in this context.</p>
+<p>If we for matrix <span class="math inline">\(B\)</span> calculate the sum of a row for an industry <span class="math inline">\(j\)</span> in matrix <span class="math inline">\(B\)</span> we get a measure of how much extra production in total in society that is enabled if industry <span class="math inline">\(j\)</span> increases its production of input goods by one unit. This is called input multiplier.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:natverksdiagram-1"></span>
+<img src="figures/g_io_net.png" alt="A network with the two industries A and B" width="71%" />
+<p class="caption">
+Figure 14.2: A network with the two industries A and B
+</p>
+</div>
+<p>Figure <a href="chap-linjar-algebra.html#fig:natverksdiagram-1">14.2</a> shows an example of how this can be illustrated in a network diagram. The points describe the two industries A and B and the arrows describe the flows to and from the two industries. The values at each arrow represent the values in table <a href="chap-linjar-algebra.html#tab:input-output-tabell">14.2</a> . The size of the points represents each industry’s total production, the rightmost column in the table. In the diagram we have not included any illustration of the production that the industries send to final consumption.</p>
+<p>In the same way as the results we calculated above, we can also add other information to our matrices and calculate other mechanisms. Input-output analysis is used among other things to describe how changes in one industry can affect employment in other industries or to describe industries’ climate impact. These methods have a long history but began to spread especially within social science during the 1920s, when among others the economist Wassily Leontief published texts about this.</p>
+</div>
+<div id="example-3-social-networks" class="section level2 hasAnchor" number="14.13">
+<h2><span class="header-section-number">14.13</span> Example 3: Social networks<a href="chap-linjar-algebra.html#example-3-social-networks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Linear algebra can also be used to describe other types of networks and flows between actors, for example a social network of friends. Table <a href="chap-linjar-algebra.html#tab:matris-socialt-natverk">14.3</a> describes a network of five friends in the form of a matrix with five rows and five columns. The elements in the matrix describe the number of messages that the people send to each other on average per day. Maria for example sends 5 messages to Nushi. Nushi sends 2 messages to Maria.</p>
+<p>We can also illustrate this network in a network diagram, which is shown with an example in figure <a href="chap-linjar-algebra.html#fig:det-sociala-natverket">14.3</a> . Each arrow represents that communication has occurred between the people. The thickness of the arrows illustrates how many messages have been sent in this direction. The thicker the line, the more messages have been sent.</p>
+<table>
+<caption>Matrix with average number of messages sent per day <span id="tab:matris-socialt-natverk">Table 14.3: </span></caption>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Maria</strong></th>
+<th><strong>Nushi</strong></th>
+<th><strong>Mohammed</strong></th>
+<th><strong>Jose</strong></th>
+<th><strong>Sum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Maria</strong></td>
+<td>0</td>
+<td>5</td>
+<td>1</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td><strong>Nushi</strong></td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>6</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td><strong>Mohammed</strong></td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><strong>Jose</strong></td>
+<td>1</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td><strong>Sum</strong></td>
+<td>5</td>
+<td>13</td>
+<td>3</td>
+<td>10</td>
+<td>31</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:det-sociala-natverket"></span>
+<img src="14-linear-algebra_files/figure-html/det-sociala-natverket-1.png" alt="Illustration of number of sent messages" width="71%" />
+<p class="caption">
+Figure 14.3: Illustration of number of sent messages
+</p>
+</div>
+<p>In network analyses, one sometimes wants to use measures to calculate how important or influential actors in the network are. A basic measure of this is degree centrality, which in this case is a measure of how many connections each node, person or industry, has to some other node in the network. The concept of centrality also occurs in statistics but then means something else. Degree centrality for a node j is the sum of the number of contacts and can be described with the function:</p>
+<p><span class="math display">\[
+\begin{equation}
+c_{j}^{D}\left(a\right)=\sum_{i}^{n}a_{ji}
+\end{equation}
+\]</span></p>
+<p>We call degree centrality <span class="math inline">\(c^{D}\)</span>. In this equation <span class="math inline">\(a_{ji}\)</span> represents whether there is any contact from node j to another node i. Nodes are then for example individual persons, industries or actors, depending on what we study. The letter <span class="math inline">\(n\)</span> symbolizes the amount of nodes in the network. For our social network everyone has sent messages to everyone else, except Jose who has not sent anything to Mohammed. Mohammed thus has <span class="math inline">\(c^{D}=3\)</span> while the other three actors have <span class="math inline">\(c^{D}=4\)</span>.</p>
+<p>Often we want to adjust our measures for the maximum number of possible connections. In this case we adjust degree centrality to take into account the maximum number of possible connections in the network by dividing by <span class="math inline">\(n-1\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+c_{j}^{D}\left(a\right)=\frac{\sum_{i}^{n}a_{ji}}{n-1}
+\end{equation}
+\]</span></p>
+<p>Formalized network analysis has existed at least since the 1700s. An early example is a famous text by Leonhard Euler about the seven bridges in Königsberg in Prussia, present-day Kaliningrad in Russia <a href="https://www.jstor.org/stable/27900293">(Euler, 1741)</a>. Euler’s article laid the foundation for the part of mathematics called graph theory. Leonard Euler is by the way the same Euler as in Euler’s number, <span class="math inline">\(e\)</span>.</p>
+</div>
+<div id="chapter-summary-12" class="section level2 hasAnchor" number="14.14">
+<h2><span class="header-section-number">14.14</span> Chapter summary<a href="chap-linjar-algebra.html#chapter-summary-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>A mathematical quantity with one value is called scalar. A vector is a quantity with multiple values, for example a person’s weight and height. A vector can contain a large amount of values. The values in a vector can be described as variables, dimensions or elements.</p></li>
+<li><p>Vectors with the same number of dimensions can be added or subtracted. Example: the vectors <span class="math inline">\(\vec{a}=\left(a_{1},a_{2}\right)\)</span> and <span class="math inline">\(\vec{b}=\left(b_{1},b_{2}\right)\)</span> give <span class="math inline">\(\vec{a}+\vec{b}=\left(a_{1}+b_{1},a_{2}+b_{2}\right)\)</span>. Multiplication of vector by scalar: <span class="math inline">\(s*\vec{a}=s\left(a_{1},a_{2}\right)=\left(sa_{1},sa_{2}\right)\)</span> where s is any number.</p></li>
+<li><p>Multiplication of two vectors results in a scalar, for example <span class="math inline">\(\vec{a}*\vec{b}=\left(a_{1},a_{2}\right)*\left(b_{1},b_{2}\right)=a_{1}b_{1}+a_{2}b_{2}=s\)</span> where <span class="math inline">\(s\)</span> is any number. A vector’s norm, length, can be calculated as <span class="math inline">\(\Vert\vec{a}\Vert=\sqrt{a_{1}^{2}+a_{2}^{2}}\)</span>.</p></li>
+<li><p>A matrix is a collection of values organized as a rectangle, with columns and rows. Dimensions for a matrix are given with rows <span class="math inline">\(\times\)</span> columns or <span class="math inline">\(r\times k\)</span>. Example <span class="math inline">\(2\times3\)</span> matrix <span class="math inline">\(A\)</span> has 2 rows and 3 columns. The values in a matrix are called elements. Element <span class="math inline">\(a_{12}\)</span> is the value at row 1 column 2. A matrix where <span class="math inline">\(r=k\)</span> is square.</p></li>
+<li><p>Matrices with the same shape can be added and subtracted, whereby the value at position <span class="math inline">\(rk\)</span> is added or subtracted with the value in the other matrix at the corresponding position. Example: we have <span class="math inline">\(2\times2\)</span> matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> where the elements are denoted <span class="math inline">\(a_{rk}\)</span> and <span class="math inline">\(b_{rk}\)</span> respectively. <span class="math inline">\(A+B\)</span> means <span class="math inline">\(a_{11}+b_{11}\)</span> and so on.</p></li>
+<li><p>Multiplication of matrix by scalar means that all elements are multiplied by the scalar:</p></li>
+</ul>
+<p><span class="math display">\[
+sA=\left[\begin{matrix}sa_{11} &amp; sa_{12}\\
+sa_{21} &amp; sa_{22}
+\end{matrix}\right]
+\]</span></p>
+<p>.</p>
+<ul>
+<li>Matrix multiplication: the rows in the left matrix are multiplied by the columns in the right matrix. Matrix multiplication of matrices A and B is defined for AB given that number of rows in A = number of columns in B. If we switch places of the matrices we do not necessarily get the same result, that is <span class="math inline">\(AB\neq BA\)</span>.</li>
+</ul>
+<p>-<span class="math inline">\(A^{T}\)</span> or <span class="math inline">\(A&#39;\)</span>: transposed matrix <span class="math inline">\(A\)</span>, where <span class="math inline">\(a_{rk}^{T}=a_{kr}\)</span>. Generally: <span class="math inline">\(\left(A^{T}\right)^{T}=A\)</span> and <span class="math inline">\(\left(AB\right)^{T}=B^{T}A^{T}\)</span>. Transposition does not affect scalars: <span class="math inline">\(\left(sA\right)^{T}=sA^{T}\)</span>, where s is scalar.</p>
+<ul>
+<li><p>A matrix where all elements outside the matrix’s diagonal are 0 is called diagonal matrix. The elements in the diagonal in a matrix <span class="math inline">\(A\)</span> are those elements <span class="math inline">\(a_{rk}\)</span> where <span class="math inline">\(r=k\)</span>, that is <span class="math inline">\(a_{11},a_{22},...,a_{nn}\)</span>, where <span class="math inline">\(n\)</span> is any number.</p></li>
+<li><p>A diagonal matrix where all values on the diagonal are 1 is called identity matrix or unit matrix. A square matrix where only the elements on one side of the diagonal are equal to 0 is called triangular matrix.</p></li>
+<li><p>The determinant of matrix A is denoted <span class="math inline">\(det\left(A\right)\)</span>. Example: matrix</p></li>
+</ul>
+<p><span class="math display">\[
+A=\left[\begin{matrix}a &amp; b\\
+c &amp; d
+\end{matrix}\right]
+\]</span></p>
+<p>. If <span class="math inline">\(c=0\)</span> or <span class="math inline">\(b=0\)</span> then <span class="math inline">\(\det\left(A\right)=ad\)</span>. For a triangular matrix the determinant is equal to the product of the diagonal’s elements.</p>
+<ul>
+<li><p>We can use row reduction in matrices in the same way as for linear equation systems, among other things to edit a matrix until it becomes triangular.</p></li>
+<li><p>The inverse of matrix <span class="math inline">\(A\)</span>, the inverse matrix, is written <span class="math inline">\(A^{-1}\)</span>. The inverse matrix can be calculated with Gauss-Jordan elimination: If <span class="math inline">\(A\)</span> has dimensions <span class="math inline">\(r\times k\)</span> we add an <span class="math inline">\(r\times k\)</span> identity matrix <span class="math inline">\(I_{r}\)</span>, so that we get <span class="math inline">\(AI\)</span>. Edit <span class="math inline">\(AI\)</span> until the right part becomes an identity matrix, which gives <span class="math inline">\(IA^{-1}\)</span>, where the right half is the inverse matrix we seek.</p></li>
+<li><p>Vectors and matrices can be used to describe and study networks and flows between actors, for example goods and services between different industries or contacts in a social network.</p></li>
+</ul>
+</div>
+<div id="exercises-12" class="section level2 hasAnchor" number="14.15">
+<h2><span class="header-section-number">14.15</span> Exercises<a href="chap-linjar-algebra.html#exercises-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ex-9" class="exercises-container">
+
+</div>
+<script>
+(function(){
+var ex=[
+  {q:'<p>Let \\(\\vec{v}_{1}=\\left(2,3,1\\right)\\) and \\(\\vec{v}_{2}=\\left(4,1,5\\right)\\) .</p><ol type="a"><li>Calculate \\(\\vec{v}_{1}+\\vec{v}_{2}\\) .</li><li>Calculate \\(\\vec{v}_{1}-\\vec{v}_{2}\\) .</li><li>Calculate the scalar product \\(\\vec{v}_{1}*\\vec{v}_{2}\\) .</li></ol>',a:'<p>(a) \\(\\left(6,4,6\\right)\\) (b) \\(\\left(-2,2,-4\\right)\\) (c) \\(2\\cdot4+3\\cdot1+1\\cdot5=16\\)</p>'},
+  {q:'<p>Let \\(\\vec{a}=\\left(3,4\\right)\\) and \\(\\vec{b}=\\left(1,-2\\right)\\) .</p><ol type="a"><li>Calculate \\(5\\vec{a}\\) .</li><li>Calculate the norm \\(\\left\\Vert \\vec{a}\\right\\Vert\\) .</li><li>Calculate the scalar product \\(\\vec{a}*\\vec{b}\\) .</li></ol>',a:'<p>(a) \\(\\left(15,20\\right)\\) (b) \\(\\left\\Vert \\vec{a}\\right\\Vert =\\sqrt{9+16}=5\\) (c) \\(3\\cdot1+4\\cdot\\left(-2\\right)=-5\\)</p>'},
+  {q:'<p>Let</p><p>\\(\\displaystyle A=\\left[\\begin{matrix}2 & 1\\\\ 3 & 4 \\end{matrix}\\right]\\)</p><p>and</p><p>\\(\\displaystyle B=\\left[\\begin{matrix}5 & 2\\\\ 1 & 0 \\end{matrix}\\right]\\)</p><p>.</p><ol type="a"><li>Calculate \\(A+B\\) .</li><li>Calculate \\(A-B\\) .</li><li>Calculate \\(3A\\) .</li></ol>',a:'<p>(a)</p><p>\\(\\displaystyle \\left[\\begin{matrix}7 & 3\\\\ 4 & 4 \\end{matrix}\\right]\\)</p><p>(b)</p><p>\\(\\displaystyle \\left[\\begin{matrix}-3 & -1\\\\ 2 & 4 \\end{matrix}\\right]\\)</p><p>(c)</p><p>\\(\\displaystyle \\left[\\begin{matrix}6 & 3\\\\ 9 & 12 \\end{matrix}\\right]\\)</p>'},
+  {q:'<p>Let</p><p>\\(\\displaystyle A=\\left[\\begin{matrix}1 & 2\\\\ 3 & 4 \\end{matrix}\\right]\\)</p><p>and</p><p>\\(\\displaystyle B=\\left[\\begin{matrix}2 & 0\\\\ 1 & 3 \\end{matrix}\\right]\\)</p><p>.</p><ol type="a"><li>Calculate \\(AB\\) .</li><li>Calculate \\(BA\\) .</li><li>Is \\(AB=BA\\) ? What does this illustrate?</li></ol>',a:'<p>(a)</p><p>\\(\\displaystyle AB=\\left[\\begin{matrix}4 & 6\\\\ 10 & 12 \\end{matrix}\\right]\\)</p><p>(b)</p><p>\\(\\displaystyle BA=\\left[\\begin{matrix}2 & 4\\\\ 10 & 14 \\end{matrix}\\right]\\)</p><p>(c) \\(AB\\neq BA\\)</p>'},
+  {q:'<p>Let</p><p>\\(\\displaystyle A=\\left[\\begin{matrix}1 & 2\\\\ 3 & 4\\\\ 5 & 6 \\end{matrix}\\right]\\)</p><p>.</p><ol type="a"><li>Write out the transpose \\(A^{T}\\) .</li><li>What are the dimensions of \\(A\\) and \\(A^{T}\\) ?</li><li>Verify that \\(\\left(A^{T}\\right)^{T}=A\\) .</li></ol>',a:'<p>(a)</p><p>\\(\\displaystyle A^{T}=\\left[\\begin{matrix}1 & 3 & 5\\\\ 2 & 4 & 6 \\end{matrix}\\right]\\)</p><p>(b) \\(A\\) (c) Transposing \\(A^{T}\\)</p>'},
+  {q:'<p>Let</p><p>\\(\\displaystyle D=\\left[\\begin{matrix}4 & 0\\\\ 0 & 7 \\end{matrix}\\right]\\)</p><p>and</p><p>\\(\\displaystyle A=\\left[\\begin{matrix}3 & 1\\\\ 2 & 5 \\end{matrix}\\right]\\)</p><p>.</p><ol type="a"><li>Write out the \\(3\\times3\\) identity matrix \\(I_{3}\\) .</li><li>Verify that \\(AI_{2}=A\\) by computing the matrix product.</li><li>Calculate the trace \\(\\text{tr}(D)\\) .</li></ol>',a:'<p>(a)</p><p>\\(\\displaystyle I_{3}=\\left[\\begin{matrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ 0 & 0 & 1 \\end{matrix}\\right]\\)</p><p>(b)</p><p>\\(\\displaystyle AI_{2}=\\left[\\begin{matrix}3 & 1\\\\ 2 & 5 \\end{matrix}\\right]=A\\)</p><p>(c) \\(\\text{tr}(D)=4+7=11\\)</p>'},
+  {q:'<p>Let</p><p>\\(\\displaystyle A=\\left[\\begin{matrix}3 & 2\\\\ 1 & 4 \\end{matrix}\\right]\\)</p><p>.</p><ol type="a"><li>Calculate the determinant \\(\\det(A)\\) .</li><li>Find the inverse matrix \\(A^{-1}\\) .</li><li>Verify that \\(A\\cdot A^{-1}=I_{2}\\) by computing the product.</li></ol>',a:'<p>(a) \\(\\det(A)=3\\cdot4-2\\cdot1=10\\) (b)</p><p>\\(\\displaystyle A^{-1}=\\frac{1}{10}\\left[\\begin{matrix}4 & -2\\\\ -1 & 3 \\end{matrix}\\right]\\)</p><p>(c)</p><p>\\(\\displaystyle A\\cdot A^{-1}=\\frac{1}{10}\\left[\\begin{matrix}10 & 0\\\\ 0 & 10 \\end{matrix}\\right]=I_{2}\\)</p>'},
+  {q:'<p>Let</p><p>\\(\\displaystyle A=\\left[\\begin{matrix}1 & 3\\\\ 2 & 1 \\end{matrix}\\right]\\)</p><p>and</p><p>\\(\\displaystyle B=\\left[\\begin{matrix}0 & 1\\\\ 1 & 2 \\end{matrix}\\right]\\)</p><p>.</p><ol type="a"><li>Calculate \\((A+B)^{T}\\) .</li><li>Verify that \\((A+B)^{T}=A^{T}+B^{T}\\) .</li><li>Calculate \\(AB\\) and verify that \\((AB)^{T}=B^{T}A^{T}\\) .</li></ol>',a:'<p>(a)</p><p>\\(\\displaystyle A+B=\\left[\\begin{matrix}1 & 4\\\\ 3 & 3 \\end{matrix}\\right]\\)</p><p>(b)</p><p>\\(\\displaystyle A^{T}+B^{T}=\\left[\\begin{matrix}1 & 2\\\\ 3 & 1 \\end{matrix}\\right]+\\left[\\begin{matrix}0 & 1\\\\ 1 & 2 \\end{matrix}\\right]=\\left[\\begin{matrix}1 & 3\\\\ 4 & 3 \\end{matrix}\\right]\\)</p><p>(c)</p><p>\\(\\displaystyle AB=\\left[\\begin{matrix}3 & 7\\\\ 1 & 4 \\end{matrix}\\right]\\)</p>'},
+  {q:'<p>Solve the system of equations using the inverse matrix: \\(2x+y=5\\) and \\(x+3y=10\\) .</p><ol type="a"><li>Write the system in matrix form \\(A\\mathbf{x}=\\mathbf{b}\\) .</li><li>Calculate \\(\\det(A)\\) .</li><li>Find \\(A^{-1}\\) and solve for \\(\\mathbf{x}=A^{-1}\\mathbf{b}\\) .</li></ol>',a:'<p>(a)</p><p>\\(\\displaystyle A=\\left[\\begin{matrix}2 & 1\\\\ 1 & 3 \\end{matrix}\\right]\\)</p><p>(b) \\(\\det(A)=6-1=5\\) (c)</p><p>\\(\\displaystyle A^{-1}=\\frac{1}{5}\\left[\\begin{matrix}3 & -1\\\\ -1 & 2 \\end{matrix}\\right]\\)</p>'},
+  {q:'<p>Let \\(\\vec{u}=(3,1)\\) and \\(\\vec{v}=(2,4)\\) .</p><ol type="a"><li>Calculate the scalar product \\(\\vec{u}\\cdot\\vec{v}\\) .</li><li>Calculate the projection of \\(\\vec{u}\\) onto \\(\\vec{v}\\) : \\(\\text{proj}_{\\vec{v}}(\\vec{u})=\\frac{\\vec{u}\\cdot\\vec{v}}{\\left\\Vert \\vec{v}\\right\\Vert ^{2}}\\vec{v}\\) .</li><li>Interpret: what does this projection represent geometrically?</li></ol>',a:'<p>(a) \\(\\vec{u}\\cdot\\vec{v}=6+4=10\\) (b) \\(\\left\\Vert \\vec{v}\\right\\Vert ^{2}=4+16=20\\) (c) The projection is the component of \\(\\vec{u}\\)</p>'},
+  {q:'<p>A market equilibrium model gives the conditions \\(4x_{1}-x_{2}=10\\) and \\(-2x_{1}+3x_{2}=5\\) .</p><ol type="a"><li>Write the system in matrix form \\(A\\mathbf{x}=\\mathbf{b}\\) .</li><li>Calculate \\(\\det(A)\\) .</li><li>Find the equilibrium quantities \\(x_{1}\\) and \\(x_{2}\\) using \\(A^{-1}\\) .</li></ol>',a:'<p>(a)</p><p>\\(\\displaystyle A=\\left[\\begin{matrix}4 & -1\\\\ -2 & 3 \\end{matrix}\\right]\\)</p><p>(b) \\(\\det(A)=12-2=10\\) (c)</p><p>\\(\\displaystyle A^{-1}=\\frac{1}{10}\\left[\\begin{matrix}3 & 1\\\\ 2 & 4 \\end{matrix}\\right]\\)</p>'},
+  {q:'<p>Let</p><p>\\(\\displaystyle W=\\left[\\begin{matrix}3 & 0 & 0\\\\ 0 & 5 & 0\\\\ 0 & 0 & 2 \\end{matrix}\\right]\\)</p><p>be a weight matrix and \\(\\vec{v}=\\left(2,1,4\\right)\\) a score vector.</p><ol type="a"><li>Calculate the weighted score vector \\(W\\vec{v}\\) .</li><li>Calculate the trace \\(\\text{tr}(W)\\) .</li><li>Calculate the norm \\(\\left\\Vert \\vec{v}\\right\\Vert\\) .</li></ol>',a:'<p>(a) \\(W\\vec{v}=\\left(6,5,8\\right)^{T}\\) (b) \\(\\text{tr}(W)=3+5+2=10\\) (c) \\(\\left\\Vert \\vec{v}\\right\\Vert =\\sqrt{4+1+16}=\\sqrt{21}\\approx4.58\\)</p>'}
+];
+var c=document.getElementById("ex-9");
+if(!c)return;
+var h='<ol class="exercise-list">';
+ex.forEach(function(e){
+  h+='<li class="exercise-item">';
+  h+='<div class="exercise-question">'+e.q+'</div>';
+  if(e.a){
+    h+='<details class="exercise-answer">';
+    h+='<summary>Show answer &#9654;</summary>';
+    h+='<div class="answer-content">'+e.a+'</div>';
+    h+='</details>';
+  }
+  h+='</li>';
+});
+h+='</ol>';
+c.innerHTML=h;
+function fixMathAlign(el){
+  el.querySelectorAll(".MathJax_Display").forEach(function(d){
+    d.style.textAlign="left";
+    d.style.marginLeft="1.5em";
+  });
+}
+if(window.MathJax){
+  if(MathJax.Hub){
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,c]);
+    MathJax.Hub.Queue(function(){fixMathAlign(c);});
+  } else if(MathJax.typesetPromise){
+    MathJax.typesetPromise([c]).then(function(){fixMathAlign(c);});
+  }
+}
+c.querySelectorAll("details").forEach(function(d){
+  d.addEventListener("toggle",function(){
+    if(d.open&&window.MathJax){
+      if(MathJax.Hub){
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,d]);
+        MathJax.Hub.Queue(function(){fixMathAlign(d);});
+      } else if(MathJax.typesetPromise){
+        MathJax.typesetPromise([d]).then(function(){fixMathAlign(d);});
+      }
+    }
+  });
+});
+})();
+</script>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-integraler.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-covariation-intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["the-cheat-code.pdf", "the-cheat-code.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "depth": 2
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

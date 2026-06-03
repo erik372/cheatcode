@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Theories of life, death and dating | The Cheat Code: Essential Math and Statistics for Social Scientists</title>
+  <meta name="description" content="A textbook in mathematics and statistics for social science students." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Theories of life, death and dating | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Theories of life, death and dating | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  
+  <meta name="twitter:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+<meta name="author" content="Erik Hegelund" />
+
+
+<meta name="date" content="2026-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-linjara-ekvationssystem.html"/>
+<link rel="next" href="chap-ickelinjara-ekvationer-i.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="#eq:"]').forEach(function(link) {
+    link.textContent = link.textContent.trim().replace(/^\((.+)\)$/, '$1');
+  });
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'],['\\(','\\)']],
+    displayMath: [['$$','$$'],['\\[','\\]']],
+    processEscapes: true,
+    skipTags: ['script','noscript','style','textarea','pre']
+  },
+  TeX: {
+    extensions: ["cancel.js"],
+    equationNumbers: {
+      autoNumber: "none"
+    },
+    Macros: {
+      permil:     '\\unicode{x2030}',
+      ensuremath: ['#1', 1]
+    }
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open && window.MathJax) {
+        if (MathJax.Hub) {
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub, det]);
+        } else if (MathJax.typesetPromise) {
+          MathJax.typesetPromise([det]).catch(function(e) { console.error(e); });
+        }
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Move "Table X.X:" span from end of caption to front
+  document.querySelectorAll('caption').forEach(function(cap) {
+    var span = cap.querySelector('span[id^="tab:"]');
+    if (span) cap.insertBefore(span, cap.firstChild);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Rewrite part labels and make them link to the part intro page
+  document.querySelectorAll('.book-summary ul.summary li.part').forEach(function(partLi) {
+    // Rewrite text: "I Mathematics Basics" -> "Part I: Mathematics Basics"
+    var b = partLi.querySelector('span > b');
+    if (b) {
+      var m = b.textContent.match(/^([IVXLCDM]+)\s+([\s\S]*)/);
+      if (m) b.textContent = 'Part ' + m[1] + ': ' + m[2];
+    }
+    // Make the part label link to the part intro page
+    var nextEl = partLi.nextElementSibling;
+    if (!nextEl || !nextEl.classList.contains('chapter')) return;
+    var link = nextEl.querySelector('a');
+    if (!link) return;
+    var span = partLi.querySelector('span');
+    if (!span) return;
+    var a = document.createElement('a');
+    a.href = link.getAttribute('href');
+    a.innerHTML = span.innerHTML;
+    partLi.replaceChild(a, span);
+    // Hide the now-redundant part intro chapter entry in the sidebar
+    nextEl.classList.add('part-intro-hidden');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+
+    // --- Chapter-level collapse arrows (larger click target) ---
+    document.querySelectorAll('.book-summary li.chapter').forEach(function(li) {
+      var level = li.getAttribute('data-level') || '';
+      if (level.indexOf('.') !== -1) return;
+
+      var childUl = li.querySelector(':scope > ul');
+      if (!childUl) return;
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'margin-left:6px',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(0,0,0,0.06)'
+      ].join(';');
+
+      function isVisible() {
+        return window.getComputedStyle(childUl).display !== 'none';
+      }
+      function updateArrow() {
+        arrow.textContent = isVisible() ? '▾' : '▸';
+      }
+      updateArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        childUl.style.display = isVisible() ? 'none' : 'block';
+        updateArrow();
+      });
+
+      var link = li.querySelector(':scope > a');
+      if (link) link.appendChild(arrow);
+    });
+
+    // --- Part-level collapse arrows ---
+    var summary = document.querySelector('.book-summary ul.summary');
+    if (!summary) return;
+    var items = Array.from(summary.children);
+
+    items.forEach(function(li, idx) {
+      if (!li.classList.contains('part')) return;
+
+      var chapterItems = [];
+      for (var j = idx + 1; j < items.length; j++) {
+        if (items[j].classList.contains('part')) break;
+        if (items[j].tagName === 'LI') chapterItems.push(items[j]);
+      }
+      if (chapterItems.length === 0) return;
+
+      var partKey = 'partCollapsed_' + idx;
+      var collapsed = localStorage.getItem(partKey) === '1';
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-part-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(44,95,138,0.15)',
+        'margin-left:6px',
+        'float:right',
+        'margin-right:6px'
+      ].join(';');
+
+      function updatePartArrow() {
+        arrow.textContent = collapsed ? '▸' : '▾';
+      }
+
+      function applyCollapse() {
+        chapterItems.forEach(function(ch) {
+          ch.style.display = collapsed ? 'none' : '';
+        });
+      }
+
+      if (collapsed) applyCollapse();
+      updatePartArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        collapsed = !collapsed;
+        applyCollapse();
+        updatePartArrow();
+        localStorage.setItem(partKey, collapsed ? '1' : '0');
+      });
+
+      var target = li.querySelector('span') || li.querySelector('a');
+      if (target) target.appendChild(arrow);
+    });
+
+  }, 150);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Resizable sidebar via drag handle
+  setTimeout(function() {
+    var sidebar = document.querySelector('.book-summary');
+    var bookBody = document.querySelector('.book-body');
+    if (!sidebar || !bookBody) return;
+
+    var handle = document.createElement('div');
+    handle.className = 'sidebar-resize-handle';
+    handle.title = 'Drag to resize sidebar';
+    handle.style.cssText = [
+      'position:absolute',
+      'top:0',
+      'right:0',
+      'width:8px',
+      'height:100%',
+      'cursor:ew-resize',
+      'z-index:10000',
+      'border-right:3px solid transparent',
+      'box-sizing:border-box',
+      'transition:border-color 0.15s'
+    ].join(';');
+
+    sidebar.appendChild(handle);
+
+    var isDragging = false;
+    var startX = 0, startWidth = 0;
+    var minW = 160, maxW = 650;
+
+    handle.addEventListener('mouseenter', function() {
+      handle.style.borderRightColor = 'rgba(44,95,138,0.5)';
+    });
+    handle.addEventListener('mouseleave', function() {
+      if (!isDragging) handle.style.borderRightColor = 'transparent';
+    });
+
+    handle.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.clientX;
+      startWidth = sidebar.offsetWidth;
+      document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var newW = Math.max(minW, Math.min(maxW, startWidth + (e.clientX - startX)));
+      sidebar.style.width = newW + 'px';
+      bookBody.style.left = newW + 'px';
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        handle.style.borderRightColor = 'transparent';
+        localStorage.setItem('sidebarW', sidebar.offsetWidth);
+      }
+    });
+
+    // Restore saved width
+    var saved = parseInt(localStorage.getItem('sidebarW'), 10);
+    if (saved && saved >= minW && saved <= maxW) {
+      sidebar.style.width = saved + 'px';
+      bookBody.style.left = saved + 'px';
+    }
+  }, 200);
+});
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">The Cheat Code</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-yet-another-textbook"><i class="fa fa-check"></i>Why yet another textbook?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i>What you will learn</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#thanks"><i class="fa fa-check"></i>Thanks!</a></li>
+</ul></li>
+<li class="part"><span><b>I Mathematics Basics</b></span></li>
+<li class="chapter" data-level="" data-path="part-mathematics-intro.html"><a href="part-mathematics-intro.html"><i class="fa fa-check"></i>Part I: Mathematics Basics</a></li>
+<li class="chapter" data-level="1" data-path="why-math.html"><a href="why-math.html"><i class="fa fa-check"></i><b>1</b> Why math?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-math.html"><a href="why-math.html#mathematics-in-social-science"><i class="fa fa-check"></i><b>1.1</b> Mathematics in Social Science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-math.html"><a href="why-math.html#chap-vad-anvands-matematik"><i class="fa fa-check"></i><b>1.2</b> Measure, theorize, compare</a></li>
+<li class="chapter" data-level="1.3" data-path="why-math.html"><a href="why-math.html#why-calculate"><i class="fa fa-check"></i><b>1.3</b> Why Calculate</a></li>
+<li class="chapter" data-level="1.4" data-path="why-math.html"><a href="why-math.html#tips-for-your-studies"><i class="fa fa-check"></i><b>1.4</b> Tips for your studies</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#different-types-of-numbers"><i class="fa fa-check"></i><b>2.1</b> Different types of numbers</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#the-four-arithmetic-operations"><i class="fa fa-check"></i><b>2.2</b> The four arithmetic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#order-of-operations"><i class="fa fa-check"></i><b>2.3</b> Order of operations</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-parenteser"><i class="fa fa-check"></i><b>2.4</b> Parentheses</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#equality-and-inequality"><i class="fa fa-check"></i><b>2.5</b> Equality and inequality</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-brak"><i class="fa fa-check"></i><b>2.6</b> Fractions</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#least-common-denominator"><i class="fa fa-check"></i><b>2.7</b> Least common denominator</a></li>
+<li class="chapter" data-level="2.8" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-potenser"><i class="fa fa-check"></i><b>2.8</b> Powers</a></li>
+<li class="chapter" data-level="2.9" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-multiplikation-med-parentes"><i class="fa fa-check"></i><b>2.9</b> Parentheses with powers</a></li>
+<li class="chapter" data-level="2.10" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-faktorisering-och-delbarhet"><i class="fa fa-check"></i><b>2.10</b> Factorization and divisibility</a></li>
+<li class="chapter" data-level="2.11" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-summa"><i class="fa fa-check"></i><b>2.11</b> Sum</a></li>
+<li class="chapter" data-level="2.12" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-median"><i class="fa fa-check"></i><b>2.12</b> Median</a></li>
+<li class="chapter" data-level="2.13" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-medelvarde"><i class="fa fa-check"></i><b>2.13</b> Mean</a></li>
+<li class="chapter" data-level="2.14" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-viktat-medelvarde"><i class="fa fa-check"></i><b>2.14</b> Weighted mean</a></li>
+<li class="chapter" data-level="2.15" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-procent-och-promille"><i class="fa fa-check"></i><b>2.15</b> Percent and per mille</a></li>
+<li class="chapter" data-level="2.16" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-kombinatorik"><i class="fa fa-check"></i><b>2.16</b> Combinatorics</a></li>
+<li class="chapter" data-level="2.17" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#chapter-summary"><i class="fa fa-check"></i><b>2.17</b> Chapter summary</a></li>
+<li class="chapter" data-level="2.18" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#exercises"><i class="fa fa-check"></i><b>2.18</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html"><i class="fa fa-check"></i><b>3</b> Examples with Applications</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-procent-potents-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.1</b> Interest</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.2</b> Interest on interest</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-effektiv-ranta"><i class="fa fa-check"></i><b>3.3</b> Effective interest</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-index"><i class="fa fa-check"></i><b>3.4</b> Index</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#population-index"><i class="fa fa-check"></i><b>3.5</b> Population index</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-inkomstindex"><i class="fa fa-check"></i><b>3.6</b> Income index</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-deflatera-priser-och"><i class="fa fa-check"></i><b>3.7</b> Adjust prices and wages for inflation</a></li>
+<li class="chapter" data-level="3.8" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-tillvaxt-ex1"><i class="fa fa-check"></i><b>3.8</b> Economic growth</a></li>
+<li class="chapter" data-level="3.9" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-barnadodlighet"><i class="fa fa-check"></i><b>3.9</b> Child mortality</a></li>
+<li class="chapter" data-level="3.10" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#chapter-summary-1"><i class="fa fa-check"></i><b>3.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="3.11" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#exercises-1"><i class="fa fa-check"></i><b>3.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html"><i class="fa fa-check"></i><b>4</b> Functions and graphs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#mathematical-functions"><i class="fa fa-check"></i><b>4.1</b> Mathematical functions</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-funktion-som-teori"><i class="fa fa-check"></i><b>4.2</b> Function as theory</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#coordinate-system-and-graphs"><i class="fa fa-check"></i><b>4.3</b> Coordinate system and graphs</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-den-rata-linjens"><i class="fa fa-check"></i><b>4.4</b> Equation of a straight line</a></li>
+<li class="chapter" data-level="4.5" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#solve-for-x"><i class="fa fa-check"></i><b>4.5</b> Solve for <span class="math inline">\(x\)</span></a></li>
+<li class="chapter" data-level="4.6" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-nar-ar-ekvation-linjar"><i class="fa fa-check"></i><b>4.6</b> Linear equations</a></li>
+<li class="chapter" data-level="4.7" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-lite-mangdlara"><i class="fa fa-check"></i><b>4.7</b> A bit of set theory</a></li>
+<li class="chapter" data-level="4.8" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#domain-for-a-function"><i class="fa fa-check"></i><b>4.8</b> Domain for a function</a></li>
+<li class="chapter" data-level="4.9" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-komb-funktioner-med-operationer"><i class="fa fa-check"></i><b>4.9</b> Combining functions with operations</a></li>
+<li class="chapter" data-level="4.10" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#chapter-summary-2"><i class="fa fa-check"></i><b>4.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="4.11" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#exercises-2"><i class="fa fa-check"></i><b>4.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html"><i class="fa fa-check"></i><b>5</b> Logarithms</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#base-exponent-logarithm"><i class="fa fa-check"></i><b>5.1</b> Base, exponent, logarithm</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#the-common-logarithm"><i class="fa fa-check"></i><b>5.2</b> The common logarithm</a></li>
+<li class="chapter" data-level="5.3" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmlagar"><i class="fa fa-check"></i><b>5.3</b> Properties of logarithms</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-naturliga-logaritmen"><i class="fa fa-check"></i><b>5.4</b> Natural logarithm</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-basbyte-for-logaritmer"><i class="fa fa-check"></i><b>5.5</b> Change of base for logarithms</a></li>
+<li class="chapter" data-level="5.6" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#using-natural-log-to-calculate-percentage-change"><i class="fa fa-check"></i><b>5.6</b> Using natural log to calculate percentage change</a></li>
+<li class="chapter" data-level="5.7" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-for-linjaritet"><i class="fa fa-check"></i><b>5.7</b> Logarithms for linearity</a></li>
+<li class="chapter" data-level="5.8" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-los-ut-x"><i class="fa fa-check"></i><b>5.8</b> Taking logarithms to get <span class="math inline">\(\boldsymbol{x}\)</span></a></li>
+<li class="chapter" data-level="5.9" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-linjar-ex-bnp"><i class="fa fa-check"></i><b>5.9</b> Log GDP</a></li>
+<li class="chapter" data-level="5.10" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-bnp-och-lycka"><i class="fa fa-check"></i><b>5.10</b> Using logarithms to discuss theory</a></li>
+<li class="chapter" data-level="5.11" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#chapter-summary-3"><i class="fa fa-check"></i><b>5.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="5.12" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#exercises-3"><i class="fa fa-check"></i><b>5.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html"><i class="fa fa-check"></i><b>6</b> Polynomial Equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-andragradsekvationer"><i class="fa fa-check"></i><b>6.1</b> Quadratic Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-faktorisera-andragradsekvationer"><i class="fa fa-check"></i><b>6.2</b> Factoring Equations</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-rationella-rotter"><i class="fa fa-check"></i><b>6.3</b> Rational Roots</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-pq-formeln"><i class="fa fa-check"></i><b>6.4</b> The Quadratic Formula</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-polynom-av-hogre-grad"><i class="fa fa-check"></i><b>6.5</b> Third degree and Higher</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#factorizing-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.6</b> Factorizing Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#divisions-of-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.7</b> Divisions of Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.8" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#chapter-summary-4"><i class="fa fa-check"></i><b>6.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="6.9" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#exercises-4"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html"><i class="fa fa-check"></i><b>7</b> Systems of Linear Equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#linear-system"><i class="fa fa-check"></i><b>7.1</b> Linear system</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#number-of-solutions-in-the-system"><i class="fa fa-check"></i><b>7.2</b> Number of solutions in the system</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-radreduktion"><i class="fa fa-check"></i><b>7.3</b> Row Reduction</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#taking-logarithms-in-systems-of-equations"><i class="fa fa-check"></i><b>7.4</b> Taking logarithms in systems of equations</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#three-or-more-variables"><i class="fa fa-check"></i><b>7.5</b> Three or more variables</a></li>
+<li class="chapter" data-level="7.6" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#some-more-examples"><i class="fa fa-check"></i><b>7.6</b> Some more examples</a></li>
+<li class="chapter" data-level="7.7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-bortom-trredje-dimensionen"><i class="fa fa-check"></i><b>7.7</b> Beyond the third dimension</a></li>
+<li class="chapter" data-level="7.8" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#chapter-summary-5"><i class="fa fa-check"></i><b>7.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="7.9" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#exercises-5"><i class="fa fa-check"></i><b>7.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html"><i class="fa fa-check"></i><b>8</b> Theories of life, death and dating</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#income-and-life-expectancy"><i class="fa fa-check"></i><b>8.1</b> Income and life expectancy</a></li>
+<li class="chapter" data-level="8.2" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#mathematical-adventures-in-national-income"><i class="fa fa-check"></i><b>8.2</b> Mathematical adventures in national income</a></li>
+<li class="chapter" data-level="8.3" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#a-matter-of-class"><i class="fa fa-check"></i><b>8.3</b> A matter of class</a></li>
+<li class="chapter" data-level="8.4" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-utbud-och-efterfragan"><i class="fa fa-check"></i><b>8.4</b> Supply and demand</a></li>
+<li class="chapter" data-level="8.5" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#two-types-of-cookies"><i class="fa fa-check"></i><b>8.5</b> Two types of cookies</a></li>
+<li class="chapter" data-level="8.6" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-dejting"><i class="fa fa-check"></i><b>8.6</b> Finding the one</a></li>
+<li class="chapter" data-level="8.7" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-nairu-teori"><i class="fa fa-check"></i><b>8.7</b> A theory about work</a></li>
+<li class="chapter" data-level="8.8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-extern-effekt-utslapp"><i class="fa fa-check"></i><b>8.8</b> External effects</a></li>
+<li class="chapter" data-level="8.9" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#linear-relationships-in-real-life"><i class="fa fa-check"></i><b>8.9</b> Linear relationships in real life</a></li>
+<li class="chapter" data-level="8.10" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#chapter-summary-6"><i class="fa fa-check"></i><b>8.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="8.11" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#exercises-6"><i class="fa fa-check"></i><b>8.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html"><i class="fa fa-check"></i><b>9</b> Non-linear equations in systems</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#solutions-with-non-linear-systems"><i class="fa fa-check"></i><b>9.1</b> Solutions with non-linear systems</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#substitution"><i class="fa fa-check"></i><b>9.2</b> Substitution</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#row-reduction-with-non-linear-equations"><i class="fa fa-check"></i><b>9.3</b> Row reduction with non-linear equations</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-ska-vi-borja-roka"><i class="fa fa-check"></i><b>9.4</b> Example 1: Two friends</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-2-more-smoking"><i class="fa fa-check"></i><b>9.5</b> Example 2: More smoking</a></li>
+<li class="chapter" data-level="9.6" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-3-they-call-it-love"><i class="fa fa-check"></i><b>9.6</b> Example 3: They call it love</a></li>
+<li class="chapter" data-level="9.7" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-nairu-med-flera-jamvikter"><i class="fa fa-check"></i><b>9.7</b> Example 4: Another theory about work</a></li>
+<li class="chapter" data-level="9.8" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#chapter-summary-7"><i class="fa fa-check"></i><b>9.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="9.9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#exercises-7"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-derivata.html"><a href="chap-derivata.html"><i class="fa fa-check"></i><b>10</b> Derivative</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-derivata.html"><a href="chap-derivata.html#limit"><i class="fa fa-check"></i><b>10.1</b> Limit</a></li>
+<li class="chapter" data-level="10.2" data-path="chap-derivata.html"><a href="chap-derivata.html#simplify-first"><i class="fa fa-check"></i><b>10.2</b> Simplify first</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata"><i class="fa fa-check"></i><b>10.3</b> Differentiating</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-derivata.html"><a href="chap-derivata.html#the-next-derivative"><i class="fa fa-check"></i><b>10.4</b> The next derivative</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata-exponential-e-log"><i class="fa fa-check"></i><b>10.5</b> Exponent, logarithm and <em>e</em></a></li>
+<li class="chapter" data-level="10.6" data-path="chap-derivata.html"><a href="chap-derivata.html#the-derivative-of-boldsymbollog-x"><i class="fa fa-check"></i><b>10.6</b> The derivative of <span class="math inline">\(\boldsymbol{\log x}\)</span></a></li>
+<li class="chapter" data-level="10.7" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-l-hopitals-regel"><i class="fa fa-check"></i><b>10.7</b> L’Hôpital’s rule</a></li>
+<li class="chapter" data-level="10.8" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-partiell-derivata"><i class="fa fa-check"></i><b>10.8</b> Partial derivative</a></li>
+<li class="chapter" data-level="10.9" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-rakneregler-derivata"><i class="fa fa-check"></i><b>10.9</b> Differentiation rules</a></li>
+<li class="chapter" data-level="10.10" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-elasticitet"><i class="fa fa-check"></i><b>10.10</b> Elasticity</a></li>
+<li class="chapter" data-level="10.11" data-path="chap-derivata.html"><a href="chap-derivata.html#chapter-summary-8"><i class="fa fa-check"></i><b>10.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="10.12" data-path="chap-derivata.html"><a href="chap-derivata.html#exercises-8"><i class="fa fa-check"></i><b>10.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html"><i class="fa fa-check"></i><b>11</b> Optimization with functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#extreme-values"><i class="fa fa-check"></i><b>11.1</b> Extreme values</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#differentiate-to-find-extreme-values"><i class="fa fa-check"></i><b>11.2</b> Differentiate to find extreme values</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#global-and-local"><i class="fa fa-check"></i><b>11.3</b> Global and local</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#more-examples"><i class="fa fa-check"></i><b>11.4</b> More examples</a></li>
+<li class="chapter" data-level="11.5" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#terrace"><i class="fa fa-check"></i><b>11.5</b> Terrace</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#sec-optimera-villkor-lagrange"><i class="fa fa-check"></i><b>11.6</b> Optimization with constraints</a></li>
+<li class="chapter" data-level="11.7" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#chapter-summary-9"><i class="fa fa-check"></i><b>11.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="11.8" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#exercises-9"><i class="fa fa-check"></i><b>11.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html"><i class="fa fa-check"></i><b>12</b> Theories about cake and monopoly</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#the-optimal-amount-of-cake"><i class="fa fa-check"></i><b>12.1</b> The optimal amount of cake</a></li>
+<li class="chapter" data-level="12.2" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-maximera-eriks-nytta"><i class="fa fa-check"></i><b>12.2</b> To work or not to work</a></li>
+<li class="chapter" data-level="12.3" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-den-optimala-skattenivan"><i class="fa fa-check"></i><b>12.3</b> Maximum possible tax level</a></li>
+<li class="chapter" data-level="12.4" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-konsumtion-och-sparande"><i class="fa fa-check"></i><b>12.4</b> Consumption and saving</a></li>
+<li class="chapter" data-level="12.5" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-optimering-1-ftg-perf-konk"><i class="fa fa-check"></i><b>12.5</b> A profit-maximizing company</a></li>
+<li class="chapter" data-level="12.6" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-vinstmaximering-med-villkor"><i class="fa fa-check"></i><b>12.6</b> Profit maximization with constraints</a></li>
+<li class="chapter" data-level="12.7" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopol"><i class="fa fa-check"></i><b>12.7</b> Monopoly</a></li>
+<li class="chapter" data-level="12.8" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopsoni"><i class="fa fa-check"></i><b>12.8</b> Monopsony</a></li>
+<li class="chapter" data-level="12.9" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#if-we-do-not-optimize"><i class="fa fa-check"></i><b>12.9</b> If we do not optimize</a></li>
+<li class="chapter" data-level="12.10" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#chapter-summary-10"><i class="fa fa-check"></i><b>12.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="12.11" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#exercises-10"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-integraler.html"><a href="chap-integraler.html"><i class="fa fa-check"></i><b>13</b> Integration</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap-integraler.html"><a href="chap-integraler.html#the-primitive-function"><i class="fa fa-check"></i><b>13.1</b> The primitive function</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-integraler.html"><a href="chap-integraler.html#the-meaning-of-constant-boldsymbolc"><i class="fa fa-check"></i><b>13.2</b> The meaning of constant <span class="math inline">\(\boldsymbol{C}\)</span></a></li>
+<li class="chapter" data-level="13.3" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-with-conditions"><i class="fa fa-check"></i><b>13.3</b> Primitive function with conditions</a></li>
+<li class="chapter" data-level="13.4" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-for-an-exponent"><i class="fa fa-check"></i><b>13.4</b> Primitive function for an exponent</a></li>
+<li class="chapter" data-level="13.5" data-path="chap-integraler.html"><a href="chap-integraler.html#calculate-area-with-integral"><i class="fa fa-check"></i><b>13.5</b> Calculate area with integral</a></li>
+<li class="chapter" data-level="13.6" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-under-the-x-axis"><i class="fa fa-check"></i><b>13.6</b> The area under the x-axis</a></li>
+<li class="chapter" data-level="13.7" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-between-two-lines"><i class="fa fa-check"></i><b>13.7</b> The area between two lines</a></li>
+<li class="chapter" data-level="13.8" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-rakneregler-for-integraler"><i class="fa fa-check"></i><b>13.8</b> Integration rules</a></li>
+<li class="chapter" data-level="13.9" data-path="chap-integraler.html"><a href="chap-integraler.html#more-examples-1"><i class="fa fa-check"></i><b>13.9</b> More examples</a></li>
+<li class="chapter" data-level="13.10" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-multipelintegral"><i class="fa fa-check"></i><b>13.10</b> Multiple integral</a></li>
+<li class="chapter" data-level="13.11" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-partiell-integration"><i class="fa fa-check"></i><b>13.11</b> Partial integration</a></li>
+<li class="chapter" data-level="13.12" data-path="chap-integraler.html"><a href="chap-integraler.html#income-distribution-with-integrals"><i class="fa fa-check"></i><b>13.12</b> Income distribution with integrals</a></li>
+<li class="chapter" data-level="13.13" data-path="chap-integraler.html"><a href="chap-integraler.html#chapter-summary-11"><i class="fa fa-check"></i><b>13.13</b> Chapter summary</a></li>
+<li class="chapter" data-level="13.14" data-path="chap-integraler.html"><a href="chap-integraler.html#exercises-11"><i class="fa fa-check"></i><b>13.14</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html"><i class="fa fa-check"></i><b>14</b> Linear Algebra: Vectors and Matrices</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vectors"><i class="fa fa-check"></i><b>14.1</b> Vectors</a></li>
+<li class="chapter" data-level="14.2" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vector-calculations"><i class="fa fa-check"></i><b>14.2</b> Vector calculations</a></li>
+<li class="chapter" data-level="14.3" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#more-vectors"><i class="fa fa-check"></i><b>14.3</b> More vectors</a></li>
+<li class="chapter" data-level="14.4" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-matriser"><i class="fa fa-check"></i><b>14.4</b> Matrices</a></li>
+<li class="chapter" data-level="14.5" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet"><i class="fa fa-check"></i><b>14.5</b> More matrices</a></li>
+<li class="chapter" data-level="14.6" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-multiplikation-och-transponering"><i class="fa fa-check"></i><b>14.6</b> Multiplication and transposition</a></li>
+<li class="chapter" data-level="14.7" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-determinant-matris"><i class="fa fa-check"></i><b>14.7</b> Determinant</a></li>
+<li class="chapter" data-level="14.8" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#row-reduction-in-matrix"><i class="fa fa-check"></i><b>14.8</b> Row reduction in matrix</a></li>
+<li class="chapter" data-level="14.9" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-inversen-av-matris"><i class="fa fa-check"></i><b>14.9</b> Inverse of a matrix</a></li>
+<li class="chapter" data-level="14.10" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-linjara-ekvationssystem-i-matris"><i class="fa fa-check"></i><b>14.10</b> Linear equation systems in matrix</a></li>
+<li class="chapter" data-level="14.11" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-1-a-bakery"><i class="fa fa-check"></i><b>14.11</b> Example 1: A bakery</a></li>
+<li class="chapter" data-level="14.12" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-2-input-output-analysis"><i class="fa fa-check"></i><b>14.12</b> Example 2: Input-output analysis</a></li>
+<li class="chapter" data-level="14.13" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-3-social-networks"><i class="fa fa-check"></i><b>14.13</b> Example 3: Social networks</a></li>
+<li class="chapter" data-level="14.14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#chapter-summary-12"><i class="fa fa-check"></i><b>14.14</b> Chapter summary</a></li>
+<li class="chapter" data-level="14.15" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#exercises-12"><i class="fa fa-check"></i><b>14.15</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Covariation and Causality</b></span></li>
+<li class="chapter" data-level="" data-path="part-covariation-intro.html"><a href="part-covariation-intro.html"><i class="fa fa-check"></i>Part II: Covariation and Causality</a></li>
+<li class="chapter" data-level="15" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html"><i class="fa fa-check"></i><b>15</b> Fundamental Counterfactual Analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-orsak-och-effekt"><i class="fa fa-check"></i><b>15.1</b> Cause and effect</a></li>
+<li class="chapter" data-level="15.2" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samvariation"><i class="fa fa-check"></i><b>15.2</b> Variation, Covariation and Association</a></li>
+<li class="chapter" data-level="15.3" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-observationsstudie-experiment"><i class="fa fa-check"></i><b>15.3</b> Observational Study and Experiment</a></li>
+<li class="chapter" data-level="15.4" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-population-urval-superpopulation"><i class="fa fa-check"></i><b>15.4</b> Population and Sample</a></li>
+<li class="chapter" data-level="15.5" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-information-och-variabler"><i class="fa fa-check"></i><b>15.5</b> Information and variables</a></li>
+<li class="chapter" data-level="15.6" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-olika-typer-av-data"><i class="fa fa-check"></i><b>15.6</b> Different types of data</a></li>
+<li class="chapter" data-level="15.7" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samla-in-data"><i class="fa fa-check"></i><b>15.7</b> Collecting a sample</a></li>
+<li class="chapter" data-level="15.8" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-ar-allting-osakert"><i class="fa fa-check"></i><b>15.8</b> How do we know the things we know?</a></li>
+<li class="chapter" data-level="15.9" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#exercises-13"><i class="fa fa-check"></i><b>15.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html"><i class="fa fa-check"></i><b>16</b> Variation and covariation</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-frekvensfordelning"><i class="fa fa-check"></i><b>16.1</b> Frequency Distribution</a></li>
+<li class="chapter" data-level="16.2" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-spridningsmatt-kvartiler-och"><i class="fa fa-check"></i><b>16.2</b> Measures of Central Tendency and Measures of Dispersion</a></li>
+<li class="chapter" data-level="16.3" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-varians-och-standardavvikelse"><i class="fa fa-check"></i><b>16.3</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="16.4" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-standardiserade-varden"><i class="fa fa-check"></i><b>16.4</b> Standardized values</a></li>
+<li class="chapter" data-level="16.5" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-samvariation-i-diagram"><i class="fa fa-check"></i><b>16.5</b> Covariation in graphs</a></li>
+<li class="chapter" data-level="16.6" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-kovarians"><i class="fa fa-check"></i><b>16.6</b> Covariation 1: Covariance</a></li>
+<li class="chapter" data-level="16.7" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-pearsons-r"><i class="fa fa-check"></i><b>16.7</b> Covariation 2: The correlation coefficient</a></li>
+<li class="chapter" data-level="16.8" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#chapter-summary-13"><i class="fa fa-check"></i><b>16.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="16.9" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#exercises-14"><i class="fa fa-check"></i><b>16.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap-ols.html"><a href="chap-ols.html"><i class="fa fa-check"></i><b>17</b> The Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap-ols.html"><a href="chap-ols.html#basic-logic"><i class="fa fa-check"></i><b>17.1</b> Basic logic</a></li>
+<li class="chapter" data-level="17.2" data-path="chap-ols.html"><a href="chap-ols.html#sec-minstakvadratmetoden-ols"><i class="fa fa-check"></i><b>17.2</b> Covariation with Straight Line</a></li>
+<li class="chapter" data-level="17.3" data-path="chap-ols.html"><a href="chap-ols.html#sec-regressionsanalys"><i class="fa fa-check"></i><b>17.3</b> Regression analysis</a></li>
+<li class="chapter" data-level="17.4" data-path="chap-ols.html"><a href="chap-ols.html#sec-felterm-och-residual"><i class="fa fa-check"></i><b>17.4</b> Error term and residual</a></li>
+<li class="chapter" data-level="17.5" data-path="chap-ols.html"><a href="chap-ols.html#calculating-with-least-squares"><i class="fa fa-check"></i><b>17.5</b> Calculating with Least Squares</a></li>
+<li class="chapter" data-level="17.6" data-path="chap-ols.html"><a href="chap-ols.html#other-straight-lines"><i class="fa fa-check"></i><b>17.6</b> Other straight lines</a></li>
+<li class="chapter" data-level="17.7" data-path="chap-ols.html"><a href="chap-ols.html#sec-en-linje-ar-en-linje"><i class="fa fa-check"></i><b>17.7</b> What the Line Doesn’t Tell Us</a></li>
+<li class="chapter" data-level="17.8" data-path="chap-ols.html"><a href="chap-ols.html#sec-ols-ex-2"><i class="fa fa-check"></i><b>17.8</b> Another example</a></li>
+<li class="chapter" data-level="17.9" data-path="chap-ols.html"><a href="chap-ols.html#sec-ssr-sse-sst-vilken-modell-ar-bast"><i class="fa fa-check"></i><b>17.9</b> Which model fits the data best?</a></li>
+<li class="chapter" data-level="17.10" data-path="chap-ols.html"><a href="chap-ols.html#sec-harled-ols-med-vanliga-f"><i class="fa fa-check"></i><b>17.10</b> Derivation of the Estimators</a></li>
+<li class="chapter" data-level="17.11" data-path="chap-ols.html"><a href="chap-ols.html#chapter-summary-14"><i class="fa fa-check"></i><b>17.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="17.12" data-path="chap-ols.html"><a href="chap-ols.html#exercises-15"><i class="fa fa-check"></i><b>17.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html"><i class="fa fa-check"></i><b>18</b> Covariation in Social Science</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-lever-rika-langre-kolada-inkomst-livslangd"><i class="fa fa-check"></i><b>18.1</b> GDP and Life Expectancy in different countries</a></li>
+<li class="chapter" data-level="18.2" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-ols-kolada-alla-kommuner-livslangd-inkomst"><i class="fa fa-check"></i><b>18.2</b> Covariation with a lot of countries</a></li>
+<li class="chapter" data-level="18.3" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-linjar-trend-ols-log-bnp"><i class="fa fa-check"></i><b>18.3</b> Linear trend over time</a></li>
+<li class="chapter" data-level="18.4" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-cykler-och-vagor"><i class="fa fa-check"></i><b>18.4</b> Cycles and waves</a></li>
+<li class="chapter" data-level="18.5" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-bnp-och-lycka-igen"><i class="fa fa-check"></i><b>18.5</b> Wealth and happiness</a></li>
+<li class="chapter" data-level="18.6" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-star-wars"><i class="fa fa-check"></i><b>18.6</b> Star Wars</a></li>
+<li class="chapter" data-level="18.7" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#chapter-summary-15"><i class="fa fa-check"></i><b>18.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="18.8" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#exercises-16"><i class="fa fa-check"></i><b>18.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html"><i class="fa fa-check"></i><b>19</b> Least Squares with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-ols-pa-tre-variabler"><i class="fa fa-check"></i><b>19.1</b> Regression analysis with three variables</a></li>
+<li class="chapter" data-level="19.2" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-faktorvariabler"><i class="fa fa-check"></i><b>19.2</b> Factor variables</a></li>
+<li class="chapter" data-level="19.3" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-konstanthaller"><i class="fa fa-check"></i><b>19.3</b> Ceteris paribus</a></li>
+<li class="chapter" data-level="19.4" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-minstakvadratmetoden-med-matrise"><i class="fa fa-check"></i><b>19.4</b> Least Squares with Matrices</a></li>
+<li class="chapter" data-level="19.5" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-berakna-ols-med-matriser"><i class="fa fa-check"></i><b>19.5</b> Estimation with matrices</a></li>
+<li class="chapter" data-level="19.6" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-interaktion"><i class="fa fa-check"></i><b>19.6</b> Interaction</a></li>
+<li class="chapter" data-level="19.7" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-adj-r-2"><i class="fa fa-check"></i><b>19.7</b> Adjusted <span class="math inline">\(R^{2}\)</span></a></li>
+<li class="chapter" data-level="19.8" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-omitted-variable-bias"><i class="fa fa-check"></i><b>19.8</b> If we have too few variables</a></li>
+<li class="chapter" data-level="19.9" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-overfitting"><i class="fa fa-check"></i><b>19.9</b> If we have too many variables</a></li>
+<li class="chapter" data-level="19.10" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#the-error-term-does-not-need-to-approach-zero"><i class="fa fa-check"></i><b>19.10</b> The error term does not need to approach zero</a></li>
+<li class="chapter" data-level="19.11" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#chapter-summary-16"><i class="fa fa-check"></i><b>19.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="19.12" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#exercises-17"><i class="fa fa-check"></i><b>19.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html"><i class="fa fa-check"></i><b>20</b> Regression Analysis for Causal Relationships</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#we-need-special-methods-to-study-cause-and-effect"><i class="fa fa-check"></i><b>20.1</b> We need special methods to study cause and effect</a></li>
+<li class="chapter" data-level="20.2" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#illustration-with-a-dag"><i class="fa fa-check"></i><b>20.2</b> Illustration with a DAG</a></li>
+<li class="chapter" data-level="20.3" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#both-the-presence-and-absence-of-variables-can-affect-our-results"><i class="fa fa-check"></i><b>20.3</b> Both the presence and absence of variables can affect our results</a></li>
+<li class="chapter" data-level="20.4" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-regressionsdiskontinuitet"><i class="fa fa-check"></i><b>20.4</b> Regression discontinuity</a></li>
+<li class="chapter" data-level="20.5" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-instrumentell-variabel"><i class="fa fa-check"></i><b>20.5</b> Instrumental variable</a></li>
+<li class="chapter" data-level="20.6" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-skillnad-i-skillnad"><i class="fa fa-check"></i><b>20.6</b> Difference-in-differences</a></li>
+<li class="chapter" data-level="20.7" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#pros-and-cons-with-these-methods"><i class="fa fa-check"></i><b>20.7</b> Pros and cons with these methods</a></li>
+<li class="chapter" data-level="20.8" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#causality-without-covariation"><i class="fa fa-check"></i><b>20.8</b> Causality without covariation</a></li>
+<li class="chapter" data-level="20.9" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#chapter-summary-17"><i class="fa fa-check"></i><b>20.9</b> Chapter summary</a></li>
+<li class="chapter" data-level="20.10" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#exercises-18"><i class="fa fa-check"></i><b>20.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>III Probability</b></span></li>
+<li class="chapter" data-level="" data-path="part-probability-intro.html"><a href="part-probability-intro.html"><i class="fa fa-check"></i>Part III: Probability</a></li>
+<li class="chapter" data-level="21" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html"><i class="fa fa-check"></i><b>21</b> Basic Probability Theory 1: discrete distributions</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#how-we-know-what-we-know"><i class="fa fa-check"></i><b>21.1</b> How we know what we know</a></li>
+<li class="chapter" data-level="21.2" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-random-variables"><i class="fa fa-check"></i><b>21.2</b> Random variables</a></li>
+<li class="chapter" data-level="21.3" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-multivariate-probability"><i class="fa fa-check"></i><b>21.3</b> Probability with multiple variables</a></li>
+<li class="chapter" data-level="21.4" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-expected-value-variance"><i class="fa fa-check"></i><b>21.4</b> Expected value and variance</a></li>
+<li class="chapter" data-level="21.5" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-conditional-expected-value"><i class="fa fa-check"></i><b>21.5</b> Conditional expected value</a></li>
+<li class="chapter" data-level="21.6" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-law-large-numbers"><i class="fa fa-check"></i><b>21.6</b> Law of large numbers</a></li>
+<li class="chapter" data-level="21.7" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-uniform-distribution"><i class="fa fa-check"></i><b>21.7</b> Uniform probability distributions</a></li>
+<li class="chapter" data-level="21.8" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-binomial-distribution"><i class="fa fa-check"></i><b>21.8</b> The binomial distribution</a></li>
+<li class="chapter" data-level="21.9" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-poisson-distribution"><i class="fa fa-check"></i><b>21.9</b> The Poisson distribution</a></li>
+<li class="chapter" data-level="21.10" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-ch21-summary"><i class="fa fa-check"></i><b>21.10</b> Chapter Summary</a></li>
+<li class="chapter" data-level="21.11" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#exercises-19"><i class="fa fa-check"></i><b>21.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html"><i class="fa fa-check"></i><b>22</b> Fundamental Probability Theory 2: Continuous Distributions</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-uniform-continuous"><i class="fa fa-check"></i><b>22.1</b> Uniform Continuous Probability Distributions</a></li>
+<li class="chapter" data-level="22.2" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-ev-variance-continuous"><i class="fa fa-check"></i><b>22.2</b> Expected Value and Variance for Continuous Random Variables</a></li>
+<li class="chapter" data-level="22.3" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-exponential-distribution"><i class="fa fa-check"></i><b>22.3</b> Exponential Distributions</a></li>
+<li class="chapter" data-level="22.4" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-gamma-distribution"><i class="fa fa-check"></i><b>22.4</b> From Poisson to Gamma</a></li>
+<li class="chapter" data-level="22.5" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-chi-squared-distribution"><i class="fa fa-check"></i><b>22.5</b> Chi-squared Distributions</a></li>
+<li class="chapter" data-level="22.6" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-f-distribution"><i class="fa fa-check"></i><b>22.6</b> F-distributions</a></li>
+<li class="chapter" data-level="22.7" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#chapter-summary-18"><i class="fa fa-check"></i><b>22.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="22.8" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#exercises-20"><i class="fa fa-check"></i><b>22.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html"><i class="fa fa-check"></i><b>23</b> Normal and t distributions</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability with normal variables</a></li>
+<li class="chapter" data-level="23.2" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-standard-normal"><i class="fa fa-check"></i><b>23.2</b> Standardized normal distribution</a></li>
+<li class="chapter" data-level="23.3" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-1"><i class="fa fa-check"></i><b>23.3</b> The usefulness of the normal distribution 1</a></li>
+<li class="chapter" data-level="23.4" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-2"><i class="fa fa-check"></i><b>23.4</b> The usefulness of the normal distribution 2</a></li>
+<li class="chapter" data-level="23.5" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-3-clt"><i class="fa fa-check"></i><b>23.5</b> The usefulness of the normal distribution 3</a></li>
+<li class="chapter" data-level="23.6" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-t-distribution"><i class="fa fa-check"></i><b>23.6</b> T-distribution</a></li>
+<li class="chapter" data-level="23.7" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#chapter-summary-19"><i class="fa fa-check"></i><b>23.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="23.8" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#exercises-21"><i class="fa fa-check"></i><b>23.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html"><i class="fa fa-check"></i><b>24</b> Statistical analysis and inference</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-point-estimation"><i class="fa fa-check"></i><b>24.1</b> Point estimation</a></li>
+<li class="chapter" data-level="24.2" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-standard-error"><i class="fa fa-check"></i><b>24.2</b> Standard error</a></li>
+<li class="chapter" data-level="24.3" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-confidence-interval"><i class="fa fa-check"></i><b>24.3</b> Confidence interval</a></li>
+<li class="chapter" data-level="24.4" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-hypothesis-testing"><i class="fa fa-check"></i><b>24.4</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="24.5" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-statistical-significance"><i class="fa fa-check"></i><b>24.5</b> Statistical significance, power and type errors</a></li>
+<li class="chapter" data-level="24.6" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#chapter-summary-20"><i class="fa fa-check"></i><b>24.6</b> Chapter summary</a></li>
+<li class="chapter" data-level="24.7" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#exercises-22"><i class="fa fa-check"></i><b>24.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html"><i class="fa fa-check"></i><b>25</b> Regression Analysis with Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-population-model"><i class="fa fa-check"></i><b>25.1</b> The Population Model and Statistical Tests</a></li>
+<li class="chapter" data-level="25.2" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ols-assumptions"><i class="fa fa-check"></i><b>25.2</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="25.3" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-variance"><i class="fa fa-check"></i><b>25.3</b> The Variance of the Regression Model</a></li>
+<li class="chapter" data-level="25.4" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-t-test"><i class="fa fa-check"></i><b>25.4</b> Regression analysis with t-test</a></li>
+<li class="chapter" data-level="25.5" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-coefficients"><i class="fa fa-check"></i><b>25.5</b> Regression analysis with confidence interval</a></li>
+<li class="chapter" data-level="25.6" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-line"><i class="fa fa-check"></i><b>25.6</b> Confidence Interval for the Regression Line</a></li>
+<li class="chapter" data-level="25.7" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-power-regression"><i class="fa fa-check"></i><b>25.7</b> Statistical Power in Regression</a></li>
+<li class="chapter" data-level="25.8" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-economic-significance"><i class="fa fa-check"></i><b>25.8</b> Statistical and Economic Significance</a></li>
+<li class="chapter" data-level="25.9" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#chapter-summary-21"><i class="fa fa-check"></i><b>25.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="25.10" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ch25-exercises"><i class="fa fa-check"></i><b>25.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html"><i class="fa fa-check"></i><b>26</b> Statistical Tests in Regression Analysis with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ols-assumptions-multiple"><i class="fa fa-check"></i><b>26.1</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="26.2" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-estimators-multiple"><i class="fa fa-check"></i><b>26.2</b> Estimators of the Coefficients</a></li>
+<li class="chapter" data-level="26.3" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-variance-covariance-matrix"><i class="fa fa-check"></i><b>26.3</b> The Variance-Covariance Matrix</a></li>
+<li class="chapter" data-level="26.4" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-t-test-multiple-variables"><i class="fa fa-check"></i><b>26.4</b> T-tests for Multiple Regression</a></li>
+<li class="chapter" data-level="26.5" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-f-test-regression"><i class="fa fa-check"></i><b>26.5</b> F-test for the Regression Model</a></li>
+<li class="chapter" data-level="26.6" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#chapter-summary-22"><i class="fa fa-check"></i><b>26.6</b> Chapter Summary</a></li>
+<li class="chapter" data-level="26.7" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ch26-exercises"><i class="fa fa-check"></i><b>26.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html"><i class="fa fa-check"></i><b>27</b> Conditions of the Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-gauss-markov"><i class="fa fa-check"></i><b>27.1</b> Gauss-Markov</a></li>
+<li class="chapter" data-level="27.2" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-linearity"><i class="fa fa-check"></i><b>27.2</b> Assumption 1: Linearity</a></li>
+<li class="chapter" data-level="27.3" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-iid"><i class="fa fa-check"></i><b>27.3</b> Assumption 2: Independent and Identically Distributed Observations</a></li>
+<li class="chapter" data-level="27.4" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-homoscedasticity"><i class="fa fa-check"></i><b>27.4</b> Assumption 3: Expected Value and Variance of the Error Terms</a></li>
+<li class="chapter" data-level="27.5" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-multicollinearity"><i class="fa fa-check"></i><b>27.5</b> Assumption 4: Multicollinearity</a></li>
+<li class="chapter" data-level="27.6" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-autocorrelation"><i class="fa fa-check"></i><b>27.6</b> Assumption 5: Correlation Between Residuals</a></li>
+<li class="chapter" data-level="27.7" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-normality"><i class="fa fa-check"></i><b>27.7</b> Assumption 6: Normally Distributed Error Terms</a></li>
+<li class="chapter" data-level="27.8" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-robust-se"><i class="fa fa-check"></i><b>27.8</b> Adjusted Standard Errors</a></li>
+<li class="chapter" data-level="27.9" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-summary"><i class="fa fa-check"></i><b>27.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="27.10" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-exercises"><i class="fa fa-check"></i><b>27.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Computer Programs for Social Scientists</b></span></li>
+<li class="chapter" data-level="" data-path="part-computer-programs-intro.html"><a href="part-computer-programs-intro.html"><i class="fa fa-check"></i>Part IV: Computer Programs for Social Scientists</a></li>
+<li class="chapter" data-level="28" data-path="ch-why-computers.html"><a href="ch-why-computers.html"><i class="fa fa-check"></i><b>28</b> Why Use Computers?</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-three-tools"><i class="fa fa-check"></i><b>28.1</b> Three Analytical Tools</a></li>
+<li class="chapter" data-level="28.2" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-why-programming"><i class="fa fa-check"></i><b>28.2</b> Programming: Why Bother?</a></li>
+<li class="chapter" data-level="28.3" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-practice"><i class="fa fa-check"></i><b>28.3</b> You Have to Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="ch-excel.html"><a href="ch-excel.html"><i class="fa fa-check"></i><b>29</b> Microsoft Excel</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-general"><i class="fa fa-check"></i><b>29.1</b> General about Excel</a></li>
+<li class="chapter" data-level="29.2" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-import"><i class="fa fa-check"></i><b>29.2</b> Import and edit data</a></li>
+<li class="chapter" data-level="29.3" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-functions"><i class="fa fa-check"></i><b>29.3</b> Worksheet functions</a></li>
+<li class="chapter" data-level="29.4" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-fill-cells"><i class="fa fa-check"></i><b>29.4</b> Quick ways to fill multiple cells</a></li>
+<li class="chapter" data-level="29.5" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-combining-functions"><i class="fa fa-check"></i><b>29.5</b> Combining functions within calculations</a></li>
+<li class="chapter" data-level="29.6" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-logic"><i class="fa fa-check"></i><b>29.6</b> Logic conditions</a></li>
+<li class="chapter" data-level="29.7" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-index"><i class="fa fa-check"></i><b>29.7</b> Calculate index with Excel</a></li>
+<li class="chapter" data-level="29.8" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-matrices"><i class="fa fa-check"></i><b>29.8</b> Matrix calculations</a></li>
+<li class="chapter" data-level="29.9" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-io"><i class="fa fa-check"></i><b>29.9</b> Input-output analysis</a></li>
+<li class="chapter" data-level="29.10" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-variance"><i class="fa fa-check"></i><b>29.10</b> Variance and covariance</a></li>
+<li class="chapter" data-level="29.11" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-probability"><i class="fa fa-check"></i><b>29.11</b> Probability</a></li>
+<li class="chapter" data-level="29.12" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-regression"><i class="fa fa-check"></i><b>29.12</b> Regression analysis</a></li>
+<li class="chapter" data-level="29.13" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-plots"><i class="fa fa-check"></i><b>29.13</b> Creating plots</a></li>
+<li class="chapter" data-level="29.14" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-gdp-example"><i class="fa fa-check"></i><b>29.14</b> Example with GDP per working hour</a></li>
+<li class="chapter" data-level="29.15" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-other-functions"><i class="fa fa-check"></i><b>29.15</b> Some other useful functions</a></li>
+<li class="chapter" data-level="29.16" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-summary"><i class="fa fa-check"></i><b>29.16</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="ch-stata.html"><a href="ch-stata.html"><i class="fa fa-check"></i><b>30</b> Stata</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-general"><i class="fa fa-check"></i><b>30.1</b> General info about Stata</a></li>
+<li class="chapter" data-level="30.2" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-commands"><i class="fa fa-check"></i><b>30.2</b> Commands in Stata</a></li>
+<li class="chapter" data-level="30.3" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-import"><i class="fa fa-check"></i><b>30.3</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="30.4" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-enter-data"><i class="fa fa-check"></i><b>30.4</b> Enter data manually</a></li>
+<li class="chapter" data-level="30.5" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-edit"><i class="fa fa-check"></i><b>30.5</b> Edit Columns and Rows</a></li>
+<li class="chapter" data-level="30.6" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-egen"><i class="fa fa-check"></i><b>30.6</b> The function egen</a></li>
+<li class="chapter" data-level="30.7" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-join"><i class="fa fa-check"></i><b>30.7</b> Join tables</a></li>
+<li class="chapter" data-level="30.8" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-index"><i class="fa fa-check"></i><b>30.8</b> Calculate index using Stata</a></li>
+<li class="chapter" data-level="30.9" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-mata"><i class="fa fa-check"></i><b>30.9</b> Matrix calculations and MATA</a></li>
+<li class="chapter" data-level="30.10" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-io"><i class="fa fa-check"></i><b>30.10</b> Input-output analysis</a></li>
+<li class="chapter" data-level="30.11" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-variation"><i class="fa fa-check"></i><b>30.11</b> Variation and covariance</a></li>
+<li class="chapter" data-level="30.12" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-probability"><i class="fa fa-check"></i><b>30.12</b> Probability</a></li>
+<li class="chapter" data-level="30.13" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-regression"><i class="fa fa-check"></i><b>30.13</b> Regression analysis</a></li>
+<li class="chapter" data-level="30.14" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-export"><i class="fa fa-check"></i><b>30.14</b> Export results to disk</a></li>
+<li class="chapter" data-level="30.15" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-plots"><i class="fa fa-check"></i><b>30.15</b> Creating plots</a></li>
+<li class="chapter" data-level="30.16" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-loops"><i class="fa fa-check"></i><b>30.16</b> Iterations and loops</a></li>
+<li class="chapter" data-level="30.17" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-gdp"><i class="fa fa-check"></i><b>30.17</b> Example with GDP per hour</a></li>
+<li class="chapter" data-level="30.18" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-summary"><i class="fa fa-check"></i><b>30.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="ch-r.html"><a href="ch-r.html"><i class="fa fa-check"></i><b>31</b> R</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="ch-r.html"><a href="ch-r.html#sec-r-overview"><i class="fa fa-check"></i><b>31.1</b> General Overview of R</a></li>
+<li class="chapter" data-level="31.2" data-path="ch-r.html"><a href="ch-r.html#sec-r-objects"><i class="fa fa-check"></i><b>31.2</b> R Objects</a></li>
+<li class="chapter" data-level="31.3" data-path="ch-r.html"><a href="ch-r.html#sec-r-functions"><i class="fa fa-check"></i><b>31.3</b> Functions in R</a></li>
+<li class="chapter" data-level="31.4" data-path="ch-r.html"><a href="ch-r.html#sec-r-packages"><i class="fa fa-check"></i><b>31.4</b> R Packages</a></li>
+<li class="chapter" data-level="31.5" data-path="ch-r.html"><a href="ch-r.html#sec-r-import"><i class="fa fa-check"></i><b>31.5</b> Importing Data</a></li>
+<li class="chapter" data-level="31.6" data-path="ch-r.html"><a href="ch-r.html#sec-r-data-tables"><i class="fa fa-check"></i><b>31.6</b> Working with Data Tables</a></li>
+<li class="chapter" data-level="31.7" data-path="ch-r.html"><a href="ch-r.html#sec-r-joins"><i class="fa fa-check"></i><b>31.7</b> Join Tables</a></li>
+<li class="chapter" data-level="31.8" data-path="ch-r.html"><a href="ch-r.html#sec-r-index"><i class="fa fa-check"></i><b>31.8</b> Calculate Index and Export Tables</a></li>
+<li class="chapter" data-level="31.9" data-path="ch-r.html"><a href="ch-r.html#sec-r-matrices"><i class="fa fa-check"></i><b>31.9</b> Matrix Calculations</a></li>
+<li class="chapter" data-level="31.10" data-path="ch-r.html"><a href="ch-r.html#sec-r-io"><i class="fa fa-check"></i><b>31.10</b> Input–Output Analysis</a></li>
+<li class="chapter" data-level="31.11" data-path="ch-r.html"><a href="ch-r.html#sec-r-variation"><i class="fa fa-check"></i><b>31.11</b> Variation and Covariance</a></li>
+<li class="chapter" data-level="31.12" data-path="ch-r.html"><a href="ch-r.html#sec-r-probability"><i class="fa fa-check"></i><b>31.12</b> Probability</a></li>
+<li class="chapter" data-level="31.13" data-path="ch-r.html"><a href="ch-r.html#sec-r-regression"><i class="fa fa-check"></i><b>31.13</b> Regression Analysis</a></li>
+<li class="chapter" data-level="31.14" data-path="ch-r.html"><a href="ch-r.html#sec-r-export-results"><i class="fa fa-check"></i><b>31.14</b> Export Results to Hard Drive</a></li>
+<li class="chapter" data-level="31.15" data-path="ch-r.html"><a href="ch-r.html#sec-r-plots"><i class="fa fa-check"></i><b>31.15</b> Create Plots</a></li>
+<li class="chapter" data-level="31.16" data-path="ch-r.html"><a href="ch-r.html#sec-r-loops"><i class="fa fa-check"></i><b>31.16</b> Iterations and Loops</a></li>
+<li class="chapter" data-level="31.17" data-path="ch-r.html"><a href="ch-r.html#sec-r-gdp-example"><i class="fa fa-check"></i><b>31.17</b> Example with GDP per Working Hours</a></li>
+<li class="chapter" data-level="31.18" data-path="ch-r.html"><a href="ch-r.html#sec-r-summary"><i class="fa fa-check"></i><b>31.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="ch-data-tools.html"><a href="ch-data-tools.html"><i class="fa fa-check"></i><b>32</b> Examples of Useful Data and Additional Tools</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-free-data"><i class="fa fa-check"></i><b>32.1</b> Examples of Free Data</a></li>
+<li class="chapter" data-level="32.2" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-other-tools"><i class="fa fa-check"></i><b>32.2</b> Other Tools That Are Good to Know About</a></li>
+</ul></li>
+<li class="part"><span><b>V Final Words</b></span></li>
+<li class="chapter" data-level="" data-path="part-final-words-intro.html"><a href="part-final-words-intro.html"><i class="fa fa-check"></i>Part V: Final Words</a></li>
+<li class="chapter" data-level="33" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html"><i class="fa fa-check"></i><b>33</b> Final Chapter</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-misconceptions"><i class="fa fa-check"></i><b>33.1</b> Common Misconceptions</a></li>
+<li class="chapter" data-level="33.2" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-further-reading"><i class="fa fa-check"></i><b>33.2</b> Things That Perhaps Should Have Been Included in This Book</a></li>
+<li class="chapter" data-level="33.3" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-last-word"><i class="fa fa-check"></i><b>33.3</b> The Last Word</a></li>
+</ul></li>
+<li class="divider"></li>
+<li></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Cheat Code: Essential Math and Statistics for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="theories-of-life-death-and-dating" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Theories of life, death and dating<a href="theories-of-life-death-and-dating.html#theories-of-life-death-and-dating" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this chapter we will go through how we can use mathematics to describe social science theories. The examples are greatly simplified and intended only as illustration. In this part of the work we are only superficially interested in reality. Later on, in part <a href="part-covariation-intro.html#part-covariation-intro"><strong>??</strong></a> and <a href="part-probability-intro.html#part-probability-intro"><strong>??</strong></a> , we will go through how we can use mathematics to more carefully compare our theories against information about reality.</p>
+<div id="income-and-life-expectancy" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Income and life expectancy<a href="theories-of-life-death-and-dating.html#income-and-life-expectancy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suppose we have a theory that higher income extends life for people. We describe our theory in the following way:</p>
+<p><span class="math display">\[
+\begin{equation}
+Y=a*X
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> is the number of years a person lives, <span class="math inline">\(X\)</span> is the number of USD the person has in income during their adult life and a is a coefficient that describes in what way <span class="math inline">\(X\)</span> affects <span class="math inline">\(Y\)</span>. On an overall level it seems reasonable that people with higher incomes live longer. Many people with higher incomes have better opportunity to choose healthy alternatives, greater opportunities to rest and so on. But our model feels a bit too simple so we could think about whether we can improve it.</p>
+<p>As our model is written right now the relationship is linear, for each USD of higher income life is extended by a. But that might not be so credible. The large effect of higher income might arise primarily at low incomes, for example when going from 0 USD to a small income. In that case we now have a theory that income <span class="math inline">\(X\)</span> has a diminishing effect on life expectancy <span class="math inline">\(Y\)</span>. One way to describe this mathematically is the following:</p>
+<p><span class="math display">\[
+\begin{equation}
+Y=X^{b},\,0&lt;b&lt;1
+\end{equation}
+\]</span></p>
+<p>The exponent <span class="math inline">\(b\)</span> is between 0 and 1. Exactly what value <span class="math inline">\(b\)</span> has we are a bit uncertain about. We might plan to study it by collecting data on people’s life expectancy and incomes, but not right now. For our theoretical discussion this information is sufficient as it is now.</p>
+<p>That a single variable, income, could give a complete explanation to such a complex phenomenon as life expectancy also doesn’t seem so credible. Let us therefore also add a variable that summarizes all hereditary biological conditions, for example risks for certain diseases. We call this new variable <span class="math inline">\(G\)</span>. Our theoretical model now becomes:</p>
+<p><span class="math display">\[
+\begin{equation}
+Y=X^{b}+G,\,0&lt;b&lt;1
+\end{equation}
+\]</span></p>
+<p>Our theoretical model is still very limited and if we wish we could add more variables. There are no mathematical limitations for what we add. What should be included in the model simply depends on what we are going to use the mathematics for.</p>
+</div>
+<div id="mathematical-adventures-in-national-income" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Mathematical adventures in national income<a href="theories-of-life-death-and-dating.html#mathematical-adventures-in-national-income" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have earlier compared data on GDP. Alongside reality we can also describe GDP theoretically, for example like this:</p>
+<p><span class="math display">\[
+\begin{equation}
+Y=C+G+I+X-M
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> is GDP, <span class="math inline">\(C\)</span> is private households’ consumption of goods and services, <span class="math inline">\(G\)</span> is public sector consumption, I is investments in machines and factories, <span class="math inline">\(X\)</span> is export of goods and services and M is import. This is a common way to describe GDP and you can find real data on these parts online. But here we only discuss these things as abstract concepts.</p>
+<p>Theoretically there is nothing that prevents us from adding more letters. Say for example that we want to distinguish investments I into two parts: investments in manufacturing industries that create things and investments in service industries that create services. We call these two components <span class="math inline">\(I_{t}\)</span> and <span class="math inline">\(I_{s}\)</span>.</p>
+<p>We also want to distinguish household consumption with a variable for rich households and a variable for poor households. We call these variables <span class="math inline">\(C_{\text{rich}}\)</span> and <span class="math inline">\(C_{\text{poor}}\)</span>. We need not define precisely where to draw the line for rich and poor respectively. We now get the following definition:</p>
+<p><span class="math display">\[
+\begin{equation}
+Y=C_{\text{rich}}+C_{\text{poor}}+I_{t}+I_{s}+X-M
+\end{equation}
+\]</span></p>
+<p>We can continue to build on our description if we feel like it. We might for example also want to add letters that symbolize natural resources and divide this into more or less environmentally harmful production. We might want to have a measure of export and import that occurs in contact with certain types of countries.</p>
+<p>But now we are mostly adding things because we can. What should be included in the equation depends primarily on what the purpose is, what we are going to use the mathematics for and what we want to discuss or illustrate. We can for example use such an equation to show how different things in the economy affect each other or how important they are for our economic prosperity.</p>
+</div>
+<div id="a-matter-of-class" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> A matter of class<a href="theories-of-life-death-and-dating.html#a-matter-of-class" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A large amount of social science is interested in how the population can be categorized into social classes, which in turn can mean slightly different things. For example working class and capitalist class. If we are to work analytically with this we need a precise definition and then mathematics can help us. Say for example that we make the following division into three classes:</p>
+<ul>
+<li><p>The working class in society consists of those individuals whose total income during a year comes more than 50% from wage income, earned through employment.</p></li>
+<li><p>The capitalist class in society consists of those individuals whose income during a year comes more than 50% from capital income.</p></li>
+<li><p>Other individuals in society, whom we call “others”.</p></li>
+</ul>
+<p>We disregard all possible conceivable problems with this division, for example ambiguities in the definitions, difficulties in collecting data and so on. Would this division work in practice for analytical work? Again, just as in the preceding examples, it depends on what we hope to be able to discuss, illustrate and examine. There are certainly arguments and phenomena where this division can serve a purpose. And there are guaranteed questions where this division is far too crude or just meaningless in general.</p>
+<p>Another discussion about class with a long tradition is that about differences in lifestyles. Say for example that we have a theory about people’s relationship to opera performances and that this relationship depends partly on what income the person’s household has and partly on the number of years the person spent on university education. We formulate this mathematically:</p>
+<p><span class="math display">\[
+\begin{equation}
+O_{i}=C_{i}^{a}+U_{i}^{b},\:0&lt;a&lt;1,\:1&lt;b\leq2
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(O_{i}\)</span> is interest in opera for person <span class="math inline">\(i\)</span>. <span class="math inline">\(C_{i}^{a}\)</span> is income for person <span class="math inline">\(i\)</span>’s household. The letter <span class="math inline">\(a\)</span> is a coefficient that describes what significance <span class="math inline">\(C\)</span> has for <span class="math inline">\(O\)</span>. We here define a condition for this: <span class="math inline">\(0&lt;a&lt;1\)</span>, which means that income indeed increases the person’s interest in opera but that the effect is diminishing. <span class="math inline">\(U_{i}^{b}\)</span> is the person’s time in university education and <span class="math inline">\(b\)</span> is a coefficient with the following condition: <span class="math inline">\(1&lt;b\leq2\)</span>. Since <span class="math inline">\(b\)</span> is over 1 this means that the longer the person studies, the more the interest increases and the rate of increase also increases.</p>
+</div>
+<div id="sec-utbud-och-efterfragan" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Supply and demand<a href="theories-of-life-death-and-dating.html#sec-utbud-och-efterfragan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Within social science, linear equation systems are used among other things to reason about how we think that supply and demand work for a good or service, and how this contributes to determining the price for a good or service. The word “supply” refers to how much goods or services the sellers in a market want to offer at a given price. The word “demand” refers to how large a quantity of goods or services the buyers want to pay for at a given price. The word “equilibrium” refers in this case to the system having a solution for our variables. Mathematics is only one way to describe how we think reality can work.</p>
+<p>We will now give an example of a linear equation system for supply and demand. You can yourself think of what good or service this might be thought to describe. The simplest is probably to think of a clearly bounded market with a physical good that is sold and demanded by a limited group of producers and consumers, perhaps in the style of some competing vegetable vendors at a market square. In reality, markets can be very difficult to clearly bound. Supply and demand can moreover work in several complex ways. In this case we have two linear equations for supply and demand, which we can write as an equation system:</p>
+<p><span class="math display" id="eq:ekvationssystem">\[
+\begin{align}
+\begin{cases}
+q_{\text{supply}} &amp; =3p\\
+q_{\text{demand}} &amp; =20-2p
+\end{cases}
+\tag{8.1}
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(q\)</span> and <span class="math inline">\(p\)</span> are our variables. The other numbers are coefficients. In this case our equation system consists of two definitions of q: one equation for supply and one for demand in the market. Our coefficients describe how we think theoretically that supply and demand work for a good or service. The two equations in <a href="theories-of-life-death-and-dating.html#eq:ekvationssystem">(8.1)</a> describe precisely this, how supply and demand of the production quantity <span class="math inline">\(q\)</span> relate to the price <span class="math inline">\(p\)</span>.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:utbud-och-efterfragan-linjara"></span>
+<img src="08-theories-life-death-dating_files/figure-html/utbud-och-efterfragan-linjara-1.png" alt="Supply and demand based on two linear equations" width="71%" />
+<p class="caption">
+Figure 8.1: Supply and demand based on two linear equations
+</p>
+</div>
+<p>What we are looking for is the point where <span class="math inline">\(q_{\text{supply}}=q_{\text{demand}}\)</span>. In this situation we think that the market is in equilibrium, when supply and demand are equal. We can start by drawing up the system in a graph, see figure <a href="theories-of-life-death-and-dating.html#fig:utbud-och-efterfragan-linjara">8.1</a> . In the graph the lines meet at a unique point, which defines the equilibrium price <span class="math inline">\(p^{*}\)</span> and the equilibrium quantity <span class="math inline">\(q^{*}\)</span>. To calculate the equilibrium price we set <span class="math inline">\(q_{\text{supply}}\)</span> and <span class="math inline">\(q_{\text{demand}}\)</span> equal to each other and solve for <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+q_{\text{supply}} &amp; =q_{\text{demand}}\\
+3p &amp; =20-2p\nonumber \\
+p^{*} &amp; =20/5=4\nonumber
+\end{align}
+\]</span></p>
+<p>This <span class="math inline">\(p^{*}\)</span> we can substitute into the equation system and solve for <span class="math inline">\(q\)</span> for supply and demand in equilibrium:</p>
+<p><span class="math display">\[
+\begin{align}
+q_{\text{supply}}= &amp; 3p=12\\
+q_{\text{demand}}= &amp; 20-2p=12\nonumber
+\end{align}
+\]</span></p>
+<p>Both equations give that <span class="math inline">\(q^{*}=12\)</span>, whereupon we have the system’s unique solution. We can check that this is correct with the help of substitution.</p>
+</div>
+<div id="two-types-of-cookies" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Two types of cookies<a href="theories-of-life-death-and-dating.html#two-types-of-cookies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Linear equations can also be used to describe alternatives in a choice situation. For example: ahead of this year’s big cake sale the local scout organization should choose strategy in the big bake. One alternative is that the scouts bake real cakes with expensive ingredients. The cakes will in that case become exquisite, but expensive to make. The profit per sold package will be 20 USD. We can describe this in the equation:</p>
+<p><span class="math display">\[
+\begin{equation}
+\text{profit}_{1}=20*\text{cookies}_{1}
+\end{equation}
+\]</span></p>
+<p>Another alternative is to bake the cakes with water and that big sack of old flour they found in the container behind the clubhouse last summer. No other ingredients. Since these cakes are super cheap to make, the profit will now be 50 USD per cake tin. The disadvantage is that the organization will incur fines of 1,000 USD for having poisoned some of their customers. The expected profit from this alternative can be described in the following equation:</p>
+<p><span class="math display">\[
+\begin{equation}
+\text{profit}_{2}=50*\text{cookies}_{2}-1,000
+\end{equation}
+\]</span></p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:kakforsaljning"></span>
+<img src="08-theories-life-death-dating_files/figure-html/kakforsaljning-1.png" alt="Profit from two different types of cookies" width="71%" />
+<p class="caption">
+Figure 8.2: Profit from two different types of cookies
+</p>
+</div>
+<p>How many cake tins must the scouts sell for the expected profit in alternatives 1 and 2 to become equivalent? An equivalent profit means that the two equations should have the same value. We can thus calculate the number of cake tins by setting the two equations equal to each other. This means that we have a linear equation system:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{cases}
+\text{profit}_{1} &amp; =20*\text{cookies}_{1}\\
+\text{profit}_{2} &amp; =50*\text{cookies}_{2}-1,000
+\end{cases}
+\end{equation}
+\]</span></p>
+<p>We now define <span class="math inline">\(\text{cookies}_{1}=\text{cookies}_{2}=\text{cookies}\)</span> and calculate:</p>
+<p><span class="math display">\[
+\begin{align}
+50*\text{cookies}-1,000 &amp; =20*\text{cookies}\\
+30*\text{cookies} &amp; =1,000\nonumber \\
+\text{cookies}^{*} &amp; =100/3\approx33.33\nonumber
+\end{align}
+\]</span></p>
+<p>At 33.3 sold cake tins the two alternatives are equivalent. The profit then becomes:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{Alternative 1: }\text{profit} &amp; =20*33.3=667\\
+\text{Alterantive 2: }\text{profit} &amp; =50*33.3-1,000=667\nonumber
+\end{align}
+\]</span></p>
+<p>This is illustrated in figure <a href="theories-of-life-death-and-dating.html#fig:kakforsaljning">8.2</a> , where the profit for the two alternatives is described with two lines. The lines meet at the solution we have calculated: 33.3 sold cake tins with 667 USD profit.</p>
+</div>
+<div id="sec-dejting" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Finding the one<a href="theories-of-life-death-and-dating.html#sec-dejting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When we calculate data about reality we like to use material that is easy to quantify, that easily allows itself to be measured. One such thing is money, which is moreover a unit of measurement that many people understand. The disadvantage is that many decisions in reality are more complex. As mentioned earlier, however, mathematics can help us discuss reality even when we are interested in phenomena that can be harder to put numbers on.</p>
+<p>Let us now take an example where we say that the numbers instead measure how fun something is. We begin by describing this example with numbers, which possibly can be easier to understand. After that we will go through how we can work with the same type of theory without numbers, which many times is at least as useful and sometimes better. The point of this is to illustrate how mathematics can help us reason, even if we cannot calculate exact answers.</p>
+<p>In this example we use a simplified happiness scale from 0-100 as a pedagogical tool. While it is difficult (to say the least) to measure happiness in reality, numbers help us understand the mathematical principles. What matters is not the exact values, but how we can use systems of equations to compare strategies.</p>
+<p>Erik wants to get married as soon as possible and is considering different strategic alternatives for meeting the right one. Erik doesn’t intend to jump between strategies and the marriage goal must happen this year. It is thus about choosing a strategy and sticking to it. Erik estimates their happiness today at 80 on a scale from 0 to 100, and hopes to be able to increase their happiness to 100 by meeting a partner. Erik doesn’t like dating however and each date brings down Erik’s happiness a little.</p>
+<p>Strategy 1: Using a free dating app. Just installing the app and starting to go through the profiles lowers Erik’s happiness by 50 percentage points. For each date Erik has to go on, Erik’s happiness drops by an additional two percentage points. Let us describe this in an equation:</p>
+<p><span class="math display">\[
+\begin{equation}
+\text{happiness}=80-2*date_{\text{app}}-50
+\end{equation}
+\]</span></p>
+<p>Strategy 2: Erik’s best friend has chosen four candidates who are ready for marriage. Since the social effort is now a bit higher, each date lowers Erik’s happiness by 22 percentage points:</p>
+<p><span class="math display">\[
+\begin{equation}
+\text{happiness}=80-22*date_{\text{friend&#39;s friend}}
+\end{equation}
+\]</span></p>
+<p>This gives us a linear equation system with two equations. Now we wonder at what number of dates the two strategies can be considered equivalent, as well as what level of (un)happiness this would entail. Let us denote the variables <span class="math inline">\(d_{1}=date_{\text{app}}\)</span> and <span class="math inline">\(d_{2}=date_{\text{friend&#39;s friend}}\)</span> and calculate how many dates are required for the two strategies to be considered equivalent:</p>
+<p><span class="math display" id="eq:kims-dejter">\[
+\begin{equation}
+\begin{cases}
+\text{happiness} &amp; =80-2d_{1}-50\\
+\text{happiness} &amp; =80-22d_{2}
+\end{cases}
+\tag{8.2}
+\end{equation}
+\]</span></p>
+<p>To calculate the number of dates when both strategies give the same expected result we define <span class="math inline">\(d_{1}=d_{2}=d\)</span> and set the two equations equal to each other:</p>
+<p><span class="math display">\[
+\begin{align}
+80-22d &amp; =80-2d-50\nonumber \\
+50 &amp; =20d\nonumber \\
+2,5 &amp; =d^{*}
+\end{align}
+\]</span></p>
+<p>At 2.5 dates the two strategies can be considered equivalent. We can also see this by trying to substitute the result for <span class="math inline">\(d^{*}\)</span> into our system:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{Strategy 1: }\text{happiness} &amp; =80-2*2,5-50=25\\
+\text{Strategy 2: }\text{happiness} &amp; =80-22*2,5=25\nonumber
+\end{align}
+\]</span></p>
+<p>The solution for the system is <span class="math inline">\(d^{*}=2.5\)</span> and <span class="math inline">\(\text{happiness}^{*}=25\)</span>. Figure <a href="theories-of-life-death-and-dating.html#fig:dejting">8.3</a> illustrates the two strategies as straight lines in the graph and the equilibrium <span class="math inline">\(\left(d^{*},\text{happiness}^{*}\right)=\left(2.5,\,25\right)\)</span> as the point where the two lines meet.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:dejting"></span>
+<img src="08-theories-life-death-dating_files/figure-html/dejting-1.png" alt="Two different strategies for dating" width="71%" />
+<p class="caption">
+Figure 8.3: Two different strategies for dating
+</p>
+</div>
+<p>Measuring happiness on a scale from 0 to 100 is a bit clumsy. But by setting up equations we can more clearly discuss what conditions must be fulfilled for one or the other relationship to hold. If we take our example with dating we could write out the equations but use letters instead of numbers for our coefficients. For example, in the case of Erik’s dating the equation system could be written like this instead:</p>
+<p><span class="math display" id="eq:dejting-ex-med-bokstaver">\[
+\begin{equation}
+\begin{cases}
+\text{happiness} &amp; =m-ad_{1}-b\\
+\text{happiness} &amp; =m-cd_{2}
+\end{cases}
+\tag{8.3}
+\end{equation}
+\]</span></p>
+<p>The letter m is current level of happiness, the two types of dates are symbolized by <span class="math inline">\(d_{1}\)</span>(the app) and <span class="math inline">\(d_{2}\)</span>(friend’s friend), a and c are the slope coefficients (the cost) for going on different types of dates and b is the emotional cost of starting the dating app. From this we can solve out the following definitions for the variables <span class="math inline">\(d\)</span>(number of dates) and happiness:</p>
+<p><span class="math display">\[
+\begin{align}
+d^{*} &amp; =\frac{b}{c-a}\\
+\text{happiness}^{*} &amp; =\frac{mc-ma-cb}{c-a}=\frac{m\left(c-a\right)-cb}{c-a}\nonumber
+\end{align}
+\]</span></p>
+<p>This allows us to describe how the different variables are connected and what is required for <span class="math inline">\(d^{*}\)</span> to assume a positive value. Given that <span class="math inline">\(b&gt;0\)</span>, then <span class="math inline">\(c&gt;a\)</span> must hold. That is, given that happiness decreases when Erik opens the dating app <span class="math inline">\(\left(b&gt;0\right)\)</span>, then the happiness decrease from going on a date with the friend’s friend <span class="math inline">\(\left(c\right)\)</span> must be greater than the happiness decrease per date via the app <span class="math inline">\(\left(a\right)\)</span>.</p>
+<p>Now let us explore an alternative scenario where Erik’s happiness increases from going on dates. While there’s no single correct way to model this experience mathematically, a straightforward modification is to change the coefficients <span class="math inline">\(a\)</span> and <span class="math inline">\(c\)</span> from minus to plus:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{cases}
+\text{happiness} &amp; =m+ad_{1}-b\\
+\text{happiness} &amp; =m+cd_{2}
+\end{cases}
+\end{equation}
+\]</span></p>
+<p>Erik’s happiness still decreases from opening the app, which we see through the fact that the term <span class="math inline">\(b\)</span> is negative. Whether Erik in this situation prefers to date friends’ friends or use the dating app depends on what values the coefficients <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> have.</p>
+</div>
+<div id="sec-nairu-teori" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> A theory about work<a href="theories-of-life-death-and-dating.html#sec-nairu-teori" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this example we will describe the labor market with a linear equation system. The theories are simplified to make the mathematical description easier. While this example to some degree illustrate how we can think about real labor markets, the models (just as in all theoretical examples in this book) make several unrealistic assumptions.</p>
+<p>Our equation system consists of two equations that give a simplified picture of how we can imagine that wages <span class="math inline">\(\left(W\right)\)</span> and prices <span class="math inline">\(\left(P\right)\)</span> are determined:</p>
+<p><span class="math display" id="eq:nairu-system">\[
+\begin{equation}
+\begin{cases}
+\text{Wage-setters: }\frac{W}{P}=\frac{a}{U^{b}}, &amp; b&gt;0\\
+\text{Price-setters: }\frac{P}{W}=\frac{c}{U^{d}}, &amp; c\geq0
+\end{cases}
+\tag{8.4}
+\end{equation}
+\]</span></p>
+<p>The first equation describes how wages W are set with a markup, coefficient a, over prices <span class="math inline">\(P\)</span>. So if workers face higher prices they also demand higher wages. The second equation describes how prices <span class="math inline">\(P\)</span> are set with a markup <span class="math inline">\(c\)</span> on wages <span class="math inline">\(W\)</span>. If companies face higher wages they set higher prices. Unemployment <span class="math inline">\(U\)</span> has a negative effect on both wages and prices, and this effect is determined by coefficients <span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span>.</p>
+<p>The letters <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span> are constants that summarize the phenomena that affect wages and prices. Exactly what this symbolizes we don’t worry about here. It could for example be taxes, legislation or how employees and employers negotiate wages and conditions via their trade unions and employer organizations. The first equation <span class="math inline">\(\left(W/P\right)\)</span> is also called the wage-setting curve, which can be described as a supply curve for labor. The second equation <span class="math inline">\(\left(P/W\right)\)</span> is also called the price-setting curve and can be described as a demand curve for labor.</p>
+<p>We now seek a solution for the variable <span class="math inline">\(W/P\)</span>, real wage (see section <a href="chap-forsta-basic-exempel.html#sec-deflatera-priser-och">3.7</a> ), and <span class="math inline">\(U\)</span>, percent unemployment. We begin by rewriting the second equation and solving for <span class="math inline">\(W/P=U^{d}/c\)</span>. We substitute this into the first equation:</p>
+<p><span class="math display" id="eq:uc-au">\[
+\begin{align}
+\frac{W}{P} &amp; =\frac{a}{U^{b}}\\
+\frac{U^{d}}{c} &amp; =\frac{a}{U^{b}}\nonumber \\
+U^{d+b} &amp; =ac\nonumber \\
+U^{*} &amp; =\left(ac\right)^{\frac{1}{b+d}}\nonumber
+\tag{8.5}
+\end{align}
+\]</span></p>
+<p>The solution for <span class="math inline">\(U^{*}\)</span> we can then use to solve out <span class="math inline">\(\left(W/P\right)^{*}\)</span>. We substitute <span class="math inline">\(U^{*}\)</span> into the first equation in the system <a href="theories-of-life-death-and-dating.html#eq:nairu-system">(8.4)</a> :</p>
+<p><span class="math display">\[
+\begin{align}
+\left(\frac{W}{P}\right)^{*} &amp; =\frac{a}{\left(U^{*}\right)^{b}}\\
+&amp; =\frac{a}{\left(ac\right)^{\frac{b}{b+d}}}\nonumber \\
+&amp; =\frac{a^{1-\frac{b}{b+d}}}{c^{\frac{b}{b+d}}}\nonumber \\
+&amp; =a^{\frac{d+b-b}{b+d}}c^{\frac{-b}{b+d}}\nonumber \\
+&amp; =a^{\frac{d}{b+d}}c^{\frac{-b}{b+d}}\nonumber
+\end{align}
+\]</span></p>
+<p>Or we can start from the left side of the equation <a href="theories-of-life-death-and-dating.html#eq:uc-au">(8.5)</a> and substitute <span class="math inline">\(U^{*}\)</span> there:</p>
+<p><span class="math display">\[
+\begin{align}
+\left(\frac{W}{P}\right)^{*} &amp; =\frac{\left(U^{*}\right)^{d}}{c}=\frac{\left(ac\right)^{\frac{d}{b+d}}}{c}=a^{\frac{d}{b+d}}c^{\frac{-b}{b+d}}
+\end{align}
+\]</span></p>
+<p>Now we have the solution for the two variables <span class="math inline">\(U\)</span> and <span class="math inline">\(W/P\)</span>:</p>
+<p><span class="math display" id="eq:nairu-losning-ickelinjar">\[
+\begin{equation}
+\left(U^{*},\left(W/P\right)^{*}\right)=\left(\left(ac\right)^{\frac{1}{b+d}},a^{\frac{d}{b+d}}c^{\frac{-b}{b+d}}\right)
+\tag{8.6}
+\end{equation}
+\]</span></p>
+<p>The parenthesis in the right side describes the solutions for the respective variable. <span class="math inline">\(U^{*}\)</span> is a definition of what in social sciences is called equilibrium unemployment. This is not a linear equation system but with the help of logarithmization we can make it linear. We therefore take the logarithm of both sides of the respective equation in the system <a href="theories-of-life-death-and-dating.html#eq:nairu-system">(8.4)</a> :</p>
+<p><span class="math display" id="eq:nairu-log-form">\[
+\begin{align}
+\begin{cases}
+\log\left(\frac{W}{P}\right)=\log\left(\frac{a}{U^{b}}\right), &amp; b&gt;0\\
+\log\left(\frac{P}{W}\right)=\log\left(\frac{c}{U^{d}}\right), &amp; c\geq0
+\end{cases}\\
+\begin{cases}
+\log W-\log P=\log a-\log U^{b}\\
+\log P-\log W=\log c-\log U^{d}
+\end{cases}\nonumber \\
+\begin{cases}
+w-p=\log a-bu\\
+p-w=\log c-du
+\end{cases}\nonumber
+\tag{8.7}
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(w-p=\log\left(\frac{W}{P}\right)\)</span> and <span class="math inline">\(bu=b\log U\)</span>. The letter u is the logarithm of percent unemployment and a, b, c and d are coefficients that define how our variables are connected. Just like above we rewrite the second equation, set the two definitions of <span class="math inline">\(w-p\)</span> equal to each other and solve for <span class="math inline">\(u\)</span>. To save space we do not write out <span class="math inline">\(\log()\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+du-c &amp; =a-bu\\
+u\left(b+d\right) &amp; =a+c\nonumber \\
+u^{*} &amp; =\frac{a+c}{b+d}\nonumber
+\end{align}
+\]</span></p>
+<p>The definition of <span class="math inline">\(u^{*}\)</span> is the logarithmized version of the solution in equation <a href="theories-of-life-death-and-dating.html#eq:nairu-losning-ickelinjar">(8.6)</a> . To convert to unemployment in percent we take the exponent:</p>
+<p><span class="math display">\[
+\begin{align}
+\exp\left(u^{*}\right) &amp; =\frac{1}{b+d}\exp\left(a+c\right)\\
+U^{*} &amp; =ac^{\frac{1}{b+d}g}\nonumber
+\end{align}
+\]</span></p>
+<p>Figure <a href="theories-of-life-death-and-dating.html#fig:nairu">8.4</a> shows how this model can be illustrated in a graph. The relationship between W/P and U is described with the two functions for supply and demand, also called the wage- and price-setting curve. If we read the x-axis from left to right the axis measures percent of the workforce that has work, employment rate. Employment rate can be defined as <span class="math inline">\(1-U\)</span>, where <span class="math inline">\(U\)</span> is percent unemployed. The solution for the variables <span class="math inline">\(U^{*}\)</span> and <span class="math inline">\(\left(W/P\right)^{*}\)</span> is the point where the lines meet.</p>
+<p>In the diagram to the left is shown how the lines look in ordinary form, as in equation <a href="theories-of-life-death-and-dating.html#eq:nairu-system">(8.4)</a> . In the diagram to the right are shown the logarithmized functions, as in equation <a href="theories-of-life-death-and-dating.html#eq:nairu-log-form">(8.7)</a> .</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:nairu"></span>
+<img src="08-theories-life-death-dating_files/figure-html/nairu-1.png" alt="Supply and demand for labor" width="71%" />
+<p class="caption">
+Figure 8.4: Supply and demand for labor
+</p>
+</div>
+</div>
+<div id="sec-extern-effekt-utslapp" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> External effects<a href="theories-of-life-death-and-dating.html#sec-extern-effekt-utslapp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In section <a href="theories-of-life-death-and-dating.html#sec-utbud-och-efterfragan">8.4</a> we described an example where supply and demand determine price and quantity for a good or service in a free market. We can also use this mathematics to describe unintended effects. Let us illustrate with an example. Suppose we have a completely unregulated market, without taxes or fees, for a product where supply and demand can be described with the equation system:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{cases}
+\text{Supply:} &amp; q=2+p\\
+\text{Demand: } &amp; q=20-p
+\end{cases}
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(q\)</span> is quantity of the product and <span class="math inline">\(p\)</span> is price. The solution to this equation system is <span class="math inline">\(\left(q^{*},p^{*}\right)=\left(11,9\right)\)</span>. The problem now is that this quantity, 11 units, does not take into account the total cost for society, the social cost. The production creates emissions that cause long-term damage to the climate. The costs for these damages are not included in the price. In social sciences this phenomenon is called an external effect, or externality. An external effect is a consequence that is not intended, something that neither the consumers nor the producers want to happen, and therefore is not reflected in the price.</p>
+<p>Now let’s say researchers have calculated what the total cost for society is and believe that the following equation system better reflects both the private and the social cost:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{cases}
+\text{Supply, incl. social cost } &amp; q=10+p\\
+\text{Demand: } &amp; q=20-p
+\end{cases}
+\end{equation}
+\]</span></p>
+<p>The solution to this new system is <span class="math inline">\(\left(q^{*},p^{*}\right)=\left(5,15\right)\)</span>. The demand curve is the same in both examples. The price, now taking into account the social cost, becomes 15 instead of 9. This is not reflected in the actual price in the market. One way to raise the market price to reflect also the social cost could be to introduce a tax on the climate-damaging emissions.</p>
+<p>External effects don’t have to be negative. If we imagine that supply and demand for education in mathematics for social scientists in a completely free market could be described with the following equation system:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{cases}
+\text{Supply } &amp; q=1+p\\
+\text{Demand: } &amp; q=7-2p
+\end{cases}
+\end{equation}
+\]</span></p>
+<p>would result in equilibrium levels <span class="math inline">\(\left(q^{*},p^{*}\right)=\left(3,2\right)\)</span>. But now some social scientists have calculated that the social benefit of this type of education is higher than what market demand reflects. The social benefit is instead captured with the following equation system:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{cases}
+\text{Supply:} &amp; q=1+p\\
+\text{Demand incl social cost:} &amp; q=16-2p
+\end{cases}
+\end{equation}
+\]</span></p>
+<p>This would instead mean that <span class="math inline">\(\left(q^{*},p^{*}\right)=\left(6,5\right)\)</span>. The optimal amount of education in mathematics for social scientists would in that case be double, compared to the market equilibrium. Since the supply equation is the same in both cases, the equilibrium price would be higher in this situation. This example could in that case be an argument for why the government should subsidize this production by paying the difference between the price in a free market <span class="math inline">\(\left(p=2\right)\)</span> and the optimal price with regard to social benefits <span class="math inline">\(\left(p=5\right)\)</span>. In reality, political measures are always more complex than simple hypothetical examples.</p>
+</div>
+<div id="linear-relationships-in-real-life" class="section level2 hasAnchor" number="8.9">
+<h2><span class="header-section-number">8.9</span> Linear relationships in real life<a href="theories-of-life-death-and-dating.html#linear-relationships-in-real-life" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Many times we want to reformulate our mathematical problems so that these can be described with linear equations, since this type of mathematics often simplifies our analytical work. A challenge with this is that many things in reality are not at all linear. Erik’s happiness is probably affected differently by date no. 1 compared to date no. 15, thus a nonlinear relation between happiness and dates. Either Erik is by that point so dulled that happiness barely changes at all. Or maybe the opposite: Erik has kept up their spirits until then but now loses hope, why happiness starts to fall drastically.</p>
+<p>The same thing applies to the example concerning market trading. With small price changes it is possibly reasonable to assume that supply in the market square increases by the same small amount. But with more dramatic price increases the market square would start to attract many new sellers and supply would shoot up.</p>
+<p>Sometimes linear equations fit better and sometimes worse. Many times it can be that even phenomena that are not linear in their entirety can be linear within a sufficiently large interval that it can still be reasonable to use linear equations. But other times it can be precisely the non-linear part of a relationship between two or more phenomena that is the interesting part. There is no simple answer to when one or the other is more appropriate. It depends on the study’s purpose, research question, theory and method. Mathematics can help us analyze things but does not automatically ensure that our analysis becomes smart or correct. Later on we will go into a bit more about how we can handle these phenomena.</p>
+</div>
+<div id="chapter-summary-6" class="section level2 hasAnchor" number="8.10">
+<h2><span class="header-section-number">8.10</span> Chapter summary<a href="theories-of-life-death-and-dating.html#chapter-summary-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Equation systems can among other things be used to illustrate supply and demand in a market, where supply and demand are described in the form of one equation each. Where the equations are equal to each other the lines meet in a graph, which gives equilibrium price and equilibrium quantity of the good or service.</p></li>
+<li><p>Equation systems can also be used to describe the trade-off between two different strategies and their payoff, for example in the form of a scout association’s planning of cookie sales.</p></li>
+</ul>
+</div>
+<div id="exercises-6" class="section level2 hasAnchor" number="8.11">
+<h2><span class="header-section-number">8.11</span> Exercises<a href="theories-of-life-death-and-dating.html#exercises-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ex-3" class="exercises-container">
+
+</div>
+<script>
+(function(){
+var ex=[
+  {q:'<p>The supply and demand for a good can be described with the equation system \\(q_{\\text{supply}}=3p\\)</p><ol type="a"><li>Find the equilibrium price \\(p^{*}\\)</li><li>Suppose supply changes to \\(q_{\\text{supply}}=5p\\) Find the new equilibrium.</li><li>With the original supply \\(q_{\\text{supply}}=3p\\) Find the new equilibrium.</li></ol>',a:'<p>(a) \\(3p=20-2p\\Rightarrow p^{*}=4\\) , (b) \\(5p=20-2p\\Rightarrow p^{*}=20/7\\approx2.86\\) , (c) \\(3p=30-2p\\Rightarrow p^{*}=6\\)</p>'},
+  {q:'<p>A scout organization has two strategies for cookie sales. Strategy 1 gives a profit of 20 USD per tin: \\(\\text{profit}_{1}=20\\times\\text{cookies}\\) Strategy 2 gives 50 USD per tin but incurs a fixed cost of 1,000 USD: \\(\\text{profit}_{2}=50\\times\\text{cookies}-1,000\\)</p><ol type="a"><li>At how many sold tins are the two strategies equivalent?</li><li>What is the profit at that number of tins?</li><li>If the scouts expect to sell 40 tins, which strategy gives higher profit?</li></ol>',a:'<p>(a) \\(20c=50c-1,000\\Rightarrow c^{*}=100/3\\approx33.3\\) , (b) \\(\\text{profit}\\approx667\\) , (c) Strategy 1: 800 USD, Strategy 2: 1,000 USD; Strategy 2 gives higher profit.</p>'},
+  {q:'<p>Erik is choosing between two dating strategies. Strategy 1 (dating app): \\(\\text{happiness}=30-2d\\) Strategy 2 (friend\'s friend): \\(\\text{happiness}=80-22d\\)</p><ol type="a"><li>At how many dates \\(d^{*}\\)</li><li>What is the happiness level at \\(d^{*}\\)</li><li>If Erik goes on 1 date, which strategy gives higher happiness?</li></ol>',a:'<p>(a) \\(30-2d=80-22d\\Rightarrow d^{*}=2.5\\) , (b) \\(\\text{happiness}=25\\) , (c) Strategy 1: 28, Strategy 2: 58; Strategy 2 gives higher happiness.</p>'},
+  {q:'<p>An unregulated market has supply \\(q=2+p\\)</p><ol type="a"><li>Find the free-market equilibrium \\(\\left(q^{*},p^{*}\\right)\\)</li><li>When social costs are included, supply changes to \\(q=-4+p\\) Find the new equilibrium.</li><li>By how much does the price change when social costs are included?</li></ol>',a:'<p>(a) \\(2+p=20-p\\Rightarrow p^{*}=9\\) , (b) \\(-4+p=20-p\\Rightarrow p^{*}=12\\) , (c) Price increases by \\(3\\)</p>'},
+  {q:'<p>In a free market, supply and demand for mathematics education are \\(q=1+p\\)</p><ol type="a"><li>Find the free-market equilibrium \\(\\left(q^{*},p^{*}\\right)\\)</li><li>With social benefit included, demand changes to \\(q=16-2p\\) Find the new equilibrium.</li><li>How does equilibrium quantity change between (a) and (b)?</li></ol>',a:'<p>(a) \\(1+p=7-2p\\Rightarrow p^{*}=2\\) , (b) \\(1+p=16-2p\\Rightarrow p^{*}=5\\) , (c) Quantity increases from 3 to 6.</p>'},
+  {q:'<p>Consider the GDP model \\(Y=C+G+I+X-M\\)</p><ol type="a"><li>Calculate \\(Y\\)</li><li>If investment \\(I\\)</li><li>Using the original values, if import \\(M\\)</li></ol>',a:'<p>(a) \\(Y=100+80+50+40-30=240\\) , (b) \\(Y=250\\) , (c) \\(Y=220\\)</p>'}
+];
+var c=document.getElementById("ex-3");
+if(!c)return;
+var h='<ol class="exercise-list">';
+ex.forEach(function(e){
+  h+='<li class="exercise-item">';
+  h+='<div class="exercise-question">'+e.q+'</div>';
+  if(e.a){
+    h+='<details class="exercise-answer">';
+    h+='<summary>Show answer &#9654;</summary>';
+    h+='<div class="answer-content">'+e.a+'</div>';
+    h+='</details>';
+  }
+  h+='</li>';
+});
+h+='</ol>';
+c.innerHTML=h;
+function fixMathAlign(el){
+  el.querySelectorAll(".MathJax_Display").forEach(function(d){
+    d.style.textAlign="left";
+    d.style.marginLeft="1.5em";
+  });
+}
+if(window.MathJax){
+  if(MathJax.Hub){
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,c]);
+    MathJax.Hub.Queue(function(){fixMathAlign(c);});
+  } else if(MathJax.typesetPromise){
+    MathJax.typesetPromise([c]).then(function(){fixMathAlign(c);});
+  }
+}
+c.querySelectorAll("details").forEach(function(d){
+  d.addEventListener("toggle",function(){
+    if(d.open&&window.MathJax){
+      if(MathJax.Hub){
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,d]);
+        MathJax.Hub.Queue(function(){fixMathAlign(d);});
+      } else if(MathJax.typesetPromise){
+        MathJax.typesetPromise([d]).then(function(){fixMathAlign(d);});
+      }
+    }
+  });
+});
+})();
+</script>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-linjara-ekvationssystem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-ickelinjara-ekvationer-i.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["the-cheat-code.pdf", "the-cheat-code.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "depth": 2
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

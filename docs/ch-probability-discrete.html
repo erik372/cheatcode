@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 21 Basic Probability Theory 1: discrete distributions | The Cheat Code: Essential Math and Statistics for Social Scientists</title>
+  <meta name="description" content="A textbook in mathematics and statistics for social science students." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 21 Basic Probability Theory 1: discrete distributions | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 21 Basic Probability Theory 1: discrete distributions | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  
+  <meta name="twitter:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+<meta name="author" content="Erik Hegelund" />
+
+
+<meta name="date" content="2026-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="part-probability-intro.html"/>
+<link rel="next" href="ch-probability-continuous.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="#eq:"]').forEach(function(link) {
+    link.textContent = link.textContent.trim().replace(/^\((.+)\)$/, '$1');
+  });
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'],['\\(','\\)']],
+    displayMath: [['$$','$$'],['\\[','\\]']],
+    processEscapes: true,
+    skipTags: ['script','noscript','style','textarea','pre']
+  },
+  TeX: {
+    extensions: ["cancel.js"],
+    equationNumbers: {
+      autoNumber: "none"
+    },
+    Macros: {
+      permil:     '\\unicode{x2030}',
+      ensuremath: ['#1', 1]
+    }
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open && window.MathJax) {
+        if (MathJax.Hub) {
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub, det]);
+        } else if (MathJax.typesetPromise) {
+          MathJax.typesetPromise([det]).catch(function(e) { console.error(e); });
+        }
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Move "Table X.X:" span from end of caption to front
+  document.querySelectorAll('caption').forEach(function(cap) {
+    var span = cap.querySelector('span[id^="tab:"]');
+    if (span) cap.insertBefore(span, cap.firstChild);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Rewrite part labels and make them link to the part intro page
+  document.querySelectorAll('.book-summary ul.summary li.part').forEach(function(partLi) {
+    // Rewrite text: "I Mathematics Basics" -> "Part I: Mathematics Basics"
+    var b = partLi.querySelector('span > b');
+    if (b) {
+      var m = b.textContent.match(/^([IVXLCDM]+)\s+([\s\S]*)/);
+      if (m) b.textContent = 'Part ' + m[1] + ': ' + m[2];
+    }
+    // Make the part label link to the part intro page
+    var nextEl = partLi.nextElementSibling;
+    if (!nextEl || !nextEl.classList.contains('chapter')) return;
+    var link = nextEl.querySelector('a');
+    if (!link) return;
+    var span = partLi.querySelector('span');
+    if (!span) return;
+    var a = document.createElement('a');
+    a.href = link.getAttribute('href');
+    a.innerHTML = span.innerHTML;
+    partLi.replaceChild(a, span);
+    // Hide the now-redundant part intro chapter entry in the sidebar
+    nextEl.classList.add('part-intro-hidden');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+
+    // --- Chapter-level collapse arrows (larger click target) ---
+    document.querySelectorAll('.book-summary li.chapter').forEach(function(li) {
+      var level = li.getAttribute('data-level') || '';
+      if (level.indexOf('.') !== -1) return;
+
+      var childUl = li.querySelector(':scope > ul');
+      if (!childUl) return;
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'margin-left:6px',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(0,0,0,0.06)'
+      ].join(';');
+
+      function isVisible() {
+        return window.getComputedStyle(childUl).display !== 'none';
+      }
+      function updateArrow() {
+        arrow.textContent = isVisible() ? '▾' : '▸';
+      }
+      updateArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        childUl.style.display = isVisible() ? 'none' : 'block';
+        updateArrow();
+      });
+
+      var link = li.querySelector(':scope > a');
+      if (link) link.appendChild(arrow);
+    });
+
+    // --- Part-level collapse arrows ---
+    var summary = document.querySelector('.book-summary ul.summary');
+    if (!summary) return;
+    var items = Array.from(summary.children);
+
+    items.forEach(function(li, idx) {
+      if (!li.classList.contains('part')) return;
+
+      var chapterItems = [];
+      for (var j = idx + 1; j < items.length; j++) {
+        if (items[j].classList.contains('part')) break;
+        if (items[j].tagName === 'LI') chapterItems.push(items[j]);
+      }
+      if (chapterItems.length === 0) return;
+
+      var partKey = 'partCollapsed_' + idx;
+      var collapsed = localStorage.getItem(partKey) === '1';
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-part-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(44,95,138,0.15)',
+        'margin-left:6px',
+        'float:right',
+        'margin-right:6px'
+      ].join(';');
+
+      function updatePartArrow() {
+        arrow.textContent = collapsed ? '▸' : '▾';
+      }
+
+      function applyCollapse() {
+        chapterItems.forEach(function(ch) {
+          ch.style.display = collapsed ? 'none' : '';
+        });
+      }
+
+      if (collapsed) applyCollapse();
+      updatePartArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        collapsed = !collapsed;
+        applyCollapse();
+        updatePartArrow();
+        localStorage.setItem(partKey, collapsed ? '1' : '0');
+      });
+
+      var target = li.querySelector('span') || li.querySelector('a');
+      if (target) target.appendChild(arrow);
+    });
+
+  }, 150);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Resizable sidebar via drag handle
+  setTimeout(function() {
+    var sidebar = document.querySelector('.book-summary');
+    var bookBody = document.querySelector('.book-body');
+    if (!sidebar || !bookBody) return;
+
+    var handle = document.createElement('div');
+    handle.className = 'sidebar-resize-handle';
+    handle.title = 'Drag to resize sidebar';
+    handle.style.cssText = [
+      'position:absolute',
+      'top:0',
+      'right:0',
+      'width:8px',
+      'height:100%',
+      'cursor:ew-resize',
+      'z-index:10000',
+      'border-right:3px solid transparent',
+      'box-sizing:border-box',
+      'transition:border-color 0.15s'
+    ].join(';');
+
+    sidebar.appendChild(handle);
+
+    var isDragging = false;
+    var startX = 0, startWidth = 0;
+    var minW = 160, maxW = 650;
+
+    handle.addEventListener('mouseenter', function() {
+      handle.style.borderRightColor = 'rgba(44,95,138,0.5)';
+    });
+    handle.addEventListener('mouseleave', function() {
+      if (!isDragging) handle.style.borderRightColor = 'transparent';
+    });
+
+    handle.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.clientX;
+      startWidth = sidebar.offsetWidth;
+      document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var newW = Math.max(minW, Math.min(maxW, startWidth + (e.clientX - startX)));
+      sidebar.style.width = newW + 'px';
+      bookBody.style.left = newW + 'px';
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        handle.style.borderRightColor = 'transparent';
+        localStorage.setItem('sidebarW', sidebar.offsetWidth);
+      }
+    });
+
+    // Restore saved width
+    var saved = parseInt(localStorage.getItem('sidebarW'), 10);
+    if (saved && saved >= minW && saved <= maxW) {
+      sidebar.style.width = saved + 'px';
+      bookBody.style.left = saved + 'px';
+    }
+  }, 200);
+});
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">The Cheat Code</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-yet-another-textbook"><i class="fa fa-check"></i>Why yet another textbook?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i>What you will learn</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#thanks"><i class="fa fa-check"></i>Thanks!</a></li>
+</ul></li>
+<li class="part"><span><b>I Mathematics Basics</b></span></li>
+<li class="chapter" data-level="" data-path="part-mathematics-intro.html"><a href="part-mathematics-intro.html"><i class="fa fa-check"></i>Part I: Mathematics Basics</a></li>
+<li class="chapter" data-level="1" data-path="why-math.html"><a href="why-math.html"><i class="fa fa-check"></i><b>1</b> Why math?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-math.html"><a href="why-math.html#mathematics-in-social-science"><i class="fa fa-check"></i><b>1.1</b> Mathematics in Social Science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-math.html"><a href="why-math.html#chap-vad-anvands-matematik"><i class="fa fa-check"></i><b>1.2</b> Measure, theorize, compare</a></li>
+<li class="chapter" data-level="1.3" data-path="why-math.html"><a href="why-math.html#why-calculate"><i class="fa fa-check"></i><b>1.3</b> Why Calculate</a></li>
+<li class="chapter" data-level="1.4" data-path="why-math.html"><a href="why-math.html#tips-for-your-studies"><i class="fa fa-check"></i><b>1.4</b> Tips for your studies</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#different-types-of-numbers"><i class="fa fa-check"></i><b>2.1</b> Different types of numbers</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#the-four-arithmetic-operations"><i class="fa fa-check"></i><b>2.2</b> The four arithmetic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#order-of-operations"><i class="fa fa-check"></i><b>2.3</b> Order of operations</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-parenteser"><i class="fa fa-check"></i><b>2.4</b> Parentheses</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#equality-and-inequality"><i class="fa fa-check"></i><b>2.5</b> Equality and inequality</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-brak"><i class="fa fa-check"></i><b>2.6</b> Fractions</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#least-common-denominator"><i class="fa fa-check"></i><b>2.7</b> Least common denominator</a></li>
+<li class="chapter" data-level="2.8" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-potenser"><i class="fa fa-check"></i><b>2.8</b> Powers</a></li>
+<li class="chapter" data-level="2.9" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-multiplikation-med-parentes"><i class="fa fa-check"></i><b>2.9</b> Parentheses with powers</a></li>
+<li class="chapter" data-level="2.10" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-faktorisering-och-delbarhet"><i class="fa fa-check"></i><b>2.10</b> Factorization and divisibility</a></li>
+<li class="chapter" data-level="2.11" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-summa"><i class="fa fa-check"></i><b>2.11</b> Sum</a></li>
+<li class="chapter" data-level="2.12" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-median"><i class="fa fa-check"></i><b>2.12</b> Median</a></li>
+<li class="chapter" data-level="2.13" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-medelvarde"><i class="fa fa-check"></i><b>2.13</b> Mean</a></li>
+<li class="chapter" data-level="2.14" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-viktat-medelvarde"><i class="fa fa-check"></i><b>2.14</b> Weighted mean</a></li>
+<li class="chapter" data-level="2.15" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-procent-och-promille"><i class="fa fa-check"></i><b>2.15</b> Percent and per mille</a></li>
+<li class="chapter" data-level="2.16" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-kombinatorik"><i class="fa fa-check"></i><b>2.16</b> Combinatorics</a></li>
+<li class="chapter" data-level="2.17" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#chapter-summary"><i class="fa fa-check"></i><b>2.17</b> Chapter summary</a></li>
+<li class="chapter" data-level="2.18" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#exercises"><i class="fa fa-check"></i><b>2.18</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html"><i class="fa fa-check"></i><b>3</b> Examples with Applications</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-procent-potents-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.1</b> Interest</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.2</b> Interest on interest</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-effektiv-ranta"><i class="fa fa-check"></i><b>3.3</b> Effective interest</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-index"><i class="fa fa-check"></i><b>3.4</b> Index</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#population-index"><i class="fa fa-check"></i><b>3.5</b> Population index</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-inkomstindex"><i class="fa fa-check"></i><b>3.6</b> Income index</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-deflatera-priser-och"><i class="fa fa-check"></i><b>3.7</b> Adjust prices and wages for inflation</a></li>
+<li class="chapter" data-level="3.8" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-tillvaxt-ex1"><i class="fa fa-check"></i><b>3.8</b> Economic growth</a></li>
+<li class="chapter" data-level="3.9" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-barnadodlighet"><i class="fa fa-check"></i><b>3.9</b> Child mortality</a></li>
+<li class="chapter" data-level="3.10" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#chapter-summary-1"><i class="fa fa-check"></i><b>3.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="3.11" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#exercises-1"><i class="fa fa-check"></i><b>3.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html"><i class="fa fa-check"></i><b>4</b> Functions and graphs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#mathematical-functions"><i class="fa fa-check"></i><b>4.1</b> Mathematical functions</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-funktion-som-teori"><i class="fa fa-check"></i><b>4.2</b> Function as theory</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#coordinate-system-and-graphs"><i class="fa fa-check"></i><b>4.3</b> Coordinate system and graphs</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-den-rata-linjens"><i class="fa fa-check"></i><b>4.4</b> Equation of a straight line</a></li>
+<li class="chapter" data-level="4.5" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#solve-for-x"><i class="fa fa-check"></i><b>4.5</b> Solve for <span class="math inline">\(x\)</span></a></li>
+<li class="chapter" data-level="4.6" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-nar-ar-ekvation-linjar"><i class="fa fa-check"></i><b>4.6</b> Linear equations</a></li>
+<li class="chapter" data-level="4.7" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-lite-mangdlara"><i class="fa fa-check"></i><b>4.7</b> A bit of set theory</a></li>
+<li class="chapter" data-level="4.8" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#domain-for-a-function"><i class="fa fa-check"></i><b>4.8</b> Domain for a function</a></li>
+<li class="chapter" data-level="4.9" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-komb-funktioner-med-operationer"><i class="fa fa-check"></i><b>4.9</b> Combining functions with operations</a></li>
+<li class="chapter" data-level="4.10" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#chapter-summary-2"><i class="fa fa-check"></i><b>4.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="4.11" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#exercises-2"><i class="fa fa-check"></i><b>4.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html"><i class="fa fa-check"></i><b>5</b> Logarithms</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#base-exponent-logarithm"><i class="fa fa-check"></i><b>5.1</b> Base, exponent, logarithm</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#the-common-logarithm"><i class="fa fa-check"></i><b>5.2</b> The common logarithm</a></li>
+<li class="chapter" data-level="5.3" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmlagar"><i class="fa fa-check"></i><b>5.3</b> Properties of logarithms</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-naturliga-logaritmen"><i class="fa fa-check"></i><b>5.4</b> Natural logarithm</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-basbyte-for-logaritmer"><i class="fa fa-check"></i><b>5.5</b> Change of base for logarithms</a></li>
+<li class="chapter" data-level="5.6" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#using-natural-log-to-calculate-percentage-change"><i class="fa fa-check"></i><b>5.6</b> Using natural log to calculate percentage change</a></li>
+<li class="chapter" data-level="5.7" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-for-linjaritet"><i class="fa fa-check"></i><b>5.7</b> Logarithms for linearity</a></li>
+<li class="chapter" data-level="5.8" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-los-ut-x"><i class="fa fa-check"></i><b>5.8</b> Taking logarithms to get <span class="math inline">\(\boldsymbol{x}\)</span></a></li>
+<li class="chapter" data-level="5.9" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-linjar-ex-bnp"><i class="fa fa-check"></i><b>5.9</b> Log GDP</a></li>
+<li class="chapter" data-level="5.10" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-bnp-och-lycka"><i class="fa fa-check"></i><b>5.10</b> Using logarithms to discuss theory</a></li>
+<li class="chapter" data-level="5.11" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#chapter-summary-3"><i class="fa fa-check"></i><b>5.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="5.12" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#exercises-3"><i class="fa fa-check"></i><b>5.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html"><i class="fa fa-check"></i><b>6</b> Polynomial Equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-andragradsekvationer"><i class="fa fa-check"></i><b>6.1</b> Quadratic Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-faktorisera-andragradsekvationer"><i class="fa fa-check"></i><b>6.2</b> Factoring Equations</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-rationella-rotter"><i class="fa fa-check"></i><b>6.3</b> Rational Roots</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-pq-formeln"><i class="fa fa-check"></i><b>6.4</b> The Quadratic Formula</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-polynom-av-hogre-grad"><i class="fa fa-check"></i><b>6.5</b> Third degree and Higher</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#factorizing-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.6</b> Factorizing Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#divisions-of-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.7</b> Divisions of Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.8" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#chapter-summary-4"><i class="fa fa-check"></i><b>6.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="6.9" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#exercises-4"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html"><i class="fa fa-check"></i><b>7</b> Systems of Linear Equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#linear-system"><i class="fa fa-check"></i><b>7.1</b> Linear system</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#number-of-solutions-in-the-system"><i class="fa fa-check"></i><b>7.2</b> Number of solutions in the system</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-radreduktion"><i class="fa fa-check"></i><b>7.3</b> Row Reduction</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#taking-logarithms-in-systems-of-equations"><i class="fa fa-check"></i><b>7.4</b> Taking logarithms in systems of equations</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#three-or-more-variables"><i class="fa fa-check"></i><b>7.5</b> Three or more variables</a></li>
+<li class="chapter" data-level="7.6" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#some-more-examples"><i class="fa fa-check"></i><b>7.6</b> Some more examples</a></li>
+<li class="chapter" data-level="7.7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-bortom-trredje-dimensionen"><i class="fa fa-check"></i><b>7.7</b> Beyond the third dimension</a></li>
+<li class="chapter" data-level="7.8" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#chapter-summary-5"><i class="fa fa-check"></i><b>7.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="7.9" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#exercises-5"><i class="fa fa-check"></i><b>7.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html"><i class="fa fa-check"></i><b>8</b> Theories of life, death and dating</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#income-and-life-expectancy"><i class="fa fa-check"></i><b>8.1</b> Income and life expectancy</a></li>
+<li class="chapter" data-level="8.2" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#mathematical-adventures-in-national-income"><i class="fa fa-check"></i><b>8.2</b> Mathematical adventures in national income</a></li>
+<li class="chapter" data-level="8.3" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#a-matter-of-class"><i class="fa fa-check"></i><b>8.3</b> A matter of class</a></li>
+<li class="chapter" data-level="8.4" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-utbud-och-efterfragan"><i class="fa fa-check"></i><b>8.4</b> Supply and demand</a></li>
+<li class="chapter" data-level="8.5" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#two-types-of-cookies"><i class="fa fa-check"></i><b>8.5</b> Two types of cookies</a></li>
+<li class="chapter" data-level="8.6" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-dejting"><i class="fa fa-check"></i><b>8.6</b> Finding the one</a></li>
+<li class="chapter" data-level="8.7" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-nairu-teori"><i class="fa fa-check"></i><b>8.7</b> A theory about work</a></li>
+<li class="chapter" data-level="8.8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-extern-effekt-utslapp"><i class="fa fa-check"></i><b>8.8</b> External effects</a></li>
+<li class="chapter" data-level="8.9" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#linear-relationships-in-real-life"><i class="fa fa-check"></i><b>8.9</b> Linear relationships in real life</a></li>
+<li class="chapter" data-level="8.10" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#chapter-summary-6"><i class="fa fa-check"></i><b>8.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="8.11" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#exercises-6"><i class="fa fa-check"></i><b>8.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html"><i class="fa fa-check"></i><b>9</b> Non-linear equations in systems</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#solutions-with-non-linear-systems"><i class="fa fa-check"></i><b>9.1</b> Solutions with non-linear systems</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#substitution"><i class="fa fa-check"></i><b>9.2</b> Substitution</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#row-reduction-with-non-linear-equations"><i class="fa fa-check"></i><b>9.3</b> Row reduction with non-linear equations</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-ska-vi-borja-roka"><i class="fa fa-check"></i><b>9.4</b> Example 1: Two friends</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-2-more-smoking"><i class="fa fa-check"></i><b>9.5</b> Example 2: More smoking</a></li>
+<li class="chapter" data-level="9.6" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-3-they-call-it-love"><i class="fa fa-check"></i><b>9.6</b> Example 3: They call it love</a></li>
+<li class="chapter" data-level="9.7" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-nairu-med-flera-jamvikter"><i class="fa fa-check"></i><b>9.7</b> Example 4: Another theory about work</a></li>
+<li class="chapter" data-level="9.8" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#chapter-summary-7"><i class="fa fa-check"></i><b>9.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="9.9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#exercises-7"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-derivata.html"><a href="chap-derivata.html"><i class="fa fa-check"></i><b>10</b> Derivative</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-derivata.html"><a href="chap-derivata.html#limit"><i class="fa fa-check"></i><b>10.1</b> Limit</a></li>
+<li class="chapter" data-level="10.2" data-path="chap-derivata.html"><a href="chap-derivata.html#simplify-first"><i class="fa fa-check"></i><b>10.2</b> Simplify first</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata"><i class="fa fa-check"></i><b>10.3</b> Differentiating</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-derivata.html"><a href="chap-derivata.html#the-next-derivative"><i class="fa fa-check"></i><b>10.4</b> The next derivative</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata-exponential-e-log"><i class="fa fa-check"></i><b>10.5</b> Exponent, logarithm and <em>e</em></a></li>
+<li class="chapter" data-level="10.6" data-path="chap-derivata.html"><a href="chap-derivata.html#the-derivative-of-boldsymbollog-x"><i class="fa fa-check"></i><b>10.6</b> The derivative of <span class="math inline">\(\boldsymbol{\log x}\)</span></a></li>
+<li class="chapter" data-level="10.7" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-l-hopitals-regel"><i class="fa fa-check"></i><b>10.7</b> L’Hôpital’s rule</a></li>
+<li class="chapter" data-level="10.8" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-partiell-derivata"><i class="fa fa-check"></i><b>10.8</b> Partial derivative</a></li>
+<li class="chapter" data-level="10.9" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-rakneregler-derivata"><i class="fa fa-check"></i><b>10.9</b> Differentiation rules</a></li>
+<li class="chapter" data-level="10.10" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-elasticitet"><i class="fa fa-check"></i><b>10.10</b> Elasticity</a></li>
+<li class="chapter" data-level="10.11" data-path="chap-derivata.html"><a href="chap-derivata.html#chapter-summary-8"><i class="fa fa-check"></i><b>10.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="10.12" data-path="chap-derivata.html"><a href="chap-derivata.html#exercises-8"><i class="fa fa-check"></i><b>10.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html"><i class="fa fa-check"></i><b>11</b> Optimization with functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#extreme-values"><i class="fa fa-check"></i><b>11.1</b> Extreme values</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#differentiate-to-find-extreme-values"><i class="fa fa-check"></i><b>11.2</b> Differentiate to find extreme values</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#global-and-local"><i class="fa fa-check"></i><b>11.3</b> Global and local</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#more-examples"><i class="fa fa-check"></i><b>11.4</b> More examples</a></li>
+<li class="chapter" data-level="11.5" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#terrace"><i class="fa fa-check"></i><b>11.5</b> Terrace</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#sec-optimera-villkor-lagrange"><i class="fa fa-check"></i><b>11.6</b> Optimization with constraints</a></li>
+<li class="chapter" data-level="11.7" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#chapter-summary-9"><i class="fa fa-check"></i><b>11.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="11.8" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#exercises-9"><i class="fa fa-check"></i><b>11.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html"><i class="fa fa-check"></i><b>12</b> Theories about cake and monopoly</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#the-optimal-amount-of-cake"><i class="fa fa-check"></i><b>12.1</b> The optimal amount of cake</a></li>
+<li class="chapter" data-level="12.2" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-maximera-eriks-nytta"><i class="fa fa-check"></i><b>12.2</b> To work or not to work</a></li>
+<li class="chapter" data-level="12.3" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-den-optimala-skattenivan"><i class="fa fa-check"></i><b>12.3</b> Maximum possible tax level</a></li>
+<li class="chapter" data-level="12.4" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-konsumtion-och-sparande"><i class="fa fa-check"></i><b>12.4</b> Consumption and saving</a></li>
+<li class="chapter" data-level="12.5" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-optimering-1-ftg-perf-konk"><i class="fa fa-check"></i><b>12.5</b> A profit-maximizing company</a></li>
+<li class="chapter" data-level="12.6" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-vinstmaximering-med-villkor"><i class="fa fa-check"></i><b>12.6</b> Profit maximization with constraints</a></li>
+<li class="chapter" data-level="12.7" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopol"><i class="fa fa-check"></i><b>12.7</b> Monopoly</a></li>
+<li class="chapter" data-level="12.8" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopsoni"><i class="fa fa-check"></i><b>12.8</b> Monopsony</a></li>
+<li class="chapter" data-level="12.9" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#if-we-do-not-optimize"><i class="fa fa-check"></i><b>12.9</b> If we do not optimize</a></li>
+<li class="chapter" data-level="12.10" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#chapter-summary-10"><i class="fa fa-check"></i><b>12.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="12.11" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#exercises-10"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-integraler.html"><a href="chap-integraler.html"><i class="fa fa-check"></i><b>13</b> Integration</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap-integraler.html"><a href="chap-integraler.html#the-primitive-function"><i class="fa fa-check"></i><b>13.1</b> The primitive function</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-integraler.html"><a href="chap-integraler.html#the-meaning-of-constant-boldsymbolc"><i class="fa fa-check"></i><b>13.2</b> The meaning of constant <span class="math inline">\(\boldsymbol{C}\)</span></a></li>
+<li class="chapter" data-level="13.3" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-with-conditions"><i class="fa fa-check"></i><b>13.3</b> Primitive function with conditions</a></li>
+<li class="chapter" data-level="13.4" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-for-an-exponent"><i class="fa fa-check"></i><b>13.4</b> Primitive function for an exponent</a></li>
+<li class="chapter" data-level="13.5" data-path="chap-integraler.html"><a href="chap-integraler.html#calculate-area-with-integral"><i class="fa fa-check"></i><b>13.5</b> Calculate area with integral</a></li>
+<li class="chapter" data-level="13.6" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-under-the-x-axis"><i class="fa fa-check"></i><b>13.6</b> The area under the x-axis</a></li>
+<li class="chapter" data-level="13.7" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-between-two-lines"><i class="fa fa-check"></i><b>13.7</b> The area between two lines</a></li>
+<li class="chapter" data-level="13.8" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-rakneregler-for-integraler"><i class="fa fa-check"></i><b>13.8</b> Integration rules</a></li>
+<li class="chapter" data-level="13.9" data-path="chap-integraler.html"><a href="chap-integraler.html#more-examples-1"><i class="fa fa-check"></i><b>13.9</b> More examples</a></li>
+<li class="chapter" data-level="13.10" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-multipelintegral"><i class="fa fa-check"></i><b>13.10</b> Multiple integral</a></li>
+<li class="chapter" data-level="13.11" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-partiell-integration"><i class="fa fa-check"></i><b>13.11</b> Partial integration</a></li>
+<li class="chapter" data-level="13.12" data-path="chap-integraler.html"><a href="chap-integraler.html#income-distribution-with-integrals"><i class="fa fa-check"></i><b>13.12</b> Income distribution with integrals</a></li>
+<li class="chapter" data-level="13.13" data-path="chap-integraler.html"><a href="chap-integraler.html#chapter-summary-11"><i class="fa fa-check"></i><b>13.13</b> Chapter summary</a></li>
+<li class="chapter" data-level="13.14" data-path="chap-integraler.html"><a href="chap-integraler.html#exercises-11"><i class="fa fa-check"></i><b>13.14</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html"><i class="fa fa-check"></i><b>14</b> Linear Algebra: Vectors and Matrices</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vectors"><i class="fa fa-check"></i><b>14.1</b> Vectors</a></li>
+<li class="chapter" data-level="14.2" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vector-calculations"><i class="fa fa-check"></i><b>14.2</b> Vector calculations</a></li>
+<li class="chapter" data-level="14.3" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#more-vectors"><i class="fa fa-check"></i><b>14.3</b> More vectors</a></li>
+<li class="chapter" data-level="14.4" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-matriser"><i class="fa fa-check"></i><b>14.4</b> Matrices</a></li>
+<li class="chapter" data-level="14.5" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet"><i class="fa fa-check"></i><b>14.5</b> More matrices</a></li>
+<li class="chapter" data-level="14.6" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-multiplikation-och-transponering"><i class="fa fa-check"></i><b>14.6</b> Multiplication and transposition</a></li>
+<li class="chapter" data-level="14.7" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-determinant-matris"><i class="fa fa-check"></i><b>14.7</b> Determinant</a></li>
+<li class="chapter" data-level="14.8" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#row-reduction-in-matrix"><i class="fa fa-check"></i><b>14.8</b> Row reduction in matrix</a></li>
+<li class="chapter" data-level="14.9" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-inversen-av-matris"><i class="fa fa-check"></i><b>14.9</b> Inverse of a matrix</a></li>
+<li class="chapter" data-level="14.10" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-linjara-ekvationssystem-i-matris"><i class="fa fa-check"></i><b>14.10</b> Linear equation systems in matrix</a></li>
+<li class="chapter" data-level="14.11" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-1-a-bakery"><i class="fa fa-check"></i><b>14.11</b> Example 1: A bakery</a></li>
+<li class="chapter" data-level="14.12" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-2-input-output-analysis"><i class="fa fa-check"></i><b>14.12</b> Example 2: Input-output analysis</a></li>
+<li class="chapter" data-level="14.13" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-3-social-networks"><i class="fa fa-check"></i><b>14.13</b> Example 3: Social networks</a></li>
+<li class="chapter" data-level="14.14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#chapter-summary-12"><i class="fa fa-check"></i><b>14.14</b> Chapter summary</a></li>
+<li class="chapter" data-level="14.15" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#exercises-12"><i class="fa fa-check"></i><b>14.15</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Covariation and Causality</b></span></li>
+<li class="chapter" data-level="" data-path="part-covariation-intro.html"><a href="part-covariation-intro.html"><i class="fa fa-check"></i>Part II: Covariation and Causality</a></li>
+<li class="chapter" data-level="15" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html"><i class="fa fa-check"></i><b>15</b> Fundamental Counterfactual Analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-orsak-och-effekt"><i class="fa fa-check"></i><b>15.1</b> Cause and effect</a></li>
+<li class="chapter" data-level="15.2" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samvariation"><i class="fa fa-check"></i><b>15.2</b> Variation, Covariation and Association</a></li>
+<li class="chapter" data-level="15.3" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-observationsstudie-experiment"><i class="fa fa-check"></i><b>15.3</b> Observational Study and Experiment</a></li>
+<li class="chapter" data-level="15.4" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-population-urval-superpopulation"><i class="fa fa-check"></i><b>15.4</b> Population and Sample</a></li>
+<li class="chapter" data-level="15.5" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-information-och-variabler"><i class="fa fa-check"></i><b>15.5</b> Information and variables</a></li>
+<li class="chapter" data-level="15.6" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-olika-typer-av-data"><i class="fa fa-check"></i><b>15.6</b> Different types of data</a></li>
+<li class="chapter" data-level="15.7" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samla-in-data"><i class="fa fa-check"></i><b>15.7</b> Collecting a sample</a></li>
+<li class="chapter" data-level="15.8" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-ar-allting-osakert"><i class="fa fa-check"></i><b>15.8</b> How do we know the things we know?</a></li>
+<li class="chapter" data-level="15.9" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#exercises-13"><i class="fa fa-check"></i><b>15.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html"><i class="fa fa-check"></i><b>16</b> Variation and covariation</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-frekvensfordelning"><i class="fa fa-check"></i><b>16.1</b> Frequency Distribution</a></li>
+<li class="chapter" data-level="16.2" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-spridningsmatt-kvartiler-och"><i class="fa fa-check"></i><b>16.2</b> Measures of Central Tendency and Measures of Dispersion</a></li>
+<li class="chapter" data-level="16.3" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-varians-och-standardavvikelse"><i class="fa fa-check"></i><b>16.3</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="16.4" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-standardiserade-varden"><i class="fa fa-check"></i><b>16.4</b> Standardized values</a></li>
+<li class="chapter" data-level="16.5" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-samvariation-i-diagram"><i class="fa fa-check"></i><b>16.5</b> Covariation in graphs</a></li>
+<li class="chapter" data-level="16.6" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-kovarians"><i class="fa fa-check"></i><b>16.6</b> Covariation 1: Covariance</a></li>
+<li class="chapter" data-level="16.7" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-pearsons-r"><i class="fa fa-check"></i><b>16.7</b> Covariation 2: The correlation coefficient</a></li>
+<li class="chapter" data-level="16.8" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#chapter-summary-13"><i class="fa fa-check"></i><b>16.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="16.9" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#exercises-14"><i class="fa fa-check"></i><b>16.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap-ols.html"><a href="chap-ols.html"><i class="fa fa-check"></i><b>17</b> The Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap-ols.html"><a href="chap-ols.html#basic-logic"><i class="fa fa-check"></i><b>17.1</b> Basic logic</a></li>
+<li class="chapter" data-level="17.2" data-path="chap-ols.html"><a href="chap-ols.html#sec-minstakvadratmetoden-ols"><i class="fa fa-check"></i><b>17.2</b> Covariation with Straight Line</a></li>
+<li class="chapter" data-level="17.3" data-path="chap-ols.html"><a href="chap-ols.html#sec-regressionsanalys"><i class="fa fa-check"></i><b>17.3</b> Regression analysis</a></li>
+<li class="chapter" data-level="17.4" data-path="chap-ols.html"><a href="chap-ols.html#sec-felterm-och-residual"><i class="fa fa-check"></i><b>17.4</b> Error term and residual</a></li>
+<li class="chapter" data-level="17.5" data-path="chap-ols.html"><a href="chap-ols.html#calculating-with-least-squares"><i class="fa fa-check"></i><b>17.5</b> Calculating with Least Squares</a></li>
+<li class="chapter" data-level="17.6" data-path="chap-ols.html"><a href="chap-ols.html#other-straight-lines"><i class="fa fa-check"></i><b>17.6</b> Other straight lines</a></li>
+<li class="chapter" data-level="17.7" data-path="chap-ols.html"><a href="chap-ols.html#sec-en-linje-ar-en-linje"><i class="fa fa-check"></i><b>17.7</b> What the Line Doesn’t Tell Us</a></li>
+<li class="chapter" data-level="17.8" data-path="chap-ols.html"><a href="chap-ols.html#sec-ols-ex-2"><i class="fa fa-check"></i><b>17.8</b> Another example</a></li>
+<li class="chapter" data-level="17.9" data-path="chap-ols.html"><a href="chap-ols.html#sec-ssr-sse-sst-vilken-modell-ar-bast"><i class="fa fa-check"></i><b>17.9</b> Which model fits the data best?</a></li>
+<li class="chapter" data-level="17.10" data-path="chap-ols.html"><a href="chap-ols.html#sec-harled-ols-med-vanliga-f"><i class="fa fa-check"></i><b>17.10</b> Derivation of the Estimators</a></li>
+<li class="chapter" data-level="17.11" data-path="chap-ols.html"><a href="chap-ols.html#chapter-summary-14"><i class="fa fa-check"></i><b>17.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="17.12" data-path="chap-ols.html"><a href="chap-ols.html#exercises-15"><i class="fa fa-check"></i><b>17.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html"><i class="fa fa-check"></i><b>18</b> Covariation in Social Science</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-lever-rika-langre-kolada-inkomst-livslangd"><i class="fa fa-check"></i><b>18.1</b> GDP and Life Expectancy in different countries</a></li>
+<li class="chapter" data-level="18.2" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-ols-kolada-alla-kommuner-livslangd-inkomst"><i class="fa fa-check"></i><b>18.2</b> Covariation with a lot of countries</a></li>
+<li class="chapter" data-level="18.3" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-linjar-trend-ols-log-bnp"><i class="fa fa-check"></i><b>18.3</b> Linear trend over time</a></li>
+<li class="chapter" data-level="18.4" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-cykler-och-vagor"><i class="fa fa-check"></i><b>18.4</b> Cycles and waves</a></li>
+<li class="chapter" data-level="18.5" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-bnp-och-lycka-igen"><i class="fa fa-check"></i><b>18.5</b> Wealth and happiness</a></li>
+<li class="chapter" data-level="18.6" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-star-wars"><i class="fa fa-check"></i><b>18.6</b> Star Wars</a></li>
+<li class="chapter" data-level="18.7" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#chapter-summary-15"><i class="fa fa-check"></i><b>18.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="18.8" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#exercises-16"><i class="fa fa-check"></i><b>18.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html"><i class="fa fa-check"></i><b>19</b> Least Squares with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-ols-pa-tre-variabler"><i class="fa fa-check"></i><b>19.1</b> Regression analysis with three variables</a></li>
+<li class="chapter" data-level="19.2" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-faktorvariabler"><i class="fa fa-check"></i><b>19.2</b> Factor variables</a></li>
+<li class="chapter" data-level="19.3" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-konstanthaller"><i class="fa fa-check"></i><b>19.3</b> Ceteris paribus</a></li>
+<li class="chapter" data-level="19.4" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-minstakvadratmetoden-med-matrise"><i class="fa fa-check"></i><b>19.4</b> Least Squares with Matrices</a></li>
+<li class="chapter" data-level="19.5" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-berakna-ols-med-matriser"><i class="fa fa-check"></i><b>19.5</b> Estimation with matrices</a></li>
+<li class="chapter" data-level="19.6" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-interaktion"><i class="fa fa-check"></i><b>19.6</b> Interaction</a></li>
+<li class="chapter" data-level="19.7" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-adj-r-2"><i class="fa fa-check"></i><b>19.7</b> Adjusted <span class="math inline">\(R^{2}\)</span></a></li>
+<li class="chapter" data-level="19.8" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-omitted-variable-bias"><i class="fa fa-check"></i><b>19.8</b> If we have too few variables</a></li>
+<li class="chapter" data-level="19.9" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-overfitting"><i class="fa fa-check"></i><b>19.9</b> If we have too many variables</a></li>
+<li class="chapter" data-level="19.10" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#the-error-term-does-not-need-to-approach-zero"><i class="fa fa-check"></i><b>19.10</b> The error term does not need to approach zero</a></li>
+<li class="chapter" data-level="19.11" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#chapter-summary-16"><i class="fa fa-check"></i><b>19.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="19.12" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#exercises-17"><i class="fa fa-check"></i><b>19.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html"><i class="fa fa-check"></i><b>20</b> Regression Analysis for Causal Relationships</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#we-need-special-methods-to-study-cause-and-effect"><i class="fa fa-check"></i><b>20.1</b> We need special methods to study cause and effect</a></li>
+<li class="chapter" data-level="20.2" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#illustration-with-a-dag"><i class="fa fa-check"></i><b>20.2</b> Illustration with a DAG</a></li>
+<li class="chapter" data-level="20.3" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#both-the-presence-and-absence-of-variables-can-affect-our-results"><i class="fa fa-check"></i><b>20.3</b> Both the presence and absence of variables can affect our results</a></li>
+<li class="chapter" data-level="20.4" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-regressionsdiskontinuitet"><i class="fa fa-check"></i><b>20.4</b> Regression discontinuity</a></li>
+<li class="chapter" data-level="20.5" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-instrumentell-variabel"><i class="fa fa-check"></i><b>20.5</b> Instrumental variable</a></li>
+<li class="chapter" data-level="20.6" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-skillnad-i-skillnad"><i class="fa fa-check"></i><b>20.6</b> Difference-in-differences</a></li>
+<li class="chapter" data-level="20.7" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#pros-and-cons-with-these-methods"><i class="fa fa-check"></i><b>20.7</b> Pros and cons with these methods</a></li>
+<li class="chapter" data-level="20.8" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#causality-without-covariation"><i class="fa fa-check"></i><b>20.8</b> Causality without covariation</a></li>
+<li class="chapter" data-level="20.9" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#chapter-summary-17"><i class="fa fa-check"></i><b>20.9</b> Chapter summary</a></li>
+<li class="chapter" data-level="20.10" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#exercises-18"><i class="fa fa-check"></i><b>20.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>III Probability</b></span></li>
+<li class="chapter" data-level="" data-path="part-probability-intro.html"><a href="part-probability-intro.html"><i class="fa fa-check"></i>Part III: Probability</a></li>
+<li class="chapter" data-level="21" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html"><i class="fa fa-check"></i><b>21</b> Basic Probability Theory 1: discrete distributions</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#how-we-know-what-we-know"><i class="fa fa-check"></i><b>21.1</b> How we know what we know</a></li>
+<li class="chapter" data-level="21.2" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-random-variables"><i class="fa fa-check"></i><b>21.2</b> Random variables</a></li>
+<li class="chapter" data-level="21.3" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-multivariate-probability"><i class="fa fa-check"></i><b>21.3</b> Probability with multiple variables</a></li>
+<li class="chapter" data-level="21.4" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-expected-value-variance"><i class="fa fa-check"></i><b>21.4</b> Expected value and variance</a></li>
+<li class="chapter" data-level="21.5" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-conditional-expected-value"><i class="fa fa-check"></i><b>21.5</b> Conditional expected value</a></li>
+<li class="chapter" data-level="21.6" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-law-large-numbers"><i class="fa fa-check"></i><b>21.6</b> Law of large numbers</a></li>
+<li class="chapter" data-level="21.7" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-uniform-distribution"><i class="fa fa-check"></i><b>21.7</b> Uniform probability distributions</a></li>
+<li class="chapter" data-level="21.8" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-binomial-distribution"><i class="fa fa-check"></i><b>21.8</b> The binomial distribution</a></li>
+<li class="chapter" data-level="21.9" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-poisson-distribution"><i class="fa fa-check"></i><b>21.9</b> The Poisson distribution</a></li>
+<li class="chapter" data-level="21.10" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-ch21-summary"><i class="fa fa-check"></i><b>21.10</b> Chapter Summary</a></li>
+<li class="chapter" data-level="21.11" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#exercises-19"><i class="fa fa-check"></i><b>21.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html"><i class="fa fa-check"></i><b>22</b> Fundamental Probability Theory 2: Continuous Distributions</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-uniform-continuous"><i class="fa fa-check"></i><b>22.1</b> Uniform Continuous Probability Distributions</a></li>
+<li class="chapter" data-level="22.2" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-ev-variance-continuous"><i class="fa fa-check"></i><b>22.2</b> Expected Value and Variance for Continuous Random Variables</a></li>
+<li class="chapter" data-level="22.3" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-exponential-distribution"><i class="fa fa-check"></i><b>22.3</b> Exponential Distributions</a></li>
+<li class="chapter" data-level="22.4" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-gamma-distribution"><i class="fa fa-check"></i><b>22.4</b> From Poisson to Gamma</a></li>
+<li class="chapter" data-level="22.5" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-chi-squared-distribution"><i class="fa fa-check"></i><b>22.5</b> Chi-squared Distributions</a></li>
+<li class="chapter" data-level="22.6" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-f-distribution"><i class="fa fa-check"></i><b>22.6</b> F-distributions</a></li>
+<li class="chapter" data-level="22.7" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#chapter-summary-18"><i class="fa fa-check"></i><b>22.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="22.8" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#exercises-20"><i class="fa fa-check"></i><b>22.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html"><i class="fa fa-check"></i><b>23</b> Normal and t distributions</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability with normal variables</a></li>
+<li class="chapter" data-level="23.2" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-standard-normal"><i class="fa fa-check"></i><b>23.2</b> Standardized normal distribution</a></li>
+<li class="chapter" data-level="23.3" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-1"><i class="fa fa-check"></i><b>23.3</b> The usefulness of the normal distribution 1</a></li>
+<li class="chapter" data-level="23.4" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-2"><i class="fa fa-check"></i><b>23.4</b> The usefulness of the normal distribution 2</a></li>
+<li class="chapter" data-level="23.5" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-3-clt"><i class="fa fa-check"></i><b>23.5</b> The usefulness of the normal distribution 3</a></li>
+<li class="chapter" data-level="23.6" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-t-distribution"><i class="fa fa-check"></i><b>23.6</b> T-distribution</a></li>
+<li class="chapter" data-level="23.7" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#chapter-summary-19"><i class="fa fa-check"></i><b>23.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="23.8" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#exercises-21"><i class="fa fa-check"></i><b>23.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html"><i class="fa fa-check"></i><b>24</b> Statistical analysis and inference</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-point-estimation"><i class="fa fa-check"></i><b>24.1</b> Point estimation</a></li>
+<li class="chapter" data-level="24.2" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-standard-error"><i class="fa fa-check"></i><b>24.2</b> Standard error</a></li>
+<li class="chapter" data-level="24.3" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-confidence-interval"><i class="fa fa-check"></i><b>24.3</b> Confidence interval</a></li>
+<li class="chapter" data-level="24.4" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-hypothesis-testing"><i class="fa fa-check"></i><b>24.4</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="24.5" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-statistical-significance"><i class="fa fa-check"></i><b>24.5</b> Statistical significance, power and type errors</a></li>
+<li class="chapter" data-level="24.6" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#chapter-summary-20"><i class="fa fa-check"></i><b>24.6</b> Chapter summary</a></li>
+<li class="chapter" data-level="24.7" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#exercises-22"><i class="fa fa-check"></i><b>24.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html"><i class="fa fa-check"></i><b>25</b> Regression Analysis with Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-population-model"><i class="fa fa-check"></i><b>25.1</b> The Population Model and Statistical Tests</a></li>
+<li class="chapter" data-level="25.2" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ols-assumptions"><i class="fa fa-check"></i><b>25.2</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="25.3" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-variance"><i class="fa fa-check"></i><b>25.3</b> The Variance of the Regression Model</a></li>
+<li class="chapter" data-level="25.4" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-t-test"><i class="fa fa-check"></i><b>25.4</b> Regression analysis with t-test</a></li>
+<li class="chapter" data-level="25.5" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-coefficients"><i class="fa fa-check"></i><b>25.5</b> Regression analysis with confidence interval</a></li>
+<li class="chapter" data-level="25.6" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-line"><i class="fa fa-check"></i><b>25.6</b> Confidence Interval for the Regression Line</a></li>
+<li class="chapter" data-level="25.7" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-power-regression"><i class="fa fa-check"></i><b>25.7</b> Statistical Power in Regression</a></li>
+<li class="chapter" data-level="25.8" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-economic-significance"><i class="fa fa-check"></i><b>25.8</b> Statistical and Economic Significance</a></li>
+<li class="chapter" data-level="25.9" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#chapter-summary-21"><i class="fa fa-check"></i><b>25.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="25.10" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ch25-exercises"><i class="fa fa-check"></i><b>25.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html"><i class="fa fa-check"></i><b>26</b> Statistical Tests in Regression Analysis with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ols-assumptions-multiple"><i class="fa fa-check"></i><b>26.1</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="26.2" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-estimators-multiple"><i class="fa fa-check"></i><b>26.2</b> Estimators of the Coefficients</a></li>
+<li class="chapter" data-level="26.3" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-variance-covariance-matrix"><i class="fa fa-check"></i><b>26.3</b> The Variance-Covariance Matrix</a></li>
+<li class="chapter" data-level="26.4" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-t-test-multiple-variables"><i class="fa fa-check"></i><b>26.4</b> T-tests for Multiple Regression</a></li>
+<li class="chapter" data-level="26.5" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-f-test-regression"><i class="fa fa-check"></i><b>26.5</b> F-test for the Regression Model</a></li>
+<li class="chapter" data-level="26.6" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#chapter-summary-22"><i class="fa fa-check"></i><b>26.6</b> Chapter Summary</a></li>
+<li class="chapter" data-level="26.7" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ch26-exercises"><i class="fa fa-check"></i><b>26.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html"><i class="fa fa-check"></i><b>27</b> Conditions of the Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-gauss-markov"><i class="fa fa-check"></i><b>27.1</b> Gauss-Markov</a></li>
+<li class="chapter" data-level="27.2" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-linearity"><i class="fa fa-check"></i><b>27.2</b> Assumption 1: Linearity</a></li>
+<li class="chapter" data-level="27.3" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-iid"><i class="fa fa-check"></i><b>27.3</b> Assumption 2: Independent and Identically Distributed Observations</a></li>
+<li class="chapter" data-level="27.4" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-homoscedasticity"><i class="fa fa-check"></i><b>27.4</b> Assumption 3: Expected Value and Variance of the Error Terms</a></li>
+<li class="chapter" data-level="27.5" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-multicollinearity"><i class="fa fa-check"></i><b>27.5</b> Assumption 4: Multicollinearity</a></li>
+<li class="chapter" data-level="27.6" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-autocorrelation"><i class="fa fa-check"></i><b>27.6</b> Assumption 5: Correlation Between Residuals</a></li>
+<li class="chapter" data-level="27.7" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-normality"><i class="fa fa-check"></i><b>27.7</b> Assumption 6: Normally Distributed Error Terms</a></li>
+<li class="chapter" data-level="27.8" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-robust-se"><i class="fa fa-check"></i><b>27.8</b> Adjusted Standard Errors</a></li>
+<li class="chapter" data-level="27.9" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-summary"><i class="fa fa-check"></i><b>27.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="27.10" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-exercises"><i class="fa fa-check"></i><b>27.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Computer Programs for Social Scientists</b></span></li>
+<li class="chapter" data-level="" data-path="part-computer-programs-intro.html"><a href="part-computer-programs-intro.html"><i class="fa fa-check"></i>Part IV: Computer Programs for Social Scientists</a></li>
+<li class="chapter" data-level="28" data-path="ch-why-computers.html"><a href="ch-why-computers.html"><i class="fa fa-check"></i><b>28</b> Why Use Computers?</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-three-tools"><i class="fa fa-check"></i><b>28.1</b> Three Analytical Tools</a></li>
+<li class="chapter" data-level="28.2" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-why-programming"><i class="fa fa-check"></i><b>28.2</b> Programming: Why Bother?</a></li>
+<li class="chapter" data-level="28.3" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-practice"><i class="fa fa-check"></i><b>28.3</b> You Have to Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="ch-excel.html"><a href="ch-excel.html"><i class="fa fa-check"></i><b>29</b> Microsoft Excel</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-general"><i class="fa fa-check"></i><b>29.1</b> General about Excel</a></li>
+<li class="chapter" data-level="29.2" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-import"><i class="fa fa-check"></i><b>29.2</b> Import and edit data</a></li>
+<li class="chapter" data-level="29.3" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-functions"><i class="fa fa-check"></i><b>29.3</b> Worksheet functions</a></li>
+<li class="chapter" data-level="29.4" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-fill-cells"><i class="fa fa-check"></i><b>29.4</b> Quick ways to fill multiple cells</a></li>
+<li class="chapter" data-level="29.5" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-combining-functions"><i class="fa fa-check"></i><b>29.5</b> Combining functions within calculations</a></li>
+<li class="chapter" data-level="29.6" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-logic"><i class="fa fa-check"></i><b>29.6</b> Logic conditions</a></li>
+<li class="chapter" data-level="29.7" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-index"><i class="fa fa-check"></i><b>29.7</b> Calculate index with Excel</a></li>
+<li class="chapter" data-level="29.8" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-matrices"><i class="fa fa-check"></i><b>29.8</b> Matrix calculations</a></li>
+<li class="chapter" data-level="29.9" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-io"><i class="fa fa-check"></i><b>29.9</b> Input-output analysis</a></li>
+<li class="chapter" data-level="29.10" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-variance"><i class="fa fa-check"></i><b>29.10</b> Variance and covariance</a></li>
+<li class="chapter" data-level="29.11" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-probability"><i class="fa fa-check"></i><b>29.11</b> Probability</a></li>
+<li class="chapter" data-level="29.12" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-regression"><i class="fa fa-check"></i><b>29.12</b> Regression analysis</a></li>
+<li class="chapter" data-level="29.13" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-plots"><i class="fa fa-check"></i><b>29.13</b> Creating plots</a></li>
+<li class="chapter" data-level="29.14" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-gdp-example"><i class="fa fa-check"></i><b>29.14</b> Example with GDP per working hour</a></li>
+<li class="chapter" data-level="29.15" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-other-functions"><i class="fa fa-check"></i><b>29.15</b> Some other useful functions</a></li>
+<li class="chapter" data-level="29.16" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-summary"><i class="fa fa-check"></i><b>29.16</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="ch-stata.html"><a href="ch-stata.html"><i class="fa fa-check"></i><b>30</b> Stata</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-general"><i class="fa fa-check"></i><b>30.1</b> General info about Stata</a></li>
+<li class="chapter" data-level="30.2" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-commands"><i class="fa fa-check"></i><b>30.2</b> Commands in Stata</a></li>
+<li class="chapter" data-level="30.3" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-import"><i class="fa fa-check"></i><b>30.3</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="30.4" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-enter-data"><i class="fa fa-check"></i><b>30.4</b> Enter data manually</a></li>
+<li class="chapter" data-level="30.5" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-edit"><i class="fa fa-check"></i><b>30.5</b> Edit Columns and Rows</a></li>
+<li class="chapter" data-level="30.6" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-egen"><i class="fa fa-check"></i><b>30.6</b> The function egen</a></li>
+<li class="chapter" data-level="30.7" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-join"><i class="fa fa-check"></i><b>30.7</b> Join tables</a></li>
+<li class="chapter" data-level="30.8" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-index"><i class="fa fa-check"></i><b>30.8</b> Calculate index using Stata</a></li>
+<li class="chapter" data-level="30.9" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-mata"><i class="fa fa-check"></i><b>30.9</b> Matrix calculations and MATA</a></li>
+<li class="chapter" data-level="30.10" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-io"><i class="fa fa-check"></i><b>30.10</b> Input-output analysis</a></li>
+<li class="chapter" data-level="30.11" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-variation"><i class="fa fa-check"></i><b>30.11</b> Variation and covariance</a></li>
+<li class="chapter" data-level="30.12" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-probability"><i class="fa fa-check"></i><b>30.12</b> Probability</a></li>
+<li class="chapter" data-level="30.13" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-regression"><i class="fa fa-check"></i><b>30.13</b> Regression analysis</a></li>
+<li class="chapter" data-level="30.14" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-export"><i class="fa fa-check"></i><b>30.14</b> Export results to disk</a></li>
+<li class="chapter" data-level="30.15" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-plots"><i class="fa fa-check"></i><b>30.15</b> Creating plots</a></li>
+<li class="chapter" data-level="30.16" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-loops"><i class="fa fa-check"></i><b>30.16</b> Iterations and loops</a></li>
+<li class="chapter" data-level="30.17" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-gdp"><i class="fa fa-check"></i><b>30.17</b> Example with GDP per hour</a></li>
+<li class="chapter" data-level="30.18" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-summary"><i class="fa fa-check"></i><b>30.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="ch-r.html"><a href="ch-r.html"><i class="fa fa-check"></i><b>31</b> R</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="ch-r.html"><a href="ch-r.html#sec-r-overview"><i class="fa fa-check"></i><b>31.1</b> General Overview of R</a></li>
+<li class="chapter" data-level="31.2" data-path="ch-r.html"><a href="ch-r.html#sec-r-objects"><i class="fa fa-check"></i><b>31.2</b> R Objects</a></li>
+<li class="chapter" data-level="31.3" data-path="ch-r.html"><a href="ch-r.html#sec-r-functions"><i class="fa fa-check"></i><b>31.3</b> Functions in R</a></li>
+<li class="chapter" data-level="31.4" data-path="ch-r.html"><a href="ch-r.html#sec-r-packages"><i class="fa fa-check"></i><b>31.4</b> R Packages</a></li>
+<li class="chapter" data-level="31.5" data-path="ch-r.html"><a href="ch-r.html#sec-r-import"><i class="fa fa-check"></i><b>31.5</b> Importing Data</a></li>
+<li class="chapter" data-level="31.6" data-path="ch-r.html"><a href="ch-r.html#sec-r-data-tables"><i class="fa fa-check"></i><b>31.6</b> Working with Data Tables</a></li>
+<li class="chapter" data-level="31.7" data-path="ch-r.html"><a href="ch-r.html#sec-r-joins"><i class="fa fa-check"></i><b>31.7</b> Join Tables</a></li>
+<li class="chapter" data-level="31.8" data-path="ch-r.html"><a href="ch-r.html#sec-r-index"><i class="fa fa-check"></i><b>31.8</b> Calculate Index and Export Tables</a></li>
+<li class="chapter" data-level="31.9" data-path="ch-r.html"><a href="ch-r.html#sec-r-matrices"><i class="fa fa-check"></i><b>31.9</b> Matrix Calculations</a></li>
+<li class="chapter" data-level="31.10" data-path="ch-r.html"><a href="ch-r.html#sec-r-io"><i class="fa fa-check"></i><b>31.10</b> Input–Output Analysis</a></li>
+<li class="chapter" data-level="31.11" data-path="ch-r.html"><a href="ch-r.html#sec-r-variation"><i class="fa fa-check"></i><b>31.11</b> Variation and Covariance</a></li>
+<li class="chapter" data-level="31.12" data-path="ch-r.html"><a href="ch-r.html#sec-r-probability"><i class="fa fa-check"></i><b>31.12</b> Probability</a></li>
+<li class="chapter" data-level="31.13" data-path="ch-r.html"><a href="ch-r.html#sec-r-regression"><i class="fa fa-check"></i><b>31.13</b> Regression Analysis</a></li>
+<li class="chapter" data-level="31.14" data-path="ch-r.html"><a href="ch-r.html#sec-r-export-results"><i class="fa fa-check"></i><b>31.14</b> Export Results to Hard Drive</a></li>
+<li class="chapter" data-level="31.15" data-path="ch-r.html"><a href="ch-r.html#sec-r-plots"><i class="fa fa-check"></i><b>31.15</b> Create Plots</a></li>
+<li class="chapter" data-level="31.16" data-path="ch-r.html"><a href="ch-r.html#sec-r-loops"><i class="fa fa-check"></i><b>31.16</b> Iterations and Loops</a></li>
+<li class="chapter" data-level="31.17" data-path="ch-r.html"><a href="ch-r.html#sec-r-gdp-example"><i class="fa fa-check"></i><b>31.17</b> Example with GDP per Working Hours</a></li>
+<li class="chapter" data-level="31.18" data-path="ch-r.html"><a href="ch-r.html#sec-r-summary"><i class="fa fa-check"></i><b>31.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="ch-data-tools.html"><a href="ch-data-tools.html"><i class="fa fa-check"></i><b>32</b> Examples of Useful Data and Additional Tools</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-free-data"><i class="fa fa-check"></i><b>32.1</b> Examples of Free Data</a></li>
+<li class="chapter" data-level="32.2" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-other-tools"><i class="fa fa-check"></i><b>32.2</b> Other Tools That Are Good to Know About</a></li>
+</ul></li>
+<li class="part"><span><b>V Final Words</b></span></li>
+<li class="chapter" data-level="" data-path="part-final-words-intro.html"><a href="part-final-words-intro.html"><i class="fa fa-check"></i>Part V: Final Words</a></li>
+<li class="chapter" data-level="33" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html"><i class="fa fa-check"></i><b>33</b> Final Chapter</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-misconceptions"><i class="fa fa-check"></i><b>33.1</b> Common Misconceptions</a></li>
+<li class="chapter" data-level="33.2" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-further-reading"><i class="fa fa-check"></i><b>33.2</b> Things That Perhaps Should Have Been Included in This Book</a></li>
+<li class="chapter" data-level="33.3" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-last-word"><i class="fa fa-check"></i><b>33.3</b> The Last Word</a></li>
+</ul></li>
+<li class="divider"></li>
+<li></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Cheat Code: Essential Math and Statistics for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch-probability-discrete" class="section level1 hasAnchor" number="21">
+<h1><span class="header-section-number">Chapter 21</span> Basic Probability Theory 1: discrete distributions<a href="ch-probability-discrete.html#ch-probability-discrete" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter introduces probability theory and discrete probability distributions, which have a limited number of possible values, such as two sides of a coin or six sides of a die.</p>
+<div id="how-we-know-what-we-know" class="section level2 hasAnchor" number="21.1">
+<h2><span class="header-section-number">21.1</span> How we know what we know<a href="ch-probability-discrete.html#how-we-know-what-we-know" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In chapter <a href="chap-kontrafaktisk-analys.html#chap-kontrafaktisk-analys">15</a> we introduced experiments and quasi-experiments as well as how to use treatment and control groups to study causal relationships and effects. Say we design an experiment where we want to study the effects of a medicine and have two patients at our disposal. One patient receives the medicine (treatment) and the other receives no medicine (control). Since we are only comparing two people, there is a high risk that the study’s results could just as well be a result of chance. One way to reduce the risk of random results is to use more observations. But even with a large number of observations, we cannot be completely certain that the results are not just as well a result of chance. In this part of the book we will go through how we may work with this type of question using probability theory and mathematical calculations.</p>
+<p>Even in our daily lives we use probability in some sense to draw conclusions. Based on previous observations, we often have a feeling for various forms of more or less likely results. In many situations we believe we are more certain of our position precisely because we have observed corresponding phenomena many times before. Our everyday reasoning ability is biased and easily confuses facts and fantasy. Our daily life is also full of unique situations where we cannot repeat exactly the same situation, but must make a subjective assessment from case to case based on previous experience and information.</p>
+</div>
+<div id="sec-random-variables" class="section level2 hasAnchor" number="21.2">
+<h2><span class="header-section-number">21.2</span> Random variables<a href="ch-probability-discrete.html#sec-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In previous chapters we have worked with variables defined by a mathematical function over a domain, for example the function <span class="math inline">\(y=x^{2}\)</span> defined over all real numbers. We have worked with data variables consisting of collected information, observations. When we went through regression analysis in section <a href="chap-ols.html#sec-regressionsanalys">17.3</a> we worked with variables that we predicted using regression models.</p>
+<p>When we are now going to work with probability and chance we will use random variables. A random variable is a variable whose results are affected by a random process. For example, when I go to the bus in the morning I do not know exactly how many other passengers will ride the same bus as me. The buses run frequently and the number of passengers varies for each trip from zero to around 50 passengers.</p>
+<p>Random variables are defined by mathematical functions that describe the probability for the values (outcomes) that the variable can assume. Say for example that we have a variable <span class="math inline">\(M\)</span> that can assume two different values: the number 1 or 2. These values are the sample space for variable <span class="math inline">\(M\)</span>: <span class="math inline">\(\left\{ 1,2\right\}\)</span>. The probability for each outcome is 50%. We describe <span class="math inline">\(M\)</span> with the probability function <span class="math inline">\(P\left(M\right)\)</span>, where the function is called <span class="math inline">\(P\)</span> after the word probability:</p>
+<p><span class="math display" id="eq:coin-flip">\[\begin{equation}
+\begin{aligned}
+P\left(M=1\right) &amp; =\frac{1}{2}=0.5=50\%\\
+P\left(M=2\right) &amp; =\frac{1}{2}
+\end{aligned}
+\tag{21.1}
+\end{equation}\]</span></p>
+<p>The total probability for the two possible outcomes in <span class="math inline">\(M\)</span> is <span class="math inline">\(0.5 + 0.5 = 1\)</span>, that is 100%. Equation <a href="ch-probability-discrete.html#eq:coin-flip">(21.1)</a> is an example of a probability distribution. We say that the variable <span class="math inline">\(M\)</span> follows a discrete probability distribution, since the distribution has a limited number of outcomes. An experiment, or trial, is called the process that leads to an outcome. An event refers to one or several outcomes, a subset of the sample space.</p>
+<p>A continuous probability distribution has an infinite number of outcomes within one or several intervals. Say for example that a random variable <span class="math inline">\(X\)</span> can assume all possible decimals between 0 and 1 (the sample space) with the same probability. Theoretically, <span class="math inline">\(X\)</span> can assume the value 0.23 with the same probability as 0.9999345. There are infinitely many decimals and therefore infinitely many outcomes. Since there are infinitely many outcomes, the probability, mathematically, for each specific value approaches 0. For a continuously random variable we therefore instead calculate the probability for an interval of outcomes. For example, there is a 50% probability for the event that <span class="math inline">\(X\)</span> assumes a value between 0 and 0.5 and 50% probability that <span class="math inline">\(X\)</span> assumes a value between 0.5 and 1.</p>
+<p>There are infinitely many probability distributions. As long as we can come up with a new description of a probability distribution, it exists. Say now that we have a six-sided die <span class="math inline">\(T\)</span> with the numbers 1 to 6 and that each side has an equal probability of coming up, one sixth, <span class="math inline">\(\frac{1}{6}\)</span>. The probability for the different outcomes can be described:</p>
+<p><span class="math display">\[\begin{equation}
+P\left(T=t\right)=\begin{cases}
+\frac{1}{6} &amp; t=1,2,3,4,5,6\\
+0 &amp; \text{otherwise}
+\end{cases}
+\end{equation}\]</span></p>
+<p>The total probability for all outcomes is <span class="math inline">\(\frac{1}{6}\cdot6=1=100\%\)</span>. Suppose we instead have a six-sided die <span class="math inline">\(X_{2}\)</span> with the integers 1 to 6, which is unbalanced in such a way that the probability for outcome 3 is <span class="math inline">\(\frac{2}{7}\)</span> while the probability for each other outcome is <span class="math inline">\(\frac{1}{7}\)</span>. The number 7 in the denominator is not the number of sides on the die but follows from the variable’s probability distribution. Variable <span class="math inline">\(X_{2}\)</span> can be summarized as:</p>
+<p><span class="math display" id="eq:weighted-die">\[\begin{equation}
+P\left(X_{2}=x\right)=\begin{cases}
+\frac{1}{7} &amp; x=1,2,4,5,6\\
+\frac{2}{7} &amp; x=3\\
+0 &amp; \text{otherwise}
+\end{cases}
+\tag{21.2}
+\end{equation}\]</span></p>
+<p>Let us now assume that we have two six-sided perfectly balanced dice, one red and one black with the numbers 1 to 6. The probability for each unique result with <span class="math inline">\(t\)</span> number of perfectly balanced six-sided dice can generally be described as <span class="math inline">\(\left(\frac{1}{6}\right)^{t}=\frac{1}{6^{t}}\)</span>. With one die the probability for each result is 1/6. With two dice it is <span class="math inline">\(1/6^{2}=1/36\)</span>. With two dice there are 36 possible combinations. The probability that we get the point sum 2 is the same as the point sum 12: 1/36. With three dice <span class="math inline">\(1/6^{3}=1/216\)</span>.</p>
+<div class="figure"><span style="display:block;" id="fig:tva-tarningar"></span>
+<img src="21-probability-discrete_files/figure-html/tva-tarningar-1.png" alt="Number of cases and result sum for two dice" width="768" />
+<p class="caption">
+Figure 21.1: Number of cases and result sum for two dice
+</p>
+</div>
+<p>Now we will calculate the probability for the total point sum for the two dice, which we call variable <span class="math inline">\(Z\)</span>. Figure <a href="ch-probability-discrete.html#fig:tva-tarningar">21.1</a> illustrates this with a table of all 36 possible point combinations (left) and a graph showing the number of combinations per point sum from 2 to 12 (right). The probability for outcome <span class="math inline">\(Z=3\)</span> is 2/36, which we see by adding together the probability for each unique result that gives this point sum, <span class="math inline">\(\left(\text{red},\text{black}\right)=\left(1,2\right)\)</span> and <span class="math inline">\(\left(2,1\right)\)</span>. The result that red die = 1 and black die = 2 is considered the same result as red die = 2 and black = 1:</p>
+<p><span class="math display">\[\begin{equation}
+P\left(Z=3\right)=\frac{1}{36}+\frac{1}{36}=\frac{2}{36}
+\end{equation}\]</span></p>
+<p>Outcome 7 is given by most combinations: <span class="math inline">\(\left(1,6\right),\left(6,1\right),\left(2,5\right),\left(5,2\right),\left(3,4\right)\)</span> and <span class="math inline">\(\left(4,3\right)\)</span>. This outcome therefore has the highest probability:</p>
+<p><span class="math display">\[P\left(Z=7\right) =\frac{1+1+1+1+1+1}{36}=\frac{6}{36}=\frac{1}{6}\]</span></p>
+<p>The probability of getting 3 points or less with the two dice, <span class="math inline">\(Z\leq3\)</span>, can be calculated in the following way. There are three squares out of 36 possible for this result and the probability can therefore be calculated as:</p>
+<p><span class="math display">\[P\left(Z\leq3\right) =P\left(2\right)+P\left(3\right)=\frac{1}{36}+\frac{2}{36}=\frac{3}{36}=\frac{1}{12}\]</span></p>
+</div>
+<div id="sec-multivariate-probability" class="section level2 hasAnchor" number="21.3">
+<h2><span class="header-section-number">21.3</span> Probability with multiple variables<a href="ch-probability-discrete.html#sec-multivariate-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If we are to calculate the probability for an outcome with regard to multiple random variables, this is called a multivariate probability distribution. If we only have two variables in the probability distribution it is called a bivariate probability distribution. There are several ways that variables can interact in probability. Here are examples of simultaneous and conditional probability.</p>
+<p><strong>Simultaneous probability:</strong> Suppose we have two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The outcome in the two variables is determined simultaneously, at the same time, and do not affect each other. Say for example that we roll two dice where the result of one die does not affect the other and we are interested in the dice’s total point sum.</p>
+<p><strong>Conditional probability:</strong> Conditional probability describes the probability that a variable <span class="math inline">\(X\)</span> assumes a value <span class="math inline">\(x\)</span>, given that another random variable <span class="math inline">\(Y\)</span> assumes a value <span class="math inline">\(y\)</span>, which can be written: <span class="math inline">\(P\left(X=x|Y=y\right)\)</span>. Say for example that we are to choose a ball at random from one hundred balls, of which 80 are red and 20 are yellow. Half of the balls of each color are hollow and half are filled, see Table <a href="ch-probability-discrete.html#tab:balls-table">21.1</a>. The probability of getting a red ball is 80/100=4/5 and a yellow ball 20/100=1/5. The probability for hollow or filled is 1/2 regardless of color. If <span class="math inline">\(X\)</span> = color and <span class="math inline">\(Y\)</span> = hollow/filled then the probability of getting a red ball, given that the ball is hollow:</p>
+<p><span class="math display">\[P\left(X=\text{red}|Y=\text{hollow}\right) =\frac{40}{50}=\frac{4}{5}\]</span></p>
+<p>We divide the number of red hollow balls <span class="math inline">\(\left(40\right)\)</span> by the number of hollow balls in total <span class="math inline">\(\left(50\right)\)</span>. The probability that a ball is filled, given that it is yellow is:</p>
+<p><span class="math display">\[P\left(Y=\text{filled}|X=\text{yellow}\right) =\frac{10}{20}=\frac{1}{2}\]</span></p>
+<table>
+<caption><span id="tab:balls-table">Table 21.1: </span>Three types of balls</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Filled</th>
+<th align="center">Hollow</th>
+<th align="center">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Red</td>
+<td align="center">40</td>
+<td align="center">40</td>
+<td align="center">80</td>
+</tr>
+<tr class="even">
+<td align="left">Yellow</td>
+<td align="center">10</td>
+<td align="center">10</td>
+<td align="center">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Sum</td>
+<td align="center">50</td>
+<td align="center">50</td>
+<td align="center">100</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec-expected-value-variance" class="section level2 hasAnchor" number="21.4">
+<h2><span class="header-section-number">21.4</span> Expected value and variance<a href="ch-probability-discrete.html#sec-expected-value-variance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a random variable we cannot estimate (calculate) a mean in the way that we do for a collection of discrete values, such as a collection of numbers. Instead we use what is called expected value, also called expectation value. Expected value is a generalization of the weighted mean. The expected value for a random variable is the sum of each outcome multiplied by its probability:</p>
+<p><span class="math display" id="eq:expected-value">\[\begin{equation}
+E\left(M\right)=\sum_{i}^{n}m_{i}P\left(m_{i}\right)
+\tag{21.3}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(E\left(\right)\)</span> is called the expected value function, which can also be written <span class="math inline">\(E\left[M\right]\)</span>, <span class="math inline">\(\mathbb{E}\left(M\right)\)</span> or <span class="math inline">\(EM\)</span>. In section <a href="chap-variation-och-samvariation.html#sec-varians-och-standardavvikelse">16.3</a> we introduced the population mean <span class="math inline">\(\mu\)</span>. The expected value for population <span class="math inline">\(X\)</span> is <span class="math inline">\(E\left(X\right)=\mu_{X}\)</span>. For variable <span class="math inline">\(M\)</span> that has outcomes 1 and 2 each with 0.5 probability, the expected value is:</p>
+<p><span class="math display">\[E\left(M\right) =m_{1}\cdot P\left(m_{1}\right)+m_{2}\cdot P\left(m_{2}\right)=1\cdot0.5+2\cdot0.5=1.5\]</span></p>
+<p>Suppose we instead have a random variable <span class="math inline">\(H\)</span> with outcomes 1 and 2 with 75% and 25% probability respectively. The expected value then becomes:</p>
+<p><span class="math display">\[E\left(H\right) =1\cdot0.75+2\cdot0.25=1.25\]</span></p>
+<p>The expected value function <span class="math inline">\(E\left(\right)\)</span> is a linear function, which can be described as that given that we have the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the following applies:</p>
+<p><span class="math display" id="eq:exp-linearity">\[\begin{equation}
+E\left(X+Y\right)=E\left(X\right)+E\left(Y\right)
+\tag{21.4}
+\end{equation}\]</span></p>
+<p>If we have two six-sided perfectly balanced dice <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, each with the possible outcomes 1 to 6 where each outcome has 1/6 probability, then the expected value <span class="math inline">\(E\left(X\right)=E\left(Y\right)=3.5\)</span>. The expected value for <span class="math inline">\(X\)</span> plus the expected value for <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display" id="eq:exp-two-dice">\[\begin{equation}
+E\left(X\right)+E\left(Y\right)=3.5+3.5=7
+\tag{21.5}
+\end{equation}\]</span></p>
+<p>Let us call the point sum for the two dice <span class="math inline">\(Z\)</span>. Its expected value is given by:</p>
+<p><span class="math display">\[E\left(Z\right) =\frac{2+6+12+20+30+42+40+36+30+22+12}{36}=7\]</span></p>
+<p>When we added the expected value for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> we got result 7, in equation <a href="ch-probability-discrete.html#eq:exp-two-dice">(21.5)</a>. Another way to write this is the following:</p>
+<p><span class="math display">\[E\left(Z\right)=E\left(X+Y\right)=E\left(X\right)+E\left(Y\right)=7\]</span></p>
+<p>Compare equation <a href="ch-probability-discrete.html#eq:exp-linearity">(21.4)</a>. The linearity of expected value also has significance when we multiply a random variable by a constant. Say for example that we have an arbitrary constant <span class="math inline">\(a\)</span>. If we multiply the expected value <span class="math inline">\(E\left(X\right)\)</span> by <span class="math inline">\(a\)</span> this is the same thing as <span class="math inline">\(a\)</span> multiplied by each individual value in variable <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display" id="eq:exp-constant">\[\begin{equation}
+E\left(aX\right)=aE\left(X\right)
+\tag{21.6}
+\end{equation}\]</span></p>
+<p>If we instead add a constant <span class="math inline">\(b\)</span> we may also move this out of the expected value function, as <span class="math inline">\(E\left(aX+b\right)=aE\left(X\right)+b\)</span>. In section <a href="chap-variation-och-samvariation.html#sec-varians-och-standardavvikelse">16.3</a> we defined variance for population and sample. For a random discrete variable <span class="math inline">\(X\)</span> variance can be defined as:</p>
+<p><span class="math display">\[\text{var}\left(X\right)=\sum_{i}^{n}\left(x_{i}-\mu_{X}\right)^{2}P\left(x_{i}\right)\]</span></p>
+<p>where <span class="math inline">\(\mu_{X}=E\left(X\right)\)</span> and <span class="math inline">\(P\left(x_{i}\right)\)</span> is the probability for each value <span class="math inline">\(x_{i}\)</span>. The expected value we defined in equation <a href="ch-probability-discrete.html#eq:expected-value">(21.3)</a> as <span class="math inline">\(E\left(X\right)=\sum_{i}^{n}x_{i}P\left(x_{i}\right)\)</span>. For a probability distribution where all values have the probability <span class="math inline">\(\frac{1}{n}\)</span> and <span class="math inline">\(n\)</span> is the number of observations, the variance is:</p>
+<p><span class="math display">\[\text{var}\left(X\right)=\frac{1}{n}\sum_{i}^{n}\left(x_{i}-\mu_{X}\right)^{2}\]</span></p>
+<p>This can for example describe the variance for a perfectly balanced six-sided die where all values have the probability <span class="math inline">\(\frac{1}{6}\)</span>. We will now see how variance and expected value are connected. We remove the parentheses and move in the summation <span class="math inline">\(\sum_{i}^{n}\)</span>. Since <span class="math inline">\(\mu_{X}\)</span> is a constant we can move this out of the summation:</p>
+<p><span class="math display">\[\text{var}\left(X\right) =\sum_{i}^{n}x_{i}^{2}P\left(x_{i}\right)-2\mu_{X}\sum_{i}^{n}x_{i}P\left(x_{i}\right)+\mu_{X}^{2}\sum_{i}^{n}P\left(x_{i}\right)\]</span></p>
+<p>The expression <span class="math inline">\(\sum_{i}^{n}x_{i}P\left(x_{i}\right)\)</span> is the same as the expected value <span class="math inline">\(E\left(X\right)\)</span> and <span class="math inline">\(\mu_{X}\)</span> (see equation <a href="ch-probability-discrete.html#eq:expected-value">(21.3)</a>). The expression <span class="math inline">\(\sum_{i}^{n}x_{i}^{2}P\left(x_{i}\right)\)</span> can also be written <span class="math inline">\(E\left(X^{2}\right)\)</span>. The sum of probabilities for all possible outcomes is by definition <span class="math inline">\(\sum_{i}^{n}P\left(x_{i}\right)=1\)</span>, that is 100%. Based on this we now write:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{aligned}
+\text{var}\left(X\right) &amp;=E\left(X^{2}\right)-2\mu_{X}^{2}+\mu_{X}^{2}\\
+&amp;=E\left(X^{2}\right)-\mu_{X}^{2}
+\end{aligned}
+\end{equation}\]</span></p>
+<p>Since <span class="math inline">\(E\left(X\right)=\mu_{X}\)</span> we write:</p>
+<p><span class="math display" id="eq:variance-expected">\[\begin{equation}
+\text{var}\left(X\right)=E\left(X^{2}\right)-\left(E\left(X\right)\right)^{2}
+\tag{21.7}
+\end{equation}\]</span></p>
+<p>Note that <span class="math inline">\(E\left(X^{2}\right)\)</span> is the expected value of <span class="math inline">\(X^{2}\)</span>, while <span class="math inline">\(\left(E\left(X\right)\right)^{2}\)</span> is the expected value <span class="math inline">\(E\left(X\right)\)</span> squared. Variance can also be expressed as the expected value:</p>
+<p><span class="math display" id="eq:variance-expected2">\[\begin{equation}
+\text{var}\left(X\right)=E\left(X-\mu_{X}\right)^{2}
+\tag{21.8}
+\end{equation}\]</span></p>
+<p>One way to think about the meaning of this expression is that variance is a value (a constant) that describes the spread in a variable. The expected value describes this spread in a random variable’s population. To see that equation <a href="ch-probability-discrete.html#eq:variance-expected">(21.7)</a> and <a href="ch-probability-discrete.html#eq:variance-expected2">(21.8)</a> are the same thing we write:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{aligned}
+\text{var}\left(x\right) &amp;=E\left(X-\mu_{X}\right)^{2}\\
+&amp;=E\left(X-E\left(X\right)\right)^{2}\\
+&amp;=E\left(X^{2}-2XE\left(X\right)+E\left(X\right)^{2}\right)\\
+&amp;=E\left(X^{2}\right)-2E\left(X\right)E\left(X\right)+E\left(X\right)^{2}\\
+&amp;=E\left(X^{2}\right)-\left(E\left(X\right)\right)^{2}
+\end{aligned}
+\end{equation}\]</span></p>
+<p>If we now have <span class="math inline">\(\text{var}\left(aX+b\right)\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants we get:</p>
+<p><span class="math display">\[\text{var}\left(aX+b\right)=a^{2}\text{var}\left(X\right)\]</span></p>
+<p>That is, a constant <span class="math inline">\(a\)</span> that is multiplied by the random variable can be moved out of the variance function <span class="math inline">\(\text{var}\left(\right)\)</span> and multiplied by itself. The second constant <span class="math inline">\(b\)</span> disappears. The positive square root of the variance for <span class="math inline">\(X\)</span> is also in this case the standard deviation and can be written <span class="math inline">\(\sigma_{x}=s\left(x\right)=\sqrt{\text{var}\left(x\right)}\)</span>, where <span class="math inline">\(\sigma\)</span> represents the variance in the population (a constant). For standard deviation it applies that:</p>
+<p><span class="math display" id="eq:sd-linear">\[\begin{equation}
+s\left(aX+b\right)=\left|a\right|s\left(X\right)
+\tag{21.9}
+\end{equation}\]</span></p>
+<p>which means that if we multiply a random variable <span class="math inline">\(X\)</span> by a constant <span class="math inline">\(a\)</span> then its variance and standard deviation are multiplied, but it does not change the form of the spread.</p>
+</div>
+<div id="sec-conditional-expected-value" class="section level2 hasAnchor" number="21.5">
+<h2><span class="header-section-number">21.5</span> Conditional expected value<a href="ch-probability-discrete.html#sec-conditional-expected-value" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The expected value for a variable can also depend on the outcome of another variable. This is called conditional expected value. If the outcome of variable <span class="math inline">\(Y\)</span> depends on variable <span class="math inline">\(X\)</span>, the conditional expected value for <span class="math inline">\(Y\)</span>, given <span class="math inline">\(X\)</span> can be written:</p>
+<p><span class="math display">\[E\left(Y|X\right)=\sum_{i}y_{i}P\left(Y|X\right)\]</span></p>
+<p>Say for example that random variable <span class="math inline">\(Y\)</span> is a perfectly balanced six-sided die, values 1 to 6, probability <span class="math inline">\(\frac{1}{6}\)</span>. Random variable <span class="math inline">\(X\)</span> is a perfectly balanced coin with sample space 1 or 2 with probability <span class="math inline">\(\frac{1}{2}\)</span>. If <span class="math inline">\(X=1\)</span> the values for <span class="math inline">\(Y\)</span> are 1 to 6. If <span class="math inline">\(X=2\)</span> we add 10 to the value for <span class="math inline">\(Y\)</span>, which is why <span class="math inline">\(Y=11\)</span> to 16. The sample space for the two variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> together: <span class="math inline">\(\left\{ 1,2,3,4,5,6,11,12,13,14,15,16\right\}\)</span>. The conditional expected value for variable <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=1\)</span> and <span class="math inline">\(X=2\)</span> can be written:</p>
+<p><span class="math display">\[E\left(Y|X=1\right)=3.5 \qquad E\left(Y|X=2\right)=13.5\]</span></p>
+<p>The conditional expected value <span class="math inline">\(Y\)</span> of <span class="math inline">\(X\)</span> is its own random variable with its own probability distribution for the sample space with integers 1 to 6 and integers 11 to 16. The <strong>law of total expectation</strong> is a useful rule. For the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> this can be formulated:</p>
+<p><span class="math display" id="eq:law-total-expectation">\[\begin{equation}
+E\left(E\left(Y|X\right)\right)=E\left(Y\right)
+\tag{21.10}
+\end{equation}\]</span></p>
+<p>The expected value of the conditional expected value <span class="math inline">\(E\left(Y|X\right)\)</span> is the same as the expected value <span class="math inline">\(E\left(Y\right)\)</span>. We illustrate using the coin <span class="math inline">\(X\)</span> and the die <span class="math inline">\(Y\)</span> from the previous example. The law of total expectation gives:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{aligned}
+E\left(E\left(Y|X\right)\right) &amp;= E\left(Y|X=1\right)P\left(X=1\right)+E\left(Y|X=2\right)P\left(X=2\right)\\
+&amp;=3.5\cdot\frac{1}{2}+13.5\cdot\frac{1}{2}\\
+&amp;=8.5
+\end{aligned}
+\end{equation}\]</span></p>
+<p>The conditional expected value function also has the following property:</p>
+<p><span class="math display">\[E\left(XY|X\right)=XE\left(Y|X\right)\]</span></p>
+<p>where <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables. The equation means that the expected value of <span class="math inline">\(X\)</span> times <span class="math inline">\(Y\)</span> conditional on <span class="math inline">\(X\)</span> is the same thing as <span class="math inline">\(X\)</span> times the expected value of <span class="math inline">\(Y\)</span> conditional on <span class="math inline">\(X\)</span>. To see this we write:</p>
+<p><span class="math display">\[E\left(XY|X\right)=\sum_{i}xy_{i}P\left(Y|X\right)=x\sum_{i}y_{i}P\left(Y|X\right)=XE\left(Y|X\right)\]</span></p>
+</div>
+<div id="sec-law-large-numbers" class="section level2 hasAnchor" number="21.6">
+<h2><span class="header-section-number">21.6</span> Law of large numbers<a href="ch-probability-discrete.html#sec-law-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The more experiments that are conducted with a random variable, the greater the probability that the results approach the population value. This also means that the larger sample we take, the greater the probability that an estimated mean corresponds with the population’s expected value. This is called the law of large numbers.</p>
+<p>We illustrate this with a random variable where the possible outcomes are integers 1 to 6 and where each outcome has the probability 1/6, which is why the expected value is 3.5 (like a six-sided perfectly balanced die). We let the computer choose an integer randomly between 1 and 6. Then choose two values and calculate the mean for these, then three values and so on until we have 1,000 means, where the last mean is calculated from 1,000 randomly created integers between 1 and 6.</p>
+<div class="figure"><span style="display:block;" id="fig:dicemeans"></span>
+<img src="21-probability-discrete_files/figure-html/dicemeans-1.png" alt="Law of large numbers: simulated means from a die (values 1–6) for increasing sample sizes. The dashed line marks the expected value 3.5." width="672" />
+<p class="caption">
+Figure 21.2: Law of large numbers: simulated means from a die (values 1–6) for increasing sample sizes. The dashed line marks the expected value 3.5.
+</p>
+</div>
+<p>Figure <a href="ch-probability-discrete.html#fig:dicemeans">21.2</a> illustrates the 1,000 results in two graphs, where the left graph only illustrates the first ten means and the right graph shows all calculated results, including those visible in the left graph. On the horizontal x-axis in both graphs the number of random values used to calculate the mean at that point is described. The point furthest to the right in the right graph is the mean of 1,000 randomly chosen integers between 1 and 6. Exactly as the law of large numbers predicts, these means approach the expected value 3.5.</p>
+<p>More formally, the law of large numbers can be formulated in the following way: suppose we have an infinite sequence of random variables <span class="math inline">\(X_{1},X_{2},...,X_{n}\)</span> that have the same expected value <span class="math inline">\(\mu\)</span>:</p>
+<p><span class="math display">\[E\left(X_{1}\right)=E\left(X_{2}\right)=\cdots=\mu\]</span></p>
+<p>The mean for <span class="math inline">\(n\)</span> of these variables is:</p>
+<p><span class="math display">\[\bar{X}_{n}=\frac{1}{n}\sum_{i}^{n}X_{i}\]</span></p>
+<p>The law of large numbers can then be expressed as that the following limit value is 1 when <span class="math inline">\(n\)</span> approaches infinity:</p>
+<p><span class="math display" id="eq:law-large-numbers">\[\begin{equation}
+\lim_{n\rightarrow\infty}P\left(\left|\bar{X}_{n}-\mu\right|&lt;\epsilon\right)=1
+\tag{21.11}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\left|\bar{X}_{n}-\mu\right|\)</span> is the absolute value of the mean <span class="math inline">\(\bar{X}_{n}\)</span> minus the expected value <span class="math inline">\(\mu\)</span>. The function <span class="math inline">\(P\left(\right)\)</span> describes the probability for an outcome. The term <span class="math inline">\(\epsilon\)</span> is an arbitrary positive value, for example a very low value close to 0. The entire equation can be read as that the probability that <span class="math inline">\(\left|\bar{X}_{n}-\mu\right|\)</span> is less than <span class="math inline">\(\epsilon\)</span> approaches 100% when the number of random variables <span class="math inline">\(X_{i}\)</span> grows to infinity, that is <span class="math inline">\(n\rightarrow\infty\)</span>.</p>
+<p>Another way to describe this is that the difference between <span class="math inline">\(\bar{X}_{n}\)</span> and <span class="math inline">\(\mu\)</span> approaches 0 and this difference will be less than the low value <span class="math inline">\(\epsilon\)</span>. The definition in equation <a href="ch-probability-discrete.html#eq:law-large-numbers">(21.11)</a> is called the law of large numbers in weak form. The law of large numbers in strong form can be formulated:</p>
+<p><span class="math display">\[P\left(\lim_{n\rightarrow\infty}\bar{X}_{n}=\mu\right)=1\]</span></p>
+<p>This should be read as that the mean <span class="math inline">\(\bar{X}_{n}\)</span> instead becomes equal to the expected value <span class="math inline">\(\mu\)</span> when <span class="math inline">\(n\)</span> approaches infinity. The probability for this, <span class="math inline">\(P\left(\right)\)</span>, is equal to 1, that is 100%.</p>
+</div>
+<div id="sec-uniform-distribution" class="section level2 hasAnchor" number="21.7">
+<h2><span class="header-section-number">21.7</span> Uniform probability distributions<a href="ch-probability-discrete.html#sec-uniform-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have now in different examples used the probability function <span class="math inline">\(P\left(\right)\)</span> to describe the probability for specific outcomes. For a random variable <span class="math inline">\(M\)</span> we will now clarify that when we want to define the probability for a specific value we use the function <span class="math inline">\(f\left(M\right)\)</span>. The two functions <span class="math inline">\(f\)</span> and <span class="math inline">\(P\)</span> describe the same thing so far:</p>
+<p><span class="math display">\[f\left(m\right)=P\left(M=m\right)\]</span></p>
+<p>For discrete probability distributions the probability function <span class="math inline">\(f\)</span> is called probability mass function, PMF. In equation <a href="ch-probability-discrete.html#eq:expected-value">(21.3)</a> we described the expected value for a random discrete variable as possible outcomes multiplied by the probability for these. If we instead of the probability function <span class="math inline">\(P\)</span> use <span class="math inline">\(f\)</span>, the expected value for random variable <span class="math inline">\(M\)</span> can be written:</p>
+<p><span class="math display" id="eq:expected-value-pmf">\[\begin{equation}
+E\left(M\right)=\sum_{i}^{n}m_{i}f\left(m_{i}\right)
+\tag{21.12}
+\end{equation}\]</span></p>
+<p>Now we will introduce what is called the cumulative distribution function (CDF), or just the distribution function. The distribution function describes the probability that a random variable assumes a value within a specific interval. Here too we use the probability function <span class="math inline">\(P\left(\right)\)</span> to for example describe the probability that random variable <span class="math inline">\(M\)</span> assumes a value equal to or less than the value <span class="math inline">\(m\)</span>, which we describe as <span class="math inline">\(P\left(M\leq m\right)\)</span>. We call the distribution function <span class="math inline">\(F\)</span>:</p>
+<p><span class="math display">\[F\left(m\right)=P\left(M\leq m\right)\]</span></p>
+<p>Say now that we have a random variable <span class="math inline">\(X\)</span> with sample space <span class="math inline">\(\left\{ 1,2,3,4,5,6\right\}\)</span>, where each outcome has the probability <span class="math inline">\(\frac{1}{6}\)</span>:</p>
+<p><span class="math display" id="eq:pmf-die">\[\begin{equation}
+f\left(x\right)=P\left(X=x\right)=\begin{cases}
+\frac{1}{6} &amp; x=1,2,3,4,5,6\\
+0 &amp; \text{otherwise}
+\end{cases}
+\tag{21.13}
+\end{equation}\]</span></p>
+<p>The first row in the probability function describes the probability 1/6 for integers 1 to 6. The second row describes that for all other outcomes the probability is 0. <span class="math inline">\(X\)</span> follows a uniform discrete probability distribution. The distribution is uniform because each outcome has the same probability. The distribution is discrete because there are a limited number of possible outcomes. That variable <span class="math inline">\(X\)</span> follows a uniform probability distribution can be described with the following expression:</p>
+<p><span class="math display">\[X\sim U\left(a,b\right)\]</span></p>
+<p>where tilde <span class="math inline">\(\sim\)</span> describes that <span class="math inline">\(X\)</span> follows the probability distribution <span class="math inline">\(U\)</span>, which is an abbreviation for uniform probability distribution. The letters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> indicate the limits for the interval of the distribution’s possible values. In this case <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=6\)</span>, which is why <span class="math inline">\(X\sim U\left(1,6\right)\)</span>. For a discrete variable that follows a uniform probability distribution, the distribution function can be described generally as:</p>
+<p><span class="math display" id="eq:cdf-uniform">\[\begin{equation}
+F\left(x\right)=P\left(X\leq x\right)=\frac{x-a+1}{b-a+1},\quad x=a,a+1,\ldots,b
+\tag{21.14}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the lowest and highest integer that <span class="math inline">\(X\)</span> can assume, that is 1 and 6 respectively. The distribution function for <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display" id="eq:cdf-die">\[\begin{equation}
+F\left(x\right)=P\left(X\leq x\right)=\frac{x}{6},\quad x=1,2,3,4,5,6
+\tag{21.15}
+\end{equation}\]</span></p>
+<p>For example, this means that <span class="math inline">\(F\left(2\right)=2/6\)</span>, which means that the cumulative probability of getting outcome 1 or 2 is equal to 2/6. One may also describe the same distribution function as:</p>
+<p><span class="math display">\[F\left(x\right)=P\left(X\leq x\right)=\begin{cases}
+0 &amp; \forall\, x&lt;1\\
+\frac{x}{6} &amp; 1\leq x&lt;6\\
+1 &amp; x\geq6
+\end{cases}\]</span></p>
+<p>where we added the top row to describe that <span class="math inline">\(F\left(x\right)=0\)</span> for <span class="math inline">\(x&lt;1\)</span>. The probability that <span class="math inline">\(X\leq x\)</span> then increases stepwise for <span class="math inline">\(x=1,2,3,4,5\)</span> and 6 to reach <span class="math inline">\(F\left(x\right)=1\)</span>, that is 100%, from <span class="math inline">\(x=6\)</span> and upward.</p>
+<p>The cumulative probability <span class="math inline">\(P\left(X\leq x\right)\)</span> must by definition be a value between 0 and 1, between 0 and 100%. What then remains of 100% is the probability that <span class="math inline">\(X&gt;x\)</span>:</p>
+<p><span class="math display" id="eq:complementary-prob">\[\begin{equation}
+F\left(x\right)=P\left(X\leq x\right)=1-P\left(X&gt;x\right)
+\tag{21.16}
+\end{equation}\]</span></p>
+<p>The probability <span class="math inline">\(P\left(X&gt;x\right)\)</span> we calculate by taking <span class="math inline">\(1-F\left(x\right)\)</span>, which we see by rearranging the equation:</p>
+<p><span class="math display" id="eq:complementary-cdf">\[\begin{equation}
+P\left(X&gt;x\right) =1-P\left(X\leq x\right)=1-F\left(x\right)
+\tag{21.17}
+\end{equation}\]</span></p>
+<p>For variable <span class="math inline">\(X\)</span> the probability of getting 3 to 6 points is:</p>
+<p><span class="math display">\[P\left(X&gt;2\right) =1-F\left(2\right)=1-\frac{2}{6}=\frac{4}{6}\]</span></p>
+<p>The expected value for <span class="math inline">\(X\)</span> is then:</p>
+<p><span class="math display">\[E\left(X\right) =\sum_{i}x_{i}f\left(x_{i}\right)=1\cdot\frac{1}{6}+2\cdot\frac{1}{6}+3\cdot\frac{1}{6}+4\cdot\frac{1}{6}+5\cdot\frac{1}{6}+6\cdot\frac{1}{6}=3.5\]</span></p>
+<div class="figure"><span style="display:block;" id="fig:dice-pmf-cdf"></span>
+<img src="21-probability-discrete_files/figure-html/dice-pmf-cdf-1.png" alt="Probability mass function (top) and cumulative distribution function (bottom) for a uniform discrete probability distribution that can assume the integers 1 to 6." width="600" />
+<p class="caption">
+Figure 21.3: Probability mass function (top) and cumulative distribution function (bottom) for a uniform discrete probability distribution that can assume the integers 1 to 6.
+</p>
+</div>
+<p>Figure <a href="ch-probability-discrete.html#fig:dice-pmf-cdf">21.3</a> illustrates the probability function and cumulative distribution function for variable <span class="math inline">\(X\)</span> that can only assume integers 1 to 6 and the probability for each result is <span class="math inline">\(\frac{1}{6}\)</span>. The upper graph shows the probability function, equation <a href="ch-probability-discrete.html#eq:pmf-die">(21.13)</a>.</p>
+<p>In the lower graph the cumulative, accumulated, probability that <span class="math inline">\(X\leq x\)</span> is illustrated, which increases stepwise by <span class="math inline">\(\frac{1}{6}\)</span> for each integer on the horizontal x-axis, see equation <a href="ch-probability-discrete.html#eq:cdf-die">(21.15)</a>. In the lower graph this is illustrated by the horizontal lines between the points, where the cumulative probability is constant between each integer since the variable is discrete and cannot assume any values between these integers. At <span class="math inline">\(X=6\)</span> the cumulative probability is 100%, since we have then counted all possible outcomes.</p>
+</div>
+<div id="sec-binomial-distribution" class="section level2 hasAnchor" number="21.8">
+<h2><span class="header-section-number">21.8</span> The binomial distribution<a href="ch-probability-discrete.html#sec-binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Say now that we have a variable <span class="math inline">\(M\)</span> with the two outcomes 1 and 2 respectively, each with 50% probability. One can think of <span class="math inline">\(M\)</span> as a perfectly balanced coin. We now define the probability for outcome 1 as the probability <span class="math inline">\(p=0.5=50\%\)</span>. The probability for the second outcome, value 2, must by definition be <span class="math inline">\(1-p=1-0.5=0.5\)</span>.</p>
+<p>Now we will describe the probability that we with variable <span class="math inline">\(M\)</span> get more of outcome 2. Each individual result of <span class="math inline">\(M\)</span> is independent of the previous result. The probability of getting <span class="math inline">\(k\)</span> number of outcome 2 in <span class="math inline">\(n\)</span> trials can then be described with the following probability mass function:</p>
+<p><span class="math display" id="eq:binomial-pmf">\[\begin{equation}
+f\left(k\right) =P\left(M=k\right)=\binom{n}{k}p^{k}\left(1-p\right)^{n-k}
+\tag{21.18}
+\end{equation}\]</span></p>
+<p>where</p>
+<p><span class="math display">\[\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}\]</span></p>
+<p>Equation <a href="ch-probability-discrete.html#eq:binomial-pmf">(21.18)</a> describes the probability function for what is called the binomial distribution. The expression <span class="math inline">\(\binom{n}{k}\)</span> is called the binomial coefficient and <span class="math inline">\(n!\)</span> is <span class="math inline">\(n\)</span> factorial, such as <span class="math inline">\(2!=2\cdot1\)</span>. In a binomial distribution the outcome in one trial is independent from other trials, which is why the results from different rounds do not affect each other. It also does not matter in which order we get <span class="math inline">\(k\)</span> outcomes.</p>
+<p>Let us now use equation <a href="ch-probability-discrete.html#eq:binomial-pmf">(21.18)</a> to calculate the probability that we with two trials get outcome 2 exactly two times: <span class="math inline">\(n=2\)</span> and <span class="math inline">\(k=2\)</span>. If we summarize the results as <span class="math inline">\(\left(\text{result trial 1},\text{result trial 2}\right)\)</span> we get the following results: <span class="math inline">\(\left\{ \left(1,1\right),\left(1,2\right),\left(2,1\right),\left(2,2\right)\right\}\)</span>. The probability for the result <span class="math inline">\(\left(2,2\right)\)</span> is then:</p>
+<p><span class="math display" id="eq:binomial-example">\[\begin{equation}
+\begin{aligned}
+f\left(k\right)=P\left(M=k\right) &amp;=\binom{n}{k}p^{k}\left(1-p\right)^{n-k}\\
+&amp;=\binom{2}{2}0.5^{2}\left(1-0.5\right)^{2-2}\\
+&amp;=\left(\frac{2!}{2!\left(2-2\right)!}\right)0.5^{2}\left(0.5\right)^{0}\\
+&amp;=0.25
+\end{aligned}
+\tag{21.19}
+\end{equation}\]</span></p>
+<p>The probability is <span class="math inline">\(\frac{1}{4}=0.25\)</span>. Each unique value of the four possible results has the probability 25%. There are two possibilities to get outcome 2 once in two trials: result <span class="math inline">\(\left(1,2\right)\)</span> or result <span class="math inline">\(\left(2,1\right)\)</span>. The probability for this is therefore 50%:</p>
+<p><span class="math display">\[f\left(1\right) =\left(\frac{2!}{1!\left(2-1\right)!}\right)0.5^{1}\left(0.5\right)^{2-1}=\left(\frac{2\cdot1}{1\cdot1}\right)0.5\cdot0.5=0.5\]</span></p>
+<p>Let us now calculate the probability of getting 10 outcomes with 2s in 10 trials:</p>
+<p><span class="math display" id="eq:binomial-10-10">\[\begin{equation}
+f\left(10\right) =\binom{10}{10}0.5^{10}\left(0.5\right)^{10-10}\approx0.00098
+\tag{21.20}
+\end{equation}\]</span></p>
+<p>For the binomial distribution, the cumulative distribution function <span class="math inline">\(F\)</span> describes the probability that variable <span class="math inline">\(M\)</span> is equal to or less than the value <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display" id="eq:binomial-cdf">\[\begin{equation}
+F\left(k\right)=P\left(M\leq k\right)=\sum_{i=0}^{\lfloor k\rfloor}\binom{n}{i}p^{i}\left(1-p\right)^{n-i}
+\tag{21.21}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\sum\)</span> describes the sum of probabilities from the value <span class="math inline">\(i=0\)</span>, up to and including the value <span class="math inline">\(\lfloor k\rfloor\)</span>. The expression <span class="math inline">\(\lfloor k\rfloor\)</span> is the floor function for the number <span class="math inline">\(k\)</span>. The floor function for a real number gives the largest integer that is equal to or less than this number. Examples: <span class="math inline">\(\lfloor3.001\rfloor=3\)</span>, <span class="math inline">\(\lfloor3.6\rfloor=3\)</span> and <span class="math inline">\(\lfloor3.9\rfloor=3\)</span>. A similar function is what is called the ceiling function, which is instead written <span class="math inline">\(\lceil k\rceil\)</span> and gives the smallest integer that is equal to or greater than the real number <span class="math inline">\(k\)</span>, for example: <span class="math inline">\(\lceil3.002\rceil=4\)</span> or <span class="math inline">\(\lceil3.8\rceil=4\)</span>. Let us calculate the cumulative probability of getting outcome 2 one or zero times in 2 trials. We have <span class="math inline">\(n=2\)</span> and sum from <span class="math inline">\(i=0\)</span> up to <span class="math inline">\(k=1\)</span>. From equation <a href="ch-probability-discrete.html#eq:binomial-cdf">(21.21)</a> we get:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{aligned}
+F\left(1\right) &amp;=\sum_{i=0}^{\lfloor1\rfloor}\binom{2}{i}0.5^{i}\left(1-0.5\right)^{2-i}\\
+&amp;=\binom{2}{0}0.5^{0}\left(1-0.5\right)^{2-0}+\binom{2}{1}0.5^{1}\left(1-0.5\right)^{2-1}\\
+&amp;=0.75
+\end{aligned}
+\end{equation}\]</span></p>
+<p>The cumulative probability is 75%. Now we perform 10 trials <span class="math inline">\(\left(n=10\right)\)</span> and want to know the probability of getting 3 or fewer of outcome 2:</p>
+<p><span class="math display">\[F\left(3\right) =\sum_{i=0}^{\lfloor3\rfloor}\binom{10}{i}0.5^{i}\left(0.5\right)^{10-i}\approx0.001+0.01+0.044+0.117=0.172\]</span></p>
+<p>The probability of getting 0, 1, 2 or 3 outcome 2s in 10 trials is approximately 17.2%.</p>
+<pre><code>## Warning in geom_segment(aes(x = 0.5, xend = 2.4, y = 0.15, yend = 0.1), : All aesthetics have length 1, but the data has 11 rows.
+## ℹ Please consider using `annotate()` or provide this layer with data containing
+##   a single row.</code></pre>
+<div class="figure"><span style="display:block;" id="fig:binomial-pmf-cdf"></span>
+<img src="21-probability-discrete_files/figure-html/binomial-pmf-cdf-1.png" alt="Probability mass function (top) and cumulative distribution function (bottom) for a binomial distribution with \(n=10\) and \(p=0.5\)." width="600" />
+<p class="caption">
+Figure 21.4: Probability mass function (top) and cumulative distribution function (bottom) for a binomial distribution with <span class="math inline">\(n=10\)</span> and <span class="math inline">\(p=0.5\)</span>.
+</p>
+</div>
+<p>Figure <a href="ch-probability-discrete.html#fig:binomial-pmf-cdf">21.4</a> illustrates the binomial distribution’s probability mass function (equation <a href="ch-probability-discrete.html#eq:binomial-pmf">(21.18)</a>) and distribution function (equation <a href="ch-probability-discrete.html#eq:binomial-cdf">(21.21)</a>). The graphs describe probabilities for different results, given that we make 10 trials, for example 10 tosses with a coin. The upper graph describes the probability that we with 10 tosses of the coin get different numbers of tails. The almost invisible bar furthest to the left describes the low probability of getting 0 tails in 10 tosses. The almost invisible bar furthest to the right describes the low probability of getting tails on all 10 tosses, see equation <a href="ch-probability-discrete.html#eq:binomial-10-10">(21.20)</a>. The middle bar shows the probability of getting 5 tails in 10 trials, approximately 24.6%.</p>
+<p>The lower graph describes the cumulative distribution function. Note that the two graphs have different vertical scales, where the lower graph’s scale goes from 0 to 100%. In a similar way as before, the distribution function is illustrated by stepwise levels of cumulative probability that the result is equal to or less than the values on the horizontal x-axis. For results under 0 the probability is 0. We cannot get a negative number of outcomes, for example a negative number of tails. This is illustrated by the black horizontal line furthest down to the left in the graph.</p>
+<p>At zero the probability increases to just under 0.1%, which is illustrated by the first point with its associated horizontal line, see equation <a href="ch-probability-discrete.html#eq:binomial-10-10">(21.20)</a>. Thereafter the cumulative probability increases stepwise since we sum the probability for more results. Furthest to the right in the lower graph the cumulative probability is 100% since the probability of getting 0 to 10 tails in 10 tosses, which covers all possible alternatives, by definition must be 100%. If a random variable <span class="math inline">\(M\)</span> follows the binomial distribution this can be described in the following way:</p>
+<p><span class="math display">\[M\sim b\left(n,p\right)\]</span></p>
+<p>where <span class="math inline">\(b\)</span> stands for the binomial distribution, <span class="math inline">\(n\)</span> is the number of trials and <span class="math inline">\(p\)</span> is the probability for one of the two possible values in the current variable. The binomial distribution’s expected value is:</p>
+<p><span class="math display" id="eq:binomial-ev">\[\begin{equation}
+E\left(M\right)=np
+\tag{21.22}
+\end{equation}\]</span></p>
+<p>which is the number of trials <span class="math inline">\(n\)</span> multiplied by the probability <span class="math inline">\(p\)</span>. If <span class="math inline">\(M\sim b\left(2,\frac{1}{2}\right)\)</span> we have the expected value <span class="math inline">\(E\left(M\right)=1\)</span>, which should be read as that we in two trials on average will get one successful result. If we instead have <span class="math inline">\(M\sim b\left(10,\frac{1}{2}\right)\)</span> then <span class="math inline">\(E\left(M\right)=5\)</span>, which we also see in the upper graph in figure <a href="ch-probability-discrete.html#fig:binomial-pmf-cdf">21.4</a>. Variance can also be used as a measure of the spread of the possible values in a probability distribution. The binomial distribution has variance:</p>
+<p><span class="math display">\[\text{var}\left(M\right)=np\left(1-p\right)\]</span></p>
+<p>where we multiply the number of occurrences <span class="math inline">\(n\)</span> with the probability for one value, <span class="math inline">\(p\)</span>, and the probability for the other value, <span class="math inline">\(1-p\)</span>.</p>
+</div>
+<div id="sec-poisson-distribution" class="section level2 hasAnchor" number="21.9">
+<h2><span class="header-section-number">21.9</span> The Poisson distribution<a href="ch-probability-discrete.html#sec-poisson-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In many situations we want to calculate the probability for an event within an intended time frame. A commonly occurring probability distribution for this type of example is what is called the Poisson distribution, named after the French mathematician Siméon Denis Poisson (1781–1840). Let us illustrate with a classic example. In 1898 the Polish economist and statistician Ladislaus Bortkiewicz described the probability that <span class="math inline">\(x\)</span> number of Prussian soldiers are kicked to death by a horse by accident in a specific year. The calculation was based on data collected between 1875 and 1894 for 14 Prussian cavalry corps.</p>
+<div class="figure"><span style="display:block;" id="fig:bortkiewicz"></span>
+<img src="21-probability-discrete_files/figure-html/bortkiewicz-1.png" alt="Deaths per cavalry corps per year (Bortkiewicz 1898)." width="600" />
+<p class="caption">
+Figure 21.5: Deaths per cavalry corps per year (Bortkiewicz 1898).
+</p>
+</div>
+<p>Figure <a href="ch-probability-discrete.html#fig:bortkiewicz">21.5</a> illustrates the data that Bortkiewicz based his work on, where the bars show the number of deaths per cavalry corps per year. The bar for 0 deaths per year is highest. In 91 cases one death occurred in a cavalry corps during one of the years. In 32 cases 2 soldiers died during one year in one and the same cavalry corps. In two cases 4 soldiers died during one and the same year in one and the same cavalry corps.</p>
+<p>When Bortkiewicz studied these numbers he noticed a pattern in the distribution that can be described with the help of the line that follows the bars’ highest points. The line is drawn using the following equation, which describes the probability function for a Poisson distribution:</p>
+<p><span class="math display" id="eq:poisson-pmf">\[\begin{equation}
+f\left(x,\lambda\right)=P\left(X=x\right)=e^{-\lambda}\frac{\lambda^{x}}{x!}
+\tag{21.23}
+\end{equation}\]</span></p>
+<p>The probability function <span class="math inline">\(f\)</span> for the random variable <span class="math inline">\(X\)</span> with possible outcomes <span class="math inline">\(x\)</span> describes the probability for the number of deaths per cavalry corps per year. The letter <span class="math inline">\(e\)</span> is Euler’s number and <span class="math inline">\(\lambda\)</span> (Greek lambda) is the average number of events, in this case the average number of deaths. Bortkiewicz’s data includes 280 observations and sums to 196 deaths, since some of the observations have 0 deaths. The average number of deaths therefore becomes:</p>
+<p><span class="math display">\[\lambda=\frac{196}{280}=0.7\]</span></p>
+<p>Let us estimate the probability that three soldiers are kicked to death in a cavalry corps during one year. We have <span class="math inline">\(x=3\)</span> and <span class="math inline">\(\lambda=0.7\)</span>. The probability can then be estimated to:</p>
+<p><span class="math display">\[f\left(x=3,\lambda=0.7\right) =e^{-\lambda}\frac{\lambda^{x}}{x!}=e^{-0.7}\frac{0.7^{3}}{3!}\approx0.0284\]</span></p>
+<p>The probability is approximately 2.84%. We see this in figure <a href="ch-probability-discrete.html#fig:bortkiewicz">21.5</a> by comparing the height of the bar for 3 deaths with the line. The Poisson distribution’s distribution function gives us the probability <span class="math inline">\(P\left(X\leq x\right)\)</span>:</p>
+<p><span class="math display" id="eq:poisson-cdf">\[\begin{equation}
+F\left(x\right)=P\left(X\leq x\right)=e^{-\lambda}\sum_{i=0}^{\lfloor x\rfloor}\frac{\lambda^{i}}{i!}
+\tag{21.24}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\lfloor k\rfloor\)</span> is the floor function of the value <span class="math inline">\(k\)</span> (see equation <a href="ch-probability-discrete.html#eq:binomial-cdf">(21.21)</a>). Function <span class="math inline">\(F\)</span> sums the probability for integers up to <span class="math inline">\(x\)</span>. That variable <span class="math inline">\(X\)</span> follows the Poisson distribution can be written:</p>
+<p><span class="math display">\[X\sim \text{Pois}\left(\lambda\right),\quad\lambda&gt;0\]</span></p>
+<p>The mean <span class="math inline">\(\lambda\)</span> is also the Poisson distribution’s expected value and variance:</p>
+<p><span class="math display">\[E\left(X\right)=\text{var}\left(X\right)=\lambda\]</span></p>
+<p>If a variable follows the Poisson distribution this is often called that the variable’s values follow a Poisson process. Let us estimate another example with the Poisson distribution. Suppose we run a customer service reception on the telephone that is open a total of 100 hours in a year. On average we receive 50 calls:</p>
+<p><span class="math display">\[\lambda=\frac{50}{100}=\frac{1}{2}=0.5\]</span></p>
+<p>We now want to know the probability that someone calls within the first hour. We call our random variable <span class="math inline">\(Y\)</span> with possible outcomes <span class="math inline">\(y\)</span>. If no one calls we have <span class="math inline">\(y=0\)</span>. The number of calls per hour follows a random Poisson process and we therefore estimate the probability that no one calls during the next hour using equation <a href="ch-probability-discrete.html#eq:poisson-pmf">(21.23)</a>:</p>
+<p><span class="math display">\[f\left(y=0\right) =e^{-\lambda}\frac{\lambda^{x}}{x!}=e^{-0.5}\frac{0.5^{0}}{0!}\approx0.607\]</span></p>
+<p>The probability for zero calls in the first hour is approximately 61%. The probability for five calls in the first hour is:</p>
+<p><span class="math display">\[f\left(y=5\right) =e^{-\lambda}\frac{\lambda^{x}}{x!}=e^{-0.5}\frac{0.5^{5}}{5!}\approx0.00016\]</span></p>
+</div>
+<div id="sec-ch21-summary" class="section level2 hasAnchor" number="21.10">
+<h2><span class="header-section-number">21.10</span> Chapter Summary<a href="ch-probability-discrete.html#sec-ch21-summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>A random variable can assume different values. Each value has a probability. An example of a random variable is a perfectly balanced coin that can assume two values with 50% probability each. Or a perfectly balanced six-sided die, where each value has the probability <span class="math inline">\(\frac{1}{6}\)</span>. The probability that a random variable <span class="math inline">\(X\)</span> assumes the value <span class="math inline">\(x\)</span> can be written with the function <span class="math inline">\(P\left(X=x\right)\)</span>, where <span class="math inline">\(P\)</span> is short for probability.</li>
+<li>A random variable’s expected value can be described as <span class="math inline">\(E\left(X\right)=\sum_{x}xP\left(x\right)\)</span>, where <span class="math inline">\(P\left(x\right)\)</span> describes the probability for the value <span class="math inline">\(x\)</span> in variable <span class="math inline">\(X\)</span>. If variable <span class="math inline">\(X\)</span> can only assume the values 1 and 2 respectively, each with 50% probability, we get the expected value <span class="math inline">\(E\left(X\right)=1\cdot0.5+2\cdot0.5=1.5\)</span>.</li>
+<li>Conditional expected value <span class="math inline">\(E\left(y|x\right)\)</span> describes the expected value for <span class="math inline">\(y\)</span> given a value for <span class="math inline">\(x\)</span>. The law of total expectation: <span class="math inline">\(E\left(E\left(y|x\right)\right)=E\left(y\right)\)</span> means that the expected value of the conditional expected value <span class="math inline">\(y\)</span> of <span class="math inline">\(x\)</span> is the same as the expected value for <span class="math inline">\(y\)</span>. Another way to describe this is that the conditional expected value is the mean of possible expected values for <span class="math inline">\(y\)</span> conditional on the value for <span class="math inline">\(x\)</span>.</li>
+<li>The variance in a random variable can be described as <span class="math inline">\(\text{var}\left(x\right)=E\left(x^{2}\right)-\left(E\left(x\right)\right)^{2}\)</span> where <span class="math inline">\(\text{var}\left(x\right)\)</span> is the function for variance and <span class="math inline">\(E\left(x\right)\)</span> is the expected value function.</li>
+<li>Probability distributions can be a result of two or more variables. Suppose we have the two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:
+<ul>
+<li>Joint probability distribution: the results for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent of each other and sum to a coherent probability distribution, for example two dice.</li>
+<li>Conditional probability distribution: one variable’s outcome is dependent on the other variable. Conditional expected value is an example of this.</li>
+</ul></li>
+<li>A discrete probability distribution has a limited number of possible values. Each value has a probability. The values can have the same or different probability.</li>
+<li>A probability mass function describes the probability for each value in a discrete random variable, for example <span class="math inline">\(f\left(x\right)=P\left(X=x\right)=\frac{1}{2},\,x=1,2\)</span>, where 1 and 2 are the values that variable <span class="math inline">\(X\)</span> can assume. The probability that a random discrete variable <span class="math inline">\(X\)</span> assumes a value that is equal to or less than <span class="math inline">\(x\)</span> is described with the cumulative distribution function, <span class="math inline">\(F\left(x\right)=P\left(X\leq x\right)\)</span>.</li>
+<li>A variable whose values have the same probability can be described as following a uniform probability distribution, which can be written as <span class="math inline">\(X\sim U\left(a,b\right)\)</span> where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the lower and upper limits for the interval that the uniform distribution covers. If variable <span class="math inline">\(X\)</span> can assume the values 1 and 2 we get <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=2\)</span>.</li>
+<li>The binomial distribution: variable <span class="math inline">\(X\)</span> can assume two values, <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> respectively. The probability for <span class="math inline">\(x_{1}\)</span> is equal to <span class="math inline">\(p\in\left[0,1\right]\)</span>. The probability of getting <span class="math inline">\(k\)</span> number of results of <span class="math inline">\(x_{1}\)</span> in <span class="math inline">\(n\)</span> number of trials is estimated as <span class="math inline">\(f\left(k\right)=P\left(X=k\right)=\binom{n}{k}p^{k}\left(1-p\right)^{n-k}\)</span>. If a random variable <span class="math inline">\(X\)</span> follows the binomial distribution this can be described as <span class="math inline">\(X\sim B\left(n,p\right)\)</span> where <span class="math inline">\(n\)</span> is the number of trials and <span class="math inline">\(p\)</span> is the probability for one outcome. Expected value: <span class="math inline">\(E\left(X\right)=np\)</span>. Variance: <span class="math inline">\(\text{var}\left(X\right)=np\left(1-p\right)\)</span>.</li>
+<li>The Poisson distribution can be used to describe the probability for <span class="math inline">\(x\)</span> number of results within a limited time period or a physical area. The probability function describes the probability for <span class="math inline">\(x\)</span> number of occurrences <span class="math inline">\(f\left(x\right)=P\left(X=x\right)=e^{-\lambda}\frac{\lambda^{x}}{x!}\)</span>. Cumulative distribution function: <span class="math inline">\(F\left(x\right)=P\left(X\leq x\right)=e^{-\lambda}\sum_{i=0}^{\lfloor x\rfloor}\frac{\lambda^{i}}{i!}\)</span>. Expected value <span class="math inline">\(E\left(X\right)=\lambda\)</span> and variance <span class="math inline">\(\text{var}\left(X\right)=\lambda\)</span>.</li>
+<li>The law of large numbers means, in weak form, that given the infinite sequence of variables <span class="math inline">\(X_{1},X_{2},\ldots,X_{n}\)</span> with the expected value <span class="math inline">\(E\left(X_{1}\right)=E\left(X_{2}\right)=\cdots=\mu\)</span>, and the mean <span class="math inline">\(\bar{X}_{n}=\frac{1}{n}\sum_{i}^{n}X_{i}\)</span>, it holds that <span class="math inline">\(\lim_{n\rightarrow\infty}P\left(\left|\bar{X}_{n}-\mu\right|&lt;\epsilon\right)=1\)</span>. The law of large numbers in strong form: <span class="math inline">\(P\left(\lim_{n\rightarrow\infty}\bar{X}_{n}=\mu\right)=1\)</span>.</li>
+</ul>
+</div>
+<div id="exercises-19" class="section level2 hasAnchor" number="21.11">
+<h2><span class="header-section-number">21.11</span> Exercises<a href="ch-probability-discrete.html#exercises-19" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ex-21" class="exercises-container">
+
+</div>
+<script>
+(function(){
+var ex=[
+  {q:'<p>An urn contains 3 red and 2 blue balls. One ball is drawn at random.</p><ol type="a"><li>What is \\(P(\\text{red})\\)?</li><li>What is \\(P(\\text{blue})\\)?</li><li>What is \\(P(\\text{red or blue})\\)?</li></ol>',a:'<p>(a) \\(P(\\text{red})=3/5=0.6\\), (b) \\(P(\\text{blue})=2/5=0.4\\), (c) \\(P(\\text{red or blue})=1\\).</p>'},
+  {q:'<p>A random variable \\(X\\) takes values 1, 2, 3 with probabilities 0.3, 0.5, 0.2.</p><ol type="a"><li>Verify that the probabilities sum to 1.</li><li>Calculate \\(E(X)=\\sum x_{i}P(X=x_{i})\\).</li><li>Calculate \\(\\text{var}(X)=E(X^{2})-[E(X)]^{2}\\).</li></ol>',a:'<p>(a) \\(0.3+0.5+0.2=1\\) ✓, (b) \\(E(X)=1(0.3)+2(0.5)+3(0.2)=1.9\\), (c) \\(E(X^2)=1(0.3)+4(0.5)+9(0.2)=4.1\\), \\(\\text{var}(X)=4.1-1.9^2=0.49\\).</p>'},
+  {q:'<p>Events \\(A\\) and \\(B\\) have \\(P(A)=0.4\\), \\(P(B)=0.3\\), \\(P(A\\cap B)=0.1\\).</p><ol type="a"><li>Calculate \\(P(A\\cup B)\\).</li><li>Are \\(A\\) and \\(B\\) independent?</li><li>Calculate \\(P(A\\mid B)\\).</li></ol>',a:'<p>(a) \\(P(A\\cup B)=0.4+0.3-0.1=0.6\\), (b) no: \\(P(A)P(B)=0.12\\neq P(A\\cap B)=0.1\\), (c) \\(P(A\\mid B)=P(A\\cap B)/P(B)=0.1/0.3=1/3\\).</p>'},
+  {q:'<p>A random variable \\(X\\) has \\(E(X)=5\\) and \\(\\text{var}(X)=4\\).</p><ol type="a"><li>What is \\(E(2X+3)\\)?</li><li>What is \\(\\text{var}(2X+3)\\)?</li><li>What is the standard deviation \\(s(2X+3)\\)?</li></ol>',a:'<p>(a) \\(E(2X+3)=2\\cdot5+3=13\\), (b) \\(\\text{var}(2X+3)=4\\cdot\\text{var}(X)=16\\), (c) \\(s(2X+3)=\\sqrt{16}=4\\).</p>'},
+  {q:'<p>\\(E(Y\\mid X=1)=8\\) and \\(E(Y\\mid X=0)=3\\), with \\(P(X=1)=0.4\\).</p><ol type="a"><li>Calculate \\(E(Y)=E(Y\\mid X=1)P(X=1)+E(Y\\mid X=0)P(X=0)\\).</li><li>If \\(X\\) represents university education (1=yes, 0=no) and \\(Y\\) is income, interpret \\(E(Y\\mid X=1)=8\\).</li><li>Does this conditional expectation prove that education causes higher income?</li></ol>',a:'<p>(a) \\(E(Y)=8(0.4)+3(0.6)=3.2+1.8=5.0\\), (b) average income among those with university education is 8 units, (c) no — selection bias may explain the difference; education may be correlated with unobserved factors such as family background.</p>'},
+  {q:'<p>A fair die has six equally likely outcomes.</p><ol type="a"><li>What is \\(E(X)\\) for a single roll?</li><li>What does the law of large numbers say about the sample mean \\(\\bar{X}_{n}\\) as \\(n\\rightarrow\\infty\\)?</li><li>Why is this useful for statistical inference?</li></ol>',a:'<p>(a) \\(E(X)=3.5\\), (b) \\(\\bar{X}_{n}\\rightarrow\\mu=3.5\\) as \\(n\\rightarrow\\infty\\), (c) large samples give reliable estimates of population parameters — the sample mean converges to the true mean.</p>'},
+  {q:'<p>\\(X\\) is uniformly distributed on \\(\\{1,2,3,4\\}\\) (discrete uniform).</p><ol type="a"><li>What is the probability mass function \\(f(x)\\)?</li><li>What is \\(E(X)\\)?</li><li>What is \\(P(2\\leq X\\leq3)\\)?</li></ol>',a:'<p>(a) \\(f(x)=1/4\\) for \\(x\\in\\{1,2,3,4\\}\\), (b) \\(E(X)=(1+2+3+4)/4=2.5\\), (c) \\(P(2\\leq X\\leq3)=2/4=0.5\\).</p>'},
+  {q:'<p>A biased coin has \\(P(\\text{heads})=0.3\\). It is flipped \\(n=5\\) times. Let \\(X\\) = number of heads.</p><ol type="a"><li>Calculate \\(P(X=0)=(1-p)^{n}\\).</li><li>Calculate \\(E(X)=np\\).</li><li>Calculate \\(\\text{var}(X)=np(1-p)\\).</li></ol>',a:'<p>(a) \\(P(X=0)=0.7^{5}\\approx0.168\\), (b) \\(E(X)=5\\cdot0.3=1.5\\), (c) \\(\\text{var}(X)=5\\cdot0.3\\cdot0.7=1.05\\).</p>'},
+  {q:'<p>For a binomial distribution with \\(n=10\\) and \\(p=0.5\\):</p><ol type="a"><li>Calculate \\(E(X)\\).</li><li>Calculate \\(\\text{var}(X)\\).</li><li>Calculate \\(P(X=0)\\).</li></ol>',a:'<p>(a) \\(E(X)=np=5\\), (b) \\(\\text{var}(X)=np(1-p)=2.5\\), (c) \\(P(X=0)=\\binom{10}{0}0.5^0\\cdot0.5^{10}=(0.5)^{10}\\approx0.001\\).</p>'},
+  {q:'<p>Events occur at a rate of \\(\\lambda=3\\) per hour. \\(X\\) follows a Poisson distribution.</p><ol type="a"><li>What is \\(E(X)\\)?</li><li>What is \\(\\text{var}(X)\\)?</li><li>Calculate \\(P(X=0)=e^{-\\lambda}\\).</li></ol>',a:'<p>(a) \\(E(X)=3\\), (b) \\(\\text{var}(X)=3\\), (c) \\(P(X=0)=e^{-3}\\approx0.050\\).</p>'},
+  {q:'<p>For a Poisson distribution with \\(\\lambda=2\\):</p><ol type="a"><li>Calculate \\(P(X=0)=e^{-2}\\).</li><li>Calculate \\(P(X=1)=e^{-2}\\cdot\\frac{2^{1}}{1!}\\).</li><li>What is \\(E(X)\\)?</li></ol>',a:'<p>(a) \\(P(X=0)=e^{-2}\\approx0.135\\), (b) \\(P(X=1)=2e^{-2}\\approx0.271\\), (c) \\(E(X)=\\lambda=2\\).</p>'},
+  {q:'<p>Two random variables \\(X\\) and \\(Y\\) are independent with \\(E(X)=3\\), \\(E(Y)=4\\), \\(\\text{var}(X)=2\\), \\(\\text{var}(Y)=5\\).</p><ol type="a"><li>Calculate \\(E(X+Y)\\).</li><li>Calculate \\(\\text{var}(X+Y)\\).</li><li>What would \\(\\text{var}(X+Y)\\) be if \\(X\\) and \\(Y\\) were not independent?</li></ol>',a:'<p>(a) \\(E(X+Y)=3+4=7\\), (b) \\(\\text{var}(X+Y)=2+5=7\\) (since independent), (c) \\(\\text{var}(X+Y)=\\text{var}(X)+\\text{var}(Y)+2\\,\\text{cov}(X,Y)\\); if not independent the covariance term must be added.</p>'}
+];
+var c=document.getElementById("ex-21");
+if(!c)return;
+var h='<ol class="exercise-list">';
+ex.forEach(function(e){
+  h+='<li class="exercise-item">';
+  h+='<div class="exercise-question">'+e.q+'</div>';
+  if(e.a){
+    h+='<details class="exercise-answer">';
+    h+='<summary>Show answer &#9654;</summary>';
+    h+='<div class="answer-content">'+e.a+'</div>';
+    h+='</details>';
+  }
+  h+='</li>';
+});
+h+='</ol>';
+c.innerHTML=h;
+function fixMathAlign(el){
+  el.querySelectorAll(".MathJax_Display").forEach(function(d){
+    d.style.textAlign="left";
+    d.style.marginLeft="1.5em";
+  });
+}
+if(window.MathJax){
+  if(MathJax.Hub){
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,c]);
+    MathJax.Hub.Queue(function(){fixMathAlign(c);});
+  } else if(MathJax.typesetPromise){
+    MathJax.typesetPromise([c]).then(function(){fixMathAlign(c);});
+  }
+}
+c.querySelectorAll("details").forEach(function(d){
+  d.addEventListener("toggle",function(){
+    if(d.open&&window.MathJax){
+      if(MathJax.Hub){
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,d]);
+        MathJax.Hub.Queue(function(){fixMathAlign(d);});
+      } else if(MathJax.typesetPromise){
+        MathJax.typesetPromise([d]).then(function(){fixMathAlign(d);});
+      }
+    }
+  });
+});
+})();
+</script>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-probability-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-probability-continuous.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["the-cheat-code.pdf", "the-cheat-code.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "depth": 2
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

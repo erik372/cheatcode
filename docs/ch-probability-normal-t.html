@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 23 Normal and t distributions | The Cheat Code: Essential Math and Statistics for Social Scientists</title>
+  <meta name="description" content="A textbook in mathematics and statistics for social science students." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 23 Normal and t distributions | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 23 Normal and t distributions | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  
+  <meta name="twitter:description" content="A textbook in mathematics and statistics for social science students." />
+  
+
+<meta name="author" content="Erik Hegelund" />
+
+
+<meta name="date" content="2026-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch-probability-continuous.html"/>
+<link rel="next" href="ch-statistical-inference.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="#eq:"]').forEach(function(link) {
+    link.textContent = link.textContent.trim().replace(/^\((.+)\)$/, '$1');
+  });
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'],['\\(','\\)']],
+    displayMath: [['$$','$$'],['\\[','\\]']],
+    processEscapes: true,
+    skipTags: ['script','noscript','style','textarea','pre']
+  },
+  TeX: {
+    extensions: ["cancel.js"],
+    equationNumbers: {
+      autoNumber: "none"
+    },
+    Macros: {
+      permil:     '\\unicode{x2030}',
+      ensuremath: ['#1', 1]
+    }
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open && window.MathJax) {
+        if (MathJax.Hub) {
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub, det]);
+        } else if (MathJax.typesetPromise) {
+          MathJax.typesetPromise([det]).catch(function(e) { console.error(e); });
+        }
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Move "Table X.X:" span from end of caption to front
+  document.querySelectorAll('caption').forEach(function(cap) {
+    var span = cap.querySelector('span[id^="tab:"]');
+    if (span) cap.insertBefore(span, cap.firstChild);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Rewrite part labels and make them link to the part intro page
+  document.querySelectorAll('.book-summary ul.summary li.part').forEach(function(partLi) {
+    // Rewrite text: "I Mathematics Basics" -> "Part I: Mathematics Basics"
+    var b = partLi.querySelector('span > b');
+    if (b) {
+      var m = b.textContent.match(/^([IVXLCDM]+)\s+([\s\S]*)/);
+      if (m) b.textContent = 'Part ' + m[1] + ': ' + m[2];
+    }
+    // Make the part label link to the part intro page
+    var nextEl = partLi.nextElementSibling;
+    if (!nextEl || !nextEl.classList.contains('chapter')) return;
+    var link = nextEl.querySelector('a');
+    if (!link) return;
+    var span = partLi.querySelector('span');
+    if (!span) return;
+    var a = document.createElement('a');
+    a.href = link.getAttribute('href');
+    a.innerHTML = span.innerHTML;
+    partLi.replaceChild(a, span);
+    // Hide the now-redundant part intro chapter entry in the sidebar
+    nextEl.classList.add('part-intro-hidden');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+
+    // --- Chapter-level collapse arrows (larger click target) ---
+    document.querySelectorAll('.book-summary li.chapter').forEach(function(li) {
+      var level = li.getAttribute('data-level') || '';
+      if (level.indexOf('.') !== -1) return;
+
+      var childUl = li.querySelector(':scope > ul');
+      if (!childUl) return;
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'margin-left:6px',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(0,0,0,0.06)'
+      ].join(';');
+
+      function isVisible() {
+        return window.getComputedStyle(childUl).display !== 'none';
+      }
+      function updateArrow() {
+        arrow.textContent = isVisible() ? '▾' : '▸';
+      }
+      updateArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        childUl.style.display = isVisible() ? 'none' : 'block';
+        updateArrow();
+      });
+
+      var link = li.querySelector(':scope > a');
+      if (link) link.appendChild(arrow);
+    });
+
+    // --- Part-level collapse arrows ---
+    var summary = document.querySelector('.book-summary ul.summary');
+    if (!summary) return;
+    var items = Array.from(summary.children);
+
+    items.forEach(function(li, idx) {
+      if (!li.classList.contains('part')) return;
+
+      var chapterItems = [];
+      for (var j = idx + 1; j < items.length; j++) {
+        if (items[j].classList.contains('part')) break;
+        if (items[j].tagName === 'LI') chapterItems.push(items[j]);
+      }
+      if (chapterItems.length === 0) return;
+
+      var partKey = 'partCollapsed_' + idx;
+      var collapsed = localStorage.getItem(partKey) === '1';
+
+      var arrow = document.createElement('span');
+      arrow.className = 'toc-part-arrow';
+      arrow.style.cssText = [
+        'cursor:pointer',
+        'font-size:1.05em',
+        'display:inline-block',
+        'width:1.8em',
+        'height:1.8em',
+        'line-height:1.8em',
+        'text-align:center',
+        'user-select:none',
+        'vertical-align:middle',
+        'border-radius:4px',
+        'background:rgba(44,95,138,0.15)',
+        'margin-left:6px',
+        'float:right',
+        'margin-right:6px'
+      ].join(';');
+
+      function updatePartArrow() {
+        arrow.textContent = collapsed ? '▸' : '▾';
+      }
+
+      function applyCollapse() {
+        chapterItems.forEach(function(ch) {
+          ch.style.display = collapsed ? 'none' : '';
+        });
+      }
+
+      if (collapsed) applyCollapse();
+      updatePartArrow();
+
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        collapsed = !collapsed;
+        applyCollapse();
+        updatePartArrow();
+        localStorage.setItem(partKey, collapsed ? '1' : '0');
+      });
+
+      var target = li.querySelector('span') || li.querySelector('a');
+      if (target) target.appendChild(arrow);
+    });
+
+  }, 150);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Resizable sidebar via drag handle
+  setTimeout(function() {
+    var sidebar = document.querySelector('.book-summary');
+    var bookBody = document.querySelector('.book-body');
+    if (!sidebar || !bookBody) return;
+
+    var handle = document.createElement('div');
+    handle.className = 'sidebar-resize-handle';
+    handle.title = 'Drag to resize sidebar';
+    handle.style.cssText = [
+      'position:absolute',
+      'top:0',
+      'right:0',
+      'width:8px',
+      'height:100%',
+      'cursor:ew-resize',
+      'z-index:10000',
+      'border-right:3px solid transparent',
+      'box-sizing:border-box',
+      'transition:border-color 0.15s'
+    ].join(';');
+
+    sidebar.appendChild(handle);
+
+    var isDragging = false;
+    var startX = 0, startWidth = 0;
+    var minW = 160, maxW = 650;
+
+    handle.addEventListener('mouseenter', function() {
+      handle.style.borderRightColor = 'rgba(44,95,138,0.5)';
+    });
+    handle.addEventListener('mouseleave', function() {
+      if (!isDragging) handle.style.borderRightColor = 'transparent';
+    });
+
+    handle.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.clientX;
+      startWidth = sidebar.offsetWidth;
+      document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var newW = Math.max(minW, Math.min(maxW, startWidth + (e.clientX - startX)));
+      sidebar.style.width = newW + 'px';
+      bookBody.style.left = newW + 'px';
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        handle.style.borderRightColor = 'transparent';
+        localStorage.setItem('sidebarW', sidebar.offsetWidth);
+      }
+    });
+
+    // Restore saved width
+    var saved = parseInt(localStorage.getItem('sidebarW'), 10);
+    if (saved && saved >= minW && saved <= maxW) {
+      sidebar.style.width = saved + 'px';
+      bookBody.style.left = saved + 'px';
+    }
+  }, 200);
+});
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">The Cheat Code</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-yet-another-textbook"><i class="fa fa-check"></i>Why yet another textbook?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i>What you will learn</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#thanks"><i class="fa fa-check"></i>Thanks!</a></li>
+</ul></li>
+<li class="part"><span><b>I Mathematics Basics</b></span></li>
+<li class="chapter" data-level="" data-path="part-mathematics-intro.html"><a href="part-mathematics-intro.html"><i class="fa fa-check"></i>Part I: Mathematics Basics</a></li>
+<li class="chapter" data-level="1" data-path="why-math.html"><a href="why-math.html"><i class="fa fa-check"></i><b>1</b> Why math?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-math.html"><a href="why-math.html#mathematics-in-social-science"><i class="fa fa-check"></i><b>1.1</b> Mathematics in Social Science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-math.html"><a href="why-math.html#chap-vad-anvands-matematik"><i class="fa fa-check"></i><b>1.2</b> Measure, theorize, compare</a></li>
+<li class="chapter" data-level="1.3" data-path="why-math.html"><a href="why-math.html#why-calculate"><i class="fa fa-check"></i><b>1.3</b> Why Calculate</a></li>
+<li class="chapter" data-level="1.4" data-path="why-math.html"><a href="why-math.html#tips-for-your-studies"><i class="fa fa-check"></i><b>1.4</b> Tips for your studies</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#different-types-of-numbers"><i class="fa fa-check"></i><b>2.1</b> Different types of numbers</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#the-four-arithmetic-operations"><i class="fa fa-check"></i><b>2.2</b> The four arithmetic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#order-of-operations"><i class="fa fa-check"></i><b>2.3</b> Order of operations</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-parenteser"><i class="fa fa-check"></i><b>2.4</b> Parentheses</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#equality-and-inequality"><i class="fa fa-check"></i><b>2.5</b> Equality and inequality</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-brak"><i class="fa fa-check"></i><b>2.6</b> Fractions</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#least-common-denominator"><i class="fa fa-check"></i><b>2.7</b> Least common denominator</a></li>
+<li class="chapter" data-level="2.8" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-potenser"><i class="fa fa-check"></i><b>2.8</b> Powers</a></li>
+<li class="chapter" data-level="2.9" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-multiplikation-med-parentes"><i class="fa fa-check"></i><b>2.9</b> Parentheses with powers</a></li>
+<li class="chapter" data-level="2.10" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-faktorisering-och-delbarhet"><i class="fa fa-check"></i><b>2.10</b> Factorization and divisibility</a></li>
+<li class="chapter" data-level="2.11" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-summa"><i class="fa fa-check"></i><b>2.11</b> Sum</a></li>
+<li class="chapter" data-level="2.12" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-median"><i class="fa fa-check"></i><b>2.12</b> Median</a></li>
+<li class="chapter" data-level="2.13" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-medelvarde"><i class="fa fa-check"></i><b>2.13</b> Mean</a></li>
+<li class="chapter" data-level="2.14" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-viktat-medelvarde"><i class="fa fa-check"></i><b>2.14</b> Weighted mean</a></li>
+<li class="chapter" data-level="2.15" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-procent-och-promille"><i class="fa fa-check"></i><b>2.15</b> Percent and per mille</a></li>
+<li class="chapter" data-level="2.16" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#sec-kombinatorik"><i class="fa fa-check"></i><b>2.16</b> Combinatorics</a></li>
+<li class="chapter" data-level="2.17" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#chapter-summary"><i class="fa fa-check"></i><b>2.17</b> Chapter summary</a></li>
+<li class="chapter" data-level="2.18" data-path="chap-grundlaggande-matematik-1.html"><a href="chap-grundlaggande-matematik-1.html#exercises"><i class="fa fa-check"></i><b>2.18</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html"><i class="fa fa-check"></i><b>3</b> Examples with Applications</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-procent-potents-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.1</b> Interest</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-ranta-pa-ranta"><i class="fa fa-check"></i><b>3.2</b> Interest on interest</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-effektiv-ranta"><i class="fa fa-check"></i><b>3.3</b> Effective interest</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-index"><i class="fa fa-check"></i><b>3.4</b> Index</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#population-index"><i class="fa fa-check"></i><b>3.5</b> Population index</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-inkomstindex"><i class="fa fa-check"></i><b>3.6</b> Income index</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-deflatera-priser-och"><i class="fa fa-check"></i><b>3.7</b> Adjust prices and wages for inflation</a></li>
+<li class="chapter" data-level="3.8" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-tillvaxt-ex1"><i class="fa fa-check"></i><b>3.8</b> Economic growth</a></li>
+<li class="chapter" data-level="3.9" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#sec-barnadodlighet"><i class="fa fa-check"></i><b>3.9</b> Child mortality</a></li>
+<li class="chapter" data-level="3.10" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#chapter-summary-1"><i class="fa fa-check"></i><b>3.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="3.11" data-path="chap-forsta-basic-exempel.html"><a href="chap-forsta-basic-exempel.html#exercises-1"><i class="fa fa-check"></i><b>3.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html"><i class="fa fa-check"></i><b>4</b> Functions and graphs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#mathematical-functions"><i class="fa fa-check"></i><b>4.1</b> Mathematical functions</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-funktion-som-teori"><i class="fa fa-check"></i><b>4.2</b> Function as theory</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#coordinate-system-and-graphs"><i class="fa fa-check"></i><b>4.3</b> Coordinate system and graphs</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-den-rata-linjens"><i class="fa fa-check"></i><b>4.4</b> Equation of a straight line</a></li>
+<li class="chapter" data-level="4.5" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#solve-for-x"><i class="fa fa-check"></i><b>4.5</b> Solve for <span class="math inline">\(x\)</span></a></li>
+<li class="chapter" data-level="4.6" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-nar-ar-ekvation-linjar"><i class="fa fa-check"></i><b>4.6</b> Linear equations</a></li>
+<li class="chapter" data-level="4.7" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-lite-mangdlara"><i class="fa fa-check"></i><b>4.7</b> A bit of set theory</a></li>
+<li class="chapter" data-level="4.8" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#domain-for-a-function"><i class="fa fa-check"></i><b>4.8</b> Domain for a function</a></li>
+<li class="chapter" data-level="4.9" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#sec-komb-funktioner-med-operationer"><i class="fa fa-check"></i><b>4.9</b> Combining functions with operations</a></li>
+<li class="chapter" data-level="4.10" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#chapter-summary-2"><i class="fa fa-check"></i><b>4.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="4.11" data-path="chap-funktioner-och-diagram.html"><a href="chap-funktioner-och-diagram.html#exercises-2"><i class="fa fa-check"></i><b>4.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html"><i class="fa fa-check"></i><b>5</b> Logarithms</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#base-exponent-logarithm"><i class="fa fa-check"></i><b>5.1</b> Base, exponent, logarithm</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#the-common-logarithm"><i class="fa fa-check"></i><b>5.2</b> The common logarithm</a></li>
+<li class="chapter" data-level="5.3" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmlagar"><i class="fa fa-check"></i><b>5.3</b> Properties of logarithms</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-naturliga-logaritmen"><i class="fa fa-check"></i><b>5.4</b> Natural logarithm</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-basbyte-for-logaritmer"><i class="fa fa-check"></i><b>5.5</b> Change of base for logarithms</a></li>
+<li class="chapter" data-level="5.6" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#using-natural-log-to-calculate-percentage-change"><i class="fa fa-check"></i><b>5.6</b> Using natural log to calculate percentage change</a></li>
+<li class="chapter" data-level="5.7" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-for-linjaritet"><i class="fa fa-check"></i><b>5.7</b> Logarithms for linearity</a></li>
+<li class="chapter" data-level="5.8" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-logaritmering-los-ut-x"><i class="fa fa-check"></i><b>5.8</b> Taking logarithms to get <span class="math inline">\(\boldsymbol{x}\)</span></a></li>
+<li class="chapter" data-level="5.9" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-linjar-ex-bnp"><i class="fa fa-check"></i><b>5.9</b> Log GDP</a></li>
+<li class="chapter" data-level="5.10" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#sec-log-bnp-och-lycka"><i class="fa fa-check"></i><b>5.10</b> Using logarithms to discuss theory</a></li>
+<li class="chapter" data-level="5.11" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#chapter-summary-3"><i class="fa fa-check"></i><b>5.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="5.12" data-path="chap-logaritmer.html"><a href="chap-logaritmer.html#exercises-3"><i class="fa fa-check"></i><b>5.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html"><i class="fa fa-check"></i><b>6</b> Polynomial Equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-andragradsekvationer"><i class="fa fa-check"></i><b>6.1</b> Quadratic Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-faktorisera-andragradsekvationer"><i class="fa fa-check"></i><b>6.2</b> Factoring Equations</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-rationella-rotter"><i class="fa fa-check"></i><b>6.3</b> Rational Roots</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-pq-formeln"><i class="fa fa-check"></i><b>6.4</b> The Quadratic Formula</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#sec-polynom-av-hogre-grad"><i class="fa fa-check"></i><b>6.5</b> Third degree and Higher</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#factorizing-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.6</b> Factorizing Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#divisions-of-polynomials-of-higher-degree"><i class="fa fa-check"></i><b>6.7</b> Divisions of Polynomials of Higher Degree</a></li>
+<li class="chapter" data-level="6.8" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#chapter-summary-4"><i class="fa fa-check"></i><b>6.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="6.9" data-path="chap-polynomekvationer.html"><a href="chap-polynomekvationer.html#exercises-4"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html"><i class="fa fa-check"></i><b>7</b> Systems of Linear Equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#linear-system"><i class="fa fa-check"></i><b>7.1</b> Linear system</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#number-of-solutions-in-the-system"><i class="fa fa-check"></i><b>7.2</b> Number of solutions in the system</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-radreduktion"><i class="fa fa-check"></i><b>7.3</b> Row Reduction</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#taking-logarithms-in-systems-of-equations"><i class="fa fa-check"></i><b>7.4</b> Taking logarithms in systems of equations</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#three-or-more-variables"><i class="fa fa-check"></i><b>7.5</b> Three or more variables</a></li>
+<li class="chapter" data-level="7.6" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#some-more-examples"><i class="fa fa-check"></i><b>7.6</b> Some more examples</a></li>
+<li class="chapter" data-level="7.7" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#sec-bortom-trredje-dimensionen"><i class="fa fa-check"></i><b>7.7</b> Beyond the third dimension</a></li>
+<li class="chapter" data-level="7.8" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#chapter-summary-5"><i class="fa fa-check"></i><b>7.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="7.9" data-path="chap-linjara-ekvationssystem.html"><a href="chap-linjara-ekvationssystem.html#exercises-5"><i class="fa fa-check"></i><b>7.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html"><i class="fa fa-check"></i><b>8</b> Theories of life, death and dating</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#income-and-life-expectancy"><i class="fa fa-check"></i><b>8.1</b> Income and life expectancy</a></li>
+<li class="chapter" data-level="8.2" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#mathematical-adventures-in-national-income"><i class="fa fa-check"></i><b>8.2</b> Mathematical adventures in national income</a></li>
+<li class="chapter" data-level="8.3" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#a-matter-of-class"><i class="fa fa-check"></i><b>8.3</b> A matter of class</a></li>
+<li class="chapter" data-level="8.4" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-utbud-och-efterfragan"><i class="fa fa-check"></i><b>8.4</b> Supply and demand</a></li>
+<li class="chapter" data-level="8.5" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#two-types-of-cookies"><i class="fa fa-check"></i><b>8.5</b> Two types of cookies</a></li>
+<li class="chapter" data-level="8.6" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-dejting"><i class="fa fa-check"></i><b>8.6</b> Finding the one</a></li>
+<li class="chapter" data-level="8.7" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-nairu-teori"><i class="fa fa-check"></i><b>8.7</b> A theory about work</a></li>
+<li class="chapter" data-level="8.8" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#sec-extern-effekt-utslapp"><i class="fa fa-check"></i><b>8.8</b> External effects</a></li>
+<li class="chapter" data-level="8.9" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#linear-relationships-in-real-life"><i class="fa fa-check"></i><b>8.9</b> Linear relationships in real life</a></li>
+<li class="chapter" data-level="8.10" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#chapter-summary-6"><i class="fa fa-check"></i><b>8.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="8.11" data-path="theories-of-life-death-and-dating.html"><a href="theories-of-life-death-and-dating.html#exercises-6"><i class="fa fa-check"></i><b>8.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html"><i class="fa fa-check"></i><b>9</b> Non-linear equations in systems</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#solutions-with-non-linear-systems"><i class="fa fa-check"></i><b>9.1</b> Solutions with non-linear systems</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#substitution"><i class="fa fa-check"></i><b>9.2</b> Substitution</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#row-reduction-with-non-linear-equations"><i class="fa fa-check"></i><b>9.3</b> Row reduction with non-linear equations</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-ska-vi-borja-roka"><i class="fa fa-check"></i><b>9.4</b> Example 1: Two friends</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-2-more-smoking"><i class="fa fa-check"></i><b>9.5</b> Example 2: More smoking</a></li>
+<li class="chapter" data-level="9.6" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#example-3-they-call-it-love"><i class="fa fa-check"></i><b>9.6</b> Example 3: They call it love</a></li>
+<li class="chapter" data-level="9.7" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#sec-nairu-med-flera-jamvikter"><i class="fa fa-check"></i><b>9.7</b> Example 4: Another theory about work</a></li>
+<li class="chapter" data-level="9.8" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#chapter-summary-7"><i class="fa fa-check"></i><b>9.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="9.9" data-path="chap-ickelinjara-ekvationer-i.html"><a href="chap-ickelinjara-ekvationer-i.html#exercises-7"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-derivata.html"><a href="chap-derivata.html"><i class="fa fa-check"></i><b>10</b> Derivative</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-derivata.html"><a href="chap-derivata.html#limit"><i class="fa fa-check"></i><b>10.1</b> Limit</a></li>
+<li class="chapter" data-level="10.2" data-path="chap-derivata.html"><a href="chap-derivata.html#simplify-first"><i class="fa fa-check"></i><b>10.2</b> Simplify first</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata"><i class="fa fa-check"></i><b>10.3</b> Differentiating</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-derivata.html"><a href="chap-derivata.html#the-next-derivative"><i class="fa fa-check"></i><b>10.4</b> The next derivative</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-derivata-exponential-e-log"><i class="fa fa-check"></i><b>10.5</b> Exponent, logarithm and <em>e</em></a></li>
+<li class="chapter" data-level="10.6" data-path="chap-derivata.html"><a href="chap-derivata.html#the-derivative-of-boldsymbollog-x"><i class="fa fa-check"></i><b>10.6</b> The derivative of <span class="math inline">\(\boldsymbol{\log x}\)</span></a></li>
+<li class="chapter" data-level="10.7" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-l-hopitals-regel"><i class="fa fa-check"></i><b>10.7</b> L’Hôpital’s rule</a></li>
+<li class="chapter" data-level="10.8" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-partiell-derivata"><i class="fa fa-check"></i><b>10.8</b> Partial derivative</a></li>
+<li class="chapter" data-level="10.9" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-rakneregler-derivata"><i class="fa fa-check"></i><b>10.9</b> Differentiation rules</a></li>
+<li class="chapter" data-level="10.10" data-path="chap-derivata.html"><a href="chap-derivata.html#sec-elasticitet"><i class="fa fa-check"></i><b>10.10</b> Elasticity</a></li>
+<li class="chapter" data-level="10.11" data-path="chap-derivata.html"><a href="chap-derivata.html#chapter-summary-8"><i class="fa fa-check"></i><b>10.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="10.12" data-path="chap-derivata.html"><a href="chap-derivata.html#exercises-8"><i class="fa fa-check"></i><b>10.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html"><i class="fa fa-check"></i><b>11</b> Optimization with functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#extreme-values"><i class="fa fa-check"></i><b>11.1</b> Extreme values</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#differentiate-to-find-extreme-values"><i class="fa fa-check"></i><b>11.2</b> Differentiate to find extreme values</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#global-and-local"><i class="fa fa-check"></i><b>11.3</b> Global and local</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#more-examples"><i class="fa fa-check"></i><b>11.4</b> More examples</a></li>
+<li class="chapter" data-level="11.5" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#terrace"><i class="fa fa-check"></i><b>11.5</b> Terrace</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#sec-optimera-villkor-lagrange"><i class="fa fa-check"></i><b>11.6</b> Optimization with constraints</a></li>
+<li class="chapter" data-level="11.7" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#chapter-summary-9"><i class="fa fa-check"></i><b>11.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="11.8" data-path="chap-optimering-utifran-funktioner.html"><a href="chap-optimering-utifran-funktioner.html#exercises-9"><i class="fa fa-check"></i><b>11.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html"><i class="fa fa-check"></i><b>12</b> Theories about cake and monopoly</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#the-optimal-amount-of-cake"><i class="fa fa-check"></i><b>12.1</b> The optimal amount of cake</a></li>
+<li class="chapter" data-level="12.2" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-maximera-eriks-nytta"><i class="fa fa-check"></i><b>12.2</b> To work or not to work</a></li>
+<li class="chapter" data-level="12.3" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-den-optimala-skattenivan"><i class="fa fa-check"></i><b>12.3</b> Maximum possible tax level</a></li>
+<li class="chapter" data-level="12.4" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-konsumtion-och-sparande"><i class="fa fa-check"></i><b>12.4</b> Consumption and saving</a></li>
+<li class="chapter" data-level="12.5" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-optimering-1-ftg-perf-konk"><i class="fa fa-check"></i><b>12.5</b> A profit-maximizing company</a></li>
+<li class="chapter" data-level="12.6" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-vinstmaximering-med-villkor"><i class="fa fa-check"></i><b>12.6</b> Profit maximization with constraints</a></li>
+<li class="chapter" data-level="12.7" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopol"><i class="fa fa-check"></i><b>12.7</b> Monopoly</a></li>
+<li class="chapter" data-level="12.8" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#sec-monopsoni"><i class="fa fa-check"></i><b>12.8</b> Monopsony</a></li>
+<li class="chapter" data-level="12.9" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#if-we-do-not-optimize"><i class="fa fa-check"></i><b>12.9</b> If we do not optimize</a></li>
+<li class="chapter" data-level="12.10" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#chapter-summary-10"><i class="fa fa-check"></i><b>12.10</b> Chapter summary</a></li>
+<li class="chapter" data-level="12.11" data-path="theories-about-cake-and-monopoly.html"><a href="theories-about-cake-and-monopoly.html#exercises-10"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-integraler.html"><a href="chap-integraler.html"><i class="fa fa-check"></i><b>13</b> Integration</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap-integraler.html"><a href="chap-integraler.html#the-primitive-function"><i class="fa fa-check"></i><b>13.1</b> The primitive function</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-integraler.html"><a href="chap-integraler.html#the-meaning-of-constant-boldsymbolc"><i class="fa fa-check"></i><b>13.2</b> The meaning of constant <span class="math inline">\(\boldsymbol{C}\)</span></a></li>
+<li class="chapter" data-level="13.3" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-with-conditions"><i class="fa fa-check"></i><b>13.3</b> Primitive function with conditions</a></li>
+<li class="chapter" data-level="13.4" data-path="chap-integraler.html"><a href="chap-integraler.html#primitive-function-for-an-exponent"><i class="fa fa-check"></i><b>13.4</b> Primitive function for an exponent</a></li>
+<li class="chapter" data-level="13.5" data-path="chap-integraler.html"><a href="chap-integraler.html#calculate-area-with-integral"><i class="fa fa-check"></i><b>13.5</b> Calculate area with integral</a></li>
+<li class="chapter" data-level="13.6" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-under-the-x-axis"><i class="fa fa-check"></i><b>13.6</b> The area under the x-axis</a></li>
+<li class="chapter" data-level="13.7" data-path="chap-integraler.html"><a href="chap-integraler.html#the-area-between-two-lines"><i class="fa fa-check"></i><b>13.7</b> The area between two lines</a></li>
+<li class="chapter" data-level="13.8" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-rakneregler-for-integraler"><i class="fa fa-check"></i><b>13.8</b> Integration rules</a></li>
+<li class="chapter" data-level="13.9" data-path="chap-integraler.html"><a href="chap-integraler.html#more-examples-1"><i class="fa fa-check"></i><b>13.9</b> More examples</a></li>
+<li class="chapter" data-level="13.10" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-multipelintegral"><i class="fa fa-check"></i><b>13.10</b> Multiple integral</a></li>
+<li class="chapter" data-level="13.11" data-path="chap-integraler.html"><a href="chap-integraler.html#sec-partiell-integration"><i class="fa fa-check"></i><b>13.11</b> Partial integration</a></li>
+<li class="chapter" data-level="13.12" data-path="chap-integraler.html"><a href="chap-integraler.html#income-distribution-with-integrals"><i class="fa fa-check"></i><b>13.12</b> Income distribution with integrals</a></li>
+<li class="chapter" data-level="13.13" data-path="chap-integraler.html"><a href="chap-integraler.html#chapter-summary-11"><i class="fa fa-check"></i><b>13.13</b> Chapter summary</a></li>
+<li class="chapter" data-level="13.14" data-path="chap-integraler.html"><a href="chap-integraler.html#exercises-11"><i class="fa fa-check"></i><b>13.14</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html"><i class="fa fa-check"></i><b>14</b> Linear Algebra: Vectors and Matrices</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vectors"><i class="fa fa-check"></i><b>14.1</b> Vectors</a></li>
+<li class="chapter" data-level="14.2" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#vector-calculations"><i class="fa fa-check"></i><b>14.2</b> Vector calculations</a></li>
+<li class="chapter" data-level="14.3" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#more-vectors"><i class="fa fa-check"></i><b>14.3</b> More vectors</a></li>
+<li class="chapter" data-level="14.4" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-matriser"><i class="fa fa-check"></i><b>14.4</b> Matrices</a></li>
+<li class="chapter" data-level="14.5" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-mer-matriser-transponerad-diagonal-identitet"><i class="fa fa-check"></i><b>14.5</b> More matrices</a></li>
+<li class="chapter" data-level="14.6" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-multiplikation-och-transponering"><i class="fa fa-check"></i><b>14.6</b> Multiplication and transposition</a></li>
+<li class="chapter" data-level="14.7" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-determinant-matris"><i class="fa fa-check"></i><b>14.7</b> Determinant</a></li>
+<li class="chapter" data-level="14.8" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#row-reduction-in-matrix"><i class="fa fa-check"></i><b>14.8</b> Row reduction in matrix</a></li>
+<li class="chapter" data-level="14.9" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-inversen-av-matris"><i class="fa fa-check"></i><b>14.9</b> Inverse of a matrix</a></li>
+<li class="chapter" data-level="14.10" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#sec-linjara-ekvationssystem-i-matris"><i class="fa fa-check"></i><b>14.10</b> Linear equation systems in matrix</a></li>
+<li class="chapter" data-level="14.11" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-1-a-bakery"><i class="fa fa-check"></i><b>14.11</b> Example 1: A bakery</a></li>
+<li class="chapter" data-level="14.12" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-2-input-output-analysis"><i class="fa fa-check"></i><b>14.12</b> Example 2: Input-output analysis</a></li>
+<li class="chapter" data-level="14.13" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#example-3-social-networks"><i class="fa fa-check"></i><b>14.13</b> Example 3: Social networks</a></li>
+<li class="chapter" data-level="14.14" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#chapter-summary-12"><i class="fa fa-check"></i><b>14.14</b> Chapter summary</a></li>
+<li class="chapter" data-level="14.15" data-path="chap-linjar-algebra.html"><a href="chap-linjar-algebra.html#exercises-12"><i class="fa fa-check"></i><b>14.15</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Covariation and Causality</b></span></li>
+<li class="chapter" data-level="" data-path="part-covariation-intro.html"><a href="part-covariation-intro.html"><i class="fa fa-check"></i>Part II: Covariation and Causality</a></li>
+<li class="chapter" data-level="15" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html"><i class="fa fa-check"></i><b>15</b> Fundamental Counterfactual Analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-orsak-och-effekt"><i class="fa fa-check"></i><b>15.1</b> Cause and effect</a></li>
+<li class="chapter" data-level="15.2" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samvariation"><i class="fa fa-check"></i><b>15.2</b> Variation, Covariation and Association</a></li>
+<li class="chapter" data-level="15.3" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-observationsstudie-experiment"><i class="fa fa-check"></i><b>15.3</b> Observational Study and Experiment</a></li>
+<li class="chapter" data-level="15.4" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-population-urval-superpopulation"><i class="fa fa-check"></i><b>15.4</b> Population and Sample</a></li>
+<li class="chapter" data-level="15.5" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-information-och-variabler"><i class="fa fa-check"></i><b>15.5</b> Information and variables</a></li>
+<li class="chapter" data-level="15.6" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-olika-typer-av-data"><i class="fa fa-check"></i><b>15.6</b> Different types of data</a></li>
+<li class="chapter" data-level="15.7" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-samla-in-data"><i class="fa fa-check"></i><b>15.7</b> Collecting a sample</a></li>
+<li class="chapter" data-level="15.8" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#sec-ar-allting-osakert"><i class="fa fa-check"></i><b>15.8</b> How do we know the things we know?</a></li>
+<li class="chapter" data-level="15.9" data-path="chap-kontrafaktisk-analys.html"><a href="chap-kontrafaktisk-analys.html#exercises-13"><i class="fa fa-check"></i><b>15.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html"><i class="fa fa-check"></i><b>16</b> Variation and covariation</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-frekvensfordelning"><i class="fa fa-check"></i><b>16.1</b> Frequency Distribution</a></li>
+<li class="chapter" data-level="16.2" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-spridningsmatt-kvartiler-och"><i class="fa fa-check"></i><b>16.2</b> Measures of Central Tendency and Measures of Dispersion</a></li>
+<li class="chapter" data-level="16.3" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-varians-och-standardavvikelse"><i class="fa fa-check"></i><b>16.3</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="16.4" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-standardiserade-varden"><i class="fa fa-check"></i><b>16.4</b> Standardized values</a></li>
+<li class="chapter" data-level="16.5" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-samvariation-i-diagram"><i class="fa fa-check"></i><b>16.5</b> Covariation in graphs</a></li>
+<li class="chapter" data-level="16.6" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-kovarians"><i class="fa fa-check"></i><b>16.6</b> Covariation 1: Covariance</a></li>
+<li class="chapter" data-level="16.7" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#sec-pearsons-r"><i class="fa fa-check"></i><b>16.7</b> Covariation 2: The correlation coefficient</a></li>
+<li class="chapter" data-level="16.8" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#chapter-summary-13"><i class="fa fa-check"></i><b>16.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="16.9" data-path="chap-variation-och-samvariation.html"><a href="chap-variation-och-samvariation.html#exercises-14"><i class="fa fa-check"></i><b>16.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap-ols.html"><a href="chap-ols.html"><i class="fa fa-check"></i><b>17</b> The Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap-ols.html"><a href="chap-ols.html#basic-logic"><i class="fa fa-check"></i><b>17.1</b> Basic logic</a></li>
+<li class="chapter" data-level="17.2" data-path="chap-ols.html"><a href="chap-ols.html#sec-minstakvadratmetoden-ols"><i class="fa fa-check"></i><b>17.2</b> Covariation with Straight Line</a></li>
+<li class="chapter" data-level="17.3" data-path="chap-ols.html"><a href="chap-ols.html#sec-regressionsanalys"><i class="fa fa-check"></i><b>17.3</b> Regression analysis</a></li>
+<li class="chapter" data-level="17.4" data-path="chap-ols.html"><a href="chap-ols.html#sec-felterm-och-residual"><i class="fa fa-check"></i><b>17.4</b> Error term and residual</a></li>
+<li class="chapter" data-level="17.5" data-path="chap-ols.html"><a href="chap-ols.html#calculating-with-least-squares"><i class="fa fa-check"></i><b>17.5</b> Calculating with Least Squares</a></li>
+<li class="chapter" data-level="17.6" data-path="chap-ols.html"><a href="chap-ols.html#other-straight-lines"><i class="fa fa-check"></i><b>17.6</b> Other straight lines</a></li>
+<li class="chapter" data-level="17.7" data-path="chap-ols.html"><a href="chap-ols.html#sec-en-linje-ar-en-linje"><i class="fa fa-check"></i><b>17.7</b> What the Line Doesn’t Tell Us</a></li>
+<li class="chapter" data-level="17.8" data-path="chap-ols.html"><a href="chap-ols.html#sec-ols-ex-2"><i class="fa fa-check"></i><b>17.8</b> Another example</a></li>
+<li class="chapter" data-level="17.9" data-path="chap-ols.html"><a href="chap-ols.html#sec-ssr-sse-sst-vilken-modell-ar-bast"><i class="fa fa-check"></i><b>17.9</b> Which model fits the data best?</a></li>
+<li class="chapter" data-level="17.10" data-path="chap-ols.html"><a href="chap-ols.html#sec-harled-ols-med-vanliga-f"><i class="fa fa-check"></i><b>17.10</b> Derivation of the Estimators</a></li>
+<li class="chapter" data-level="17.11" data-path="chap-ols.html"><a href="chap-ols.html#chapter-summary-14"><i class="fa fa-check"></i><b>17.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="17.12" data-path="chap-ols.html"><a href="chap-ols.html#exercises-15"><i class="fa fa-check"></i><b>17.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html"><i class="fa fa-check"></i><b>18</b> Covariation in Social Science</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-lever-rika-langre-kolada-inkomst-livslangd"><i class="fa fa-check"></i><b>18.1</b> GDP and Life Expectancy in different countries</a></li>
+<li class="chapter" data-level="18.2" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-ols-kolada-alla-kommuner-livslangd-inkomst"><i class="fa fa-check"></i><b>18.2</b> Covariation with a lot of countries</a></li>
+<li class="chapter" data-level="18.3" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-linjar-trend-ols-log-bnp"><i class="fa fa-check"></i><b>18.3</b> Linear trend over time</a></li>
+<li class="chapter" data-level="18.4" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-cykler-och-vagor"><i class="fa fa-check"></i><b>18.4</b> Cycles and waves</a></li>
+<li class="chapter" data-level="18.5" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-bnp-och-lycka-igen"><i class="fa fa-check"></i><b>18.5</b> Wealth and happiness</a></li>
+<li class="chapter" data-level="18.6" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#sec-star-wars"><i class="fa fa-check"></i><b>18.6</b> Star Wars</a></li>
+<li class="chapter" data-level="18.7" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#chapter-summary-15"><i class="fa fa-check"></i><b>18.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="18.8" data-path="covariation-in-social-science.html"><a href="covariation-in-social-science.html#exercises-16"><i class="fa fa-check"></i><b>18.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html"><i class="fa fa-check"></i><b>19</b> Least Squares with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-ols-pa-tre-variabler"><i class="fa fa-check"></i><b>19.1</b> Regression analysis with three variables</a></li>
+<li class="chapter" data-level="19.2" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-faktorvariabler"><i class="fa fa-check"></i><b>19.2</b> Factor variables</a></li>
+<li class="chapter" data-level="19.3" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-konstanthaller"><i class="fa fa-check"></i><b>19.3</b> Ceteris paribus</a></li>
+<li class="chapter" data-level="19.4" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-minstakvadratmetoden-med-matrise"><i class="fa fa-check"></i><b>19.4</b> Least Squares with Matrices</a></li>
+<li class="chapter" data-level="19.5" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-berakna-ols-med-matriser"><i class="fa fa-check"></i><b>19.5</b> Estimation with matrices</a></li>
+<li class="chapter" data-level="19.6" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-interaktion"><i class="fa fa-check"></i><b>19.6</b> Interaction</a></li>
+<li class="chapter" data-level="19.7" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-adj-r-2"><i class="fa fa-check"></i><b>19.7</b> Adjusted <span class="math inline">\(R^{2}\)</span></a></li>
+<li class="chapter" data-level="19.8" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-omitted-variable-bias"><i class="fa fa-check"></i><b>19.8</b> If we have too few variables</a></li>
+<li class="chapter" data-level="19.9" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#sec-overfitting"><i class="fa fa-check"></i><b>19.9</b> If we have too many variables</a></li>
+<li class="chapter" data-level="19.10" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#the-error-term-does-not-need-to-approach-zero"><i class="fa fa-check"></i><b>19.10</b> The error term does not need to approach zero</a></li>
+<li class="chapter" data-level="19.11" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#chapter-summary-16"><i class="fa fa-check"></i><b>19.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="19.12" data-path="chap-ols-flera-variabler-matriser.html"><a href="chap-ols-flera-variabler-matriser.html#exercises-17"><i class="fa fa-check"></i><b>19.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html"><i class="fa fa-check"></i><b>20</b> Regression Analysis for Causal Relationships</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#we-need-special-methods-to-study-cause-and-effect"><i class="fa fa-check"></i><b>20.1</b> We need special methods to study cause and effect</a></li>
+<li class="chapter" data-level="20.2" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#illustration-with-a-dag"><i class="fa fa-check"></i><b>20.2</b> Illustration with a DAG</a></li>
+<li class="chapter" data-level="20.3" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#both-the-presence-and-absence-of-variables-can-affect-our-results"><i class="fa fa-check"></i><b>20.3</b> Both the presence and absence of variables can affect our results</a></li>
+<li class="chapter" data-level="20.4" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-regressionsdiskontinuitet"><i class="fa fa-check"></i><b>20.4</b> Regression discontinuity</a></li>
+<li class="chapter" data-level="20.5" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-instrumentell-variabel"><i class="fa fa-check"></i><b>20.5</b> Instrumental variable</a></li>
+<li class="chapter" data-level="20.6" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#sec-skillnad-i-skillnad"><i class="fa fa-check"></i><b>20.6</b> Difference-in-differences</a></li>
+<li class="chapter" data-level="20.7" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#pros-and-cons-with-these-methods"><i class="fa fa-check"></i><b>20.7</b> Pros and cons with these methods</a></li>
+<li class="chapter" data-level="20.8" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#causality-without-covariation"><i class="fa fa-check"></i><b>20.8</b> Causality without covariation</a></li>
+<li class="chapter" data-level="20.9" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#chapter-summary-17"><i class="fa fa-check"></i><b>20.9</b> Chapter summary</a></li>
+<li class="chapter" data-level="20.10" data-path="chap-ols-kvasiexperiment.html"><a href="chap-ols-kvasiexperiment.html#exercises-18"><i class="fa fa-check"></i><b>20.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>III Probability</b></span></li>
+<li class="chapter" data-level="" data-path="part-probability-intro.html"><a href="part-probability-intro.html"><i class="fa fa-check"></i>Part III: Probability</a></li>
+<li class="chapter" data-level="21" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html"><i class="fa fa-check"></i><b>21</b> Basic Probability Theory 1: discrete distributions</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#how-we-know-what-we-know"><i class="fa fa-check"></i><b>21.1</b> How we know what we know</a></li>
+<li class="chapter" data-level="21.2" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-random-variables"><i class="fa fa-check"></i><b>21.2</b> Random variables</a></li>
+<li class="chapter" data-level="21.3" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-multivariate-probability"><i class="fa fa-check"></i><b>21.3</b> Probability with multiple variables</a></li>
+<li class="chapter" data-level="21.4" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-expected-value-variance"><i class="fa fa-check"></i><b>21.4</b> Expected value and variance</a></li>
+<li class="chapter" data-level="21.5" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-conditional-expected-value"><i class="fa fa-check"></i><b>21.5</b> Conditional expected value</a></li>
+<li class="chapter" data-level="21.6" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-law-large-numbers"><i class="fa fa-check"></i><b>21.6</b> Law of large numbers</a></li>
+<li class="chapter" data-level="21.7" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-uniform-distribution"><i class="fa fa-check"></i><b>21.7</b> Uniform probability distributions</a></li>
+<li class="chapter" data-level="21.8" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-binomial-distribution"><i class="fa fa-check"></i><b>21.8</b> The binomial distribution</a></li>
+<li class="chapter" data-level="21.9" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-poisson-distribution"><i class="fa fa-check"></i><b>21.9</b> The Poisson distribution</a></li>
+<li class="chapter" data-level="21.10" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#sec-ch21-summary"><i class="fa fa-check"></i><b>21.10</b> Chapter Summary</a></li>
+<li class="chapter" data-level="21.11" data-path="ch-probability-discrete.html"><a href="ch-probability-discrete.html#exercises-19"><i class="fa fa-check"></i><b>21.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html"><i class="fa fa-check"></i><b>22</b> Fundamental Probability Theory 2: Continuous Distributions</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-uniform-continuous"><i class="fa fa-check"></i><b>22.1</b> Uniform Continuous Probability Distributions</a></li>
+<li class="chapter" data-level="22.2" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-ev-variance-continuous"><i class="fa fa-check"></i><b>22.2</b> Expected Value and Variance for Continuous Random Variables</a></li>
+<li class="chapter" data-level="22.3" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-exponential-distribution"><i class="fa fa-check"></i><b>22.3</b> Exponential Distributions</a></li>
+<li class="chapter" data-level="22.4" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-gamma-distribution"><i class="fa fa-check"></i><b>22.4</b> From Poisson to Gamma</a></li>
+<li class="chapter" data-level="22.5" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-chi-squared-distribution"><i class="fa fa-check"></i><b>22.5</b> Chi-squared Distributions</a></li>
+<li class="chapter" data-level="22.6" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#sec-f-distribution"><i class="fa fa-check"></i><b>22.6</b> F-distributions</a></li>
+<li class="chapter" data-level="22.7" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#chapter-summary-18"><i class="fa fa-check"></i><b>22.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="22.8" data-path="ch-probability-continuous.html"><a href="ch-probability-continuous.html#exercises-20"><i class="fa fa-check"></i><b>22.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html"><i class="fa fa-check"></i><b>23</b> Normal and t distributions</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability with normal variables</a></li>
+<li class="chapter" data-level="23.2" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-standard-normal"><i class="fa fa-check"></i><b>23.2</b> Standardized normal distribution</a></li>
+<li class="chapter" data-level="23.3" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-1"><i class="fa fa-check"></i><b>23.3</b> The usefulness of the normal distribution 1</a></li>
+<li class="chapter" data-level="23.4" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-2"><i class="fa fa-check"></i><b>23.4</b> The usefulness of the normal distribution 2</a></li>
+<li class="chapter" data-level="23.5" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-normal-usefulness-3-clt"><i class="fa fa-check"></i><b>23.5</b> The usefulness of the normal distribution 3</a></li>
+<li class="chapter" data-level="23.6" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#sec-t-distribution"><i class="fa fa-check"></i><b>23.6</b> T-distribution</a></li>
+<li class="chapter" data-level="23.7" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#chapter-summary-19"><i class="fa fa-check"></i><b>23.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="23.8" data-path="ch-probability-normal-t.html"><a href="ch-probability-normal-t.html#exercises-21"><i class="fa fa-check"></i><b>23.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html"><i class="fa fa-check"></i><b>24</b> Statistical analysis and inference</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-point-estimation"><i class="fa fa-check"></i><b>24.1</b> Point estimation</a></li>
+<li class="chapter" data-level="24.2" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-standard-error"><i class="fa fa-check"></i><b>24.2</b> Standard error</a></li>
+<li class="chapter" data-level="24.3" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-confidence-interval"><i class="fa fa-check"></i><b>24.3</b> Confidence interval</a></li>
+<li class="chapter" data-level="24.4" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-hypothesis-testing"><i class="fa fa-check"></i><b>24.4</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="24.5" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#sec-statistical-significance"><i class="fa fa-check"></i><b>24.5</b> Statistical significance, power and type errors</a></li>
+<li class="chapter" data-level="24.6" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#chapter-summary-20"><i class="fa fa-check"></i><b>24.6</b> Chapter summary</a></li>
+<li class="chapter" data-level="24.7" data-path="ch-statistical-inference.html"><a href="ch-statistical-inference.html#exercises-22"><i class="fa fa-check"></i><b>24.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html"><i class="fa fa-check"></i><b>25</b> Regression Analysis with Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-population-model"><i class="fa fa-check"></i><b>25.1</b> The Population Model and Statistical Tests</a></li>
+<li class="chapter" data-level="25.2" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ols-assumptions"><i class="fa fa-check"></i><b>25.2</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="25.3" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-variance"><i class="fa fa-check"></i><b>25.3</b> The Variance of the Regression Model</a></li>
+<li class="chapter" data-level="25.4" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-regression-t-test"><i class="fa fa-check"></i><b>25.4</b> Regression analysis with t-test</a></li>
+<li class="chapter" data-level="25.5" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-coefficients"><i class="fa fa-check"></i><b>25.5</b> Regression analysis with confidence interval</a></li>
+<li class="chapter" data-level="25.6" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ci-regression-line"><i class="fa fa-check"></i><b>25.6</b> Confidence Interval for the Regression Line</a></li>
+<li class="chapter" data-level="25.7" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-power-regression"><i class="fa fa-check"></i><b>25.7</b> Statistical Power in Regression</a></li>
+<li class="chapter" data-level="25.8" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-economic-significance"><i class="fa fa-check"></i><b>25.8</b> Statistical and Economic Significance</a></li>
+<li class="chapter" data-level="25.9" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#chapter-summary-21"><i class="fa fa-check"></i><b>25.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="25.10" data-path="ch-regression-statistical-tests.html"><a href="ch-regression-statistical-tests.html#sec-ch25-exercises"><i class="fa fa-check"></i><b>25.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html"><i class="fa fa-check"></i><b>26</b> Statistical Tests in Regression Analysis with Multiple Variables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ols-assumptions-multiple"><i class="fa fa-check"></i><b>26.1</b> Starting Points and Assumptions</a></li>
+<li class="chapter" data-level="26.2" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-estimators-multiple"><i class="fa fa-check"></i><b>26.2</b> Estimators of the Coefficients</a></li>
+<li class="chapter" data-level="26.3" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-variance-covariance-matrix"><i class="fa fa-check"></i><b>26.3</b> The Variance-Covariance Matrix</a></li>
+<li class="chapter" data-level="26.4" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-t-test-multiple-variables"><i class="fa fa-check"></i><b>26.4</b> T-tests for Multiple Regression</a></li>
+<li class="chapter" data-level="26.5" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-f-test-regression"><i class="fa fa-check"></i><b>26.5</b> F-test for the Regression Model</a></li>
+<li class="chapter" data-level="26.6" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#chapter-summary-22"><i class="fa fa-check"></i><b>26.6</b> Chapter Summary</a></li>
+<li class="chapter" data-level="26.7" data-path="ch-regression-multiple-tests.html"><a href="ch-regression-multiple-tests.html#sec-ch26-exercises"><i class="fa fa-check"></i><b>26.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html"><i class="fa fa-check"></i><b>27</b> Conditions of the Least Squares Method</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-gauss-markov"><i class="fa fa-check"></i><b>27.1</b> Gauss-Markov</a></li>
+<li class="chapter" data-level="27.2" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-linearity"><i class="fa fa-check"></i><b>27.2</b> Assumption 1: Linearity</a></li>
+<li class="chapter" data-level="27.3" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-iid"><i class="fa fa-check"></i><b>27.3</b> Assumption 2: Independent and Identically Distributed Observations</a></li>
+<li class="chapter" data-level="27.4" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-homoscedasticity"><i class="fa fa-check"></i><b>27.4</b> Assumption 3: Expected Value and Variance of the Error Terms</a></li>
+<li class="chapter" data-level="27.5" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-multicollinearity"><i class="fa fa-check"></i><b>27.5</b> Assumption 4: Multicollinearity</a></li>
+<li class="chapter" data-level="27.6" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-autocorrelation"><i class="fa fa-check"></i><b>27.6</b> Assumption 5: Correlation Between Residuals</a></li>
+<li class="chapter" data-level="27.7" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-assumption-normality"><i class="fa fa-check"></i><b>27.7</b> Assumption 6: Normally Distributed Error Terms</a></li>
+<li class="chapter" data-level="27.8" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-robust-se"><i class="fa fa-check"></i><b>27.8</b> Adjusted Standard Errors</a></li>
+<li class="chapter" data-level="27.9" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-summary"><i class="fa fa-check"></i><b>27.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="27.10" data-path="ch-ols-conditions.html"><a href="ch-ols-conditions.html#sec-ch27-exercises"><i class="fa fa-check"></i><b>27.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Computer Programs for Social Scientists</b></span></li>
+<li class="chapter" data-level="" data-path="part-computer-programs-intro.html"><a href="part-computer-programs-intro.html"><i class="fa fa-check"></i>Part IV: Computer Programs for Social Scientists</a></li>
+<li class="chapter" data-level="28" data-path="ch-why-computers.html"><a href="ch-why-computers.html"><i class="fa fa-check"></i><b>28</b> Why Use Computers?</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-three-tools"><i class="fa fa-check"></i><b>28.1</b> Three Analytical Tools</a></li>
+<li class="chapter" data-level="28.2" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-why-programming"><i class="fa fa-check"></i><b>28.2</b> Programming: Why Bother?</a></li>
+<li class="chapter" data-level="28.3" data-path="ch-why-computers.html"><a href="ch-why-computers.html#sec-practice"><i class="fa fa-check"></i><b>28.3</b> You Have to Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="ch-excel.html"><a href="ch-excel.html"><i class="fa fa-check"></i><b>29</b> Microsoft Excel</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-general"><i class="fa fa-check"></i><b>29.1</b> General about Excel</a></li>
+<li class="chapter" data-level="29.2" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-import"><i class="fa fa-check"></i><b>29.2</b> Import and edit data</a></li>
+<li class="chapter" data-level="29.3" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-functions"><i class="fa fa-check"></i><b>29.3</b> Worksheet functions</a></li>
+<li class="chapter" data-level="29.4" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-fill-cells"><i class="fa fa-check"></i><b>29.4</b> Quick ways to fill multiple cells</a></li>
+<li class="chapter" data-level="29.5" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-combining-functions"><i class="fa fa-check"></i><b>29.5</b> Combining functions within calculations</a></li>
+<li class="chapter" data-level="29.6" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-logic"><i class="fa fa-check"></i><b>29.6</b> Logic conditions</a></li>
+<li class="chapter" data-level="29.7" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-index"><i class="fa fa-check"></i><b>29.7</b> Calculate index with Excel</a></li>
+<li class="chapter" data-level="29.8" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-matrices"><i class="fa fa-check"></i><b>29.8</b> Matrix calculations</a></li>
+<li class="chapter" data-level="29.9" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-io"><i class="fa fa-check"></i><b>29.9</b> Input-output analysis</a></li>
+<li class="chapter" data-level="29.10" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-variance"><i class="fa fa-check"></i><b>29.10</b> Variance and covariance</a></li>
+<li class="chapter" data-level="29.11" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-probability"><i class="fa fa-check"></i><b>29.11</b> Probability</a></li>
+<li class="chapter" data-level="29.12" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-regression"><i class="fa fa-check"></i><b>29.12</b> Regression analysis</a></li>
+<li class="chapter" data-level="29.13" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-plots"><i class="fa fa-check"></i><b>29.13</b> Creating plots</a></li>
+<li class="chapter" data-level="29.14" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-gdp-example"><i class="fa fa-check"></i><b>29.14</b> Example with GDP per working hour</a></li>
+<li class="chapter" data-level="29.15" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-other-functions"><i class="fa fa-check"></i><b>29.15</b> Some other useful functions</a></li>
+<li class="chapter" data-level="29.16" data-path="ch-excel.html"><a href="ch-excel.html#sec-excel-summary"><i class="fa fa-check"></i><b>29.16</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="ch-stata.html"><a href="ch-stata.html"><i class="fa fa-check"></i><b>30</b> Stata</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-general"><i class="fa fa-check"></i><b>30.1</b> General info about Stata</a></li>
+<li class="chapter" data-level="30.2" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-commands"><i class="fa fa-check"></i><b>30.2</b> Commands in Stata</a></li>
+<li class="chapter" data-level="30.3" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-import"><i class="fa fa-check"></i><b>30.3</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="30.4" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-enter-data"><i class="fa fa-check"></i><b>30.4</b> Enter data manually</a></li>
+<li class="chapter" data-level="30.5" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-edit"><i class="fa fa-check"></i><b>30.5</b> Edit Columns and Rows</a></li>
+<li class="chapter" data-level="30.6" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-egen"><i class="fa fa-check"></i><b>30.6</b> The function egen</a></li>
+<li class="chapter" data-level="30.7" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-join"><i class="fa fa-check"></i><b>30.7</b> Join tables</a></li>
+<li class="chapter" data-level="30.8" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-index"><i class="fa fa-check"></i><b>30.8</b> Calculate index using Stata</a></li>
+<li class="chapter" data-level="30.9" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-mata"><i class="fa fa-check"></i><b>30.9</b> Matrix calculations and MATA</a></li>
+<li class="chapter" data-level="30.10" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-io"><i class="fa fa-check"></i><b>30.10</b> Input-output analysis</a></li>
+<li class="chapter" data-level="30.11" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-variation"><i class="fa fa-check"></i><b>30.11</b> Variation and covariance</a></li>
+<li class="chapter" data-level="30.12" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-probability"><i class="fa fa-check"></i><b>30.12</b> Probability</a></li>
+<li class="chapter" data-level="30.13" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-regression"><i class="fa fa-check"></i><b>30.13</b> Regression analysis</a></li>
+<li class="chapter" data-level="30.14" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-export"><i class="fa fa-check"></i><b>30.14</b> Export results to disk</a></li>
+<li class="chapter" data-level="30.15" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-plots"><i class="fa fa-check"></i><b>30.15</b> Creating plots</a></li>
+<li class="chapter" data-level="30.16" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-loops"><i class="fa fa-check"></i><b>30.16</b> Iterations and loops</a></li>
+<li class="chapter" data-level="30.17" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-gdp"><i class="fa fa-check"></i><b>30.17</b> Example with GDP per hour</a></li>
+<li class="chapter" data-level="30.18" data-path="ch-stata.html"><a href="ch-stata.html#sec-stata-summary"><i class="fa fa-check"></i><b>30.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="ch-r.html"><a href="ch-r.html"><i class="fa fa-check"></i><b>31</b> R</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="ch-r.html"><a href="ch-r.html#sec-r-overview"><i class="fa fa-check"></i><b>31.1</b> General Overview of R</a></li>
+<li class="chapter" data-level="31.2" data-path="ch-r.html"><a href="ch-r.html#sec-r-objects"><i class="fa fa-check"></i><b>31.2</b> R Objects</a></li>
+<li class="chapter" data-level="31.3" data-path="ch-r.html"><a href="ch-r.html#sec-r-functions"><i class="fa fa-check"></i><b>31.3</b> Functions in R</a></li>
+<li class="chapter" data-level="31.4" data-path="ch-r.html"><a href="ch-r.html#sec-r-packages"><i class="fa fa-check"></i><b>31.4</b> R Packages</a></li>
+<li class="chapter" data-level="31.5" data-path="ch-r.html"><a href="ch-r.html#sec-r-import"><i class="fa fa-check"></i><b>31.5</b> Importing Data</a></li>
+<li class="chapter" data-level="31.6" data-path="ch-r.html"><a href="ch-r.html#sec-r-data-tables"><i class="fa fa-check"></i><b>31.6</b> Working with Data Tables</a></li>
+<li class="chapter" data-level="31.7" data-path="ch-r.html"><a href="ch-r.html#sec-r-joins"><i class="fa fa-check"></i><b>31.7</b> Join Tables</a></li>
+<li class="chapter" data-level="31.8" data-path="ch-r.html"><a href="ch-r.html#sec-r-index"><i class="fa fa-check"></i><b>31.8</b> Calculate Index and Export Tables</a></li>
+<li class="chapter" data-level="31.9" data-path="ch-r.html"><a href="ch-r.html#sec-r-matrices"><i class="fa fa-check"></i><b>31.9</b> Matrix Calculations</a></li>
+<li class="chapter" data-level="31.10" data-path="ch-r.html"><a href="ch-r.html#sec-r-io"><i class="fa fa-check"></i><b>31.10</b> Input–Output Analysis</a></li>
+<li class="chapter" data-level="31.11" data-path="ch-r.html"><a href="ch-r.html#sec-r-variation"><i class="fa fa-check"></i><b>31.11</b> Variation and Covariance</a></li>
+<li class="chapter" data-level="31.12" data-path="ch-r.html"><a href="ch-r.html#sec-r-probability"><i class="fa fa-check"></i><b>31.12</b> Probability</a></li>
+<li class="chapter" data-level="31.13" data-path="ch-r.html"><a href="ch-r.html#sec-r-regression"><i class="fa fa-check"></i><b>31.13</b> Regression Analysis</a></li>
+<li class="chapter" data-level="31.14" data-path="ch-r.html"><a href="ch-r.html#sec-r-export-results"><i class="fa fa-check"></i><b>31.14</b> Export Results to Hard Drive</a></li>
+<li class="chapter" data-level="31.15" data-path="ch-r.html"><a href="ch-r.html#sec-r-plots"><i class="fa fa-check"></i><b>31.15</b> Create Plots</a></li>
+<li class="chapter" data-level="31.16" data-path="ch-r.html"><a href="ch-r.html#sec-r-loops"><i class="fa fa-check"></i><b>31.16</b> Iterations and Loops</a></li>
+<li class="chapter" data-level="31.17" data-path="ch-r.html"><a href="ch-r.html#sec-r-gdp-example"><i class="fa fa-check"></i><b>31.17</b> Example with GDP per Working Hours</a></li>
+<li class="chapter" data-level="31.18" data-path="ch-r.html"><a href="ch-r.html#sec-r-summary"><i class="fa fa-check"></i><b>31.18</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="ch-data-tools.html"><a href="ch-data-tools.html"><i class="fa fa-check"></i><b>32</b> Examples of Useful Data and Additional Tools</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-free-data"><i class="fa fa-check"></i><b>32.1</b> Examples of Free Data</a></li>
+<li class="chapter" data-level="32.2" data-path="ch-data-tools.html"><a href="ch-data-tools.html#sec-other-tools"><i class="fa fa-check"></i><b>32.2</b> Other Tools That Are Good to Know About</a></li>
+</ul></li>
+<li class="part"><span><b>V Final Words</b></span></li>
+<li class="chapter" data-level="" data-path="part-final-words-intro.html"><a href="part-final-words-intro.html"><i class="fa fa-check"></i>Part V: Final Words</a></li>
+<li class="chapter" data-level="33" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html"><i class="fa fa-check"></i><b>33</b> Final Chapter</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-misconceptions"><i class="fa fa-check"></i><b>33.1</b> Common Misconceptions</a></li>
+<li class="chapter" data-level="33.2" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-further-reading"><i class="fa fa-check"></i><b>33.2</b> Things That Perhaps Should Have Been Included in This Book</a></li>
+<li class="chapter" data-level="33.3" data-path="ch-final-chapter.html"><a href="ch-final-chapter.html#sec-last-word"><i class="fa fa-check"></i><b>33.3</b> The Last Word</a></li>
+</ul></li>
+<li class="divider"></li>
+<li></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Cheat Code: Essential Math and Statistics for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch-probability-normal-t" class="section level1 hasAnchor" number="23">
+<h1><span class="header-section-number">Chapter 23</span> Normal and t distributions<a href="ch-probability-normal-t.html#ch-probability-normal-t" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter introduces normal and t-distributions, which are central to a large amount of research and analytical work.</p>
+<div id="sec-normal-distribution" class="section level2 hasAnchor" number="23.1">
+<h2><span class="header-section-number">23.1</span> Probability with normal variables<a href="ch-probability-normal-t.html#sec-normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The normal distribution is recognized by its symmetric bell-shaped illustration. It occurs from time to time in social debate and media. Similar to the chi-square and F-distribution, we will also in this case use pre-calculated probabilities and critical values, but before that we shall go through some of the mathematics behind it. If we have a random variable <span class="math inline">\(X\)</span> that follows a normal distribution, the probability density function <span class="math inline">\(f\)</span> of the normal distribution can be written:</p>
+<p><span class="math display" id="eq:pdf-normal">\[\begin{equation}
+f\left(x,\mu,\sigma\right)=\frac{e^{-\frac{\left(x-\mu\right)^{2}}{2\sigma^{2}}}}{\sigma\sqrt{2\pi}},\quad -\infty&lt;x&lt;\infty
+\tag{23.1}
+\end{equation}\]</span></p>
+<p>The density function <span class="math inline">\(f\)</span> is defined for all values <span class="math inline">\(X=x\)</span> between negative and positive infinity. The letter <span class="math inline">\(\mu\)</span>(Greek letter lowercase mu) symbolizes expected value and mean for <span class="math inline">\(X\)</span>, <span class="math inline">\(e\)</span> is Euler’s number, approximately 2.718, and <span class="math inline">\(\pi\)</span> is the number pi, approximately 3.142. The symbol <span class="math inline">\(\sigma\)</span>(Greek letter sigma) stands for standard deviation for variable <span class="math inline">\(X\)</span>. The cumulative distribution function <span class="math inline">\(F\)</span> of the normal distribution is written:</p>
+<p><span class="math display" id="eq:cdf-normal">\[\begin{equation}
+F\left(x,\mu,\sigma\right)=P\left(X\leq x\right)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{\left(t-\mu\right)^{2}}{2\sigma^{2}}}dt
+\tag{23.2}
+\end{equation}\]</span></p>
+<p>where we take the integral from negative infinity <span class="math inline">\(-\infty\)</span> to the value <span class="math inline">\(x\)</span>. The normal distribution is a collective name for distributions with certain common characteristics but which can have different mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. That the random variable <span class="math inline">\(X\)</span> follows a normal distribution can be written <span class="math inline">\(X\sim N\left(\mu,\sigma\right)\)</span>, where <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> represent the current mean and standard deviation for <span class="math inline">\(X\)</span>.</p>
+<p>Figure <a href="ch-probability-normal-t.html#fig:normal-pdf-cdf">23.1</a> gives three different examples of normal distributions where the upper graph illustrates the probability density function of the normal distributions, <span class="math inline">\(f\left(x\right)\)</span>, and the lower graph shows the cumulative distribution function, <span class="math inline">\(F\left(x\right)\)</span>. The only difference between the three distributions is that they have different mean <span class="math inline">\(\left(\mu\right)\)</span> and standard deviation <span class="math inline">\(\left(\sigma\right)\)</span>. In the upper graph where the density function is illustrated, all three curves are evenly distributed around their respective means. On both sides of the mean the lines go down, which means that the further from the mean we move, the more unusual the results become. In the tails below and above the mean the probabilities are relatively smaller. A normal distribution with larger variance has thicker tails to the right and left of the mean. In the lower graph the three corresponding cumulative probability functions are illustrated.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:normal-pdf-cdf"></span>
+<img src="23-probability-normal-t_files/figure-html/normal-pdf-cdf-1.png" alt="The normal distribution: density function $f(x)$ and the cumulative distribution function $F(x)$" width="672" />
+<p class="caption">
+Figure 23.1: The normal distribution: density function <span class="math inline">\(f(x)\)</span> and the cumulative distribution function <span class="math inline">\(F(x)\)</span>
+</p>
+</div>
+</div>
+<div id="sec-standard-normal" class="section level2 hasAnchor" number="23.2">
+<h2><span class="header-section-number">23.2</span> Standardized normal distribution<a href="ch-probability-normal-t.html#sec-standard-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A normal distribution which have mean <span class="math inline">\(\mu=0\)</span> and standard deviation <span class="math inline">\(\sigma=1\)</span> is called the standardized normal distribution or Z distribution. If we put <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma=1\)</span> into the density function in equation <a href="ch-probability-normal-t.html#eq:pdf-normal">(23.1)</a> we get:</p>
+<p><span class="math display" id="eq:pdf-standard-normal">\[\begin{equation}
+f_{X}\left(x,\mu=0,\sigma=1\right)=\frac{e^{-\frac{1}{2}\left(\frac{x-0}{1}\right)^{2}}}{1\cdot\sqrt{2\pi}}=\frac{e^{-\frac{x^{2}}{2}}}{\sqrt{2\pi}}
+\tag{23.3}
+\end{equation}\]</span></p>
+<p>The cumulative distribution for the standardized normal distribution is:</p>
+<p><span class="math display" id="eq:cdf-standard-normal">\[\begin{equation}
+F_{X}\left(x,\mu=0,\sigma=1\right)=P\left(X\leq x\right)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{t^{2}}{2}}dt
+\tag{23.4}
+\end{equation}\]</span></p>
+<p>where we use <span class="math inline">\(F\left(x\right)\)</span> to calculate the probability that variable <span class="math inline">\(X\leq x\)</span>, by calculating the integral from <span class="math inline">\(-\infty\)</span> up to and including the value <span class="math inline">\(x\)</span>. The standard normal distribution is so common that its cumulative distribution function (equation <a href="ch-probability-normal-t.html#eq:cdf-standard-normal">(23.4)</a>) is written as <span class="math inline">\(\Phi_{X}\left(x\right)=F_{X}\left(x,\mu=0,\sigma=1\right)\)</span>, where <span class="math inline">\(\Phi\)</span> is the Greek letter capital phi. If <span class="math inline">\(X\)</span> follows a standardized normal distribution we write <span class="math inline">\(X\sim N\left(0,1\right)\)</span>.</p>
+<p>We rarely encounter any real data that naturally follows a normal distribution with exactly mean 0 and standard deviation 1. In section <a href="chap-variation-och-samvariation.html#sec-standardiserade-varden">16.4</a> we went through instead how we standardize a collection of values so that these get exactly mean 0 and standard deviation 1:</p>
+<p><span class="math display" id="eq:z-score">\[\begin{equation}
+Z_{i}=\frac{X_{i}-\bar{X}}{s_{X}}
+\tag{23.5}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(s_{X}\)</span> is estimated standard deviation for <span class="math inline">\(X\)</span>. Standardized normal distributions are so commonly occurring that they are often described as variable <span class="math inline">\(Z\)</span> whose specific values are denoted <span class="math inline">\(z\)</span>. This probability distribution has several known probability measures based on standard deviations, which are often used in statistical analysis. Figure <a href="ch-probability-normal-t.html#fig:standard-normal">23.2</a> illustrates this, where the upper graph describes the probability density function <span class="math inline">\(f\)</span> of the standard normal distribution and the lower graph describes the cumulative distribution function <span class="math inline">\(F\)</span>.</p>
+<p>In the upper graph some of the standard deviations below and above the mean 0 are marked. The cumulative distribution function <span class="math inline">\(F\left(Z\leq z\right)\)</span> describes, as before, what proportion of all values in variable <span class="math inline">\(Z\)</span> are less than or equal to <span class="math inline">\(z\)</span>. Since the standard normal distribution is also called the Z-distribution, this type of probabilities are often described as precisely Z-values.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:standard-normal"></span>
+<img src="23-probability-normal-t_files/figure-html/standard-normal-1.png" alt="Standard normal distribution: density function $f(z)$ and cumulative distribution function $F(Z\leq z)$" width="672" />
+<p class="caption">
+Figure 23.2: Standard normal distribution: density function <span class="math inline">\(f(z)\)</span> and cumulative distribution function <span class="math inline">\(F(Z\leq z)\)</span>
+</p>
+</div>
+<p>Table <a href="ch-probability-normal-t.html#tab:normal-table">23.1</a> reports pre-calculated probabilities for the standard normal distribution <span class="math inline">\(Z\sim N\left(0,1\right)\)</span>. The table shows calculated results where the variable <span class="math inline">\(Z\)</span> is less than or equal to a value <span class="math inline">\(z\)</span>, <span class="math inline">\(F\left(z\right)=P\left(Z\leq z\right)\)</span>. Say for example that we want to know the probability that variable <span class="math inline">\(Z\)</span> is equal to or less than the mean plus one standard deviation, that is <span class="math inline">\(Z\leq1\)</span>. We look at the row for <span class="math inline">\(z=1\)</span> and column 0. This row and column means that <span class="math inline">\(z=1.0\)</span>. The value in the cell shows that <span class="math inline">\(P\left(Z\leq1\right)=0.8413\)</span>. We also see this in figure <a href="ch-probability-normal-t.html#fig:standard-normal">23.2</a>, where the lower graph illustrates how the shaded area up to one standard deviation above the mean corresponds to 84.1%.</p>
+<table style="width:100%;">
+<caption><span id="tab:normal-table">Table 23.1: </span>Standardized normal distribution, <span class="math inline">\(F(z) = P(Z \leq z)\)</span></caption>
+<colgroup>
+<col width="5%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">.00</th>
+<th align="right">.01</th>
+<th align="right">.02</th>
+<th align="right">.03</th>
+<th align="right">.04</th>
+<th align="right">.05</th>
+<th align="right">.06</th>
+<th align="right">.07</th>
+<th align="right">.08</th>
+<th align="right">.09</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.0</td>
+<td align="right">0.5000</td>
+<td align="right">0.5040</td>
+<td align="right">0.5080</td>
+<td align="right">0.5120</td>
+<td align="right">0.5160</td>
+<td align="right">0.5199</td>
+<td align="right">0.5239</td>
+<td align="right">0.5279</td>
+<td align="right">0.5319</td>
+<td align="right">0.5359</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="right">0.5398</td>
+<td align="right">0.5438</td>
+<td align="right">0.5478</td>
+<td align="right">0.5517</td>
+<td align="right">0.5557</td>
+<td align="right">0.5596</td>
+<td align="right">0.5636</td>
+<td align="right">0.5675</td>
+<td align="right">0.5714</td>
+<td align="right">0.5753</td>
+</tr>
+<tr class="odd">
+<td align="left">0.2</td>
+<td align="right">0.5793</td>
+<td align="right">0.5832</td>
+<td align="right">0.5871</td>
+<td align="right">0.5910</td>
+<td align="right">0.5948</td>
+<td align="right">0.5987</td>
+<td align="right">0.6026</td>
+<td align="right">0.6064</td>
+<td align="right">0.6103</td>
+<td align="right">0.6141</td>
+</tr>
+<tr class="even">
+<td align="left">0.3</td>
+<td align="right">0.6179</td>
+<td align="right">0.6217</td>
+<td align="right">0.6255</td>
+<td align="right">0.6293</td>
+<td align="right">0.6331</td>
+<td align="right">0.6368</td>
+<td align="right">0.6406</td>
+<td align="right">0.6443</td>
+<td align="right">0.6480</td>
+<td align="right">0.6517</td>
+</tr>
+<tr class="odd">
+<td align="left">0.4</td>
+<td align="right">0.6554</td>
+<td align="right">0.6591</td>
+<td align="right">0.6628</td>
+<td align="right">0.6664</td>
+<td align="right">0.6700</td>
+<td align="right">0.6736</td>
+<td align="right">0.6772</td>
+<td align="right">0.6808</td>
+<td align="right">0.6844</td>
+<td align="right">0.6879</td>
+</tr>
+<tr class="even">
+<td align="left">0.5</td>
+<td align="right">0.6915</td>
+<td align="right">0.6950</td>
+<td align="right">0.6985</td>
+<td align="right">0.7019</td>
+<td align="right">0.7054</td>
+<td align="right">0.7088</td>
+<td align="right">0.7123</td>
+<td align="right">0.7157</td>
+<td align="right">0.7190</td>
+<td align="right">0.7224</td>
+</tr>
+<tr class="odd">
+<td align="left">0.6</td>
+<td align="right">0.7257</td>
+<td align="right">0.7291</td>
+<td align="right">0.7324</td>
+<td align="right">0.7357</td>
+<td align="right">0.7389</td>
+<td align="right">0.7422</td>
+<td align="right">0.7454</td>
+<td align="right">0.7486</td>
+<td align="right">0.7517</td>
+<td align="right">0.7549</td>
+</tr>
+<tr class="even">
+<td align="left">0.7</td>
+<td align="right">0.7580</td>
+<td align="right">0.7611</td>
+<td align="right">0.7642</td>
+<td align="right">0.7673</td>
+<td align="right">0.7704</td>
+<td align="right">0.7734</td>
+<td align="right">0.7764</td>
+<td align="right">0.7794</td>
+<td align="right">0.7823</td>
+<td align="right">0.7852</td>
+</tr>
+<tr class="odd">
+<td align="left">0.8</td>
+<td align="right">0.7881</td>
+<td align="right">0.7910</td>
+<td align="right">0.7939</td>
+<td align="right">0.7967</td>
+<td align="right">0.7995</td>
+<td align="right">0.8023</td>
+<td align="right">0.8051</td>
+<td align="right">0.8078</td>
+<td align="right">0.8106</td>
+<td align="right">0.8133</td>
+</tr>
+<tr class="even">
+<td align="left">0.9</td>
+<td align="right">0.8159</td>
+<td align="right">0.8186</td>
+<td align="right">0.8212</td>
+<td align="right">0.8238</td>
+<td align="right">0.8264</td>
+<td align="right">0.8289</td>
+<td align="right">0.8315</td>
+<td align="right">0.8340</td>
+<td align="right">0.8365</td>
+<td align="right">0.8389</td>
+</tr>
+<tr class="odd">
+<td align="left">1.0</td>
+<td align="right">0.8413</td>
+<td align="right">0.8438</td>
+<td align="right">0.8461</td>
+<td align="right">0.8485</td>
+<td align="right">0.8508</td>
+<td align="right">0.8531</td>
+<td align="right">0.8554</td>
+<td align="right">0.8577</td>
+<td align="right">0.8599</td>
+<td align="right">0.8621</td>
+</tr>
+<tr class="even">
+<td align="left">1.1</td>
+<td align="right">0.8643</td>
+<td align="right">0.8665</td>
+<td align="right">0.8686</td>
+<td align="right">0.8708</td>
+<td align="right">0.8729</td>
+<td align="right">0.8749</td>
+<td align="right">0.8770</td>
+<td align="right">0.8790</td>
+<td align="right">0.8810</td>
+<td align="right">0.8830</td>
+</tr>
+<tr class="odd">
+<td align="left">1.2</td>
+<td align="right">0.8849</td>
+<td align="right">0.8869</td>
+<td align="right">0.8888</td>
+<td align="right">0.8907</td>
+<td align="right">0.8925</td>
+<td align="right">0.8944</td>
+<td align="right">0.8962</td>
+<td align="right">0.8980</td>
+<td align="right">0.8997</td>
+<td align="right">0.9015</td>
+</tr>
+<tr class="even">
+<td align="left">1.3</td>
+<td align="right">0.9032</td>
+<td align="right">0.9049</td>
+<td align="right">0.9066</td>
+<td align="right">0.9082</td>
+<td align="right">0.9099</td>
+<td align="right">0.9115</td>
+<td align="right">0.9131</td>
+<td align="right">0.9147</td>
+<td align="right">0.9162</td>
+<td align="right">0.9177</td>
+</tr>
+<tr class="odd">
+<td align="left">1.4</td>
+<td align="right">0.9192</td>
+<td align="right">0.9207</td>
+<td align="right">0.9222</td>
+<td align="right">0.9236</td>
+<td align="right">0.9251</td>
+<td align="right">0.9265</td>
+<td align="right">0.9279</td>
+<td align="right">0.9292</td>
+<td align="right">0.9306</td>
+<td align="right">0.9319</td>
+</tr>
+<tr class="even">
+<td align="left">1.5</td>
+<td align="right">0.9332</td>
+<td align="right">0.9345</td>
+<td align="right">0.9357</td>
+<td align="right">0.9370</td>
+<td align="right">0.9382</td>
+<td align="right">0.9394</td>
+<td align="right">0.9406</td>
+<td align="right">0.9418</td>
+<td align="right">0.9429</td>
+<td align="right">0.9441</td>
+</tr>
+<tr class="odd">
+<td align="left">1.6</td>
+<td align="right">0.9452</td>
+<td align="right">0.9463</td>
+<td align="right">0.9474</td>
+<td align="right">0.9484</td>
+<td align="right">0.9495</td>
+<td align="right">0.9505</td>
+<td align="right">0.9515</td>
+<td align="right">0.9525</td>
+<td align="right">0.9535</td>
+<td align="right">0.9545</td>
+</tr>
+<tr class="even">
+<td align="left">1.7</td>
+<td align="right">0.9554</td>
+<td align="right">0.9564</td>
+<td align="right">0.9573</td>
+<td align="right">0.9582</td>
+<td align="right">0.9591</td>
+<td align="right">0.9599</td>
+<td align="right">0.9608</td>
+<td align="right">0.9616</td>
+<td align="right">0.9625</td>
+<td align="right">0.9633</td>
+</tr>
+<tr class="odd">
+<td align="left">1.8</td>
+<td align="right">0.9641</td>
+<td align="right">0.9649</td>
+<td align="right">0.9656</td>
+<td align="right">0.9664</td>
+<td align="right">0.9671</td>
+<td align="right">0.9678</td>
+<td align="right">0.9686</td>
+<td align="right">0.9693</td>
+<td align="right">0.9699</td>
+<td align="right">0.9706</td>
+</tr>
+<tr class="even">
+<td align="left">1.9</td>
+<td align="right">0.9713</td>
+<td align="right">0.9719</td>
+<td align="right">0.9726</td>
+<td align="right">0.9732</td>
+<td align="right">0.9738</td>
+<td align="right">0.9744</td>
+<td align="right">0.9750</td>
+<td align="right">0.9756</td>
+<td align="right">0.9761</td>
+<td align="right">0.9767</td>
+</tr>
+<tr class="odd">
+<td align="left">2.0</td>
+<td align="right">0.9772</td>
+<td align="right">0.9778</td>
+<td align="right">0.9783</td>
+<td align="right">0.9788</td>
+<td align="right">0.9793</td>
+<td align="right">0.9798</td>
+<td align="right">0.9803</td>
+<td align="right">0.9808</td>
+<td align="right">0.9812</td>
+<td align="right">0.9817</td>
+</tr>
+<tr class="even">
+<td align="left">2.1</td>
+<td align="right">0.9821</td>
+<td align="right">0.9826</td>
+<td align="right">0.9830</td>
+<td align="right">0.9834</td>
+<td align="right">0.9838</td>
+<td align="right">0.9842</td>
+<td align="right">0.9846</td>
+<td align="right">0.9850</td>
+<td align="right">0.9854</td>
+<td align="right">0.9857</td>
+</tr>
+<tr class="odd">
+<td align="left">2.2</td>
+<td align="right">0.9861</td>
+<td align="right">0.9864</td>
+<td align="right">0.9868</td>
+<td align="right">0.9871</td>
+<td align="right">0.9875</td>
+<td align="right">0.9878</td>
+<td align="right">0.9881</td>
+<td align="right">0.9884</td>
+<td align="right">0.9887</td>
+<td align="right">0.9890</td>
+</tr>
+<tr class="even">
+<td align="left">2.3</td>
+<td align="right">0.9893</td>
+<td align="right">0.9896</td>
+<td align="right">0.9898</td>
+<td align="right">0.9901</td>
+<td align="right">0.9904</td>
+<td align="right">0.9906</td>
+<td align="right">0.9909</td>
+<td align="right">0.9911</td>
+<td align="right">0.9913</td>
+<td align="right">0.9916</td>
+</tr>
+<tr class="odd">
+<td align="left">2.4</td>
+<td align="right">0.9918</td>
+<td align="right">0.9920</td>
+<td align="right">0.9922</td>
+<td align="right">0.9925</td>
+<td align="right">0.9927</td>
+<td align="right">0.9929</td>
+<td align="right">0.9931</td>
+<td align="right">0.9932</td>
+<td align="right">0.9934</td>
+<td align="right">0.9936</td>
+</tr>
+<tr class="even">
+<td align="left">2.5</td>
+<td align="right">0.9938</td>
+<td align="right">0.9940</td>
+<td align="right">0.9941</td>
+<td align="right">0.9943</td>
+<td align="right">0.9945</td>
+<td align="right">0.9946</td>
+<td align="right">0.9948</td>
+<td align="right">0.9949</td>
+<td align="right">0.9951</td>
+<td align="right">0.9952</td>
+</tr>
+<tr class="odd">
+<td align="left">2.6</td>
+<td align="right">0.9953</td>
+<td align="right">0.9955</td>
+<td align="right">0.9956</td>
+<td align="right">0.9957</td>
+<td align="right">0.9959</td>
+<td align="right">0.9960</td>
+<td align="right">0.9961</td>
+<td align="right">0.9962</td>
+<td align="right">0.9963</td>
+<td align="right">0.9964</td>
+</tr>
+<tr class="even">
+<td align="left">2.7</td>
+<td align="right">0.9965</td>
+<td align="right">0.9966</td>
+<td align="right">0.9967</td>
+<td align="right">0.9968</td>
+<td align="right">0.9969</td>
+<td align="right">0.9970</td>
+<td align="right">0.9971</td>
+<td align="right">0.9972</td>
+<td align="right">0.9973</td>
+<td align="right">0.9974</td>
+</tr>
+<tr class="odd">
+<td align="left">2.8</td>
+<td align="right">0.9974</td>
+<td align="right">0.9975</td>
+<td align="right">0.9976</td>
+<td align="right">0.9977</td>
+<td align="right">0.9977</td>
+<td align="right">0.9978</td>
+<td align="right">0.9979</td>
+<td align="right">0.9979</td>
+<td align="right">0.9980</td>
+<td align="right">0.9981</td>
+</tr>
+<tr class="even">
+<td align="left">2.9</td>
+<td align="right">0.9981</td>
+<td align="right">0.9982</td>
+<td align="right">0.9982</td>
+<td align="right">0.9983</td>
+<td align="right">0.9984</td>
+<td align="right">0.9984</td>
+<td align="right">0.9985</td>
+<td align="right">0.9985</td>
+<td align="right">0.9986</td>
+<td align="right">0.9986</td>
+</tr>
+<tr class="odd">
+<td align="left">3.0</td>
+<td align="right">0.9987</td>
+<td align="right">0.9987</td>
+<td align="right">0.9987</td>
+<td align="right">0.9988</td>
+<td align="right">0.9988</td>
+<td align="right">0.9989</td>
+<td align="right">0.9989</td>
+<td align="right">0.9989</td>
+<td align="right">0.9990</td>
+<td align="right">0.9990</td>
+</tr>
+</tbody>
+</table>
+<p>The normal distribution is symmetric and has equally large outcome space below and above the mean, which means that <span class="math inline">\(F\left(0\right)=P\left(X\leq0\right)=0.5\)</span>. That is, 50% of all possible values exist below and above the mean <span class="math inline">\(\mu=0\)</span> respectively. This means that <span class="math inline">\(F\left(-x\right)=1-F\left(x\right)\)</span>. For example:</p>
+<p><span class="math display">\[F\left(-1\right)=1-F\left(1\right)=1-0.8413=0.1587\]</span></p>
+<p>From the table we see that:</p>
+<p><span class="math display">\[F\left(2\right)=P\left(X\leq2\right)=0.97725\]</span></p>
+<p>This also means that:</p>
+<p><span class="math display">\[F\left(-2\right)=1-0.9772=0.02275\]</span></p>
+<p>which illustrates how the area beyond two standard deviations below and above the mean respectively represents approximately 4.55% of the distribution (upper graph in figure <a href="ch-probability-normal-t.html#fig:standard-normal">23.2</a>).</p>
+<p>We have in various examples compared average expected life expectancy for men and women. Say now that life expectancy for men and life expectancy for women respectively represent two populations and that both of these are approximately normally distributed (see section <a href="ch-probability-normal-t.html#sec-normal-usefulness-2">23.4</a> below). Now we want to know if the two populations’ means differ, that is if <span class="math inline">\(\mu_{\text{women}}=\mu_{\text{men}}\)</span>. To estimate the probability of this we use the standard normal distribution and the following statistic:</p>
+<p><span class="math display" id="eq:z-test-two-means">\[\begin{equation}
+z=\frac{\bar{X}_{\text{women}}-\bar{X}_{\text{men}}}{\left(\frac{s_{\text{women}}^{2}}{n_{\text{women}}}+\frac{s_{\text{men}}^{2}}{n_{\text{men}}}\right)^{1/2}}
+\tag{23.6}
+\end{equation}\]</span></p>
+<p>We calculate the z-value with the observations that we used earlier:</p>
+<p><span class="math display">\[z\approx\frac{83.95-80.38}{\left(\frac{1.032}{290}+\frac{1.663}{290}\right)^{1/2}}\approx37.0\]</span></p>
+<p>This z-value can be compared against the pre-calculated values for the standard normal distribution’s cumulative distribution function <span class="math inline">\(F\left(Z\leq z\right)\)</span> in table <a href="ch-probability-normal-t.html#tab:normal-table">23.1</a>. Our calculated z-value deviates so much from the mean 0 that it is not reported in the table, which only extends to <span class="math inline">\(z=3.09\)</span>, where <span class="math inline">\(F\left(3.09\right)=0.999\)</span>. In this case our z-value is so far from the mean that <span class="math inline">\(F\left(z\right)\)</span> becomes even closer to 0 than the values included in the table. Our z-value thus ends up far out in the standard normal distribution’s tail to the right of (above) the mean, which indicates that it is very unlikely that the two populations (men’s and women’s life expectancy) have the same mean.</p>
+</div>
+<div id="sec-normal-usefulness-1" class="section level2 hasAnchor" number="23.3">
+<h2><span class="header-section-number">23.3</span> The usefulness of the normal distribution 1<a href="ch-probability-normal-t.html#sec-normal-usefulness-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One reason why the normal distribution is so well-known is that many phenomena in reality are distributed approximately like a normal distribution. Figure <a href="ch-probability-normal-t.html#fig:normal-examples">23.3</a> illustrates some examples. In the upper left graph the distribution of height among 3,000 randomly selected prisoners is shown, produced by Scotland Yard and reproduced by Macdonell (1902). This distribution was noted among other things in two famous articles by William Sealy Gosett, under the pseudonym Student (1908a; 1908b).</p>
+<p>The solid normal distribution curve uses the same mean and standard deviation as the observations. As can be seen, the distribution of the prisoners’ height is close to the normal distribution curve, but not exactly the same. The 3,000 observations for the prisoners are after all discrete values while the normal distribution curve is a continuous variable. Human height, like several other physical measurements, is known to often be approximately normally distributed.</p>
+<p>The upper right graph shows total points per game in the North American basketball league National Basketball Association (NBA), for all games from season 1999/2000 to 2018/2019, totaling 24,144 games. These data also follow the normal distribution curve relatively well. The distribution has a small tail to the right that we ignore here, but which arises because Chicago Bulls played against Atlanta Hawks on March 1, 2019, a game that after four overtimes ended with 168-161 after Trae Young scored 49 points. This was the third highest-scoring game in NBA history.</p>
+<p>The lower left graph shows 580 observations from Sweden’s 290 municipalities on average expected life expectancy for women and men. One observation is a municipality and small municipalities weigh as heavily as large municipalities in the graph. These two distributions also resemble quite well two normal distribution curves.</p>
+<p>The lower right graph also shows data from Sweden’s municipalities, regarding number of books per municipal resident in municipal public libraries. Number of books is shown on a logarithmic scale, whereupon the observations follow a normal distribution curve relatively well. This is called the variable following the log-normal distribution, which is a logarithmic variant of the normal distribution where the variable’s values are in logarithmic form.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:normal-examples"></span>
+<img src="23-probability-normal-t_files/figure-html/normal-examples-1.png" alt="Examples from reality of normally distributed phenomena" width="768" />
+<p class="caption">
+Figure 23.3: Examples from reality of normally distributed phenomena
+</p>
+</div>
+</div>
+<div id="sec-normal-usefulness-2" class="section level2 hasAnchor" number="23.4">
+<h2><span class="header-section-number">23.4</span> The usefulness of the normal distribution 2<a href="ch-probability-normal-t.html#sec-normal-usefulness-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we shall again look at how probabilities are distributed using random values. We ask the computer to randomly choose 100,000 values, where each value is either 0 or 1. Each time the computer chooses a value both values have the same probability of being chosen: 50%. Just as expected the results are distributed approximately 50% on each of 0 and 1.</p>
+<p>Next we let the computer choose 4 values at a time, 0 or 1, and each time with 50% probability each. For the 4 randomly chosen values the computer calculates a mean and then repeats this until we have 100,000 new means. With four random values we have the following five possible results: <span class="math inline">\(\left\{0,0,0,0\right\}\)</span>, <span class="math inline">\(\left\{0,0,0,1\right\}\)</span>, <span class="math inline">\(\left\{0,0,1,1\right\}\)</span>, <span class="math inline">\(\left\{0,1,1,1\right\}\)</span> and <span class="math inline">\(\left\{1,1,1,1\right\}\)</span>, which gives the following possible means: 0, 0.25, 0.5, 0.75 and 1.</p>
+<p>The more values we add, the more the distribution of these values begins to resemble a normal distribution. The mean is consistently 0.5, which is because the values that are chosen, and thus the calculated means, are consistently 0 or 1. Figure <a href="ch-probability-normal-t.html#fig:clt-coins">23.4</a> illustrates this with n = 1, 4, 20 and 200.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:clt-coins"></span>
+<img src="23-probability-normal-t_files/figure-html/clt-coins-1.png" alt="Random values: 100,000 means per graph" width="768" />
+<p class="caption">
+Figure 23.4: Random values: 100,000 means per graph
+</p>
+</div>
+<p>If we flip a coin and want to know the probability of getting a certain number of outcomes, for example <span class="math inline">\(x\)</span> number of tails on <span class="math inline">\(n\)</span> number of attempts, we use the binomial distribution (see section <a href="ch-probability-discrete.html#sec-binomial-distribution">21.8</a>). The simulation we let the computer do above is precisely this function with ever higher value for n. As n becomes larger the binomial distribution approaches an approximate normal distribution. We call this an approximation since the binomial distribution by definition is a discrete probability distribution while the normal distribution is continuous. Mathematically this can be described as given that <span class="math inline">\(np\)</span> and <span class="math inline">\(n\left(1-p\right)\)</span> are both large numbers, the following applies:</p>
+<p><span class="math display" id="eq:binom-normal-approx">\[\begin{equation}
+b\left(n,p\right)\approx N\left(np,\,np\left(1-p\right)\right)
+\tag{23.7}
+\end{equation}\]</span></p>
+<p>The same phenomenon applies to many other probability distributions — given certain conditions, many different probability distributions approach the normal distribution. Another example can be illustrated by simulating perfectly balanced dice, which means we let the computer choose among the integers 1 to 6 randomly where each integer has the same probability: <span class="math inline">\(\frac{1}{6}\)</span>.</p>
+<p>In figure <a href="ch-probability-normal-t.html#fig:clt-dices">23.5</a> we start with one die and let the computer generate 100,000 values (upper left graph). The bars are almost equally large, which illustrates that each integer has been chosen approximately equally many times. In the next step we let the computer choose two values and sum them (upper right). The lower left graph shows the distribution of point sums with four dice. The lower right graph shows eight dice. The more randomly chosen values that are included in a point sum, the more the distribution of the results begins to resemble a normal distribution.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:clt-dices"></span>
+<img src="23-probability-normal-t_files/figure-html/clt-dices-1.png" alt="Random results: 100,000 sums of points per graph" width="768" />
+<p class="caption">
+Figure 23.5: Random results: 100,000 sums of points per graph
+</p>
+</div>
+<p>The dice results can also be described as becoming increasingly approximately normally distributed. The Poisson distribution (see section <a href="ch-probability-discrete.html#sec-poisson-distribution">21.9</a>) can also approach an approximation of the normal distribution if <span class="math inline">\(\lambda\)</span> becomes sufficiently large:</p>
+<p><span class="math display">\[Pois\left(\lambda\right)\approx N\left(\lambda,\lambda\right)\]</span></p>
+<p>In section <a href="ch-probability-continuous.html#sec-gamma-distribution">22.4</a> we introduced the continuous gamma distribution, whose density function is:</p>
+<p><span class="math display">\[f\left(x;k,\theta\right)=\frac{x^{k-1}e^{-x/\theta}}{\Gamma\left(k\right)\theta^{k}}\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is the number of the event we shall calculate the probability for and <span class="math inline">\(\theta\)</span> is the average waiting time for such an event: <span class="math inline">\(\theta=1/\lambda\)</span>. The gamma distribution approaches an approximation of the normal distribution for large values of <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[\Gamma\left(k\right)\approx N\left(\frac{k}{\lambda},\frac{k}{\lambda^{2}}\right)\]</span></p>
+<p>The chi-square distribution was introduced in section <a href="ch-probability-continuous.html#sec-chi-squared-distribution">22.5</a> and can be described as a gamma distribution with <span class="math inline">\(\theta=2\)</span> and <span class="math inline">\(k=r/2\)</span> where <span class="math inline">\(r\)</span> is a positive integer. A variable <span class="math inline">\(X\)</span> that follows a chi-square distribution, <span class="math inline">\(X\sim\chi^{2}\left(r\right)\)</span>, approaches an approximate normal distribution for large values of <span class="math inline">\(r\)</span>:</p>
+<p><span class="math display">\[\chi^{2}\left(r\right)\approx N\left(r,2r\right)\]</span></p>
+<p>where the approximate normal distribution has mean <span class="math inline">\(=r\)</span> and standard deviation <span class="math inline">\(2r\)</span>. We described above how a normal distribution that has mean 0 and standard deviation 1 is called the standardized normal distribution. If the variable <span class="math inline">\(Z\sim N\left(0,1\right)\)</span> it also applies approximately that:</p>
+<p><span class="math display">\[Z^{2}\sim\chi^{2}\left(1\right)\]</span></p>
+<p>Variable <span class="math inline">\(Z\)</span> squared thus follows the chi-square distribution with 1 degree of freedom.</p>
+</div>
+<div id="sec-normal-usefulness-3-clt" class="section level2 hasAnchor" number="23.5">
+<h2><span class="header-section-number">23.5</span> The usefulness of the normal distribution 3<a href="ch-probability-normal-t.html#sec-normal-usefulness-3-clt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have now gone through examples of how the normal distribution is common in real data as well as how other probability distributions resemble the normal distribution in different situations. In this section we shall look at how repeated samples from distributions that themselves are not normally distributed can lead to approximate normal distributions.</p>
+<p>We first create four different types of distributions that we call X, Y, Z and W with 10,000 values each. These four made-up collections of values we regard as population data for each variable respectively. Now we shall let the computer take random samples from each of the four collections. The computer takes 300 observations at a time and calculates a mean of these observations. Then the computer repeats the sample again until we have calculated 10,000 means per population variable.</p>
+<p>Figure <a href="ch-probability-normal-t.html#fig:clt-simulation">23.6</a> illustrates the results of this exercise in eight graphs. The graphs to the left show data over the four different populations X, Y, Z and W, which illustrates that the four populations have different dispersion. Despite the population looking very different in the graphs to the left, repeated samples lead to collections of values that resemble a normal distribution in the graphs to the right. The phenomenon arises when we retrieve sufficiently large amounts of samples from the populations.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:clt-simulation"></span>
+<img src="23-probability-normal-t_files/figure-html/clt-simulation-1.png" alt="Populations (left, 10,000 values each) and 10,000 means of random samples of 300 observations from those populations (right)" width="768" />
+<p class="caption">
+Figure 23.6: Populations (left, 10,000 values each) and 10,000 means of random samples of 300 observations from those populations (right)
+</p>
+</div>
+<p>This phenomenon is well-known within statistics and is described in what is called the <strong>central limit theorem</strong> (CLT), which is an important theorem within statistics and probability theory. The central limit theorem shows that if we take random samples from a large quantity of variables, the distribution of these samples’ means will approach the normal distribution, even if the samples are retrieved from other types of distributions.</p>
+<p>The central limit theorem can be described as: we have the random samples <span class="math inline">\(X_{1},\:X_{2},\:...,X_{n}\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. The mean for the samples is <span class="math inline">\(\bar{X}\)</span>. According to the law of large numbers (see section <a href="ch-probability-discrete.html#sec-law-large-numbers">21.6</a>) the mean of the samples <span class="math inline">\(X_{1},...,X_{n}\)</span> will converge toward <span class="math inline">\(\mu\)</span> when the number of observations in the sample n becomes sufficiently many:</p>
+<p><span class="math display">\[\lim_{n\rightarrow\infty}\frac{X_{1}+\cdots+X_{n}}{n}=\mu\]</span></p>
+<p>When n becomes sufficiently large, the distribution of <span class="math inline">\(\bar{X}_{n}\)</span> will approach a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^{2}/n\)</span>, where <span class="math inline">\(\sigma^{2}\)</span> is the population’s variance. In addition, the central limit theorem means the following:</p>
+<p><span class="math display" id="eq:clt">\[\begin{equation}
+\lim_{n\rightarrow\infty}\sqrt{n}\left(\frac{\bar{X}_{n}-\mu}{\sigma}\right)=N\left(0,1\right)
+\tag{23.8}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\sqrt{n}\)</span> is the square root of number of means, <span class="math inline">\(\bar{X}_{n}\)</span> is n number of means from the random samples, <span class="math inline">\(\mu\)</span> is the population’s mean and <span class="math inline">\(\sigma\)</span> is the population’s standard deviation. This means that if we are to calculate probability for variables that are not actually normally distributed, we often still start from the normal distribution, as long as the size of the sample is sufficiently large. A common rule of thumb says that if the sample has more than 30 observations, <span class="math inline">\(n&gt;30\)</span>, then the central limit theorem applies.</p>
+</div>
+<div id="sec-t-distribution" class="section level2 hasAnchor" number="23.6">
+<h2><span class="header-section-number">23.6</span> T-distribution<a href="ch-probability-normal-t.html#sec-t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suppose we have a variable <span class="math inline">\(X\)</span> that follows the standardized normal distribution, <span class="math inline">\(X\sim N\left(0,1\right)\)</span>, and a variable <span class="math inline">\(Y\)</span> that follows the chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom. <span class="math inline">\(Y\)</span> is independent from <span class="math inline">\(X\)</span>. In that case we create the new variable <span class="math inline">\(T\)</span>:</p>
+<p><span class="math display" id="eq:t-definition">\[\begin{equation}
+T=\frac{X}{\sqrt{Y}/\sqrt{k}}
+\tag{23.9}
+\end{equation}\]</span></p>
+<p>This variable follows a type of probability distribution that is called the t-distribution with <span class="math inline">\(k\)</span> number of degrees of freedom, where for our examples we assume that <span class="math inline">\(k&gt;0\)</span>. The t-distribution has variance:</p>
+<p><span class="math display" id="eq:t-variance">\[\begin{equation}
+var\left(T\right)=\frac{k}{k-2}
+\tag{23.10}
+\end{equation}\]</span></p>
+<p>A variable <span class="math inline">\(X\)</span> that follows the t-distribution can be described as <span class="math inline">\(X\sim t\left(k\right)\)</span> or <span class="math inline">\(X\sim t_{k}\)</span> for <span class="math inline">\(k\)</span> degrees of freedom. Like the other probability distributions covered above, the t-distribution has both a density function and a cumulative distribution function. Rather than examining these mathematical functions in detail, we will focus on the distribution’s general properties and practical importance.</p>
+<p>Figure <a href="ch-probability-normal-t.html#fig:t-distro">23.7</a> illustrates the t-distribution’s density function <span class="math inline">\(f\left(x\right)=P\left(X=x\right)\)</span> in the upper graph and the cumulative distribution function <span class="math inline">\(F\left(x\right)=P\left(X\leq x\right)\)</span> in the lower graph. As can be seen, the t-distribution resembles the standardized normal distribution in shape. The degrees of freedom affect the density function’s shape as well as what proportion of the distribution is under the cumulative distribution curve for a given value of <span class="math inline">\(x\)</span>.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:t-distro"></span>
+<img src="23-probability-normal-t_files/figure-html/t-distro-1.png" alt="T-distribution: density function $f(x)$ and cumulative distribution function $F(x)$" width="672" />
+<p class="caption">
+Figure 23.7: T-distribution: density function <span class="math inline">\(f(x)\)</span> and cumulative distribution function <span class="math inline">\(F(x)\)</span>
+</p>
+</div>
+<p>For a variable <span class="math inline">\(X\sim t\left(k\right)\)</span> higher values of <span class="math inline">\(k\)</span> mean that the tails become thicker, as in the upper graph in the figure. In the same way as the normal distribution, the t-distribution is also symmetric around the mean. This means that at the same time as we have <span class="math inline">\(F\left(x\right)=P\left(X\leq x\right)\)</span> we also have:</p>
+<p><span class="math display">\[F\left(-x\right)=1-P\left(X\leq x\right)=P\left(X&gt;x\right)\]</span></p>
+<p>Table <a href="ch-probability-normal-t.html#tab:t-table">23.2</a> describes calculated critical values for the t-distribution based on degrees of freedom <span class="math inline">\(k\)</span> and percentage probability, where the percentages describe significance level. These are values from the cumulative distribution function <span class="math inline">\(F\left(x\right)\)</span>, depending on number of degrees of freedom. The percentages, the significance level, refer to what proportion of the distribution is equal to or less than this t-value.</p>
+<table>
+<caption><span id="tab:t-table">Table 23.2: </span>T-distribution: critical values per degree of freedom. One-tailed test</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">90%</th>
+<th align="right">95%</th>
+<th align="right">97.5%</th>
+<th align="right">99%</th>
+<th align="right">99.5%</th>
+<th align="right">99.9%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="right">3.078</td>
+<td align="right">6.314</td>
+<td align="right">12.706</td>
+<td align="right">31.821</td>
+<td align="right">63.657</td>
+<td align="right">318.309</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="right">1.886</td>
+<td align="right">2.920</td>
+<td align="right">4.303</td>
+<td align="right">6.965</td>
+<td align="right">9.925</td>
+<td align="right">22.327</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="right">1.638</td>
+<td align="right">2.353</td>
+<td align="right">3.182</td>
+<td align="right">4.541</td>
+<td align="right">5.841</td>
+<td align="right">10.215</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="right">1.533</td>
+<td align="right">2.132</td>
+<td align="right">2.776</td>
+<td align="right">3.747</td>
+<td align="right">4.604</td>
+<td align="right">7.173</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="right">1.476</td>
+<td align="right">2.015</td>
+<td align="right">2.571</td>
+<td align="right">3.365</td>
+<td align="right">4.032</td>
+<td align="right">5.893</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="right">1.440</td>
+<td align="right">1.943</td>
+<td align="right">2.447</td>
+<td align="right">3.143</td>
+<td align="right">3.707</td>
+<td align="right">5.208</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="right">1.415</td>
+<td align="right">1.895</td>
+<td align="right">2.365</td>
+<td align="right">2.998</td>
+<td align="right">3.499</td>
+<td align="right">4.785</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="right">1.397</td>
+<td align="right">1.860</td>
+<td align="right">2.306</td>
+<td align="right">2.896</td>
+<td align="right">3.355</td>
+<td align="right">4.501</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="right">1.383</td>
+<td align="right">1.833</td>
+<td align="right">2.262</td>
+<td align="right">2.821</td>
+<td align="right">3.250</td>
+<td align="right">4.297</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="right">1.372</td>
+<td align="right">1.812</td>
+<td align="right">2.228</td>
+<td align="right">2.764</td>
+<td align="right">3.169</td>
+<td align="right">4.144</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="right">1.363</td>
+<td align="right">1.796</td>
+<td align="right">2.201</td>
+<td align="right">2.718</td>
+<td align="right">3.106</td>
+<td align="right">4.025</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="right">1.356</td>
+<td align="right">1.782</td>
+<td align="right">2.179</td>
+<td align="right">2.681</td>
+<td align="right">3.055</td>
+<td align="right">3.930</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="right">1.350</td>
+<td align="right">1.771</td>
+<td align="right">2.160</td>
+<td align="right">2.650</td>
+<td align="right">3.012</td>
+<td align="right">3.852</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="right">1.345</td>
+<td align="right">1.761</td>
+<td align="right">2.145</td>
+<td align="right">2.624</td>
+<td align="right">2.977</td>
+<td align="right">3.787</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="right">1.341</td>
+<td align="right">1.753</td>
+<td align="right">2.131</td>
+<td align="right">2.602</td>
+<td align="right">2.947</td>
+<td align="right">3.733</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="right">1.337</td>
+<td align="right">1.746</td>
+<td align="right">2.120</td>
+<td align="right">2.583</td>
+<td align="right">2.921</td>
+<td align="right">3.686</td>
+</tr>
+<tr class="odd">
+<td align="left">17</td>
+<td align="right">1.333</td>
+<td align="right">1.740</td>
+<td align="right">2.110</td>
+<td align="right">2.567</td>
+<td align="right">2.898</td>
+<td align="right">3.646</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="right">1.330</td>
+<td align="right">1.734</td>
+<td align="right">2.101</td>
+<td align="right">2.552</td>
+<td align="right">2.878</td>
+<td align="right">3.610</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="right">1.328</td>
+<td align="right">1.729</td>
+<td align="right">2.093</td>
+<td align="right">2.539</td>
+<td align="right">2.861</td>
+<td align="right">3.579</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="right">1.325</td>
+<td align="right">1.725</td>
+<td align="right">2.086</td>
+<td align="right">2.528</td>
+<td align="right">2.845</td>
+<td align="right">3.552</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="right">1.323</td>
+<td align="right">1.721</td>
+<td align="right">2.080</td>
+<td align="right">2.518</td>
+<td align="right">2.831</td>
+<td align="right">3.527</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="right">1.321</td>
+<td align="right">1.717</td>
+<td align="right">2.074</td>
+<td align="right">2.508</td>
+<td align="right">2.819</td>
+<td align="right">3.505</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="right">1.319</td>
+<td align="right">1.714</td>
+<td align="right">2.069</td>
+<td align="right">2.500</td>
+<td align="right">2.807</td>
+<td align="right">3.485</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="right">1.318</td>
+<td align="right">1.711</td>
+<td align="right">2.064</td>
+<td align="right">2.492</td>
+<td align="right">2.797</td>
+<td align="right">3.467</td>
+</tr>
+<tr class="odd">
+<td align="left">25</td>
+<td align="right">1.316</td>
+<td align="right">1.708</td>
+<td align="right">2.060</td>
+<td align="right">2.485</td>
+<td align="right">2.787</td>
+<td align="right">3.450</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="right">1.315</td>
+<td align="right">1.706</td>
+<td align="right">2.056</td>
+<td align="right">2.479</td>
+<td align="right">2.779</td>
+<td align="right">3.435</td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="right">1.314</td>
+<td align="right">1.703</td>
+<td align="right">2.052</td>
+<td align="right">2.473</td>
+<td align="right">2.771</td>
+<td align="right">3.421</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="right">1.313</td>
+<td align="right">1.701</td>
+<td align="right">2.048</td>
+<td align="right">2.467</td>
+<td align="right">2.763</td>
+<td align="right">3.408</td>
+</tr>
+<tr class="odd">
+<td align="left">29</td>
+<td align="right">1.311</td>
+<td align="right">1.699</td>
+<td align="right">2.045</td>
+<td align="right">2.462</td>
+<td align="right">2.756</td>
+<td align="right">3.396</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="right">1.310</td>
+<td align="right">1.697</td>
+<td align="right">2.042</td>
+<td align="right">2.457</td>
+<td align="right">2.750</td>
+<td align="right">3.385</td>
+</tr>
+<tr class="odd">
+<td align="left">40</td>
+<td align="right">1.303</td>
+<td align="right">1.684</td>
+<td align="right">2.021</td>
+<td align="right">2.423</td>
+<td align="right">2.704</td>
+<td align="right">3.307</td>
+</tr>
+<tr class="even">
+<td align="left">60</td>
+<td align="right">1.296</td>
+<td align="right">1.671</td>
+<td align="right">2.000</td>
+<td align="right">2.390</td>
+<td align="right">2.660</td>
+<td align="right">3.232</td>
+</tr>
+<tr class="odd">
+<td align="left">120</td>
+<td align="right">1.289</td>
+<td align="right">1.658</td>
+<td align="right">1.980</td>
+<td align="right">2.358</td>
+<td align="right">2.617</td>
+<td align="right">3.160</td>
+</tr>
+<tr class="even">
+<td align="left">∞</td>
+<td align="right">1.282</td>
+<td align="right">1.645</td>
+<td align="right">1.960</td>
+<td align="right">2.326</td>
+<td align="right">2.576</td>
+<td align="right">3.090</td>
+</tr>
+</tbody>
+</table>
+<p>If we have a variable <span class="math inline">\(X\sim t\left(10\right)\)</span> we look at the row where <span class="math inline">\(k=10\)</span>. The columns with the percentages 90% to 99.9% show what proportion of the distribution’s values are equal to or less than <span class="math inline">\(F\left(x\right)\)</span> where the value for x is what is shown in the table’s cells. On the row for <span class="math inline">\(k=10\)</span> we see that 90% of the distribution is less than or equal to <span class="math inline">\(x=1.37\)</span>.</p>
+<p>If we turn it around and think that for the variable <span class="math inline">\(X\sim t\left(10\right)\)</span> we want to know what proportion of the distribution is less than or equal to 2 standard deviations above the mean. We then have <span class="math inline">\(F\left(x=2\right)=P\left(X\leq2\right)\)</span> and look at row <span class="math inline">\(k=10\)</span>. Since we have <span class="math inline">\(x=1.81\)</span> for 95% and <span class="math inline">\(x=2.23\)</span> for 97.5%, this means that between 95 and 97.5% of the distribution is equal to or less than <span class="math inline">\(F\left(x=2\right)\)</span>. This is illustrated in figure <a href="ch-probability-normal-t.html#fig:t-two-sided">23.8</a> where the gray area to the left of the mean represents an equally large proportion of the distribution as the gray area to the right of the mean, which means that <span class="math inline">\(F\left(x\right)=F\left(-x\right)\)</span>.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:t-two-sided"></span>
+<img src="23-probability-normal-t_files/figure-html/t-two-sided-1.png" alt="T-distribution: density function with shaded significance level" width="717.6" />
+<p class="caption">
+Figure 23.8: T-distribution: density function with shaded significance level
+</p>
+</div>
+<p>Above we went through how different probability distributions approach approximate normal distributions in different situations. The same thing also applies to the t-distribution. For a t-distribution <span class="math inline">\(t\left(k\right)\)</span> it applies that for large values of <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[t\left(k\right)\approx N\left(0,1\right)\]</span></p>
+<p>With many degrees of freedom, high values for <span class="math inline">\(k\)</span>, the t-distribution approaches the standardized normal distribution. A t-distribution with k degrees of freedom where <span class="math inline">\(k&gt;0\)</span> has mean 0, the same as the standardized normal distribution. As described above, the t-distribution has variance <span class="math inline">\(var\left(t\right)=k/\left(k-2\right)\)</span>. This means that when <span class="math inline">\(k\rightarrow\infty\)</span> then it follows that <span class="math inline">\(var\left(t\right)\rightarrow1\)</span> which makes the t-distribution approach the standardized normal distribution, <span class="math inline">\(N\left(0,1\right)\)</span>.</p>
+<p>The last row in table <a href="ch-probability-normal-t.html#tab:t-table">23.2</a> shows the critical t-values for <span class="math inline">\(k=\infty\)</span>, which can be compared against the standardized normal distribution’s pre-calculated probabilities. Example: for <span class="math inline">\(k=\infty\)</span>, <span class="math inline">\(t=3.09\)</span> means that <span class="math inline">\(P\left(X\leq x\right)=99.9\%\)</span>. If we look in table <a href="ch-probability-normal-t.html#tab:normal-table">23.1</a> at the bottom in the right corner, row for <span class="math inline">\(x=3\)</span> and column .09, we see that for this value of <span class="math inline">\(x\)</span> the standardized normal distribution’s <span class="math inline">\(F\left(x\right)=P\left(X\leq x\right)=0.999\)</span>, that is 99.9%.</p>
+</div>
+<div id="chapter-summary-19" class="section level2 hasAnchor" number="23.7">
+<h2><span class="header-section-number">23.7</span> Chapter summary<a href="ch-probability-normal-t.html#chapter-summary-19" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>The normal distribution</strong>: written <span class="math inline">\(N\left(\mu,\sigma\right)\)</span> where <span class="math inline">\(\mu\)</span> is mean and <span class="math inline">\(\sigma\)</span> is standard deviation. Density function: <span class="math inline">\(f\left(x;\mu,\sigma\right)=e^{-\left(x-\mu\right)^{2}/(2\sigma^{2})}/\left(\sigma\sqrt{2\pi}\right)\)</span> for <span class="math inline">\(-\infty&lt;x&lt;\infty\)</span>. Cumulative distribution function: <span class="math inline">\(F\left(x;\mu,\sigma\right)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\left(t-\mu\right)^{2}/(2\sigma^{2})}dt\)</span>.</p></li>
+<li><p>Since the normal distribution is symmetric we have <span class="math inline">\(F\left(-x\right)=1-F\left(x\right)\)</span>. For <span class="math inline">\(F\left(x=\mu\right)=P\left(X\leq\mu\right)=0.5\)</span>, with 50% of the distribution above and below the mean <span class="math inline">\(\mu\)</span> respectively.</p></li>
+<li><p><strong>The standardized normal distribution</strong> has <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma=1\)</span> and is written <span class="math inline">\(N\left(0,1\right)\)</span>. Density function: <span class="math inline">\(f\left(x\right)=e^{-x^{2}/2}/\sqrt{2\pi}\)</span>. Also called the standard normal distribution or the Z-distribution.</p></li>
+<li><p>Many real data within both natural and social sciences follow the normal distribution. Many other probability distributions approach the normal distribution approximately in different situations. Example: the binomial distribution approaches the normal distribution approximately when <span class="math inline">\(np\)</span> and <span class="math inline">\(n\left(1-p\right)\)</span> are large numbers: <span class="math inline">\(b\left(n,p\right)\approx N\left(np,np\left(1-p\right)\right)\)</span>.</p></li>
+<li><p><strong>The central limit theorem (CLT)</strong>: if we take random samples from a variable that follows another probability distribution, the mean of the samples will approach the normal distribution approximately when the number of samples becomes sufficiently large. The mean will according to the law of large numbers approach <span class="math inline">\(\mu\)</span> as <span class="math inline">\(n\to\infty\)</span>, while the CLT describes how the dispersion around the mean will approach a normal distribution as the number of samples n approaches infinity.</p></li>
+<li><p><strong>The t-distribution</strong>: if <span class="math inline">\(X\sim N\left(0,1\right)\)</span> and <span class="math inline">\(Y\sim\chi^{2}\left(k\right)\)</span> the variable <span class="math inline">\(T=X/\left(\sqrt{Y}/\sqrt{k}\right)\)</span> follows the t-distribution, written <span class="math inline">\(T\sim t\left(k\right)\)</span> for <span class="math inline">\(k\)</span> degrees of freedom. When <span class="math inline">\(k\)</span> becomes sufficiently large <span class="math inline">\(t\left(k\right)\approx N\left(0,1\right)\)</span>. The t-distribution is symmetric: <span class="math inline">\(F\left(x=0\right)=0.5\)</span> and <span class="math inline">\(F\left(-x\right)=1-F\left(x\right)\)</span>.</p></li>
+</ul>
+</div>
+<div id="exercises-21" class="section level2 hasAnchor" number="23.8">
+<h2><span class="header-section-number">23.8</span> Exercises<a href="ch-probability-normal-t.html#exercises-21" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ex-23"></div>
+<script>
+(function(){
+var ex = [
+  {
+    q: 'The standard normal distribution is written $Z\\sim N(0,1)$.<br>(a) What are $E(Z)$ and $\\text{Var}(Z)$?<br>(b) By symmetry, what is $P(Z\\leq 0)$?<br>(c) If $P(Z\\leq 1.96)=0.975$, what is $P(Z\\geq 1.96)$?',
+    a: '(a) $E(Z)=0$, $\\text{Var}(Z)=1$.<br>(b) $P(Z\\leq 0)=0.5$.<br>(c) $P(Z\\geq 1.96)=1-0.975=0.025$.'
+  },
+  {
+    q: 'Let $X\\sim N(50,100)$ (mean 50, variance 100, so $\\sigma=10$). Compute the z-score $z=(x-\\mu)/\\sigma$ for each value.<br>(a) $x=70$<br>(b) $x=40$<br>(c) $x=50$',
+    a: '(a) $z=(70-50)/10=2$.<br>(b) $z=(40-50)/10=-1$.<br>(c) $z=(50-50)/10=0$.'
+  },
+  {
+    q: 'Suppose $P(Z\\leq 1.64)=0.95$. Use symmetry of the standard normal to answer the following.<br>(a) What is $P(Z\\geq 1.64)$?<br>(b) What is $P(-1.64\\leq Z\\leq 1.64)$?<br>(c) What is $P(Z\\leq -1.64)$?',
+    a: '(a) $P(Z\\geq 1.64)=1-0.95=0.05$.<br>(b) $P(-1.64\\leq Z\\leq 1.64)=0.95-0.05=0.90$.<br>(c) $P(Z\\leq -1.64)=0.05$ by symmetry.'
+  },
+  {
+    q: 'Let $X\\sim N(100,25)$ (mean 100, $\\sigma=5$).<br>(a) Convert $x=110$ to a z-score.<br>(b) Convert $x=90$ to a z-score.<br>(c) Given $P(Z\\leq 2)=0.977$, what is $P(X\\leq 110)$?',
+    a: '(a) $z=(110-100)/5=2$.<br>(b) $z=(90-100)/5=-2$.<br>(c) $P(X\\leq 110)=P(Z\\leq 2)=0.977$.'
+  },
+  {
+    q: 'According to the central limit theorem (CLT), the sample mean $\\bar{X}$ is drawn from a population with mean $\\mu=50$ and variance $\\sigma^2=100$, based on $n=100$ observations.<br>(a) What is $E(\\bar{X})$?<br>(b) What is $\\text{Var}(\\bar{X})$?<br>(c) What distribution does $\\bar{X}$ approximately follow for large $n$?',
+    a: '(a) $E(\\bar{X})=\\mu=50$.<br>(b) $\\text{Var}(\\bar{X})=\\sigma^2/n=100/100=1$.<br>(c) $\\bar{X}$ approximately follows $N(50,1)$ by the CLT.'
+  },
+  {
+    q: 'A population has mean $\\mu=200$ and standard deviation $\\sigma=20$. A sample of $n=400$ is drawn.<br>(a) What is the standard error $\\text{SE}(\\bar{X})=\\sigma/\\sqrt{n}$?<br>(b) Compute the z-score for $\\bar{X}=201$.<br>(c) Is $n=400$ large enough to apply the CLT? Why?',
+    a: '(a) $\\text{SE}=20/\\sqrt{400}=20/20=1$.<br>(b) $z=(201-200)/1=1$.<br>(c) Yes, $n=400\\gg 30$, which is the common rule of thumb for the CLT to apply.'
+  },
+  {
+    q: 'Let $X\\sim \\text{Bin}(100,0.5)$.<br>(a) Compute $E(X)$ and $\\text{Var}(X)$.<br>(b) Which normal distribution approximates $X$ for large $n$?<br>(c) Using $P(Z\\geq 1)\\approx 0.159$, approximate $P(X\\geq 55)$.',
+    a: '(a) $E(X)=np=50$, $\\text{Var}(X)=np(1-p)=25$.<br>(b) $N(50,25)$, i.e. $N(\\mu=50,\\sigma^2=25)$.<br>(c) $z=(55-50)/5=1$, so $P(X\\geq 55)\\approx P(Z\\geq 1)\\approx 0.159$.'
+  },
+  {
+    q: 'Heights are normally distributed with mean 175 cm and standard deviation 8 cm, i.e. $X\\sim N(175,64)$.<br>(a) Compute the z-score for $x=183$.<br>(b) Compute the z-score for $x=167$.<br>(c) Given $P(-1\\leq Z\\leq 1)\\approx 0.683$, find $P(167\\leq X\\leq 183)$.',
+    a: '(a) $z=(183-175)/8=1$.<br>(b) $z=(167-175)/8=-1$.<br>(c) $P(167\\leq X\\leq 183)=P(-1\\leq Z\\leq 1)\\approx 0.683$.'
+  },
+  {
+    q: 'The t-distribution $T\\sim t(k)$ has $k$ degrees of freedom.<br>(a) What are $E(T)$ and the symmetry property of $t(k)$?<br>(b) Compared to $N(0,1)$, does $t(k)$ have heavier or lighter tails?<br>(c) As $k\\to\\infty$, what does $t(k)$ converge to?',
+    a: '(a) $E(T)=0$. By symmetry: $F(-x)=1-F(x)$ and $F(0)=0.5$.<br>(b) Heavier tails — the t-distribution has more probability mass in the tails than the standard normal.<br>(c) $t(k)\\to N(0,1)$ as $k\\to\\infty$.'
+  },
+  {
+    q: 'Let $T\\sim t(10)$.<br>(a) By symmetry, what is $P(T\\leq 0)$?<br>(b) If $P(T\\leq 2.228)=0.975$, what is $P(T\\geq 2.228)$?<br>(c) Is the critical value 2.228 larger or smaller than 1.96 (the 97.5th percentile of $N(0,1)$)? What does this tell us?',
+    a: '(a) $P(T\\leq 0)=0.5$ by symmetry.<br>(b) $P(T\\geq 2.228)=1-0.975=0.025$.<br>(c) 2.228 > 1.96, which tells us that the t-distribution has heavier tails than the standard normal — we need to go further out to capture the same 97.5% of the distribution.'
+  },
+  {
+    q: 'When should you use the t-distribution rather than the standard normal for inference about a mean?<br>(a) Population variance $\\sigma^2$ is unknown, $n=25$: use $t$ or $z$?<br>(b) Population variance $\\sigma^2$ is known, $n=200$: use $t$ or $z$?<br>(c) Population variance $\\sigma^2$ is unknown, $n=1000$: use $t$ or $z$? Explain.',
+    a: '(a) Use $t$ — small sample, unknown variance.<br>(b) Use $z$ — variance is known, regardless of sample size.<br>(c) Either works: with $n=1000$, $t(999)\\approx N(0,1)$, so both give virtually the same result. Strictly, $t$ is correct when variance is estimated, but $z$ is a fine approximation.'
+  },
+  {
+    q: 'A sample of $n=100$ gives $\\bar{X}=48$. The population standard deviation is known: $\\sigma=10$.<br>(a) Compute the standard error $\\text{SE}=\\sigma/\\sqrt{n}$.<br>(b) Construct a 95% confidence interval using $\\bar{X}\\pm 1.96\\cdot\\text{SE}$.<br>(c) How would the confidence interval change if $n$ increased to 400?',
+    a: '(a) $\\text{SE}=10/\\sqrt{100}=1$.<br>(b) $48\\pm 1.96\\cdot 1=[46.04,\\; 49.96]$.<br>(c) $\\text{SE}=10/\\sqrt{400}=0.5$, so the interval narrows to $48\\pm 0.98=[47.02,\\; 48.98]$. Larger samples give more precise estimates.'
+  }
+];
+
+var container = document.getElementById('ex-23');
+ex.forEach(function(e, i) {
+  var d = document.createElement('div');
+  d.style.marginBottom = '1em';
+  d.innerHTML = '<strong>Exercise ' + (i+1) + '.</strong> ' + e.q +
+    '<details style="margin-top:0.4em"><summary style="cursor:pointer;color:#2c5f8a">Show answer</summary>' +
+    '<div style="padding:0.5em 0.5em 0.2em">' + e.a + '</div></details>';
+  container.appendChild(d);
+});
+})();
+</script>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-probability-continuous.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-statistical-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["the-cheat-code.pdf", "the-cheat-code.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "depth": 2
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
