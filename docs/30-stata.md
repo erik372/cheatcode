@@ -20,11 +20,11 @@ The figure below shows an example of what Stata can look like. In the image we s
 
 It is also possible that additional windows other than those shown in the image are displayed. If any of the windows in the image are not shown when we open the program, we can open this and other windows by going to the Window menu and choosing among the options there: Command, Results, Review, Variables and more.
 
-<img src="images/stata1b.png" alt="" width="80%" style="display: block; margin: auto;" />
+<img src="images/stata1b.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 When we open Stata for the first time, we see no table. To look at the data that is loaded in the program, we can open the Data Editor window. This can be done through the menu Window > Data Editor, or with the keyboard shortcut Ctrl + 8. It is also possible to access the Data Editor via the icons at the top below the menus in Stata's window. When we open the Data Editor window for the first time, it is empty.
 
-<img src="images/stata datafönster2.png" alt="" width="80%" style="display: block; margin: auto;" />
+<img src="images/stata datafönster2.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 The figure above shows an example of what the data window can look like. In the image we have a table with the three variables $Y, X$ and $Z$ with four observations, where $Y=\left\{ 3,2,5,4\right\}$, $X=\left\{ 3,4,6,7\right\}$ and $Z=\left\{ 1,4,0,1\right\}$. Note how the variable names appear as column headers. The variable names are thus not values among the observations, as they would be in an Excel sheet, for example.
 
@@ -48,7 +48,7 @@ In Stata we often work with data retrieved from existing data files, for example
 
 Stata can retrieve the information that is saved in the Excel sheet. If we then work with this data in Stata, the Excel sheet is not affected. Note that this is a difference compared to if we open the same file in Excel. If we edit an Excel sheet in Excel and save the file again, old information is overwritten. If we want to overwrite the Excel file in Stata, we must export the data we are working with to the hard drive and overwrite the old file. This is practical because it reduces the risk of us overwriting useful information.
 
-<img src="images/Stata dialogrutan importera excel1.png" alt="" width="80%" style="display: block; margin: auto;" />
+<img src="images/Stata dialogrutan importera excel1.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 The figure above shows what the dialog box for importing Excel files can look like. In the top box in the dialog box we choose which Excel file we want to import data from. By clicking on the Browse... button we get the opportunity to click our way through the directories to the file. Excel sheets can contain several tabs (worksheets) with data. In the box for Worksheet in the dialog box we specify the name of the tab in the Excel sheet from which we want to retrieve data. Under Cell range we can specify which cells in the Excel sheet's tab the data should be retrieved from. To retrieve data in cells A1 to B4 we can write A1:B4.
 
@@ -108,7 +108,7 @@ In Stata's data window, we noted how the variable names are specified as column 
 import excel my_data.xlsx, clear first
 ```
 
-<img src="images/stata do-file editor1.png" alt="" width="80%" style="display: block; margin: auto;" />
+<img src="images/stata do-file editor1.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 The figure above shows what it can look like in the do-file editor in Stata. To run the code we select some of the characters on both lines and click Run or use the keyboard shortcut Ctrl + R. Written commands in Stata are generally written one per line. We can also let a command continue on the next line by adding the symbols `///` at the far right of a line. For example like this:
 
@@ -448,7 +448,7 @@ generate K_total_sum = total(K)
 
 When we work with data analysis we often benefit from being able to transpose our data, that is change whether our data is organized in width or height. In Stata's data table we have some type of information for two people, A and B, for the years 2020, 2021 and 2022. The development per person is described in width where each year has its own column. Variable names in Stata cannot begin with a number so the three columns with years are named x2020, x2021 and x2022.
 
-<img src="images/stata person A B reshape data1.png" alt="" width="80%" style="display: block; margin: auto;" />
+<img src="images/stata person A B reshape data1.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 If we want to display this information in a chart in Stata it becomes easily complicated, since Stata's functions for displaying charts are primarily designed based on the idea that a variable is organized in one column, see the section on creating plots below. In this case we have one and the same variable spread across three columns, depending on the year.
 
@@ -460,7 +460,7 @@ reshape long x, i(Person) j(year)
 
 The first information we specify is x, which is the prefix of the three columns with years. It is from these three columns that the function `reshape` now retrieves data that should be organized lengthwise. The program finds these three columns precisely because all three are named x... something. Then we describe in the parentheses for `i()` that we want to keep the column Person. In the parentheses for `j()` we finally specify the name of the new variable where the information that comes after "x" in the name of the three columns from which we retrieve data should be placed. In this case it is three years, which is why we decide to name this variable year.
 
-<img src="images/stata long table reshape 2.png" alt="" width="80%" style="display: block; margin: auto;" />
+<img src="images/stata long table reshape 2.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 ## The function egen {#sec-stata-egen}
 
@@ -1461,7 +1461,7 @@ reshape long gh, i(country) j(year)
 
 Since we specify `gh` after `reshape long`, the command searches for variables whose names begin with these letters. In the table the four columns with the years begin with these letters. It is these columns that will now be organized more in height. In the parentheses for `i()` we specify the variable country that already exists in the table. In the parentheses for `j()` we specify a new variable where we want to save the information from the names of the variables we transpose. In this case it is the years we want to save in a new variable, which is why in this example we choose to call this new variable year. This organizes all data from the table in a long format with the variables country, year and gh.
 
-<img src="images/stata long table bnp arbetstimme.png" alt="" width="80%" style="display: block; margin: auto;" />
+<img src="images/stata long table bnp arbetstimme.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 The figure above shows the first rows after transposition. Say now that we are going to calculate a mean per year. Since our data is now organized in long format we can do this with the following command:
 

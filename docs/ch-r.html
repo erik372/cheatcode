@@ -23,7 +23,7 @@
 <meta name="author" content="Erik Hegelund" />
 
 
-<meta name="date" content="2026-06-03" />
+<meta name="date" content="2026-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -922,13 +922,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb157-3"><a href="ch-r.html#cb157-3" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
 <p>If we write the above in an R script, select all these lines or place the cursor on the first line, and press Ctrl + Enter, this is run as a command in R. The first and second lines are ignored by the program and are only reported in the console as text without action. The third line is run as a calculation and the result is returned in the console.</p>
 <p>The commands you write in a script can be saved as a regular text file on the computer. To save your script you press Ctrl + S (Windows) or Cmd + S (Mac). You can also choose menu <code>File &gt; Save</code>. Your script is saved as a text file on the computer’s hard drive with the file extension <code>.R</code>. If you have saved your script in an <code>.R</code> file on the computer’s hard drive, you can, the next time you start RStudio, open the file and continue working with your code.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-window"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-window"></span>
 <img src="images/R_window.png" alt="The program R" width="70%" />
 <p class="caption">
 Figure 31.1: The program R
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstudio-window"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:rstudio-window"></span>
 <img src="images/rstudio_window.png" alt="The program RStudio" width="90%" />
 <p class="caption">
 Figure 31.2: The program RStudio
@@ -1229,25 +1229,25 @@ Figure 31.2: The program RStudio
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="ch-r.html#cb214-1" tabindex="-1"></a>table_1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(table_2)</span>
 <span id="cb214-2"><a href="ch-r.html#cb214-2" tabindex="-1"></a>table_1 <span class="sc">%&gt;%</span> <span class="fu">right_join</span>(table_2)</span></code></pre></div>
 <p>The results are shown in figure <a href="ch-r.html#fig:r-joins-1">31.3</a>. With <code>full_join()</code> we keep all information we have about persons 1 to 4. With <code>inner_join()</code> we only keep information about the persons for whom we have values in all columns. With <code>left_join()</code> and <code>right_join()</code> we keep all persons from the left and right table respectively and lose the person in each case who is not found in the other table.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-joins-1"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-joins-1"></span>
 <img src="images/r%20fulljoin1.png" alt="Merging of table\_1 and table\_2" width="90%" />
 <p class="caption">
 Figure 31.3: Merging of table_1 and table_2
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-joins-2"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-joins-2"></span>
 <img src="images/r_innerjoin1.png" alt="Merging of table\_1 and table\_2" width="90%" />
 <p class="caption">
 Figure 31.4: Merging of table_1 and table_2
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-joins-3"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-joins-3"></span>
 <img src="images/r_leftjoin1.png" alt="Merging of table\_1 and table\_2" width="90%" />
 <p class="caption">
 Figure 31.5: Merging of table_1 and table_2
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-joins-4"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-joins-4"></span>
 <img src="images/r_rightjoin1.png" alt="Merging of table\_1 and table\_2" width="90%" />
 <p class="caption">
 Figure 31.6: Merging of table_1 and table_2
@@ -1402,7 +1402,7 @@ Figure 31.6: Merging of table_1 and table_2
 <p>If we instead want to calculate the correlation coefficient between two variables we can use the function <code>cor()</code>. If we specify several variables as input value for <code>cor()</code>, for example in the form of a table with only quantitative variables, the function returns the pairwise correlation between all variables. Below follows an example where we send the table in <code>my_data</code>, which contains three variables, to the function <code>cor()</code>:</p>
 <div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="ch-r.html#cb237-1" tabindex="-1"></a>my_data <span class="sc">%&gt;%</span> <span class="fu">cor</span>()</span></code></pre></div>
 <p>The result is shown in figure <a href="ch-r.html#fig:r-cor">31.7</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-cor"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-cor"></span>
 <img src="images/R%20cor.png" alt="Results of cor()" width="50%" />
 <p class="caption">
 Figure 31.7: Results of cor()
@@ -1495,7 +1495,7 @@ Figure 31.7: Results of cor()
 <p><span class="math display">\[y=\beta_{1}+\beta_{2}x+\beta_{3}z+v\]</span></p>
 <p>where <span class="math inline">\(\beta\)</span> are the coefficients and <span class="math inline">\(v\)</span> is the error term. To estimate this model with <code>lm()</code> we can use the following command:</p>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="ch-r.html#cb245-1" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> z, <span class="at">data =</span> my_table)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-lm-results"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-lm-results"></span>
 <img src="images/r%20lm%20results1.png" alt="Results of lm()" width="60%" />
 <p class="caption">
 Figure 31.8: Results of lm()
@@ -1516,7 +1516,7 @@ Figure 31.8: Results of lm()
 <p>See the function’s help section for more options and more information. When we run a command with <code>lm()</code>, several other results are estimated and calculated. To work with these we can for example save the lm result in a new object and use the function <code>summary()</code>. Here follows an example of commands. The result from <code>lm()</code> combined with <code>summary()</code> is shown in figure <a href="ch-r.html#fig:r-lm-summary">31.9</a>:</p>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="ch-r.html#cb249-1" tabindex="-1"></a>lm_results <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x, <span class="at">data =</span> my_table)</span>
 <span id="cb249-2"><a href="ch-r.html#cb249-2" tabindex="-1"></a>lm_results <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-lm-summary"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-lm-summary"></span>
 <img src="images/r%20lm%20summary1.png" alt="Results from lm() and summary()" width="70%" />
 <p class="caption">
 Figure 31.9: Results from lm() and summary()
@@ -1543,7 +1543,7 @@ Figure 31.9: Results from lm() and summary()
 <p>The package and function <code>stargazer()</code> have many options that we can use to influence the appearance of the results table. We can also export the results to different file types, for example <code>.xml</code> which can be read by Microsoft Word. Academic publications often use LaTeX to create results that follow certain rules, which <code>stargazer()</code> also has support for. See the package’s and function’s help section by using the commands:</p>
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="ch-r.html#cb254-1" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package=</span><span class="st">&quot;stargazer&quot;</span>)</span>
 <span id="cb254-2"><a href="ch-r.html#cb254-2" tabindex="-1"></a><span class="fu">help</span>(stargazer)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-stargazer"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-stargazer"></span>
 <img src="images/r%20stargazer1.png" alt="Results from stargazer()" width="60%" />
 <p class="caption">
 Figure 31.10: Results from stargazer()
@@ -1701,7 +1701,7 @@ Figure 31.17: Graphs organized with patchwork
 <p>The object <code>my_table</code> is sent to <code>map()</code>. The first round now <code>map()</code> uses the first column as input value <code>.x</code>. The second round <code>map()</code> uses the second column, and so on. In the parentheses for <code>map()</code> we write <code>~{}</code> and inside the curly brackets we write the commands we want to apply on each loop round. We can also write <code>.f=~{}</code> and get exactly the same result.</p>
 <p>In this case we specify that we want to create a new tibble table on each round and in this create the variables <code>mean</code> and <code>sd</code>, which all use the values in <code>.x</code> as input values to calculate results. On each round a tibble table is now created with only one row (since <code>mean()</code> and <code>sd()</code> return only one constant each). We send the tibble table to the function <code>return()</code>, which controls what is returned on each loop round. The result becomes the same in this case if we delete <code>return()</code>.</p>
 <p>After the parentheses for <code>map()</code> we send the result (a list) to the function <code>list_rbind()</code> which converts the list object to a table where each tibble table created in the loop rounds is converted to a common tibble table. Then we send this single table forward to the function <code>mutate()</code> to create a new variable, where we add the name of the three variables <code>x</code>, <code>y</code> and <code>z</code> from <code>my_table</code> using the function <code>colnames()</code>. The result is shown in figure <a href="ch-r.html#fig:r-map-table">31.18</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-map-table"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-map-table"></span>
 <img src="images/r%20tabell%20fr%20map1.png" alt="Table created with map()" width="40%" />
 <p class="caption">
 Figure 31.18: Table created with map()
@@ -1821,7 +1821,7 @@ Figure 31.20: Indexed GDP per Working Hour
 <span id="cb278-3"><a href="ch-r.html#cb278-3" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">b=</span> (<span class="fu">lm</span>(<span class="fu">log</span>(gdp_hour) <span class="sc">~</span> year) <span class="sc">%&gt;%</span></span>
 <span id="cb278-4"><a href="ch-r.html#cb278-4" tabindex="-1"></a>    <span class="fu">coefficients</span>())[<span class="dv">2</span>]) <span class="sc">%&gt;%</span></span>
 <span id="cb278-5"><a href="ch-r.html#cb278-5" tabindex="-1"></a><span class="fu">distinct</span>(country, b)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-koeff-table"></span>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:r-koeff-table"></span>
 <img src="images/r%20table%20est%20koeff1.png" alt="Table with estimated coefficients" width="35%" />
 <p class="caption">
 Figure 31.21: Table with estimated coefficients

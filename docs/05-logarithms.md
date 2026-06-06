@@ -142,9 +142,9 @@ Logarithms have the following properties:
 
 $$
 \begin{align}
-\text{\textbf{Product rule: }} & \log\left(a*b\right)=\log\left(a\right)+\log\left(b\right)\\
-\text{\textbf{Quotient rule: }} & \log\left(\frac{a}{b}\right)=\log\left(a\right)-\log\left(b\right)\nonumber \\
-\text{\textbf{Power rule: }} & \log\left(x^{a}\right)=a\log\left(x\right)\nonumber 
+\textbf{Product rule: } & \log\left(a*b\right)=\log\left(a\right)+\log\left(b\right)\\
+\textbf{Quotient rule: } & \log\left(\frac{a}{b}\right)=\log\left(a\right)-\log\left(b\right)\nonumber \\
+\textbf{Power rule: } & \log\left(x^{a}\right)=a\log\left(x\right)\nonumber
  (\#eq:logaritmlagar)
 \end{align}
 $$

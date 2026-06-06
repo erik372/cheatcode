@@ -202,7 +202,7 @@ This expression can be read as 1 divided by 2, divided by 2, divided by 2. If we
 
 $$
 \begin{align}
-\text{\textbf{Correct!} } & \text{Solving from the left:}\nonumber \\
+\textbf{Correct!} & \text{Solving from the left:}\nonumber \\
 \left(1/2\right)/2/2 & =\left(\left(1/2\right)/2\right)/2\\
  & =\left(1/4\right)/2\nonumber \\
  & =1/8\nonumber \\
@@ -235,7 +235,7 @@ This calculation contains both multiplication $\left(\times\right)$ and division
 $$
 \begin{align}
 \begin{array}{c|c}
-\text{\textbf{Correct!} From the left.} & \text{\textbf{Incorrect!} From the right.}\\
+\textbf{Correct! From the left.} & \textbf{Incorrect! From the right.}\\
 2\times3\div4\times5= & 2\times3\div4\times5=\\
 =6\div4\times5= & =2\times3\div20=\\
 =\frac{3}{2}\times5= & =2\times\frac{3}{20}=\\
@@ -432,7 +432,7 @@ $$
 \begin{align}
 -4 & >-5\\
 -4\times\left(-1\right) & >-5\times\left(-1\right)\nonumber \\
-\text{\textbf{Incorrect!} }\,\,4 & >5\nonumber 
+\textbf{Incorrect!}\,\,4 & >5\nonumber
 \end{align}
 $$
 
@@ -869,13 +869,16 @@ $$
 
 Table: Exponent properties (\#tab:rakneregler-for-potenser)
 
-| 1 | $a^{b}*a^{c}=a^{b+c}$| 2 |
-| --- | --- | --- |
-| $\frac{1}{a^{b}}=a^{-b}$| 3 | $\frac{a^{b}}{a^{c}}=a^{b-c}$|
-| 4 | $\left(a^{b}\right)^{c}=a^{bc}$| 5 |
-| $\left(\frac{a}{b}\right)^{c}=\frac{a^{c}}{b^{c}}=a^{c}*b^{-c}$| 6 | $\left(a*b\right)^{c}=a^{c}*b^{c}$|
-| 7 | $a^{1}=a$| 8 |
-| $a^{0}=1$| | |
+| Rule | Formula |
+| --- | --- |
+| 1 | $a^{b}*a^{c}=a^{b+c}$ |
+| 2 | $\frac{1}{a^{b}}=a^{-b}$ |
+| 3 | $\frac{a^{b}}{a^{c}}=a^{b-c}$ |
+| 4 | $\left(a^{b}\right)^{c}=a^{bc}$ |
+| 5 | $\left(\frac{a}{b}\right)^{c}=\frac{a^{c}}{b^{c}}=a^{c}*b^{-c}$ |
+| 6 | $\left(a*b\right)^{c}=a^{c}*b^{c}$ |
+| 7 | $a^{1}=a$ |
+| 8 | $a^{0}=1$ |
 
 Table \@ref(tab:rakneregler-for-potenser) summarize some useful properties and rules for exponents and powers. The letters $a$, $b$ and $c$ represent arbitrary real numbers. The first rule means that if we multiply two power expressions with the same base, the exponents can be added as follows: 
 
@@ -1347,16 +1350,17 @@ $$
 
 Table: The same value described in different ways (\#tab:decimal-brak-potens-procent-promille)
 
-| Decimal number | Fraction | Power | Percent | Per mille | 0.01 |
-| --- | --- | --- | --- | --- | --- |
-| $\frac{\ensuremath{1}}{100}$| $10^{-2}$| 1% | 10‰ | 0.05 | $\frac{5}{100}$|
-| $5*10^{-2}$| 5% | 50‰ | 0.1 | $\frac{\ensuremath{1}}{10}$| $10^{-1}$|
-| 10% | 100‰ | 0.1011 | $\frac{1,011}{10,000}$| $1,011*10^{-4}$| 10.11% |
-| 101.1‰ | 0.5 | $\frac{\ensuremath{1}}{2}$| $2^{-1}$| 50% | 500‰ |
-| 0.75 | $\frac{3}{4}$| $3*4^{-1}=3*2^{-2}$| 75% | 750‰ | 1 |
-| $\frac{1}{1}$| $1^{1}*1^{-1}$| 100% | 1,000‰ | 2.5 | $\frac{5}{2}$|
-| $5*2^{-1}$| 250% | 2 500‰ | 10.3 | $\frac{103}{10}$| $103*10^{-1}$|
-| 1,030% | 10,300‰ | | | | |
+| Decimal number | Fraction | Power | Percent | Per mille |
+| --- | --- | --- | --- | --- |
+| 0.01 | $\frac{1}{100}$ | $10^{-2}$ | 1% | 10‰ |
+| 0.05 | $\frac{5}{100}$ | $5*10^{-2}$ | 5% | 50‰ |
+| 0.1 | $\frac{1}{10}$ | $10^{-1}$ | 10% | 100‰ |
+| 0.1011 | $\frac{1,011}{10,000}$ | $1,011*10^{-4}$ | 10.11% | 101.1‰ |
+| 0.5 | $\frac{1}{2}$ | $2^{-1}$ | 50% | 500‰ |
+| 0.75 | $\frac{3}{4}$ | $3*4^{-1}=3*2^{-2}$ | 75% | 750‰ |
+| 1 | $\frac{1}{1}$ | $1^{1}*1^{-1}$ | 100% | 1,000‰ |
+| 2.5 | $\frac{5}{2}$ | $5*2^{-1}$ | 250% | 2,500‰ |
+| 10.3 | $\frac{103}{10}$ | $103*10^{-1}$ | 1,030% | 10,300‰ |
 
 We have now covered several key mathematical concepts including decimal numbers, fractions, percent, per mille, and powers. In mathematics, the same numerical value can often be expressed in multiple equivalent forms. Being able to convert between these different representations while maintaining the same value is a fundamental skill that helps solve problems more efficiently. Table \@ref(tab:decimal-brak-potens-procent-promille) demonstrates various ways to express identical values using decimal numbers, fractions, powers, percentages, and per mille.
 
