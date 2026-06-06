@@ -1,7 +1,7 @@
 ---
 title: "The Cheat Code: Essential Math and Statistics for Social Scientists"
 author: "Erik Hegelund"
-date: "2026-06-06"
+date: "2026-06-07"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: references.bib

@@ -107,7 +107,7 @@ $$
 ```{r y-f-x-1-x-limes, echo=FALSE, out.width="71%", fig.cap="The function $y=f\\left(x\\right)=1/x$"}
 library("tidyverse")
 library("latex2exp")
-th10 <- theme(axis.title.y=element_text(angle=0), text=element_text(size=11))
+th10 <- theme(axis.title.y=element_text(angle=0), text=element_text(size=14))
 g_oneoverx <- ggplot() +
   stat_function(fun=function(x) 1/x, xlim=c(-20,-1/(10^10)), color="#F8766D") +
   stat_function(fun=function(x) 1/x, xlim=c(1/(10^10),20), color="#F8766D") +
@@ -230,11 +230,11 @@ g_x2_derivata <- ggplot() +
   geom_hline(yintercept=0, alpha=.2) +
   geom_point(aes(x=c(0,2), y=c(0,4))) +
   scale_y_continuous(breaks=c(0,4,10,20), labels=c(0,4,10,20), limits=c(-5,20)) +
-  annotate('text', x=3.5, y=17, size=4, label=TeX("$y = x^2$")) +
-  annotate('text', x=4, y=8, angle=35, size=4, label="Slope of the line\nat the point (2,4)") +
-  annotate('text', x=3, y=-3, size=4, label="Slope of the line\nat the point (0,0)") +
-  annotate('label', x=0, y=5, size=4, label="(x,y) = (0,0)") +
-  annotate('label', x=1.6, y=9, size=4, label="(x,y) = (2,4)") +
+  annotate('text', x=3.5, y=17, size=5, label=TeX("$y = x^2$")) +
+  annotate('text', x=4, y=8, angle=35, size=5, label="Slope of the line\nat the point (2,4)") +
+  annotate('text', x=3, y=-3, size=5, label="Slope of the line\nat the point (0,0)") +
+  annotate('label', x=0, y=5, size=5, label="(x,y) = (0,0)") +
+  annotate('label', x=1.6, y=9, size=5, label="(x,y) = (2,4)") +
   annotate('segment', x=0, xend=0, y=3.9, yend=1, arrow=arrow(length=unit(.1,'cm'))) +
   annotate('segment', x=1.5, xend=1.9, y=7.9, yend=4.6, arrow=arrow(length=unit(.1,'cm'))) +
   labs(y="y", x="x") +
@@ -366,7 +366,7 @@ $$
 ```{r y-x-3, echo=FALSE, out.width="71%", fig.height=9.8, fig.cap="The function $y=f\\left(x\\right)=x^{3}$ and its first and second derivative"}
 library("patchwork")
 g_th10 <- ggplot(tibble(x=0:5)) +
-  theme(axis.title.y=element_text(angle=0), text=element_text(size=11))
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=14))
 
 g_x3_fn <- g_th10 + stat_function(fun=function(x) x^3, color="#F8766D") + xlim(0,4) +
   geom_hline(yintercept=0, alpha=.3) +
@@ -451,14 +451,14 @@ g_derive_ax <- ggplot() +
   scale_y_continuous(breaks=c(seq(0,1.6,.4),1)) +
   annotate('segment', y=1, yend=1, x=0, xend=exp(1), linetype='dotted') +
   annotate('segment', y=0, yend=1, x=exp(1), xend=exp(1), linetype='dotted') +
-  annotate("text", x=.75, y=1.3, hjust=0, size=4,
+  annotate("text", x=.75, y=1.3, hjust=0, size=5,
            label=TeX("At this point is $b\\approx 2.718$")) +
-  annotate("text", x=.75, y=1.2, hjust=0, size=4, label="and the limit value = 1") +
+  annotate("text", x=.75, y=1.2, hjust=0, size=5, label="and the limit value = 1") +
   annotate("curve", x=2.3, xend=2.6, y=1.2, yend=1.05, curvature=-.2,
            arrow=arrow(length=unit(2,"mm"))) +
   coord_cartesian(expand=F) +
   th10 +
-  theme(text=element_text(size=13))
+  theme(text=element_text(size=14))
 g_derive_ax
 ```
 
@@ -635,13 +635,13 @@ g_lim_logx <- ggplot() +
   geom_segment(aes(x=c(-1,0), xend=c(0,0), y=c(exp(1),exp(1)), yend=c(exp(1),0)),
                linetype='dotted') +
   scale_y_continuous(labels=c(0,2,round(exp(1),3),4,6), breaks=c(0,2,exp(1),4,6)) +
-  annotate("text", x=.6, y=5.5, hjust=0, size=4, label="At this point z = 0 and") +
-  annotate("text", x=.6, y=5, hjust=0, size=4,
+  annotate("text", x=.6, y=5.5, hjust=0, size=5, label="At this point z = 0 and") +
+  annotate("text", x=.6, y=5, hjust=0, size=5,
            label=TeX("$y=(1+z)^{1/z} \\approx 2.718$")) +
   annotate("curve", x=.6, xend=.2, y=4.5, yend=3.2, curvature=-.2,
            arrow=arrow(length=unit(2,"mm"))) +
   coord_cartesian(expand=F) +
-  theme(axis.title.y=element_text(angle=0, hjust=1), text=element_text(size=11))
+  theme(axis.title.y=element_text(angle=0, hjust=1), text=element_text(size=14))
 g_lim_logx
 ```
 

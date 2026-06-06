@@ -33,13 +33,13 @@ g_nonlin_first <- ggplot() +
   stat_function(fun=function(x) 5*x, linetype='dotted', color="#00BFC4") +
   stat_function(fun=function(x) 10+x, linetype='dashed', color="#7CAE00") +
   geom_point(aes(x=c(-1.365,0,1.85,2,2.5), y=c(-6.9,0,9.25,12,12.5))) +
-  annotate('label', x=1, y=0, label="f(x)", size=4) +
-  annotate('label', x=.8, y=4, label="g(x)", size=4) +
-  annotate('label', x=.3, y=10.3, label="h(x)", size=4) +
+  annotate('label', x=1, y=0, label="f(x)", size=5) +
+  annotate('label', x=.8, y=4, label="g(x)", size=5) +
+  annotate('label', x=.3, y=10.3, label="h(x)", size=5) +
   scale_x_continuous(limits=c(-3,3)) +
   ylim(-25,25) +
   labs(x="x", y="y") +
-  theme(axis.title.y=element_text(angle=0), text=element_text(size=11))
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=14))
 g_nonlin_first
 ```
 
@@ -101,9 +101,9 @@ g_nonlinear_1 <- ggplot() +
   scale_y_continuous(limits=c(0,5), breaks=0:5, labels=0:5) +
   geom_vline(xintercept=0, alpha=.3) +
   geom_hline(yintercept=0, alpha=.3) +
-  theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
-  annotate('text', x=2.5, y=3, size=4, label=TeX("$y = x$")) +
-  annotate('text', x=3.9, y=4.8, hjust=1, size=4, label=TeX("$y = (x - 2)^2$")) +
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=14)) +
+  annotate('text', x=2.5, y=3, size=5, label=TeX("$y = x$")) +
+  annotate('text', x=3.9, y=4.8, hjust=1, size=5, label=TeX("$y = (x - 2)^2$")) +
   annotate('segment', y=0, x=1, yend=1, xend=1, linetype='dotted') +
   annotate('segment', y=1, x=0, yend=1, xend=1, linetype='dotted') +
   annotate('segment', y=0, x=4, yend=4, xend=4, linetype='dotted') +
@@ -229,10 +229,10 @@ g_twoequilibrias <- ggplot() +
   scale_x_continuous(limits=c(0.5,1.25)) +
   scale_y_continuous(limits=c(0.25,1.2)) +
   labs(x="x", y="y") +
-  theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
-  annotate('text', x=.75, y=.35, hjust=0, size=4,
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=14)) +
+  annotate('text', x=.75, y=.35, hjust=0, size=5,
            label=TeX("$y = \\left(2 - \\frac{1}{x^2} \\right) ^{ \\frac{1}{2}}$")) +
-  annotate('text', x=1.05, y=1.17, hjust=1, size=4, label=TeX("$y = x^2$"))
+  annotate('text', x=1.05, y=1.17, hjust=1, size=5, label=TeX("$y = x^2$"))
 g_twoequilibrias
 ```
 
@@ -282,10 +282,10 @@ g_nonlin_2 <- ggplot() +
   scale_x_continuous(limits=c(-4,4), breaks=-4:4) +
   geom_vline(xintercept=0, alpha=.3) +
   geom_hline(yintercept=0, alpha=.3) +
-  annotate('label', x=-2, y=-7, size=4, label=TeX("$y = 20 - 2x^2$")) +
-  annotate('label', x=-2, y=12, size=4, label=TeX("$y = -10 + x^2$")) +
+  annotate('label', x=-2, y=-7, size=5, label=TeX("$y = 20 - 2x^2$")) +
+  annotate('label', x=-2, y=12, size=5, label=TeX("$y = -10 + x^2$")) +
   labs(x="x", y="y") +
-  theme(axis.title.y=element_text(angle=0), text=element_text(size=11))
+  theme(axis.title.y=element_text(angle=0), text=element_text(size=14))
 g_nonlin_2
 ```
 
@@ -376,12 +376,12 @@ g_smoking <- ggplot() +
   geom_vline(xintercept=0, alpha=.3) +
   geom_hline(yintercept=0, alpha=.3) +
   xlim(0,1.3) + ylim(0,1.3) +
-  theme(axis.title.y=element_text(angle=0, hjust=0), text=element_text(size=11)) +
+  theme(axis.title.y=element_text(angle=0, hjust=0), text=element_text(size=14)) +
   labs(x="Maria's smoking", y="Erik's \nsmoking") +
-  annotate('text', x=0.25, y=.8, hjust=0, size=4, label=TeX("$x = y^2$")) +
-  annotate('text', y=0.25, x=.8, hjust=1, size=4, label=TeX("$y = x^2$")) +
-  annotate('label', x=.66, y=0, size=4, label="Nobody's smoking") +
-  annotate('label', x=.5, y=1, size=4, label="Both smoking") +
+  annotate('text', x=0.25, y=.8, hjust=0, size=5, label=TeX("$x = y^2$")) +
+  annotate('text', y=0.25, x=.8, hjust=1, size=5, label=TeX("$y = x^2$")) +
+  annotate('label', x=.66, y=0, size=5, label="Nobody's smoking") +
+  annotate('label', x=.5, y=1, size=5, label="Both smoking") +
   annotate('segment', x=.4, xend=.25, y=0, yend=0, arrow=arrow(length=unit(.2,'cm'))) +
   annotate('segment', x=.7, xend=.9, y=1, yend=1, arrow=arrow(length=unit(.2,'cm')))
 g_smoking
@@ -517,9 +517,9 @@ Figure \@ref(fig:fjardegradspolynomet-relationer) illustrates the line for the f
 g_p_polynom <- ggplot() +
   stat_function(fun=function(x) x^4+.2*(x^2)-x+.11, color="#F8766D") +
   geom_hline(yintercept=0, alpha=.35) +
-  theme(axis.title.y=element_blank(), text=element_text(size=11)) +
+  theme(axis.title.y=element_blank(), text=element_text(size=14)) +
   labs(x="P") +
-  annotate('text', x=.9, y=.3, size=4, hjust=1,
+  annotate('text', x=.9, y=.3, size=5, hjust=1,
            label=TeX("$P^4 + 0.2*P^2 - P + 0.11$")) +
   scale_x_continuous(breaks=seq(0,1,by=.2), limits=c(0,1)) +
   annotate('segment', y=0, x=.1127, yend=-.3, xend=.1127, linetype='dotted') +

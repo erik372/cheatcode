@@ -1,4 +1,4 @@
-
+﻿
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
 ```
@@ -21,7 +21,7 @@ $$
 
 ```{r en-funktion-med-min-och-max, echo=FALSE, out.width="71%", fig.cap="A function with a maximum and minimum value"}
 library("tidyverse")
-th11 <- theme(axis.title.y=element_text(angle=0), text=element_text(size=11))
+th11 <- theme(axis.title.y=element_text(angle=0), text=element_text(size=14))
 p11 <- ggplot(tibble(x=0:10), aes(x)) +
   geom_vline(xintercept=0, alpha=.3) +
   geom_hline(yintercept=0, alpha=.3) +
@@ -32,8 +32,8 @@ g_minmax <- p11 +
   scale_y_continuous(limits=c(0,11), breaks=NULL) +
   geom_point(aes(5,10), color="black", size=4) +
   geom_point(aes(2.2,2.2), color="black", size=4) +
-  annotate("text", x=2.2, y=2.2, label="Minimum value", vjust=1.6, size=4) +
-  annotate("text", x=5, y=10, label="Maximum value", vjust=-1, size=4)
+  annotate("text", x=2.2, y=2.2, label="Minimum value", vjust=1.6, size=5) +
+  annotate("text", x=5, y=10, label="Maximum value", vjust=-1, size=5)
 g_minmax
 ```
 
@@ -233,10 +233,10 @@ g_localminmax <- ggplot() +
   scale_y_continuous(breaks=seq(-8,8,2)) +
   labs(x="x", y="y", title=bquote("y = f(x) ="~x^3-x^2-x+2)) +
   th11 +
-  annotate("text", x=-.33, y=3, label="Local max.", size=4) +
-  annotate("text", x=1, y=0, label="Local min.", size=4) +
-  annotate("text", x=1.5, y=6, label="Global max.", size=4) +
-  annotate("text", x=-.7, y=-4, label="Global min.", size=4) +
+  annotate("text", x=-.33, y=3, label="Local max.", size=5) +
+  annotate("text", x=1, y=0, label="Local min.", size=5) +
+  annotate("text", x=1.5, y=6, label="Global max.", size=5) +
+  annotate("text", x=-.7, y=-4, label="Global min.", size=5) +
   annotate("curve", x=-.7, y=-5.2, xend=-1.1, yend=-7.6,
            curvature=-.2, arrow=arrow(length=unit(2,"mm"))) +
   annotate("curve", x=1.5, y=7, xend=1.8, yend=8.5,
@@ -339,8 +339,8 @@ g_min_terrace <- ggplot(tibble(x=-10:10)) +
   geom_point(aes(x=-.5, y=-1.69), size=4) +
   geom_point(aes(x=1, y=0), size=4) +
   labs(title=bquote("y ="~x^4-2*x^3+2*x-1), x="x", y="y") +
-  annotate(geom='text', x=-.5, y=-2, label="(-0.5, -1.7)", size=4) +
-  annotate(geom='text', x=1, y=.33, label="(1, 0)", size=4) +
+  annotate(geom='text', x=-.5, y=-2, label="(-0.5, -1.7)", size=5) +
+  annotate(geom='text', x=1, y=.33, label="(1, 0)", size=5) +
   geom_vline(xintercept=0, alpha=.3) +
   geom_hline(yintercept=0, alpha=.3)
 g_min_terrace

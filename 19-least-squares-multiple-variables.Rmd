@@ -136,12 +136,14 @@ Table: Calculations of $\hat{Y}$ and $\hat{V}$(\#tab:berakningar-av-y-och-e)
 ```{r 3d-regression-y-x-z, echo=FALSE, fig.cap="Results from the regression model $y_{i}=a+bx_{i}+cz_{i}+v_{i}$", fig.topcaption=TRUE}
 if (knitr::is_html_output()) {
   invisible({
-    if(dir.exists("_book")) {
-      dst <- "_book/Eriks_3d_graf"
-      if(!dir.exists(dst)) dir.create(dst, recursive=TRUE)
-      file.copy("Eriks_3d_graf/3dscatter.html", file.path(dst, "3dscatter.html"), overwrite=TRUE)
-      if(dir.exists("Eriks_3d_graf/libs"))
-        file.copy("Eriks_3d_graf/libs", dst, recursive=TRUE, overwrite=TRUE)
+    for(out_dir in c("docs", "_book")) {
+      if(dir.exists(out_dir)) {
+        dst <- file.path(out_dir, "Eriks_3d_graf")
+        if(!dir.exists(dst)) dir.create(dst, recursive=TRUE)
+        file.copy("Eriks_3d_graf/3dscatter.html", file.path(dst, "3dscatter.html"), overwrite=TRUE)
+        if(dir.exists("Eriks_3d_graf/libs"))
+          file.copy("Eriks_3d_graf/libs", dst, recursive=TRUE, overwrite=TRUE)
+      }
     }
   })
   knitr::include_url("Eriks_3d_graf/3dscatter.html", height="500px")
