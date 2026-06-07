@@ -916,7 +916,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Why would we want to calculate this? For instance, this may be interesting if we wish to test some kind of theory of how GDP, or income, affects happiness. The graphical result in figure <a href="chap-ols.html#fig:gdp-and-happiness-ols-illustration-1">21.1</a> indicate a positive covariation – people in countries with higher GDP is happier on average. But suppose now that we have a theory that says that this happiness is actually caused by temperature. Using least squares we can measure covariation between both temperature and happiness, as well as covariation between GDP and happiness at the same time. This way, we may study to what extent GDP or temperature may explain happiness. This require that we can use least squares with three or more variables. These kind of methods are extremely useful for a lot of analytical work and is introduced in chapter <a href="chap-ols-flera-variabler-matriser.html#chap-ols-flera-variabler-matriser">23</a> .</p>
 <p>Before we move on to the mathematics behind the least squares method it is important to remember that when we study covariation we are usually trying to estimate covariation in a population. But since population values are usually unknown, we use sample data to estimate the population covariation. Estimations of population values are associated with uncertainty. In chapter <a href="ch-regression-statistical-tests.html#ch-regression-statistical-tests">24</a> we will introduce how we can calculate probabilities regarding this uncertainty.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:gdp-and-happiness-ols-illustration-1"></span>
-<img src="17-least-squares_files/figure-html/gdp-and-happiness-ols-illustration-1-1.png" alt="GDP and happiness" width="71%" />
+<img src="the-cheat-code_files/figure-html/gdp-and-happiness-ols-illustration-1-1.png" alt="GDP and happiness" width="71%" />
 <p class="caption">
 Figure 21.1: GDP and happiness
 </p>
@@ -927,7 +927,7 @@ Figure 21.1: GDP and happiness
 <p>For our calculations, we will here again use the same made up observations for the variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as in chapter <a href="chap-kontrafaktisk-analys.html#chap-kontrafaktisk-analys">20</a>, which are repeated in figure <a href="chap-ols.html#fig:tab-data-for-ols-1">21.2</a> . The reason we use these numbers is to make the mathematical calculations easy. In the hypothetical examples here, it is irrelevant exactly what the population represents and calculated examples are used only as illustration of the method.</p>
 <p>All straight lines in a graph can be described with an equation of the form <span class="math inline">\(Y=a+bX\)</span>, that is, the equation of the straight line (section <a href="chap-funktioner-och-diagram.html#sec-den-rata-linjens">4.4</a> ). The constant coefficient <span class="math inline">\(a\)</span> is the line’s y-intercept or intercept while the constant coefficient b is the line’s slope, or slope coefficient. <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are in this case our variables. The line we will draw will give us an illustration of the average change in variable <span class="math inline">\(Y\)</span> as we move from relatively lower to relatively higher values on <span class="math inline">\(X\)</span>.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:tab-data-for-ols-1"></span>
-<img src="17-least-squares_files/figure-html/tab-data-for-ols-1-1.png" alt="Four observations for $x$ and $y$" width="71%" />
+<img src="the-cheat-code_files/figure-html/tab-data-for-ols-1-1.png" alt="Four observations for $x$ and $y$" width="71%" />
 <p class="caption">
 Figure 21.2: Four observations for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>
 </p>
@@ -935,7 +935,7 @@ Figure 21.2: Four observations for <span class="math inline">\(x\)</span> and <s
 <p>Figure <a href="chap-ols.html#fig:ols-1">21.3</a> shows the four points and a straight line, which slopes upward in the graph and illustrates the linear covariation between the points. The least squares method allows us to use information from <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> to find precisely those values for the coefficients a and b that allow us to draw the straight line through the points where the sum of the vertical squared distance between each point and the straight line is as small as possible.</p>
 <p>In the figure’s graph, an example of the distance is given in the form of <span class="math inline">\(\hat{v}_{3}=5-4\)</span>. Any other straight line would result in a larger summed vertical distance between the points and the line. If the distance between a point and the line equals 5, the squared distance is the same value squared, <span class="math inline">\(5^{2}=25\)</span>. Points that lie below the line get a negative distance, for example -5, and the squared value then becomes <span class="math inline">\(\left(-5\right)^{2}=25\)</span>.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:ols-1"></span>
-<img src="17-least-squares_files/figure-html/ols-1-1.png" alt="A line drawn using the least squares method" width="71%" />
+<img src="the-cheat-code_files/figure-html/ols-1-1.png" alt="A line drawn using the least squares method" width="71%" />
 <p class="caption">
 Figure 21.3: A line drawn using the least squares method
 </p>
@@ -1351,7 +1351,7 @@ Y &amp; =\hat{a}+\hat{b}X\\
 \end{align}
 \]</span></p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:tre-rata-linjer"></span>
-<img src="17-least-squares_files/figure-html/tre-rata-linjer-1.png" alt="Three straight lines" width="71%" />
+<img src="the-cheat-code_files/figure-html/tre-rata-linjer-1.png" alt="Three straight lines" width="71%" />
 <p class="caption">
 Figure 21.4: Three straight lines
 </p>
@@ -1361,7 +1361,7 @@ Figure 21.4: Three straight lines
 <div id="sec-en-linje-ar-en-linje" class="section level2 hasAnchor" number="21.7">
 <h2><span class="header-section-number">21.7</span> What the Line Doesn’t Tell Us<a href="chap-ols.html#sec-en-linje-ar-en-linje" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:anscombe"></span>
-<img src="17-least-squares_files/figure-html/anscombe-1.png" alt="Four examples of linear covariation, from [(Anscombe, 1973)](https://www.jstor.org/stable/2682899)" width="71%" />
+<img src="the-cheat-code_files/figure-html/anscombe-1.png" alt="Four examples of linear covariation, from [(Anscombe, 1973)](https://www.jstor.org/stable/2682899)" width="71%" />
 <p class="caption">
 Figure 21.5: Four examples of linear covariation, from <a href="https://www.jstor.org/stable/2682899">(Anscombe, 1973)</a>
 </p>
@@ -1369,7 +1369,7 @@ Figure 21.5: Four examples of linear covariation, from <a href="https://www.jsto
 <p>Figure <a href="chap-ols.html#fig:anscombe">21.5</a> shows four examples where combined values for the variables <span class="math inline">\(X\)</span>(horizontal axis) and <span class="math inline">\(Y\)</span>(vertical axis) are plotted. The <span class="math inline">\(Y\)</span>-variables and <span class="math inline">\(X\)</span>-variables in each graph all have the same mean: <span class="math inline">\(\bar{Y}=7.5\)</span> and <span class="math inline">\(\bar{X}=9\)</span>. The coefficients <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in the regression model <span class="math inline">\(Y=a+bX+V\)</span> that draw the regression lines in each graph have the same values in all four graphs: <span class="math inline">\(\hat{a}=3\)</span> and <span class="math inline">\(\hat{b}=0.5\)</span>. The lines slope upward to the right in each graph, which is given by <span class="math inline">\(\hat{b}&gt;0\)</span>. In all four graphs, we thus use the least squares method to find a positive covariation that looks the same in the regression model. The example illustrates that despite the patterns in the four graphs differing drastically, calculated results can easily give the impression that different collections of data have more in common than they actually do. The four graphs were first presented in 1973 by the British statistician Francis John Anscombe <a href="https://www.jstor.org/stable/2682899">(Anscombe, 1973)</a> . The examples illustrate the importance of both calculating covariation and studying data in graphs.</p>
 <p>Despite the points in the graphs being placed in different patterns, we get the same positive linear covariation in all four examples. In the upper left graph, we see that the points lie spread along the diagonal line up toward the right corner of the graph. In the upper right graph, the points lie in a concave arc, up toward the graph’s right corner. The points’ pattern is clearly nonlinear, but we still calculate a linear positive covariation. In the lower left graph, all points except one lie on a straight line. In the lower right graph, all points except one lie on a vertical line.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:weird-ols-2"></span>
-<img src="17-least-squares_files/figure-html/weird-ols-2-1.png" alt="Regression lines with zero slope" width="71%" />
+<img src="the-cheat-code_files/figure-html/weird-ols-2-1.png" alt="Regression lines with zero slope" width="71%" />
 <p class="caption">
 Figure 21.6: Regression lines with zero slope
 </p>
@@ -1543,7 +1543,7 @@ Z=\alpha+\beta K+U
 </tbody>
 </table>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:ols-ex-2"></span>
-<img src="17-least-squares_files/figure-html/ols-ex-2-1.png" alt="Four observations and a regression line" width="71%" />
+<img src="the-cheat-code_files/figure-html/ols-ex-2-1.png" alt="Four observations and a regression line" width="71%" />
 <p class="caption">
 Figure 21.7: Four observations and a regression line
 </p>
@@ -1574,7 +1574,7 @@ TSS &amp; =SSR+SSE \tag{21.12}\\
 \end{align}
 \]</span></p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:differens-mellan-y-ybar-yhat"></span>
-<img src="17-least-squares_files/figure-html/differens-mellan-y-ybar-yhat-1.png" alt="Difference between $Y_{i},\bar{Y}_{i}$ and $\hat{Y}_{i}$" width="71%" />
+<img src="the-cheat-code_files/figure-html/differens-mellan-y-ybar-yhat-1.png" alt="Difference between $Y_{i},\bar{Y}_{i}$ and $\hat{Y}_{i}$" width="71%" />
 <p class="caption">
 Figure 21.8: Difference between <span class="math inline">\(Y_{i},\bar{Y}_{i}\)</span> and <span class="math inline">\(\hat{Y}_{i}\)</span>
 </p>

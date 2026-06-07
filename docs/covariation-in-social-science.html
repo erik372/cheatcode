@@ -911,7 +911,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We have in previous examples discussed the relation between income and life expectancy. Now we shall compare average life expectancy with average income for inhabitants in a number of countries. The data used in this section are taken from the database www.ourworldindata.com, which has a lot of free data you can download and work with. We begin by comparing only a small number of countries. Figure <a href="covariation-in-social-science.html#fig:histogram-d-och-y-kolada">22.1</a> describes the data we shall use. In the table to the left are found the values for average life expectancy <span class="math inline">\(\left(\text{abbreviated }L\right)\)</span> and GDP per capita, <span class="math inline">\(\left(G\right)\)</span> for six selected countries in the year 2022.</p>
 <p>To the right in the figure the variables’ frequency distribution, dispersion, is illustrated in two histograms. The upper graph shows income and the lower graph shows life expectancy. On the horizontal x-axis the values for each respective variable are shown. On the vertical y-axis the number of observations is shown. For each of the two variables, life expectancy and income, the observations are grouped in up to four bars.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:histogram-d-och-y-kolada"></span>
-<img src="18-covariation-social-science_files/figure-html/histogram-d-och-y-kolada-1.png" alt="GDP per capita and average life expectancy" width="71%" />
+<img src="the-cheat-code_files/figure-html/histogram-d-och-y-kolada-1.png" alt="GDP per capita and average life expectancy" width="71%" />
 <p class="caption">
 Figure 22.1: GDP per capita and average life expectancy
 </p>
@@ -930,7 +930,7 @@ Figure 22.1: GDP per capita and average life expectancy
 \end{align}
 \]</span></p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:varians-kolada-inc-life"></span>
-<img src="18-covariation-social-science_files/figure-html/varians-kolada-inc-life-1.png" alt="Life expectancy and GDP per capita: difference to the mean" width="71%" />
+<img src="the-cheat-code_files/figure-html/varians-kolada-inc-life-1.png" alt="Life expectancy and GDP per capita: difference to the mean" width="71%" />
 <p class="caption">
 Figure 22.2: Life expectancy and GDP per capita: difference to the mean
 </p>
@@ -1226,7 +1226,7 @@ R^{2} &amp; =1-\frac{\sum_{i}\left(L_{i}-\hat{L_{i}}\right)^{2}}{\sum_{i}\left(L
 \]</span></p>
 <p>This indicates that approximately 90% of the variation in average life expectancy in these countries could be explained by the regression model and the variation in our explanatory variable, GDP per capita.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:ols-livslangd-inkomst-sex-lander"></span>
-<img src="18-covariation-social-science_files/figure-html/ols-livslangd-inkomst-sex-lander-1.png" alt="Linear covariation between life expectancy and GDP per capita for six countries" width="71%" />
+<img src="the-cheat-code_files/figure-html/ols-livslangd-inkomst-sex-lander-1.png" alt="Linear covariation between life expectancy and GDP per capita for six countries" width="71%" />
 <p class="caption">
 Figure 22.3: Linear covariation between life expectancy and GDP per capita for six countries
 </p>
@@ -1285,7 +1285,7 @@ Figure 22.3: Linear covariation between life expectancy and GDP per capita for s
 <p><em>Note: Data from Our World in Data</em></p>
 <p>We have previously used histograms to illustrate variables. Another type of graph that is often used to illustrate distribution of values is box plots, which are also called box-and-whisker plots. Now we shall compare the distribution of our two variables in histograms and box plots simultaneously.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:histogram-boxplot-kolada-290-kommuner"></span>
-<img src="18-covariation-social-science_files/figure-html/histogram-boxplot-kolada-290-kommuner-1.png" alt="Histograms and box plots for life expectancy and GDP per capita" width="71%" />
+<img src="the-cheat-code_files/figure-html/histogram-boxplot-kolada-290-kommuner-1.png" alt="Histograms and box plots for life expectancy and GDP per capita" width="71%" />
 <p class="caption">
 Figure 22.4: Histograms and box plots for life expectancy and GDP per capita
 </p>
@@ -1312,7 +1312,7 @@ L &amp; =\hat{\beta}_{1}+\hat{\beta}_{2}G+v\approx67.645+0.281*G_{i}+v_{i}
 \]</span></p>
 <p>This also indicate a pretty strong positive correlation between GDP and life expectancy. The result is not that far from the results we found in the previous section when we only used data for a few countries. The regression result is illustrated in figure <a href="covariation-in-social-science.html#fig:ols-livslangd-inkomst-290-kommuner">22.5</a> where the regression line (the straight dashed line) between the points is calculated using the least squares method. In the graph the vertical distances between the points and the regression line are also drawn, which corresponds to the residuals. Note how we in the graph on an overview level can see how the observations for the two variables are distributed. A few points lie a bit further to the right in the picture, which corresponds to the countries with unusually high GDP.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:ols-livslangd-inkomst-290-kommuner"></span>
-<img src="18-covariation-social-science_files/figure-html/ols-livslangd-inkomst-290-kommuner-1.png" alt="Covariation between life expectancy and GDP per capita" width="71%" />
+<img src="the-cheat-code_files/figure-html/ols-livslangd-inkomst-290-kommuner-1.png" alt="Covariation between life expectancy and GDP per capita" width="71%" />
 <p class="caption">
 Figure 22.5: Covariation between life expectancy and GDP per capita
 </p>
@@ -1639,7 +1639,7 @@ G_{t}=\alpha_{1}+\alpha_{2}\text{year}_{t}+e_{t}
 </table>
 <p>This we also see in the sums of the squared residuals. The higher value for <span class="math inline">\(\sum\hat{e_{t}}^{2}\)</span> compared to <span class="math inline">\(\sum\hat{\epsilon}_{t}^{2}\)</span> indicates that the total distance between the observations and the predicted values is larger in the first model, without logarithmic transformation, compared to in the second. The same thing is also seen in figure <a href="covariation-in-social-science.html#fig:bnp-och-ln-bnp-linjar-trend">22.6</a> where two graphs show GDP and the natural log of GDP, as well as the linear trend lines drawn using the models we estimated above. Just as our results indicate, the logarithmic values allow themselves to be better described with a linear regression model, compared to the non-logarithmic values.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:bnp-och-ln-bnp-linjar-trend"></span>
-<img src="18-covariation-social-science_files/figure-html/bnp-och-ln-bnp-linjar-trend-1.png" alt="GDP and ln GDP with their respective regression lines" width="71%" />
+<img src="the-cheat-code_files/figure-html/bnp-och-ln-bnp-linjar-trend-1.png" alt="GDP and ln GDP with their respective regression lines" width="71%" />
 <p class="caption">
 Figure 22.6: GDP and ln GDP with their respective regression lines
 </p>
@@ -1664,7 +1664,7 @@ d_{t} &amp; =G_{t}-\exp\left(\hat{\ln G_{t}}\right)\\
 \]</span></p>
 <p>The term <span class="math inline">\(G_{t}\)</span> is GDP in billions USD. In the first row we use the exponential function <span class="math inline">\(\exp\left(\right)\)</span> to set the logarithmic expression <span class="math inline">\(\hat{\ln G_{t}}\)</span> as exponent with base <span class="math inline">\(e\)</span>, which gives us <span class="math inline">\(\hat{G}_{t}\)</span>. In the last row we mark this term with the text “from ln”, as a reminder that this predicted <span class="math inline">\(G_{t}\)</span> is from the regression model with <span class="math inline">\(\ln G_{t}\)</span>. This gives us our first result.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:ln-bnp-och-avvikelser-fran-trend"></span>
-<img src="18-covariation-social-science_files/figure-html/ln-bnp-och-avvikelser-fran-trend-1.png" alt="GDP and deviations from trend" width="71%" />
+<img src="the-cheat-code_files/figure-html/ln-bnp-och-avvikelser-fran-trend-1.png" alt="GDP and deviations from trend" width="71%" />
 <p class="caption">
 Figure 22.7: GDP and deviations from trend
 </p>
@@ -1836,7 +1836,7 @@ H_{i}=\delta_{1}+\delta_{2}\log_{10}Y_{i}+\epsilon_{i}
 </table>
 <p><em>Note: Data from Our World in Data, www.ourworldindata.org.</em></p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:lycka-och-bnp-per-capita-regresutat"></span>
-<img src="18-covariation-social-science_files/figure-html/lycka-och-bnp-per-capita-regresutat-1.png" alt="Happiness and GDP per capita" width="71%" />
+<img src="the-cheat-code_files/figure-html/lycka-och-bnp-per-capita-regresutat-1.png" alt="Happiness and GDP per capita" width="71%" />
 <p class="caption">
 Figure 22.8: Happiness and GDP per capita
 </p>

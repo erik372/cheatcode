@@ -1,8 +1,3 @@
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
-```
-
 # Linear Algebra: Vectors and Matrices {#chap-linjar-algebra}
 
 This chapter introduces linear algebra, specifically how to use vectors and matrices. These methods can be used, among other things, to calculate covariation and to study networks. Linear algebra is a central piece of empirical analysis, which is introduced more in detail in part III to V.
@@ -1509,11 +1504,11 @@ We organize this information in table \@ref(tab:bakery-io-table) . The numbers i
 
 Table: Bakery recipes (\#tab:bakery-io-table)
 
-| Flour (kg) | Sugar (kg) | Yeast (kg) | Bread |
+| | Flour (kg) | Sugar (kg) | Yeast (kg) |
 | --- | --- | --- | --- |
-| 2 | 0 | 1 | Pastries |
-| 1 | 3 | 0 | Cakes |
-| 1 | 4 | 1 | |
+| Bread | 2 | 0 | 1 | 
+| Pastries | 1 | 3 | 0 | 
+| Cakes | 1 | 4 | 1 | 
 
 $$
 \begin{equation}
@@ -1559,11 +1554,11 @@ Table \@ref(tab:input-output-tabell) shows an example of an IO table with the tw
 
 Table: Input-output table (\#tab:input-output-tabell)
 
-| Industry A | Industry B | Final consumption | Sum | Industry A |
+| | Industry A | Industry B | Final consumption | Sum | 
 | --- | --- | --- | --- | --- |
-| 2 | 1 | 3 | 6 | Industry B |
-| 1 | 3 | 3 | 7 | Sum |
-| 3 | 4 | 6 | 13 | |
+| Industry A | 2 | 1 | 3 | 6 | 
+| Industry B | 1 | 3 | 3 | 7 | 
+| Sum | 3 | 4 | 6 | 13 | 
 
 The data in table \@ref(tab:input-output-tabell) we use to calculate how changed production in one part of the economy affects other parts. We begin by placing the table's values in matrices. We collect the flows to and from the industries in a $2\times2$ matrix $Z$(the flow matrix), final consumption in column matrix $C$ and the sum in the last column in column matrix $S$:
 

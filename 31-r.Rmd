@@ -1,4 +1,4 @@
-﻿# R {#ch-r}
+# R {#ch-r}
 
 This chapter introduces the analysis tool R. R is the name of a programming language and the name of a computer program in which we can use the programming language R. There are several other programs that also have support for the programming language R. One such program is RStudio, which we use in the examples in this chapter. To be able to use R it is recommended that you install two software programs on your computer: R and the development environment RStudio. Both are open source software and can be downloaded for free at the following links:
 
@@ -27,11 +27,11 @@ If we write the above in an R script, select all these lines or place the cursor
 
 The commands you write in a script can be saved as a regular text file on the computer. To save your script you press Ctrl + S (Windows) or Cmd + S (Mac). You can also choose menu `File > Save`. Your script is saved as a text file on the computer's hard drive with the file extension `.R`. If you have saved your script in an `.R` file on the computer's hard drive, you can, the next time you start RStudio, open the file and continue working with your code.
 
-```{r r-window, echo=FALSE, fig.cap="The program R", out.width="70%", fig.align="center"}
+```{r r-window, echo=FALSE, fig.cap="The program R", out.width="70%", fig.align="left"}
 knitr::include_graphics("images/R_window.png")
 ```
 
-```{r rstudio-window, echo=FALSE, fig.cap="The program RStudio", out.width="90%", fig.align="center"}
+```{r rstudio-window, echo=FALSE, fig.cap="The program RStudio", out.width="90%", fig.align="left"}
 knitr::include_graphics("images/rstudio_window.png")
 ```
 
@@ -536,7 +536,7 @@ table_1 %>% right_join(table_2)
 
 The results are shown in figure \@ref(fig:r-joins-1). With `full_join()` we keep all information we have about persons 1 to 4. With `inner_join()` we only keep information about the persons for whom we have values in all columns. With `left_join()` and `right_join()` we keep all persons from the left and right table respectively and lose the person in each case who is not found in the other table.
 
-```{r r-joins, echo=FALSE, fig.cap="Merging of table\\_1 and table\\_2", out.width="90%", fig.align="center"}
+```{r r-joins, echo=FALSE, fig.cap="Merging of table\\_1 and table\\_2", out.width="90%", fig.align="left"}
 knitr::include_graphics(c("images/r fulljoin1.png",
                            "images/r_innerjoin1.png",
                            "images/r_leftjoin1.png",
@@ -770,7 +770,7 @@ my_data %>% cor()
 
 The result is shown in figure \@ref(fig:r-cor).
 
-```{r r-cor, echo=FALSE, fig.cap="Results of cor()", out.width="50%", fig.align="center"}
+```{r r-cor, echo=FALSE, fig.cap="Results of cor()", out.width="50%", fig.align="left"}
 knitr::include_graphics("images/R cor.png")
 ```
 
@@ -868,7 +868,7 @@ where $\beta$ are the coefficients and $v$ is the error term. To estimate this m
 lm(y ~ x + z, data = my_table)
 ```
 
-```{r r-lm-results, echo=FALSE, fig.cap="Results of lm()", out.width="60%", fig.align="center"}
+```{r r-lm-results, echo=FALSE, fig.cap="Results of lm()", out.width="60%", fig.align="left"}
 knitr::include_graphics("images/r lm results1.png")
 ```
 
@@ -906,7 +906,7 @@ lm_results <- lm(y~x, data = my_table)
 lm_results %>% summary()
 ```
 
-```{r r-lm-summary, echo=FALSE, fig.cap="Results from lm() and summary()", out.width="70%", fig.align="center"}
+```{r r-lm-summary, echo=FALSE, fig.cap="Results from lm() and summary()", out.width="70%", fig.align="left"}
 knitr::include_graphics("images/r lm summary1.png")
 ```
 
@@ -950,7 +950,7 @@ help(package="stargazer")
 help(stargazer)
 ```
 
-```{r r-stargazer, echo=FALSE, fig.cap="Results from stargazer()", out.width="60%", fig.align="center"}
+```{r r-stargazer, echo=FALSE, fig.cap="Results from stargazer()", out.width="60%", fig.align="left"}
 knitr::include_graphics("images/r stargazer1.png")
 ```
 
@@ -1134,7 +1134,7 @@ In this case we specify that we want to create a new tibble table on each round 
 
 After the parentheses for `map()` we send the result (a list) to the function `list_rbind()` which converts the list object to a table where each tibble table created in the loop rounds is converted to a common tibble table. Then we send this single table forward to the function `mutate()` to create a new variable, where we add the name of the three variables `x`, `y` and `z` from `my_table` using the function `colnames()`. The result is shown in figure \@ref(fig:r-map-table).
 
-```{r r-map-table, echo=FALSE, fig.cap="Table created with map()", out.width="40%", fig.align="center"}
+```{r r-map-table, echo=FALSE, fig.cap="Table created with map()", out.width="40%", fig.align="left"}
 knitr::include_graphics("images/r tabell fr map1.png")
 ```
 
@@ -1232,7 +1232,7 @@ mutate(b= (lm(log(gdp_hour) ~ year) %>%
 distinct(country, b)
 ```
 
-```{r r-koeff-table, echo=FALSE, fig.cap="Table with estimated coefficients", out.width="35%", fig.align="center"}
+```{r r-koeff-table, echo=FALSE, fig.cap="Table with estimated coefficients", out.width="35%", fig.align="left"}
 knitr::include_graphics("images/r table est koeff1.png")
 ```
 

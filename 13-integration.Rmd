@@ -1,8 +1,3 @@
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
-```
-
 # Integration {#chap-integraler}
 
 This chapter introduces integration, also called integrating. Integration can be described as finding a function's "anti-derivative". Integrals can among other things be used to calculate the area between two lines in a graph, or the volume and mass of an object. This we can in turn use for describing theories and calculate probability, which is a central aspect of all empirical analysis.
@@ -374,7 +369,8 @@ $$
 ```{r arean-under-y-4, echo=FALSE, out.width="71%", fig.cap="The area under the function $y=f\\left(x\\right)=4,\\forall0\\leq x\\leq4$"}
 g_y4 <-
   ggplot() +
-  geom_area(aes(x=0:4, y=4:4)) + xlim(0,5) + ylim(0,5) +
+  geom_area(aes(x=0:4, y=4:4), alpha=.2, fill="#F8766D") + 
+  xlim(0,5) + ylim(0,5) +
   geom_line(aes(x=0:4, y=4:4), color="#F8766D") +
   annotate('text', x=4, y=4.3, hjust=1, size=4,
            label=TeX("$y = f(x) = 4, \\forall 0\\leq x \\leq 4$")) +
@@ -389,7 +385,8 @@ g_y4
 
 ```{r arean-for-y-x, echo=FALSE, out.width="71%", fig.align="left", fig.cap="The function $y=f\\left(x\\right)=x$ and the area under the line"}
 g_yequalx <- ggplot() +
-  geom_area(aes(x=0:5, y=0:5)) +
+  geom_area(aes(x=0:5, y=0:5), alpha=.2, fill="#00BF7D") +
+  geom_line(aes(x=0:5, y=0:5), color="#00BF7D") +
   theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
   annotate('text', x=2.5, y=3, size=4, angle=45,
            label=TeX("$y = f(x) = x$")) +
@@ -491,8 +488,8 @@ $$
 
 ```{r y-x2-area, echo=FALSE, out.width="71%", fig.cap="The function $y=f\\left(x\\right)=x^{2}$"}
 g_area_x2 <- ggplot(tibble(x=-4:7)) +
-  stat_function(fun=function(x) x^2, xlim=c(-4,7), color="#F8766D") +
-  geom_area(stat='function', fun=function(x) x^2,
+  stat_function(fun=function(x) x^2, xlim=c(-4,7), color="#00BFC4") +
+  geom_area(stat='function', fun=function(x) x^2, fill="#00BFC4", alpha=.2,
             xlim=c(-3,6)) +
   theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
   annotate('text', x=6, y=40, hjust=1, size=4,
@@ -561,7 +558,8 @@ The function and the two surfaces are illustrated in figure \@ref(fig:area-over-
 
 ```{r area-over-och-under-x, echo=FALSE, out.width="71%", fig.cap="Area above and under the $x$ -axis"}
 g_negative1 <- ggplot() +
-  geom_area(aes(x=0:5, y=-2:3)) +
+  geom_area(aes(x=0:5, y=-2:3), fill="#F8766D", alpha=.2) +
+  geom_line(aes(x=0:5, y=-2:3), color="#F8766D") +
   geom_hline(yintercept=0, linetype='dashed') +
   annotate('text', x=.5, y=-.5, size=4,
            label=TeX("$A_1 = -\\frac{2^2}{2}$")) +
@@ -641,7 +639,9 @@ $$
 g_area2func <- ggplot() +
   stat_function(fun=function(x) -x + x^3 -x^2 +10, geom='ribbon',
                 aes(ymax=after_stat(-x + x^3 -x^2 +10),
-                    ymin=after_stat(2 + 2*x -.5*x^2)), color="#F8766D") +
+                    ymin=after_stat(2 + 2*x -.5*x^2)), 
+                color="#00BFC4",
+                fill="#00BFC4", alpha=.2) +
   scale_x_continuous(limits=c(0,3)) +
   theme(axis.title.y=element_text(angle=0), text=element_text(size=11)) +
   labs(x="x", y="y") +
@@ -1205,13 +1205,13 @@ $$
 
 ```{r ginikoefficienten, echo=FALSE, out.width="71%", fig.cap="The Gini coefficient"}
 g_gini1 <- ggplot() +
-  stat_function(fun=function(x) x, geom='area', color="#F8766D") +
-  stat_function(fun=function(x) x^3, geom='area', color="#00BFC4") +
+  stat_function(fun=function(x) x, geom='area', color="#F8766D", fill="#F8766D", alpha=.2) +
+  stat_function(fun=function(x) x^3, geom='area', color="#00BFC4", fill="#00BFC4", alpha=.2) +
   annotate('text', x=.8, y=.2, label="B", size=3) +
   annotate('text', x=.45, y=.3, label="A", size=3) +
   scale_y_continuous(breaks=seq(0,1,.25), limits=c(0,1), labels=scales::label_percent(suffix=" %")) +
   scale_x_continuous(breaks=seq(0,1,.25), limits=c(0,1), labels=scales::label_percent(suffix=" %")) +
-  annotate('text', x=.1, y=.8, hjust=0, size=4,
+  annotate('text', x=.1, y=.85, hjust=0, size=3.3,
            label="The Gini coefficient is calculated as\nG = A / (A + B) = 1 - 2B = 2A") +
   annotate('text', x=.25, y=.4, angle=45, size=4, hjust=0,
            label="If everybody have\nthe same income") +
@@ -1242,8 +1242,8 @@ $$
 ```{r gini-i-teorin, echo=FALSE, out.width="71%", fig.cap="Two measures of income distribution"}
 g_ginitheory <- ggplot() +
   stat_function(fun=function(x) x, color="#F8766D") +
-  stat_function(fun=function(x) x^2, geom='area', linetype='dashed', color="#00BFC4") +
-  stat_function(fun=function(x) x^3, geom='area', color="#7CAE00") +
+  stat_function(fun=function(x) x^2, geom='area', linetype='dashed', color="#00BFC4", fill="#00BFC4", alpha=.2 ) +
+  stat_function(fun=function(x) x^3, geom='area', color="#7CAE00", fill="#7CAE00", alpha=.2) +
   coord_fixed() +
   annotate('label', x=.47, y=.26, size=4,
            label=TeX("Distribution 2: $y = x^2$")) +

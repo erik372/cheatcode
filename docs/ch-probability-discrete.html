@@ -942,8 +942,8 @@ P\left(X_{2}=x\right)=\begin{cases}
 \tag{16.2}
 \end{equation}\]</span></p>
 <p>Let us now assume that we have two six-sided perfectly balanced dice, one red and one black with the numbers 1 to 6. The probability for each unique result with <span class="math inline">\(t\)</span> number of perfectly balanced six-sided dice can generally be described as <span class="math inline">\(\left(\frac{1}{6}\right)^{t}=\frac{1}{6^{t}}\)</span>. With one die the probability for each result is 1/6. With two dice it is <span class="math inline">\(1/6^{2}=1/36\)</span>. With two dice there are 36 possible combinations. The probability that we get the point sum 2 is the same as the point sum 12: 1/36. With three dice <span class="math inline">\(1/6^{3}=1/216\)</span>.</p>
-<div class="figure"><span style="display:block;" id="fig:tva-tarningar"></span>
-<img src="21-probability-discrete_files/figure-html/tva-tarningar-1.png" alt="Number of cases and result sum for two dice" width="768" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:tva-tarningar"></span>
+<img src="the-cheat-code_files/figure-html/tva-tarningar-1.png" alt="Number of cases and result sum for two dice" width="768" />
 <p class="caption">
 Figure 16.1: Number of cases and result sum for two dice
 </p>
@@ -1097,8 +1097,8 @@ E\left(E\left(Y|X\right)\right) &amp;= E\left(Y|X=1\right)P\left(X=1\right)+E\le
 <h2><span class="header-section-number">16.6</span> Law of large numbers<a href="ch-probability-discrete.html#sec-law-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The more experiments that are conducted with a random variable, the greater the probability that the results approach the population value. This also means that the larger sample we take, the greater the probability that an estimated mean corresponds with the population’s expected value. This is called the law of large numbers.</p>
 <p>We illustrate this with a random variable where the possible outcomes are integers 1 to 6 and where each outcome has the probability 1/6, which is why the expected value is 3.5 (like a six-sided perfectly balanced die). We let the computer choose an integer randomly between 1 and 6. Then choose two values and calculate the mean for these, then three values and so on until we have 1,000 means, where the last mean is calculated from 1,000 randomly created integers between 1 and 6.</p>
-<div class="figure"><span style="display:block;" id="fig:dicemeans"></span>
-<img src="21-probability-discrete_files/figure-html/dicemeans-1.png" alt="Law of large numbers: simulated means from a die (values 1–6) for increasing sample sizes. The dashed line marks the expected value 3.5." width="672" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:dicemeans"></span>
+<img src="the-cheat-code_files/figure-html/dicemeans-1.png" alt="Law of large numbers: simulated means from a die (values 1–6) for increasing sample sizes. The dashed line marks the expected value 3.5." width="672" />
 <p class="caption">
 Figure 16.2: Law of large numbers: simulated means from a die (values 1–6) for increasing sample sizes. The dashed line marks the expected value 3.5.
 </p>
@@ -1170,8 +1170,8 @@ P\left(X&gt;x\right) =1-P\left(X\leq x\right)=1-F\left(x\right)
 <p><span class="math display">\[P\left(X&gt;2\right) =1-F\left(2\right)=1-\frac{2}{6}=\frac{4}{6}\]</span></p>
 <p>The expected value for <span class="math inline">\(X\)</span> is then:</p>
 <p><span class="math display">\[E\left(X\right) =\sum_{i}x_{i}f\left(x_{i}\right)=1\cdot\frac{1}{6}+2\cdot\frac{1}{6}+3\cdot\frac{1}{6}+4\cdot\frac{1}{6}+5\cdot\frac{1}{6}+6\cdot\frac{1}{6}=3.5\]</span></p>
-<div class="figure"><span style="display:block;" id="fig:dice-pmf-cdf"></span>
-<img src="21-probability-discrete_files/figure-html/dice-pmf-cdf-1.png" alt="Probability mass function (top) and cumulative distribution function (bottom) for a uniform discrete probability distribution that can assume the integers 1 to 6." width="600" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:dice-pmf-cdf"></span>
+<img src="the-cheat-code_files/figure-html/dice-pmf-cdf-1.png" alt="Probability mass function (top) and cumulative distribution function (bottom) for a uniform discrete probability distribution that can assume the integers 1 to 6." width="600" />
 <p class="caption">
 Figure 16.3: Probability mass function (top) and cumulative distribution function (bottom) for a uniform discrete probability distribution that can assume the integers 1 to 6.
 </p>
@@ -1223,11 +1223,8 @@ F\left(1\right) &amp;=\sum_{i=0}^{\lfloor1\rfloor}\binom{2}{i}0.5^{i}\left(1-0.5
 <p>The cumulative probability is 75%. Now we perform 10 trials <span class="math inline">\(\left(n=10\right)\)</span> and want to know the probability of getting 3 or fewer of outcome 2:</p>
 <p><span class="math display">\[F\left(3\right) =\sum_{i=0}^{\lfloor3\rfloor}\binom{10}{i}0.5^{i}\left(0.5\right)^{10-i}\approx0.001+0.01+0.044+0.117=0.172\]</span></p>
 <p>The probability of getting 0, 1, 2 or 3 outcome 2s in 10 trials is approximately 17.2%.</p>
-<pre><code>## Warning in geom_segment(aes(x = 0.5, xend = 2.4, y = 0.15, yend = 0.1), : All aesthetics have length 1, but the data has 11 rows.
-## ℹ Please consider using `annotate()` or provide this layer with data containing
-##   a single row.</code></pre>
-<div class="figure"><span style="display:block;" id="fig:binomial-pmf-cdf"></span>
-<img src="21-probability-discrete_files/figure-html/binomial-pmf-cdf-1.png" alt="Probability mass function (top) and cumulative distribution function (bottom) for a binomial distribution with \(n=10\) and \(p=0.5\)." width="600" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:binomial-pmf-cdf"></span>
+<img src="the-cheat-code_files/figure-html/binomial-pmf-cdf-1.png" alt="Probability mass function (top) and cumulative distribution function (bottom) for a binomial distribution with \(n=10\) and \(p=0.5\)." width="600" />
 <p class="caption">
 Figure 16.4: Probability mass function (top) and cumulative distribution function (bottom) for a binomial distribution with <span class="math inline">\(n=10\)</span> and <span class="math inline">\(p=0.5\)</span>.
 </p>
@@ -1248,8 +1245,8 @@ E\left(M\right)=np
 <div id="sec-poisson-distribution" class="section level2 hasAnchor" number="16.9">
 <h2><span class="header-section-number">16.9</span> The Poisson distribution<a href="ch-probability-discrete.html#sec-poisson-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In many situations we want to calculate the probability for an event within an intended time frame. A commonly occurring probability distribution for this type of example is what is called the Poisson distribution, named after the French mathematician Siméon Denis Poisson (1781–1840). Let us illustrate with a classic example. In 1898 the Polish economist and statistician Ladislaus Bortkiewicz described the probability that <span class="math inline">\(x\)</span> number of Prussian soldiers are kicked to death by a horse by accident in a specific year. The calculation was based on data collected between 1875 and 1894 for 14 Prussian cavalry corps.</p>
-<div class="figure"><span style="display:block;" id="fig:bortkiewicz"></span>
-<img src="21-probability-discrete_files/figure-html/bortkiewicz-1.png" alt="Deaths per cavalry corps per year (Bortkiewicz 1898)." width="600" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:bortkiewicz"></span>
+<img src="the-cheat-code_files/figure-html/bortkiewicz-1.png" alt="Deaths per cavalry corps per year (Bortkiewicz 1898)." width="600" />
 <p class="caption">
 Figure 16.5: Deaths per cavalry corps per year (Bortkiewicz 1898).
 </p>

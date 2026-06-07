@@ -1,8 +1,3 @@
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
-```
-
 # Polynomial Equations {#chap-polynomekvationer}
 
 This chapter introduces polynomials. A polynomial is an equation with variables and constants combined with addition, subtraction and multiplication and with a positive integer exponent. This is useful for a lot of things in analytical work, for instance describing different theories about how humans behave.

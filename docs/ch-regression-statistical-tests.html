@@ -915,7 +915,7 @@ Y = a + bX + V
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are variables, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are coefficients, and <span class="math inline">\(V\)</span> is the error term. With sample data we want to estimate the population values for the constant coefficients <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and find values as close as possible to the population values. In this process there is always some uncertainty, regardless of how many observations we have or how high quality our data is.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:reg-population-sample"></span>
-<img src="25-regression-statistical-tests_files/figure-html/reg-population-sample-1.png" alt="Population regression line and two sample regression lines" width="902.4" />
+<img src="the-cheat-code_files/figure-html/reg-population-sample-1.png" alt="Population regression line and two sample regression lines" width="902.4" />
 <p class="caption">
 Figure 24.1: Population regression line and two sample regression lines
 </p>
@@ -1073,7 +1073,7 @@ se(\hat{Y}_{x_p}) = \sqrt{\hat{s}_V^2 \left(\frac{1}{n} + \frac{(x_p - \bar{x})^
 <p><span class="math display">\[se(\hat{Y}_3) = \sqrt{1.25 \left(\frac{1}{4} + \frac{(3-5)^2}{10}\right)} = \sqrt{1.25 \times 0.65} \approx 0.901\]</span></p>
 <p><span class="math display">\[\text{CI: } 2.5 \pm 4.303 \times 0.901 \approx 2.5 \pm 3.88 = (-1.38,\; 6.38)\]</span></p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:ci-regression-line"></span>
-<img src="25-regression-statistical-tests_files/figure-html/ci-regression-line-1.png" alt="Regression line with 95% confidence interval" width="288" />
+<img src="the-cheat-code_files/figure-html/ci-regression-line-1.png" alt="Regression line with 95% confidence interval" width="288" />
 <p class="caption">
 Figure 24.2: Regression line with 95% confidence interval
 </p>
@@ -1084,7 +1084,7 @@ Figure 24.2: Regression line with 95% confidence interval
 <p>The precision of our estimates depends on sample size. With a small sample, <span class="math inline">\(se(\hat{b})\)</span> is large, requiring a large observed effect to reach statistical significance. This leads to low statistical <strong>power</strong> — the probability of detecting a true effect when it exists.</p>
 <p>To illustrate, suppose the true population model is <span class="math inline">\(Y = 100 + 5X + V\)</span> where <span class="math inline">\(V \sim N(0, 80)\)</span> and <span class="math inline">\(X \sim U(0, 1)\)</span>. We draw 2,000 samples and estimate the regression model for each, testing <span class="math inline">\(H_0: b = 0\)</span> at <span class="math inline">\(\alpha = 0.05\)</span>. Figure <a href="ch-regression-statistical-tests.html#fig:power-regression">24.3</a> shows the distribution of the 2,000 estimates <span class="math inline">\(\hat{b}\)</span> for two sample sizes: <span class="math inline">\(n = 500\)</span> and <span class="math inline">\(n = 50{,}000\)</span>. Black bars show statistically significant results; gray bars show results that are not statistically significantly different from zero.</p>
 <div class="figure" style="text-align: left"><span style="display:block;" id="fig:power-regression"></span>
-<img src="25-regression-statistical-tests_files/figure-html/power-regression-1.png" alt="Statistical power in regression" width="1296" />
+<img src="the-cheat-code_files/figure-html/power-regression-1.png" alt="Statistical power in regression" width="1296" />
 <p class="caption">
 Figure 24.3: Statistical power in regression
 </p>

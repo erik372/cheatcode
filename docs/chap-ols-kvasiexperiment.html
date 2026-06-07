@@ -922,8 +922,8 @@ Y=\alpha+\beta X+\epsilon
 <div id="illustration-with-a-dag" class="section level2 hasAnchor" number="27.2">
 <h2><span class="header-section-number">27.2</span> Illustration with a DAG<a href="chap-ols-kvasiexperiment.html#illustration-with-a-dag" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Figure <a href="chap-ols-kvasiexperiment.html#fig:min-dag">27.1</a> illustrates an example of how this sort of problem can look. The arrow from X to Y describes the causal relationship that we are interested in. For us to be able to estimate what effect X has on Y we must partly establish that when a variation in X occurs, caused without connection to Y, then a variation in Y also occurs. In this case we decide that the treatment group takes the medicine, which is the induced variation in X. This is called exogenous variation, that is, a change in X that comes “from outside”. The variation does not come from Y.</p>
-<div class="figure" style="text-align: left"><span style="display:block;" id="fig:min-dag"></span>
-<img src="20-regression-causal-relationships_files/figure-html/min-dag-1.png" alt="To estimate the effect of X on Y, we must control for P and Z" width="71%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:min-dag"></span>
+<img src="the-cheat-code_files/figure-html/min-dag-1.png" alt="To estimate the effect of X on Y, we must control for P and Z" width="71%" />
 <p class="caption">
 Figure 27.1: To estimate the effect of X on Y, we must control for P and Z
 </p>
@@ -963,8 +963,8 @@ Y_{i}=b_{1}+b_{2}X_{i}+b_{3}T_{i}+b_{4}\left(X_{i}*T_{i}\right)+V_{i}
 \end{equation}
 \]</span></p>
 <p>where <span class="math inline">\(b_{1},b_{2},b_{3}\)</span> and <span class="math inline">\(b_{4}\)</span> are coefficients, <span class="math inline">\(Y,X\)</span> and <span class="math inline">\(T\)</span> are the same variables as in the regression model in equation <a href="chap-ols-kvasiexperiment.html#eq:rdd-ex1">(27.1)</a> and <span class="math inline">\(V\)</span> is the error term. The interaction term <span class="math inline">\(b_{4}\left(X_{i}*T_{i}\right)\)</span> estimates changes in the covariation between alcohol consumption and mortality.</p>
-<div class="figure" style="text-align: left"><span style="display:block;" id="fig:rdd-med-carpenter-och-dobkin"></span>
-<img src="20-regression-causal-relationships_files/figure-html/rdd-med-carpenter-och-dobkin-1.png" alt="Regression discontinuity. Data from Carpenter and Dobkin [(2009)](https://doi.org/10.1257/app.1.1.164)" width="71%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rdd-med-carpenter-och-dobkin"></span>
+<img src="the-cheat-code_files/figure-html/rdd-med-carpenter-och-dobkin-1.png" alt="Regression discontinuity. Data from Carpenter and Dobkin [(2009)](https://doi.org/10.1257/app.1.1.164)" width="71%" />
 <p class="caption">
 Figure 27.2: Regression discontinuity. Data from Carpenter and Dobkin <a href="https://doi.org/10.1257/app.1.1.164">(2009)</a>
 </p>
@@ -976,8 +976,8 @@ Figure 27.2: Regression discontinuity. Data from Carpenter and Dobkin <a href="h
 <div id="sec-instrumentell-variabel" class="section level2 hasAnchor" number="27.5">
 <h2><span class="header-section-number">27.5</span> Instrumental variable<a href="chap-ols-kvasiexperiment.html#sec-instrumentell-variabel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another way to handle the problems that observable and non-observable phenomena like P and Z entail is to use instrumental variable analysis. The method is based on us finding another phenomenon S that is not affected by Z, does not affect Y directly but affects X, and thereby Y. A random variation in S causes a variation in X which in turn affects Y. The effect S has on X is possible to isolate and thereby also estimate the variation in X (caused by S) that affects Y. Figure <a href="chap-ols-kvasiexperiment.html#fig:iv-instrumentell-var">27.3</a> illustrates the basic logic in this. Phenomenon S affects only Y via its impact on X.</p>
-<div class="figure" style="text-align: left"><span style="display:block;" id="fig:iv-instrumentell-var"></span>
-<img src="20-regression-causal-relationships_files/figure-html/iv-instrumentell-var-1.png" alt="Instrumental variable S" width="71%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:iv-instrumentell-var"></span>
+<img src="the-cheat-code_files/figure-html/iv-instrumentell-var-1.png" alt="Instrumental variable S" width="71%" />
 <p class="caption">
 Figure 27.3: Instrumental variable S
 </p>
@@ -1013,8 +1013,8 @@ Y=e+f\hat{X}+\epsilon
 <h2><span class="header-section-number">27.6</span> Difference-in-differences<a href="chap-ols-kvasiexperiment.html#sec-skillnad-i-skillnad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another way to distribute observations between treatment and control groups and study causal relationships and effects is the method called difference-in-differences (diff-in-diff or DiD). The method is based on us identifying a treatment group whose development we follow over time. We also manage to identify a group that is untreated but that we have good reasons to believe illustrates the parallel development that our treatment group would have had if cause X had never taken place. By comparing the difference between the groups before and after a treatment the difference in the difference can be interpreted as a measure of effect size.</p>
 <p>Figure <a href="chap-ols-kvasiexperiment.html#fig:skillnad-i-skillnad">27.4</a> illustrates the method where we compare the development for a control and treatment group. The time before X occurs the outcome variable Y for the two groups develops in parallel. When X occurs the upper solid line shows the development for the treatment group. The dashed line for the treatment group shows the counterfactual development that we theoretically assume that the treatment group would have had if no treatment X had taken place. The dashed line follows the control group in parallel and is based on the theoretical assumption that the two groups would have followed each other in precisely this way.</p>
-<div class="figure" style="text-align: left"><span style="display:block;" id="fig:skillnad-i-skillnad"></span>
-<img src="20-regression-causal-relationships_files/figure-html/skillnad-i-skillnad-1.png" alt="Difference-in-differences" width="71%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:skillnad-i-skillnad"></span>
+<img src="the-cheat-code_files/figure-html/skillnad-i-skillnad-1.png" alt="Difference-in-differences" width="71%" />
 <p class="caption">
 Figure 27.4: Difference-in-differences
 </p>

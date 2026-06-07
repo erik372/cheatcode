@@ -1,8 +1,3 @@
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
-```
-
 # Functions and graphs {#chap-funktioner-och-diagram}
 
 This chapter introduces mathematical functions and graphs. Functions are central to a large amount of mathematical work and can within social science be used both to discuss both theory and empirical data. In later chapters we use mathematical functions in many examples. A graph is some kind of illustration of quantitative values, which can be used to illustrate both theory and data. Sometimes the words diagram, plot or figure are used with a similar meaning.

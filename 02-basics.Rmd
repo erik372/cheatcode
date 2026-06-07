@@ -1,8 +1,3 @@
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
-```
-
 # Basics {#chap-grundlaggande-matematik-1}
 
 This chapter goes through basic mathematics. A challenge with introductions is that you want everything to come first. Some concepts may seem abstract or lack clear motivation initially, but will hopefully become clearer further along.

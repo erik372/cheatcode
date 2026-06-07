@@ -6,13 +6,13 @@ This chapter introduces the computer program Microsoft Excel, hereafter simply E
 
 When we open Excel, we first see a screen where it is possible to choose what type of document we want to create, see the figure below. Select the option "Blank workbook". You will now get a blank workbook that contains an empty worksheet, see the figure below. At the bottom left we see the tab "Sheet1". Sheet1 is the empty worksheet. If we click on the circled plus sign next to the tab name Sheet1, a new tab is created: Sheet2.
 
-```{r, out.width="80%", fig.align="center", echo=FALSE}
+```{r, out.width="80%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/excel screenshot 01.png")
 ```
 
 *Excel start screen*
 
-```{r, out.width="40%", fig.align="center", echo=FALSE}
+```{r, out.width="40%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/excel screenshot 02.png")
 ```
 
@@ -52,13 +52,13 @@ Which arguments a function can use varies between different functions. The argum
 
 We can also refer to several adjacent cells as one and the same argument. The figure below shows an example where we use the command `=SUM(A1:A3)`. The colon indicates that we are referring to all cells from cell A1 through cell A3. Between cell A1 and A3, there is only cell A2, which is also included. When we write `SUM(A1:A3)`, the cells A1:A3 are used as one argument to the `SUM()` function. We do not use a comma to separate the reference to the cells. If we want to refer to the entire column A, we can instead write A:A, for example `SUM(A:A)`. If we refer to the entire column, we must write the command `=SUM(A:A)` in a cell that is not located in the same column A. If we write the command in a cell in column A, a circular reference is created. Circular reference refers to a cell that refers, among other things, to itself. Circular reference can also occur if a cell refers to a cell that indirectly refers to itself, for example through a third cell.
 
-```{r, out.width="45%", fig.align="center", echo=FALSE}
+```{r, out.width="45%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 sum.png")
 ```
 
 *Each argument is a cell reference*
 
-```{r, out.width="45%", fig.align="center", echo=FALSE}
+```{r, out.width="45%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 sum b.png")
 ```
 
@@ -87,11 +87,11 @@ Often we want to calculate several similar results next to each other. Several s
 
 Some functions are designed to use a value, for example from a cell, to return a result. Above we used, for example, the `LOG()` function which returns the logarithm of a number. If we nevertheless specify multiple values as arguments, the function can still return multiple results, but then in separate cells. The figure below shows an example where we have three numbers in column A. In cell B1 we write `LOG(A1:A3)` which retrieves the information in cells A1 to A3 as an argument to the `LOG()` function. When we press Enter, the program returns the results from the function in cells B1, B2, and B3. In cell B1 we get the result $\log_{10}10=1$. In cell B2 we get $\log_{10}100=2$, in cell B3 we get $\log_{10}1000=3$.
 
-```{r, out.width="80%", fig.align="center", echo=FALSE}
+```{r, out.width="80%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 log flera celler.png")
 ```
 
-```{r, out.width="40%", fig.align="center", echo=FALSE}
+```{r, out.width="40%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 log flera celler 2.png")
 ```
 
@@ -101,7 +101,7 @@ Some functions are designed to use multiple values as one argument, for example 
 
 The figure below shows an example where we want to calculate the sum of the cells in rows 1 to 3 in each respective column. One way to get one sum per column is to select the cells in row 5 in the columns we want to calculate the sum for, in this case columns A to D. Without clicking anywhere, we then begin typing the content we want in cell A5: `=SUM(A1:A3)`. Press Ctrl + Enter. Now cells B5, C5, and D5 are also filled with the `SUM()` function and references to the cells in rows 1 to 3 in each respective column.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 matrisfunktion SUMMA.png")
 ```
 
@@ -117,7 +117,7 @@ Now we will use Excel to calculate a weighted average. Excel has no ready-made f
 
 The figure below shows an example of how it can look in Excel. Column B contains the test scores for classes A and B. Column C contains the number of students. In cell E4 we calculate the sum of products in the numerator. In cell E5 we calculate the sum in the denominator. In cell E6 the weighted average is calculated by combining the two functions. In the parentheses of `SUMPRODUCT()` we refer as the first argument to cells B2:B3. As the second argument we refer to cells C2 and C3. The `SUMPRODUCT()` function then calculates the following expression: 32 * 10 + 42 * 20 = 1160. If we divide this by the sum of the weights 10 + 20, the result is approximately 38.7. This is the result we calculate in cell E6.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 viktat medel.png")
 ```
 
@@ -127,7 +127,7 @@ We can also combine functions by writing one or more functions in the parenthese
 
 $$\log10+\log100+\log1,000=1+2+3=6$$
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 funk i funk.png")
 ```
 
@@ -139,7 +139,7 @@ In data analysis, we often use logical conditions. A logical condition is true o
 
 The figure below shows an example where we have a collection of numbers in column A. In column B we use the `IF()` function to test the logical condition of whether the value in column A is under 10. We refer to all cells A1 to A7 simultaneously, see the section on filling multiple cells above. Depending on whether the logical condition is true or false, the function returns the values "yes" or "no" in cells B1 to B7.
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 logiskt villkor med OM.png")
 ```
 
@@ -151,7 +151,7 @@ The `SUMIF()` function calculates the sum of a collection of values if these val
 2. The condition. This is formulated with quotation marks. In this case `"<10"`. If we want to check whether the cells are equal to the value 10, we write only the value itself: `"10"`.
 3. Cells that should be summed. In this case: A1 to A7.
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 SUMMA.OM.png")
 ```
 
@@ -171,7 +171,7 @@ $$\text{Index}_{t}=\frac{\text{Value}_{t}}{\text{Value}_{\text{base year}}}*100$
 
 In Excel, we can calculate this by referring to cells with our time series and using division and multiplication. The figure below shows an example where we have years in column A and data on Sweden's GDP in column B. In column C we write the formulas for our index. Column D shows the result with two decimal places.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 beräkna index.png")
 ```
 
@@ -195,7 +195,7 @@ To subtract matrix A-B, we select cell D4:E5. It is in this $2\times2$ field tha
 
 $$A-B=\left[\begin{matrix}1 & 2\\ 3 & 4\end{matrix}\right]-\left[\begin{matrix}5 & 6\\ 7 & 8\end{matrix}\right]=\left[\begin{matrix}-4 & -4\\ -4 & -4\end{matrix}\right]$$
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 matris subtrahera.png")
 ```
 
@@ -207,7 +207,7 @@ $$AB=\left[\begin{matrix}1 & 2\\ 3 & 4\end{matrix}\right]\left[\begin{matrix}5 &
 
 Matrix multiplication can be performed with Excel's `MMULT()` function. In the parentheses of `MMULT()` we specify two arguments with references to the cells that contain the values for the two matrices we want to multiply. The figure below shows an example where we matrix multiply the values in the four cells A1:B2 (matrix A) with the four cells D1:E2 (matrix B). The `MMULT()` function is used in cell D4, where the first argument in the parentheses is A1:B2 and the second argument is D1:E2. The arguments are separated as usual with a comma. The result becomes a new $2\times2$ matrix, whose values will be shown in the four cells D4:E5.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 MMULT.png")
 ```
 
@@ -215,13 +215,13 @@ knitr::include_graphics("images/Excel1 MMULT.png")
 
 We can transpose a matrix with the `TRANSPOSE()` function by specifying in the function's parentheses the matrix we want to transpose. We can calculate the inverse of a matrix with the `MINVERSE()` function, specifying in the parentheses the matrix for which we want to calculate the inverse matrix. The figure below shows an example where we transpose the $2\times2$ matrix in cells A1:B2. The result will be shown in D1:E2. The figure after that shows an example where we use the `MINVERSE()` function to calculate the inverse matrix of the $2\times2$ matrix in cells A1:B2. The result will be shown in cells D1:E2.
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 TRANSPONERA.png")
 ```
 
 *Transpose matrix with TRANSPOSE()*
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 MINVERT.png")
 ```
 
@@ -243,7 +243,7 @@ $$K^{-1}KX=K^{-1}Y \quad \left[\begin{matrix}x_{1}\\ x_{2}\end{matrix}\right]=\l
 
 The figure below shows how we can calculate these matrices in Excel. Cells A2:B3 contain matrix K. Cells D2:D3 contain matrix $Y$. Cell A6:B7 contains the inverse matrix $K^{-1}$ and cell D6:D7 contains $Y^{*}=K^{-1}Y$.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/excel1 ekvsys 1.png")
 ```
 
@@ -255,7 +255,7 @@ $$x^{3}+4x^{2}-10x=30$$
 
 For this we can use Excel's Goal Seek function, which we access by clicking on the Data menu > What-If Analysis > Goal Seek... The Goal Seek dialog box opens, where we must fill in three values. Set cell: the equation we want to solve. To value: the value that the equation should equal, in this case 30. By changing cell: the cell that we use as a reference for the variable $x$. The figure below shows an example where we have entered the left side of the equation above, that is, without =30. Instead of x we refer to the empty cell B4. If we click OK, Excel searches for the solution.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 målsökning.png")
 ```
 
@@ -277,7 +277,7 @@ The figure below shows an example with the matrices:
 
 $$Z=\left[\begin{matrix}2 & 1\\ 1 & 3\end{matrix}\right],\,C=\left[\begin{matrix}3\\ 3\end{matrix}\right],\,S=\left[\begin{matrix}6\\ 7\end{matrix}\right]$$
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 matris IO1.png")
 ```
 
@@ -297,7 +297,7 @@ $$Y=\left(I-A\right)^{-1}S=\left[\begin{matrix}\frac{8}{5} & \frac{2}{5}\\ \frac
 
 The figure below shows the calculations for matrix $B$ and $Y$, where we use the same functions as before.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 matris IO2.png")
 ```
 
@@ -307,7 +307,7 @@ knitr::include_graphics("images/Excel1 matris IO2.png")
 
 If we want to calculate how a collection of values is distributed, we can calculate the frequency distribution, among other things — the number of observations per unique value or the number of observations within different intervals, for example using the `FREQUENCY()` function. The figure below shows an example. In column A we have variable x which contains a collection of values, all between 0 and 1. In column B we use the `UNIQUE()` function, which returns the unique values from the numbers in column A. The unique values in this case are 0.1, 0.2, 0.3, ..., 0.9 and 1. The results will be shown in cells B2:B11. In column C we use the `FREQUENCY()` function to count the number of occurrences in column A of each respective value in column B. The result is shown in the chart to the right in the image.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel frekvens1.png")
 ```
 
@@ -321,7 +321,7 @@ To show multiple modes, we select cells B1 to B4. Without clicking anywhere else
 
 The result is shown in cells B1 to B4. Since the values 5 and 6 are most common with three occurrences each, these are shown in cells B1 and B2. In the collection of values, only one other value occurs, 4, once. Since no other values occur as frequently as the numbers 5 and 6 in the collection, the value #N/A! is returned in cells B3 and B4.
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 matrisfunktion TYPVÄRDE FLERA.png")
 ```
 
@@ -335,7 +335,7 @@ The difference between the functions is that for `PERCENTILE.INC()` we can speci
 
 The figure below shows an example where we have a collection of values in column A. In column B we calculate using the `PERCENTILE.INC()` function the 0th, 10th, 25th, 50th, 75th, and 90th percentiles in cells B2 to B8. The results that the functions return are also pasted in cells B11 to B17.
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 PERCENTIL.INK.png")
 ```
 
@@ -345,7 +345,7 @@ If we want to estimate the variance for a sample from a population, we can use t
 
 Excel also has several functions for estimating covariation. To estimate the covariance between two variables, we can use the `COVARIANCE.P()` function if we have population data and the `COVARIANCE.S()` function if we have sample data. The figure below shows an example where we estimate the covariance between variables X and Y. Data for the variables can be found in cells A2:B5. We enter `COVARIANCE.S()` in cell D2 and specify in the parentheses references to the variables' data in cells A2:A5 and B2:B5 respectively.
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 kovarians.png")
 ```
 
@@ -359,13 +359,13 @@ Excel has several ready-made functions for calculating probabilities based on so
 
 The figure below shows an example where we use `NORM.DIST()` in two columns, one for the cumulative distribution function and one for the density function. In all cells we specify mean 0 and standard deviation 1, that is, the standard normal distribution. In column A we find the input values for x: -3 to 3. The figure shows the formulas in all cells in columns B and C. In the charts below these cells we can see the returned values illustrated in a chart for the cumulative distribution function (left) and one for the density function (right).
 
-```{r, out.width="60%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 korrel.png")
 ```
 
 *Correlation with CORREL()*
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 normalförd1.png")
 ```
 
@@ -402,7 +402,7 @@ $$z=\frac{\bar{X}_{1}-\bar{X}_{2}}{\left(\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}
 
 which we can compare against the standard normal distribution's distribution function. Our calculated z-value is so far from the mean that the probability that the two samples would come from a population with the same mean is under one hundredth of a percent. The figure below shows how we can calculate this with Excel. Rows 2 to 5 contain information from samples for variables $X_{1}$ and $X_{2}$. In cell B7 we calculate the z-value above. In cell B8 we calculate the p-value by taking $1-F\left(z\right)$ where $z=3.767$, which gives $p\approx0.000083$. That is, the probability that the two populations have the same mean is very low.
 
-```{r, out.width="80%", fig.align="center", echo=FALSE}
+```{r, out.width="80%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 ztest1.png")
 ```
 
@@ -410,7 +410,7 @@ knitr::include_graphics("images/Excel1 ztest1.png")
 
 Excel also has statistical functions that we can access through the menus. For the next step we first need to install the Analysis ToolPak add-in. Go to the File menu > Options. The Excel Options dialog box opens. Select the Add-ins tab. Under the Manage menu, select Excel Add-ins. Click Go... and check the box for Analysis ToolPak. Click OK. Now we have more tools for statistical analysis, including the Data Analysis dialog box. Go to the Data menu > Data Analysis. A dialog box opens. Select "z-Test: Two Sample for Means". Click OK. A new dialog window opens, see the figure below.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/excel1 ztest meny1.png")
 ```
 
@@ -418,7 +418,7 @@ knitr::include_graphics("images/excel1 ztest meny1.png")
 
 In the worksheet we have three observations for $X_{1}$ and $X_{2}$ respectively in cells B2:B4 and C2:C4. In the dialog window for the z-test, we enter in the Variable 1 Range box a reference to the cells that contain the observations for $X_{1}$: B2:B4. In the Variable 2 Range box we enter a reference to the observations for $X_{2}$: C2:C4. In the Hypothesized Mean Difference box we enter the difference we want to test whether it exists between the two variables. In this case we enter 0 since we want to compare whether the two samples come from the same population and therefore have the same mean. In the variance boxes we enter the variance for each respective variable, which in this example is specified in cells B7 and C7 respectively. Under Output options we can choose where the results should be pasted. If we specify cell E2, the results are displayed in the same worksheet, see the figure below.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/excel1 ztest meny2.png")
 ```
 
@@ -448,7 +448,7 @@ $$Y=\left[\begin{matrix}3\\ 4\\ 6\\ 7\end{matrix}\right],\:X=\left[\begin{matrix
 
 The figure below shows how we can estimate the regression model using Excel's matrix functions that we introduced above. In cells A2:A5 we find the values for variable y, which are also the elements in matrix Y. In cells C2:D5 we find the values for matrix $X$. In cell A8 we use the `TRANSPOSE()` function to create the transposed matrix $X^{T}$. In cell A12 we use `MINVERSE()` to create the inverse matrix $\left(X^{T}X\right)^{-1}$. In cell A16 we use the `MMULT()` function to matrix multiply $X^{T}$ with $Y$. In cell C16 we use `MMULT()` to matrix multiply $\left(X^{T}X\right)^{-1}$ with $X^{T}Y$, which gives $\hat{B}$. In the two cells C16 and C17 we obtain the estimated coefficients $\hat{a}=1$ and $\hat{b}=0.5$ respectively. From here we can continue and for example calculate t-tests for the coefficients, but for this we will instead use shortcuts in the next section.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 matris regression.png")
 ```
 
@@ -460,7 +460,7 @@ In Excel, we can estimate regression models using the `LINEST()` function. We es
 
 The figure below shows an example where column A contains the values for variable y and column B contains variable x. In cell C6 we use the `LINEST()` function. In the parentheses of the function we refer to the values in columns A and B. The function returns the estimated coefficients $\hat{b}$ and $\hat{a}$ in cells C6 and D6. Note that the function first reports the slope coefficient $\hat{b}$ and then $\hat{a}$. The result is exactly as before: $\hat{a}=1$ and $\hat{b}=0.5$.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 REGR1.png")
 ```
 
@@ -472,7 +472,7 @@ $$Y=c+dX+eZ+\epsilon$$
 
 where $Y$, $X$ and $Z$ are variables and $c$, $d$ and $e$ are the coefficients. $\epsilon$ is the error term. The figure below shows an example where we use `LINEST()` and in the parentheses refer to cells A2:A5 (variable $Y$) and B2:C5 (variables $X$ and $Z$). In cells D6, E6 and F6 the three coefficients $\hat{e}\approx2.89$, $\hat{d}\approx0.28$ and finally $\hat{c}\approx-0.54$ are returned, which is thus in reverse order compared to how we set up our regression model.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 REGR2.png")
 ```
 
@@ -484,7 +484,7 @@ If we instead specify const=FALSE, then the regression model $Y=dX+eZ+\epsilon$ 
 
 The figure below shows an example where we set the option stats=TRUE, with the same four observations for variables $y$, $x$ and $z$ in columns A, B and C. The results are reported in cells D6:F10. When stats=TRUE, `LINEST()` reports results for a regression model with k coefficients $a_{1}$ to $a_{k}$ with corresponding standard errors $se_{1}$ to $se_{k}$. Estimated coefficients are shown in the first row and standard errors in the second row. The regression statistics include $R^{2}$, estimated standard error for the residuals $\hat{s}_{\hat{\epsilon}}$, F-statistic, degrees of freedom for the F-test $df_{F}$, the sum of squared explained variation $SSE$, and the residual sum of squares $SSR$.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 REGR3 stat2.png")
 ```
 
@@ -504,7 +504,7 @@ $$\hat{Y}=a+bX+U$$
 
 where $a$ and $b$ are coefficients and $U$ is the error term. In cells A2:B5 we find the observations for variables $Y$ and $X$. In cell B2 we write the `FORECAST.LINEAR()` function. In the parentheses we specify three arguments: (1) the $X$-values that should be used to calculate the predicted values for $\hat{Y}$(which can be any $X$-values we want), (2) the known $Y$-values, and (3) the known $X$-values. The result is shown in cells C2:C5.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/excel1 prognos_linjär.png")
 ```
 
@@ -518,7 +518,7 @@ $$Y=c+dX+eZ+\epsilon$$
 
 In the Y Input Range box we specify a reference to the cells that contain the dependent variable's data, including the variable header with the name of the variable. In this example this is cells A1:A5. Check the Labels box, which indicates that we include the variable name in the top cell in the input range. In the X Input Range box we specify a reference to all cells that contain the explanatory variables, which in this case are X and Z. The cells are B1:C5. Under Output options we can choose the settings for where our results should be displayed. In the figure below we have chosen that the results should be displayed in cell A7.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 regression dataanalys 1.png")
 ```
 
@@ -550,7 +550,7 @@ $$H_{0}:c=0,\:H_{1}:c\neq0$$
 
 That is, the p-value indicates the probability that the coefficient is statistically significantly different from zero. The columns thereafter show estimated bounds for the 95% confidence interval for each respective coefficient.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 regression dataanalys 2.png")
 ```
 
@@ -564,7 +564,7 @@ Excel has shortcuts for creating several common charts, such as line charts, sca
 
 The figure below shows an example where we have created a line chart using the menu with the five values in column A. To create the line chart we select the Insert menu, click on the symbol for line charts next to the larger icon for "Recommended Charts" and choose the first option under 2-D Line.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 diagram1 linje.png")
 ```
 
@@ -576,21 +576,16 @@ To edit a chart that we have created, we can click on the chart. When we select 
 
 We can also right-click on different parts of the chart and get different options, depending on which parts of the chart we click on. If we want to keep the chart but change which values are shown in the chart, we can right-click somewhere in the chart and choose the Select Data... option. This way we can add or remove variables and observations. By clicking on a chart's different parts, we can change appearance, color and shape, and even what type of chart, if we would prefer a bar chart or scatter plot, for example. There isn't space to go through all possible options for how we can or should edit our charts here. There are several help sections regarding these things in Excel. Many things are also relatively simple to understand by just experimenting by selecting different parts of the chart, trying the options in the menus, and the different options that appear when we right-click in the chart.
 
-Another way to get help from the program is to use the Recommended Charts option, under the Insert menu heading. We select the data we want to use for the chart and click on Recommended Charts. The new Insert Chart dialog box opens, with suggestions for charts that the program thinks should fit the data we selected. The figure below shows an example with GDP per capita for 2015--2019. In the dialog box we have received suggestions for a line chart, a bar chart, a chart with lines and points, and at the bottom a pie chart. In the suggested line chart, the program has now placed the title at the top and the years on the horizontal x-axis.
-
-```{r, out.width="70%", fig.align="center", echo=FALSE}
-knitr::include_graphics("images/Excel1 diagram2 BNP linje.png")
-```
-
-*Recommended charts*
 
 Scatter plots are often used to illustrate the covariation between two variables. One way to calculate a linear covariation between two variables is the least squares method. Say that we have the regression model:
 
 $$Y=a+bX+u$$
 
-We have four observations with values for variables $Y$ and $X$ that we will use to calculate the constants a and b. The letter u is the error term. With Excel we can create a scatter plot that shows the covariation between $Y$ and $X$. The figure below shows an example with a scatter plot, which is created by selecting Insert menu > Scatter. In the chart we can also add the regression line that we calculate using the least squares method. After we have created the chart, we right-click on one of the points in the chart. This opens a menu where we select the option "Add Trendline...". A new dialog box opens where we can specify what type of trendline we want to create. To create a linear regression line, calculated using the least squares method, we select the "Linear" option.
+We have four observations with values for variables $Y$ and $X$ that we will use to calculate the constants a and b. The letter u is the error term. With Excel we can create a scatter plot that shows the covariation between $Y$ and $X$. The figure below shows an example with a scatter plot, which is created by selecting Insert menu > Scatter. In the chart we can also add the regression line that we calculate using the least squares method. 
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+After we have created the chart, we right-click on one of the points in the chart. This opens a menu where we select the option "Add Trendline...". A new dialog box opens where we can specify what type of trendline we want to create. To create a linear regression line, calculated using the least squares method, we select the "Linear" option.
+
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 diagram3 scatter ols.png")
 ```
 
@@ -598,7 +593,7 @@ knitr::include_graphics("images/Excel1 diagram3 scatter ols.png")
 
 In the same menu that we use to define the trendline, we can also choose the option "Display Equation on chart". If we click this option, the equation that draws the regression line is written out in the chart. We can also choose to show the calculated $R^{2}$ by clicking the option "Display R-squared value on chart". The figure below shows the chart with trendline and equation after we have clicked these options.
 
-```{r, out.width="80%", fig.align="center", echo=FALSE}
+```{r, out.width="60%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel1 the GRAF4 scatter ols.png")
 ```
 
@@ -612,7 +607,7 @@ If we work in Microsoft's programs Excel, Word and PowerPoint, it is usually eas
 
 We can also paste tables and charts from Excel into other programs as images. This method often works in both Microsoft's programs Word and PowerPoint, as well as in programs from other manufacturers. Charts can also be exported as images directly from Excel to an image file on the computer's hard drive. This can be done by right-clicking on the outer surface of a chart, the outer frame, and selecting Save as Picture.... This opens a new dialog box where we can choose which image file format we want to save the chart as and in which directory on the computer's hard drive we want the file to be saved, see the figure below.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/excel export diagram bild1.png")
 ```
 
@@ -620,7 +615,9 @@ knitr::include_graphics("images/excel export diagram bild1.png")
 
 ## Example with GDP per working hour {#sec-excel-gdp-example}
 
-Now we will go through an example where we use the data shown in the table below. The figures show millions of gross domestic product (GDP) per working hour calculated in US dollars, adjusted for price changes over time (inflation) and price differences between countries (purchasing power adjusted). Purchasing power adjusted values are called Purchasing power parities in English. The data covers Sweden, Denmark, Finland, Norway, USA, and the United Kingdom for the years 1990, 2000, 2010, and 2020 and is taken from the database that the think tank The Conference Board has online. The database contains, in addition to this data, other variables and many more countries and years, which can be downloaded for free at the following address: <www.conference-board.org/data/>
+Now we will go through an example where we use the data shown in the table below. The figures show millions of gross domestic product (GDP) per working hour calculated in US dollars, adjusted for price changes over time (inflation) and price differences between countries (purchasing power adjusted). Purchasing power adjusted values are called Purchasing power parities in English. 
+
+The data covers Sweden, Denmark, Finland, Norway, USA, and the United Kingdom for the years 1990, 2000, 2010, and 2020 and is taken from the database that the think tank The Conference Board has online. The database contains, in addition to this data, other variables and many more countries and years, which can be downloaded for free at the following address: <www.conference-board.org/data/>
 
 Table: GDP per working hour
 
@@ -643,7 +640,7 @@ To work with these figures, we need to copy and paste them into an Excel sheet, 
 
 A good way to get a bit more overview of the data is to create charts. The figure below shows an example of how it can look in a line chart created in Excel. In the chart we can clearly see that Sweden and the USA are mostly in the middle of the group during these years. At the top are Norway and Denmark. At the bottom are Finland and the United Kingdom.
 
-```{r, out.width="80%", fig.align="center", echo=FALSE}
+```{r, out.width="80%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/excel tbc data graf 1.png")
 ```
 
@@ -659,7 +656,7 @@ The figure below shows how this calculation can look in Excel. The data on GDP p
 
 The cell reference in our index calculation's numerator, B2, is updated. The cell reference in the denominator ` $B$ 2` is locked on column B but not on row 2. The cell reference will therefore update the row but not the column, which means that each country will use the year 1990 as the base year, which is what we want.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/Excel tcb index1.png")
 ```
 
@@ -675,7 +672,7 @@ We take the natural logarithm of GDP per working hour, because we can then inter
 
 To estimate this regression model in Excel, we can for example use `LINEST()`. As the first argument we use the natural logarithm of the values in the GDP table above. As the second argument we use the years 1990, 2000, 2010, and 2020. The figure below shows how this can look in an Excel sheet. In cells B11:E16 we use the `LN()` function to take the natural logarithm of the values in cells B2:E7. In cells G11:G16 we use the `LINEST()` function to estimate a regression model per row 11--16, which gives us an estimate per country.
 
-```{r, out.width="70%", fig.align="center", echo=FALSE}
+```{r, out.width="70%", fig.align="left", echo=FALSE}
 knitr::include_graphics("images/regr bnp per arbetstimme excel.png")
 ```
 

@@ -1,7 +1,4 @@
 # Stata {#ch-stata}
-
-
-
 This chapter introduces the statistical analysis program Stata, whose latest version at the time of writing is called Stata 19. To follow along with the examples, you need to have access to the program on your computer. For instance, you can purchase a license at www.stata.com. If you are a student at a university, you may have access to a free license or special discounts through your university. This introduction to Stata is brief and aims to get the reader started with their own work as quickly as possible, thereby learning more through practice. There is abundant material offering more comprehensive introductions to Stata, see for example
 
 www.stata.com/features/documentation
@@ -20,9 +17,19 @@ The figure below shows an example of what Stata can look like. In the image we s
 
 It is also possible that additional windows other than those shown in the image are displayed. If any of the windows in the image are not shown when we open the program, we can open this and other windows by going to the Window menu and choosing among the options there: Command, Results, Review, Variables and more.
 
+
+``` r
+knitr::include_graphics("images/stata1b.png")
+```
+
 <img src="images/stata1b.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 When we open Stata for the first time, we see no table. To look at the data that is loaded in the program, we can open the Data Editor window. This can be done through the menu Window > Data Editor, or with the keyboard shortcut Ctrl + 8. It is also possible to access the Data Editor via the icons at the top below the menus in Stata's window. When we open the Data Editor window for the first time, it is empty.
+
+
+``` r
+knitr::include_graphics("images/stata datafönster2.png")
+```
 
 <img src="images/stata datafönster2.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
@@ -47,6 +54,11 @@ In Stata we can control the program using the menus or by writing commands, also
 In Stata we often work with data retrieved from existing data files, for example data that is saved in an Excel sheet or some other program and data format. We can also enter data manually, see the section on entering data manually below. Say we want to import an Excel file to Stata from the computer's hard drive (see also the section on importing and exporting data below). We can then choose menu File > Import... > Excel spreadsheet (*.xls, *.xlsx). A new dialog box opens, where we can choose different options for how the file should be imported to Stata. Under Import... we can also choose to import other file types.
 
 Stata can retrieve the information that is saved in the Excel sheet. If we then work with this data in Stata, the Excel sheet is not affected. Note that this is a difference compared to if we open the same file in Excel. If we edit an Excel sheet in Excel and save the file again, old information is overwritten. If we want to overwrite the Excel file in Stata, we must export the data we are working with to the hard drive and overwrite the old file. This is practical because it reduces the risk of us overwriting useful information.
+
+
+``` r
+knitr::include_graphics("images/Stata dialogrutan importera excel1.png")
+```
 
 <img src="images/Stata dialogrutan importera excel1.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
@@ -106,6 +118,11 @@ In Stata's data window, we noted how the variable names are specified as column 
 
 ```stata
 import excel my_data.xlsx, clear first
+```
+
+
+``` r
+knitr::include_graphics("images/stata do-file editor1.png")
 ```
 
 <img src="images/stata do-file editor1.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
@@ -448,6 +465,11 @@ generate K_total_sum = total(K)
 
 When we work with data analysis we often benefit from being able to transpose our data, that is change whether our data is organized in width or height. In Stata's data table we have some type of information for two people, A and B, for the years 2020, 2021 and 2022. The development per person is described in width where each year has its own column. Variable names in Stata cannot begin with a number so the three columns with years are named x2020, x2021 and x2022.
 
+
+``` r
+knitr::include_graphics("images/stata person A B reshape data1.png")
+```
+
 <img src="images/stata person A B reshape data1.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
 If we want to display this information in a chart in Stata it becomes easily complicated, since Stata's functions for displaying charts are primarily designed based on the idea that a variable is organized in one column, see the section on creating plots below. In this case we have one and the same variable spread across three columns, depending on the year.
@@ -459,6 +481,11 @@ reshape long x, i(Person) j(year)
 ```
 
 The first information we specify is x, which is the prefix of the three columns with years. It is from these three columns that the function `reshape` now retrieves data that should be organized lengthwise. The program finds these three columns precisely because all three are named x... something. Then we describe in the parentheses for `i()` that we want to keep the column Person. In the parentheses for `j()` we finally specify the name of the new variable where the information that comes after "x" in the name of the three columns from which we retrieve data should be placed. In this case it is three years, which is why we decide to name this variable year.
+
+
+``` r
+knitr::include_graphics("images/stata long table reshape 2.png")
+```
 
 <img src="images/stata long table reshape 2.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 
@@ -1460,6 +1487,11 @@ reshape long gh, i(country) j(year)
 ```
 
 Since we specify `gh` after `reshape long`, the command searches for variables whose names begin with these letters. In the table the four columns with the years begin with these letters. It is these columns that will now be organized more in height. In the parentheses for `i()` we specify the variable country that already exists in the table. In the parentheses for `j()` we specify a new variable where we want to save the information from the names of the variables we transpose. In this case it is the years we want to save in a new variable, which is why in this example we choose to call this new variable year. This organizes all data from the table in a long format with the variables country, year and gh.
+
+
+``` r
+knitr::include_graphics("images/stata long table bnp arbetstimme.png")
+```
 
 <img src="images/stata long table bnp arbetstimme.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" />
 

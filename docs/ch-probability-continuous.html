@@ -940,8 +940,8 @@ F\left(x\right) &amp; =\left.\frac{x}{b-a}\right|_{a}^{c}=\frac{c}{b-a}-\frac{a}
 \end{equation}\]</span></p>
 <p>We also calculate the probability that <span class="math inline">\(X\)</span> assumes a value within an interval, for example between 0.3 and 0.5:</p>
 <p><span class="math display">\[P\left(0.3\leq x\leq0.5\right) = \left.\frac{x}{b-a}\right|_{0.3}^{0.5}=\left.\frac{x}{1-0}\right|_{0.3}^{0.5}=\frac{0.5-0.3}{1}=0.2\]</span></p>
-<div class="figure"><span style="display:block;" id="fig:unicont"></span>
-<img src="22-probability-continuous_files/figure-html/unicont-1.png" alt="Uniform continuous probability: density function (left) and cumulative distribution function (right)." width="720" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:unicont"></span>
+<img src="the-cheat-code_files/figure-html/unicont-1.png" alt="Uniform continuous probability: density function (left) and cumulative distribution function (right)." width="720" />
 <p class="caption">
 Figure 17.1: Uniform continuous probability: density function (left) and cumulative distribution function (right).
 </p>
@@ -995,8 +995,8 @@ P\left(X&gt;x\right) &amp; =1-F\left(x\right)=1-\left(1-e^{-\lambda x}\right)=e^
 \end{equation}\]</span></p>
 <p>With this definition we estimate the probability that the waiting time for the next call from the boss is longer than time <span class="math inline">\(x\)</span>. If the boss usually calls three times per hour then <span class="math inline">\(\lambda=3\)</span> and <span class="math inline">\(\theta=1/\lambda=1/3\)</span>. Now we will estimate the probability that the waiting time becomes more than 1 hour, <span class="math inline">\(X&gt;1\)</span>. From equation <a href="ch-probability-continuous.html#eq:cdf-exp-gt">(17.7)</a> we have that:</p>
 <p><span class="math display">\[P\left(X&gt;1\right) = e^{-3\cdot1}\approx0.0496\]</span></p>
-<div class="figure"><span style="display:block;" id="fig:exponential-pdf-cdf"></span>
-<img src="22-probability-continuous_files/figure-html/exponential-pdf-cdf-1.png" alt="The exponential distribution: density function, \(f(x)\), and cumulative distribution function, \(F(x)\)." width="600" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:exponential-pdf-cdf"></span>
+<img src="the-cheat-code_files/figure-html/exponential-pdf-cdf-1.png" alt="The exponential distribution: density function, \(f(x)\), and cumulative distribution function, \(F(x)\)." width="600" />
 <p class="caption">
 Figure 17.2: The exponential distribution: density function, <span class="math inline">\(f(x)\)</span>, and cumulative distribution function, <span class="math inline">\(F(x)\)</span>.
 </p>
@@ -1047,8 +1047,8 @@ P\left(X&gt;2\right) &amp; =e^{-6}\sum_{n=0}^{3-1}\frac{6^{n}}{n!}=e^{-6}\cdot25
 \end{aligned}
 \tag{17.11}
 \end{equation}\]</span></p>
-<div class="figure"><span style="display:block;" id="fig:gamma-pdf-cdf"></span>
-<img src="22-probability-continuous_files/figure-html/gamma-pdf-cdf-1.png" alt="The gamma distribution with \(k=3\): density function, \(f(x)\), and the cumulative distribution, \(F(x)\)." width="749.76" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:gamma-pdf-cdf"></span>
+<img src="the-cheat-code_files/figure-html/gamma-pdf-cdf-1.png" alt="The gamma distribution with \(k=3\): density function, \(f(x)\), and the cumulative distribution, \(F(x)\)." width="749.76" />
 <p class="caption">
 Figure 17.3: The gamma distribution with <span class="math inline">\(k=3\)</span>: density function, <span class="math inline">\(f(x)\)</span>, and the cumulative distribution, <span class="math inline">\(F(x)\)</span>.
 </p>
@@ -1079,8 +1079,8 @@ F\left(x;r\right) &amp; =P\left(X\leq x\right)=\int_{0}^{x}\frac{y^{\frac{r}{2}-
 \end{aligned}
 \tag{17.13}
 \end{equation}\]</span></p>
-<div class="figure"><span style="display:block;" id="fig:chi2-pdf-cdf"></span>
-<img src="22-probability-continuous_files/figure-html/chi2-pdf-cdf-1.png" alt="Chi-square distribution: density function, \(f(x)\), and cumulative distribution function, \(F(x)\)." width="690.24" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:chi2-pdf-cdf"></span>
+<img src="the-cheat-code_files/figure-html/chi2-pdf-cdf-1.png" alt="Chi-square distribution: density function, \(f(x)\), and cumulative distribution function, \(F(x)\)." width="690.24" />
 <p class="caption">
 Figure 17.4: Chi-square distribution: density function, <span class="math inline">\(f(x)\)</span>, and cumulative distribution function, <span class="math inline">\(F(x)\)</span>.
 </p>
@@ -1230,8 +1230,8 @@ Figure 17.4: Chi-square distribution: density function, <span class="math inline
 <p>Variable <span class="math inline">\(S\)</span> follows what is called the F-distribution, which can be written:</p>
 <p><span class="math display">\[S\sim F\left(r_{x},r_{y}\right)\]</span></p>
 <p>where the F-distribution’s shape is dependent on the values in <span class="math inline">\(r_{x}\)</span> and <span class="math inline">\(r_{y}\)</span>. We do not go through the distribution’s density function and cumulative distribution function here but are content to just call these <span class="math inline">\(f\left(x\right)\)</span> and <span class="math inline">\(F\left(x\right)\)</span>. Figure <a href="ch-probability-continuous.html#fig:fdistro-pdf-cdf">17.5</a> illustrates the density function <span class="math inline">\(f\left(x\right)\)</span> in the upper graph, and the cumulative distribution function <span class="math inline">\(F\left(x\right)\)</span> in the lower graph.</p>
-<div class="figure"><span style="display:block;" id="fig:fdistro-pdf-cdf"></span>
-<img src="22-probability-continuous_files/figure-html/fdistro-pdf-cdf-1.png" alt="The F-distribution: density function, \(f(x)\), and cumulative distribution function, \(F(x)\)." width="690.24" />
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:fdistro-pdf-cdf"></span>
+<img src="the-cheat-code_files/figure-html/fdistro-pdf-cdf-1.png" alt="The F-distribution: density function, \(f(x)\), and cumulative distribution function, \(F(x)\)." width="690.24" />
 <p class="caption">
 Figure 17.5: The F-distribution: density function, <span class="math inline">\(f(x)\)</span>, and cumulative distribution function, <span class="math inline">\(F(x)\)</span>.
 </p>
