@@ -1,4 +1,4 @@
-# Basic Probability Theory 1: discrete distributions {#ch-probability-discrete}
+# Basic Probability 1: discrete distributions {#ch-probability-discrete}
 
 This chapter introduces probability theory and discrete probability distributions, which have a limited number of possible values, such as two sides of a coin or six sides of a die.
 
@@ -10,7 +10,7 @@ Even in our daily lives we use probability in some sense to draw conclusions. Ba
 
 ## Random variables {#sec-random-variables}
 
-In previous chapters we have worked with variables defined by a mathematical function over a domain, for example the function \(y=x^{2}\) defined over all real numbers. We have worked with data variables consisting of collected information, observations. When we went through regression analysis in section \@ref(sec-regressionsanalys) we worked with variables that we predicted using regression models.
+In previous chapters we have worked with variables defined by a mathematical function over a domain, for example the function \(y=x^{2}\) defined over all real numbers. We have worked with data variables consisting of collected information, observations. Later in this book, when we go through regression analysis, we will work with variables that are predicted using regression models.
 
 When we are now going to work with probability and chance we will use random variables. A random variable is a variable whose results are affected by a random process. For example, when I go to the bus in the morning I do not know exactly how many other passengers will ride the same bus as me. The buses run frequently and the number of passengers varies for each trip from zero to around 50 passengers.
 

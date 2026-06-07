@@ -5,7 +5,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align 
 
 # The Least Squares Method {#chap-ols}
 
-This chapter introduces the least squares method, which is another method for studying linear covariation. In the previous chapter we introduced different ways to study covariation among two variables. The least squares method can be used to study how one variable covaries with one or several other variables simultaneously. In this chapter, we begin by estimating the covariation between two variables to later introduce several variables.
+This chapter introduces the least squares method, which is another method for studying linear covariation. In chapter \@ref(chap-kontrafaktisk-analys) we introduced different ways to study covariation among two variables. The least squares method can be used to study how one variable covaries with one or several other variables simultaneously. In this chapter, we begin by estimating the covariation between two variables to later introduce several variables.
 
 The least squares method is a central building block within social and natural sciences, which is why we will devote much attention to this in the rest of this book. The least squares method can be traced back to 1805 when the French mathematician Adrien-Marie Legendre (1752–1833) published a book about comets (Legendre, 1806). The earliest example within social science research is [Yule (1899)](https://www.jstor.org/stable/2979889), which represents the first known example of using the least squares method with multiple variables.
 
@@ -49,7 +49,7 @@ g_gdphappy_for_OLS
 
 ## Covariation with Straight Line {#sec-minstakvadratmetoden-ols}
 
-For our calculations, we will here again use the same made up observations for the variables $X$ and $Y$ as in the previous chapter, which are repeated in figure \@ref(fig:tab-data-for-ols-1) . The reason we use these numbers is to make the mathematical calculations easy. In the hypothetical examples here, it is irrelevant exactly what the population represents and calculated examples are used only as illustration of the method.
+For our calculations, we will here again use the same made up observations for the variables $X$ and $Y$ as in chapter \@ref(chap-kontrafaktisk-analys), which are repeated in figure \@ref(fig:tab-data-for-ols-1) . The reason we use these numbers is to make the mathematical calculations easy. In the hypothetical examples here, it is irrelevant exactly what the population represents and calculated examples are used only as illustration of the method.
 
 All straight lines in a graph can be described with an equation of the form $Y=a+bX$, that is, the equation of the straight line (section \@ref(sec-den-rata-linjens) ). The constant coefficient $a$ is the line's y-intercept or intercept while the constant coefficient b is the line's slope, or slope coefficient. $Y$ and $X$ are in this case our variables. The line we will draw will give us an illustration of the average change in variable $Y$ as we move from relatively lower to relatively higher values on $X$.
 

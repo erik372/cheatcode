@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Part V: Final Words | The Cheat Code: Essential Math and Statistics for Social Scientists</title>
+  <title>Chapter 15 Data and Descriptive Statistics | The Cheat Code: Essential Math and Statistics for Social Scientists</title>
   <meta name="description" content="A textbook in mathematics and statistics for social science students." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Part V: Final Words | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  <meta property="og:title" content="Chapter 15 Data and Descriptive Statistics | The Cheat Code: Essential Math and Statistics for Social Scientists" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook in mathematics and statistics for social science students." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Part V: Final Words | The Cheat Code: Essential Math and Statistics for Social Scientists" />
+  <meta name="twitter:title" content="Chapter 15 Data and Descriptive Statistics | The Cheat Code: Essential Math and Statistics for Social Scientists" />
   
   <meta name="twitter:description" content="A textbook in mathematics and statistics for social science students." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ch-data-tools.html"/>
-<link rel="next" href="ch-final-chapter.html"/>
+<link rel="prev" href="part-statistics-probability-intro.html"/>
+<link rel="next" href="ch-probability-discrete.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -903,18 +903,658 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="part-final-words-intro" class="section level1 unnumbered hasAnchor">
-<h1>Part V: Final Words<a href="part-final-words-intro.html#part-final-words-intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This part of the book contains a final chapter with some common misconceptions, suggestions for further reading, and a brief closing word.</p>
+<div id="chap-data-descriptive-stats" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Data and Descriptive Statistics<a href="chap-data-descriptive-stats.html#chap-data-descriptive-stats" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter introduces fundamental concepts for analytical work: how we
+collect and organise data, how populations and samples relate to each other,
+and how to describe variation in data using basic statistical measures.</p>
+<div id="sec-population-urval-superpopulation" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Population and Sample<a href="chap-data-descriptive-stats.html#sec-population-urval-superpopulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A decisive question in analytical work is how we delimit our problem and how large a part of the world and world history we want to be able to make statements about. These phenomena can be described with the help of the concepts population, sample and superpopulation.</p>
+<p>Population refers in statistics to the collection of units, observations, that we study. The population can consist of both a finite or an infinite amount of values. Examples of a finite population could be all cars in a city, all citizens in a country or all heart operations performed at a hospital. The population can also be infinite, for example if we conduct repeated equivalent experiments we can in theory do this an infinite number of times.</p>
+<p>Sample is the observations we take from the population. Our hope is that the patterns we observe in the sample are the same patterns that are found in the entire population. The goal is therefore that the sample should be more or less representative of the population. Samples can be created in different ways, which is described a bit more thoroughly in section <a href="chap-data-descriptive-stats.html#sec-samla-in-data">15.4</a> . When we work with samples, which is normally the case within social science, there is always a certain risk and probability that our results are incorrect and could just as well have arisen by chance. In Part III we introduce how we can reason about and calculate probability and chance. Work with data under uncertainty is called statistical inference (statistical reasoning). To study causal relationships (causality) is sometimes called causal inference. The word inference means reasoning, to draw conclusions.</p>
+<p>Superpopulation is the theoretical population that we hope to be able to make statements about beyond the study’s sample and population. Suppose we perform an analysis on a sample of observations that we take from a population. Often we want to be able to make statements both about the population that exists today and different conceivable populations that may exist in the future. In certain cases we perform analyses to be able to predict what will happen if something changes, that is, to be able to predict different conceivable outcomes. These hypothetical observations belong to what is called the superpopulation.</p>
+<p>In section <a href="chap-funktioner-och-diagram.html#sec-lite-mangdlara">4.7</a> we introduced set theory. If we imagine that we have a study where the population consists of a collection of observations that we number from 1 to N and each observation is called <span class="math inline">\(x_{i}\)</span> where <span class="math inline">\(i=1,2,3,...,N\)</span>. The letter <span class="math inline">\(N\)</span> symbolizes number of observations, regardless of whether it is a small or large value. It is central to remember here that when we study observations from our population there is for each observation <span class="math inline">\(x_{i}\)</span> from the population, an observable version <span class="math inline">\(\left(x_{i}^{\text{observable}}\right)\)</span> that we study, and a non-observable one that we will never see <span class="math inline">\(\left(x_{i}^{\text{non-observable}}\right)\)</span>. This applies to both the treatment and control groups.</p>
+<p>Suppose we conduct a study regarding the effect of a medicine on patients with a certain disease, where the population is all patients with the disease. We collect all N observations from the population and divide these into treatment group (receives medicine) and control group (does not receive medicine). The observations in the treatment group we call <span class="math inline">\(x_{i,B}\)</span> and those in the control group <span class="math inline">\(x_{i,K}\)</span>. Regardless of which group each observation belongs to, we work only with what we observe and each observation in each group will have a non-observable, counterfactual, version.</p>
+<p>Sometimes it is difficult to exactly define what is a study’s exact population and superpopulation. If we study what effect a medicine has on patients’ disease symptoms, the population can for example consist of all patients in the entire world with this disease. From these patients we take a sample, for example 100 patients, which we divide into treatment and control groups. By studying this sample, our ambition is to estimate the covariation between medicine and symptoms in the population. We thereby want to be able to make statements about the effect the medicine has in the sample, which is an estimate of the effect the medicine has in the population. We thereby also try to estimate the effects of the medicine in the superpopulation, which in this case is all comparable patients that can be thought to come to exist in the future. Since people are different, it is not always so obvious how general our results are and how far-reaching conclusions are possible.</p>
+<p>Suppose we instead are interested in what effect an education has on people’s future earnings. The population would in this case be able to be all persons who can be thought to participate in the education, for example all adult people in the ages 18 to 64 years. Or maybe we are only interested in people with certain specific prerequisites. Depending on what is the study’s purpose and ambition, it can affect how we define the population.</p>
+<p>Even superpopulation can be difficult to define. Suppose we find that the education has a positive impact on the participants’ future earnings. If a large number of people studied the education, there would be masses of people with the same education. Then the education might not have the same effect compared to a situation where only a small proportion of the population had studied the education.</p>
+</div>
+<div id="sec-information-och-variabler" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> Information and variables<a href="chap-data-descriptive-stats.html#sec-information-och-variabler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Within analytical work, information about reality is often called data. Data is just another word for information and can consist of anything that we can perceive with our senses, for example numbers, text, images, sound recordings. All analytical work uses information about reality in some form or extent. All data must in turn be interpreted. For example, much analytical work consists of mapping events: What happened where and when? Exactly what type of information is required for an analysis depends on what is the study’s purpose. To formulate the study’s purpose can sometimes require detailed deliberations.</p>
+<p>Social scientific analysis uses information about reality in different ways. When we work with quantitative methods, for example studying how different phenomena vary, we often benefit from categorizing information in data variables. A data variable can contain any type of information, for example street numbers, names of children born in April, the gross national product for different countries or all individual words in a novel organized with one word per row. To use a data variable for calculations, this variable needs to consist of numbers or be rewritten into numbers.</p>
+<p>When we define variables, it is important that all information that we collect into a variable has the same properties. If we for example collect information about inhabitants’ life expectancy and income, we should place this information in two different variables: one variable for life expectancy and one variable for income. If we mix information in a variable, for example life expectancy and income, it becomes impossible to do calculations on the variable. Within one and the same variable, data should use the same unit of measurement. We do not want to have one observation in centimeters and another in inches in the same column.</p>
+<p>A common way to organize data is tables, where each column represents a variable and each row an observation. In the same way that we have clear categories for our variables in the columns, we need to have clear categories for our observations. Exactly what represents an observation depends on what the data describes. It can for example be one observation per individual or per country. Often we also need to delimit what time point an observation refers to, for example an observation can contain information about a person per week. The next row can in that case contain the next observation, for example information about the same person the week after. What the data observations describe is called unit of observation.</p>
+<table>
+<caption>Three variables with four observations <span id="tab:tre-variabler-med">Table 15.1: </span></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Variable 1 <span class="math inline">\(\left(y\right)\)</span></th>
+<th>Variable 2 <span class="math inline">\(\left(x\right)\)</span></th>
+<th>Variable 3 <span class="math inline">\(\left(z\right)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Observation 1</td>
+<td><span class="math inline">\(y_{1}\)</span></td>
+<td><span class="math inline">\(x_{1}\)</span></td>
+<td><span class="math inline">\(z_{1}\)</span></td>
+</tr>
+<tr class="even">
+<td>Observation 2</td>
+<td><span class="math inline">\(y_{2}\)</span></td>
+<td><span class="math inline">\(x_{2}\)</span></td>
+<td><span class="math inline">\(z_{2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Observation 3</td>
+<td><span class="math inline">\(y_{3}\)</span></td>
+<td><span class="math inline">\(x_{3}\)</span></td>
+<td><span class="math inline">\(z_{3}\)</span></td>
+</tr>
+<tr class="even">
+<td>Observation 4</td>
+<td><span class="math inline">\(y_{4}\)</span></td>
+<td><span class="math inline">\(x_{4}\)</span></td>
+<td><span class="math inline">\(z_{4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Table <a href="chap-data-descriptive-stats.html#tab:tre-variabler-med">15.1</a> shows an example where we have three data variables and call these <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and z. We number the observations <span class="math inline">\(y_{1}\)</span> to <span class="math inline">\(y_{4}\)</span>, <span class="math inline">\(x_{1}\)</span> to <span class="math inline">\(x_{4}\)</span> as well as <span class="math inline">\(z_{1}\)</span> to <span class="math inline">\(z_{4}\)</span>. There are no rules for how variables should be named or numbered. It also occurs that variables are called by the same letter and distinguished through numbering, for example the variables <span class="math inline">\(x_{1}\)</span>, <span class="math inline">\(x_{2}\)</span> and so on.</p>
+</div>
+<div id="sec-olika-typer-av-data" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> Different types of data<a href="chap-data-descriptive-stats.html#sec-olika-typer-av-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data that is used for calculations is usually divided into different data types: ratio data, interval data, ordinal data and nominal data. One way to think about this is that we have a variable, <span class="math inline">\(x\)</span>, with some form of information about reality. The division is then based on the following criteria:</p>
+<ul>
+<li><p>Ranking: Can the observations in <span class="math inline">\(x\)</span> be ranked?</p></li>
+<li><p>Equidistance: Is the distance between two values in <span class="math inline">\(x\)</span> equally large?</p></li>
+<li><p>Absolute zero point: Is the variable defined in such a way that there is a value that is the smallest conceivable?</p></li>
+</ul>
+<p>Depending on the answers to these three questions, we may define our variable as one of the four data types. The three criteria and the four data types are summarized in table <a href="chap-data-descriptive-stats.html#tab:fyra-datatyper">15.2</a> .</p>
+<table>
+<caption>Four types of data <span id="tab:fyra-datatyper">Table 15.2: </span></caption>
+<thead>
+<tr class="header">
+<th></th>
+<th>Ranking</th>
+<th>Equidistance</th>
+<th>Absolute zero point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nominal data</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Ordinal data</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>Interval data</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Ratio data</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Let us go through the four data types and give some examples. Nominal data is not ranked, has no clear distance between each scale step and no absolute zero point. Typical examples of this are categorical variables, for example languages, names of countries, gender. Since the information in this type of data mostly concerns grouping or categorizing, the possibility to use mathematical operations is limited to primarily defining whether an observation belongs or does not belong to one category or another.</p>
+<p>Ordinal data has ranking but not equidistance or absolute zero point. A typical example is school grades, or placement in a list or queue, for example place 1, 2, 3 and so on. Another example can be survey responses where respondents are asked to rank alternatives from best to worst. In addition to categorizing, this data type can also use mathematical operations for inequality, for example that position 1 comes before position 2, which comes before position 3. It is thereby possible to calculate the median value for this type of data, but not for example the mean, see section <a href="chap-grundlaggande-matematik-1.html#sec-medelvarde">2.13</a> .</p>
+<p>Interval data allows calculations of difference and addition and subtraction. However not ratios. We therefore cannot in a meaningful way compare the double value of interval data. Typical examples include temperatures in for example degrees Celsius. The difference between –2 and +3 degrees Celsius is the same as +5 and +10 degrees Celsius. But we cannot in the same way calculate these distances as ratios, since 0 degrees Celsius is just a marker for the temperature when water freezes.</p>
+<p>Ratio data allows the same mathematical methods as the other three data types, including the calculations of ratios. This includes many common measures within physics and technology, such as for example length, time and mass. Unlike the other data types, it is possible to use division for ratio data and compare relative distances, such as that 10 meters is twice as long as 5 meters.</p>
+<p>This division into four types of data is commonly occurring. Other more detailed divisions can also occur. To think about data in these forms can help us to sort information and see what possibilities and limitations that precisely our data offer. This should however primarily be seen as a tool, rather than a rule system.</p>
+</div>
+<div id="sec-samla-in-data" class="section level2 hasAnchor" number="15.4">
+<h2><span class="header-section-number">15.4</span> Collecting a sample<a href="chap-data-descriptive-stats.html#sec-samla-in-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To understand the idea behind sampling of data, we will in this section briefly go through some overarching examples of how this can happen. First the population must be defined. A popular method is to then take a simple random sample (SRS). As the name suggests, this is based on letting all observations in the population have the same theoretical possibility to be included in the sample. The probability for each individual observation must also be above 0. The observations that are to be included in the sample are chosen randomly, for example through lottery or with the help of a computer’s random generator. Say for example that we want to know what all of the adult inhabitants think about Jesus. We may then randomly sample 100 persons and ask them.</p>
+<p>Another method is systematic sampling: we give each person a number. Instead of drawing numbers randomly, we select every 1,000th person. This also gives a random sample as long as the numbered list of the population does not contain any patterns.</p>
+<p>There are several commonly occurring methods that are not random. One such method is quota sampling, or quota-based sampling. This method is based on that we know of some characteristics in the population that are important for the study. We therefore weight the sample based on these characteristics to create a sample that is more representative of the population. For example, we are interested in what the population of a country thinks about Jesus and think that the population’s proximity to the sea is important for explaining variations in faith. We estimate that 40% of the population lives near the sea and therefore control our sample so that 40% of the sample consists of residents in the vicinity of the sea. A problem with this method is that many factors affect people’s view of Jesus and if our sampling method is deficient, it risks worsening the result.</p>
+<p>To be sure that different parts of the population are represented in our sample, we may use stratified sampling. The population is divided into different groups, strata. From each stratum, observations are chosen randomly. The number of observations does not need to be the same proportion in the sample as in the population, as long as we adjust our calculations for this. Suppose we want to investigate the views on Jesus among the population for a country. In our study we want to make sure that we get enough inhabitants from the northern inland of the country. By doing so we make sure that it is possible to make more precise statements about this specific group. In the northern inland lives about five percent of the population. If we randomly select observations from all people in the country, the risk is that we get a correct proportion of respondents from the northern inland, but these observations will at the same time be too few to make any more detailed observations about the people of the northern inland. For instance, how much does opinions differ among parents and children in the northern inland. To get more reliable results, one may collect extra many observations from a group that actually constitutes a smaller proportion of the full population of the country. When we then calculate on our data material, we must take into account the bias in the sample that we ourselves have created, so we do not risk getting an incorrect picture of the population.</p>
+<p>Another method is cluster sampling, also called group sampling. The full population is divided into clusters, groups, and some of these clusters are selected randomly. Thereafter, random samples can be made from each group. For example, we are to ask the students at a school what they think about Jesus. The population is all students at the school. We divide the students into clusters depending on which school class they belong to. The school classes that are to be included in the study are chosen randomly.</p>
+<p>Collecting information usually entails several challenges, such as how to best measure a phenomenon, whether the sources are reliable, whether our information can be verified or whether we succeed in interpreting it correctly. These are important aspects of analytical work but there is no room to go through them here.</p>
+</div>
+<div id="sec-frekvensfordelning" class="section level2 hasAnchor" number="15.5">
+<h2><span class="header-section-number">15.5</span> Frequency Distribution<a href="chap-data-descriptive-stats.html#sec-frekvensfordelning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To study covariation between variables, observations must have different values; there must be variation within the variables. If we, for example, have ten observations for the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> and all observations have the values <span class="math inline">\(\left(x,y\right)=\left(5,23\right)\)</span>, then there is no variation within variable <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span>. The variables therefore cannot covary either.</p>
+<p>One way to study the spread of values is frequency distribution. Suppose we have the following four values: 4, 5, 5 and 6, where the number 5 occurs twice. One way to show the spread in a collection of values is a bar graph, a graph where the frequency of each respective value is reported with bars. Figure <a href="chap-data-descriptive-stats.html#fig:frekvensfordelning-ex-1">15.1</a> shows the frequency distribution for the four values.</p>
+<p>Now we have a variable <span class="math inline">\(x\)</span> that has the following four values: 3, 4, 6 and 7. Figure <a href="chap-data-descriptive-stats.html#fig:stapeldiagram-for-antal-obs">15.2</a> illustrates this variable in two different bar graphs. In the left graph this is illustrated with a bar of height 1 per value. The right graph shows a so-called histogram. A histogram is a form of bar graph where each bar represents an interval of values. In the graph to the right, the left bar represents the three values 3, 4 and 6. On the vertical y-axis, this bar therefore reaches up to the value 3, because the bar represents three observations. The right bar in the right graph we have one observation, which represents the value 7.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:frekvensfordelning-ex-1"></span>
+<img src="15a-data-descriptive-stats_files/figure-html/frekvensfordelning-ex-1-1.png" alt="Frequency distribution for the values $4,5,5,6$" width="71%" />
+<p class="caption">
+Figure 15.1: Frequency distribution for the values <span class="math inline">\(4,5,5,6\)</span>
+</p>
+</div>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:stapeldiagram-for-antal-obs"></span>
+<img src="15a-data-descriptive-stats_files/figure-html/stapeldiagram-for-antal-obs-1.png" alt="Two illustrations of a frequency distribution" width="71%" />
+<p class="caption">
+Figure 15.2: Two illustrations of a frequency distribution
+</p>
+</div>
+<p>Bar graphs and histograms are often used to describe the spread in data. Consider another example with more observations. Figure <a href="chap-data-descriptive-stats.html#fig:livslangd-kommunerna-man-kvinnor">15.3</a> shows a histogram that illustrates the distribution of average life expectancy for men and women in 290 countries and regions in the world, with one average value per gender and country/region. There are 290 observations for men and 290 observations for women. The horizontal x-axis shows the values for expected age, while the number of observations (countries or regions) is shown on the vertical y-axis.</p>
+<p>In the graph we see that women on average live longer than men, since the bars for women are located more to the right in the graph. The bar furthest to the left and the right in the graph illustrates that there is a few places in the world where men and women, on average, tend to live shorter as well as longer lives, compared to the other places.</p>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:livslangd-kommunerna-man-kvinnor"></span>
+<img src="15a-data-descriptive-stats_files/figure-html/livslangd-kommunerna-man-kvinnor-1.png" alt="Average expected life in countries and regions in the world. Data from Our World In Data." width="71%" />
+<p class="caption">
+Figure 15.3: Average expected life in countries and regions in the world. Data from Our World In Data.
+</p>
+</div>
+</div>
+<div id="sec-spridningsmatt-kvartiler-och" class="section level2 hasAnchor" number="15.6">
+<h2><span class="header-section-number">15.6</span> Measures of Central Tendency and Measures of Dispersion<a href="chap-data-descriptive-stats.html#sec-spridningsmatt-kvartiler-och" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For describing what constitutes an average value for a collection of values, we use what are called measures of central tendency. Two examples of measures of central tendency are mean (sum divided by number) and median (the middle value). We introduced both of these measures in section <a href="chap-grundlaggande-matematik-1.html#sec-medelvarde">2.13</a> . Another useful measure of central tendency is mode, which is the value that occurs most frequently. Consider the following fifteen numbers as an example:</p>
+<table>
+<thead>
+<tr class="header">
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>6</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>8</th>
+<th>9</th>
+<th>9</th>
+<th>9</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>For this collection of values, the mode = 9 since the number 9 occurs most frequently. The median for these numbers is the value 6 since it is the middle value. The mean is the sum divided by the number of values <span class="math inline">\(=89/15\approx5.93\)</span>.</p>
+<p>To compare how the values are spread around the average value, we use different types of measures of dispersion. One way to get a picture of the spread in a collection of values is to calculate the range, the difference between the highest and lowest value. For the 15 numbers above, the range is <span class="math inline">\(9-1=8\)</span>. A useful measure of dispersion is percentiles, which are the values that divide a collection of values into 100 parts. Similarly, other divisions are also used, such as deciles, quintiles and quartiles. A decile divides a collection of values into ten parts, quintile into five and quartile into four.</p>
+<p>Percentiles are indicated with corresponding numbers 1–100, where <span class="math inline">\(P_{10}\)</span> symbolizes the tenth percentile and is the value that is greater than 10% of the values in the collection. Here we are content with a simplified example. Consider all the integers 0 to 1,000. The tenth percentile for this set is <span class="math inline">\(P_{10}=100\)</span>, since the value 100 delimits the bottom 10 percent of the values. The fourteenth percentile is <span class="math inline">\(P_{14}=140\)</span>. The twentieth percentile is <span class="math inline">\(P_{20}=200\)</span>, and so on.</p>
+<p>Percentiles <span class="math inline">\(P_{10},\:P_{20},\:P_{30},\:P_{40},\:P_{50},\:P_{60},\:P_{70},\:P_{80}\)</span> and <span class="math inline">\(P_{90}\)</span> are the same values as the deciles. Deciles can be written as <span class="math inline">\(D_{1}\)</span> for decile 1, which is the same value as <span class="math inline">\(P_{10}\)</span>, <span class="math inline">\(D_{2}\)</span> for decile 2, and so on. Percentiles <span class="math inline">\(P_{20},\:P_{40},\:P_{60}\)</span> and <span class="math inline">\(P_{80}\)</span> are the same values as the quintiles, where <span class="math inline">\(P_{20}=K_{1}\)</span> for quintile 1. Percentiles <span class="math inline">\(P_{25},\:P_{50}\)</span> and <span class="math inline">\(P_{75}\)</span> are the same values as the quartiles, which divide the collection into four parts. Quartiles are often written as <span class="math inline">\(Q_{1},\:Q_{2}\)</span> and <span class="math inline">\(Q_{3}\)</span>. <span class="math inline">\(P_{50}=Q_{2}\)</span> marks the middle value in the collection, which is the same thing as the median. Sometimes the concepts interquartile range and quartile deviation are used. Interquartile range is the difference between the third and first quartile: <span class="math inline">\(Q_{3}-Q_{1}\)</span>. Quartile deviation is interquartile range divided by 2: <span class="math inline">\(\left(Q_{3}-Q_{1}\right)/2\)</span>.</p>
+</div>
+<div id="sec-varians-och-standardavvikelse" class="section level2 hasAnchor" number="15.7">
+<h2><span class="header-section-number">15.7</span> Variance and standard deviation<a href="chap-data-descriptive-stats.html#sec-varians-och-standardavvikelse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Two other common measures of dispersion are variance and standard deviation. Both of these are very central to all statistical analysis, which is why we go through them a bit more thoroughly here. In section <a href="chap-data-descriptive-stats.html#sec-population-urval-superpopulation">15.1</a> we introduced population and sample. When we work with information and data variables, for example data that describes some phenomenon in society, we very rarely have access to reliable information about the population. When we study causal relationships, we lack observations for the counterfactual scenario that we are actually interested in and therefore do not have access to all data. Instead, we are then referred to trying to estimate what the population looks like by studying the sample data we have access to.</p>
+<p>Say now that we are interested in variable x. In the population for this variable there are N number of observations and from this population we take n number of observations for our sample. Our goal is to find out what the spread in the population looks like and we use our sample data to study this. Note here that what we are actually constantly seeking are the values that exist in the population. We make calculations on our sample data to estimate the values in the population. The expressions estimate and estimate mean the same thing.</p>
+<p>If we have access to population data, the mean is known. To mark this, the population’s mean is usually written as <span class="math inline">\(\mu_{x}\)</span>(the Greek letter mu). The mean <span class="math inline">\(\bar{x}\)</span> is an estimate of the population’s <span class="math inline">\(\mu_{x}\)</span>, where <span class="math inline">\(\bar{x}=\sum_{i}x_{i}/n\)</span>.</p>
+<p>To study spread, we calculate distance from the mean. In the population, the difference between observation <span class="math inline">\(x_{i}\)</span> and the mean <span class="math inline">\(\mu_{x}\)</span> is written as <span class="math inline">\(x_{i}-\mu_{x}\)</span>, where letter <span class="math inline">\(i\)</span> means observation number <span class="math inline">\(i\)</span>. With our sample data we take <span class="math inline">\(x_{i}-\bar{x}\)</span>. The sum of differences from the mean <span class="math inline">\(\sum_{i}\left(x_{i}-\bar{x}\right)\)</span> is always 0, which we see by writing:</p>
+<p><span class="math display" id="eq:sum-of-diff-from-mean">\[
+\begin{align}
+\sum\left(x_{i}-\bar{x}\right) &amp; =\sum x_{i}-n\bar{x} \tag{15.1}\\
+&amp; =\sum x_{i}-n\frac{1}{n}\sum x_{i}\nonumber \\
+&amp; =\sum x_{i}-\sum x_{i}\nonumber \\
+&amp; =0\nonumber
+\end{align}
+\]</span></p>
+<p>One way to measure deviations from the mean is to estimate mean absolute deviation:</p>
+<p><span class="math display">\[
+\begin{equation}
+\textbf{Mean absolute deviation} =\frac{1}{n}\sum\left|x_{i}-\bar{x}\right|
+\end{equation}
+\]</span></p>
+<p>We can also replace the mean <span class="math inline">\(\bar{x}\)</span> with some other measure of central tendency such as median or mode. Another way to sum deviations from the mean to a positive value is to square the deviations: <span class="math inline">\(\left(x_{i}-\bar{x}\right)^{2}\)</span>. If we divide the sum of the squared differences by the number of observations n, we get the variance for variable <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display" id="eq:varians-def-1-div-med-n">\[
+\begin{align}
+\textbf{Variance: }\text{var}\left(x\right) &amp; =\left(\frac{1}{n}\right)\sum_{i}^{n}\left(x_{i}-\bar{x}\right)^{2}
+\tag{15.2}
+\end{align}
+\]</span></p>
+<p>where the parenthesis <span class="math inline">\(\left(x_{i}-\bar{x}\right)^{2}\)</span> shall be calculated for each observation and summed:</p>
+<p><span class="math display">\[
+\begin{equation}
+\sum_{i}^{n}\left(x_{i}-\bar{x}\right)^{2}=\left(x_{1}-\bar{x}\right)^{2}+\left(x_{2}-\bar{x}\right)^{2}+...+\left(x_{n}-\bar{x}\right)^{2}
+\end{equation}
+\]</span></p>
+<p>By squaring each deviation from the mean we get a positive measure. This also means that greater deviations from the mean will have a greater weight for the estimated variance.</p>
+<p>In the same way that the mean <span class="math inline">\(\bar{x}\)</span> is an estimate of the population’s <span class="math inline">\(\mu_{x}\)</span>, <span class="math inline">\(\text{var}\left(x\right)\)</span> is an estimate of the variance in the population. The variance in the population is often denoted with the Greek letter small sigma squared, <span class="math inline">\(\sigma_{x}^{2}\)</span>, which indicates that this is the population value for variable <span class="math inline">\(x\)</span>.</p>
+<p>Standard deviation for a collection of observations is the positive square root of the variance. For population, standard deviation is often denoted <span class="math inline">\(\sigma_{x}\)</span>. Estimated standard deviation for variable <span class="math inline">\(x\)</span> can be written <span class="math inline">\(\hat{\sigma}_{x}\)</span>, <span class="math inline">\(sd_{x}\)</span> or <span class="math inline">\(s_{x}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+\textbf{Standard deviation: } &amp; s_{x}=+\sqrt{\text{var}\left(x\right)}=\left(\frac{\sum_{i}^{n}\left(x_{i}-\bar{x}\right)^{2}}{n}\right)^{1/2}
+\end{align}
+\]</span></p>
+<p>When we estimate the mean with sample data <span class="math inline">\(\left(\bar{x}\right)\)</span>, this often deviates from the population’s mean <span class="math inline">\(\left(\mu_{x}\right)\)</span>. This deviation tends to lead to our estimate of the population’s variance becoming too small. To correct for this, in the equation for variance (equation <a href="chap-data-descriptive-stats.html#eq:varians-def-1-div-med-n">(15.2)</a> ) we divide by <span class="math inline">\(n-1\)</span> instead of <span class="math inline">\(n\)</span>. This new definition of variance is called corrected variance or sample variance:</p>
+<p><span class="math display" id="eq:varians-def-2-div-n-1">\[
+\begin{equation}
+\textbf{Sample variance: }\text{var}\left(x\right)=\left(\frac{1}{n-1}\right)\sum_{i}^{n}\left(x_{i}-\bar{x}\right)^{2}
+\tag{15.3}
+\end{equation}
+\]</span></p>
+<p>Division by <span class="math inline">\(n-1\)</span> is called Bessel’s correction and often results in the estimated variance being closer to the population’s variance. Many computer programs have ready commands for estimating (calculating) variance and then use Bessel’s correction as in equation <a href="chap-data-descriptive-stats.html#eq:varians-def-2-div-n-1">(15.3)</a> . For standard deviation we also use Bessel’s correction:</p>
+<p><span class="math display">\[
+\begin{align}
+\textbf{Sample standard deviation: }s_{x} &amp; =\left(\frac{\sum_{i}^{n}\left(x_{i}-\bar{x}\right)^{2}}{n-1}\right)^{1/2}
+\end{align}
+\]</span></p>
+<p>If we have a constant a that represents an arbitrary value, the variance for this is <span class="math inline">\(\text{var}\left(a\right)=0\)</span>. This is because a single value has no spread. If <span class="math inline">\(a\)</span> is multiplied by a variable <span class="math inline">\(x\)</span>, the variance for <span class="math inline">\(ax\)</span> equals <span class="math inline">\(a^{2}\text{var}\left(x\right)\)</span>. We see this by taking:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{var}\left(ax\right) &amp; =\left(\frac{1}{n}\right)\sum_{i}\left(ax_{i}-a\bar{x}\right)^{2}\\
+&amp; =\left(\frac{1}{n}\right)\sum_{i}\left(a^{2}x_{i}^{2}-2a^{2}\bar{x}+a^{2}\bar{x}^{2}\right)\nonumber
+\end{align}
+\]</span></p>
+<p>Since <span class="math inline">\(a\)</span> is not affected by the summation, we factor out all <span class="math inline">\(a^{2}\)</span>:</p>
+<p><span class="math display" id="eq:var-ax-a2-var-x">\[
+\begin{equation}
+\begin{aligned}
+\text{var}\left(ax\right) &amp; =a^{2}\left(\frac{1}{n}\right)\sum\left(x_{i}^{2}-2\bar{x}+\bar{x}^{2}\right)\\
+&amp; =a^{2}\left(\frac{1}{n}\right)\sum\left(x_{i}-\bar{x}\right)^{2}\\
+&amp; =a^{2}\text{var}\left(x\right)
+\end{aligned}
+\tag{15.4}
+\end{equation}
+\]</span></p>
+<p>For standard deviation we get:</p>
+<p><span class="math display">\[
+\begin{align}
+s_{x}\left(ax\right) &amp; =\left(\frac{1}{n}\sum_{i}^{n}\left(ax_{i}-a\bar{x}\right)^{2}\right)^{1/2}\\
+&amp; =\left(\frac{1}{n}\sum_{i}^{n}\left(a^{2}x_{i}^{2}-2a^{2}\bar{x}+a^{2}\bar{x}^{2}\right)\right)^{1/2}\nonumber \\
+&amp; =\left(a^{2}\right)^{1/2}\left(\frac{1}{n}\sum_{i}^{n}\left(x_{i}-\bar{x}\right)^{2}\right)^{1/2}\nonumber \\
+&amp; =\left|a\right|s_{x}\nonumber
+\end{align}
+\]</span></p>
+<table style="width:100%;">
+<caption>Some calculations with variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span><span id="tab:variablerna-x-y-nagra-berakningar-k18">Table 15.3: </span></caption>
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Observation</th>
+<th><span class="math inline">\(x_{i}\)</span></th>
+<th><span class="math inline">\(y_{i}\)</span></th>
+<th><span class="math inline">\(x_{i}-\bar{x}\)</span></th>
+<th><span class="math inline">\(y_{i}-\bar{y}\)</span></th>
+<th><span class="math inline">\(\left(x_{i}-\bar{x}\right)^{2}\)</span></th>
+<th><span class="math inline">\(\left(y_{i}-\bar{y}\right)^{2}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td><span class="math inline">\(-2\)</span></td>
+<td><span class="math inline">\(-0,5\)</span></td>
+<td>4</td>
+<td>0,25</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>4</td>
+<td>2</td>
+<td><span class="math inline">\(-1\)</span></td>
+<td><span class="math inline">\(-1,5\)</span></td>
+<td>1</td>
+<td>2,25</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>6</td>
+<td>5</td>
+<td>1</td>
+<td>1,5</td>
+<td>1</td>
+<td>2,25</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>7</td>
+<td>4</td>
+<td>2</td>
+<td>0,5</td>
+<td>4</td>
+<td>0,25</td>
+</tr>
+<tr class="odd">
+<td>Mean</td>
+<td>5</td>
+<td>3,5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Sum</td>
+<td>20</td>
+<td>14</td>
+<td></td>
+<td></td>
+<td>10</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: left"><span style="display:block;" id="fig:varians-for-tva"></span>
+<img src="15a-data-descriptive-stats_files/figure-html/varians-for-tva-1.png" alt="Variance for variables $x$ and $y$" width="71%" />
+<p class="caption">
+Figure 15.4: Variance for variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>
+</p>
+</div>
+<p>where <span class="math inline">\(\left|a\right|\)</span> is the absolute value of the constant a. Now we shall calculate (estimate) the variance with four observations for two variables: <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Variable <span class="math inline">\(x\)</span> has the values 3, 4, 6 and 7. Variable y has the values 3, 2, 5 and 4. Table <a href="chap-data-descriptive-stats.html#tab:variablerna-x-y-nagra-berakningar-k18">15.3</a> summarizes the calculations we need. We use the definition of variance from equation <a href="chap-data-descriptive-stats.html#eq:varians-def-2-div-n-1">(15.3)</a> :</p>
+<p><span class="math display" id="eq:varians-for-x-och-y">\[
+\begin{equation}
+\begin{aligned}
+\text{var}\left(x\right) &amp; =\frac{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}}{n-1}=\frac{10}{3}\\
+\text{var}\left(y\right) &amp; =\frac{\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}{n-1}=\frac{5}{3}
+\end{aligned}
+\tag{15.5}
+\end{equation}
+\]</span></p>
+<p>The variance for variable <span class="math inline">\(x\)</span> is larger than the variance in variable <span class="math inline">\(y\)</span>. This indicates that the values in <span class="math inline">\(x\)</span> are more spread out from the mean compared to the spread in variable <span class="math inline">\(y\)</span>. Figure <a href="chap-data-descriptive-stats.html#fig:varians-for-tva">15.4</a> illustrates deviations from the mean for each respective variable. In the heading for each respective graph, mean and variance are reported. To calculate standard deviation for variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, we take the positive square root of the variance:</p>
+<p><span class="math display" id="eq:standardavvikelse-ex1-x-y">\[
+\begin{equation}
+\begin{aligned}
+s_{x}= &amp; \sqrt{\frac{\sum_{i}^{n}\left(x_{i}-\bar{x}\right)^{2}}{n-1}}=+\sqrt{\frac{10}{3}}\approx10.05\\
+s_{y}= &amp; +\sqrt{\frac{5}{3}}\approx0.745
+\end{aligned}
+\tag{15.6}
+\end{equation}
+\]</span></p>
+<p>We summarize some of the measures of central tendency and measures of dispersion with the two tables below. In the upper table, a collection of values is presented. In the lower table <a href="chap-data-descriptive-stats.html#tab:fig-ex-spridning-lagesmatt">15.4</a>, these are described with measures of central tendency and measures of dispersion.</p>
+<table style="width:100%;">
+<caption>Example with measures of central tendency and measures of dispersion. <span id="tab:fig-ex-spridning-lagesmatt">Table 15.4: </span></caption>
+<colgroup>
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x_{i}\)</span></th>
+<th>12</th>
+<th>27</th>
+<th>35</th>
+<th>38</th>
+<th>53</th>
+<th>53</th>
+<th>55</th>
+<th>57</th>
+<th>66</th>
+<th>69</th>
+<th>74</th>
+<th>89</th>
+<th>98</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(i\)</span></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Measure</th>
+<th>Description</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean</td>
+<td>Sum divided by number</td>
+<td>55.8</td>
+</tr>
+<tr class="even">
+<td>Median</td>
+<td>Middle value</td>
+<td>55</td>
+</tr>
+<tr class="odd">
+<td>Mode</td>
+<td>Most frequently occurring</td>
+<td>53</td>
+</tr>
+<tr class="even">
+<td>Quartiles</td>
+<td>Divides the distribution into four parts</td>
+<td><span class="math inline">\(Q_{1}=38\)</span>, <span class="math inline">\(Q_{3}=69\)</span></td>
+</tr>
+<tr class="odd">
+<td>Percentiles</td>
+<td>Divides the distribution into parts</td>
+<td><span class="math inline">\(P_{20}=36.2\)</span>, <span class="math inline">\(P_{80}=72\)</span></td>
+</tr>
+<tr class="even">
+<td>Variance</td>
+<td>Measures spread among values</td>
+<td>539.1</td>
+</tr>
+<tr class="odd">
+<td>Standard deviation</td>
+<td>Positive square root of the variance</td>
+<td>23.2</td>
+</tr>
+<tr class="even">
+<td>Minimum</td>
+<td>Smallest value</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>Maximum</td>
+<td>Greatest value</td>
+<td>98</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec-standardiserade-varden" class="section level2 hasAnchor" number="15.8">
+<h2><span class="header-section-number">15.8</span> Standardized values<a href="chap-data-descriptive-stats.html#sec-standardiserade-varden" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is difficult to compare variance between two different variables if the variables are measured in different units, for example, such as weight and height. One method to facilitate comparisons between variables is standardization and normalization. Standardized values for a variable x are a measure of how far a value <span class="math inline">\(\left(x_{i}\right)\)</span> in a variable is from the variable’s mean <span class="math inline">\(\left(\bar{x}\right)\)</span> counted in number of standard deviations. This is a very useful measure that is often used in statistics. Standardized values are also called standard scores, z-scores or z-values. Standardized values for a variable x can be calculated in the following way:</p>
+<p><span class="math display" id="eq:standardiserat-varde-1">\[
+\begin{equation}
+\textbf{Standardized value: }x_{i}=z_{i}=\frac{x_{i}-\bar{x}}{s_{x}}
+\tag{15.7}
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(x_{i}\)</span> is each respective value in variable <span class="math inline">\(x\)</span> and <span class="math inline">\(z_{i}\)</span> is the standardized value of <span class="math inline">\(x_{i}\)</span>. <span class="math inline">\(\bar{x}\)</span> is the mean for <span class="math inline">\(x\)</span> and <span class="math inline">\(s_{x}\)</span> is the standard deviation for variable <span class="math inline">\(x\)</span>. Each observation’s distance to the mean is divided by the standard deviation for the current variable. Standardized variables always get the mean 0 and standard deviation 1.</p>
+<p>If we take our variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> that we used as examples in the previous section and convert these to standardized values, we get the two new variables <span class="math inline">\(z_{x}\)</span> and <span class="math inline">\(z_{y}\)</span>. Calculations and results are reported in table <a href="chap-data-descriptive-stats.html#tab:standardiserade-varden-x-y">15.5</a> . Observations 1 and 2 for <span class="math inline">\(z_{x}\)</span> and <span class="math inline">\(z_{y}\)</span> become negative since these values lie below their respective means.</p>
+<table>
+<caption>Standardized values <span id="tab:standardiserade-varden-x-y">Table 15.5: </span></caption>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Observation</th>
+<th><span class="math inline">\(x_{i}\)</span></th>
+<th><span class="math inline">\(y_{i}\)</span></th>
+<th><span class="math inline">\(z_{x}=\left(x_{i}-\bar{x}\right)/s_{x}\)</span></th>
+<th><span class="math inline">\(z_{y}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td><span class="math inline">\(-1.1\)</span></td>
+<td><span class="math inline">\(-0.39\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>4</td>
+<td>2</td>
+<td><span class="math inline">\(-0.55\)</span></td>
+<td><span class="math inline">\(-1.16\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>6</td>
+<td>5</td>
+<td><span class="math inline">\(0.55\)</span></td>
+<td>1.16</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>7</td>
+<td>4</td>
+<td>1.1</td>
+<td>0.39</td>
+</tr>
+<tr class="odd">
+<td>Mean, <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span></td>
+<td>5</td>
+<td>3.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Standard deviation, <span class="math inline">\(s\)</span></td>
+<td>1.83</td>
+<td>1.29</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Normalization can mean slightly different things in statistics. One meaning is to convert a variable so that all values become between 0 and 1. Normalization of a variable <span class="math inline">\(x\)</span> is done in the following way:</p>
+<p><span class="math display" id="eq:normalisering">\[
+\begin{equation}
+\textbf{Normalized value: }x_{norm}=\frac{x_{i}-x_{min}}{x_{max}-x_{min}}
+\tag{15.8}
+\end{equation}
+\]</span></p>
+<p>where <span class="math inline">\(x_{i}\)</span> is observation i for variable <span class="math inline">\(x\)</span>, <span class="math inline">\(x_{min}\)</span> is the lowest value in variable <span class="math inline">\(x\)</span> and <span class="math inline">\(x_{max}\)</span> is the highest value for the variable. Similar to standardization, this can also be used to compare variables that otherwise differ from each other. Table <a href="chap-data-descriptive-stats.html#tab:normaliserade-varden-for">15.6</a> shows normalized values for variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<table>
+<caption>Normalized values <span id="tab:normaliserade-varden-for">Table 15.6: </span></caption>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(x_{i}\)</span></th>
+<th><span class="math inline">\(y_{i}\)</span></th>
+<th><span class="math inline">\(x_{norm}\)</span></th>
+<th><span class="math inline">\(y_{norm}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0.33</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>4</td>
+<td>2</td>
+<td>0.25</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>6</td>
+<td>5</td>
+<td>0.75</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>7</td>
+<td>4</td>
+<td>1</td>
+<td>0.67</td>
+</tr>
+<tr class="odd">
+<td>Min.</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Max.</td>
+<td>7</td>
+<td>5</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec-ar-allting-osakert" class="section level2 hasAnchor" number="15.9">
+<h2><span class="header-section-number">15.9</span> How do we know the things we know?<a href="chap-data-descriptive-stats.html#sec-ar-allting-osakert" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We described above the concepts superpopulation, population and sample. Since we cannot observe the counterfactual outcome that we are interested in when we study causal relationships, it can be described as us in these situations always working with a sample of data. When we work with samples, there is always more or less uncertainty to what extent we succeed in finding the values we seek for our population and superpopulation.</p>
+<p>Even in situations where we actually have access to data for our entire population, there are reasons to regard the information as uncertain, that is, that there is a greater or smaller probability that our results are incorrect. Say for example that we study the economic development in Europe’s countries in recent decades. We have gotten hold of a table with data where we have a collection of variables with one observation per year and country. Even if our data contains information about all countries over a long time period, this should be regarded as a sample. Collection of data can entail measurement errors, for example due to technical aids or human mistakes. Or perhaps the data we use does not measure exactly what we want to study, but is an approximate measure of something more complex.</p>
+<p>Another reason to treat most information as sample data is that there can be uncertainty around exactly how the population should be defined. We might want to be able to make statements about all patients of a certain age or all adult people in the entire country. Then it is usually a bit uncertain exactly what characteristics our population has. We can also think about these questions in terms of the superpopulation that will exist in the future. Even for these coming observations, there is uncertainty around their exact characteristics.</p>
+<p>In the next chapters we will introduce how we can work more carefully and in detail with uncertainty and probability.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ch-data-tools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ch-final-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="part-statistics-probability-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-probability-discrete.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

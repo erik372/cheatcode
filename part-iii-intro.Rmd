@@ -1,5 +1,5 @@
-# (PART) Probability {-}
+# (PART) Regression and Causality {-}
 
-# Part III: Probability {- #part-probability-intro}
+# Part III: Regression and Causality {- #part-regression-causality-intro}
 
-In Part II we covered the foundations of mathematics and in Part III we covered how we can calculate covariation. In this part we will introduce probability theory, which is one of the most central parts of scientific and analytical work. Among other things, we will go through how we can calculate the probability that our regression results could have arisen by chance. In chapter \@ref(ch-regression-statistical-tests) we introduce how we can combine regression analysis with statistical tests.
+In Part I we covered the foundations of mathematics and in Part II we covered data, descriptive statistics and probability theory. This part introduces covariation and regression analysis — the central method for studying how variables relate to each other. We begin with the logic of causal analysis and the mathematical measurement of covariation, then move through the least squares method, multiple regression, and statistical testing of regression results. The part closes with methods for studying causal relationships using regression analysis.

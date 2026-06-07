@@ -25,17 +25,15 @@ This book focuses somewhat on causal relationships - how and why things are the 
 
 ## What you will learn {-}
 
-Part I presents the basic foundations of mathematics, in a similar fashion as most people learn some math in (or around) high school. But perhaps unlike high school, this part contains some examples of economic and social theories described with mathematics, as well as some examples with data. The first chapter of part I describes the book's content, purpose and some tips for reading.
+Part I presents the foundations of mathematics, from basic arithmetic through functions, logarithms, equations, derivatives, optimization, integration, and linear algebra. The part also contains examples of how mathematics can be used to describe theories and phenomena in social science.
 
-Part II also presents mathematical foundations, but focuses on mathematical concepts often considered more complex, advanced or abstract, such as linear (matrix) algebra.
+Part II introduces statistics and the study of covariation. The part covers variation, the least squares method and regression analysis, with applications in social science. It also introduces counterfactual analysis and how regression analysis can be used to study causal relationships.
 
-Part III introduces the basic math behind probability theory as well as a gentle introduction to statistical inference.
+Part III introduces probability theory and statistical inference. The part covers discrete and continuous probability distributions, hypothesis testing, and how regression results can be evaluated statistically. It also goes through the conditions of the least squares method.
 
-Part IV introduces how we can describe and study variation and covariation, when two or more variables change together. This part puts a lot of focus on regression analysis and the least squares method – a highly central concept to a lot of science.
+Part IV introduces three analytical tools commonly used in social science: Microsoft Excel, Stata, and the programming language R. Analytical work is primarily performed with computers, but computer programs can also help us better understand mathematics and statistics.
 
-Part V discusses causality in a bit more detail and introduces some common basic concepts and methods on how to study causal relationships.
-
-Part VI introduces the three analytical tools Microsoft Excel, Stata, and the programming language R. Analytical work is primarily performed with computers, but computer programs can also help us better understand mathematics and statistics.
+Part V contains a final chapter with some common misconceptions, suggestions for further reading, and a brief closing word.
 
 ## Thanks! {-}
 

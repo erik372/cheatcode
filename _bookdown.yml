@@ -22,20 +22,20 @@ rmd_files:
   - 13-integration.Rmd
   - 14-linear-algebra.Rmd
   - part-ii-intro.Rmd
-  - 15-counterfactual-analysis.Rmd
-  - 16-variation-covariation.Rmd
-  - 17-least-squares.Rmd
-  - 18-covariation-social-science.Rmd
-  - 19-least-squares-multiple-variables.Rmd
-  - 20-regression-causal-relationships.Rmd
-  - part-iii-intro.Rmd
+  - 15a-data-descriptive-stats.Rmd
   - 21-probability-discrete.Rmd
   - 22-probability-continuous.Rmd
   - 23-probability-normal-t.Rmd
   - 24-statistical-inference.Rmd
+  - part-iii-intro.Rmd
+  - 15b-causality-covariation.Rmd
+  - 17-least-squares.Rmd
+  - 18-covariation-social-science.Rmd
+  - 19-least-squares-multiple-variables.Rmd
   - 25-regression-statistical-tests.Rmd
   - 26-regression-multiple-tests.Rmd
   - 27-ols-conditions.Rmd
+  - 20-regression-causal-relationships.Rmd
   - part-iv-intro.Rmd
   - 28-why-computers.Rmd
   - 29-excel.Rmd

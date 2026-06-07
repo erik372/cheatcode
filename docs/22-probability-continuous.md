@@ -1,4 +1,4 @@
-# Fundamental Probability Theory 2: Continuous Distributions {#ch-probability-continuous}
+# Basic Probability 2: Continuous Distributions {#ch-probability-continuous}
 
 In this chapter we will introduce probability distributions that are continuous and can assume an infinite number of different values. The chapter covers some examples of commonly occurring probability distributions.
 

@@ -503,7 +503,7 @@ n=\beta_{1}a+\beta_{2}f
 \end{equation}
 $$
 
- where small letters $n$, $a$ and $f$ symbolize logarithmic versions of the variables $N$, $A$ and $F$, while $\beta_{1}$ and $\beta_{2}$ symbolize our slope coefficients, which were previously $z$ and $\left(1-z\right)$. Why would we want to rewrite our equation? Partly it becomes easier to illustrate the relationship between the variables, partly the linear equation is easier to work with if we shall compare our theory against reality, which we return to in chapter \@ref(chap-variation-och-samvariation)
+ where small letters $n$, $a$ and $f$ symbolize logarithmic versions of the variables $N$, $A$ and $F$, while $\beta_{1}$ and $\beta_{2}$ symbolize our slope coefficients, which were previously $z$ and $\left(1-z\right)$. Why would we want to rewrite our equation? Partly it becomes easier to illustrate the relationship between the variables, partly the linear equation is easier to work with if we shall compare our theory against reality, which we return to in chapter \@ref(chap-ols)
 
 ## Log GDP {#sec-log-linjar-ex-bnp}
 

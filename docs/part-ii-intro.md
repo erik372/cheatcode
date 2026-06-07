@@ -1,5 +1,5 @@
-# (PART) Covariation and Causality {-}
+# (PART) Data, Statistics and Probability {-}
 
-# Part II: Covariation and Causality {- #part-covariation-intro}
+# Part II: Data, Statistics and Probability {- #part-statistics-probability-intro}
 
-This part introduces statistics, the study of how we collect, study and present data. Statistics is taught as a separate subject at universities but is used throughout the social and natural sciences. The rest of the book focuses mainly on how we can analyze covariation between two or more phenomena. One reason to study covariation may be that we want to analyze causal relationships.
+This part introduces the foundations of statistical analysis. We begin with how data is collected and organised, and how to describe variation using basic statistical measures. We then cover probability theory — discrete and continuous distributions, the normal distribution, and statistical inference — which provides the mathematical tools needed to evaluate whether patterns in data could have arisen by chance.
