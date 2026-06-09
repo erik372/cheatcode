@@ -1,8 +1,3 @@
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "left")
-```
-
 # Variation and covariation {#chap-variation-och-samvariation}
 
 In the previous chapter we went through how covariation is a fundamental criterion for us to be able to argue that a causal relationship exists. In this chapter we will look more closely at variation and covariation and how to use mathematics to estimate these phenomena when we have access to data.

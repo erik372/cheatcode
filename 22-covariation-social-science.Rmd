@@ -377,7 +377,7 @@ $$
 \end{align}
 $$
 
-The slope coefficient indicates the average annual linear GDP growth between year 1800 and 2000 in the US. Our result thus indicate that GDP on average has increased by approximately $41.6 billions per year. The result for the y-intercept$\hat{\alpha}_{1} $indicates that in year zero GDP was minus$ 76,917.8 billion, which is impossible. This result comes from the use of a linear model to describe a development that is not linear.
+The slope coefficient indicates the average annual linear GDP growth between year 1800 and 2000 in the US. Our result thus indicate that GDP on average has increased by approximately \$41.6 billions per year. The result for the y-intercept $\hat{\alpha}_{1}$ indicates that in year zero GDP was minus \$76,917.8 billion, which is impossible. This result comes from the use of a linear model to describe a development that is not linear.
 
 For the second regression model, equation \@ref(eq:ln-bnp-linjar-trend-modell-k19) with the natural log of GDP, we instead get the following result for $\hat{\beta}_{2}$:
 

@@ -1004,7 +1004,7 @@ $$
 
 $$
 \begin{equation}
-\text{R^{2}}=1-\frac{\sum\left(y_{i}-\left(\hat{b}_{0}+\hat{b}_{1}x_{1}+...+\hat{b}_{k}x_{k}+\hat{b}_{k+1}x_{k+1}+\hat{e}_{i}\right)\right)^{2}}{\sum\left(y_{i}-\bar{y}\right)^{2}}
+R^{2}=1-\frac{\sum\left(y_{i}-\left(\hat{b}_{0}+\hat{b}_{1}x_{1}+...+\hat{b}_{k}x_{k}+\hat{b}_{k+1}x_{k+1}+\hat{e}_{i}\right)\right)^{2}}{\sum\left(y_{i}-\bar{y}\right)^{2}}
 \end{equation}
 $$
 
@@ -1039,7 +1039,7 @@ R^{2} & =1-\frac{\sum\left(y_{i}-\hat{y_{i}}\right)^{2}}{\sum\left(y_{i}-\bar{y}
 \end{align}
 $$
 
-We estimate $\bar{R^{2}}$(adjusted $R^{2}$):
+We estimate $\bar{R^{2}}$ (adjusted $R^{2}$):
 
 $$
 \begin{align}

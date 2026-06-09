@@ -23,7 +23,7 @@
 <meta name="author" content="Erik Hegelund" />
 
 
-<meta name="date" content="2026-06-07" />
+<meta name="date" content="2026-06-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2107,7 +2107,7 @@ R^{2} &amp; =1-\frac{\sum\left(y_{i}-\hat{y_{i}}\right)^{2}}{\sum\left(y_{i}-\ba
 <p>where <span class="math inline">\(i\)</span> marks the number of the observation. Now we will add to our regression model in equation <a href="chap-ols-flera-variabler-matriser.html#eq:regmodell-ex-r-2-inflatio">(23.23)</a> another explanatory variable: <span class="math inline">\(x_{k+1}\)</span> and its slope coefficient <span class="math inline">\(b_{k+1}\)</span>. The new regression model will have <span class="math inline">\(k+1\)</span> number of explanatory variables. <span class="math inline">\(R^{2}\)</span> for this new model becomes:</p>
 <p><span class="math display">\[
 \begin{equation}
-\text{R^{2}}=1-\frac{\sum\left(y_{i}-\left(\hat{b}_{0}+\hat{b}_{1}x_{1}+...+\hat{b}_{k}x_{k}+\hat{b}_{k+1}x_{k+1}+\hat{e}_{i}\right)\right)^{2}}{\sum\left(y_{i}-\bar{y}\right)^{2}}
+R^{2}=1-\frac{\sum\left(y_{i}-\left(\hat{b}_{0}+\hat{b}_{1}x_{1}+...+\hat{b}_{k}x_{k}+\hat{b}_{k+1}x_{k+1}+\hat{e}_{i}\right)\right)^{2}}{\sum\left(y_{i}-\bar{y}\right)^{2}}
 \end{equation}
 \]</span></p>
 <p>The squared parenthesis in the numerator increases, or alternatively remains unchanged if the new term <span class="math inline">\(b_{k+1}x_{k+1}=0.\)</span> <span class="math inline">\(R^{2}\)</span> for this new model is equal to or greater than <span class="math inline">\(R^{2}\)</span> for the model with fewer variables. If we add more variables, <span class="math inline">\(R^{2}\)</span> risks increasing even though the new regression model we thereby create cannot explain variations in the explained variable more than the previous regression model.</p>
@@ -2203,7 +2203,7 @@ R^{2} &amp; =1-\frac{\sum\left(y_{i}-\hat{y_{i}}\right)^{2}}{\sum\left(y_{i}-\ba
 R^{2} &amp; =1-\frac{\sum\left(y_{i}-\hat{y_{i}}\right)^{2}}{\sum\left(y_{i}-\bar{y}\right)^{2}}\approx1-\frac{0.34}{5}\approx0.9324
 \end{align}
 \]</span></p>
-<p>We estimate <span class="math inline">\(\bar{R^{2}}\)</span>(adjusted <span class="math inline">\(R^{2}\)</span>):</p>
+<p>We estimate <span class="math inline">\(\bar{R^{2}}\)</span> (adjusted <span class="math inline">\(R^{2}\)</span>):</p>
 <p><span class="math display">\[
 \begin{align}
 \bar{R^{2}} &amp; =1-\left(1-R^{2}\right)\frac{n-1}{n-k-1}\\

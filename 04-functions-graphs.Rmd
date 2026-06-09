@@ -876,7 +876,7 @@ z=f\left(g\left(x\right)\right)=f\circ g\left(x\right)
 \end{equation}
 $$
 
-The definition of $g\left(x\right)$ we get from equation\@ref(eq:g-x-funktion-i-funktion) :
+The definition of $g\left(x\right)$ we get from equation \@ref(eq:g-x-funktion-i-funktion) :
 
 $$
 \begin{align}

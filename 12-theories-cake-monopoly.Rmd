@@ -891,9 +891,8 @@ $TC$ is abbreviation for Total Cost. The company's customers demand goods in rel
 
 $$
 \begin{align}
-\text{Demand: }Q & =20-\frac{P}{5}\\
-\Rightarrow P & =100-2Q\nonumber 
- (\#eq:monopol-efterfragekurvan)
+\text{Demand: }Q & =20-\frac{P}{5} (\#eq:monopol-efterfragekurvan)\\
+\Rightarrow P & =100-2Q\nonumber
 \end{align}
 $$
 
@@ -910,12 +909,11 @@ The monopolist wants to maximize its profit $V$, which is a result of revenue mi
 
 $$
 \begin{align}
-\max_{Q,P}V & =TR-TC\\
+\max_{Q,P}V & =TR-TC (\#eq:monopol-vinst)\\
  & =PQ-TC\nonumber \\
  & =Q\left(100-2Q\right)-\left(10+Q^{2}\right)\nonumber \\
  & =100Q-2Q^{2}-10-Q^{2}\nonumber \\
- & =100Q-3Q^{2}-10\nonumber 
- (\#eq:monopol-vinst)
+ & =100Q-3Q^{2}-10\nonumber
 \end{align}
 $$
 
@@ -945,7 +943,7 @@ P^{*}\left(Q^{*}\right) & =100-2Q^{*}=100-2*\left(16+\frac{2}{3}\right)=66+\frac
 \end{align}
 $$
 
-The company's total profit is given by the function for $V$, equation\@ref(eq:monopol-vinst) :
+The company's total profit is given by the function for $V$, equation \@ref(eq:monopol-vinst) :
 
 $$
 \begin{align}

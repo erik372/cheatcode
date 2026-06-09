@@ -23,7 +23,7 @@
 <meta name="author" content="Erik Hegelund" />
 
 
-<meta name="date" content="2026-06-07" />
+<meta name="date" content="2026-06-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1523,7 +1523,7 @@ Figure 31.8: Results of lm()
 Figure 31.9: Results from lm() and summary()
 </p>
 </div>
-<p>We can also study the results returned from <code>lm()</code> using the functions <code>str()</code> and <code>head()</code>. For example like this: <code>lm_results %&gt;% str()</code>, or <code>head(lm_results)</code>. We can also use the <code>$</code>-operator. Here is an example where we estimate the regression model$ y=a+bx+u <span class="math inline">\(and then retrieve the predicted values for\)</span> <span class="math inline">\(as well as the residuals\)</span> $. We save both of these in two new R objects:</p>
+<p>We can also study the results returned from <code>lm()</code> using the functions <code>str()</code> and <code>head()</code>. For example like this: <code>lm_results %&gt;% str()</code>, or <code>head(lm_results)</code>. We can also use the <code>$</code>-operator. Here is an example where we estimate the regression model <span class="math inline">\(y=a+bx+u\)</span> and then retrieve the predicted values for <span class="math inline">\(\hat{y}\)</span> as well as the residuals <span class="math inline">\(\hat{u}\)</span>. We save both of these in two new R objects:</p>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="ch-r.html#cb249-1" tabindex="-1"></a>lm_results <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x, <span class="at">data =</span> my_table)</span>
 <span id="cb249-2"><a href="ch-r.html#cb249-2" tabindex="-1"></a>predicted_y <span class="ot">&lt;-</span> lm_results<span class="sc">$</span>fitted.values</span>
 <span id="cb249-3"><a href="ch-r.html#cb249-3" tabindex="-1"></a>residuals <span class="ot">&lt;-</span> lm_results<span class="sc">$</span>residuals</span></code></pre></div>

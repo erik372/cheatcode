@@ -910,7 +910,7 @@ lm_results %>% summary()
 knitr::include_graphics("images/r lm summary1.png")
 ```
 
-We can also study the results returned from `lm()` using the functions `str()` and `head()`. For example like this: `lm_results %>% str()`, or `head(lm_results)`. We can also use the ` $`-operator. Here is an example where we estimate the regression model$ y=a+bx+u $and then retrieve the predicted values for$\hat{y} $as well as the residuals$\hat{u} $. We save both of these in two new R objects:
+We can also study the results returned from `lm()` using the functions `str()` and `head()`. For example like this: `lm_results %>% str()`, or `head(lm_results)`. We can also use the `$`-operator. Here is an example where we estimate the regression model $y=a+bx+u$ and then retrieve the predicted values for $\hat{y}$ as well as the residuals $\hat{u}$. We save both of these in two new R objects:
 
 ```r
 lm_results <- lm(y~x, data = my_table)
