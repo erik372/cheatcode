@@ -800,7 +800,7 @@ Table: Differentiation rules (\#tab:deriveringsregler)
 | 5 | $f\left(x\right)=b^{ax}$| $f'_{x}\left(x\right)=\left(a\ln b\right)b^{ax}$|
 | 6 | $f\left(x\right)=e^{g\left(x\right)}$| $f'_{x}\left(x\right)=g'_{x}e^{g\left(x\right)}$|
 | 7 | $f\left(x\right)=e^{ax}$| $f'_{x}\left(x\right)=ae^{ax}$|
-| 8 | $f\left(x\right)=\log x$, $g\left(x\right)=\ln x$| $f'_{x}\left(x\right)=\frac{1}{x\ln b}\text{, där \ensuremath{b} är log bas.}$, $g'_{x}\left(x\right)=\frac{1}{x}$|
+| 8 | $f\left(x\right)=\log x$, $g\left(x\right)=\ln x$| $f'_{x}\left(x\right)=\frac{1}{x\ln b}$, där $b$ är log bas., $g'_{x}\left(x\right)=\frac{1}{x}$|
 
 Table: Differentiation rules for two combined functions (\#tab:deriveringsregler-for-2-funktioner)
 

@@ -648,7 +648,7 @@ The profit is a function of the quantities $x$ and $y$, which can be described a
 
 $$
 \begin{equation}
-\max_{\text{\text{w.r.t\emph{.}} }x,y}V\left(x,y\right)=10x+20y-\left(x^{2}+2y^{2}+10\right)
+\max_{\text{w.r.t. } x,y}V\left(x,y\right)=10x+20y-\left(x^{2}+2y^{2}+10\right)
 \end{equation}
 $$
 
