@@ -1293,6 +1293,67 @@ $$
 
 ## Exercises
 
+```{r 13_integration_ex_8_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "Find the primitive function for \\(h(x)=2x^{3}+4x\\) .\n\n(a) Find (H(x)=int h(x)dx) .\n\n(b) Verify the result by differentiating (H(x)) .\n\n(c) Find the specific primitive function (H(x)) such that (H(0)=3) .",
+      a = "(a) \\(H(x)=\\frac{x^{4}}{2}+2x^{2}+C\\) (b) \\(H'(x)=2x^{3}+4x=h(x)\\) (c) \\(H(0)=C=3\\)\n\n"
+    ),
+    list(
+      q = "Find primitive functions for the following exponential expressions.\n\n(a) (int e^{3x}dx)\n\n(b) (int2^{x}dx)\n\n(c) (intleft(e^{3x}+2^{x}right)dx)",
+      a = "(a) \\(\\frac{e^{3x}}{3}+C\\) (b) \\(\\frac{2^{x}}{\\ln2}+C\\) (c) \\(\\frac{e^{3x}}{3}+\\frac{2^{x}}{\\ln2}+C\\)\n\n"
+    ),
+    list(
+      q = "Calculate the definite integral \\(\\int_{0}^{3}x^{2}dx\\) .\n\n(a) Find the primitive function (G(x)=int x^{2}dx) .\n\n(b) Calculate (G(3)-G(0)) .\n\n(c) What does the result represent geometrically?",
+      a = "(a) \\(G(x)=\\frac{x^{3}}{3}+C\\) (b) \\(G(3)-G(0)=\\frac{27}{3}-0=9\\) (c) The area under the curve \\(y=x^{2}\\)\n\n"
+    ),
+    list(
+      q = "Consider the function \\(f(x)=x-2\\) for \\(0\\leq x\\leq5\\) .\n\n(a) Find the value (x^{*}) where (f(x)=0) .\n\n(b) Calculate the net integral (int_{0}^{5}(x-2)dx) .\n\n(c) Calculate the total area between the curve and the x-axis (treating the area below the x-axis as positive).",
+      a = "(a) \\(x^{*}=2\\) (b) \\(\\int_{0}^{5}(x-2)dx=\\left[\\frac{x^{2}}{2}-2x\\right]_{0}^{5}=2.5\\) (c) \\(-\\int_{0}^{2}(x-2)dx+\\int_{2}^{5}(x-2)dx=2+4.5=6.5\\)\n\n"
+    ),
+    list(
+      q = "Consider the functions \\(g(x)=x+3\\) and \\(h(x)=x^{2}+1\\) on the interval \\([0,2]\\) .\n\n(a) Verify that (g(x)geq h(x)) on ([0,2]) by evaluating at (x=0) and (x=1) .\n\n(b) Set up the integral for the area between the two curves.\n\n(c) Calculate the area.",
+      a = "(a) \\(g(0)=3>h(0)=1\\) (b) \\(A=\\int_{0}^{2}(-x^{2}+x+2)dx\\) (c) \\(\\left[-\\frac{x^{3}}{3}+\\frac{x^{2}}{2}+2x\\right]_{0}^{2}=\\frac{10}{3}\\approx3.33\\)\n\n"
+    ),
+    list(
+      q = "Consider the function \\(s(x)=3/x+1\\) .\n\n(a) Find the primitive function (S(x)) .\n\n(b) Find the specific primitive function (S(x)) such that (S(1)=5) .\n\n(c) Calculate (int_{1}^{e}s(x)dx) .",
+      a = "(a) \\(S(x)=3\\ln|x|+x+C\\) (b) \\(S(1)=0+1+C=5\\Rightarrow C=4\\) (c) \\(S(e)-S(1)=(3+e+C)-(1+C)=2+e\\approx4.72\\)\n\n"
+    ),
+    list(
+      q = "Find the primitive function \\(H(x)=\\int(6x^{2}-4x+1)dx\\) .\n\n(a) Find (H(x)) .\n\n(b) Find the specific primitive function such that (H(0)=2) .\n\n(c) Calculate the definite integral (int_{0}^{2}(6x^{2}-4x+1)dx) .",
+      a = "(a) \\(H(x)=2x^{3}-2x^{2}+x+C\\) (b) \\(H(0)=C=2\\) (c) \\(\\left[2x^{3}-2x^{2}+x\\right]_{0}^{2}=16-8+2=10\\)\n\n"
+    ),
+    list(
+      q = "A firm's marginal cost is \\(MC(q)=3q^{2}-4q+5\\) and fixed cost is \\(FC=20\\) .\n\n(a) Find the total cost function (TC(q)) by integrating (MC(q)) and adding (FC) .\n\n(b) Calculate (TC(4)) .\n\n(c) Calculate the total variable cost when output increases from (q=1) to (q=3) .",
+      a = "(a) \\(TC(q)=q^{3}-2q^{2}+5q+20\\) (b) \\(TC(4)=64-32+20+20=72\\) (c) \\(\\left[q^{3}-2q^{2}+5q\\right]_{1}^{3}=24-4=20\\)\n\n"
+    ),
+    list(
+      q = "The demand function for a good is \\(p(q)=18-3q\\) and the market price is \\(p^{*}=6\\) .\n\n(a) Find the equilibrium quantity (q^{*}) where (p(q^{*})=p^{*}) .\n\n(b) Set up the integral for the consumer surplus (CS=int_{0}^{q^{*}}left(p(q)-p^{*}right)dq) .\n\n(c) Calculate (CS) .",
+      a = "(a) \\(18-3q^{*}=6\\Rightarrow q^{*}=4\\) (b) \\(CS=\\int_{0}^{4}(12-3q)dq\\) (c) \\(\\left[12q-\\frac{3q^{2}}{2}\\right]_{0}^{4}=48-24=24\\)\n\n"
+    ),
+    list(
+      q = "Consider the function \\(k(x)=2e^{x}+\\frac{3}{x}\\) for \\(x>0\\) .\n\n(a) Find the primitive function (K(x)=int k(x)dx) .\n\n(b) Find the specific primitive function such that (K(1)=4) .\n\n(c) Calculate (int_{1}^{2}k(x)dx) .",
+      a = "(a) \\(K(x)=2e^{x}+3\\ln x+C\\) (b) \\(K(1)=2e+C=4\\Rightarrow C=4-2e\\) (c) \\(\\left[2e^{x}+3\\ln x\\right]_{1}^{2}=2e^{2}+3\\ln2-2e\\approx11.4\\)\n\n"
+    ),
+    list(
+      q = "Consider \\(f(x)=x^{2}-2x\\) on the interval \\([0,3]\\) .\n\n(a) Find the values where (f(x)=0) .\n\n(b) Calculate the net integral (int_{0}^{3}(x^{2}-2x)dx) .\n\n(c) Calculate the total area between (f(x)) and the (x) -axis (treating all area as positive).",
+      a = "(a) \\(x=0\\) (b) \\(\\left[\\frac{x^{3}}{3}-x^{2}\\right]_{0}^{3}=9-9=0\\) (c) \\(\\int_{0}^{2}(2x-x^{2})dx=\\frac{4}{3}\\)\n\n"
+    ),
+    list(
+      q = "The Lorenz curve \\(L(x)=x^{3}\\) describes the income distribution in a population, where \\(x\\in[0,1]\\) is the cumulative population share and \\(L(x)\\) is the corresponding income share.\n\n(a) What income share does the poorest 50% receive? Calculate (L(0.5)) .\n\n(b) Calculate (int_{0}^{1}L(x)dx) .\n\n(c) The Gini coefficient is (G=1-2int_{0}^{1}L(x)dx) . Calculate (G) and interpret ((G=0) is perfect equality, (G=1) maximum inequality).",
+      a = "(a) \\(L(0.5)=0.125\\) (b) \\(\\int_{0}^{1}x^{3}dx=\\frac{1}{4}\\) (c) \\(G=1-2\\cdot\\frac{1}{4}=0.5\\)\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-8" class="exercises-container"></div>
 <script>
 (function(){
@@ -1354,6 +1415,7 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 
 

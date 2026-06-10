@@ -537,6 +537,43 @@ Sometimes linear equations fit better and sometimes worse. Many times it can be 
 
 ## Exercises
 
+```{r 08_theories_life_death_dating_ex_3_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "The supply and demand for a good can be described with the equation system \\(q_{\\text{supply}}=3p\\)\n\n(a) Find the equilibrium price (p^{*})\n\n(b) Suppose supply changes to (q_{text{supply}}=5p) Find the new equilibrium.\n\n(c) With the original supply (q_{text{supply}}=3p) Find the new equilibrium.",
+      a = "(a) \\(3p=20-2p\\Rightarrow p^{*}=4\\) , (b) \\(5p=20-2p\\Rightarrow p^{*}=20/7\\approx2.86\\) , (c) \\(3p=30-2p\\Rightarrow p^{*}=6\\)\n\n"
+    ),
+    list(
+      q = "A scout organization has two strategies for cookie sales. Strategy 1 gives a profit of 20 USD per tin: \\(\\text{profit}_{1}=20\\times\\text{cookies}\\) Strategy 2 gives 50 USD per tin but incurs a fixed cost of 1,000 USD: \\(\\text{profit}_{2}=50\\times\\text{cookies}-1,000\\)\n\n(a) At how many sold tins are the two strategies equivalent?\n\n(b) What is the profit at that number of tins?\n\n(c) If the scouts expect to sell 40 tins, which strategy gives higher profit?",
+      a = "(a) \\(20c=50c-1,000\\Rightarrow c^{*}=100/3\\approx33.3\\) , (b) \\(\\text{profit}\\approx667\\) , (c) Strategy 1: 800 USD, Strategy 2: 1,000 USD; Strategy 2 gives higher profit.\n\n"
+    ),
+    list(
+      q = "Erik is choosing between two dating strategies. Strategy 1 (dating app): \\(\\text{happiness}=30-2d\\) Strategy 2 (friend's friend): \\(\\text{happiness}=80-22d\\)\n\n(a) At how many dates (d^{*})\n\n(b) What is the happiness level at (d^{*})\n\n(c) If Erik goes on 1 date, which strategy gives higher happiness?",
+      a = "(a) \\(30-2d=80-22d\\Rightarrow d^{*}=2.5\\) , (b) \\(\\text{happiness}=25\\) , (c) Strategy 1: 28, Strategy 2: 58; Strategy 2 gives higher happiness.\n\n"
+    ),
+    list(
+      q = "An unregulated market has supply \\(q=2+p\\)\n\n(a) Find the free-market equilibrium (left(q^{*},p^{*}right))\n\n(b) When social costs are included, supply changes to (q=-4+p) Find the new equilibrium.\n\n(c) By how much does the price change when social costs are included?",
+      a = "(a) \\(2+p=20-p\\Rightarrow p^{*}=9\\) , (b) \\(-4+p=20-p\\Rightarrow p^{*}=12\\) , (c) Price increases by \\(3\\)\n\n"
+    ),
+    list(
+      q = "In a free market, supply and demand for mathematics education are \\(q=1+p\\)\n\n(a) Find the free-market equilibrium (left(q^{*},p^{*}right))\n\n(b) With social benefit included, demand changes to (q=16-2p) Find the new equilibrium.\n\n(c) How does equilibrium quantity change between (a) and (b)?",
+      a = "(a) \\(1+p=7-2p\\Rightarrow p^{*}=2\\) , (b) \\(1+p=16-2p\\Rightarrow p^{*}=5\\) , (c) Quantity increases from 3 to 6.\n\n"
+    ),
+    list(
+      q = "Consider the GDP model \\(Y=C+G+I+X-M\\)\n\n(a) Calculate (Y)\n\n(b) If investment (I)\n\n(c) Using the original values, if import (M)",
+      a = "(a) \\(Y=100+80+50+40-30=240\\) , (b) \\(Y=250\\) , (c) \\(Y=220\\)\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-3" class="exercises-container"></div>
 <script>
 (function(){
@@ -592,6 +629,7 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 
 

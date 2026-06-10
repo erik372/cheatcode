@@ -274,6 +274,67 @@ This result indicates a positive correlation. High values of $x$ coincide with h
 
 ## Exercises
 
+```{r 20_causality_covariation_ex_1_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "An experiment shows that the treatment group has average outcome \\(\\bar{Y}_{B}=80\\) and the control group has \\(\\bar{Y}_{K}=60\\) .\n\n(a) What is the estimated treatment effect (hat{tau}=bar{Y}_{B}-bar{Y}_{K}) ?\n\n(b) If the counterfactual outcome for the treatment group would have been (bar{Y}_{B}^{cf}=65) , what is the true causal effect?\n\n(c) What does the difference between (a) and (b) represent?",
+      a = "(a) \\(\\hat{\\tau}=80-60=20\\) , (b) \\(\\tau=80-65=15\\) , (c) selection bias or confounding.\n\n"
+    ),
+    list(
+      q = "A researcher assigns 50 students randomly to a new reading program (treatment group) and 50 students to the standard curriculum (control group).\n\n(a) What is the treatment in this experiment?\n\n(b) Why is random assignment used instead of letting students choose their group?\n\n(c) Is this an experiment or an observational study?",
+      a = "(a) the reading program, (b) ensures groups are comparable on average, (c) experiment.\n\n"
+    ),
+    list(
+      q = "A dataset shows that as years of education \\(x\\) increase, average income \\(y\\) also increases. Family wealth \\(z\\) correlates with both variables.\n\n(a) Is the covariation between (x) and (y) positive or negative?\n\n(b) Does this covariation prove that education causes higher income?\n\n(c) What role does (z) play in the analysis?",
+      a = "(a) positive, (b) no — covariation is not proof of causation, (c) a potential confounder.\n\n"
+    ),
+    list(
+      q = "Classify each variable as nominal, ordinal, interval, or ratio data:\n\n(a) Annual income in dollars.\n\n(b) Education level (primary / secondary / tertiary).\n\n(c) Temperature in Celsius.",
+      a = "(a) ratio, (b) ordinal, (c) interval.\n\n"
+    ),
+    list(
+      q = "A researcher studies 300 randomly selected Swedish adults to estimate average weekly screen time. The goal is to draw conclusions about all Swedish adults.\n\n(a) What is the sample in this study?\n\n(b) What is the population?\n\n(c) What could the superpopulation be?",
+      a = "(a) the 300 sampled adults, (b) all Swedish adults, (c) all comparable future populations (e.g. future Swedish adults).\n\n"
+    ),
+    list(
+      q = "A company gives voluntary employees access to a wellness program and later compares their sick-day rates with employees who did not join.\n\n(a) Is this an experiment or an observational study?\n\n(b) What selection problem may arise when comparing the two groups?\n\n(c) How could the study design be improved to reduce this problem?",
+      a = "(a) observational study, (b) self-selection bias (healthier employees may be more likely to join), (c) randomize enrollment in the program.\n\n"
+    ),
+    list(
+      q = "A new traffic law is introduced in region A, while region B introduces the same law two years later due to an administrative delay.\n\n(a) What is the treatment in this quasi-experiment?\n\n(b) Which region acts as the control group during the first two years?\n\n(c) What assumption must hold for this to be a valid quasi-experiment?",
+      a = "(a) the new traffic law, (b) region B, (c) the two regions would have had parallel trends without the law.\n\n"
+    ),
+    list(
+      q = "Four treated observations have outcomes 9, 7, 8, 6 and four control observations have outcomes 5, 4, 6, 5.\n\n(a) Calculate the group means (bar{Y}_{B}) and (bar{Y}_{K}) .\n\n(b) What is the estimated treatment effect (hat{tau}=bar{Y}_{B}-bar{Y}_{K}) ?\n\n(c) Under what condition is (hat{tau}) an unbiased estimate of the causal effect?",
+      a = "(a) \\(\\bar{Y}_{B}=7.5,\\bar{Y}_{K}=5.0\\) , (b) \\(\\hat{\\tau}=2.5\\) , (c) random assignment to treatment and control groups.\n\n"
+    ),
+    list(
+      q = "A medical study compares patients who chose to take a new supplement with those who did not, and finds that supplement-takers have better health outcomes.\n\n(a) What is the potential source of bias in this study?\n\n(b) How could randomization solve this problem?\n\n(c) What is this type of bias commonly called?",
+      a = "(a) selection bias (healthier individuals may self-select into treatment), (b) randomization removes systematic differences between groups, (c) selection bias.\n\n"
+    ),
+    list(
+      q = "A researcher takes a sample of \\(n=50\\) from a population of \\(N=10000\\) . The sample mean is \\(\\bar{x}=42\\) .\n\n(a) What fraction of the population is sampled?\n\n(b) What parameter does (bar{x}=42) estimate if the sampling is random?\n\n(c) Why is random sampling important for the representativeness of the sample?",
+      a = "(a) \\(n/N=50/10000=0.005\\) , (b) the population mean \\(\\mu\\) , (c) ensures the sample is representative of the population.\n\n"
+    ),
+    list(
+      q = "A study finds that cities with more hospitals have higher mortality rates.\n\n(a) Is this positive or negative covariation between hospitals and mortality?\n\n(b) Does this mean that hospitals cause deaths?\n\n(c) What is the most likely explanation for this pattern?",
+      a = "(a) positive, (b) no — reverse causation, (c) hospitals are located where there is more illness.\n\n"
+    ),
+    list(
+      q = "A study shows that students who eat breakfast score higher on exams than those who skip it. A researcher concludes that breakfast improves exam performance.\n\n(a) What is the treatment?\n\n(b) Name one possible confounding variable.\n\n(c) How could a randomized controlled trial help establish causality?",
+      a = "(a) eating breakfast, (b) socioeconomic status, (c) randomly assign students to eat or skip breakfast ensuring groups are comparable.\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-1" class="exercises-container"></div>
 <script>
 (function(){
@@ -335,10 +396,69 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
+```{r 20_causality_covariation_ex_2_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "Given the observations \\(x=\\{1,5,9\\}\\) :\n\n(a) Calculate the mean (bar{x}=frac{1}{n}sum x_{i}) .\n\n(b) Calculate the sample variance (var(x)=frac{1}{n-1}sum(x_{i}-bar{x})^{2}) .\n\n(c) Calculate the standard deviation (s_{x}=sqrt{var(x)}) .",
+      a = "(a) \\(\\bar{x}=5\\) , (b) \\(var(x)=16\\) , (c) \\(s_{x}=4\\) .\n\n"
+    ),
+    list(
+      q = "Given the observations \\(x=\\{3,6,9,12\\}\\) :\n\n(a) Calculate the mean (bar{x}) .\n\n(b) Find the median.\n\n(c) What is the mode of the dataset ({3,6,6,9,12}) ?",
+      a = "(a) \\(\\bar{x}=7.5\\) , (b) median \\(=7.5\\) , (c) mode \\(=6\\) .\n\n"
+    ),
+    list(
+      q = "Given \\(x=\\{1,5,9\\}\\) with \\(\\bar{x}=5\\) and \\(s_{x}=4\\) , calculate the z-score \\(z_{i}=\\frac{x_{i}-\\bar{x}}{s_{x}}\\) for each observation:\n\n(a) (x_{1}=1) .\n\n(b) (x_{2}=5) .\n\n(c) (x_{3}=9) .",
+      a = "(a) \\(z_{1}=-1\\) , (b) \\(z_{2}=0\\) , (c) \\(z_{3}=1\\) .\n\n"
+    ),
+    list(
+      q = "Given \\(x=\\{2,4,6,10\\}\\) , calculate the normalized value \\(x_{norm}=\\frac{x_{i}-x_{min}}{x_{max}-x_{min}}\\) :\n\n(a) What are (x_{min}) and (x_{max}) ?\n\n(b) What is the normalized value of (x_{2}=4) ?\n\n(c) What is the normalized value of (x_{3}=6) ?",
+      a = "(a) \\(x_{min}=2,x_{max}=10\\) , (b) \\(x_{norm}=0.25\\) , (c) \\(x_{norm}=0.5\\) .\n\n"
+    ),
+    list(
+      q = "Describe the sign of covariance in each case:\n\n(a) Income increases as education increases.\n\n(b) Crime rates are higher in areas with more police (due to reverse causation).\n\n(c) Two variables have (cov(x,y)=0) . What does this indicate?",
+      a = "(a) positive, (b) positive, (c) no linear covariation between the variables.\n\n"
+    ),
+    list(
+      q = "Given \\(x=\\{1,3,5\\}\\) and \\(y=\\{2,6,10\\}\\) :\n\n(a) Calculate (bar{x}) and (bar{y}) .\n\n(b) Calculate (cov(x,y)=frac{1}{n-1}sum(x_{i}-bar{x})(y_{i}-bar{y})) .\n\n(c) What does the sign of (cov(x,y)) indicate?",
+      a = "(a) \\(\\bar{x}=3,\\bar{y}=6\\) , (b) \\(cov(x,y)=8\\) , (c) positive covariation.\n\n"
+    ),
+    list(
+      q = "Given \\(x=\\{1,3,5\\}\\) and \\(y=\\{10,6,2\\}\\) :\n\n(a) Calculate (bar{x}) and (bar{y}) .\n\n(b) Calculate (cov(x,y)) .\n\n(c) Interpret the result.",
+      a = "(a) \\(\\bar{x}=3,\\bar{y}=6\\) , (b) \\(cov(x,y)=-8\\) , (c) negative covariation (y decreases as x increases).\n\n"
+    ),
+    list(
+      q = "For \\(x=\\{1,3,5\\}\\) and \\(y=\\{2,6,10\\}\\) with \\(s_{x}=2\\) , \\(s_{y}=4\\) and \\(cov(x,y)=8\\) :\n\n(a) Calculate the correlation coefficient (r_{xy}=frac{cov(x,y)}{s_{x}s_{y}}) .\n\n(b) What range can (r_{xy}) take?\n\n(c) What does (r_{xy}=1) mean?",
+      a = "(a) \\(r_{xy}=1\\) , (b) \\(-1\\leq r_{xy}\\leq1\\) , (c) perfect positive linear covariation.\n\n"
+    ),
+    list(
+      q = "For \\(x=\\{1,3,5\\}\\) and \\(y=\\{10,6,2\\}\\) with \\(s_{x}=2\\) , \\(s_{y}=4\\) and \\(cov(x,y)=-8\\) :\n\n(a) Calculate (r_{xy}) .\n\n(b) Interpret the value.\n\n(c) Does (r_{xy}=-1) imply causation?",
+      a = "(a) \\(r_{xy}=-1\\) , (b) perfect negative linear covariation, (c) no — correlation does not imply causation.\n\n"
+    ),
+    list(
+      q = "A variable \\(x\\) has \\(\\bar{x}=10\\) and \\(s_{x}=3\\) .\n\n(a) What z-score does (x_{i}=13) get?\n\n(b) What z-score does (x_{i}=7) get?\n\n(c) What original value has z-score (z=2) ?",
+      a = "(a) \\(z=1\\) , (b) \\(z=-1\\) , (c) \\(x_{i}=16\\) .\n\n"
+    ),
+    list(
+      q = "For \\(x=\\{2,4,6\\}\\) and \\(y=\\{5,5,5\\}\\) :\n\n(a) Calculate (bar{x}) and (bar{y}) .\n\n(b) Calculate (cov(x,y)) .\n\n(c) What does (cov(x,y)=0) tell us about the covariation?",
+      a = "(a) \\(\\bar{x}=4,\\bar{y}=5\\) , (b) \\(cov(x,y)=0\\) , (c) no linear covariation between x and y.\n\n"
+    ),
+    list(
+      q = "Three countries have GDP \\(x=\\{10,20,30\\}\\) (thousands USD) and happiness index \\(y=\\{4,6,8\\}\\) .\n\n(a) Calculate (bar{x}) and (bar{y}) .\n\n(b) Calculate (cov(x,y)) .\n\n(c) Calculate (r_{xy}) given (s_{x}=10) and (s_{y}=2) .",
+      a = "(a) \\(\\bar{x}=20,\\bar{y}=6\\) , (b) \\(cov(x,y)=20\\) , (c) \\(r_{xy}=1\\) .\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
 
-
-
+```{=html}
 <div id="ex-2" class="exercises-container"></div>
 <script>
 (function(){
@@ -400,6 +520,7 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 
 

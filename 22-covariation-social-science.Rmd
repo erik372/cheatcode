@@ -735,6 +735,67 @@ Hopefully this is an illustrative example of how statistical methods can be used
 
 ## Exercises
 
+```{r 22_covariation_social_science_ex_4_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "A regression of life expectancy \\(Y\\) on GDP per capita \\(X\\) (thousands USD) gives \\(\\hat{Y}=50+0.4X\\) .\n\n(a) What is the predicted life expectancy for a country with (X=30) ?\n\n(b) Interpret the slope coefficient (hat{b}=0.4) .\n\n(c) Does this regression prove that higher GDP causes longer life expectancy?",
+      a = "(a) \\(\\hat{Y}=50+0.4\\times30=62\\) , (b) each additional 1000 USD in GDP per capita is associated with 0.4 years higher life expectancy on average, (c) no — correlation does not imply causation.\n\n"
+    ),
+    list(
+      q = "Three countries have GDP \\(X=\\{10,20,30\\}\\) (thousands USD) and life expectancy \\(Y=\\{60,65,70\\}\\) .\n\n(a) Calculate (bar{X}) and (bar{Y}) .\n\n(b) Calculate (hat{b}) .\n\n(c) Calculate (hat{a}) and write the regression equation.",
+      a = "(a) \\(\\bar{X}=20,\\bar{Y}=65\\) , (b) \\(\\hat{b}=0.5\\) , (c) \\(\\hat{a}=55,\\hat{Y}=55+0.5X\\) .\n\n"
+    ),
+    list(
+      q = "A regression of employment \\(Y\\) on year \\(X\\) gives \\(\\hat{Y}=-3000+2X\\) .\n\n(a) What is the predicted employment in year 2010?\n\n(b) What is the predicted employment in year 2020?\n\n(c) Interpret the slope (hat{b}=2) .",
+      a = "(a) \\(\\hat{Y}=20\\) , (b) \\(\\hat{Y}=40\\) , (c) employment increases by 2 units per year on average.\n\n"
+    ),
+    list(
+      q = "A regression of happiness on GDP gives \\(R^{2}=0.85\\) .\n\n(a) What does (R^{2}=0.85) tell us?\n\n(b) What does the remaining 15% represent?\n\n(c) Does a high (R^{2}) prove causation?",
+      a = "(a) 85% of the variation in happiness is explained by GDP, (b) variation in happiness not explained by GDP, (c) no.\n\n"
+    ),
+    list(
+      q = "Describe the expected sign of \\(\\hat{b}\\) for each relationship:\n\n(a) Income (X) and years of education (Y) .\n\n(b) Temperature (X) and hot chocolate sales (Y) .\n\n(c) Number of doctors per capita (X) and hospital mortality (Y) .",
+      a = "(a) positive, (b) negative, (c) positive (reverse causation: doctors are placed where there is more illness).\n\n"
+    ),
+    list(
+      q = "For 4 countries with \\(X=\\{5,10,15,20\\}\\) and \\(Y=\\{40,50,60,70\\}\\) :\n\n(a) Calculate (bar{X}) and (bar{Y}) .\n\n(b) Calculate (hat{b}) .\n\n(c) Calculate (hat{a}) and write the regression equation.",
+      a = "(a) \\(\\bar{X}=12.5,\\bar{Y}=55\\) , (b) \\(\\hat{b}=2\\) , (c) \\(\\hat{a}=30,\\hat{Y}=30+2X\\) .\n\n"
+    ),
+    list(
+      q = "A regression of CO \\(_{2}\\) emissions \\(Y\\) on year \\(X\\) gives \\(\\hat{Y}=-18000+10X\\) .\n\n(a) What is the predicted emission in year 2000?\n\n(b) Interpret the slope (hat{b}=10) .\n\n(c) Is the estimated trend necessarily a causal relationship?",
+      a = "(a) \\(\\hat{Y}=2000\\) , (b) emissions increase by 10 units per year on average, (c) no — it is a descriptive trend, not necessarily causal.\n\n"
+    ),
+    list(
+      q = "Two OLS regression models for the same data have \\(R_{\\text{model 1}}^{2}=0.9\\) and \\(R_{\\text{model 2}}^{2}=0.3\\) with \\(TSS=100\\) .\n\n(a) Which model fits the data better?\n\n(b) What is (SSE) for model 1?\n\n(c) What is (SSE) for model 2?",
+      a = "(a) model 1, (b) \\(SSE_{1}=10\\) , (c) \\(SSE_{2}=70\\) .\n\n"
+    ),
+    list(
+      q = "A study finds that countries with more dentists per capita also have higher rates of heart disease.\n\n(a) Is the covariance between dentists and heart disease positive or negative?\n\n(b) Does this mean dentists cause heart disease?\n\n(c) What is a possible confounding variable?",
+      a = "(a) positive, (b) no — confounding variable, (c) wealth (richer countries have more dentists and also more heart disease risk factors).\n\n"
+    ),
+    list(
+      q = "A regression of ice cream sales \\(Y\\) (dollars) on temperature \\(X\\) (Celsius) gives \\(\\hat{Y}=100+20X\\) .\n\n(a) What are predicted sales when (X=25) ?\n\n(b) What does the intercept (hat{a}=100) represent?\n\n(c) If actual sales are 700 when (X=25) , what is the residual?",
+      a = "(a) \\(\\hat{Y}=600\\) , (b) predicted sales at 0°C are 100 dollars, (c) \\(\\hat{V}=100\\) .\n\n"
+    ),
+    list(
+      q = "A pairwise correlation analysis of film characters shows: characters A and B appear together in \\(r=0.9\\) of scenes, characters A and C in \\(r=0.1\\) of scenes, and characters B and C in \\(r=-0.2\\) .\n\n(a) Which pair of characters most often appears together?\n\n(b) What does (r=-0.2) between B and C indicate?\n\n(c) What type of data is used in this kind of analysis?",
+      a = "(a) A and B, (b) B and C tend not to appear together, (c) binary co-occurrence data.\n\n"
+    ),
+    list(
+      q = "A linear time trend gives \\(\\hat{Y}=10+3X\\) where \\(X\\) is years since 2000.\n\n(a) What is the predicted value in year 2000 (when (X=0) )?\n\n(b) What is the predicted value in year 2010 (when (X=10) )?\n\n(c) Interpret the slope (hat{b}=3) .",
+      a = "(a) \\(\\hat{Y}=10\\) , (b) \\(\\hat{Y}=40\\) , (c) \\(Y\\) increases by 3 units per year on average.\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-4" class="exercises-container"></div>
 <script>
 (function(){
@@ -796,6 +857,7 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 
 

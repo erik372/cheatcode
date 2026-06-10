@@ -8,3 +8,7 @@ _bookdown_files/
 *.log
 the-cheat-code.tex
 the-cheat-code.md
+.obsidian/
+*.tmp.*
+_book/
+file*/

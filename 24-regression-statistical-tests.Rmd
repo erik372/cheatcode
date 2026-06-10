@@ -285,6 +285,67 @@ Statistical significance depends on the ratio $\hat{b}/se(\hat{b})$. With a very
 
 ## Exercises {#sec-ch25-exercises}
 
+```{r 24_regression_statistical_tests_ex_25_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "Consider the population regression model \\(Y = \\alpha + \\beta X + \\varepsilon\\).\n\n(a) What does \\(\\beta\\) represent?\n\n(b) What does \\(\\varepsilon\\) represent?\n\n(c) What is the difference between \\(\\beta\\) (population) and \\(\\hat{b}\\) (sample estimate)?",
+      a = "(a) \\(\\beta\\) is the effect of a one-unit increase in \\(X\\) on \\(Y\\) in the population — the true slope.\n\n(b) \\(\\varepsilon\\) is the random error term capturing unobserved factors that affect \\(Y\\) beyond \\(X\\).\n\n(c) \\(\\beta\\) is a fixed but unknown population parameter; \\(\\hat{b}\\) is a random estimate computed from sample data that varies from sample to sample."
+    ),
+    list(
+      q = "OLS gives \\(\\hat{b} = 3\\) with \\(se(\\hat{b}) = 1.5\\). Test \\(H_0: b = 0\\).\n\n(a) Compute \\(t = \\hat{b}/se(\\hat{b})\\).\n\n(b) With critical value \\(t^* = 1.96\\), reject \\(H_0\\)?\n\n(c) Construct a 95% confidence interval \\(\\hat{b} \\pm 1.96 \\cdot se(\\hat{b})\\).",
+      a = "(a) \\(t = 3/1.5 = 2\\).\n\n(b) \\(2 > 1.96\\), so yes, reject \\(H_0\\).\n\n(c) \\(3 \\pm 1.96 \\times 1.5 = (0.06,\\; 5.94)\\). The CI does not contain zero, consistent with rejecting \\(H_0\\)."
+    ),
+    list(
+      q = "Simple regression with \\(n = 20\\) observations and \\(k = 1\\) regressor. The degrees of freedom are \\(df = n - k - 1\\).\n\n(a) What are the degrees of freedom?\n\n(b) OLS gives \\(\\hat{b} = 2\\), \\(se(\\hat{b}) = 0.8\\). Compute \\(t\\).\n\n(c) The critical value \\(t^*(df = 18,\\, \\alpha = 0.05) \\approx 2.10\\). Reject \\(H_0: b = 0\\)?",
+      a = "(a) \\(df = 20 - 1 - 1 = 18\\).\n\n(b) \\(t = 2/0.8 = 2.5\\).\n\n(c) \\(2.5 > 2.10\\), so yes, reject \\(H_0\\)."
+    ),
+    list(
+      q = "Estimated model: \\(\\hat{y} = 5 + 2x\\), \\(t = 4\\), \\(p < 0.001\\).\n\n(a) Interpret the slope \\(\\hat{b} = 2\\).\n\n(b) What does \\(t = 4\\) tell us?\n\n(c) Is the slope statistically significant at \\(\\alpha = 0.05\\)?",
+      a = "(a) A one-unit increase in \\(X\\) is associated with a 2-unit increase in \\(Y\\).\n\n(b) \\(\\hat{b}\\) is 4 standard errors from zero — strong evidence against \\(H_0: b = 0\\).\n\n(c) Yes. With \\(t = 4\\) and \\(p < 0.001\\), the slope is statistically significant at any conventional level."
+    ),
+    list(
+      q = "How does the precision of \\(\\hat{b}\\) change in each case?\n\n(a) The sample size \\(n\\) increases.\n\n(b) The residual variance \\(s_e^2\\) increases.\n\n(c) The variance of \\(X\\) increases.",
+      a = "(a) \\(se(\\hat{b})\\) decreases — more observations yield more precise estimates.\n\n(b) \\(se(\\hat{b})\\) increases — greater unexplained variation makes the slope less precise.\n\n(c) \\(se(\\hat{b})\\) decreases — more variation in \\(X\\) means more information about the slope, improving precision."
+    ),
+    list(
+      q = "Test \\(H_0: b = 0\\) vs \\(H_1: b > 0\\) (one-tailed). \\(\\hat{b} = 1.5\\), \\(se(\\hat{b}) = 0.8\\).\n\n(a) Compute \\(t\\).\n\n(b) One-tailed critical value at \\(\\alpha = 0.05\\) is 1.64. Reject \\(H_0\\)?\n\n(c) Two-tailed critical value at \\(\\alpha = 0.05\\) is 1.96. Reject \\(H_0\\) in a two-sided test?",
+      a = "(a) \\(t = 1.5/0.8 = 1.875\\).\n\n(b) \\(1.875 > 1.64\\), so yes, reject \\(H_0\\) in the one-tailed test.\n\n(c) \\(1.875 < 1.96\\), so no, do not reject \\(H_0\\) in the two-sided test. The result is significant in one direction but not two-sided."
+    ),
+    list(
+      q = "OLS gives \\(\\hat{b} = 4\\), \\(se(\\hat{b}) = 1\\), \\(t^* \\approx 2\\) (large \\(df\\), \\(\\alpha = 0.05\\)).\n\n(a) Construct the 95% CI: \\(\\hat{b} \\pm 2 \\cdot se(\\hat{b})\\).\n\n(b) Does the CI contain 0? What does this tell us about significance?\n\n(c) Does the CI contain 3?",
+      a = "(a) \\(4 \\pm 2 \\times 1 = (2,\\; 6)\\).\n\n(b) 0 is not in \\((2, 6)\\) — \\(\\hat{b}\\) is statistically significant at \\(\\alpha = 0.05\\).\n\n(c) Yes, 3 is in \\((2, 6)\\), so we cannot reject \\(H_0: b = 3\\) at this significance level."
+    ),
+    list(
+      q = "\\(\\hat{b} = 0.5\\), \\(se(\\hat{b}) = 0.3\\).\n\n(a) Compute \\(t\\).\n\n(b) With two-tailed critical value 1.96 \\((\\alpha = 0.05)\\), reject \\(H_0: b = 0\\)?\n\n(c) With critical value 1.64 \\((\\alpha = 0.10)\\), reject \\(H_0\\)?",
+      a = "(a) \\(t = 0.5/0.3 \\approx 1.67\\).\n\n(b) \\(1.67 1.64\\), reject at \\(\\alpha = 0.10\\). The result is sensitive to the chosen significance level."
+    ),
+    list(
+      q = "Model: \\(\\hat{y} = 1 + 3x_1 + 2x_2\\), \\(se(\\hat{b}_1) = 1\\), \\(se(\\hat{b}_2) = 2.5\\).\n\n(a) Compute \\(t_1\\) and \\(t_2\\).\n\n(b) Which coefficient is statistically significant at \\(\\alpha = 0.05\\) (critical value 1.96)?\n\n(c) Interpret \\(\\hat{b}_1 = 3\\) ceteris paribus.",
+      a = "(a) \\(t_1 = 3/1 = 3\\), \\(t_2 = 2/2.5 = 0.8\\).\n\n(b) Only \\(\\hat{b}_1\\) is significant (\\(t_1 = 3 > 1.96\\)); \\(\\hat{b}_2\\) is not (\\(t_2 = 0.8 < 1.96\\)).\n\n(c) A one-unit increase in \\(X_1\\) increases \\(Y\\) by 3 units, holding \\(X_2\\) constant."
+    ),
+    list(
+      q = "\\(n = 50\\), \\(k = 1\\), \\(R^2 = 0.30\\). The F-statistic is \\(F = \\frac{R^2 \\cdot (n-k-1)}{(1-R^2) \\cdot k}\\).\n\n(a) Compute \\(F\\).\n\n(b) With critical value \\(F^*(1, 48) \\approx 4.04\\), reject \\(H_0\\) (all slopes = 0)?\n\n(c) What does the F-test test in simple regression?",
+      a = "(a) \\(F = 0.30 \\times 48 / (0.70 \\times 1) \\approx 20.6\\).\n\n(b) \\(20.6 > 4.04\\), so yes, reject \\(H_0\\).\n\n(c) In simple regression the F-test tests whether the slope equals zero — the same hypothesis as the t-test (and \\(F = t^2\\))."
+    ),
+    list(
+      q = "A coefficient \\(\\hat{b} = 0.001\\), \\(se = 0.0003\\), \\(t = 3.33\\), \\(p = 0.001\\).\n\n(a) Is the coefficient statistically significant at \\(\\alpha = 0.05\\)?\n\n(b) A 1-unit increase in \\(X\\) increases \\(Y\\) by 0.001 units. Is this economically significant?\n\n(c) How can statistical significance coexist with negligible economic significance?",
+      a = "(a) Yes — \\(t = 3.33 > 1.96\\), so statistically significant at \\(\\alpha = 0.05\\).\n\n(b) Debatable — it depends on the scale of \\(X\\) and \\(Y\\). A 0.001-unit effect may be negligible in practice.\n\n(c) Very large \\(n\\) makes even tiny effects statistically detectable. Statistical significance tells us the effect is real; it does not tell us the effect is important."
+    ),
+    list(
+      q = "A regression is run with \\(n = 100\\), \\(\\hat{b} = 5\\), \\(se(\\hat{b}) = 2\\).\n\n(a) Compute \\(t\\).\n\n(b) Construct a 95% CI (use \\(t^* \\approx 1.98\\) for \\(df = 98\\)).\n\n(c) Does the CI contain 0? Conclusion?",
+      a = "(a) \\(t = 5/2 = 2.5\\).\n\n(b) \\(5 \\pm 1.98 \\times 2 \\approx (1.04,\\; 8.96)\\).\n\n(c) 0 is not in the CI, so \\(\\hat{b}\\) is statistically significant at \\(\\alpha = 0.05\\)."
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-25"></div>
 
 <script>
@@ -362,3 +423,4 @@ Statistical significance depends on the ratio $\hat{b}/se(\hat{b})$. With a very
   });
 })();
 </script>
+```

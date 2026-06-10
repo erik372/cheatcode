@@ -650,21 +650,78 @@ The right graph has a striking pattern. But note that not even this in itself is
 
 ## Exercises
 
+```{r 05_logarithms_ex_4_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "Calculate:\n\n(a) (log_{2}64 )\n\n(b) (log_{3}81 )\n\n(c) (log_{5}125 )",
+      a = "(a) \\(\\log_{2}64=6 \\) since \\( 2^{6}=64 \\) , (b) \\(\\log_{3}81=4 \\) since \\( 3^{4}=81 \\) , (c) \\(\\log_{5}125=3 \\) since \\( 5^{3}=125 \\)\n\n"
+    ),
+    list(
+      q = "Write each power expression as a logarithm:\n\n(a) ( 2^{8}=256 )\n\n(b) ( 10^{-2}=0.01 )\n\n(c) ( e^{1}=e )",
+      a = "(a) \\(\\log_{2}256=8 \\) , (b) \\(\\log_{10}0.01=-2 \\) , (c) \\(\\ln e=1 \\)\n\n"
+    ),
+    list(
+      q = "Calculate using the common logarithm (base 10):\n\n(a) (log_{10}10,000 )\n\n(b) (log_{10}0.001 )\n\n(c) (log_{10}10^{7})",
+      a = "(a) \\(\\log_{10}10,000=4 \\) , (b) \\(\\log_{10}0.001=-3 \\) , (c) \\(\\log_{10}10^{7}=7 \\)\n\n"
+    ),
+    list(
+      q = "Use the product rule to simplify:\n\n(a) (log(20)+log(5))\n\n(b) (log_{2}(8)+log_{2}(4))\n\n(c) (log_{3}(9)+log_{3}(27))",
+      a = "(a) \\(\\log(20\\times5)=\\log100=2 \\) , (b) \\(\\log_{2}(8\\times4)=\\log_{2}32=5 \\) , (c) \\(\\log_{3}(9\\times27)=\\log_{3}243=5 \\)\n\n"
+    ),
+    list(
+      q = "Use the quotient rule to calculate:\n\n(a) (log(1,000,000)-log(1,000))\n\n(b) (log_{3}(81)-log_{3}(3))\n\n(c) (log_{2}(64)-log_{2}(4))",
+      a = "(a) \\(\\log(1,000,000/1,000)=\\log1,000=3 \\) , (b) \\(\\log_{3}(81/3)=\\log_{3}27=3 \\) , (c) \\(\\log_{2}(64/4)=\\log_{2}16=4 \\)\n\n"
+    ),
+    list(
+      q = "Use the power rule to simplify:\n\n(a) (log(1,000^{2}))\n\n(b) (log_{2}(4^{3}))\n\n(c) (ln(e^{5}))",
+      a = "(a) \\( 2\\log1,000=2\\times3=6 \\) , (b) \\( 3\\log_{2}4=3\\times2=6 \\) , (c) \\(\\ln(e^{5})=5 \\)\n\n"
+    ),
+    list(
+      q = "Simplify using logarithm laws:\n\n(a) ( 2log(10)+log(100))\n\n(b) ( 2log_{3}(9)+log_{3}(3))\n\n(c) (logsqrt{10,000})",
+      a = "(a) \\( 2\\times1+2=4 \\) , (b) \\( 2\\times2+1=5 \\) , (c) \\(\\frac{1}{2}\\log10,000=\\frac{1}{2}\\times4=2 \\)\n\n"
+    ),
+    list(
+      q = "Calculate using the natural logarithm:\n\n(a) (ln(e^{4}))\n\n(b) ( e^{ln5})\n\n(c) ( e^{ln3+ln4})",
+      a = "(a) \\(\\ln(e^{4})=4 \\) , (b) \\( e^{\\ln5}=5 \\) , (c) \\( e^{\\ln3+\\ln4}=e^{\\ln12}=12 \\)\n\n"
+    ),
+    list(
+      q = "Solve for \\( x \\) :\n\n(a) (log_{3}x=4 )\n\n(b) (log x=5 ) (base 10)\n\n(c) ( 10^{x}=500 )",
+      a = "(a) \\( x=3^{4}=81 \\) , (b) \\( x=10^{5}=100,000 \\) , (c) \\( x=\\log500=\\log(5\\times100)=\\log5+2\\approx0.699+2=2.699 \\)\n\n"
+    ),
+    list(
+      q = "Use the change of base formula \\(\\log_{a}x=\\frac{\\ln x}{\\ln a}\\) :\n\n(a) Calculate (log_{8}(64)) by rewriting using natural logarithms.\n\n(b) Calculate (log_{4}(32)) .\n\n(c) Express (log_{2}(100)) using common logarithms (base 10) and calculate.",
+      a = "(a) \\(\\frac{\\ln64}{\\ln8}=\\frac{6\\ln2}{3\\ln2}=2 \\) , (b) \\(\\frac{\\ln32}{\\ln4}=\\frac{5\\ln2}{2\\ln2}=2.5 \\) , (c) \\(\\frac{\\log100}{\\log2}=\\frac{2}{0.301}\\approx6.64 \\)\n\n"
+    ),
+    list(
+      q = "Use the natural logarithm to approximate percentage changes:\n\n(a) Monthly wages increased from 40,000 to 40,800. Calculate (ln(40,800)-ln(40,000)) and compare with the actual percentage change.\n\n(b) GDP per capita in country A is 8,000 USD and in country B 12,000 USD. Calculate (ln(12,000)-ln(8,000)) . Is this a good approximation of the percentage difference?\n\n(c) A price index rose from 100 to 103. Use ln to approximate the percentage change and compare with the exact value.",
+      a = "(a) \\(\\ln(40,800/40,000)=\\ln(1.02)\\approx0.0198\\approx2\\%\\) ; actual: \\( 800/40,000=2\\%\\) — good approximation, (b) \\(\\ln(12,000/8,000)=\\ln(1.5)\\approx0.405\\approx40.5\\%\\) ; actual: 50% — poor approximation for large differences, (c) \\(\\ln(103/100)=\\ln(1.03)\\approx0.030\\approx3\\%\\) ; actual: 3% — good approximation\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-4" class="exercises-container"></div>
 <script>
 (function(){
 var ex=[
-  {q:'<p>Calculate:</p><ol type="a"><li>\\(\\log_{2}64 \\)</li><li>\\(\\log_{3}81 \\)</li><li>\\(\\log_{5}125 \\)</li></ol>',a:'<p>(a)\\(\\log_{2}64=6 \\) since \\( 2^{6}=64 \\) , (b)\\(\\log_{3}81=4 \\) since \\( 3^{4}=81 \\) , (c)\\(\\log_{5}125=3 \\) since \\( 5^{3}=125 \\)</p>'},
-  {q:'<p>Write each power expression as a logarithm:</p><ol type="a"><li>\\( 2^{8}=256 \\)</li><li>\\( 10^{-2}=0.01 \\)</li><li>\\( e^{1}=e \\)</li></ol>',a:'<p>(a)\\(\\log_{2}256=8 \\) , (b)\\(\\log_{10}0.01=-2 \\) , (c)\\(\\ln e=1 \\)</p>'},
-  {q:'<p>Calculate using the common logarithm (base 10):</p><ol type="a"><li>\\(\\log_{10}10,000 \\)</li><li>\\(\\log_{10}0.001 \\)</li><li>\\(\\log_{10}10^{7}\\)</li></ol>',a:'<p>(a)\\(\\log_{10}10,000=4 \\) , (b)\\(\\log_{10}0.001=-3 \\) , (c)\\(\\log_{10}10^{7}=7 \\)</p>'},
-  {q:'<p>Use the product rule to simplify:</p><ol type="a"><li>\\(\\log(20)+\\log(5)\\)</li><li>\\(\\log_{2}(8)+\\log_{2}(4)\\)</li><li>\\(\\log_{3}(9)+\\log_{3}(27)\\)</li></ol>',a:'<p>(a)\\(\\log(20\\times5)=\\log100=2 \\) , (b)\\(\\log_{2}(8\\times4)=\\log_{2}32=5 \\) , (c)\\(\\log_{3}(9\\times27)=\\log_{3}243=5 \\)</p>'},
-  {q:'<p>Use the quotient rule to calculate:</p><ol type="a"><li>\\(\\log(1,000,000)-\\log(1,000)\\)</li><li>\\(\\log_{3}(81)-\\log_{3}(3)\\)</li><li>\\(\\log_{2}(64)-\\log_{2}(4)\\)</li></ol>',a:'<p>(a)\\(\\log(1,000,000/1,000)=\\log1,000=3 \\) , (b)\\(\\log_{3}(81/3)=\\log_{3}27=3 \\) , (c)\\(\\log_{2}(64/4)=\\log_{2}16=4 \\)</p>'},
-  {q:'<p>Use the power rule to simplify:</p><ol type="a"><li>\\(\\log(1,000^{2})\\)</li><li>\\(\\log_{2}(4^{3})\\)</li><li>\\(\\ln(e^{5})\\)</li></ol>',a:'<p>(a)\\( 2\\log1,000=2\\times3=6 \\) , (b)\\( 3\\log_{2}4=3\\times2=6 \\) , (c)\\(\\ln(e^{5})=5 \\)</p>'},
-  {q:'<p>Simplify using logarithm laws:</p><ol type="a"><li>\\( 2\\log(10)+\\log(100)\\)</li><li>\\( 2\\log_{3}(9)+\\log_{3}(3)\\)</li><li>\\(\\log\\sqrt{10,000}\\)</li></ol>',a:'<p>(a)\\( 2\\times1+2=4 \\) , (b)\\( 2\\times2+1=5 \\) , (c)\\(\\frac{1}{2}\\log10,000=\\frac{1}{2}\\times4=2 \\)</p>'},
-  {q:'<p>Calculate using the natural logarithm:</p><ol type="a"><li>\\(\\ln(e^{4})\\)</li><li>\\( e^{\\ln5}\\)</li><li>\\( e^{\\ln3+\\ln4}\\)</li></ol>',a:'<p>(a)\\(\\ln(e^{4})=4 \\) , (b)\\( e^{\\ln5}=5 \\) , (c)\\( e^{\\ln3+\\ln4}=e^{\\ln12}=12 \\)</p>'},
-  {q:'<p>Solve for \\( x \\) :</p><ol type="a"><li>\\(\\log_{3}x=4 \\)</li><li>\\(\\log x=5 \\) (base 10)</li><li>\\( 10^{x}=500 \\)</li></ol>',a:'<p>(a)\\( x=3^{4}=81 \\) , (b)\\( x=10^{5}=100,000 \\) , (c)\\( x=\\log500=\\log(5\\times100)=\\log5+2\\approx0.699+2=2.699 \\)</p>'},
-  {q:'<p>Use the change of base formula \\(\\log_{a}x=\\frac{\\ln x}{\\ln a}\\) :</p><ol type="a"><li>Calculate \\(\\log_{8}(64)\\) by rewriting using natural logarithms.</li><li>Calculate \\(\\log_{4}(32)\\) .</li><li>Express \\(\\log_{2}(100)\\) using common logarithms (base 10) and calculate.</li></ol>',a:'<p>(a)\\(\\frac{\\ln64}{\\ln8}=\\frac{6\\ln2}{3\\ln2}=2 \\) , (b)\\(\\frac{\\ln32}{\\ln4}=\\frac{5\\ln2}{2\\ln2}=2.5 \\) , (c)\\(\\frac{\\log100}{\\log2}=\\frac{2}{0.301}\\approx6.64 \\)</p>'},
-  {q:'<p>Use the natural logarithm to approximate percentage changes:</p><ol type="a"><li>Monthly wages increased from 40,000 to 40,800. Calculate \\(\\ln(40,800)-\\ln(40,000)\\) and compare with the actual percentage change.</li><li>GDP per capita in country A is 8,000 USD and in country B 12,000 USD. Calculate \\(\\ln(12,000)-\\ln(8,000)\\) . Is this a good approximation of the percentage difference?</li><li>A price index rose from 100 to 103. Use ln to approximate the percentage change and compare with the exact value.</li></ol>',a:'<p>(a)\\(\\ln(40,800/40,000)=\\ln(1.02)\\approx0.0198\\approx2\\%\\) ; actual: \\( 800/40,000=2\\%\\) — good approximation, (b)\\(\\ln(12,000/8,000)=\\ln(1.5)\\approx0.405\\approx40.5\\%\\) ; actual: 50% — poor approximation for large differences, (c)\\(\\ln(103/100)=\\ln(1.03)\\approx0.030\\approx3\\%\\) ; actual: 3% — good approximation</p>'}
+  {q:'<p>Calculate:</p><ol type="a"><li>\\(\\log_{2}64 \\)</li><li>\\(\\log_{3}81 \\)</li><li>\\(\\log_{5}125 \\)</li></ol>',a:'<p>(a) \\(\\log_{2}64=6 \\) since \\( 2^{6}=64 \\) , (b) \\(\\log_{3}81=4 \\) since \\( 3^{4}=81 \\) , (c) \\(\\log_{5}125=3 \\) since \\( 5^{3}=125 \\)</p>'},
+  {q:'<p>Write each power expression as a logarithm:</p><ol type="a"><li>\\( 2^{8}=256 \\)</li><li>\\( 10^{-2}=0.01 \\)</li><li>\\( e^{1}=e \\)</li></ol>',a:'<p>(a) \\(\\log_{2}256=8 \\) , (b) \\(\\log_{10}0.01=-2 \\) , (c) \\(\\ln e=1 \\)</p>'},
+  {q:'<p>Calculate using the common logarithm (base 10):</p><ol type="a"><li>\\(\\log_{10}10,000 \\)</li><li>\\(\\log_{10}0.001 \\)</li><li>\\(\\log_{10}10^{7}\\)</li></ol>',a:'<p>(a) \\(\\log_{10}10,000=4 \\) , (b) \\(\\log_{10}0.001=-3 \\) , (c) \\(\\log_{10}10^{7}=7 \\)</p>'},
+  {q:'<p>Use the product rule to simplify:</p><ol type="a"><li>\\(\\log(20)+\\log(5)\\)</li><li>\\(\\log_{2}(8)+\\log_{2}(4)\\)</li><li>\\(\\log_{3}(9)+\\log_{3}(27)\\)</li></ol>',a:'<p>(a) \\(\\log(20\\times5)=\\log100=2 \\) , (b) \\(\\log_{2}(8\\times4)=\\log_{2}32=5 \\) , (c) \\(\\log_{3}(9\\times27)=\\log_{3}243=5 \\)</p>'},
+  {q:'<p>Use the quotient rule to calculate:</p><ol type="a"><li>\\(\\log(1,000,000)-\\log(1,000)\\)</li><li>\\(\\log_{3}(81)-\\log_{3}(3)\\)</li><li>\\(\\log_{2}(64)-\\log_{2}(4)\\)</li></ol>',a:'<p>(a) \\(\\log(1,000,000/1,000)=\\log1,000=3 \\) , (b) \\(\\log_{3}(81/3)=\\log_{3}27=3 \\) , (c) \\(\\log_{2}(64/4)=\\log_{2}16=4 \\)</p>'},
+  {q:'<p>Use the power rule to simplify:</p><ol type="a"><li>\\(\\log(1,000^{2})\\)</li><li>\\(\\log_{2}(4^{3})\\)</li><li>\\(\\ln(e^{5})\\)</li></ol>',a:'<p>(a) \\( 2\\log1,000=2\\times3=6 \\) , (b) \\( 3\\log_{2}4=3\\times2=6 \\) , (c) \\(\\ln(e^{5})=5 \\)</p>'},
+  {q:'<p>Simplify using logarithm laws:</p><ol type="a"><li>\\( 2\\log(10)+\\log(100)\\)</li><li>\\( 2\\log_{3}(9)+\\log_{3}(3)\\)</li><li>\\(\\log\\sqrt{10,000}\\)</li></ol>',a:'<p>(a) \\( 2\\times1+2=4 \\) , (b) \\( 2\\times2+1=5 \\) , (c) \\(\\frac{1}{2}\\log10,000=\\frac{1}{2}\\times4=2 \\)</p>'},
+  {q:'<p>Calculate using the natural logarithm:</p><ol type="a"><li>\\(\\ln(e^{4})\\)</li><li>\\( e^{\\ln5}\\)</li><li>\\( e^{\\ln3+\\ln4}\\)</li></ol>',a:'<p>(a) \\(\\ln(e^{4})=4 \\) , (b) \\( e^{\\ln5}=5 \\) , (c) \\( e^{\\ln3+\\ln4}=e^{\\ln12}=12 \\)</p>'},
+  {q:'<p>Solve for \\( x \\) :</p><ol type="a"><li>\\(\\log_{3}x=4 \\)</li><li>\\(\\log x=5 \\) (base 10)</li><li>\\( 10^{x}=500 \\)</li></ol>',a:'<p>(a) \\( x=3^{4}=81 \\) , (b) \\( x=10^{5}=100,000 \\) , (c) \\( x=\\log500=\\log(5\\times100)=\\log5+2\\approx0.699+2=2.699 \\)</p>'},
+  {q:'<p>Use the change of base formula \\(\\log_{a}x=\\frac{\\ln x}{\\ln a}\\) :</p><ol type="a"><li>Calculate \\(\\log_{8}(64)\\) by rewriting using natural logarithms.</li><li>Calculate \\(\\log_{4}(32)\\) .</li><li>Express \\(\\log_{2}(100)\\) using common logarithms (base 10) and calculate.</li></ol>',a:'<p>(a) \\(\\frac{\\ln64}{\\ln8}=\\frac{6\\ln2}{3\\ln2}=2 \\) , (b) \\(\\frac{\\ln32}{\\ln4}=\\frac{5\\ln2}{2\\ln2}=2.5 \\) , (c) \\(\\frac{\\log100}{\\log2}=\\frac{2}{0.301}\\approx6.64 \\)</p>'},
+  {q:'<p>Use the natural logarithm to approximate percentage changes:</p><ol type="a"><li>Monthly wages increased from 40,000 to 40,800. Calculate \\(\\ln(40,800)-\\ln(40,000)\\) and compare with the actual percentage change.</li><li>GDP per capita in country A is 8,000 USD and in country B 12,000 USD. Calculate \\(\\ln(12,000)-\\ln(8,000)\\) . Is this a good approximation of the percentage difference?</li><li>A price index rose from 100 to 103. Use ln to approximate the percentage change and compare with the exact value.</li></ol>',a:'<p>(a) \\(\\ln(40,800/40,000)=\\ln(1.02)\\approx0.0198\\approx2\\%\\) ; actual: \\( 800/40,000=2\\%\\) — good approximation, (b) \\(\\ln(12,000/8,000)=\\ln(1.5)\\approx0.405\\approx40.5\\%\\) ; actual: 50% — poor approximation for large differences, (c) \\(\\ln(103/100)=\\ln(1.03)\\approx0.030\\approx3\\%\\) ; actual: 3% — good approximation</p>'}
 ];
 var c=document.getElementById("ex-4");
 if(!c)return;
@@ -696,6 +753,7 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 
 

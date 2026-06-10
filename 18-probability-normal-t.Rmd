@@ -536,6 +536,66 @@ The last row in table \@ref(tab:t-table) shows the critical t-values for $k=\inf
 
 ## Exercises
 
+```{r 18_probability_normal_t_ex_23_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "The standard normal distribution is written $Z\\sim N(0,1)$.\n\n(a) What are $E(Z)$ and $\\text{Var}(Z)$?\n\n(b) By symmetry, what is $P(Z\\leq 0)$?\n\n(c) If $P(Z\\leq 1.96)=0.975$, what is $P(Z\\geq 1.96)$?",
+      a = "(a) $E(Z)=0$, $\\text{Var}(Z)=1$.\n\n(b) $P(Z\\leq 0)=0.5$.\n\n(c) $P(Z\\geq 1.96)=1-0.975=0.025$."
+    ),
+    list(
+      q = "Let $X\\sim N(50,100)$ (mean 50, variance 100, so $\\sigma=10$). Compute the z-score $z=(x-\\mu)/\\sigma$ for each value.\n\n(a) $x=70$\n\n(b) $x=40$\n\n(c) $x=50$",
+      a = "(a) $z=(70-50)/10=2$.\n\n(b) $z=(40-50)/10=-1$.\n\n(c) $z=(50-50)/10=0$."
+    ),
+    list(
+      q = "Suppose $P(Z\\leq 1.64)=0.95$. Use symmetry of the standard normal to answer the following.\n\n(a) What is $P(Z\\geq 1.64)$?\n\n(b) What is $P(-1.64\\leq Z\\leq 1.64)$?\n\n(c) What is $P(Z\\leq -1.64)$?",
+      a = "(a) $P(Z\\geq 1.64)=1-0.95=0.05$.\n\n(b) $P(-1.64\\leq Z\\leq 1.64)=0.95-0.05=0.90$.\n\n(c) $P(Z\\leq -1.64)=0.05$ by symmetry."
+    ),
+    list(
+      q = "Let $X\\sim N(100,25)$ (mean 100, $\\sigma=5$).\n\n(a) Convert $x=110$ to a z-score.\n\n(b) Convert $x=90$ to a z-score.\n\n(c) Given $P(Z\\leq 2)=0.977$, what is $P(X\\leq 110)$?",
+      a = "(a) $z=(110-100)/5=2$.\n\n(b) $z=(90-100)/5=-2$.\n\n(c) $P(X\\leq 110)=P(Z\\leq 2)=0.977$."
+    ),
+    list(
+      q = "According to the central limit theorem (CLT), the sample mean $\\bar{X}$ is drawn from a population with mean $\\mu=50$ and variance $\\sigma^2=100$, based on $n=100$ observations.\n\n(a) What is $E(\\bar{X})$?\n\n(b) What is $\\text{Var}(\\bar{X})$?\n\n(c) What distribution does $\\bar{X}$ approximately follow for large $n$?",
+      a = "(a) $E(\\bar{X})=\\mu=50$.\n\n(b) $\\text{Var}(\\bar{X})=\\sigma^2/n=100/100=1$.\n\n(c) $\\bar{X}$ approximately follows $N(50,1)$ by the CLT."
+    ),
+    list(
+      q = "A population has mean $\\mu=200$ and standard deviation $\\sigma=20$. A sample of $n=400$ is drawn.\n\n(a) What is the standard error $\\text{SE}(\\bar{X})=\\sigma/\\sqrt{n}$?\n\n(b) Compute the z-score for $\\bar{X}=201$.\n\n(c) Is $n=400$ large enough to apply the CLT? Why?",
+      a = "(a) $\\text{SE}=20/\\sqrt{400}=20/20=1$.\n\n(b) $z=(201-200)/1=1$.\n\n(c) Yes, $n=400\\gg 30$, which is the common rule of thumb for the CLT to apply."
+    ),
+    list(
+      q = "Let $X\\sim \\text{Bin}(100,0.5)$.\n\n(a) Compute $E(X)$ and $\\text{Var}(X)$.\n\n(b) Which normal distribution approximates $X$ for large $n$?\n\n(c) Using $P(Z\\geq 1)\\approx 0.159$, approximate $P(X\\geq 55)$.",
+      a = "(a) $E(X)=np=50$, $\\text{Var}(X)=np(1-p)=25$.\n\n(b) $N(50,25)$, i.e. $N(\\mu=50,\\sigma^2=25)$.\n\n(c) $z=(55-50)/5=1$, so $P(X\\geq 55)\\approx P(Z\\geq 1)\\approx 0.159$."
+    ),
+    list(
+      q = "Heights are normally distributed with mean 175 cm and standard deviation 8 cm, i.e. $X\\sim N(175,64)$.\n\n(a) Compute the z-score for $x=183$.\n\n(b) Compute the z-score for $x=167$.\n\n(c) Given $P(-1\\leq Z\\leq 1)\\approx 0.683$, find $P(167\\leq X\\leq 183)$.",
+      a = "(a) $z=(183-175)/8=1$.\n\n(b) $z=(167-175)/8=-1$.\n\n(c) $P(167\\leq X\\leq 183)=P(-1\\leq Z\\leq 1)\\approx 0.683$."
+    ),
+    list(
+      q = "The t-distribution $T\\sim t(k)$ has $k$ degrees of freedom.\n\n(a) What are $E(T)$ and the symmetry property of $t(k)$?\n\n(b) Compared to $N(0,1)$, does $t(k)$ have heavier or lighter tails?\n\n(c) As $k\\to\\infty$, what does $t(k)$ converge to?",
+      a = "(a) $E(T)=0$. By symmetry: $F(-x)=1-F(x)$ and $F(0)=0.5$.\n\n(b) Heavier tails — the t-distribution has more probability mass in the tails than the standard normal.\n\n(c) $t(k)\\to N(0,1)$ as $k\\to\\infty$."
+    ),
+    list(
+      q = "Let $T\\sim t(10)$.\n\n(a) By symmetry, what is $P(T\\leq 0)$?\n\n(b) If $P(T\\leq 2.228)=0.975$, what is $P(T\\geq 2.228)$?\n\n(c) Is the critical value 2.228 larger or smaller than 1.96 (the 97.5th percentile of $N(0,1)$)? What does this tell us?",
+      a = "(a) $P(T\\leq 0)=0.5$ by symmetry.\n\n(b) $P(T\\geq 2.228)=1-0.975=0.025$.\n\n(c) 2.228 > 1.96, which tells us that the t-distribution has heavier tails than the standard normal — we need to go further out to capture the same 97.5% of the distribution."
+    ),
+    list(
+      q = "When should you use the t-distribution rather than the standard normal for inference about a mean?\n\n(a) Population variance $\\sigma^2$ is unknown, $n=25$: use $t$ or $z$?\n\n(b) Population variance $\\sigma^2$ is known, $n=200$: use $t$ or $z$?\n\n(c) Population variance $\\sigma^2$ is unknown, $n=1000$: use $t$ or $z$? Explain.",
+      a = "(a) Use $t$ — small sample, unknown variance.\n\n(b) Use $z$ — variance is known, regardless of sample size.\n\n(c) Either works: with $n=1000$, $t(999)\\approx N(0,1)$, so both give virtually the same result. Strictly, $t$ is correct when variance is estimated, but $z$ is a fine approximation."
+    ),
+    list(
+      q = "A sample of $n=100$ gives $\\bar{X}=48$. The population standard deviation is known: $\\sigma=10$.\n\n(a) Compute the standard error $\\text{SE}=\\sigma/\\sqrt{n}$.\n\n(b) Construct a 95% confidence interval using $\\bar{X}\\pm 1.96\\cdot\\text{SE}$.\n\n(c) How would the confidence interval change if $n$ increased to 400?",
+      a = "(a) $\\text{SE}=10/\\sqrt{100}=1$.\n\n(b) $48\\pm 1.96\\cdot 1=[46.04,\\; 49.96]$.\n\n(c) $\\text{SE}=10/\\sqrt{400}=0.5$, so the interval narrows to $48\\pm 0.98=[47.02,\\; 48.98]$. Larger samples give more precise estimates."
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
 ```{=html}
 <div id="ex-23"></div>
 <script>

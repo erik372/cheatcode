@@ -1262,22 +1262,83 @@ If all possible alternatives of a phenomenon can result in utility maximization,
 
 ## Exercises
 
+```{r 12_theories_cake_monopoly_ex_7_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "Consider the happiness function \\(f(x)=4x-2x^{2}\\) , where \\(x\\) is the number of cakes eaten.\n\n(a) Calculate the first derivative (f'(x)) .\n\n(b) Find the amount of cake (x^{*}) that maximizes happiness.\n\n(c) Calculate the maximum happiness (f(x^{*})) .",
+      a = "(a) \\(f'(x)=4-4x\\) , (b) \\(x^{*}=1\\) , (c) \\(f(1)=2\\) .\n\n"
+    ),
+    list(
+      q = "Erik has utility function \\(N=C^{1/2}L^{1/2}\\) , total time \\(T=12\\) , and wage \\(w=4\\) .\n\n(a) Write out the budget function (C) as a function of (L) .\n\n(b) Set up the Lagrange function for the constrained maximization.\n\n(c) From the first-order conditions, find (L^{*}) and (C^{*}) .",
+      a = "(a) \\(C=4(12-L)=48-4L\\) , (b) \\(\\mathcal{L}=C^{1/2}L^{1/2}+\\lambda(4(12-L)-C)\\) , (c) FOCs give \\(C=4L\\Rightarrow L^{*}=6,C^{*}=24\\) .\n\n"
+    ),
+    list(
+      q = "The state's tax revenue is \\(i=ty(1-t)^{b}\\) .\n\n(a) Calculate (t^{*}) that maximizes tax revenue when (b=3) .\n\n(b) Calculate (t^{*}) that maximizes tax revenue when (b=0.5) .\n\n(c) If total income (y=1000) and (b=1) , calculate the maximum tax revenue at (t^{*}) .",
+      a = "(a) \\(t^{*}=\\frac{1}{1+3}=0.25\\) , (b) \\(t^{*}=\\frac{1}{1+0.5}=\\frac{2}{3}\\approx0.667\\) , (c) \\(t^{*}=\\frac{1}{2}\\) , \\(i=\\frac{1}{2}\\cdot1000\\cdot\\frac{1}{2}=250\\) .\n\n"
+    ),
+    list(
+      q = "Anna earns \\(y_{1}=200\\) in period 1 and \\(y_{2}=100\\) in period 2. The interest rate is \\(r=1.1\\) .\n\n(a) Write out the intertemporal budget constraint with the given values.\n\n(b) If Anna saves (s_{1}=50) in period 1, what is her consumption (c_{2}) in period 2?\n\n(c) If the interest rate rises to (r=1.2) , does the budget line become steeper or flatter?",
+      a = "(a) \\(c_{1}+c_{2}/1.1=200+100/1.1\\approx290.9\\) , (b) \\(c_{2}=100+50\\cdot1.1=155\\) , (c) steeper: larger \\(r\\) increases the opportunity cost of current consumption.\n\n"
+    ),
+    list(
+      q = "A company produces goods \\(x\\) and \\(y\\) with prices \\(p_{x}=8\\) and \\(p_{y}=12\\) . Total costs are \\(TC(x,y)=x^{2}+y^{2}+5\\) .\n\n(a) Write out the profit function (V(x,y)) .\n\n(b) Find the first-order conditions (V'_{x}=0) and (V'_{y}=0) .\n\n(c) Find the profit-maximizing quantities (x^{*}) and (y^{*}) , and the maximum profit (V(x^{*},y^{*})) .",
+      a = "(a) \\(V=8x+12y-x^{2}-y^{2}-5\\) , (b) \\(V'_{x}=8-2x=0\\) ; \\(V'_{y}=12-2y=0\\) , (c) \\(x^{*}=4,y^{*}=6,V(4,6)=47\\) .\n\n"
+    ),
+    list(
+      q = "A monopoly company has total costs \\(TC=5+Q^{2}\\) and faces demand \\(Q=15-P/2\\) , giving \\(P=30-2Q\\) .\n\n(a) Write out the total revenue function (TR(Q)=PQ) .\n\n(b) Write out the profit function (V(Q)=TR-TC) .\n\n(c) Find the profit-maximizing quantity (Q^{*}) and the monopoly price (P^{*}) .",
+      a = "(a) \\(TR=(30-2Q)Q=30Q-2Q^{2}\\) , (b) \\(V=30Q-3Q^{2}-5\\) , (c) \\(Q^{*}=5,P^{*}=20,V(5)=70\\) .\n\n"
+    ),
+    list(
+      q = "A competitive firm has total revenue \\(TR=5Q\\) and total cost \\(TC=Q^{2}+Q\\) .\n\n(a) Write the profit function (pileft(Qright)) .\n\n(b) Find the profit-maximizing quantity (Q^{*}) .\n\n(c) Calculate the maximum profit (pileft(Q^{*}right)) .",
+      a = "(a) \\(\\pi(Q)=5Q-Q^{2}-Q=4Q-Q^{2}\\) , (b) \\(\\pi'=4-2Q=0\\Rightarrow Q^{*}=2\\) , (c) \\(\\pi(2)=4\\) .\n\n"
+    ),
+    list(
+      q = "A consumer maximizes utility \\(U\\left(x,y\\right)=2\\sqrt{x}+y\\) subject to the budget constraint \\(x+y=10\\) .\n\n(a) Set up the Lagrange function.\n\n(b) From the first-order conditions, find (x^{*}) .\n\n(c) Find (y^{*}) and (Uleft(x^{*},y^{*}right)) .",
+      a = "(a) \\(\\mathcal{L}=2\\sqrt{x}+y+\\lambda(10-x-y)\\) , (b) FOC: \\(1/\\sqrt{x}=\\lambda=1\\Rightarrow x^{*}=1\\) , (c) \\(y^{*}=9,U(1,9)=11\\) .\n\n"
+    ),
+    list(
+      q = "A monopolist faces demand \\(P=50-2Q\\) and has total cost \\(TC=2Q\\) .\n\n(a) Write the profit function (pileft(Qright)=TR-TC) .\n\n(b) Find the profit-maximizing quantity (Q^{*}) and price (P^{*}) .\n\n(c) Calculate the maximum profit.",
+      a = "(a) \\(\\pi(Q)=48Q-2Q^{2}\\) , (b) \\(Q^{*}=12,P^{*}=26\\) , (c) \\(\\pi(12)=288\\) .\n\n"
+    ),
+    list(
+      q = "Maria earns \\(y_{1}=300\\) in period 1 and nothing in period 2. The interest rate is \\(r=0.5\\) . She maximizes \\(U=\\ln\\left(c_{1}\\right)+\\ln\\left(c_{2}\\right)\\) .\n\n(a) Write the intertemporal budget constraint (c_{1}+c_{2}/left(1+rright)=y_{1}) .\n\n(b) Use the first-order conditions to find (c_{1}^{*}) and (c_{2}^{*}) .\n\n(c) How much does Maria save in period 1?",
+      a = "(a) \\(c_{1}+c_{2}/1.5=300\\) , (b) FOCs: \\(c_{2}=1.5c_{1}\\Rightarrow c_{1}^{*}=150,c_{2}^{*}=225\\) , (c) \\(s_{1}=150\\) .\n\n"
+    ),
+    list(
+      q = "A government maximizes social welfare \\(W=\\ln\\left(x_{1}\\right)+2\\ln\\left(x_{2}\\right)\\) subject to \\(x_{1}+x_{2}=100\\) .\n\n(a) Set up the Lagrange function.\n\n(b) Find the optimal allocation (left(x_{1}^{*},x_{2}^{*}right)) .\n\n(c) Interpret: which group receives more, and why?",
+      a = "(a) \\(\\mathcal{L}=\\ln x_{1}+2\\ln x_{2}+\\lambda(100-x_{1}-x_{2})\\) , (b) \\(x_{2}=2x_{1}\\Rightarrow x_{1}^{*}\\approx33.3,x_{2}^{*}\\approx66.7\\) , (c) group 2 receives twice as much due to its double welfare weight.\n\n"
+    ),
+    list(
+      q = "A monopolist sells in two markets with demand \\(P_{1}=20-Q_{1}\\) and \\(P_{2}=14-Q_{2}\\) . Marginal cost is constant at \\(MC=2\\) .\n\n(a) Write the profit function (pi=pi_{1}+pi_{2}) .\n\n(b) Find (Q_{1}^{*}) and (Q_{2}^{*}) by setting (MR_{i}=MC) in each market.\n\n(c) Find prices (P_{1}^{*}) , (P_{2}^{*}) and total profit.",
+      a = "(a) \\(\\pi=18Q_{1}-Q_{1}^{2}+12Q_{2}-Q_{2}^{2}\\) , (b) \\(Q_{1}^{*}=9,Q_{2}^{*}=6\\) , (c) \\(P_{1}^{*}=11,P_{2}^{*}=8,\\pi^{*}=117\\) .\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-7" class="exercises-container"></div>
 <script>
 (function(){
 var ex=[
-  {q:'<p>Consider the happiness function \\(f(x)=4x-2x^{2}\\) , where \\(x\\) is the number of cakes eaten.</p><ol type="a"><li>Calculate the first derivative \\(f\'(x)\\) .</li><li>Find the amount of cake \\(x^{*}\\) that maximizes happiness.</li><li>Calculate the maximum happiness \\(f(x^{*})\\) .</li></ol>',a:'<p>(a)\\(f\'(x)=4-4x\\) , (b)\\(x^{*}=1\\) , (c)\\(f(1)=2\\) .</p>'},
-  {q:'<p>Erik has utility function \\(N=C^{1/2}L^{1/2}\\) , total time \\(T=12\\) , and wage \\(w=4\\) .</p><ol type="a"><li>Write out the budget function \\(C\\) as a function of \\(L\\) .</li><li>Set up the Lagrange function for the constrained maximization.</li><li>From the first-order conditions, find \\(L^{*}\\) and \\(C^{*}\\) .</li></ol>',a:'<p>(a)\\(C=4(12-L)=48-4L\\) , (b)\\(\\mathcal{L}=C^{1/2}L^{1/2}+\\lambda(4(12-L)-C)\\) , (c) FOCs give \\(C=4L\\Rightarrow L^{*}=6,C^{*}=24\\) .</p>'},
-  {q:'<p>The state\'s tax revenue is \\(i=ty(1-t)^{b}\\) .</p><ol type="a"><li>Calculate \\(t^{*}\\) that maximizes tax revenue when \\(b=3\\) .</li><li>Calculate \\(t^{*}\\) that maximizes tax revenue when \\(b=0.5\\) .</li><li>If total income \\(y=1000\\) and \\(b=1\\) , calculate the maximum tax revenue at \\(t^{*}\\) .</li></ol>',a:'<p>(a)\\(t^{*}=\\frac{1}{1+3}=0.25\\) , (b)\\(t^{*}=\\frac{1}{1+0.5}=\\frac{2}{3}\\approx0.667\\) , (c)\\(t^{*}=\\frac{1}{2}\\) , \\(i=\\frac{1}{2}\\cdot1000\\cdot\\frac{1}{2}=250\\) .</p>'},
-  {q:'<p>Anna earns \\(y_{1}=200\\) in period 1 and \\(y_{2}=100\\) in period 2. The interest rate is \\(r=1.1\\) .</p><ol type="a"><li>Write out the intertemporal budget constraint with the given values.</li><li>If Anna saves \\(s_{1}=50\\) in period 1, what is her consumption \\(c_{2}\\) in period 2?</li><li>If the interest rate rises to \\(r=1.2\\) , does the budget line become steeper or flatter?</li></ol>',a:'<p>(a)\\(c_{1}+c_{2}/1.1=200+100/1.1\\approx290.9\\) , (b)\\(c_{2}=100+50\\cdot1.1=155\\) , (c) steeper: larger \\(r\\) increases the opportunity cost of current consumption.</p>'},
-  {q:'<p>A company produces goods \\(x\\) and \\(y\\) with prices \\(p_{x}=8\\) and \\(p_{y}=12\\) . Total costs are \\(TC(x,y)=x^{2}+y^{2}+5\\) .</p><ol type="a"><li>Write out the profit function \\(V(x,y)\\) .</li><li>Find the first-order conditions \\(V\'_{x}=0\\) and \\(V\'_{y}=0\\) .</li><li>Find the profit-maximizing quantities \\(x^{*}\\) and \\(y^{*}\\) , and the maximum profit \\(V(x^{*},y^{*})\\) .</li></ol>',a:'<p>(a)\\(V=8x+12y-x^{2}-y^{2}-5\\) , (b)\\(V\'_{x}=8-2x=0\\) ; \\(V\'_{y}=12-2y=0\\) , (c)\\(x^{*}=4,y^{*}=6,V(4,6)=47\\) .</p>'},
-  {q:'<p>A monopoly company has total costs \\(TC=5+Q^{2}\\) and faces demand \\(Q=15-P/2\\) , giving \\(P=30-2Q\\) .</p><ol type="a"><li>Write out the total revenue function \\(TR(Q)=PQ\\) .</li><li>Write out the profit function \\(V(Q)=TR-TC\\) .</li><li>Find the profit-maximizing quantity \\(Q^{*}\\) and the monopoly price \\(P^{*}\\) .</li></ol>',a:'<p>(a)\\(TR=(30-2Q)Q=30Q-2Q^{2}\\) , (b)\\(V=30Q-3Q^{2}-5\\) , (c)\\(Q^{*}=5,P^{*}=20,V(5)=70\\) .</p>'},
-  {q:'<p>A competitive firm has total revenue \\(TR=5Q\\) and total cost \\(TC=Q^{2}+Q\\) .</p><ol type="a"><li>Write the profit function \\(\\pi\\left(Q\\right)\\) .</li><li>Find the profit-maximizing quantity \\(Q^{*}\\) .</li><li>Calculate the maximum profit \\(\\pi\\left(Q^{*}\\right)\\) .</li></ol>',a:'<p>(a)\\(\\pi(Q)=5Q-Q^{2}-Q=4Q-Q^{2}\\) , (b)\\(\\pi\'=4-2Q=0\\Rightarrow Q^{*}=2\\) , (c)\\(\\pi(2)=4\\) .</p>'},
-  {q:'<p>A consumer maximizes utility \\(U\\left(x,y\\right)=2\\sqrt{x}+y\\) subject to the budget constraint \\(x+y=10\\) .</p><ol type="a"><li>Set up the Lagrange function.</li><li>From the first-order conditions, find \\(x^{*}\\) .</li><li>Find \\(y^{*}\\) and \\(U\\left(x^{*},y^{*}\\right)\\) .</li></ol>',a:'<p>(a)\\(\\mathcal{L}=2\\sqrt{x}+y+\\lambda(10-x-y)\\) , (b) FOC: \\(1/\\sqrt{x}=\\lambda=1\\Rightarrow x^{*}=1\\) , (c)\\(y^{*}=9,U(1,9)=11\\) .</p>'},
-  {q:'<p>A monopolist faces demand \\(P=50-2Q\\) and has total cost \\(TC=2Q\\) .</p><ol type="a"><li>Write the profit function \\(\\pi\\left(Q\\right)=TR-TC\\) .</li><li>Find the profit-maximizing quantity \\(Q^{*}\\) and price \\(P^{*}\\) .</li><li>Calculate the maximum profit.</li></ol>',a:'<p>(a)\\(\\pi(Q)=48Q-2Q^{2}\\) , (b)\\(Q^{*}=12,P^{*}=26\\) , (c)\\(\\pi(12)=288\\) .</p>'},
-  {q:'<p>Maria earns \\(y_{1}=300\\) in period 1 and nothing in period 2. The interest rate is \\(r=0.5\\) . She maximizes \\(U=\\ln\\left(c_{1}\\right)+\\ln\\left(c_{2}\\right)\\) .</p><ol type="a"><li>Write the intertemporal budget constraint \\(c_{1}+c_{2}/\\left(1+r\\right)=y_{1}\\) .</li><li>Use the first-order conditions to find \\(c_{1}^{*}\\) and \\(c_{2}^{*}\\) .</li><li>How much does Maria save in period 1?</li></ol>',a:'<p>(a)\\(c_{1}+c_{2}/1.5=300\\) , (b) FOCs: \\(c_{2}=1.5c_{1}\\Rightarrow c_{1}^{*}=150,c_{2}^{*}=225\\) , (c)\\(s_{1}=150\\) .</p>'},
-  {q:'<p>A government maximizes social welfare \\(W=\\ln\\left(x_{1}\\right)+2\\ln\\left(x_{2}\\right)\\) subject to \\(x_{1}+x_{2}=100\\) .</p><ol type="a"><li>Set up the Lagrange function.</li><li>Find the optimal allocation \\(\\left(x_{1}^{*},x_{2}^{*}\\right)\\) .</li><li>Interpret: which group receives more, and why?</li></ol>',a:'<p>(a)\\(\\mathcal{L}=\\ln x_{1}+2\\ln x_{2}+\\lambda(100-x_{1}-x_{2})\\) , (b)\\(x_{2}=2x_{1}\\Rightarrow x_{1}^{*}\\approx33.3,x_{2}^{*}\\approx66.7\\) , (c) group 2 receives twice as much due to its double welfare weight.</p>'},
-  {q:'<p>A monopolist sells in two markets with demand \\(P_{1}=20-Q_{1}\\) and \\(P_{2}=14-Q_{2}\\) . Marginal cost is constant at \\(MC=2\\) .</p><ol type="a"><li>Write the profit function \\(\\pi=\\pi_{1}+\\pi_{2}\\) .</li><li>Find \\(Q_{1}^{*}\\) and \\(Q_{2}^{*}\\) by setting \\(MR_{i}=MC\\) in each market.</li><li>Find prices \\(P_{1}^{*}\\) , \\(P_{2}^{*}\\) and total profit.</li></ol>',a:'<p>(a)\\(\\pi=18Q_{1}-Q_{1}^{2}+12Q_{2}-Q_{2}^{2}\\) , (b)\\(Q_{1}^{*}=9,Q_{2}^{*}=6\\) , (c)\\(P_{1}^{*}=11,P_{2}^{*}=8,\\pi^{*}=117\\) .</p>'}
+  {q:'<p>Consider the happiness function \\(f(x)=4x-2x^{2}\\) , where \\(x\\) is the number of cakes eaten.</p><ol type="a"><li>Calculate the first derivative \\(f\'(x)\\) .</li><li>Find the amount of cake \\(x^{*}\\) that maximizes happiness.</li><li>Calculate the maximum happiness \\(f(x^{*})\\) .</li></ol>',a:'<p>(a) \\(f\'(x)=4-4x\\) , (b) \\(x^{*}=1\\) , (c) \\(f(1)=2\\) .</p>'},
+  {q:'<p>Erik has utility function \\(N=C^{1/2}L^{1/2}\\) , total time \\(T=12\\) , and wage \\(w=4\\) .</p><ol type="a"><li>Write out the budget function \\(C\\) as a function of \\(L\\) .</li><li>Set up the Lagrange function for the constrained maximization.</li><li>From the first-order conditions, find \\(L^{*}\\) and \\(C^{*}\\) .</li></ol>',a:'<p>(a) \\(C=4(12-L)=48-4L\\) , (b) \\(\\mathcal{L}=C^{1/2}L^{1/2}+\\lambda(4(12-L)-C)\\) , (c) FOCs give \\(C=4L\\Rightarrow L^{*}=6,C^{*}=24\\) .</p>'},
+  {q:'<p>The state\'s tax revenue is \\(i=ty(1-t)^{b}\\) .</p><ol type="a"><li>Calculate \\(t^{*}\\) that maximizes tax revenue when \\(b=3\\) .</li><li>Calculate \\(t^{*}\\) that maximizes tax revenue when \\(b=0.5\\) .</li><li>If total income \\(y=1000\\) and \\(b=1\\) , calculate the maximum tax revenue at \\(t^{*}\\) .</li></ol>',a:'<p>(a) \\(t^{*}=\\frac{1}{1+3}=0.25\\) , (b) \\(t^{*}=\\frac{1}{1+0.5}=\\frac{2}{3}\\approx0.667\\) , (c) \\(t^{*}=\\frac{1}{2}\\) , \\(i=\\frac{1}{2}\\cdot1000\\cdot\\frac{1}{2}=250\\) .</p>'},
+  {q:'<p>Anna earns \\(y_{1}=200\\) in period 1 and \\(y_{2}=100\\) in period 2. The interest rate is \\(r=1.1\\) .</p><ol type="a"><li>Write out the intertemporal budget constraint with the given values.</li><li>If Anna saves \\(s_{1}=50\\) in period 1, what is her consumption \\(c_{2}\\) in period 2?</li><li>If the interest rate rises to \\(r=1.2\\) , does the budget line become steeper or flatter?</li></ol>',a:'<p>(a) \\(c_{1}+c_{2}/1.1=200+100/1.1\\approx290.9\\) , (b) \\(c_{2}=100+50\\cdot1.1=155\\) , (c) steeper: larger \\(r\\) increases the opportunity cost of current consumption.</p>'},
+  {q:'<p>A company produces goods \\(x\\) and \\(y\\) with prices \\(p_{x}=8\\) and \\(p_{y}=12\\) . Total costs are \\(TC(x,y)=x^{2}+y^{2}+5\\) .</p><ol type="a"><li>Write out the profit function \\(V(x,y)\\) .</li><li>Find the first-order conditions \\(V\'_{x}=0\\) and \\(V\'_{y}=0\\) .</li><li>Find the profit-maximizing quantities \\(x^{*}\\) and \\(y^{*}\\) , and the maximum profit \\(V(x^{*},y^{*})\\) .</li></ol>',a:'<p>(a) \\(V=8x+12y-x^{2}-y^{2}-5\\) , (b) \\(V\'_{x}=8-2x=0\\) ; \\(V\'_{y}=12-2y=0\\) , (c) \\(x^{*}=4,y^{*}=6,V(4,6)=47\\) .</p>'},
+  {q:'<p>A monopoly company has total costs \\(TC=5+Q^{2}\\) and faces demand \\(Q=15-P/2\\) , giving \\(P=30-2Q\\) .</p><ol type="a"><li>Write out the total revenue function \\(TR(Q)=PQ\\) .</li><li>Write out the profit function \\(V(Q)=TR-TC\\) .</li><li>Find the profit-maximizing quantity \\(Q^{*}\\) and the monopoly price \\(P^{*}\\) .</li></ol>',a:'<p>(a) \\(TR=(30-2Q)Q=30Q-2Q^{2}\\) , (b) \\(V=30Q-3Q^{2}-5\\) , (c) \\(Q^{*}=5,P^{*}=20,V(5)=70\\) .</p>'},
+  {q:'<p>A competitive firm has total revenue \\(TR=5Q\\) and total cost \\(TC=Q^{2}+Q\\) .</p><ol type="a"><li>Write the profit function \\(\\pi\\left(Q\\right)\\) .</li><li>Find the profit-maximizing quantity \\(Q^{*}\\) .</li><li>Calculate the maximum profit \\(\\pi\\left(Q^{*}\\right)\\) .</li></ol>',a:'<p>(a) \\(\\pi(Q)=5Q-Q^{2}-Q=4Q-Q^{2}\\) , (b) \\(\\pi\'=4-2Q=0\\Rightarrow Q^{*}=2\\) , (c) \\(\\pi(2)=4\\) .</p>'},
+  {q:'<p>A consumer maximizes utility \\(U\\left(x,y\\right)=2\\sqrt{x}+y\\) subject to the budget constraint \\(x+y=10\\) .</p><ol type="a"><li>Set up the Lagrange function.</li><li>From the first-order conditions, find \\(x^{*}\\) .</li><li>Find \\(y^{*}\\) and \\(U\\left(x^{*},y^{*}\\right)\\) .</li></ol>',a:'<p>(a) \\(\\mathcal{L}=2\\sqrt{x}+y+\\lambda(10-x-y)\\) , (b) FOC: \\(1/\\sqrt{x}=\\lambda=1\\Rightarrow x^{*}=1\\) , (c) \\(y^{*}=9,U(1,9)=11\\) .</p>'},
+  {q:'<p>A monopolist faces demand \\(P=50-2Q\\) and has total cost \\(TC=2Q\\) .</p><ol type="a"><li>Write the profit function \\(\\pi\\left(Q\\right)=TR-TC\\) .</li><li>Find the profit-maximizing quantity \\(Q^{*}\\) and price \\(P^{*}\\) .</li><li>Calculate the maximum profit.</li></ol>',a:'<p>(a) \\(\\pi(Q)=48Q-2Q^{2}\\) , (b) \\(Q^{*}=12,P^{*}=26\\) , (c) \\(\\pi(12)=288\\) .</p>'},
+  {q:'<p>Maria earns \\(y_{1}=300\\) in period 1 and nothing in period 2. The interest rate is \\(r=0.5\\) . She maximizes \\(U=\\ln\\left(c_{1}\\right)+\\ln\\left(c_{2}\\right)\\) .</p><ol type="a"><li>Write the intertemporal budget constraint \\(c_{1}+c_{2}/\\left(1+r\\right)=y_{1}\\) .</li><li>Use the first-order conditions to find \\(c_{1}^{*}\\) and \\(c_{2}^{*}\\) .</li><li>How much does Maria save in period 1?</li></ol>',a:'<p>(a) \\(c_{1}+c_{2}/1.5=300\\) , (b) FOCs: \\(c_{2}=1.5c_{1}\\Rightarrow c_{1}^{*}=150,c_{2}^{*}=225\\) , (c) \\(s_{1}=150\\) .</p>'},
+  {q:'<p>A government maximizes social welfare \\(W=\\ln\\left(x_{1}\\right)+2\\ln\\left(x_{2}\\right)\\) subject to \\(x_{1}+x_{2}=100\\) .</p><ol type="a"><li>Set up the Lagrange function.</li><li>Find the optimal allocation \\(\\left(x_{1}^{*},x_{2}^{*}\\right)\\) .</li><li>Interpret: which group receives more, and why?</li></ol>',a:'<p>(a) \\(\\mathcal{L}=\\ln x_{1}+2\\ln x_{2}+\\lambda(100-x_{1}-x_{2})\\) , (b) \\(x_{2}=2x_{1}\\Rightarrow x_{1}^{*}\\approx33.3,x_{2}^{*}\\approx66.7\\) , (c) group 2 receives twice as much due to its double welfare weight.</p>'},
+  {q:'<p>A monopolist sells in two markets with demand \\(P_{1}=20-Q_{1}\\) and \\(P_{2}=14-Q_{2}\\) . Marginal cost is constant at \\(MC=2\\) .</p><ol type="a"><li>Write the profit function \\(\\pi=\\pi_{1}+\\pi_{2}\\) .</li><li>Find \\(Q_{1}^{*}\\) and \\(Q_{2}^{*}\\) by setting \\(MR_{i}=MC\\) in each market.</li><li>Find prices \\(P_{1}^{*}\\) , \\(P_{2}^{*}\\) and total profit.</li></ol>',a:'<p>(a) \\(\\pi=18Q_{1}-Q_{1}^{2}+12Q_{2}-Q_{2}^{2}\\) , (b) \\(Q_{1}^{*}=9,Q_{2}^{*}=6\\) , (c) \\(P_{1}^{*}=11,P_{2}^{*}=8,\\pi^{*}=117\\) .</p>'}
 ];
 var c=document.getElementById("ex-7");
 if(!c)return;
@@ -1323,6 +1384,7 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 
 

@@ -188,6 +188,67 @@ In part IV we will introduce how we can work more carefully and in detail with u
 
 ## Exercises
 
+```{r 15_counterfactual_analysis_ex_1_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "An experiment shows that the treatment group has average outcome \\(\\bar{Y}_{B}=80\\) and the control group has \\(\\bar{Y}_{K}=60\\) .\n\n(a) What is the estimated treatment effect (hat{tau}=bar{Y}_{B}-bar{Y}_{K}) ?\n\n(b) If the counterfactual outcome for the treatment group would have been (bar{Y}_{B}^{cf}=65) , what is the true causal effect?\n\n(c) What does the difference between (a) and (b) represent?",
+      a = "(a)\\begin_inset Formula \\(\\hat{\\tau}=80-60=20\\) , (b)\\begin_inset Formula \\(\\tau=80-65=15\\) , (c) selection bias or confounding.\n\n"
+    ),
+    list(
+      q = "A researcher assigns 50 students randomly to a new reading program (treatment group) and 50 students to the standard curriculum (control group).\n\n(a) What is the treatment in this experiment?\n\n(b) Why is random assignment used instead of letting students choose their group?\n\n(c) Is this an experiment or an observational study?",
+      a = "(a) the reading program, (b) ensures groups are comparable on average, (c) experiment.\n\n"
+    ),
+    list(
+      q = "A dataset shows that as years of education \\(x\\) increase, average income \\(y\\) also increases. Family wealth \\(z\\) correlates with both variables.\n\n(a) Is the covariation between (x) and (y) positive or negative?\n\n(b) Does this covariation prove that education causes higher income?\n\n(c) What role does (z) play in the analysis?",
+      a = "(a) positive, (b) no — covariation is not proof of causation, (c) a potential confounder.\n\n"
+    ),
+    list(
+      q = "Classify each variable as nominal, ordinal, interval, or ratio data:\n\n(a) Annual income in dollars.\n\n(b) Education level (primary / secondary / tertiary).\n\n(c) Temperature in Celsius.",
+      a = "(a) ratio, (b) ordinal, (c) interval.\n\n"
+    ),
+    list(
+      q = "A researcher studies 300 randomly selected Swedish adults to estimate average weekly screen time. The goal is to draw conclusions about all Swedish adults.\n\n(a) What is the sample in this study?\n\n(b) What is the population?\n\n(c) What could the superpopulation be?",
+      a = "(a) the 300 sampled adults, (b) all Swedish adults, (c) all comparable future populations (e.g. future Swedish adults).\n\n"
+    ),
+    list(
+      q = "A company gives voluntary employees access to a wellness program and later compares their sick-day rates with employees who did not join.\n\n(a) Is this an experiment or an observational study?\n\n(b) What selection problem may arise when comparing the two groups?\n\n(c) How could the study design be improved to reduce this problem?",
+      a = "(a) observational study, (b) self-selection bias (healthier employees may be more likely to join), (c) randomize enrollment in the program.\n\n"
+    ),
+    list(
+      q = "A new traffic law is introduced in region A, while region B introduces the same law two years later due to an administrative delay.\n\n(a) What is the treatment in this quasi-experiment?\n\n(b) Which region acts as the control group during the first two years?\n\n(c) What assumption must hold for this to be a valid quasi-experiment?",
+      a = "(a) the new traffic law, (b) region B, (c) the two regions would have had parallel trends without the law.\n\n"
+    ),
+    list(
+      q = "Four treated observations have outcomes 9, 7, 8, 6 and four control observations have outcomes 5, 4, 6, 5.\n\n(a) Calculate the group means (bar{Y}_{B}) and (bar{Y}_{K}) .\n\n(b) What is the estimated treatment effect (hat{tau}=bar{Y}_{B}-bar{Y}_{K}) ?\n\n(c) Under what condition is (hat{tau}) an unbiased estimate of the causal effect?",
+      a = "(a)\\begin_inset Formula \\(\\bar{Y}_{B}=7.5,\\bar{Y}_{K}=5.0\\) , (b)\\begin_inset Formula \\(\\hat{\\tau}=2.5\\) , (c) random assignment to treatment and control groups.\n\n"
+    ),
+    list(
+      q = "A medical study compares patients who chose to take a new supplement with those who did not, and finds that supplement-takers have better health outcomes.\n\n(a) What is the potential source of bias in this study?\n\n(b) How could randomization solve this problem?\n\n(c) What is this type of bias commonly called?",
+      a = "(a) selection bias (healthier individuals may self-select into treatment), (b) randomization removes systematic differences between groups, (c) selection bias.\n\n"
+    ),
+    list(
+      q = "A researcher takes a sample of \\(n=50\\) from a population of \\(N=10000\\) . The sample mean is \\(\\bar{x}=42\\) .\n\n(a) What fraction of the population is sampled?\n\n(b) What parameter does (bar{x}=42) estimate if the sampling is random?\n\n(c) Why is random sampling important for the representativeness of the sample?",
+      a = "(a)\\begin_inset Formula \\(n/N=50/10000=0.005\\) , (b) the population mean \\(\\mu\\) , (c) ensures the sample is representative of the population.\n\n"
+    ),
+    list(
+      q = "A study finds that cities with more hospitals have higher mortality rates.\n\n(a) Is this positive or negative covariation between hospitals and mortality?\n\n(b) Does this mean that hospitals cause deaths?\n\n(c) What is the most likely explanation for this pattern?",
+      a = "(a) positive, (b) no — reverse causation, (c) hospitals are located where there is more illness.\n\n"
+    ),
+    list(
+      q = "A study shows that students who eat breakfast score higher on exams than those who skip it. A researcher concludes that breakfast improves exam performance.\n\n(a) What is the treatment?\n\n(b) Name one possible confounding variable.\n\n(c) How could a randomized controlled trial help establish causality?",
+      a = "(a) eating breakfast, (b) socioeconomic status, (c) randomly assign students to eat or skip breakfast ensuring groups are comparable.\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-1" class="exercises-container"></div>
 <script>
 (function(){
@@ -249,6 +310,7 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 
 

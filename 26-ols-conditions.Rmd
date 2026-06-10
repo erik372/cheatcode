@@ -516,6 +516,66 @@ where $\frac{n}{n-k} = \frac{4}{4-3} = 4$. Note how the elements in the diagonal
 
 ## Exercises {#sec-ch27-exercises}
 
+```{r 26_ols_conditions_ex_27_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "The Gauss-Markov theorem states that OLS is BLUE when its assumptions hold. (a) What does BLUE stand for? (b) Name three assumptions of the Gauss-Markov theorem. (c) What is the key consequence if OLS is BLUE?",
+      a = "(a) Best Linear Unbiased Estimator. (b) Any three of: \\(E(\\varepsilon|X)=0\\), \\(\\text{Var}(\\varepsilon_i)=\\sigma^2\\) (homoscedasticity), no perfect multicollinearity, no autocorrelation. (c) OLS has the smallest variance among all linear unbiased estimators."
+    ),
+    list(
+      q = "The true relationship is \\(Y = aX^2 + \\varepsilon\\) but we estimate \\(\\hat{y} = \\hat{a} + \\hat{b}X\\). (a) Which Gauss-Markov assumption is violated? (b) How can non-linearity be detected visually? (c) How can we address non-linearity while still using OLS?",
+      a = "(a) The linearity assumption. (b) A residuals-vs-fitted plot will show a curved pattern. (c) Include \\(X^2\\) as an additional regressor."
+    ),
+    list(
+      q = "Homoscedasticity assumes \\(\\text{Var}(\\varepsilon_i) = \\sigma^2\\) for all \\(i\\). (a) What is heteroscedasticity? (b) A residuals-vs-fitted plot shows variance growing with \\(\\hat{y}\\). What does this indicate? (c) Does heteroscedasticity bias \\(\\hat{b}\\)?",
+      a = "(a) \\(\\text{Var}(\\varepsilon_i)\\) varies across observations. (b) Heteroscedasticity — the variance of the error term grows with the fitted values. (c) No — \\(\\hat{b}\\) remains unbiased; only the standard errors are affected."
+    ),
+    list(
+      q = "\\(X_1\\) and \\(X_2\\) have correlation \\(r = 0.99\\). (a) What is this problem called? (b) What happens to \\(\\text{se}(\\hat{b})\\) when regressors are nearly collinear? (c) Name one practical remedy.",
+      a = "(a) Multicollinearity. (b) \\(\\text{se}(\\hat{b})\\) inflates — estimates become less precise. (c) Drop one of the collinear variables, or collect more data."
+    ),
+    list(
+      q = "The Gauss-Markov theorem requires \\(E(\\varepsilon|X) = 0\\). (a) What does this assumption mean in words? (b) What is violated if an omitted variable \\(Z\\) affects \\(Y\\) and is correlated with \\(X\\)? (c) Is \\(\\hat{b}\\) biased in this case?",
+      a = "(a) Errors are uncorrelated with \\(X\\) on average — the model is correctly specified. (b) The assumption \\(E(\\varepsilon|X) = 0\\) is violated. (c) Yes — omitted variable bias."
+    ),
+    list(
+      q = "Autocorrelation in error terms: \\(\\text{Cov}(\\varepsilon_t, \\varepsilon_{t-1}) \\neq 0\\). (a) In which type of data is autocorrelation most common? (b) A plot of residuals vs. time shows a clear wave pattern. What does this suggest? (c) What is one consequence for OLS standard errors?",
+      a = "(a) Time series data. (b) Autocorrelation in the residuals. (c) OLS standard errors are unreliable — typically underestimated, inflating t-statistics."
+    ),
+    list(
+      q = "Three OLS violations and their consequences. (a) Heteroscedasticity: is \\(\\hat{b}\\) unbiased? (b) Omitted variable correlated with \\(X\\): is \\(\\hat{b}\\) unbiased? (c) Measurement error in \\(X\\): is \\(\\hat{b}\\) biased?",
+      a = "(a) Yes — heteroscedasticity does not bias \\(\\hat{b}\\). (b) No — an omitted variable correlated with \\(X\\) causes omitted variable bias. (c) Yes — attenuation bias (the coefficient is biased toward zero)."
+    ),
+    list(
+      q = "The Gauss-Markov theorem does not require normally distributed errors. (a) Is OLS unbiasedness affected by non-normal errors? (b) When is normality of \\(\\varepsilon\\) important for exact inference? (c) With \\(n = 1000\\), does non-normality of \\(\\varepsilon\\) strongly affect t-tests? Why?",
+      a = "(a) No — unbiasedness holds regardless of the error distribution. (b) Normality is needed for exact small-sample t-tests and F-tests. (c) No — by the Central Limit Theorem, \\(\\hat{b}\\) is approximately normally distributed for large \\(n\\)."
+    ),
+    list(
+      q = "Robust standard errors. OLS: \\(\\hat{b} = 3\\), \\(\\text{se}_{\\text{OLS}} = 0.5\\). Robust: \\(\\text{se}_{\\text{robust}} = 0.8\\). (a) Which standard error is more reliable under heteroscedasticity? (b) Does using robust SE change \\(\\hat{b}\\)? (c) If \\(\\text{se}_{\\text{robust}} = 2\\) instead, compute the robust t and decide whether to reject \\(H_0: b = 0\\) at \\(\\alpha = 0.05\\).",
+      a = "(a) The robust standard error is more reliable under heteroscedasticity. (b) No — only the standard error changes, not the coefficient estimate. (c) \\(t = 3/2 = 1.5 < 1.96\\), so we do not reject \\(H_0\\)."
+    ),
+    list(
+      q = "Diagnosis — identify the most likely problem in each scenario. (a) Residuals vs. fitted plot shows a funnel/fan shape. (b) Residuals vs. time plot shows a regular wave pattern. (c) Correlation matrix shows \\(r(X_1, X_2) = 0.97\\).",
+      a = "(a) Heteroscedasticity. (b) Autocorrelation. (c) Multicollinearity."
+    ),
+    list(
+      q = "Model specification. (a) Adding a relevant omitted variable \\(Z\\) (correlated with \\(X\\)): how does \\(\\hat{b}\\) change? (b) Adding an irrelevant variable: what happens to \\(\\hat{b}\\) and efficiency? (c) Name the fundamental trade-off in choosing covariates.",
+      a = "(a) \\(\\hat{b}\\) changes — the original estimate suffered from omitted variable bias. (b) \\(\\hat{b}\\) is unaffected on average but the standard error increases (less efficiency). (c) Omitted variable bias vs. efficiency loss from over-controlling."
+    ),
+    list(
+      q = "Heteroscedasticity in a wage regression: \\(\\hat{y} = 10000 + 2000x\\) where \\(x\\) is years of education. (a) Why might errors have larger variance for high-education workers? (b) What is the effect on OLS standard errors if heteroscedasticity is ignored? (c) Name the HC0 and HC1 variants of robust standard errors in terms of what they estimate.",
+      a = "(a) High earners have more variability in wages — bonuses, equity, and career diversity grow with education. (b) Standard errors are biased and inference is unreliable. (c) HC0 and HC1 are heteroscedasticity-consistent estimators of the variance-covariance matrix; HC1 applies a small-sample degrees-of-freedom correction by multiplying by \\(n/(n-k)\\)."
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
 ```{=html}
 <div id="ex-27"></div>
 <script>
@@ -575,9 +635,12 @@ var exercises27 = [
   exercises27.forEach(function(ex, i) {
     var div = document.createElement("div");
     div.style.marginBottom = "1.2em";
+    function addBreaks(s) {
+      return s.replace(/ \(([a-j])\) /g, '<br>($1) ');
+    }
     div.innerHTML =
-      "<p><strong>Exercise " + (i + 1) + ".</strong> " + ex.question + "</p>" +
-      "<details><summary>Answer</summary><p>" + ex.answer + "</p></details>";
+      "<p><strong>Exercise " + (i + 1) + ".</strong> " + addBreaks(ex.question) + "</p>" +
+      "<details><summary>Answer</summary><p>" + addBreaks(ex.answer) + "</p></details>";
     container.appendChild(div);
   });
   if (window.MathJax) {

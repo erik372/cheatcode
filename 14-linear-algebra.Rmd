@@ -1794,6 +1794,67 @@ $$
 
 ## Exercises
 
+```{r 14_linear_algebra_ex_9_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "Let \\(\\vec{v}_{1}=\\left(2,3,1\\right)\\) and \\(\\vec{v}_{2}=\\left(4,1,5\\right)\\) .\n\n(a) Calculate (vec{v}_{1}+vec{v}_{2}) .\n\n(b) Calculate (vec{v}_{1}-vec{v}_{2}) .\n\n(c) Calculate the scalar product (vec{v}_{1}*vec{v}_{2}) .",
+      a = "(a) \\(\\left(6,4,6\\right)\\) (b) \\(\\left(-2,2,-4\\right)\\) (c) \\(2\\cdot4+3\\cdot1+1\\cdot5=16\\)\n\n"
+    ),
+    list(
+      q = "Let \\(\\vec{a}=\\left(3,4\\right)\\) and \\(\\vec{b}=\\left(1,-2\\right)\\) .\n\n(a) Calculate (5vec{a}) .\n\n(b) Calculate the norm (leftVert vec{a}rightVert) .\n\n(c) Calculate the scalar product (vec{a}*vec{b}) .",
+      a = "(a) \\(\\left(15,20\\right)\\) (b) \\(\\left\\Vert \\vec{a}\\right\\Vert =\\sqrt{9+16}=5\\) (c) \\(3\\cdot1+4\\cdot\\left(-2\\right)=-5\\)\n\n"
+    ),
+    list(
+      q = "Let\n\n\\(\\displaystyle A=\\left[\\begin{matrix}2 & 1\\\\ 3 & 4 \\end{matrix}\\right]\\)\n\nand\n\n\\(\\displaystyle B=\\left[\\begin{matrix}5 & 2\\\\ 1 & 0 \\end{matrix}\\right]\\)\n\n.\n\n(a) Calculate (A+B) .\n\n(b) Calculate (A-B) .\n\n(c) Calculate (3A) .",
+      a = "(a)\n\n\\(\\displaystyle \\left[\\begin{matrix}7 & 3\\\\ 4 & 4 \\end{matrix}\\right]\\)\n\n(b)\n\n\\(\\displaystyle \\left[\\begin{matrix}-3 & -1\\\\ 2 & 4 \\end{matrix}\\right]\\)\n\n(c)\n\n\\(\\displaystyle \\left[\\begin{matrix}6 & 3\\\\ 9 & 12 \\end{matrix}\\right]\\)\n\n"
+    ),
+    list(
+      q = "Let\n\n\\(\\displaystyle A=\\left[\\begin{matrix}1 & 2\\\\ 3 & 4 \\end{matrix}\\right]\\)\n\nand\n\n\\(\\displaystyle B=\\left[\\begin{matrix}2 & 0\\\\ 1 & 3 \\end{matrix}\\right]\\)\n\n.\n\n(a) Calculate (AB) .\n\n(b) Calculate (BA) .\n\n(c) Is (AB=BA) ? What does this illustrate?",
+      a = "(a)\n\n\\(\\displaystyle AB=\\left[\\begin{matrix}4 & 6\\\\ 10 & 12 \\end{matrix}\\right]\\)\n\n(b)\n\n\\(\\displaystyle BA=\\left[\\begin{matrix}2 & 4\\\\ 10 & 14 \\end{matrix}\\right]\\)\n\n(c) \\(AB\\neq BA\\)\n\n"
+    ),
+    list(
+      q = "Let\n\n\\(\\displaystyle A=\\left[\\begin{matrix}1 & 2\\\\ 3 & 4\\\\ 5 & 6 \\end{matrix}\\right]\\)\n\n.\n\n(a) Write out the transpose (A^{T}) .\n\n(b) What are the dimensions of (A) and (A^{T}) ?\n\n(c) Verify that (left(A^{T}right)^{T}=A) .",
+      a = "(a)\n\n\\(\\displaystyle A^{T}=\\left[\\begin{matrix}1 & 3 & 5\\\\ 2 & 4 & 6 \\end{matrix}\\right]\\)\n\n(b) \\(A\\) (c) Transposing \\(A^{T}\\)\n\n"
+    ),
+    list(
+      q = "Let\n\n\\(\\displaystyle D=\\left[\\begin{matrix}4 & 0\\\\ 0 & 7 \\end{matrix}\\right]\\)\n\nand\n\n\\(\\displaystyle A=\\left[\\begin{matrix}3 & 1\\\\ 2 & 5 \\end{matrix}\\right]\\)\n\n.\n\n(a) Write out the (3times3) identity matrix (I_{3}) .\n\n(b) Verify that (AI_{2}=A) by computing the matrix product.\n\n(c) Calculate the trace (text{tr}(D)) .",
+      a = "(a)\n\n\\(\\displaystyle I_{3}=\\left[\\begin{matrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ 0 & 0 & 1 \\end{matrix}\\right]\\)\n\n(b)\n\n\\(\\displaystyle AI_{2}=\\left[\\begin{matrix}3 & 1\\\\ 2 & 5 \\end{matrix}\\right]=A\\)\n\n(c) \\(\\text{tr}(D)=4+7=11\\)\n\n"
+    ),
+    list(
+      q = "Let\n\n\\(\\displaystyle A=\\left[\\begin{matrix}3 & 2\\\\ 1 & 4 \\end{matrix}\\right]\\)\n\n.\n\n(a) Calculate the determinant (det(A)) .\n\n(b) Find the inverse matrix (A^{-1}) .\n\n(c) Verify that (Acdot A^{-1}=I_{2}) by computing the product.",
+      a = "(a) \\(\\det(A)=3\\cdot4-2\\cdot1=10\\) (b)\n\n\\(\\displaystyle A^{-1}=\\frac{1}{10}\\left[\\begin{matrix}4 & -2\\\\ -1 & 3 \\end{matrix}\\right]\\)\n\n(c)\n\n\\(\\displaystyle A\\cdot A^{-1}=\\frac{1}{10}\\left[\\begin{matrix}10 & 0\\\\ 0 & 10 \\end{matrix}\\right]=I_{2}\\)\n\n"
+    ),
+    list(
+      q = "Let\n\n\\(\\displaystyle A=\\left[\\begin{matrix}1 & 3\\\\ 2 & 1 \\end{matrix}\\right]\\)\n\nand\n\n\\(\\displaystyle B=\\left[\\begin{matrix}0 & 1\\\\ 1 & 2 \\end{matrix}\\right]\\)\n\n.\n\n(a) Calculate ((A+B)^{T}) .\n\n(b) Verify that ((A+B)^{T}=A^{T}+B^{T}) .\n\n(c) Calculate (AB) and verify that ((AB)^{T}=B^{T}A^{T}) .",
+      a = "(a)\n\n\\(\\displaystyle A+B=\\left[\\begin{matrix}1 & 4\\\\ 3 & 3 \\end{matrix}\\right]\\)\n\n(b)\n\n\\(\\displaystyle A^{T}+B^{T}=\\left[\\begin{matrix}1 & 2\\\\ 3 & 1 \\end{matrix}\\right]+\\left[\\begin{matrix}0 & 1\\\\ 1 & 2 \\end{matrix}\\right]=\\left[\\begin{matrix}1 & 3\\\\ 4 & 3 \\end{matrix}\\right]\\)\n\n(c)\n\n\\(\\displaystyle AB=\\left[\\begin{matrix}3 & 7\\\\ 1 & 4 \\end{matrix}\\right]\\)\n\n"
+    ),
+    list(
+      q = "Solve the system of equations using the inverse matrix: \\(2x+y=5\\) and \\(x+3y=10\\) .\n\n(a) Write the system in matrix form (Amathbf{x}=mathbf{b}) .\n\n(b) Calculate (det(A)) .\n\n(c) Find (A^{-1}) and solve for (mathbf{x}=A^{-1}mathbf{b}) .",
+      a = "(a)\n\n\\(\\displaystyle A=\\left[\\begin{matrix}2 & 1\\\\ 1 & 3 \\end{matrix}\\right]\\)\n\n(b) \\(\\det(A)=6-1=5\\) (c)\n\n\\(\\displaystyle A^{-1}=\\frac{1}{5}\\left[\\begin{matrix}3 & -1\\\\ -1 & 2 \\end{matrix}\\right]\\)\n\n"
+    ),
+    list(
+      q = "Let \\(\\vec{u}=(3,1)\\) and \\(\\vec{v}=(2,4)\\) .\n\n(a) Calculate the scalar product (vec{u}cdotvec{v}) .\n\n(b) Calculate the projection of (vec{u}) onto (vec{v}) : (text{proj}_{vec{v}}(vec{u})=frac{vec{u}cdotvec{v}}{leftVert vec{v}rightVert ^{2}}vec{v}) .\n\n(c) Interpret: what does this projection represent geometrically?",
+      a = "(a) \\(\\vec{u}\\cdot\\vec{v}=6+4=10\\) (b) \\(\\left\\Vert \\vec{v}\\right\\Vert ^{2}=4+16=20\\) (c) The projection is the component of \\(\\vec{u}\\)\n\n"
+    ),
+    list(
+      q = "A market equilibrium model gives the conditions \\(4x_{1}-x_{2}=10\\) and \\(-2x_{1}+3x_{2}=5\\) .\n\n(a) Write the system in matrix form (Amathbf{x}=mathbf{b}) .\n\n(b) Calculate (det(A)) .\n\n(c) Find the equilibrium quantities (x_{1}) and (x_{2}) using (A^{-1}) .",
+      a = "(a)\n\n\\(\\displaystyle A=\\left[\\begin{matrix}4 & -1\\\\ -2 & 3 \\end{matrix}\\right]\\)\n\n(b) \\(\\det(A)=12-2=10\\) (c)\n\n\\(\\displaystyle A^{-1}=\\frac{1}{10}\\left[\\begin{matrix}3 & 1\\\\ 2 & 4 \\end{matrix}\\right]\\)\n\n"
+    ),
+    list(
+      q = "Let\n\n\\(\\displaystyle W=\\left[\\begin{matrix}3 & 0 & 0\\\\ 0 & 5 & 0\\\\ 0 & 0 & 2 \\end{matrix}\\right]\\)\n\nbe a weight matrix and \\(\\vec{v}=\\left(2,1,4\\right)\\) a score vector.\n\n(a) Calculate the weighted score vector (Wvec{v}) .\n\n(b) Calculate the trace (text{tr}(W)) .\n\n(c) Calculate the norm (leftVert vec{v}rightVert) .",
+      a = "(a) \\(W\\vec{v}=\\left(6,5,8\\right)^{T}\\) (b) \\(\\text{tr}(W)=3+5+2=10\\) (c) \\(\\left\\Vert \\vec{v}\\right\\Vert =\\sqrt{4+1+16}=\\sqrt{21}\\approx4.58\\)\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-9" class="exercises-container"></div>
 <script>
 (function(){
@@ -1855,5 +1916,6 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 

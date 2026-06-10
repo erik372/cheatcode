@@ -645,6 +645,67 @@ $$f\left(y=5\right) =e^{-\lambda}\frac{\lambda^{x}}{x!}=e^{-0.5}\frac{0.5^{5}}{5
 
 ## Exercises
 
+```{r 16_probability_discrete_ex_21_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "An urn contains 3 red and 2 blue balls. One ball is drawn at random.\n\n(a) What is (P(text{red}))?\n\n(b) What is (P(text{blue}))?\n\n(c) What is (P(text{red or blue}))?",
+      a = "(a) \\(P(\\text{red})=3/5=0.6\\), (b) \\(P(\\text{blue})=2/5=0.4\\), (c) \\(P(\\text{red or blue})=1\\).\n\n"
+    ),
+    list(
+      q = "A random variable \\(X\\) takes values 1, 2, 3 with probabilities 0.3, 0.5, 0.2.\n\n(a) Verify that the probabilities sum to 1.\n\n(b) Calculate (E(X)=sum x_{i}P(X=x_{i})).\n\n(c) Calculate (text{var}(X)=E(X^{2})-[E(X)]^{2}).",
+      a = "(a) \\(0.3+0.5+0.2=1\\) ✓, (b) \\(E(X)=1(0.3)+2(0.5)+3(0.2)=1.9\\), (c) \\(E(X^2)=1(0.3)+4(0.5)+9(0.2)=4.1\\), \\(\\text{var}(X)=4.1-1.9^2=0.49\\).\n\n"
+    ),
+    list(
+      q = "Events \\(A\\) and \\(B\\) have \\(P(A)=0.4\\), \\(P(B)=0.3\\), \\(P(A\\cap B)=0.1\\).\n\n(a) Calculate (P(Acup B)).\n\n(b) Are (A) and (B) independent?\n\n(c) Calculate (P(Amid B)).",
+      a = "(a) \\(P(A\\cup B)=0.4+0.3-0.1=0.6\\), (b) no: \\(P(A)P(B)=0.12\\neq P(A\\cap B)=0.1\\), (c) \\(P(A\\mid B)=P(A\\cap B)/P(B)=0.1/0.3=1/3\\).\n\n"
+    ),
+    list(
+      q = "A random variable \\(X\\) has \\(E(X)=5\\) and \\(\\text{var}(X)=4\\).\n\n(a) What is (E(2X+3))?\n\n(b) What is (text{var}(2X+3))?\n\n(c) What is the standard deviation (s(2X+3))?",
+      a = "(a) \\(E(2X+3)=2\\cdot5+3=13\\), (b) \\(\\text{var}(2X+3)=4\\cdot\\text{var}(X)=16\\), (c) \\(s(2X+3)=\\sqrt{16}=4\\).\n\n"
+    ),
+    list(
+      q = "\\(E(Y\\mid X=1)=8\\) and \\(E(Y\\mid X=0)=3\\), with \\(P(X=1)=0.4\\).\n\n(a) Calculate (E(Y)=E(Ymid X=1)P(X=1)+E(Ymid X=0)P(X=0)).\n\n(b) If (X) represents university education (1=yes, 0=no) and (Y) is income, interpret (E(Ymid X=1)=8).\n\n(c) Does this conditional expectation prove that education causes higher income?",
+      a = "(a) \\(E(Y)=8(0.4)+3(0.6)=3.2+1.8=5.0\\), (b) average income among those with university education is 8 units, (c) no — selection bias may explain the difference; education may be correlated with unobserved factors such as family background.\n\n"
+    ),
+    list(
+      q = "A fair die has six equally likely outcomes.\n\n(a) What is (E(X)) for a single roll?\n\n(b) What does the law of large numbers say about the sample mean (bar{X}_{n}) as (nrightarrowinfty)?\n\n(c) Why is this useful for statistical inference?",
+      a = "(a) \\(E(X)=3.5\\), (b) \\(\\bar{X}_{n}\\rightarrow\\mu=3.5\\) as \\(n\\rightarrow\\infty\\), (c) large samples give reliable estimates of population parameters — the sample mean converges to the true mean.\n\n"
+    ),
+    list(
+      q = "\\(X\\) is uniformly distributed on \\(\\{1,2,3,4\\}\\) (discrete uniform).\n\n(a) What is the probability mass function (f(x))?\n\n(b) What is (E(X))?\n\n(c) What is (P(2leq Xleq3))?",
+      a = "(a) \\(f(x)=1/4\\) for \\(x\\in\\{1,2,3,4\\}\\), (b) \\(E(X)=(1+2+3+4)/4=2.5\\), (c) \\(P(2\\leq X\\leq3)=2/4=0.5\\).\n\n"
+    ),
+    list(
+      q = "A biased coin has \\(P(\\text{heads})=0.3\\). It is flipped \\(n=5\\) times. Let \\(X\\) = number of heads.\n\n(a) Calculate (P(X=0)=(1-p)^{n}).\n\n(b) Calculate (E(X)=np).\n\n(c) Calculate (text{var}(X)=np(1-p)).",
+      a = "(a) \\(P(X=0)=0.7^{5}\\approx0.168\\), (b) \\(E(X)=5\\cdot0.3=1.5\\), (c) \\(\\text{var}(X)=5\\cdot0.3\\cdot0.7=1.05\\).\n\n"
+    ),
+    list(
+      q = "For a binomial distribution with \\(n=10\\) and \\(p=0.5\\):\n\n(a) Calculate (E(X)).\n\n(b) Calculate (text{var}(X)).\n\n(c) Calculate (P(X=0)).",
+      a = "(a) \\(E(X)=np=5\\), (b) \\(\\text{var}(X)=np(1-p)=2.5\\), (c) \\(P(X=0)=\\binom{10}{0}0.5^0\\cdot0.5^{10}=(0.5)^{10}\\approx0.001\\).\n\n"
+    ),
+    list(
+      q = "Events occur at a rate of \\(\\lambda=3\\) per hour. \\(X\\) follows a Poisson distribution.\n\n(a) What is (E(X))?\n\n(b) What is (text{var}(X))?\n\n(c) Calculate (P(X=0)=e^{-lambda}).",
+      a = "(a) \\(E(X)=3\\), (b) \\(\\text{var}(X)=3\\), (c) \\(P(X=0)=e^{-3}\\approx0.050\\).\n\n"
+    ),
+    list(
+      q = "For a Poisson distribution with \\(\\lambda=2\\):\n\n(a) Calculate (P(X=0)=e^{-2}).\n\n(b) Calculate (P(X=1)=e^{-2}cdotfrac{2^{1}}{1!}).\n\n(c) What is (E(X))?",
+      a = "(a) \\(P(X=0)=e^{-2}\\approx0.135\\), (b) \\(P(X=1)=2e^{-2}\\approx0.271\\), (c) \\(E(X)=\\lambda=2\\).\n\n"
+    ),
+    list(
+      q = "Two random variables \\(X\\) and \\(Y\\) are independent with \\(E(X)=3\\), \\(E(Y)=4\\), \\(\\text{var}(X)=2\\), \\(\\text{var}(Y)=5\\).\n\n(a) Calculate (E(X+Y)).\n\n(b) Calculate (text{var}(X+Y)).\n\n(c) What would (text{var}(X+Y)) be if (X) and (Y) were not independent?",
+      a = "(a) \\(E(X+Y)=3+4=7\\), (b) \\(\\text{var}(X+Y)=2+5=7\\) (since independent), (c) \\(\\text{var}(X+Y)=\\text{var}(X)+\\text{var}(Y)+2\\,\\text{cov}(X,Y)\\); if not independent the covariance term must be added.\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-21" class="exercises-container"></div>
 <script>
 (function(){
@@ -706,3 +767,4 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```

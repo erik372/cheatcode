@@ -23,7 +23,7 @@
 <meta name="author" content="Erik Hegelund" />
 
 
-<meta name="date" content="2026-06-09" />
+<meta name="date" content="2026-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1713,15 +1713,13 @@ gm\left(\Delta y_{t+1}\right)=\frac{y_{t}+y_{t+1}+y_{t+2}}{3}
 </div>
 <div id="exercises-1" class="section level2 hasAnchor" number="3.11">
 <h2><span class="header-section-number">3.11</span> Exercises<a href="chap-forsta-basic-exempel.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="ex-2" class="exercises-container">
-
-</div>
+<div id="ex-2" class="exercises-container"></div>
 <script>
 (function(){
 var ex=[
   {q:'<p>You deposit $8,000 in a savings account with an annual interest rate of 3.5%.</p><ol type="a"><li>Calculate the interest earned after one year.</li><li>Calculate the total amount in the account after one year.</li><li>If the interest rate changes to 4.2% in the second year, what will be the total amount after two years?</li></ol>',a:'<p>(a) Interest = \\(8{,}000 \\times 0.035 = 280\\), (b) Total = \\(8{,}000 + 280 = 8{,}280\\) or \\(8{,}000 \\times 1.035 = 8{,}280\\), (c) After year 2: \\(8{,}280 \\times 1.042 = 8{,}627.76\\)</p>'},
   {q:'<p>A credit card has a nominal annual interest rate of 18%. Interest is compounded monthly.</p><ol type="a"><li>What is the monthly interest rate?</li><li>If you borrow $5,000 and don\'t make any payments for 6 months, how much will you owe?</li><li>Calculate the effective annual interest rate when interest is compounded monthly.</li></ol>',a:'<p>(a) Monthly rate = \\(0.18/12 = 0.015 = 1.5\\%\\), (b) Amount owed = \\(5{,}000 \\times 1.015^{6} = 5{,}467.45\\), (c) Effective annual rate = \\((1.015)^{12} - 1 = 1.1956 - 1 = 0.1956 = 19.56\\%\\)</p>'},
-  {q:'<p>You take a loan of \\( 15,000 with a nominal interest rate of 8% per year. The bank charges a setup fee of \\) 450 and a monthly billing fee of $25 for 24 months.</p><ol type="a"><li>Calculate the total amount of fees (excluding the nominal interest).</li><li>Calculate the total cost of the loan including all fees and interest over 24 months.</li><li>What is the effective interest rate for this loan?</li></ol>',a:'<p>(a) Total fees = \\(450 + (25 \\times 24) = 450 + 600 = 1{,}050\\), (b) Interest over 24 months = \\(15{,}000 \\times 0.08 \\times 2 = 2{,}400\\); Total cost = \\(15{,}000 + 2{,}400 + 1{,}050 = 18{,}450\\), (c) Effective interest = \\((18{,}450 - 15{,}000)/15{,}000 = 3{,}450/15{,}000 = 0.23 = 23\\%\\)</p>'},
+  {q:'<p>You take a loan of \\$15,000 with a nominal interest rate of 8% per year. The bank charges a setup fee of \\$450 and a monthly billing fee of \\$25 for 24 months.</p><ol type="a"><li>Calculate the total amount of fees (excluding the nominal interest).</li><li>Calculate the total cost of the loan including all fees and interest over 24 months.</li><li>What is the effective interest rate for this loan?</li></ol>',a:'<p>(a) Total fees = \\(450 + (25 \\times 24) = 450 + 600 = 1{,}050\\), (b) Interest over 24 months = \\(15{,}000 \\times 0.08 \\times 2 = 2{,}400\\); Total cost = \\(15{,}000 + 2{,}400 + 1{,}050 = 18{,}450\\), (c) Effective interest = \\((18{,}450 - 15{,}000)/15{,}000 = 3{,}450/15{,}000 = 0.23 = 23\\%\\)</p>'},
   {q:'<p>The following data shows quarterly sales (in thousands) for a company: Q1 2023: 450, Q2 2023: 520, Q3 2023: 480, Q4 2023: 610, Q1 2024: 490, Q2 2024: 585.</p><ol type="a"><li>Create an index with Q1 2023 as the base period (=100).</li><li>Calculate the percentage change in sales from Q3 2023 to Q4 2023.</li><li>What is the average quarterly growth rate for the entire period?</li></ol>',a:'<p>(a) Q1 2023: 100, Q2 2023: 115.6, Q3 2023: 106.7, Q4 2023: 135.6, Q1 2024: 108.9, Q2 2024: 130.0, (b) \\( (610-480)/480=130/480=0.271=27.1\\%\\) , c) Average growth = \\( (585/450)^{1/5}-1=1.3^{0.2}-1=0.0539=5.39\\%\\) per quarter</p>'},
   {q:'<p>The population of a city was 250,000 in 2010, 275,000 in 2015, and 308,000 in 2020.</p><ol type="a"><li>a) Create a population index with 2010 as the base year.</li><li>b) Calculate the percentage growth from 2010 to 2020.</li><li>c) What was the average annual growth rate between 2015 and 2020?</li></ol>',a:'<p>(a) 2010: 100, 2015: 110, 2020: 123.2, (b) \\( (308,000-250,000)/250,000=58,000/250,000=0.232=23.2\\%\\) , c) Annual rate = \\( (308,000/275,000)^{1/5}-1=1.12^{0.2}-1=0.0229=2.29\\%\\)</p>'},
   {q:'<p>Income data for two groups (in dollars): Group A had median income of \\( 35,000 in 2015 and \\) 42,500 in 2023. Group B had median income of \\( 65,000 in 2015 and \\) 72,000 in 2023.</p><ol type="a"><li>a) Create income indices for both groups with 2015 as the base year.</li><li>b) Which group experienced higher percentage growth?</li><li>c) Calculate the ratio of Group B\'s income to Group A\'s income for both years. Has inequality increased or decreased?</li></ol>',a:'<p>(a) Group A: 2015: 100, 2023: 121.4; Group B: 2015: 100, 2023: 110.8, (b) Group A: 21.4% growth, Group B: 10.8% growth; Group A experienced higher growth, c) 2015: \\(\\\\) 65,000/\\\\( 35,000=1.86 \\) ; 2023: \\(\\\\) 72,000/\\\\( 42,500=1.69 \\) ; Inequality has decreased</p>'},

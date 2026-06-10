@@ -942,6 +942,67 @@ $$
 
 ## Exercises
 
+```{r 04_functions_graphs_ex_3_pdf, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+  ex_items <- list(
+    list(
+      q = "Given the function \\( f(x)=3x-5 \\) , calculate: (a) \\( f(2)\\) , (b) \\( f(-1)\\) , (c) \\( f(0)\\)\n\n",
+      a = "(a) \\( f(2)=3(2)-5=6-5=1 \\) , (b) \\( f(-1)=3(-1)-5=-3-5=-8 \\) , (c) \\( f(0)=3(0)-5=0-5=-5 \\)\n\n"
+    ),
+    list(
+      q = "Consider the function \\( g(x,y)=2x+4y-1 \\) . Find:\n\n(a) ( g(1,2))\n\n(b) ( g(3,-1))\n\n(c) ( g(0,0))",
+      a = "(a) \\( g(1,2)=2(1)+4(2)-1=2+8-1=9 \\) , (b) \\( g(3,-1)=2(3)+4(-1)-1=6-4-1=1 \\) , (c) \\( g(0,0)=2(0)+4(0)-1=0+0-1=-1 \\)\n\n"
+    ),
+    list(
+      q = "For the linear function \\( y=4+2x \\) :\n\n(a) What is the y-intercept?\n\n(b) What is the slope?\n\n(c) Find the value of ( y ) when ( x=3 ) .\n\n(d) Find the value of ( x ) when ( y=10 )",
+      a = "(a) y-intercept = 4, (b) slope = 2, (c) \\( y=4+2(3)=4+6=10 \\) , (d) \\( 10=4+2x \\) , so \\( 6=2x \\) , therefore \\( x=3 \\)\n\n"
+    ),
+    list(
+      q = "Two points on a straight line are \\( (2,5)\\) and \\( (6,13)\\) .\n\n(a) Calculate the slope of the line.\n\n(b) Find the equation of the line in the form ( y=a+bx ) .\n\n(c) What is the y-intercept?",
+      a = "(a) slope = \\(\\frac{13-5}{6-2}=\\frac{8}{4}=2 \\) , (b) Using point \\( (2,5)\\) : \\( 5=a+2(2)\\) , so \\( a=1 \\) . Equation: \\( y=1+2x \\) , (c) y-intercept = 1\n\n"
+    ),
+    list(
+      q = "Solve for \\( x \\) in the following equations:\n\n(a) ( 5x+3=18 )\n\n(b) ( 2x-7=3x+2 )\n\n(c) (frac{x}{4}+2=5 )",
+      a = "(a) \\( 5x=15 \\) , so \\( x=3 \\) , (b) \\(-7-2=3x-2x \\) , so \\(-9=x \\) , (c) \\(\\frac{x}{4}=3 \\) , so \\( x=12 \\)\n\n"
+    ),
+    list(
+      q = "Determine whether the following functions are linear using the two conditions for linearity:\n\n(a) ( f(x)=3x )\n\n(b) ( g(x)=x^{2}+1 )\n\n(c) ( h(x)=-2x )",
+      a = "(a) Linear: \\( f(x_{1}+x_{2})=3(x_{1}+x_{2})=3x_{1}+3x_{2}=f(x_{1})+f(x_{2})\\) and \\( f(ax)=3(ax)=a(3x)=af(x)\\) , (b) Not linear: \\( g(x_{1}+x_{2})=(x_{1}+x_{2})^{2}+1\\neq x_{1}^{2}+1+x_{2}^{2}+1 \\) , (c) Linear: satisfies both conditions\n\n"
+    ),
+    list(
+      q = "Given sets \\( A=\\{1,3,5,7\\}\\) and \\( B=\\{3,4,5,6\\}\\) , find:\n\n(a) ( Acup B )\n\n(b) ( Acap B )\n\n(c) ( Asetminus B )\n\n(d) ( Bsetminus A )",
+      a = "(a) \\( A\\cup B=\\{1,3,4,5,6,7\\}\\) , (b) \\( A\\cap B=\\{3,5\\}\\) , (c) \\( A\\setminus B=\\{1,7\\}\\) , (d) \\( B\\setminus A=\\{4,6\\}\\)\n\n"
+    ),
+    list(
+      q = "For the function \\( f(x)=\\frac{1}{x-2}\\) :\n\n(a) What is the domain of the function?\n\n(b) Why is the function not defined at ( x=2 ) ?\n\n(c) Is the function continuous over the interval ([3,5]) ?",
+      a = "(a) Domain: \\( x\\in\\mathbb{R}\\setminus\\{2\\}\\) or \\( (-\\infty,2)\\cup(2,\\infty)\\) , (b) Division by zero is undefined when \\( x=2 \\) , (c) Yes, the function is continuous over \\([3,5]\\) since 2 is not in this interval\n\n"
+    ),
+    list(
+      q = "Given \\( f(x)=x+3 \\) and \\( g(x)=2x-1 \\) , find:\n\n(a) ( (f+g)(x))\n\n(b) ( (f-g)(x))\n\n(c) ( (fcdot g)(x))\n\n(d) ( (f/g)(x))",
+      a = "(a) \\( (f+g)(x)=x+3+2x-1=3x+2 \\) , (b) \\( (f-g)(x)=x+3-(2x-1)=-x+4 \\) , (c) \\( (f\\cdot g)(x)=(x+3)(2x-1)=2x^{2}+5x-3 \\) , (d) \\( (f/g)(x)=\\frac{x+3}{2x-1}\\)\n\n"
+    ),
+    list(
+      q = "Given \\( f(x)=x^{2}\\) and \\( g(x)=x-4 \\) , find:\n\n(a) ( f(g(x)))\n\n(b) ( g(f(x)))\n\n(c) ( f(g(2)))\n\n(d) ( g(f(3)))",
+      a = "(a) \\( f(g(x))=f(x-4)=(x-4)^{2}=x^{2}-8x+16 \\) , (b) \\( g(f(x))=g(x^{2})=x^{2}-4 \\) , (c) \\( f(g(2))=f(-2)=4 \\) , (d) \\( g(f(3))=g(9)=5 \\)\n\n"
+    ),
+    list(
+      q = "Draw the graph of \\( y=-2x+6 \\) and identify:\n\n(a) The point where the line crosses the y-axis\n\n(b) The point where the line crosses the x-axis\n\n(c) Whether the line has positive or negative slope",
+      a = "(a) y-axis crossing: \\( (0,6)\\) , (b) x-axis crossing: set \\( y=0 \\) : \\( 0=-2x+6 \\) , so \\( x=3 \\) , point is \\( (3,0)\\) , (c) Negative slope (coefficient of \\( x \\) is \\(-2 \\) )\n\n"
+    ),
+    list(
+      q = "A theory suggests that happiness (\\( H \\) ) is related to income (\\( I \\) ) by the equation \\( H=0.002I+50 \\) .\n\n(a) What is the baseline happiness when income is zero?\n\n(b) How much does happiness increase when income increases by $1000 ?\n\n(c) What income level corresponds to a happiness score of 60?",
+      a = "(a) Baseline happiness = 50, (b) Happiness increases by \\( 0.002\\times1000=2 \\) units, (c) \\( 60=0.002I+50 \\) , so \\( 10=0.002I \\) , therefore \\( I=5000 \\)\n\n"
+    )
+  )
+  for (i in seq_along(ex_items)) {
+    cat("**", i, ".** ", ex_items[[i]]$q, "\n\n", sep="")
+    if (nzchar(trimws(ex_items[[i]]$a)))
+      cat("*Answer:* ", ex_items[[i]]$a, "\n\n", sep="")
+  }
+}
+```
+
+```{=html}
 <div id="ex-3" class="exercises-container"></div>
 <script>
 (function(){
@@ -989,6 +1050,7 @@ c.querySelectorAll("details").forEach(function(d){
 });
 })();
 </script>
+```
 
 
 
