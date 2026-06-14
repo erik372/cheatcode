@@ -418,6 +418,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<style>
+div.figure img { cursor: zoom-in; }
+</style>
 </head>
 
 <body>
@@ -1844,6 +1848,31 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+(function() {
+  function initLightbox() {
+    document.querySelectorAll('div.figure img').forEach(function(img) {
+      if (img.parentNode.tagName === 'A') return;
+      var fig = img.closest('div.figure');
+      var captionEl = fig ? fig.querySelector('p.caption') : null;
+      var caption = captionEl ? captionEl.textContent.trim() : '';
+      var a = document.createElement('a');
+      a.className = 'glightbox';
+      a.href = img.src;
+      a.setAttribute('data-title', caption);
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+    GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLightbox);
+  } else {
+    initLightbox();
+  }
+})();
 </script>
 </body>
 
