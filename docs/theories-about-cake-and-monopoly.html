@@ -23,7 +23,7 @@
 <meta name="author" content="Erik Hegelund" />
 
 
-<meta name="date" content="2026-06-10" />
+<meta name="date" content="2026-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -344,6 +344,49 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 200);
 });
 </script>
+<!-- GLightbox: click-to-enlarge figures -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<style>div.figure img { cursor: zoom-in; }</style>
+<script defer src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var lb = null;
+
+  function initLightbox() {
+    document.querySelectorAll('div.figure a.glightbox').forEach(function(a) {
+      var img = a.querySelector('img');
+      if (img) a.parentNode.insertBefore(img, a);
+      a.parentNode.removeChild(a);
+    });
+    document.querySelectorAll('div.figure img').forEach(function(img) {
+      var fig = img.closest('div.figure');
+      var cap = fig && fig.querySelector('p.caption');
+      var a = document.createElement('a');
+      a.className = 'glightbox';
+      a.href = img.src;
+      if (cap) a.setAttribute('data-title', cap.textContent.trim());
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+    if (lb) lb.destroy();
+    lb = document.querySelector('.glightbox')
+      ? GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false })
+      : null;
+  }
+
+  function tryBind() {
+    if (typeof gitbook !== 'undefined' && gitbook.events) {
+      gitbook.events.bind('page.change', function() {
+        setTimeout(initLightbox, 150);
+      });
+      initLightbox();
+    } else {
+      setTimeout(tryBind, 200);
+    }
+  }
+  tryBind();
+});
+</script>
 
 
 <style type="text/css">
@@ -418,10 +461,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-<style>
-div.figure img { cursor: zoom-in; }
-</style>
 </head>
 
 <body>
@@ -1848,31 +1887,6 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script>
-(function() {
-  function initLightbox() {
-    document.querySelectorAll('div.figure img').forEach(function(img) {
-      if (img.parentNode.tagName === 'A') return;
-      var fig = img.closest('div.figure');
-      var captionEl = fig ? fig.querySelector('p.caption') : null;
-      var caption = captionEl ? captionEl.textContent.trim() : '';
-      var a = document.createElement('a');
-      a.className = 'glightbox';
-      a.href = img.src;
-      a.setAttribute('data-title', caption);
-      img.parentNode.insertBefore(a, img);
-      a.appendChild(img);
-    });
-    GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false });
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLightbox);
-  } else {
-    initLightbox();
-  }
-})();
 </script>
 </body>
 
