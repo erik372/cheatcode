@@ -23,7 +23,7 @@
 <meta name="author" content="Erik Hegelund" />
 
 
-<meta name="date" content="2026-06-15" />
+<meta name="date" content="2026-06-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,14 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
 <script>
 // Re-render MathJax after gitbook dynamic page navigation
 document.addEventListener('DOMContentLoaded', function() {
@@ -389,71 +381,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -966,7 +893,17 @@ Y=\alpha+\beta X+\epsilon
 <div id="illustration-with-a-dag" class="section level2 hasAnchor" number="27.2">
 <h2><span class="header-section-number">27.2</span> Illustration with a DAG<a href="chap-ols-kvasiexperiment.html#illustration-with-a-dag" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Figure <a href="chap-ols-kvasiexperiment.html#fig:min-dag">27.1</a> illustrates an example of how this sort of problem can look. The arrow from X to Y describes the causal relationship that we are interested in. For us to be able to estimate what effect X has on Y we must partly establish that when a variation in X occurs, caused without connection to Y, then a variation in Y also occurs. In this case we decide that the treatment group takes the medicine, which is the induced variation in X. This is called exogenous variation, that is, a change in X that comes “from outside”. The variation does not come from Y.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:min-dag"></span>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.2.0     ✔ readr     2.2.0
+## ✔ forcats   1.0.1     ✔ stringr   1.6.0
+## ✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+## ✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+## ✔ purrr     1.2.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="figure"><span style="display:block;" id="fig:min-dag"></span>
 <img src="the-cheat-code_files/figure-html/min-dag-1.png" alt="To estimate the effect of X on Y, we must control for P and Z" width="71%" />
 <p class="caption">
 Figure 27.1: To estimate the effect of X on Y, we must control for P and Z
@@ -1007,7 +944,15 @@ Y_{i}=b_{1}+b_{2}X_{i}+b_{3}T_{i}+b_{4}\left(X_{i}*T_{i}\right)+V_{i}
 \end{equation}
 \]</span></p>
 <p>where <span class="math inline">\(b_{1},b_{2},b_{3}\)</span> and <span class="math inline">\(b_{4}\)</span> are coefficients, <span class="math inline">\(Y,X\)</span> and <span class="math inline">\(T\)</span> are the same variables as in the regression model in equation <a href="chap-ols-kvasiexperiment.html#eq:rdd-ex1">(27.1)</a> and <span class="math inline">\(V\)</span> is the error term. The interaction term <span class="math inline">\(b_{4}\left(X_{i}*T_{i}\right)\)</span> estimates changes in the covariation between alcohol consumption and mortality.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rdd-med-carpenter-och-dobkin"></span>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<pre><code>## Warning: Multiple drawing groups in `geom_function()`
+## ℹ Did you use the correct group, colour, or fill aesthetics?
+## Multiple drawing groups in `geom_function()`
+## ℹ Did you use the correct group, colour, or fill aesthetics?</code></pre>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<div class="figure"><span style="display:block;" id="fig:rdd-med-carpenter-och-dobkin"></span>
 <img src="the-cheat-code_files/figure-html/rdd-med-carpenter-och-dobkin-1.png" alt="Regression discontinuity. Data from Carpenter and Dobkin [(2009)](https://doi.org/10.1257/app.1.1.164)" width="71%" />
 <p class="caption">
 Figure 27.2: Regression discontinuity. Data from Carpenter and Dobkin <a href="https://doi.org/10.1257/app.1.1.164">(2009)</a>
@@ -1020,7 +965,9 @@ Figure 27.2: Regression discontinuity. Data from Carpenter and Dobkin <a href="h
 <div id="sec-instrumentell-variabel" class="section level2 hasAnchor" number="27.5">
 <h2><span class="header-section-number">27.5</span> Instrumental variable<a href="chap-ols-kvasiexperiment.html#sec-instrumentell-variabel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another way to handle the problems that observable and non-observable phenomena like P and Z entail is to use instrumental variable analysis. The method is based on us finding another phenomenon S that is not affected by Z, does not affect Y directly but affects X, and thereby Y. A random variation in S causes a variation in X which in turn affects Y. The effect S has on X is possible to isolate and thereby also estimate the variation in X (caused by S) that affects Y. Figure <a href="chap-ols-kvasiexperiment.html#fig:iv-instrumentell-var">27.3</a> illustrates the basic logic in this. Phenomenon S affects only Y via its impact on X.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:iv-instrumentell-var"></span>
+<pre><code>## Scale for x is already present.
+## Adding another scale for x, which will replace the existing scale.</code></pre>
+<div class="figure"><span style="display:block;" id="fig:iv-instrumentell-var"></span>
 <img src="the-cheat-code_files/figure-html/iv-instrumentell-var-1.png" alt="Instrumental variable S" width="71%" />
 <p class="caption">
 Figure 27.3: Instrumental variable S
@@ -1057,7 +1004,10 @@ Y=e+f\hat{X}+\epsilon
 <h2><span class="header-section-number">27.6</span> Difference-in-differences<a href="chap-ols-kvasiexperiment.html#sec-skillnad-i-skillnad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another way to distribute observations between treatment and control groups and study causal relationships and effects is the method called difference-in-differences (diff-in-diff or DiD). The method is based on us identifying a treatment group whose development we follow over time. We also manage to identify a group that is untreated but that we have good reasons to believe illustrates the parallel development that our treatment group would have had if cause X had never taken place. By comparing the difference between the groups before and after a treatment the difference in the difference can be interpreted as a measure of effect size.</p>
 <p>Figure <a href="chap-ols-kvasiexperiment.html#fig:skillnad-i-skillnad">27.4</a> illustrates the method where we compare the development for a control and treatment group. The time before X occurs the outcome variable Y for the two groups develops in parallel. When X occurs the upper solid line shows the development for the treatment group. The dashed line for the treatment group shows the counterfactual development that we theoretically assume that the treatment group would have had if no treatment X had taken place. The dashed line follows the control group in parallel and is based on the theoretical assumption that the two groups would have followed each other in precisely this way.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:skillnad-i-skillnad"></span>
+<pre><code>## Warning: Multiple drawing groups in `geom_function()`
+## ℹ Did you use the correct group, colour, or fill aesthetics?</code></pre>
+<pre><code>## Warning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.</code></pre>
+<div class="figure"><span style="display:block;" id="fig:skillnad-i-skillnad"></span>
 <img src="the-cheat-code_files/figure-html/skillnad-i-skillnad-1.png" alt="Difference-in-differences" width="71%" />
 <p class="caption">
 Figure 27.4: Difference-in-differences
@@ -1095,7 +1045,7 @@ Y_{it}=a+bT_{t}+cG_{i}+d\left(T_{t}*G_{i}\right)+u_{it}
 </div>
 <div id="wrong-model." class="section level4 hasAnchor" number="27.8.0.3">
 <h4><span class="header-section-number">27.8.0.3</span> Wrong model.<a href="chap-ols-kvasiexperiment.html#wrong-model." class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>In section <a href="chap-ols.html#sec-en-linje-ar-en-linje">21.7</a> we saw examples of covariation that we do not succeed in capturing with a linear regression model (figure <a href="chap-ols.html#fig:weird-ols-2">21.6</a> ). Say for example that the government introduces an education program for the unemployed and we are to study what effect this has on participants’ opportunities to get jobs. But the effect of the program varies between time periods, depending on the economy’s ups and downs. In bad times the education program shortens participants’ time in unemployment. In good times people are encouraged to participate in an education they do not need. When we estimate the covariation between education and participants’ opportunities for work we miss controlling for these circumstances and find no relationship, despite such a one existing, sometimes.</p>
+<p>In section <a href="chap-ols.html#sec-en-linje-ar-en-linje">21.7</a> we saw examples of covariation that we do not succeed in capturing with a linear regression model (figure <a href="#fig:weird-ols-2"><strong>??</strong></a> ). Say for example that the government introduces an education program for the unemployed and we are to study what effect this has on participants’ opportunities to get jobs. But the effect of the program varies between time periods, depending on the economy’s ups and downs. In bad times the education program shortens participants’ time in unemployment. In good times people are encouraged to participate in an education they do not need. When we estimate the covariation between education and participants’ opportunities for work we miss controlling for these circumstances and find no relationship, despite such a one existing, sometimes.</p>
 </div>
 </div>
 <div id="chapter-summary-22" class="section level2 hasAnchor" number="27.9">

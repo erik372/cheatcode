@@ -101,7 +101,6 @@ $$
 
 ```{r rdd-med-carpenter-och-dobkin, echo=FALSE, out.width="71%", fig.cap="Regression discontinuity. Data from Carpenter and Dobkin [(2009)](https://doi.org/10.1257/app.1.1.164)"}
 library("patchwork")
-library("latex2exp")
 load("data/mlda.rda")
 mlda <- mlda %>%
   mutate(agedummy=ifelse(agecell>21,1,0))
@@ -115,7 +114,7 @@ g_rdd1 <- mlda %>%
   geom_function(fun=function(x) coefs1[[1]] + coefs1[[2]]*x + coefs1[[3]],
                 xlim=c(21,23), linetype="dashed", color="#00BFC4") +
   labs(x="Age", y="Deaths per 100,000 persons",
-       title=TeX("$Y_{i}=a_{1}+a_{2}X_{i}+a_{3}T_{i}+u$")) +
+       title=expression(Y[i]==a[1]+a[2]*X[i]+a[3]*T[i]+u)) +
   theme(text=element_text(size=11))
 coefs2 <- lm(all ~ agecell + agedummy + agecell*agedummy, mlda) %>% coefficients()
 g_rdd2 <- mlda %>%
@@ -127,7 +126,7 @@ g_rdd2 <- mlda %>%
   geom_function(fun=function(x) coefs2[[1]] + coefs2[[3]] + coefs2[[2]]*x + coefs2[[4]]*x,
                 xlim=c(21,23), linetype="dashed", color="#00BFC4") +
   labs(x="Age", y="Deaths per 100,000 persons",
-       title=TeX("$Y_{i}=b_{1}+b_{2}X_{i}+b_{3}T_{i}+b_{4}\\left(X_{i}*T_{i}\\right)+v$")) +
+       title=expression(Y[i]==b[1]+b[2]*X[i]+b[3]*T[i]+b[4]*(X[i]*T[i])+v)) +
   theme(text=element_text(size=11))
 (g_rdd1 + g_rdd2)
 ```
