@@ -141,7 +141,7 @@ This illusion demonstrates how our perceptions can be systematically biased, whi
 
 In this example, you as a reader can check the distances between the arrowheads by counting the number of squares. But many illustrations of information can contain much more complicated optical illusions that are harder to detect. Mathematics can here help us make it harder for us to lie to ourselves and others. This type of optical illusion is called the Müller-Lyer illusion, after a German sociologist who researched the phenomenon at the end of the 19th century.
 
-```{r det-ar-latt-att-lura-sig-sjalv, echo=FALSE, out.width="71%", fig.cap="How far is it between the arrowheads?"}
+```{r det-ar-latt-att-lura-sig-sjalv, echo=FALSE, message=FALSE, out.width="71%", fig.cap="How far is it between the arrowheads?"}
 library("tidyverse")
 g_falsearrows <- ggplot() +
   stat_function(fun=function(x) 5, xlim=c(0,2), color="forestgreen",
