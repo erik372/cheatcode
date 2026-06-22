@@ -88,7 +88,7 @@ We have four arithmetic operations:
 
 - Subtraction $\left(-\right)$
 
-- Multiplication $\left(\text{written as }*\text{ or }\times\text{ or \,}\cdot\right)$
+- Multiplication $\left(\text{written as }*\text{ or }\times\text{ or }\cdot\right)$
 
 - Division $\left(\text{written as }/\text{ or }\div\right)$
 
