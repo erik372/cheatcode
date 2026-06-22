@@ -95,9 +95,9 @@ $$
 
 This expression can be read as $y$ equals $a$ times $x$. The symbol $*$ means multiplication (times). The three letters symbolize the following:
 
--$y$= a person's happiness
+- $y$ = a person's happiness
 
--$x$= a person's income
+- $x$ = a person's income
 
 - The letter $a$ indicates how large an effect a change in a person's income has on the same person's happiness. Right now, the value of $a$ is unknown.
 
