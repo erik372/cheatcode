@@ -24,7 +24,7 @@ But in addition there are some additional phenomena that we have strong reasons 
 
 Figure \@ref(fig:min-dag) illustrates an example of how this sort of problem can look. The arrow from X to Y describes the causal relationship that we are interested in. For us to be able to estimate what effect X has on Y we must partly establish that when a variation in X occurs, caused without connection to Y, then a variation in Y also occurs. In this case we decide that the treatment group takes the medicine, which is the induced variation in X. This is called exogenous variation, that is, a change in X that comes "from outside". The variation does not come from Y.
 
-```{r min-dag, echo=FALSE, out.width="71%", fig.cap="To estimate the effect of X on Y, we must control for P and Z"}
+```{r min-dag, echo=FALSE, message=FALSE, out.width="71%", fig.cap="To estimate the effect of X on Y, we must control for P and Z"}
 library("tidyverse")
 g_omitted <- ggplot() +
   geom_label(aes(label=c("X","Y", "P"),
